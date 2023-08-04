@@ -9,5 +9,6 @@ We construct it with the Unix command:
 ```
 ./add_filename.sh
 cat *.c.x > all_tests.txt
+rm *.c.x
 ```
 the scripts and examples are in [raw_data](tests_raw_data).
