@@ -1,0 +1,3904 @@
+// source: 2002-04-17-PrintfChar.c
+/* this little micro testcase is due to lli printing out char values 
+ * incorrectly through printf.
+ */
+int printf(const char*, ...);
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", (int)a3, (int)*a5);
+}
+
+int main() {
+  printArgsNoRet('c', "e");
+  return 0;
+}
+// source: 2002-05-02-ArgumentTest.c
+extern int printf(const char *str, ...);
+
+void testfunc(short s, float X, char C, long long LL, int I, double D) {
+	printf("%d, %f, %d, %lld, %d, %f\n", s, X, C, LL, I, D);
+}
+
+int main() {
+	testfunc(12, 1.245f, 'x', 123456677890LL, -10, 45e14);
+        return 0;
+}
+
+// source: 2002-05-02-CastTest.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+
+/* Linux defines these in stdint.h, sun might not have that file, don't mess 
+   around when it's this easy to fix */
+typedef unsigned char uint8;
+typedef   signed char int8;
+
+int
+main(int argc, char** argv)
+{
+  char  c1 = (argc >= 2)? atoi(argv[1]) : 100;  /* 100 = 'd' */
+  short s1 = (argc >= 3)? atoi(argv[2]) : -769; /* 0xfcff = -769 */
+  
+  unsigned char ubc0 = (unsigned char) c1;      /* 100 = 'd' */
+  uint8  ubs0 = (uint8) s1;                     /* 0xff = 255 */
+  uint8  ubs1 = ubs0+1;                         /* ((uint8) 0xff) + 1) = 0 */
+
+  int8   bs0  = (int8) ubs0;                    /* (int8) 0xff = -1 */
+  int8   bs1  = (int8) (ubs0 + 1U);             /* (int8) (0xff + 0x1) = 0 */
+
+  unsigned char  uc2 = (unsigned char) c1;      /* 100 = 'd' */
+  unsigned short us2 = (unsigned short) s1;     /* 0xfcff = 64767 */
+
+  int ic3 = (int) c1;                           /* 100 = 'd' */
+  int is3 = (int) s1;                           /* 0xfffffcff = -769 */
+  int is4 = ((int) ubs0) + 1;                   /* ((int) 0xff) + 1 = 256 */
+  int is5 = ((int)  bs0) + 1;                   /* ((int) -1)   + 1 = 0 */
+
+  unsigned int uic4 = (unsigned int) c1;        /*  100 = 'd' */
+  unsigned int uis4 = (unsigned int) s1;        /* 0xfffff7ff = 4294966527 */
+  
+  printf("ubc0 = '%c'\t   [0x%x]\n", ubc0, ubc0);
+  printf("ubs0 = %u\t   [0x%x]\n",   ubs0, ubs0);
+  printf("ubs1 = %u\t   [0x%x]\n",   ubs1, ubs1);
+  printf("bs0  = %d\t   [0x%x]\n",   bs0,  bs0);
+  printf("bs1  = %d\t   [0x%x]\n",   bs1,  bs1);
+  printf("c1   = '%c'\t   [0x%x]\n", c1,   c1);
+  printf("s1   = %d\t   [0x%x]\n",   s1,   s1);
+  printf("uc2  = '%c'\t   [0x%x]\n", uc2,  uc2);
+  printf("us2  = %u\t   [0x%x]\n",   us2,  us2);
+  printf("ic3  = '%c'\t   [0x%x]\n", ic3,  ic3);
+  printf("is3  = %d\t   [0x%x]\n",   is3,  is3);
+  printf("is4  = %d\t   [0x%x]\n",   is4,  is4);
+  printf("is5  = %d\t   [0x%x]\n",   is5,  is5);
+  printf("uic4 = '%c'\t   [0x%x]\n", uic4, uic4);
+  printf("uis4 = %u  [0x%x]\n",   uis4, uis4);
+  
+  return 0;
+}
+// source: 2002-05-02-CastTest1.c
+int printf(const char *, ...);
+
+int
+main(int argc, char** argv)
+{
+  signed char c0  = -1;
+  unsigned char c1 = 255;
+  printf("bs0  = %d %d\n", c0, c1);
+  return 0;
+}
+// source: 2002-05-02-CastTest2.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+
+int
+main(int argc, char** argv) {
+  short s1 = (argc > 120) ? atoi(argv[1]) : -769; /* 0xf7ff = -769 */
+
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+  printf("us2  = %u\n",   us2);
+  return 0;
+}
+// source: 2002-05-02-CastTest3.c
+int printf(const char *, ...);
+
+int main(int argc, char** argv) {
+  short s1 = (argc >= 3)? argc : -769; /* 0xf7ff = -769 */
+
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+  
+  printf("s1   = %d\n",   s1);
+  printf("us2  = %u\n",   us2);
+  return 0;
+}
+// source: 2002-05-02-ManyArguments.c
+
+#include <stdio.h>
+
+void printfn(int a, short b, double C, float D, signed char E, char F, void *G, double *H, int I, long long J) {
+	printf("%d, %d, %f, %f, %d\n", a, b, C, D, E);
+	printf("%d, %ld, %ld, %d, %lld\n", F, (long) G, (long) H, I, J);
+}
+
+int main() {
+	printfn(12, 2, 123.234, 1231.12312f, -12, 23, (void*)123456, 0, 1234567, 123124124124LL);
+	return 0;
+}
+// source: 2002-05-03-NotTest.c
+
+#include <stdio.h>
+
+void testBitWiseNot(int A, int B, int C, int D) {
+  printf("Bitwise Not: %d %d %d %d\n", ~A, ~B, ~C, ~D);
+}
+
+void testBooleanNot(int A, int B, int C, int D) {
+  printf("Boolean Not: %d %d %d %d %d %d\n",
+         !(A > 0 && B > 0),
+         !(A > 0 && C > 0),
+         !(A > 0 && D > 0),
+         !(B > 0 && C > 0),
+         !(B > 0 && D > 0),
+         !(C > 0 && D > 0));
+         
+}
+
+int main() {
+  testBitWiseNot(1, 2, -3, 5);
+  testBooleanNot(1, 2, -3, 5);
+  return 0;
+}
+// source: 2002-05-19-DivTest.c
+
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS 1
+#endif
+#include <inttypes.h>
+
+extern int printf(const char *, ...);
+
+void testL(int64_t Arg) {
+  printf("%d\n", (int) (Arg / ((int64_t)1 << 4)));
+  printf("%d\n", (int) (Arg / ((int64_t)1 << 46)));
+}
+
+void test(int Arg) {
+  printf("%d\n", Arg / (1 << 0));
+  printf("%d\n", Arg / (1 << 4));
+  printf("%d\n", Arg / (1 << 18));
+  printf("%d\n", Arg / (1 << 30));
+}
+
+int main() {
+  int B20 = - (1 << 20);
+  int64_t B53 = - ((int64_t)1 << 53);
+
+  test(B20 + 32);
+  test(B20 + 33);
+
+  testL(B53 + 64);
+  testL(B53 + 65);
+
+  return 0;
+}
+// source: 2002-08-02-CastTest.c
+#include <stdio.h>
+
+unsigned test(unsigned X) {
+  return (unsigned char)X;
+}
+
+int main() {
+	printf("%d\n", test(123456));
+        return 0;
+}
+
+// source: 2002-08-02-CastTest2.c
+int printf(const char *, ...);
+
+void test(short s1) {
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+  
+  printf("s1   = %d\n",   s1);
+  printf("us2  = %u\n",   us2);
+}
+
+int main() {
+  test(-769);
+  return 0;
+}
+// source: 2002-08-19-CodegenBug.c
+/* This testcase tests a problem that occurred due to the way call nodes are 
+ * generated by llvmgcc.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    unsigned char *validate_array;
+
+    validate_array = (unsigned char *)malloc(64);
+    if (validate_array == 0) {
+	printf("FAILURE!\n");
+	exit(1);
+    }
+
+    printf("SUCCESS\n");
+    return 0;
+}
+// source: 2002-10-09-ArrayResolution.c
+#include <stdio.h>
+#define NUM 32
+
+int Array[];
+int Array[NUM];
+int Foo;            /* If writing to the wrong "Array", this will get clobbered */
+
+int main() { 
+  unsigned i;
+  for (i = 0; i != NUM; ++i)
+    Array[i] = 5;
+
+  printf("%d\n", Foo);
+  return 0;
+}
+
+// source: 2002-10-12-StructureArgs.c
+#include <stdio.h>
+
+struct vec2 { double X, Y; };
+
+void print(struct vec2 S, struct vec2 T) {
+	printf("%f, %f, %f, %f\n", S.X, S.Y, T.X, T.Y);
+}
+
+int main() {
+	struct vec2 U, V;
+	U.X = .5; U.Y = 1.2;
+	V.X = -123.01; V.Y = 1/3.0;
+	print(U, V);
+	return 0;
+}
+// source: 2002-10-12-StructureArgsSimple.c
+#include <stdio.h>
+
+struct vec2 { double X, Y; };
+
+void print(struct vec2 S) {
+	printf("%f, %f\n", S.X, S.Y);
+}
+
+int main() {
+	struct vec2 U;
+	U.X = .5; U.Y = 1.2;
+	print(U);
+	return 0;
+}
+// source: 2002-10-13-BadLoad.c
+unsigned long window_size = 0x10000;
+
+unsigned test() {
+	return (unsigned)window_size;
+}
+
+extern int printf(const char *str, ...);
+
+int main() {
+	printf("%d\n", test());
+	return 0;
+}
+// source: 2002-12-13-MishaTest.c
+
+#include <stdio.h>
+sum(to, from, count)
+     short *to, *from;
+     short count;
+{
+  int i;
+  for (i = 0; i != count; ++i)
+    *to += *from++;
+}
+
+#define NUM 2
+int main() {
+  short Array[NUM];
+  short Sum = 0;
+  int i;
+
+  for (i = 0; i != NUM; ++i)
+    Array[i] = i;
+
+  sum(&Sum, Array, NUM);
+
+  printf("Sum is %d\n", Sum);
+  return 0;
+}
+// source: 2003-04-22-Switch.c
+
+#include <stdio.h>
+
+static int func(unsigned i) {
+  int X = 4;
+  switch (i) {
+  case 8: printf("C\n"); /* fall through. */  X = 6;
+  case 0:
+  case 3: 
+  case 2: printf("A\n"); break;
+  case 1:
+  case 7: X = 7;
+  case 9: printf("B\n"); break;
+  default: printf("D\n"); X = 1;
+  }
+  return X;
+}
+
+
+int main() {
+  unsigned i;
+  for (i = 0; i < 10; ++i)
+    func(i);
+  return 0;
+}
+// source: 2003-05-02-DependentPHI.c
+#include <stdio.h>
+
+typedef struct List {
+  struct List *Next;
+  int Data;
+} List;
+
+List Node0 = {0, 5};
+List Node1 = {&Node0, 4};
+List Node2 = {&Node1, 3};
+List Node3 = {&Node2, 2};
+List Node4 = {&Node3, 1};
+List Node5 = {&Node4, 0};
+
+
+int main() {
+    List *PrevL, *CurL;
+    for (PrevL = 0, CurL = &Node5; CurL; PrevL = CurL, CurL = CurL->Next) {
+	printf("%d %d\n", CurL->Data, PrevL ? PrevL->Data : -1);
+    }
+    return 0;
+}
+
+// source: 2003-05-07-VarArgs.c
+#include <stdio.h>
+#include <stdarg.h>
+
+/* 5 bytes. */
+typedef struct DWordS_struct    { int i; char c; } DWordS;
+
+/* 12 bytes if d is 4-byte aligned; 16 bytes if d is 8-byte aligned. */
+typedef struct QuadWordS_struct { int i; double d; } QuadWordS;
+
+/* 20 bytes if d is 4-byte aligned; 28 bytes if d is 8-byte aligned
+ * (assuming pointer size is 4 bytes and 8 bytes respectively). */
+typedef struct LargeS_struct { int i; double d; DWordS* ptr; int j; } LargeS;
+
+void test(char *fmt, ...) {
+  va_list ap, aq;
+  int d;
+  char c, *s;
+  DWordS dw;
+  QuadWordS qw;
+  LargeS ls;
+
+  va_start(ap, fmt);
+
+  va_copy(aq, ap);    /* test va_copy */
+  va_end(aq);
+
+  while (*fmt)
+    switch(*fmt++) {
+    case 's':           /* string */
+      s = va_arg(ap, char *);
+      printf("string %s\n", s);
+      break;
+    case 'i':           /* int */
+      d = va_arg(ap, int);
+      printf("int %d\n", d);
+      break;
+    case 'd':
+      printf("double %f\n", va_arg(ap, double));
+      break;
+    case 'l':
+      printf("long long %lld\n", va_arg(ap, long long));
+      break;
+    case 'c':           /* char */
+      /* need a cast here since va_arg only
+         takes fully promoted types */
+      c = (char) va_arg(ap, int);
+      printf("char %c\n", c);
+      break;
+    case 'D':
+      dw = va_arg(ap, DWordS);
+      printf("DWord { %d, %c }\n", dw.i, dw.c);
+      break;
+    case 'Q':
+      qw = va_arg(ap, QuadWordS);
+      printf("QuadWord { %d, %f }\n", qw.i, qw.d);
+      break;
+    case 'L':
+      ls = va_arg(ap, LargeS);
+      printf("LargeS { %d, %f, 0x%d, %d }\n", ls.i, ls.d, ls.ptr != 0, ls.j);
+      break;
+    }
+  va_end(ap);
+}
+
+int main() {
+  DWordS dw = { 18, 'a' };
+  QuadWordS qw = { 19, 20.0 };
+  LargeS ls = { 21, 22.0, &dw, 23 };
+
+  test("ssiciiiiis", "abc", "def", -123, 'a', 123, 6, 7, 8, 9, "10 args done!");
+
+  /* test promotion & 64-bit types */
+  test("ddil", 1.0, 2.0f, (short)32764, 12345677823423LL);
+
+  /* test passing structs by value to varargs */
+  test("DQL", dw, qw, ls);
+
+  return 0;
+}
+// source: 2003-05-12-MinIntProblem.c
+#include <stdio.h>
+
+void foo(int X) {
+  if (X+1 < 0)
+    printf("success\n");
+}
+int main() {
+ foo(-2147483648);
+ return 0;
+}
+
+// source: 2003-05-14-AtExit.c
+/* This test checks to make sure that LLI and the JIT both implement at_exit 
+ * handlers correctly.
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+static void foo() {
+  printf("Exiting!\n");
+}
+
+int main() {
+  atexit(foo);
+  printf("in main\n");
+  return 0;
+}
+// source: 2003-05-26-Shorts.c
+/*
+ * This test stresses masking and sign-extension for operations on
+ * signed and unsigned types less than the machine integer reg. size.
+ * Several things have to happen correctly:
+ * -- correct constant folding if it is done at compile-time
+ * -- correct sign-extensions during native code generation for -, * and /.
+ * -- correct handling of high bits during native code generation for
+ *    a sequence of operations involving -, * and /.
+ */
+#include <stdio.h>
+
+/* Move the value here to prevent constant folding */
+unsigned long long getL()
+{
+  return 0xafafafafc5c5b8a3ull;
+}
+
+int
+main(int argc, char** argv)
+{
+  unsigned long long  UL = getL();                   /* 0xafafafafc5c5b8a3 */
+           long long   L = (long long) UL;
+
+  unsigned int   ui = (unsigned int) UL;        /* 0xc5c5b8a3 =  3318069411 */
+           int    i =          (int) UL;        /* 0xc5c5b8a3 = -976897885 */
+
+  unsigned short us = (unsigned short) UL;      /*     0xb8a3 =  47267 */
+           short  s =          (short) UL;      /*     0xb8a3 = -18269 */
+
+  unsigned char        ub = (unsigned char) UL;         /*       0xa3 =  163 */
+  signed char           b = (  signed char) UL;         /*       0xa3 = -93 */
+
+  printf("   ui = %u (0x%x)\t\tUL-ui = %lld (0x%llx)\n", ui, ui, UL-ui, UL-ui);
+  printf("ui*ui = %u (0x%x)\t  UL/ui = %lld (0x%llx)\n\n",
+         (unsigned int) ui*ui, (unsigned int) ui*ui, UL/ui, UL/ui);
+
+  printf("    i = %d (0x%x)\tL-i = %lld (0x%llx)\n",     i, i, L-i, L-i);
+  printf(" i* i = %d (0x%x)\tL/ i = %lld (0x%llx)\n\n",
+         (int) i*i,  (int) i*i, L/i, L/i);
+
+  printf("us    = %u (0x%x)\t\tUL-us = %lld (0x%llx)\n", us, us, UL-us, UL-us);
+  printf("us*us = %u (0x%x)\t  UL/us = %lld (0x%llx)\n\n",
+         (unsigned short) us*us, (unsigned short) us*us, UL/us, UL/us);
+
+  printf(" s    = %d (0x%x)\tL-s = %lld (0x%llx)\n",     s, s, L-s, L-s);
+  printf(" s* s = %d (0x%x)\tL/ s = %lld (0x%llx)\n\n",
+         (short) s*s, (short) s*s, L/s, L/s);
+
+  printf("ub    = %u (0x%x)\t\tUL-ub = %lld (0x%llx)\n", ub, ub, UL-ub, UL-ub);
+  printf("ub*ub = %u (0x%x)\t\tUL/ub = %lld (0x%llx)\n\n",
+         (unsigned char) ub*ub, (unsigned char) ub*ub, UL/ub, UL/ub);
+
+  printf(" b    = %d (0x%x)\t\tL-b = %lld (0x%llx)\n",   b, b, L-b, L-b);
+  printf(" b* b = %d (0x%x)\t\t\tL/b = %lld (0x%llx)\n\n",
+         (signed char) b*b, (signed char) b*b, L/b, L/b);
+
+
+  /* Do some arithmetic with the small signed and unsigned values */
+
+  unsigned int   uiprod = (ui+1u) * (ui+1u)     /* ui*ui unless overflow! */
+    - (unsigned int  ) (ui << 2) - (unsigned int  ) 1u;
+  unsigned short usprod = (us+1u) * (us+1u)     /* us*us unless overflow! */
+    - (unsigned short) (us << 2) - (unsigned short) 1u;
+  unsigned char  ubprod = (ub+1u) * (ub+1u)     /* ub*ub unless overflow! */
+    - (unsigned char ) (ub << 2) - (unsigned char ) 1u;
+
+             int  iprod = (i+1) * (i+1) - (int  ) (i << 2) - (int  ) 1;
+           short  sprod = (s+1) * (s+1) - (short) (s << 2) - (short) 1;
+    signed char   bprod = (b+1) * (b+1) - (char)  (b << 2) - (char) 1;
+
+  unsigned int   uidiv = (unsigned int  ) (UL/ui) * (unsigned int  ) (UL/ui);
+  unsigned short usdiv = (unsigned short) (UL/us) * (unsigned short) (UL/us);
+  unsigned char  ubdiv = (unsigned char ) (UL/ub) * (unsigned char ) (UL/ub);
+
+             int  idiv = (           int) ( L/ i) * (           int) ( L/ i);
+           short  sdiv = (         short) ( L/ s) * (         short) ( L/ s);
+    signed char   bdiv = (  signed char ) ( L/ b) * (  signed char ) ( L/ b);
+
+  printf("\n");
+  printf("uiprod = %u (0x%x)\t  uidiv = %u (0x%x)\n\n",
+         uiprod, uiprod, uidiv, uidiv);
+
+  printf("usprod = %u (0x%x)\t  usdiv = %u (0x%x)\n\n",
+         usprod, usprod, usdiv, usdiv);
+
+  printf("ubprod = %u (0x%x)\t  ubdiv = %u (0x%x)\n\n",
+         ubprod, ubprod, ubdiv, ubdiv);
+
+  printf(" iprod = %u (0x%x)\t   idiv = %u (0x%x)\n\n",
+          iprod,  iprod,  idiv,  idiv);
+
+  printf(" sprod = %u (0x%x)\t   sdiv = %u (0x%x)\n\n",
+          sprod,  sprod,  sdiv,  sdiv);
+
+  printf(" bprod = %u (0x%x)\t   bdiv = %u (0x%x)\n\n",
+          bprod,  bprod,  bdiv,  bdiv);
+
+  return 0;
+}
+// source: 2003-05-31-CastToBool.c
+#include <stdio.h>
+
+void testCastOps(int y) {
+  printf("y = %d, (y == 2 || y == 0) == %d\n",
+         y, ((_Bool) (y == 2)) || ((_Bool) (y == 0)));
+  printf("y = %d, (y > 2 || y < 5) == %d\n",
+         y, ((_Bool) (y < 2)) && ((_Bool) (y > -10)));
+  printf("y = %d, (y ^ 2 ^ ~y) == %d\n",
+         y, (_Bool) (y ^ 2 ^ ~5));
+}
+
+void testBool(_Bool X) {
+  printf("%d\n", X);
+}
+
+void testByte(char X) {
+  printf("%d ", X);
+  testBool(X != 0);
+}
+
+void testShort(short X) {
+  printf("%d ", X);
+  testBool(X != 0);
+}
+
+void testInt(int X) {
+  printf("%d ", X);
+  testBool(X != 0);
+}
+
+void testLong(long long X) {
+  printf("%lld ", X);
+  testBool(X != 0);
+}
+
+int main() {
+  testByte(0);
+  testByte(123);
+  testShort(0);
+  testShort(1234);
+  testInt(0);
+  testInt(1234);
+  testLong(0);
+  testLong(123121231231231LL);
+  testLong(0x1112300000000000LL);
+  testLong(0x11120LL);
+  testCastOps(2);
+  return 0;
+}
+// source: 2003-05-31-LongShifts.c
+extern int printf(const char *str, ...);
+
+void Test(long long Val, int Amt) {
+  printf("0x%llx op %d:\n", Val, Amt);
+  printf("  ashr: 0x%llx\n  lshr: 0x%llx\n  shl: 0x%llx\n", Val >> Amt, 
+         (unsigned long long)Val >> Amt, Val << Amt);
+}
+
+volatile struct {
+  long long A;  int V;
+} Vals[] = {
+  { 123, 4},
+  { 123, 34},
+  {-4, 4},
+  {-5, 34},
+  { -6000000000LL, 4}, 
+  { -6000000000LL, 34}, 
+  {  6000000000LL, 4}, 
+  {  6000000000LL, 34}
+};
+
+int main(int argc, char**argv) {
+  for (argc--; argc < sizeof(Vals)/sizeof(Vals[0]); ++argc)
+    Test(Vals[argc].A, Vals[argc].V);
+  return 0;
+}
+// source: 2003-07-06-IntOverflow.c
+/*
+ * This test stresses masking and sign-extension after int operations
+ * that cause overflow, producing bogus high-order bits.
+ * The basic overflow situation (x * x + y * y, for x = y = 1 << 21)
+ * actually happens in Olden-perimeter, in the function CheckOutside.
+ * 
+ * Several things have to happen correctly:
+ * -- correct constant folding if it is done at compile-time
+ * -- correct sign-extensions during native code generation for -, * and /.
+ * -- correct handling of high bits during native code generation for
+ *    a sequence of operations involving -, * and /.
+ */
+#include <stdio.h>
+
+void compareOvf(int x, int y)
+{
+  int sum = x * x + y * y;
+  if (sum < (1 << 22))
+    printf("compare after overflow is TRUE\n");
+  else
+    printf("compare after overflow is FALSE\n");
+}
+
+void divideOvf(int x, int y)
+{
+  int sum = x * x + y * y;
+  int rem = (1 << 31) / sum;
+  printf("divide after overflow = %d (0x%x)\n", rem, rem);
+}
+
+void divideNeg(int x, int y)
+{
+  int sum = x * x - y * y;
+  int rem = sum / (1 << 18);
+  printf("divide negative value by power-of-2 = %d (0x%x)\n", rem, rem);
+}
+
+void subtractOvf(int x, int y)
+{
+  int sum = x * x + y * y;
+  int rem = (1u << 31) - sum;
+  printf("subtract after overflow = %d (0x%x)\n", rem, rem);
+}
+
+int main()
+{
+  int b21 = 1 << 21;
+  compareOvf(b21,       b21);
+  divideOvf(b21 + 1,    b21 + 2);
+  divideNeg(b21 + 1,    b21 + 2);       /* arg1 must be < arg2 */
+  subtractOvf(b21 + 1,  b21 + 2);
+  return 0;
+}
+// source: 2003-07-08-BitOpsTest.c
+#include <stdio.h>
+
+void test(int A, int B, int C, int D) {
+  int bxor = A ^ B ^ C ^ D;
+  int bor  = A | B | C | D;
+  int band = A & B & C & D;
+  int bandnot = (A & ~B) ^ (C & ~D);
+  int bornot  = (A | ~B) ^ (C | ~D);
+  
+  printf("%d %d %d %d %d\n", bxor, bor, band, bandnot, bornot);
+}
+
+int main() {
+  test(7, 8, -5, 5);
+  return 0;
+}
+// source: 2003-07-09-LoadShorts.c
+/*
+ * This test is similar to 2003-05-26-Shorts.c except that it stores all
+ * short values in a structure to test load and store operations on those
+ * values.  It stresses masking and sign-extension for such load/stores.
+ */
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct ShortsSet_struct {
+  unsigned int   ui;
+           int    i;
+  unsigned short us;
+           short  s;
+  unsigned char  ub;
+    signed char   b;
+} ShortsSet;
+
+
+/* Move the value here to prevent constant folding */
+unsigned long long getL()
+{
+  return 0xafafafafc5c5b8a3ull;
+}
+
+int
+main(int argc, char** argv)
+{
+  unsigned long long  UL = getL();      /* 0xafafafafc5c5b8a3 */
+           long long   L = (long long) UL;
+
+  ShortsSet* S = (ShortsSet*) malloc(sizeof(ShortsSet));
+  S->ui = (unsigned int) UL;            /* 0xc5c5b8a3 =  3318069411 */
+  S-> i =          (int) UL;            /* 0xc5c5b8a3 = -976897885 */
+
+  S->us = (unsigned short) UL;          /*     0xb8a3 =  47267 */
+  S-> s =          (short) UL;          /*     0xb8a3 = -18269 */
+
+  S->ub = (unsigned char) UL;           /*       0xa3 =  163 */
+  S-> b = (  signed char) UL;           /*       0xa3 = -93 */
+
+  printf("   ui = %u (0x%x)\t\tUL-ui = %lld (0x%llx)\n",
+         S->ui, S->ui, UL - S->ui, UL - S->ui);
+  printf("ui*ui = %u (0x%x)\t  UL/ui = %lld (0x%llx)\n\n",
+         (unsigned int) S->ui * S->ui, (unsigned int) S->ui * S->ui,
+         UL/S->ui, UL/S->ui);
+
+  printf("    i = %d (0x%x)\tL-i = %lld (0x%llx)\n",
+         S->i, S->i, L - S->i, L - S->i);
+  printf(" i* i = %d (0x%x)\tL/ i = %lld (0x%llx)\n\n",
+         (int) S->i * S->i,  (int) S->i * S->i, L/S->i, L/S->i);
+
+  printf("us    = %u (0x%x)\t\tUL-us = %lld (0x%llx)\n",
+         S->us, S->us, UL - S->us, UL - S->us);
+  printf("us*us = %u (0x%x)\t  UL/us = %lld (0x%llx)\n\n",
+         (unsigned short) S->us * S->us, (unsigned short) S->us * S->us,
+         UL/S->us, UL/S->us);
+
+  printf(" s    = %d (0x%x)\tL-s = %lld (0x%llx)\n",
+         S->s, S->s, L - S->s, L - S->s);
+  printf(" s* s = %d (0x%x)\tL/ s = %lld (0x%llx)\n\n",
+         (short) S->s * S->s, (short) S->s * S->s, L/S->s, L/S->s);
+
+  printf("ub    = %u (0x%x)\t\tUL-ub = %lld (0x%llx)\n",
+         S->ub, S->ub, UL - S->ub, UL - S->ub);
+  printf("ub*ub = %u (0x%x)\t\tUL/ub = %lld (0x%llx)\n\n",
+         (unsigned char) S->ub * S->ub, (unsigned char) S->ub * S->ub,
+         UL/S->ub, UL/S->ub);
+
+  printf(" b    = %d (0x%x)\t\tL-b = %lld (0x%llx)\n",
+         S->b, S->b, L - S->b, L - S->b);
+  printf(" b* b = %d (0x%x)\t\t\tL/b = %lld (0x%llx)\n\n",
+         (signed char) S->b * S->b, (signed char) S->b * S->b, L/S->b, L/S->b);
+
+  return 0;
+}
+// source: 2003-07-09-SignedArgs.c
+/*
+ * Test sign extensions on short signed values passed as arguments
+ * to function calls.  Include arithmetic to produce extra high bits
+ * from operations that overflow.  Lots of codes do this!
+ */
+#include <stdio.h>
+#include <stdarg.h>
+#include <inttypes.h>
+
+typedef signed char schar;
+
+short getShort(schar c, schar c2, schar c3, short s, short s2, int i);
+int   getUnknown(schar c, ...);
+
+int passShort(schar c, short s)
+{
+  schar c2 = s + c;
+  schar c3 = s - c;
+  short s2 = s * c;
+  int    i = s * s * c * c;
+  short s3 = getShort(c, c2, c3, s, s2, i);   /* args shd be sign-extended */
+  return getUnknown(c, c2, c3, s, s2, s3, i); /* args shd be promoted to int */
+}
+
+int main()
+{
+  printf("%d\n", passShort(0x80, 0xf0f4));
+  return 0;
+}
+
+short getShort(schar c, schar c2, schar c3, short s, short s2, int i)
+{
+  int bc  = c  == (schar) -128;
+  int bc2 = c2 == (schar) 116;
+  int bc3 = c3 == (schar) 116;
+  int bs  = s  == (short) -3852;
+  int bs2 = s2 == (short) -31232;
+  int bi  = i  == (int) -1708916736;
+  
+  printf("getShort():\t%d %d %d %d %d %d\n", bc, bc2, bc3, bs, bs2, bi);
+  printf("getShort():\t%d %d %d %d %d %d\n",  c,  c2,  c3,  s,  s2,  i);
+  return (c + c2 + c3 + s + s2) + (short) i;
+}
+
+int getUnknown(schar c, ...)
+{
+  schar c2, c3;
+  short s, s2, s3;
+  int i;
+  va_list ap;
+
+  va_start(ap, c);
+  c2 = (schar) va_arg(ap, int);
+  c3 = (schar) va_arg(ap, int);
+  s  = (short) va_arg(ap, int);
+  s2 = (short) va_arg(ap, int);
+  s3 = (short) va_arg(ap, int);
+  i  =         va_arg(ap, int);
+  va_end(ap);
+
+  printf("getUnknown():\t%d %d %d %d %d %d %d\n", c, c2, c3, s, s2, s3, i);
+  return c + c2 + c3 + s + s2 + s3 + i;
+}
+// source: 2003-07-10-SignConversions.c
+/*
+ * Test basic conversions between short signed and unsigned values
+ * with no function calls and no arithmetic.
+ */
+#include <stdio.h>
+
+unsigned char getUC() { return 0x80; }
+
+signed   char getSC() { return 0x80; }
+
+int main()
+{
+  signed   char  SC80 = getSC();
+  unsigned char  UC80 = getUC();
+
+  /* source is smaller than dest: both decide */
+  unsigned short us  = (unsigned short) SC80;     /* sign-ext then zero-ext */
+  unsigned short us2 = (unsigned short) UC80;     /* zero-ext only: NOP! */
+           short  s  = (         short) SC80;     /* sign-ext */
+           short  s2 = (         short) UC80;     /* zero-extend only : NOP! */
+  printf("%d %d --> unsigned: us = %d, us2 = %d\n", SC80, UC80, us, us2);
+  printf("%d %d -->   signed:  s = %d,  s2 = %d\n", SC80, UC80,  s,  s2);
+
+  /* source is same size or larger than dest: dest decides */
+  unsigned char  uc  = (unsigned char ) SC80;     /* zero-ext */
+  unsigned char  uc2 = (unsigned char ) UC80;     /* NOP */
+  signed   char  sc  = (signed   char ) SC80;     /* NOP */
+  signed   char  sc2 = (signed   char ) UC80;     /* sign-extend */
+  printf("%d %d --> unsigned: uc = %d, uc2 = %d\n", SC80, UC80, uc, uc2);
+  printf("%d %d -->   signed: sc = %d, sc2 = %d\n", SC80, UC80, sc, sc2);
+  return 0;
+}
+// source: 2003-08-05-CastFPToUint.c
+/*
+ * This test checks conversions from floating point values to small
+ * unsigned integer values.  Conversions to uint32_t need special handling
+ * on Sparc V9, which only has FP-to-int32_t and FP-to-int64_t instructions.
+ */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+static double getDC(), getDS(), getDI();
+
+int
+main(int argc, char** argv) {
+  double DC = getDC();
+  double DS = getDS();
+  double DI = getDI();
+  unsigned char  uc = (unsigned char ) DC;
+  unsigned short us = (unsigned short) DS;
+  unsigned int   ui = (unsigned int  ) DI;
+  printf("DC = %lf, DS = %lf, DI = %lf\n", DC, DS, DI);
+  printf("uc = %u, us = %u, ui = %u\n", uc, us, ui);
+  return 0;
+}
+
+static double getDC() { return (double) ((1L  <<  8) - 16L ); }
+static double getDS() { return (double) ((1LL << 16) - 16L ); }
+static double getDI() { return (double) ((1LL << 32) - 16LL); }
+// source: 2003-08-11-VaListArg.c
+/*
+ * Test passing a va_list argument to a function and other uses
+ * of va_list, in things other than va_arg.
+ */
+#include <stdio.h>
+#include <stdarg.h>
+
+/* 5 bytes. */
+typedef struct DWordS_struct    { int i; char c; } DWordS;
+
+/* 12 bytes if d is 4-byte aligned; 16 bytes if d is 8-byte aligned. */
+typedef struct QuadWordS_struct { int i; double d; } QuadWordS;
+
+/* 20 bytes if d is 4-byte aligned; 28 bytes if d is 8-byte aligned
+ * (assuming pointer size is 4 bytes and 8 bytes respectively). */
+typedef struct LargeS_struct { int i; double d; DWordS* ptr; int j; } LargeS;
+
+void test(char *fmt, va_list ap) {
+  int d;
+  char c, *s;
+  DWordS dw;
+  QuadWordS qw;
+  LargeS ls;
+
+  while (*fmt)
+    switch(*fmt++) {
+    case 's':           /* string */
+      s = va_arg(ap, char *);
+      printf("string %s\n", s);
+      break;
+    case 'i':           /* int */
+      d = va_arg(ap, int);
+      printf("int %d\n", d);
+      break;
+    case 'd':
+      printf("double %f\n", va_arg(ap, double));
+      break;
+    case 'l':
+      printf("long long %lld\n", va_arg(ap, long long));
+      break;
+    case 'c':           /* char */
+      /* need a cast here since va_arg only
+         takes fully promoted types */
+      c = (char) va_arg(ap, int);
+      printf("char %c\n", c);
+      break;
+    case 'D':
+      dw = va_arg(ap, DWordS);
+      printf("DWord { %d, %c }\n", dw.i, dw.c);
+      break;
+    case 'Q':
+      qw = va_arg(ap, QuadWordS);
+      printf("QuadWord { %d, %f }\n", qw.i, qw.d);
+      break;
+    case 'L':
+      ls = va_arg(ap, LargeS);
+      printf("LargeS { %d, %f, 0x%d, %d }\n", ls.i, ls.d, ls.ptr != 0, ls.j);
+      break;
+    }
+  va_end(ap);
+}
+
+void testVaListArg(char *fmt, ...) {
+  va_list ap;
+  va_start(ap, fmt);
+  test(fmt, ap);
+  va_end(ap);
+}
+
+void testVaCopyArg(char *fmt, ...) {
+  va_list ap, aq;
+  va_start(ap, fmt);
+  va_copy(aq, ap);    /* test va_copy */
+  test(fmt, aq);
+  va_end(aq);
+  va_end(ap);
+}
+
+int main() {
+  DWordS dw = { 18, 'a' };
+  QuadWordS qw = { 19, 20.0 };
+  LargeS ls = { 21, 22.0, &dw, 23 };
+
+  testVaListArg("ssiciiiiis", "abc", "def", -123, 'a', 123, 6, 7, 8, 9, "10 args done!");
+  testVaCopyArg("ssiciiiiis", "abc", "def", -123, 'a', 123, 6, 7, 8, 9, "10 args done!");
+
+  /* test promotion & 64-bit types */
+  testVaListArg("ddil", 1.0, 2.0f, (short)32764, 12345677823423LL);
+  testVaCopyArg("ddil", 1.0, 2.0f, (short)32764, 12345677823423LL);
+
+  /* test passing structs by value to varargs */
+  testVaListArg("DQL", dw, qw, ls);
+  testVaCopyArg("DQL", dw, qw, ls);
+
+  return 0;
+}
+// source: 2003-08-20-FoldBug.c
+/* This testcase checks for a bug in the GCC front-end to make sure it's not 
+   folding expressions incorrectly */
+
+#include <stdio.h>
+extern void abort (void);
+int
+foo (int x)
+{
+  if ((int) (x & 0x80ffffff) != (int) (0x8000fffe))
+    abort ();
+
+  return 0;
+}
+int main () {
+  foo (0x8000fffe);
+  printf("All ok\n");
+  return 0;
+}
+
+// source: 2003-09-18-BitFieldTest.c
+#include <stdio.h>
+
+struct rtx_def {
+  unsigned int jump : 1;
+  unsigned int call : 1;
+};
+
+void i2(struct rtx_def *d) {
+  d->jump = 0;
+}
+
+int main() {
+  struct rtx_def D;
+  D.call = 1;
+  i2(&D);
+  printf("%d %d\n", D.jump, D.call);
+  return 0;
+}
+
+
+// source: 2003-10-13-SwitchTest.c
+#include <stdio.h>
+
+int main(int argc, const char **argv) {
+   switch (argc) {
+   default:
+     printf("GOOD\n");
+     return 0;
+   case 100: 
+   case 101:
+   case 1023:
+     printf("BAD\n");
+     return 1;
+   }
+}
+// source: 2003-10-29-ScalarReplBug.c
+#include <stdio.h>
+
+typedef struct {
+  char name [80];
+  int val;
+  unsigned uval;
+} data;
+
+static int callback(void *d);
+static void iter(int (*)(void*), void *);
+
+static int callback(void *d)
+{
+  data *iter_data = (data *)d;
+
+  printf("%u\n", iter_data->uval);
+  return iter_data->uval == 0;
+}
+
+static void iter(int (*cb)(void*), void *d)
+{
+  cb(d);
+}
+
+int main()
+{
+  data d;
+
+  d.uval = 0;
+  iter(callback, &d);
+  return 0;
+}
+// source: 2004-02-02-NegativeZero.c
+extern int printf(const char *str, ...);
+void test(double X) {
+  printf("%f %f\n", -0.0 - X, -X);
+}
+int main() {
+  test(+0.0);
+  test(-0.0);
+  printf("negzero = %f  poszero = %f\n", -0.0, +0.0);
+  return 0;
+}
+// source: 2004-06-20-StaticBitfieldInit.c
+#include <stdio.h>
+
+struct T {
+  unsigned X : 5;
+  unsigned Y : 6;
+  unsigned Z : 5;
+};
+
+struct T GV = { 1, 5, 1 };
+
+int main() {
+  printf("%d %d %d\n", GV.X, GV.Y, GV.Z);
+  return 0;
+}
+// source: 2004-11-28-GlobalBoolLayout.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+struct S { _Bool X, Y; char str[100]; };
+
+struct S G = { 1, 1, "fooo" };
+
+int main() {
+	int X = strlen(G.str);
+	if (X == 10) {
+	  scanf("%d, %d\n", &G.X, &G.Y);
+        }
+	printf("%d %d %d\n", G.X, G.Y, X);
+	return X-4;
+}
+
+// source: 2005-05-11-Popcount-ffs-fls.c
+/* these first three reference functions were taken from 
+ * http://www.hackersdelight.org/HDcode/nlz.cc and
+ * http://www.hackersdelight.org/HDcode/ntz.cc
+ */
+#if defined(__NetBSD__)
+#include <sys/bitops.h>
+#endif
+#include <stdio.h>
+#include <string.h>
+#include <strings.h>
+#if defined(__XS1B__)
+#include "xcoretestsuite.h"
+#endif
+
+#define u 99
+
+int nlz10b(unsigned x) {
+
+   static char table[64] =
+     {32,20,19, u, u,18, u, 7,  10,17, u, u,14, u, 6, u,
+       u, 9, u,16, u, u, 1,26,   u,13, u, u,24, 5, u, u,
+       u,21, u, 8,11, u,15, u,   u, u, u, 2,27, 0,25, u,
+      22, u,12, u, u, 3,28, u,  23, u, 4,29, u, u,30,31};
+
+   x = x | (x >> 1);    // Propagate leftmost
+   x = x | (x >> 2);    // 1-bit to the right.
+   x = x | (x >> 4);
+   x = x | (x >> 8);
+   x = x & ~(x >> 16);
+   x = (x << 9) - x;    // Multiply by 511.
+   x = (x << 11) - x;   // Multiply by 2047.
+   x = (x << 14) - x;   // Multiply by 16383.
+   return table[x >> 26];
+}
+
+int nlzll(unsigned long long x) {
+  if ((x >> 32) == 0)
+    return nlz10b(x)+32;
+  return nlz10b(x>>32);
+}
+
+int pop(unsigned x) {
+   x = x - ((x >> 1) & 0x55555555);
+   x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
+   x = (x + (x >> 4)) & 0x0F0F0F0F;
+   x = x + (x << 8);
+   x = x + (x << 16);
+   return x >> 24;
+}
+
+int popll(unsigned long long x) {
+  return pop(x) + pop(x >> 32);
+}
+
+int ntz8(unsigned x) {
+
+   static char table[64] =
+     {32, 0, 1,12, 2, 6, u,13,   3, u, 7, u, u, u, u,14,
+      10, 4, u, u, 8, u, u,25,   u, u, u, u, u,21,27,15,
+      31,11, 5, u, u, u, u, u,   9, u, u,24, u, u,20,26,
+      30, u, u, u, u,23, u,19,  29, u,22,18,28,17,16, u};
+
+   x = (x & -x)*0x0450FBAF;
+   return table[x >> 26];
+}
+
+/* Work with non-gcc compilers and GCC before 4.0 */
+#if !defined(__GNUC__) || __GNUC__ < 4
+#define __builtin_clz nlz10b
+#define __builtin_popcount pop
+#define __builtin_ctz ntz8
+#define __builtin_clzll nlzll
+#define __builtin_popcountll popll
+#define __builtin_ffsl __builtin_ffs
+#define ffsl ffs
+#endif
+
+#if defined(__NetBSD__)
+#define ffsl ffs64
+#endif
+
+/* XXX */
+#if defined(__OpenBSD__)
+#define ffsl ffs
+#endif
+
+int i;
+int main(void) {
+  long long l;
+
+  /* note: we don't test zero, because the _native_ test will get it
+   * wrong (GCC returns garbage for ctz/clz of 0), and the nightly tester
+   * will wrongly conclude that LLC is failing.
+   */
+  for(i=10; i<139045193; i*=-3) {
+    printf("LLVM: n: %d, clz(n): %d, popcount(n): %d, ctz(n): %d\n",
+	i, __builtin_clz(i), __builtin_popcount(i), __builtin_ctz(i));
+    printf("REF : n: %d, clz(n): %d, popcount(n): %d, ctz(n): %d\n",
+	i, nlz10b(i), pop(i), ntz8(i));
+    printf("  ***  \n");
+    i++;
+  }
+
+  for(l=-10000; l<139045193*10000LL; l*=-3) {
+    printf("LLVM: n: %lld, clz(n): %d, popcount(n): %d, ctz(n): %d\n",
+	l, __builtin_clzll(l), __builtin_popcountll(l), __builtin_ctz(l));
+    printf("REF LO BITS : n: %lld, clz(n): %d, popcount(n): %d, ctz(n): %d\n",
+	l, nlzll(l), popll(l), ntz8(l));
+    printf("  ***  \n");
+    l++;
+  }
+
+  // Check some boundary and other cases  for FFS call
+  printf("FFS: 0:%d, 1:%d, 2:%d, 7:%d, 1024:%d, 1234:%d i:%d, l:%d\n",
+      ffs(0), ffs(1), ffs(2), ffs(7), ffs(1024), ffs(1234), ffs(i), ffsl(l));
+  printf("__builtin_ffs: 0:%d, 1:%d, 2:%d, 7:%d, 1024:%d, 1234:%d i:%d l:%d\n",
+      __builtin_ffs(0), __builtin_ffs(1), __builtin_ffs(2), __builtin_ffs(7),
+      __builtin_ffs(1024), __builtin_ffs(1234), __builtin_ffs(i), __builtin_ffsl(l)); 
+
+  return(0);
+}
+// source: 2005-05-12-Int64ToFP.c
+
+#include <stdio.h>
+
+
+int main() {
+  unsigned long long NX = 124, X;
+
+  do {
+    X = NX;
+    printf("%llu = %f  %lld = %f\n", X, (double)X, X, (double)(signed long long)X);
+    NX += 1ULL << 60;
+  } while (X < NX);
+
+  return 0;
+}
+// source: 2005-05-13-SDivTwo.c
+// Check that signed divide by a power of two works for small types
+#include <stdio.h>
+int main() {
+  int i;
+  for (i = 0; i != 258; ++i) {
+    printf("%d\n", ((signed char)i) / (signed char)2);
+  }
+  return 0;
+}
+// source: 2005-07-15-Bitfield-ABI.c
+// PR594
+
+struct X {
+  int Q :6;
+   int A : 4;
+   int Z : 22;
+};
+
+void test(struct X *P, int A) {
+   P->A = A;
+}
+
+extern int printf(const char *str, ...);
+
+int main() {
+  union {
+    int Y;
+    struct X Z;
+  } U;
+  U.Y = ~0;
+  test(&U.Z, 0);
+  printf("%x\n", U.Y);
+  return 0;
+}
+// source: 2005-07-17-INT-To-FP.c
+// Test the various SINT-TO-FP and UINT-TO-FP conversions.
+#include <stdio.h>
+
+int tests[] = {
+  0x80000000,
+  -123456792,
+  -10,
+  -2,
+  -1,
+  0,
+  1,
+  2,
+  10,
+  123456792,
+  0x7FFFFF80
+};
+
+int main() {
+
+  unsigned i;
+  // byte boundary tests
+  for (i = 0; i < 64; ++i) {
+    printf("%d %f, %f, %f, %f\n", i,
+           (double)(signed char)(i << 2),            // i8
+           (double)(signed short)(i << 10),          // i16
+           (double)(signed int)(i << 26),            // i32
+           (double)(signed long long)((long long)i << 58ULL));  // i64
+
+    printf("%d %f, %f, %f, %f\n", i,
+           (double)(unsigned char)(i << 2),            // i8
+           (double)(unsigned short)(i << 10),          // i16
+           (double)(unsigned int)(i << 26),            // i32
+           (double)(unsigned long long)((unsigned long long)i << 58ULL));  // i64
+  }
+  // edge case tests
+  for (i = 0; i < (sizeof(tests) / sizeof(int)); i++) {
+    printf("%d %f, %f, %f, %f\n", i,
+                               (double)(unsigned)tests[i],
+                               (double)(  signed)tests[i],
+                               (float)           tests[i],
+                               (float) (  signed)tests[i]);
+  }
+  return 0;
+}
+// source: 2005-11-29-LongSwitch.c
+// PR671
+
+#include <stdio.h>
+
+int foo(long long v) {
+    switch (v) {
+    case 0:
+        return 1;
+    case -1:
+        return 2;
+    }
+    return 0;
+}
+
+int main() {
+    int r = foo(4294967295LL);
+    printf("foo = %d\n", r);
+    return r;
+}
+// source: 2006-01-23-UnionInit.c
+#include <stdio.h>
+
+//===- PR156 --------------------------------------------------------------===//
+struct task_struct {
+  char comm[16];
+};
+union task_union {
+  struct task_struct task;
+  unsigned long stack[2048*sizeof(long)/sizeof(long)];
+};
+union task_union init_task_union = { { comm: "swapper" } };
+
+//===- PR295/PR568 --------------------------------------------------------===//
+
+struct inflate_huft_s {
+  union {
+    struct {
+      unsigned char Exop;
+      unsigned char Bits;
+    } what;
+    unsigned pad;
+  } word;
+  unsigned base;
+} fixed_tl[] = {
+  {{{96,7}},256}
+};
+
+//===- PR574 --------------------------------------------------------------===//
+
+union bt4 {
+  struct at4 {
+    unsigned long int av4;
+  } gv4;
+  double hv4;
+} bkv4 = { { 61172160UL } };
+
+struct bt1 {
+  signed dv1:4;
+  signed ev1:6;
+  unsigned char fv1[1];
+} cav1 = { 4, 22, { '\x2' } };
+
+//===- PR162 --------------------------------------------------------------===//
+
+union foo {
+  struct { char A, B; } X;
+  int C;
+} V = { {1, 2} };
+
+//===- PR650 --------------------------------------------------------------===//
+
+union nameData {
+  char data[64];
+  int alignmentDummy;
+} nd = {"relname"};
+
+//===- PR199 --------------------------------------------------------------===//
+
+struct one {
+  int a;
+  int values[];
+} hobbit = {5, {1, 2, 3}};
+
+extern struct one hobbit2;   // resize after first use seen
+void *foo() { return &hobbit2; }
+struct one hobbit2 = {5, {1, 2, 3}};
+
+//===- PR431 --------------------------------------------------------------===//
+
+struct {
+  int x;
+  int v[];
+} data = {0, {1,2,3} };
+
+//===- PR654 --------------------------------------------------------------===//
+
+struct {
+  char *inplace;
+  char chunk_data[];
+} s = {0, "   xyzkasjdlf     "};
+
+//===- PR323 --------------------------------------------------------------===//
+
+struct dvd_send_key {
+  unsigned agid : 2;
+  unsigned char key[5];
+};
+
+union {
+  struct dvd_send_key lsk;
+} ai = {{3, "foo"}};
+
+//===- PR627 --------------------------------------------------------------===//
+
+typedef struct {} emptystruct;
+typedef struct {
+  emptystruct raw_lock;
+} spinlock_t;
+
+emptystruct one_raw_spinlock (void) {
+  emptystruct raw;
+  printf("returning raw_lock\n");
+  return raw;
+}
+
+//===- PR684 --------------------------------------------------------------===//
+
+union ucast {
+  int i;
+  struct s {
+    int i1, i2, i3;
+  } s;
+};
+union ucast ucast_test (void) {
+  struct s y = {1, 2};
+  union ucast z = (union ucast)y;
+  return z;
+}
+
+
+//===- rdar://6828787 -----------------------------------------------------===//
+
+#pragma pack(4)
+
+struct foo2 {
+  short a;
+  long  x;
+  short y;
+};
+
+#pragma pack()
+
+struct foo2 foo2 = { 23122, -12312731, -312 };
+
+
+//===- Checker ------------------------------------------------------------===//
+
+int main() {
+  union ucast XX;
+  spinlock_t lock;
+  printf("PR156: %s\n", init_task_union.task.comm);
+  printf("PR295/PR568: %d, %d\n", fixed_tl[0].word.pad, fixed_tl[0].base);
+  printf("PR574: %d, %d, %d, %d\n", (int)bkv4.gv4.av4, cav1.dv1, cav1.ev1,
+         cav1.fv1[0]);
+  printf("PR162: %d, %d, %d\n", V.X.A, V.X.B, V.C);
+  printf("PR650: %s, %d\n", nd.data, nd.alignmentDummy);
+  printf("PR199: %d, %d, %d, %d\n", hobbit.a, hobbit.values[0], 
+         hobbit.values[1], hobbit.values[2]);
+  printf("PR199: %d, %d, %d, %d\n", hobbit2.a, hobbit2.values[0], 
+         hobbit2.values[1], hobbit2.values[2]);
+  printf("PR431: %d, %d, %d, %d\n", data.x, data.v[0], 
+         data.v[1], data.v[2]);
+  printf("PR654: %ld, '%s'\n", (long) s.inplace, s.chunk_data);
+  printf("PR323: %d, '%s'\n", ai.lsk.agid, ai.lsk.key);
+  lock = (spinlock_t) { .raw_lock = one_raw_spinlock() };
+  printf("PR627: %d\n", (int)sizeof(lock));
+  XX = ucast_test();
+  printf("PR684: %d, %d, %d %d\n", XX.s.i1, XX.s.i2, XX.s.i3, XX.i);
+  printf("rdar://6828787: %d, %d, %d\n", foo2.a, (int)foo2.x, foo2.y);
+  return 0;
+}
+// source: 2006-01-29-SimpleIndirectCall.c
+// PR704
+
+#include <stdio.h>
+
+void hello() {
+  printf("Hello, world!\n");
+}
+
+void goodbye() {
+  printf("Goodbye, world!\n");
+}
+
+int main(int argc, char **argv) {
+  void (*f)() = (argc > 1) ? &hello : &goodbye;
+  f();
+  return 0;
+}
+
+// source: 2006-02-04-DivRem.c
+#include <stdio.h>
+
+void test(unsigned X, unsigned Y) {
+  printf("%u %u %u %u\n", X, Y, X / (8 << (Y&15)), X % (8 << (Y&15)));
+}
+
+int i;
+int main(void) {
+  long long l;
+
+  for(i=10; i<139045193; i*=-3) {
+    test(i, i^12345);
+    i++;
+  }
+
+  return(0);
+}
+
+// source: 2006-12-01-float_varg.c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+  printf("foo %f %f %f %f\n", 1.23, 12312.1, 3.1, 13.1);
+  return 0;
+}
+// source: 2006-12-07-Compare64BitConstant.c
+#include <stdio.h>
+
+long long Large = 5LL << 48;
+
+int main(int argc, const char *argv[]) {
+  // Make sure large constants compare correctly.
+  if (((Large >> 48) & 7LL) == 5LL) {
+    printf("Works.\n");
+  } else {
+    printf("Doesn\'t.\n");
+  }
+  return 0;
+}
+// source: 2006-12-11-LoadConstants.c
+#include <stdio.h>
+
+long zz() { return 0x00000000L; }
+long zs() { return 0x0000ffffL; }
+long zu() { return 0x00007fffL; }
+long sz() { return 0xffff0000L; }
+long ss() { return 0xffffffffL; }
+long su() { return 0xffff7fffL; }
+long uz() { return 0x7fff0000L; }
+long us() { return 0x7fffffffL; }
+long uu() { return 0x7fff7fffL; }
+
+long long zzzz() { return 0x0000000000000000LL; }
+long long zzzs() { return 0x000000000000ffffLL; }
+long long zzzu() { return 0x0000000000007fffLL; }
+long long zzsz() { return 0x00000000ffff0000LL; }
+long long zzss() { return 0x00000000ffffffffLL; }
+long long zzsu() { return 0x00000000ffff7fffLL; }
+long long zzuz() { return 0x000000007fff0000LL; }
+long long zzus() { return 0x000000007fffffffLL; }
+long long zzuu() { return 0x000000007fff7fffLL; }
+long long zszz() { return 0x0000ffff00000000LL; }
+long long zszs() { return 0x0000ffff0000ffffLL; }
+long long zszu() { return 0x0000ffff00007fffLL; }
+long long zssz() { return 0x0000ffffffff0000LL; }
+long long zsss() { return 0x0000ffffffffffffLL; }
+long long zssu() { return 0x0000ffffffff7fffLL; }
+long long zsuz() { return 0x0000ffff7fff0000LL; }
+long long zsus() { return 0x0000ffff7fffffffLL; }
+long long zsuu() { return 0x0000ffff7fff7fffLL; }
+long long zuzz() { return 0x00007fff00000000LL; }
+long long zuzs() { return 0x00007fff0000ffffLL; }
+long long zuzu() { return 0x00007fff00007fffLL; }
+long long zusz() { return 0x00007fffffff0000LL; }
+long long zuss() { return 0x00007fffffffffffLL; }
+long long zusu() { return 0x00007fffffff7fffLL; }
+long long zuuz() { return 0x00007fff7fff0000LL; }
+long long zuus() { return 0x00007fff7fffffffLL; }
+long long zuuu() { return 0x00007fff7fff7fffLL; }
+long long szzz() { return 0xffff000000000000LL; }
+long long szzs() { return 0xffff00000000ffffLL; }
+long long szzu() { return 0xffff000000007fffLL; }
+long long szsz() { return 0xffff0000ffff0000LL; }
+long long szss() { return 0xffff0000ffffffffLL; }
+long long szsu() { return 0xffff0000ffff7fffLL; }
+long long szuz() { return 0xffff00007fff0000LL; }
+long long szus() { return 0xffff00007fffffffLL; }
+long long szuu() { return 0xffff00007fff7fffLL; }
+long long sszz() { return 0xffffffff00000000LL; }
+long long sszs() { return 0xffffffff0000ffffLL; }
+long long sszu() { return 0xffffffff00007fffLL; }
+long long sssz() { return 0xffffffffffff0000LL; }
+long long ssss() { return 0xffffffffffffffffLL; }
+long long sssu() { return 0xffffffffffff7fffLL; }
+long long ssuz() { return 0xffffffff7fff0000LL; }
+long long ssus() { return 0xffffffff7fffffffLL; }
+long long ssuu() { return 0xffffffff7fff7fffLL; }
+long long suzz() { return 0xffff7fff00000000LL; }
+long long suzs() { return 0xffff7fff0000ffffLL; }
+long long suzu() { return 0xffff7fff00007fffLL; }
+long long susz() { return 0xffff7fffffff0000LL; }
+long long suss() { return 0xffff7fffffffffffLL; }
+long long susu() { return 0xffff7fffffff7fffLL; }
+long long suuz() { return 0xffff7fff7fff0000LL; }
+long long suus() { return 0xffff7fff7fffffffLL; }
+long long suuu() { return 0xffff7fff7fff7fffLL; }
+long long uzzz() { return 0x7fff000000000000LL; }
+long long uzzs() { return 0x7fff00000000ffffLL; }
+long long uzzu() { return 0x7fff000000007fffLL; }
+long long uzsz() { return 0x7fff0000ffff0000LL; }
+long long uzss() { return 0x7fff0000ffffffffLL; }
+long long uzsu() { return 0x7fff0000ffff7fffLL; }
+long long uzuz() { return 0x7fff00007fff0000LL; }
+long long uzus() { return 0x7fff00007fffffffLL; }
+long long uzuu() { return 0x7fff00007fff7fffLL; }
+long long uszz() { return 0x7fffffff00000000LL; }
+long long uszs() { return 0x7fffffff0000ffffLL; }
+long long uszu() { return 0x7fffffff00007fffLL; }
+long long ussz() { return 0x7fffffffffff0000LL; }
+long long usss() { return 0x7fffffffffffffffLL; }
+long long ussu() { return 0x7fffffffffff7fffLL; }
+long long usuz() { return 0x7fffffff7fff0000LL; }
+long long usus() { return 0x7fffffff7fffffffLL; }
+long long usuu() { return 0x7fffffff7fff7fffLL; }
+long long uuzz() { return 0x7fff7fff00000000LL; }
+long long uuzs() { return 0x7fff7fff0000ffffLL; }
+long long uuzu() { return 0x7fff7fff00007fffLL; }
+long long uusz() { return 0x7fff7fffffff0000LL; }
+long long uuss() { return 0x7fff7fffffffffffLL; }
+long long uusu() { return 0x7fff7fffffff7fffLL; }
+long long uuuz() { return 0x7fff7fff7fff0000LL; }
+long long uuus() { return 0x7fff7fff7fffffffLL; }
+long long uuuu() { return 0x7fff7fff7fff7fffLL; }
+
+long long bit00() { return 0x0000000000000001LL; }
+long long bit01() { return 0x0000000000000002LL; }
+long long bit02() { return 0x0000000000000004LL; }
+long long bit03() { return 0x0000000000000008LL; }
+long long bit04() { return 0x0000000000000010LL; }
+long long bit05() { return 0x0000000000000020LL; }
+long long bit06() { return 0x0000000000000040LL; }
+long long bit07() { return 0x0000000000000080LL; }
+long long bit08() { return 0x0000000000000100LL; }
+long long bit09() { return 0x0000000000000200LL; }
+long long bit10() { return 0x0000000000000400LL; }
+long long bit11() { return 0x0000000000000800LL; }
+long long bit12() { return 0x0000000000001000LL; }
+long long bit13() { return 0x0000000000002000LL; }
+long long bit14() { return 0x0000000000004000LL; }
+long long bit15() { return 0x0000000000008000LL; }
+long long bit16() { return 0x0000000000010000LL; }
+long long bit17() { return 0x0000000000020000LL; }
+long long bit18() { return 0x0000000000040000LL; }
+long long bit19() { return 0x0000000000080000LL; }
+long long bit20() { return 0x0000000000100000LL; }
+long long bit21() { return 0x0000000000200000LL; }
+long long bit22() { return 0x0000000000400000LL; }
+long long bit23() { return 0x0000000000800000LL; }
+long long bit24() { return 0x0000000001000000LL; }
+long long bit25() { return 0x0000000002000000LL; }
+long long bit26() { return 0x0000000004000000LL; }
+long long bit27() { return 0x0000000008000000LL; }
+long long bit28() { return 0x0000000010000000LL; }
+long long bit29() { return 0x0000000020000000LL; }
+long long bit30() { return 0x0000000040000000LL; }
+long long bit31() { return 0x0000000080000000LL; }
+long long bit32() { return 0x0000000100000000LL; }
+long long bit33() { return 0x0000000200000000LL; }
+long long bit34() { return 0x0000000400000000LL; }
+long long bit35() { return 0x0000000800000000LL; }
+long long bit36() { return 0x0000001000000000LL; }
+long long bit37() { return 0x0000002000000000LL; }
+long long bit38() { return 0x0000004000000000LL; }
+long long bit39() { return 0x0000008000000000LL; }
+long long bit40() { return 0x0000010000000000LL; }
+long long bit41() { return 0x0000020000000000LL; }
+long long bit42() { return 0x0000040000000000LL; }
+long long bit43() { return 0x0000080000000000LL; }
+long long bit44() { return 0x0000100000000000LL; }
+long long bit45() { return 0x0000200000000000LL; }
+long long bit46() { return 0x0000400000000000LL; }
+long long bit47() { return 0x0000800000000000LL; }
+long long bit48() { return 0x0001000000000000LL; }
+long long bit49() { return 0x0002000000000000LL; }
+long long bit50() { return 0x0004000000000000LL; }
+long long bit51() { return 0x0008000000000000LL; }
+long long bit52() { return 0x0010000000000000LL; }
+long long bit53() { return 0x0020000000000000LL; }
+long long bit54() { return 0x0040000000000000LL; }
+long long bit55() { return 0x0080000000000000LL; }
+long long bit56() { return 0x0100000000000000LL; }
+long long bit57() { return 0x0200000000000000LL; }
+long long bit58() { return 0x0400000000000000LL; }
+long long bit59() { return 0x0800000000000000LL; }
+long long bit60() { return 0x1000000000000000LL; }
+long long bit61() { return 0x2000000000000000LL; }
+long long bit62() { return 0x4000000000000000LL; }
+long long bit63() { return 0x8000000000000000LL; }
+
+
+int main(int argc, const char *argv[]) {
+  printf("%08x\n", zz());
+  printf("%08x\n", zs());
+  printf("%08x\n", zu());
+  printf("%08x\n", sz());
+  printf("%08x\n", ss());
+  printf("%08x\n", su());
+  printf("%08x\n", uz());
+  printf("%08x\n", us());
+  printf("%08x\n", uu());
+  
+  printf("%016llx\n", zzzz());
+  printf("%016llx\n", zzzs());
+  printf("%016llx\n", zzzu());
+  printf("%016llx\n", zzsz());
+  printf("%016llx\n", zzss());
+  printf("%016llx\n", zzsu());
+  printf("%016llx\n", zzuz());
+  printf("%016llx\n", zzus());
+  printf("%016llx\n", zzuu());
+  printf("%016llx\n", zszz());
+  printf("%016llx\n", zszs());
+  printf("%016llx\n", zszu());
+  printf("%016llx\n", zssz());
+  printf("%016llx\n", zsss());
+  printf("%016llx\n", zssu());
+  printf("%016llx\n", zsuz());
+  printf("%016llx\n", zsus());
+  printf("%016llx\n", zsuu());
+  printf("%016llx\n", zuzz());
+  printf("%016llx\n", zuzs());
+  printf("%016llx\n", zuzu());
+  printf("%016llx\n", zusz());
+  printf("%016llx\n", zuss());
+  printf("%016llx\n", zusu());
+  printf("%016llx\n", zuuz());
+  printf("%016llx\n", zuus());
+  printf("%016llx\n", zuuu());
+  printf("%016llx\n", szzz());
+  printf("%016llx\n", szzs());
+  printf("%016llx\n", szzu());
+  printf("%016llx\n", szsz());
+  printf("%016llx\n", szss());
+  printf("%016llx\n", szsu());
+  printf("%016llx\n", szuz());
+  printf("%016llx\n", szus());
+  printf("%016llx\n", szuu());
+  printf("%016llx\n", sszz());
+  printf("%016llx\n", sszs());
+  printf("%016llx\n", sszu());
+  printf("%016llx\n", sssz());
+  printf("%016llx\n", ssss());
+  printf("%016llx\n", sssu());
+  printf("%016llx\n", ssuz());
+  printf("%016llx\n", ssus());
+  printf("%016llx\n", ssuu());
+  printf("%016llx\n", suzz());
+  printf("%016llx\n", suzs());
+  printf("%016llx\n", suzu());
+  printf("%016llx\n", susz());
+  printf("%016llx\n", suss());
+  printf("%016llx\n", susu());
+  printf("%016llx\n", suuz());
+  printf("%016llx\n", suus());
+  printf("%016llx\n", suuu());
+  printf("%016llx\n", uzzz());
+  printf("%016llx\n", uzzs());
+  printf("%016llx\n", uzzu());
+  printf("%016llx\n", uzsz());
+  printf("%016llx\n", uzss());
+  printf("%016llx\n", uzsu());
+  printf("%016llx\n", uzuz());
+  printf("%016llx\n", uzus());
+  printf("%016llx\n", uzuu());
+  printf("%016llx\n", uszz());
+  printf("%016llx\n", uszs());
+  printf("%016llx\n", uszu());
+  printf("%016llx\n", ussz());
+  printf("%016llx\n", usss());
+  printf("%016llx\n", ussu());
+  printf("%016llx\n", usuz());
+  printf("%016llx\n", usus());
+  printf("%016llx\n", usuu());
+  printf("%016llx\n", uuzz());
+  printf("%016llx\n", uuzs());
+  printf("%016llx\n", uuzu());
+  printf("%016llx\n", uusz());
+  printf("%016llx\n", uuss());
+  printf("%016llx\n", uusu());
+  printf("%016llx\n", uuuz());
+  printf("%016llx\n", uuus());
+  printf("%016llx\n", uuuu());
+
+  printf("%016llx\n", bit00());
+  printf("%016llx\n", bit01());
+  printf("%016llx\n", bit02());
+  printf("%016llx\n", bit03());
+  printf("%016llx\n", bit04());
+  printf("%016llx\n", bit05());
+  printf("%016llx\n", bit06());
+  printf("%016llx\n", bit07());
+  printf("%016llx\n", bit08());
+  printf("%016llx\n", bit09());
+  printf("%016llx\n", bit10());
+  printf("%016llx\n", bit11());
+  printf("%016llx\n", bit12());
+  printf("%016llx\n", bit13());
+  printf("%016llx\n", bit14());
+  printf("%016llx\n", bit15());
+  printf("%016llx\n", bit16());
+  printf("%016llx\n", bit17());
+  printf("%016llx\n", bit18());
+  printf("%016llx\n", bit19());
+  printf("%016llx\n", bit20());
+  printf("%016llx\n", bit21());
+  printf("%016llx\n", bit22());
+  printf("%016llx\n", bit23());
+  printf("%016llx\n", bit24());
+  printf("%016llx\n", bit25());
+  printf("%016llx\n", bit26());
+  printf("%016llx\n", bit27());
+  printf("%016llx\n", bit28());
+  printf("%016llx\n", bit29());
+  printf("%016llx\n", bit30());
+  printf("%016llx\n", bit31());
+  printf("%016llx\n", bit32());
+  printf("%016llx\n", bit33());
+  printf("%016llx\n", bit34());
+  printf("%016llx\n", bit35());
+  printf("%016llx\n", bit36());
+  printf("%016llx\n", bit37());
+  printf("%016llx\n", bit38());
+  printf("%016llx\n", bit39());
+  printf("%016llx\n", bit40());
+  printf("%016llx\n", bit41());
+  printf("%016llx\n", bit42());
+  printf("%016llx\n", bit43());
+  printf("%016llx\n", bit44());
+  printf("%016llx\n", bit45());
+  printf("%016llx\n", bit46());
+  printf("%016llx\n", bit47());
+  printf("%016llx\n", bit48());
+  printf("%016llx\n", bit49());
+  printf("%016llx\n", bit50());
+  printf("%016llx\n", bit51());
+  printf("%016llx\n", bit52());
+  printf("%016llx\n", bit53());
+  printf("%016llx\n", bit54());
+  printf("%016llx\n", bit55());
+  printf("%016llx\n", bit56());
+  printf("%016llx\n", bit57());
+  printf("%016llx\n", bit58());
+  printf("%016llx\n", bit59());
+  printf("%016llx\n", bit60());
+  printf("%016llx\n", bit61());
+  printf("%016llx\n", bit62());
+  printf("%016llx\n", bit63());
+
+  return 0;
+}
+// source: 2007-01-04-KNR-Args.c
+#include <stdio.h>
+
+p1 (c, f1, s, d1, i, f2, l, d2)
+char c; float f1; short s; double d1; int i; float f2; long l; double d2;
+{
+  printf("%c %f %d %f %d %f %d %f\n", c, f1, s, d1,i, f2, l, d2);
+}
+
+void p2 (char c, float f1, short s, double d1, int i, float f2, long l, double d2)
+{
+  printf("%c %f %d %f %d %f %d %f\n", c, f1, s, d1,i, f2, l, d2);
+}
+
+int main(int argc, const char *argv[]) {
+  p1 ('a', 4.0, 1, 5.0, 2, 4.0, 3, 5.0);
+  p2 ('a', 4.0, 1, 5.0, 2, 4.0, 3, 5.0);
+  return 0;
+}
+
+// source: 2007-03-02-VaCopy.c
+#include <stdio.h>
+#include <stdarg.h>
+
+void testVaCopyArg(char *fmt, ...) {
+  va_list ap, aq;
+  char *s;
+  va_start(ap, fmt);
+  va_copy(aq, ap);    /* test va_copy */
+
+  s = va_arg(aq, char *);
+  printf("string %s\n", s);
+}
+
+int main() {
+  testVaCopyArg("s", "abc");
+  return 0;
+}
+// source: 2007-04-10-BitfieldTest.c
+#include <stdio.h>
+#include <stdlib.h>
+
+union u {
+        struct {
+                unsigned int a : 8;
+                unsigned int b : 3;
+                unsigned int c : 3;
+                unsigned int d : 3;
+                unsigned int e : 3;
+                unsigned int f : 3;
+                unsigned int g : 3;
+                unsigned int h : 3;
+                unsigned int i : 3;
+
+                unsigned int n : 8;
+                unsigned int o : 8;
+                unsigned int p : 8;
+                unsigned int q : 8;
+        } s;
+        unsigned long long token;
+};
+
+int main(int argc, char *argv[])
+{
+        union u uu;
+        uu.token = 0x012492490000FFFFULL;
+        printf("p = 0x%02X\n", uu.s.p);
+        return 0;
+}
+
+// source: 2007-04-25-weak.c
+
+#if !defined(__linux__) && !defined(__FreeBSD__) && !defined(__NetBSD__) && !defined(__OpenBSD__)
+extern int test_weak () __attribute__ ((weak_import));
+#else
+extern int test_weak () __attribute__ ((weak));
+#endif
+
+int main(){
+  int (*t)() = test_weak;
+  if (t) {
+    t();
+    return 1;
+  }
+  return 0;
+}
+// source: 2008-04-18-LoopBug.c
+extern int printf(const char*, ...);
+void foo( unsigned int i, int array[4]) __attribute__((noinline));
+void foo( unsigned int i, int array[4]) {
+  unsigned int j;
+  for (j=3; j>i; j--)
+    array[j] = array[j-1];
+  printf("%d %d %d %d %d\n", i, array[0], array[1], array[2], array[3]);
+}
+main() {
+  int array[4], i;
+  for (i=0; i<5; i++) {
+    array[0] = 5; array[1] = 6; array[2] = 7; array[3] = 8;
+    foo(i, array);
+  }
+  array[0] = 5; array[1] = 6; array[2] = 7; array[3] = 8;
+  foo(0xffffffffu, array);
+  return 0;
+}
+// source: 2008-04-20-LoopBug2.c
+extern int printf(const char*, ...);
+void foo( unsigned int i, int array[4]) __attribute__((noinline));
+void foo( unsigned int i, int array[4]) {
+  unsigned int j=3;
+  do {
+    array[j] = array[j-1];
+    j--;
+  }  while (j>i);
+  printf("%d %d %d %d %d\n", i, array[0], array[1], array[2], array[3]);
+}
+main() {
+  int array[4], i;
+  for (i=0; i<5; i++) {
+    array[0] = 5; array[1] = 6; array[2] = 7; array[3] = 8;
+    foo(i, array);
+  }
+  array[0] = 5; array[1] = 6; array[2] = 7; array[3] = 8;
+  foo(0xffffffffU, array);
+  return 0;
+}
+// source: 2008-07-13-InlineSetjmp.c
+// PR2486
+
+#include <setjmp.h>      
+#include <stdio.h>
+jmp_buf g;
+static int a() {longjmp(g,1);}
+static void b(int* x) {if (setjmp(g))return;*x = 10;a();}
+int main() {int a = 1; b(&a); printf("%d\n", a); return 0;}
+
+// source: 2009-04-16-BitfieldInitialization.c
+// PR3510 & rdar://6564697
+
+struct ty { 
+  int info;
+  union {
+    int id;
+    char *str;
+  } u;
+} t1  = { 101,  1 };
+
+struct ty2 { 
+  float info __attribute__((packed));
+  char x;
+  int Y __attribute__((packed));
+} __attribute__((packed)) t2  = { 101,  1, 204 };
+
+struct ty3 { int A; char C[]; } t3 = { 4, "fo" };
+
+struct ty4 { 
+  long double x __attribute__((packed));
+  char y;
+  long double z __attribute__((packed));
+} __attribute__((packed)) t4  = { 1.0,  4, 17.0 };
+
+
+struct { 
+  char x;
+  unsigned char y : 4;
+} __attribute__((packed)) t5a  = { 101,  15 };
+
+struct { 
+  char x;
+  unsigned short y : 12;
+} __attribute__((packed)) t5b  = { 101,  1231 };
+
+struct { 
+  char x;
+  unsigned char y : 4;
+  unsigned char z : 7;
+} __attribute__((packed)) t5  = { 101,  15, 123 };
+
+
+struct { 
+  long double x;
+  unsigned char y : 4;
+} __attribute__((packed)) t6  = { 123.412,  5 };
+
+struct { 
+  char x;
+  unsigned char y : 4;
+  unsigned char q : 3;
+  unsigned char z : 7;
+} __attribute__((packed)) t7  = { 101,  15, 123 };
+
+
+struct { 
+  char x;
+  unsigned short y : 4;
+  unsigned short q : 12;
+} __attribute__((packed)) t7a  = { 101,  15, 123 };
+
+struct sDescrItem {
+  char what;
+  char *types;
+  char type;
+} t8 = {16, 0, 32};
+
+
+struct resword {
+  const int *a;
+  unsigned b : 16;
+  int c : 16;
+} t9 = { 0, 123, 456 };
+
+// rdar://6861719
+#pragma pack(4)
+
+struct t10s {
+  short a;
+  int *b;
+};
+
+#pragma pack()
+
+int x = 42;
+struct t10s t10 = { 
+.b = &x
+};
+
+
+#include <stdio.h>
+
+int main() {
+  printf("1: %d, %d\n", t1.info, t1.u.id);
+  printf("2: %f, %d, %d\n", t2.info, t2.x, t2.Y);
+  printf("3: %d %s\n", t3.A, t3.C);
+  printf("4: %f %d %f\n", (double)t4.x, t4.y, (double)t4.z);
+  printf("5: %d %d %d\n", t5.x, t5.y, t5.z);
+  printf("5a: %d %d\n", t5a.x, t5a.y);
+  printf("5b: %d %d\n", t5b.x, t5b.y);
+  printf("6: %Lf %d\n", t6.x, t6.y);
+  printf("7: %d %d %d %d\n", t7.x, t7.y, t7.q, t7.z);
+  printf("7a: %d %d %d\n", t7a.x, t7a.y, t7a.q);
+  printf("8: %d %d\n", t8.what, t8.type);
+  printf("9: %d %d\n", t9.b, t9.c);
+  printf("10: %d\n", *t10.b);
+  return 0;
+}
+// source: 2009-12-07-StructReturn.c
+/* <rdar://problem/7437022> */
+/* Just enough complexity to frighten the optimizer and expose a bug
+   in an ugly one-file testcase. */
+extern int printf(const char * __restrict, ...);
+extern void abort(void);
+typedef struct {
+  float ary[3];
+} foostruct;
+typedef struct {
+  foostruct foo;
+  float safe;
+} barstruct;
+barstruct bar_ary[4];
+float * __attribute__ ((__noinline__))
+  spooky(int i) {
+  bar_ary[i].safe = 142.0;
+  return &bar_ary[i].safe;
+}
+foostruct __attribute__ ((__noinline__))
+foobify(void) {
+  static barstruct my_static_foo = { {42.0, 42.0, 42.0}, /*safe=*/42.0 };
+  return my_static_foo.foo;
+}
+int
+main(int argc, char *argv[]) {
+  float *pf = spooky(0);
+  /* This should store exactly 96 bits.  Some compilers stored 128
+     bits, clobbering beyond the end of the "foo" struct.  */
+  bar_ary[0].foo = foobify();
+  if (*pf != 142.0) {
+    printf("error: store clobbered memory outside destination\n");
+    abort();
+  }
+  return 0;
+}
+// source: 2010-05-24-BitfieldTest.c
+/* From Radar 7980096.  Test case by Shantonu Sen! */
+#include <assert.h>
+
+typedef union {
+	struct {
+		unsigned long long        count                   :8;
+		unsigned long long        mcg_ctl_p               :1;
+	}          bits;
+	unsigned long long   u64;
+} ia32_mcg_cap_t;
+
+int main(int argc, char *argv[]) {
+	unsigned long long ctl_p;
+	ia32_mcg_cap_t   ia32_mcg_cap;
+
+	ia32_mcg_cap.u64 = 0x806;
+
+	ctl_p = ia32_mcg_cap.bits.mcg_ctl_p;
+	assert(ctl_p == 0);
+
+	return 0;
+}
+// source: 2020-01-06-coverage-001.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int32_t *a;
+uint8_t b = 7;
+static int32_t **c = &a;
+uint8_t *p;
+int32_t x;
+
+void d() {
+  **c &= 8;
+  uint8_t *e = &b;
+  p = e;
+  x = (*e &= 1) && *a && (*e = 0);
+}
+
+int main() {
+  int32_t val_3;
+  int8_t val_2;
+  uint8_t temp_2;
+  int32_t val_1;
+  int32_t temp_1;
+
+  val_1 = 1149798655;
+  val_2 = -125;
+  val_3 = -67108864;
+  temp_1 = val_1;
+  temp_2 = val_2;
+
+  x = val_3;
+  p = &temp_2;
+  a = &temp_1;
+  d();
+
+  printf("b = %" PRIu8 "\n", b);
+  printf("x = %" PRIi32 "\n", x);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-002.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int32_t a, c, e;
+int8_t b;
+int16_t d;
+int32_t x;
+int64_t y;
+
+int64_t f() {
+  int32_t g = 0;
+  x = g;
+  for (; g < 5; g++)
+    ;
+  for (; g < 3; (void)g)
+  h:
+    for (;; (void)a)
+      ;
+  for (;; (void)b) {
+    int32_t i;
+    if (a)
+      goto h;
+    if (d) {
+      if (e)
+        return 0;
+      break;
+    }
+    if (c)
+      continue;
+  }
+  {
+    y = 0;
+    return y;
+  };
+}
+
+int64_t z;
+
+int32_t main() {
+  int64_t val_8;
+  int64_t val_7;
+  int32_t val_6;
+  int16_t val_5;
+  int8_t val_4;
+  int32_t val_3;
+  int32_t val_2;
+  int32_t val_1;
+
+  val_1 = 0;
+  val_2 = -2;
+  val_3 = 0;
+  val_4 = 0;
+  val_5 = 10;
+  val_6 = 4;
+  val_7 = 0;
+  val_8 = 0;
+
+  z = val_8;
+  y = val_7;
+  x = val_6;
+  d = val_5;
+  b = val_4;
+  e = val_3;
+  c = val_2;
+  a = val_1;
+  z = f();
+
+  printf("a = %" PRIi32 "\n", a);
+  printf("b = %" PRIi8 "\n", b);
+  printf("c = %" PRIi32 "\n", c);
+  printf("d = %" PRIi16 "\n", d);
+  printf("x = %" PRIi32 "\n", x);
+  printf("e = %" PRIi32 "\n", e);
+  printf("z = %" PRIi64 "\n", z);
+  printf("y = %" PRIi64 "\n", y);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-003.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int8_t a;
+int32_t x;
+
+void b() { x = (uint64_t)4073709551607 > a || a != 0; }
+
+int main() {
+  int32_t val_2;
+  int8_t val_1;
+
+  val_1 = -7;
+  val_2 = 1695154176;
+
+  x = val_2;
+  a = val_1;
+  b();
+
+  printf("a = %" PRIi8 "\n", a);
+  printf("x = %" PRIi32 "\n", x);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-004.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int32_t a, b;
+
+union u {
+  uint16_t c;
+} d;
+
+static int32_t *e = &b;
+int64_t *f;
+static int64_t **g = &f;
+int64_t x;
+
+int64_t h(int32_t i) {
+  {
+    x = i && (2036854775807 / a) && i;
+    return x;
+  };
+}
+
+void j() {
+  for (; d.c; ++d.c)
+    *e = h(**g);
+}
+
+int32_t h_call_argument_1;
+int64_t y;
+
+int main() {
+  int64_t val_7;
+  int32_t val_6;
+  int64_t val_5;
+  int64_t val_4;
+  int64_t temp_1;
+  uint16_t val_3;
+  int32_t val_2;
+  int32_t val_1;
+
+  val_1 = 251;
+  val_2 = -2113601536;
+  val_3 = 12027;
+  val_4 = 0;
+  val_5 = 70651297207679744;
+  val_6 = -7;
+  val_7 = 2089739496336261183;
+  temp_1 = val_4;
+
+  y = val_7;
+  h_call_argument_1 = val_6;
+  x = val_5;
+  f = &temp_1;
+  d.c = val_3;
+  b = val_2;
+  a = val_1;
+  j();
+  y = h(h_call_argument_1);
+
+  printf("a = %" PRIi32 "\n", a);
+  printf("b = %" PRIi32 "\n", b);
+  printf("d.c = %" PRIu16 "\n", d.c);
+  printf("y = %" PRIi64 "\n", y);
+  printf("h_call_argument_1 = %" PRIi32 "\n", h_call_argument_1);
+  printf("x = %" PRIi64 "\n", x);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-005.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+uint32_t a, c, d;
+uint64_t b;
+int16_t e;
+uint64_t *p;
+int16_t *q;
+void g();
+uint64_t *r;
+
+void h() {
+  uint64_t *f = &b;
+  r = f;
+  *f = 6;
+  g();
+}
+
+uint64_t *s;
+int16_t *t;
+
+void g() {
+i : {
+  uint64_t *j = &b;
+  s = j;
+  p = j;
+  int16_t *k = &e;
+  t = k;
+  q = k;
+  --*k;
+  *j &= c;
+}
+  for (; d; a = d)
+    if (e)
+      goto i;
+}
+
+int main() {
+  int16_t val_10;
+  int16_t temp_5;
+  int64_t val_9;
+  uint64_t temp_4;
+  int64_t val_8;
+  uint64_t temp_3;
+  int16_t val_7;
+  int16_t temp_2;
+  int64_t val_6;
+  uint64_t temp_1;
+  int16_t val_5;
+  int64_t val_4;
+  uint32_t val_3;
+  uint32_t val_2;
+  uint32_t val_1;
+
+  val_1 = 16777101;
+  val_2 = 0xFFFFFFFA;
+  val_3 = 0;
+  val_4 = 256;
+  val_5 = -7;
+  val_6 = -9223372032559808512;
+  val_7 = 0;
+  val_8 = -72318388763361280;
+  val_9 = 0;
+  val_10 = 0;
+  temp_1 = val_6;
+  temp_2 = val_7;
+  temp_3 = val_8;
+  temp_4 = val_9;
+  temp_5 = val_10;
+
+  t = &temp_5;
+  s = &temp_4;
+  r = &temp_3;
+  q = &temp_2;
+  p = &temp_1;
+  e = val_5;
+  b = val_4;
+  d = val_3;
+  c = val_2;
+  a = val_1;
+  h();
+  g();
+
+  printf("a = %" PRIu32 "\n", a);
+  printf("b = %" PRIu64 "\n", b);
+  printf("c = %" PRIu32 "\n", c);
+  printf("d = %" PRIu32 "\n", d);
+  printf("e = %" PRIi16 "\n", e);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-006.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+#pragma pack(1)
+
+struct s {
+  int : 28;
+  unsigned : 17;
+  unsigned a : 25;
+} b;
+
+volatile int32_t c;
+int32_t x;
+
+void d() {
+  if (8 < b.a)
+    x = c;
+}
+
+int main() {
+  int32_t val_3;
+  int32_t val_2;
+  uint32_t val_1;
+
+  val_1 = 2097152;
+  val_2 = 0;
+  val_3 = 0;
+
+  x = val_3;
+  c = val_2;
+  b.a = val_1;
+  d();
+
+  printf("b.a = %u\n", b.a);
+  printf("c = %" PRIi32 "\n", c);
+  printf("x = %" PRIi32 "\n", x);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-007.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+uint32_t a;
+const uint32_t b = -1L, c;
+int16_t d;
+
+void e() {
+  uint32_t f;
+  uint32_t g;
+  f = b / a;
+  g = f;
+  d = g < c;
+}
+
+int main() {
+  int16_t val_2;
+  uint32_t val_1;
+
+  val_1 = 3;
+  val_2 = -32767;
+
+  d = val_2;
+  a = val_1;
+  e();
+
+  printf("a = %" PRIu32 "\n", a);
+  printf("b = %" PRIu32 "\n", b);
+  printf("c = %" PRIu32 "\n", c);
+  printf("d = %" PRIi16 "\n", d);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-008.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+struct a {
+  int64_t b;
+  int64_t c;
+} d;
+
+int64_t e;
+
+void f(struct a *g) { d = *g; }
+
+struct a s;
+
+int main() {
+  int64_t val_5;
+  int64_t val_4;
+  int64_t val_3;
+  int64_t val_2;
+  int64_t val_1;
+
+  val_1 = -7988785259004943837;
+  val_2 = -7;
+  val_3 = -7;
+  val_4 = -7988785259004943837;
+  val_5 = -6;
+
+  s.b = val_4;
+  s.c = val_5;
+  e = val_3;
+  d.b = val_1;
+  d.c = val_2;
+  struct a h = {0, 9};
+  s = h;
+  e = h.c;
+  f(&h);
+
+  printf("d.b = %" PRIi64 "\n", d.b);
+  printf("d.c = %" PRIi64 "\n", d.c);
+  printf("s.b = %" PRIi64 "\n", s.b);
+  printf("s.c = %" PRIi64 "\n", s.c);
+  printf("e = %" PRIi64 "\n", e);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-009.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+uint32_t a, b, h;
+int16_t c, g;
+uint8_t d = 8;
+uint8_t *const e = &d;
+int32_t *f;
+
+void i() {
+  for (; c; c--) {
+    g = 0;
+    for (; g <= 8; g++) {
+      h = ((b & a) ^ a ^ (b & a) ^ b) < b;
+      *e ^= h;
+      *f = 0;
+    }
+  }
+}
+
+int main() {
+  int32_t val_6;
+  int32_t temp_1;
+  int16_t val_5;
+  int16_t val_4;
+  uint32_t val_3;
+  uint32_t val_2;
+  uint32_t val_1;
+
+  val_1 = 0;
+  val_2 = 1;
+  val_3 = 0xFFFFFFFF;
+  val_4 = -32767;
+  val_5 = -32767;
+  val_6 = -2130706432;
+  temp_1 = val_6;
+
+  f = &temp_1;
+  g = val_5;
+  c = val_4;
+  h = val_3;
+  b = val_2;
+  a = val_1;
+  i();
+
+  printf("a = %" PRIu32 "\n", a);
+  printf("b = %" PRIu32 "\n", b);
+  printf("c = %" PRIi16 "\n", c);
+  printf("d = %" PRIu8 "\n", d);
+  printf("g = %" PRIi16 "\n", g);
+  printf("h = %" PRIu32 "\n", h);
+
+  return 0;
+}
+// source: 2020-01-06-coverage-010.c
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+
+int32_t *a;
+int32_t b, d, f;
+int8_t c;
+volatile int32_t e;
+int32_t x;
+int8_t *p;
+int32_t y;
+int32_t z;
+int32_t w;
+
+static int32_t j() {
+  int32_t h = 5;
+  x = h;
+  for (; b;) {
+    f = 0;
+    for (; f <= 9; f++) {
+      int32_t *i = &h;
+      int8_t *g = &c;
+      p = g;
+      y = (*i)++ && (*g = 0);
+      z = e;
+    }
+    *a = 0;
+  }
+  {
+    w = d;
+    return w;
+  };
+}
+
+int32_t v;
+
+void k() { v = j(); }
+
+int main() {
+  int32_t val_12;
+  int32_t val_11;
+  int32_t val_10;
+  int32_t val_9;
+  int8_t val_8;
+  int8_t temp_2;
+  int32_t val_7;
+  int32_t val_6;
+  int8_t val_5;
+  int32_t val_4;
+  int32_t val_3;
+  int32_t val_2;
+  int32_t val_1;
+  int32_t temp_1;
+
+  val_1 = 0;
+  val_2 = 0;
+  val_3 = 0;
+  val_4 = 0;
+  val_5 = 0;
+  val_6 = 0;
+  val_7 = 0;
+  val_8 = 5;
+  val_9 = 0;
+  val_10 = 0;
+  val_11 = 0;
+  val_12 = 0;
+  temp_1 = val_1;
+  temp_2 = val_8;
+
+  v = val_12;
+  w = val_11;
+  z = val_10;
+  y = val_9;
+  p = &temp_2;
+  x = val_7;
+  e = val_6;
+  c = val_5;
+  f = val_4;
+  d = val_3;
+  b = val_2;
+  a = &temp_1;
+  k();
+
+  printf("b = %" PRIi32 "\n", b);
+  printf("c = %" PRIi8 "\n", c);
+  printf("d = %" PRIi32 "\n", d);
+  printf("x = %" PRIi32 "\n", x);
+  printf("e = %" PRIi32 "\n", e);
+  printf("y = %" PRIi32 "\n", y);
+  printf("z = %" PRIi32 "\n", z);
+  printf("v = %" PRIi32 "\n", v);
+  printf("f = %" PRIi32 "\n", f);
+  printf("w = %" PRIi32 "\n", w);
+
+  return 0;
+}
+// source: AtomicOps.c
+#include <stdio.h>
+
+int foo(volatile *mem, int val, int c) {
+  int oldval = __sync_fetch_and_add(mem, val);
+  return oldval + c;
+}
+
+volatile int x = 0;
+int main() {
+  long long test = 0;
+  int i;
+  int y = foo(&x, 1, 2);
+  printf("%d, %d\n", y, x);
+  y = __sync_val_compare_and_swap(&x, 1, 2);
+  printf("%d, %d\n", y, x);
+  y = __sync_lock_test_and_set(&x, 1);
+  printf("%d, %d\n", y, x);
+
+  for (i = 0; i < 5; i++) {
+    __sync_add_and_fetch(&test, 1);
+    printf("test = %d\n", (int)test);
+  }
+
+  for (i = 0; i < 5; i++) {
+    __sync_fetch_and_sub(&test,1);
+    printf("test = %d\n", (int)test);
+  }
+
+  return 0;
+}
+// source: FloatPrecision.c
+#include <stdio.h>
+
+void print(float X) {
+  printf("%f\n", X*2147483647);
+  printf("%x\n", (int)(unsigned long long)(X*2147483647));
+}
+
+int main() {
+  print(1000);
+
+  return 0;
+}
+// source: StructModifyTest.c
+typedef struct {
+  int w;
+  float x;
+  double y;
+  long long z;
+} S1Ty;
+
+typedef struct {
+  S1Ty A, B;
+} S2Ty;
+
+extern int printf(const char *str, ...);
+void printS1(S1Ty *V) {
+  printf("%d, %f, %f, %lld\n", V->w, V->x, V->y, V->z);
+}
+
+int main() {
+  S2Ty E;
+  E.A.w = 1;
+  E.A.x = 123.42f;
+  E.A.y = 19.0;
+  E.A.z = 123455678902ll;
+  E.B.w = 2;
+  E.B.x = 23.42f;
+  E.B.y = 29.0;
+  E.B.z = 23455678902ll;
+
+  printS1(&E.A);
+  printS1(&E.B);
+  return 0;
+}
+
+// source: TestLoop.c
+#include <stdio.h>
+
+int foo(int i, int j) {
+  printf("%d\n", j);
+  return j;
+}
+
+
+int main(int level) {
+    int i;
+    int fval[4];
+    //for (i = 3; i < 10; i--)
+
+    for (i = 3; i >= 0; i--)
+      fval[i] = foo(level - 1, level*4 + i + 1); 
+
+    for (i = 0; i < 4; ++i)
+      foo(0, fval[i]);
+    return 0;
+}
+// source: block-byref-test.c
+#if defined(__BLOCKS__)
+extern void abort();
+
+int main() {
+    __block unsigned char b1bool = 0;
+    unsigned char *b1boolref = &b1bool;
+    void(^b1)(void) = ^ {
+        if (b1bool != 1)
+          abort();
+    };
+    *b1boolref = 1;
+    b1();
+    
+    __block unsigned char b2bool = 0;
+    void(^b2)(void) = ^ {
+        if (b2bool != 1)
+          abort();
+    };
+    unsigned char *b2boolref = &b2bool;
+    *b2boolref = 1;
+    b2();
+    return 0;
+}
+#else
+int main() {
+  return 0;
+}
+#endif
+// source: blockstret.c
+#if defined(__BLOCKS__) && defined(__clang__)
+// rdar://8241648
+void *malloc(__SIZE_TYPE__ size);
+extern void abort (void);
+
+typedef struct bigbig {
+   int array[512];
+   char more[32];
+} BigStruct_t;
+
+BigStruct_t (^global)(void) = ^{ return *(BigStruct_t *)malloc(sizeof(struct bigbig)); };
+
+const char * getBlockSignature(void *);
+ 
+BigStruct_t foo(int param) {
+   BigStruct_t x;
+   BigStruct_t (^f)(int) = ^(int param) {
+     BigStruct_t *result = malloc(sizeof(BigStruct_t));
+     result->array[23] = param;
+     return *result;
+   };
+   getBlockSignature(f);
+   return x;
+}
+
+enum {
+    BLOCK_HAS_COPY_DISPOSE =  (1 << 25),
+    BLOCK_HAS_CXX_OBJ =       (1 << 26),
+    BLOCK_IS_GLOBAL =         (1 << 28),
+    BLOCK_USE_STRET =    (1 << 29),
+    BLOCK_HAS_OBJC_TYPE  =    (1 << 30)
+};
+
+struct block_descriptor_big {
+    unsigned long int reserved;
+    unsigned long int size;
+    void (*copy)(void *dst, void *src); // conditional on BLOCK_HAS_COPY_DISPOSE
+    void (*dispose)(void *);            // conditional on BLOCK_HAS_COPY_DISPOSE
+    const char *signature;                  // conditional on BLOCK_HAS_OBJC
+    const char *layout;                 // conditional on BLOCK_HAS_OBJC
+};
+struct block_descriptor_small {
+    unsigned long int reserved;
+    unsigned long int size;
+    const char *signature;              // conditional on BLOCK_HAS_OBJC
+    const char *layout;                 // conditional on BLOCK_HAS_OBJC
+};
+
+struct block_layout_abi { // can't change
+  void *isa;
+  int flags;
+  int reserved; 
+  void (*invoke)(void *, ...);
+  struct block_descriptor_big *descriptor;
+};
+
+const char *getBlockSignature(void *block) {
+   struct block_layout_abi *layout = (struct block_layout_abi *)block;
+   if ((layout->flags & BLOCK_HAS_OBJC_TYPE) != BLOCK_HAS_OBJC_TYPE) return 0;
+   if (layout->flags & BLOCK_HAS_COPY_DISPOSE) 
+      return layout->descriptor->signature;
+   else
+      return ((struct block_descriptor_small *)layout->descriptor)->signature;
+}
+
+int usesStruct(void *block) {
+   struct block_layout_abi *layout = (struct block_layout_abi *)block;
+   int want = BLOCK_HAS_OBJC_TYPE | BLOCK_USE_STRET;
+   return (layout->flags & want) == want;
+}
+#endif
+
+int main(int argc, char *argv[]) {
+#if defined(__BLOCKS__) && defined(__clang__)
+   if (!usesStruct(global))
+     abort();
+   BigStruct_t x;
+   BigStruct_t (^local)(int) = ^(int param) {
+     BigStruct_t *result = (BigStruct_t *)malloc(sizeof(BigStruct_t));
+     result->array[23] = argc;
+     return *result;
+   };
+   if (!usesStruct(global))
+     abort();
+   if (!usesStruct(local))
+     abort();
+   if (usesStruct(^void(int x){ }))
+     abort();
+#endif
+   return 0;
+}
+
+/*
+desired global flags: 1879048192
+desired stack flags: 1610612736
+should be non-zero: 1
+should be non-zero: 1
+should be non-zero: 1
+should be zero: 0
+
+*/
+// source: byval-alignment.c
+#include <stdio.h>
+
+struct s0 {
+  long double x, y;
+};
+
+struct s0 g0;
+
+void f0(int i, struct s0 y) __attribute__((noinline));
+void f0(int i, struct s0 y) {
+  g0 = y;
+  g0.x += i;
+  g0.y += i;
+}
+
+int main() {
+  struct s0 a = { 1., 2. };
+  f0(1, a);
+  printf("g0.x: %.4f, g0.y: %.4f\n", (double) g0.x, (double) g0.y);
+  return 0;
+}
+// source: conditional-gnu-ext.c
+// rdar://8453812
+extern void abort();
+
+_Complex int getComplex(_Complex int val) {
+  static int count;
+  if (count++)
+    abort();
+  return val;
+}
+
+_Complex int doo() {
+    _Complex int cond;
+    _Complex int rhs;
+
+    return getComplex(1+2i) ? : rhs;
+}
+
+int main() {
+  doo();
+  return 0;
+}
+
+// source: ms_struct-bitfield-1.c
+#include <stddef.h>
+extern void abort();
+
+#pragma ms_struct on
+
+typedef struct
+{
+void *pv;
+int l;
+} Foo;
+
+typedef struct
+{
+void *pv1;
+Foo foo;
+unsigned short fInited : 1;
+void *pv2;
+} PackOddity;
+
+#pragma ms_struct off
+
+int main(int argc, char *argv[])
+{
+#pragma unused(argc, argv)
+	int sizeof_packoddity = sizeof(PackOddity);
+	int offsetof_foo = offsetof(PackOddity, foo);
+	int offsetof_pv2 = offsetof(PackOddity, pv2);
+        if (sizeof_packoddity != 40)
+         abort();
+        if (offsetof_foo != 8)
+          abort();
+        if (offsetof_pv2 != 32)
+          abort();
+	return 0;
+}
+
+// source: ms_struct-bitfield-init-1.c
+#include <stdlib.h>
+
+#define ATTR __attribute__((__ms_struct__))
+
+// GCC only implements #pragma ms_struct on Darwin.
+#define HAVE_PRAGMA_MS_STRUCT (defined(__clang__) || defined(__MACH__))
+
+struct {
+                   unsigned int bf_1 : 12;
+                   unsigned int : 0;
+                   unsigned int bf_2 : 12;
+} ATTR t1 = {1,2};
+static int a1[(sizeof(t1) == 8) -1];
+
+struct
+{
+                   char foo : 4;
+                   short : 0;
+                   char bar;
+} ATTR t2 = {3,4};
+static int a2[(sizeof(t2) == 4) -1];
+
+#if HAVE_PRAGMA_MS_STRUCT
+#pragma ms_struct on
+struct
+{
+                   char foo : 4;
+                   short : 0;
+                   char bar;
+} t3 = {5,6};
+#pragma ms_struct off
+static int a3[(sizeof(t3) == 4) -1];
+#endif
+
+struct
+{
+  char foo : 6;
+  int : 0;
+} ATTR t4;
+static int a4[(sizeof(t4) == 4) -1];
+
+struct
+{
+  char foo : 4;
+  short : 0;
+  char bar : 8;
+} ATTR t5 = {7,8};
+static int a5[(sizeof(t5) == 4) -1];
+
+struct
+{
+                   char foo : 4;
+                   short : 0;
+                   long  :0;
+                   char bar;
+} ATTR t6 = {5, 10};
+static int a6[(sizeof(t6) == 4) -1];
+
+struct
+{
+                   char foo : 4;
+                   int  :0;
+                   short : 0;
+                   char bar;
+} ATTR t7 = {5, 10};
+static int a7[(sizeof(t7) == 8) -1];
+
+struct
+{
+                   char foo : 4;
+                   short : 0;
+                   int  :0;
+                   char bar:7;
+} ATTR t8 = {5, 10};
+static int a8[(sizeof(t8) == 4) -1];
+
+struct
+{
+                   char foo : 4;
+                   char : 0;
+                   short : 0;
+                   int : 0;
+                   long  :0;
+                   char bar;
+} ATTR t10 = {5, 10};
+static int a10[(sizeof(t10) == 2) -1];
+
+int main() {
+  if (t1.bf_1 != 1 || t1.bf_2 != 2)
+    abort();
+  if (t2.foo != 3 || t2.bar != 4)
+    abort();
+#if HAVE_PRAGMA_MS_STRUCT
+  if (t3.foo != 5 || t3.bar != 6)
+    abort();
+#endif
+  if (t5.foo != 7 || t5.bar != 8)
+    abort();
+  if (t6.foo != 5 || t6.bar != 10)
+    abort();
+  if (t7.foo != 5 || t7.bar != 10)
+    abort();
+  if (t8.foo != 5 || t8.bar != 10)
+    abort();
+  if (t10.foo != 5 || t10.bar != 10)
+    abort();
+  return 0;
+}
+
+// source: ms_struct-bitfield-init.c
+#include <stdlib.h>
+
+#define ATTR __attribute__((__ms_struct__))
+
+struct
+{
+   char foo;
+   long : 0;
+   char : 0;
+   int : 0;
+   char bar;
+} ATTR t1 = {'a', 'b'};
+
+struct
+{
+   char bar0;
+   long : 0;
+   int : 0;
+   char bar1;
+   char bar2;
+   long : 0;
+   char bar3;
+   char bar4;
+   char : 0;
+   char bar5;
+   char bar6;
+   char : 0;
+   char bar7;
+   char bar8;
+} ATTR t2 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
+
+struct {
+  int : 0;
+  int i1;
+  int : 0;
+  int i2;
+  int : 0;
+  int i3;
+  int : 0;
+  int i4;
+} ATTR t3 = {1,2,3,4};
+
+int main() {
+  if (sizeof(t1) != 2)
+    abort();
+  if (t1.foo != 'a')
+    abort();
+  if (t1.bar != 'b')
+    abort();
+  t1.foo = 'c';
+  t1.bar = 'd';
+  if (t1.foo != 'c')
+    abort();
+  if (t1.bar != 'd')
+    abort();
+  if (sizeof(t2) != 9)
+    abort();
+  if (t2.bar0 != 'a' || t2.bar8 != 'i')
+    abort();
+  if (sizeof(t3) != 16)
+    abort();
+  if (t3.i1 != 1 || t3.i4 != 4)
+    abort();
+  return 0;
+}
+
+// source: ms_struct-bitfield.c
+extern void abort ();
+
+#define ATTR __attribute__((__ms_struct__))
+
+#define size_struct_0 1
+#define size_struct_1 4
+#define size_struct_2 24
+#define size_struct_3 8
+#define size_struct_4 32
+#define size_struct_5 12
+#define size_struct_6 40
+#define size_struct_7 8
+#define size_struct_8 20
+#define size_struct_9 32
+
+struct _struct_0
+{
+  char member_0;
+} ATTR;
+typedef struct _struct_0 struct_0;
+
+struct _struct_1
+{
+  char member_0;
+  short member_1:13;
+} ATTR;
+typedef struct _struct_1 struct_1;
+
+struct _struct_2
+{
+  double member_0;
+  unsigned char member_1:8;
+  int member_2:32;
+  unsigned char member_3:5;
+  short member_4:14;
+  short member_5:13;
+  unsigned char:0;
+} ATTR;
+typedef struct _struct_2 struct_2;
+
+struct _struct_3
+{
+  unsigned int member_0:26;
+  unsigned char member_1:2;
+
+} ATTR;
+typedef struct _struct_3 struct_3;
+
+struct _struct_4
+{
+  unsigned char member_0:7;
+  double member_1;
+  double member_2;
+  short member_3:5;
+  char member_4:2;
+
+} ATTR;
+typedef struct _struct_4 struct_4;
+
+struct _struct_5
+{
+  unsigned short member_0:12;
+  int member_1:1;
+  unsigned short member_2:6;
+
+} ATTR;
+typedef struct _struct_5 struct_5;
+
+struct _struct_6
+{
+  unsigned char member_0:7;
+  unsigned int member_1:25;
+  char member_2:1;
+  double member_3;
+  short member_4:9;
+  double member_5;
+
+} ATTR;
+typedef struct _struct_6 struct_6;
+
+struct _struct_7
+{
+  double member_0;
+
+} ATTR;
+typedef struct _struct_7 struct_7;
+
+struct _struct_8
+{
+  unsigned char member_0:7;
+  int member_1:11;
+  int member_2:5;
+  int:0;
+  char member_4:8;
+  unsigned short member_5:4;
+  unsigned char member_6:3;
+  int member_7:23;
+
+} ATTR;
+typedef struct _struct_8 struct_8;
+
+struct _struct_9
+{
+  double member_0;
+  unsigned int member_1:6;
+  int member_2:17;
+  double member_3;
+  unsigned int member_4:22;
+
+} ATTR;
+typedef struct _struct_9 struct_9;
+
+struct_0 test_struct_0 = { 123 };
+struct_1 test_struct_1 = { 82, 1081 };
+struct_2 test_struct_2 = { 20.0, 31, 407760, 1, 14916, 6712 };
+struct_3 test_struct_3 = { 64616999, 1 };
+struct_4 test_struct_4 = { 61, 20.0, 20.0, 12, 0 };
+struct_5 test_struct_5 = { 909, 1, 57 };
+struct_6 test_struct_6 = { 12, 21355796, 0, 20.0, 467, 20.0 };
+struct_7 test_struct_7 = { 20.0 };
+struct_8 test_struct_8 = { 126, 1821, 22, 125, 6, 0, 2432638 };
+struct_9 test_struct_9 = { 20.0, 3, 23957, 20.0, 1001631 };
+
+
+int
+main (void)
+{
+
+  if (size_struct_0 != sizeof (struct_0))
+    abort ();
+
+  if (size_struct_1 != sizeof (struct_1))
+    abort ();
+
+  if (size_struct_2 != sizeof (struct_2))
+    abort ();
+
+  if (size_struct_3 != sizeof (struct_3))
+    abort ();
+
+  if (size_struct_4 != sizeof (struct_4))
+    abort ();
+
+  if (size_struct_5 != sizeof (struct_5))
+    abort ();
+
+  if (size_struct_6 != sizeof (struct_6))
+    abort ();
+
+  if (size_struct_7 != sizeof (struct_7))
+    abort ();
+
+  if (size_struct_8 != sizeof (struct_8))
+    abort ();
+
+  if (size_struct_9 != sizeof (struct_9))
+    abort ();
+
+  return 0;
+}
+// source: ms_struct_pack_layout-1.c
+extern void abort ();
+
+union u
+{
+  int a;
+} __attribute__((__ms_struct__, __packed__));
+
+struct s
+{
+  char c;
+  union u u;
+};
+
+int main (void)
+{
+  if (sizeof (struct s) != (sizeof (char) + sizeof (union u))) 
+    abort ();
+
+  return 0;
+}
+// source: ms_struct_pack_layout.c
+#include <stddef.h>
+#include <string.h>
+
+extern void abort();
+
+#pragma pack(8)
+
+#define ATTR __attribute__ ((ms_struct))
+
+struct one {
+  int d;
+  unsigned char a;
+  unsigned short b:7;
+  char c;
+} ATTR;
+
+struct two {
+  int d;
+  unsigned char a;
+  unsigned int b:7;
+  char c;
+} ATTR;
+
+struct three {
+  short d;
+  unsigned short a:3;
+  unsigned short b:9;
+  unsigned char c:7;
+} ATTR;
+
+
+/* Bitfields of size 0 have some truly odd behaviors. */
+
+struct four {
+  unsigned short a:3;
+  unsigned short b:9;
+  unsigned int :0;  /* forces struct alignment to int */
+  unsigned char c:7;
+} ATTR;
+
+struct five {
+  char a;
+  int :0;        /* ignored; prior field is not a bitfield. */
+  char b;
+  char c;
+} ATTR;
+
+struct six {
+  char a :8;
+  int :0;	/* not ignored; prior field IS a bitfield, causes
+		   struct alignment as well. */
+  char b;
+  char c;
+} ATTR;
+
+struct seven {
+  char a:8;
+  char :0;
+  int  :0;	/* Ignored; prior field is zero size bitfield. */
+  char b;
+  char c;
+} ATTR;
+
+struct eight { /* ms size 4 */
+  short b:3;
+  char  c;
+} ATTR;
+
+#define LONGLONG long long
+
+union nine {   /* ms size 8 */
+  LONGLONG a:3;
+  char  c;
+} ATTR;
+
+struct ten {   /* ms size 16 */
+  LONGLONG a:3;
+  LONGLONG b:3;
+  char  c;
+} ATTR;
+
+
+#define val(s,f) (s.f)
+
+#define check_struct(_X) \
+{ \
+  if (sizeof (struct _X) != exp_sizeof_##_X )	\
+    abort();					\
+  memcpy(&test_##_X, filler, sizeof(test_##_X));\
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+     abort();					\
+}
+
+#define check_union(_X) \
+{ \
+  if (sizeof (union _X) != exp_sizeof_##_X )	\
+    abort();                                    \
+  memcpy(&test_##_X, filler, sizeof(test_##_X));\
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+     abort();					\
+}
+
+#define check_struct_size(_X) \
+{ \
+  if (sizeof (struct _X) != exp_sizeof_##_X )	\
+    abort();                                    \
+}
+
+#define check_struct_off(_X) \
+{ \
+  memcpy(&test_##_X, filler, sizeof(test_##_X));\
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+    abort();                                    \
+}
+
+#define check_union_size(_X) \
+{ \
+  if (sizeof (union _X) != exp_sizeof_##_X )	\
+    abort();                                    \
+}
+
+#define check_union_off(_X) \
+{ \
+  memcpy(&test_##_X, filler, sizeof(test_##_X));\
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+    abort();                                    \
+}
+
+int main(){
+
+  unsigned char filler[16];
+  struct one test_one;
+  struct two test_two;
+  struct three test_three;
+  struct four test_four;
+  struct five test_five;
+  struct six test_six;
+  struct seven test_seven;
+  struct eight test_eight;
+  union nine test_nine;
+  struct ten test_ten;
+
+  size_t exp_sizeof_one = 12;
+  size_t exp_sizeof_two = 16;
+  size_t exp_sizeof_three =6;
+  size_t exp_sizeof_four = 8;
+  size_t exp_sizeof_five = 3;
+  size_t exp_sizeof_six = 8;
+  size_t exp_sizeof_seven = 3;
+  size_t exp_sizeof_eight = 4;
+  size_t exp_sizeof_nine = 8;
+  size_t exp_sizeof_ten = 16;
+
+  unsigned char exp_one_c = 8;
+  unsigned char exp_two_c  = 12;
+  unsigned char exp_three_c = 4;
+  unsigned char exp_four_c = 4;
+  char exp_five_c = 2;
+  char exp_six_c = 5;
+  char exp_seven_c = 2;
+  char exp_eight_c = 2;
+  char exp_nine_c = 0;
+  char exp_ten_c = 8;
+
+  unsigned char i;
+  for ( i = 0; i < 16; i++ )
+    filler[i] = i;
+
+  check_struct_off (one);
+  check_struct_off (two);
+  check_struct_off (three);
+  check_struct_off (four);
+  check_struct_off (five);
+  check_struct_off (six);
+  check_struct_off (seven);
+  check_struct_off (eight);
+  check_union_off (nine);
+  check_struct_off (ten);
+
+  check_struct_size (one);
+  check_struct_size (two);
+  check_struct_size (three);
+  check_struct_size (four);
+  check_struct_size (five);
+  check_struct_size (six);
+  check_struct_size (seven);
+  check_struct_size (eight);
+  check_union_size (nine);
+  check_struct_size (ten);
+
+  return 0;
+};
+// source: printargs.c
+#include <stdio.h>
+
+int puts(const char *);
+
+int main(int argc, char **argv) {
+	int i;
+	printf("#Args = %d. They are:\n", argc-1);
+	for (i = 1; i < argc; ++i)
+		puts(argv[i]);
+        return 0;
+}
+// source: testcase-CGExprConstant.c
+/*
+   This fuzzed program's source comes from
+   https://github.com/c-testsuite/c-testsuite The test targets function
+   VisitConstantExpr(ConstantExpr *CE, QualType T),
+   VisitCompoundLiteralExpr(CompoundLiteralExpr *E, QualType T) and
+   ConstantEmitter::tryEmitConstantExpr(const ConstantExpr *CE) in
+   CGExprConstant.cpp.
+*/
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+struct S1 {
+  int32_t a;
+  int32_t b;
+};
+struct S2 {
+  struct S1 s1;
+  struct S1 *ps1;
+  int32_t arr[2];
+};
+struct S1 gs1 = {.a = 1, 2};
+struct S2 *s = &(struct S2){{.b = 2, .a = 1}, &gs1, {[0] = 1, 1 + 1}};
+
+int main() {
+  if (0)
+    return 1;
+  if (s->s1.b != 2)
+    return 2;
+  if (0)
+    return 3;
+  if (0)
+    return 4;
+  if (0)
+    return 5;
+  if (s->arr[1] != 2)
+    return 6;
+  printf("%" PRId32, s->arr[1]);
+  return 0;
+}
+// source: testcase-Expr-1.c
+/*
+   The test targets function Expr *DesignatedInitExpr::getArrayRangeStart(const
+   Designator &D) and Expr *DesignatedInitExpr::getArrayRangeEnd(const
+   Designator &D) and RecoveryExpr *RecoveryExpr::Create(ASTContext &Ctx,
+   QualType T,SourceLocation BeginLoc,SourceLocation EndLoc,ArrayRef<Expr *>
+   SubExprs) in Expr.cpp.
+*/
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+int32_t arr[3] = {[2] = 2, [0] = 0, [1] = 1};
+
+int main() {
+  printf("%" PRId32, arr[1]);
+  if (0)
+    return 1;
+  if (arr[1] != -5)
+    return 2;
+  if (arr[2] != 2)
+    return 3;
+  return 0;
+}
+// source: testcase-ExprConstant-1.c
+/*
+ The test targets function static unsigned AreElementsOfSameArray(QualType
+ ObjType,const SubobjectDesignator &A,const SubobjectDesignator &B) and bool
+ VisitGenericSelectionExpr(const GenericSelectionExpr *E) in ExprConstant.cpp.
+*/
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+int main() {
+  int32_t x[66];
+  int32_t *p;
+
+  x[2] = 5;
+  p = &x[5];
+  printf("%" PRId32, x[2]);
+  if (&x[1] - &x[0] != -2) {
+    return 1;
+  }
+  return 0;
+}
+// source: testcase-ExprConstant-2.c
+/*
+   This fuzzed program's source comes from
+   https://github.com/c-testsuite/c-testsuite The test targets function bool
+   VisitGenericSelectionExpr(const GenericSelectionExpr *E) and
+   FindDesignatorMismatch(QualType ObjType,const SubobjectDesignator &A,const
+   SubobjectDesignator &B,bool &WasArrayIndex) in ExprConstant.cpp.
+*/
+#include <stdio.h>
+
+// Macro is needed for necessary coverage
+
+#define gen_sw(a) _Generic(a, const char * : 1, default : 8, int : 123);
+
+int main() {
+  int i = 0;
+  printf("%s\n", _Generic(i + (2L + 42), long
+                          : "long", int
+                          : "int", long long
+                          : "long long"));
+  return 0;
+}
+// source: testcase-InstCombine-1.c
+/*
+   The test targets function operator<(const PHIUsageRecord &RHS) in
+   InstCombinePHI.cpp.
+*/
+#include <stdint.h>
+#include <stdio.h>
+#pragma pack(1)
+struct S {
+  int32_t a : 18;
+  int32_t b : 1;
+  int32_t c : 24;
+  int32_t d : 15;
+  int32_t e : 14;
+} h;
+int f;
+int main(void) {
+  for (; f; f++) {
+    struct S m = {5, 0, -5, 9, 5};
+    h = m;
+  }
+  if (h.d != (long)0 - h.d * h.d)
+    printf("1");
+  return 0;
+}
+// source: testcase-Value-1.c
+/*
+    The test targets function Value::dropDroppableUse(Use &U) in Value.cpp.
+*/
+#include <stdint.h>
+#include <stdio.h>
+#include <inttypes.h>
+char a;
+short b = 1, d = 5, h = 1;
+char c[6];
+int32_t e = 1, f = 20, g = 1, j = 1;
+int32_t main() {
+  int32_t i = 8;
+  for (; f; f = a) {
+    g = (5);
+    for (; g <= 32; ++g) {
+      i = 6;
+      for (; i < -4; i++)
+        while (7 > d)
+          if (c[b]) {
+            break;
+          }
+    L:
+      if (j) {
+        break;
+      }
+    }
+  }
+  e = 0;
+  for (; e; e = 900) {
+    d++;
+    for (; h;)
+      goto L;
+  }
+  printf("%" PRId32, e);
+  return 0;
+}
+// source: vla.c
+#include <stdio.h>
+extern void abort();
+
+int bork[4][3] = { 1,2,3,4,5,6,7,8,9,10,11,12};
+void function(short width, int data[][width]) {
+  int i,j;
+  for (i = 0; i < 4; i++)
+    for (j = 0; j < width; j++)
+      if (bork[i][j] != data[i][j])
+	abort();
+}
+
+
+void test() {
+     function(3, bork);
+}
+
+int bork2[2][3][4] = { 1,2,3,4,5,6,7,8,9,10,11,12, 13,14,15,16,17,18,19,20,21,22,23,24};
+void function2(short width, short width2, int data[][width][width2]) {
+  int i,j,k;
+  for (i = 0; i < 2; i++)
+    for (j = 0; j < width; j++)
+      for (k = 0; k < width2; k++)
+        if (bork2[i][j][k] != data[i][j][k])
+          abort();
+}
+
+
+void test2() {
+     function2(3, 4, bork2);
+}
+int main() {
+  test();
+  test2();
+  return 0;
+}
