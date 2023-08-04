@@ -1,0 +1,61 @@
+Another corner case, is where there is nothing you need to do because the main is boring, that is, when the main contains no assignments and no constants easy to override.
+
+For this program for example:
+can you generate a pair of programs from this?
+// source: 00177.c
+#include <stdio.h>
+
+int main()
+{
+   printf("%d\n", '\1');
+   printf("%d\n", '\10');
+   printf("%d\n", '\100');
+   printf("%d\n", '\x01');
+   printf("%d\n", '\x0e');
+   printf("%d\n", '\x10');
+   printf("%d\n", '\x40');
+   printf("test \x40\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+
+I expect the following output:
+
+Program 1:
+```
+#include <stdio.h>
+
+int main() {
+    printf("%d\n", '\1');
+    printf("%d\n", '\10');
+    printf("%d\n", '\100');
+    printf("%d\n", '\x01');
+    printf("%d\n", '\x0e');
+    printf("%d\n", '\x10');
+    printf("%d\n", '\x40');
+    printf("test \x40\n");
+
+    return 0;
+}
+```
+
+Program 2:
+```
+#include <stdio.h>
+
+int main() {
+    printf("%d\n", '\1');
+    printf("%d\n", '\10');
+    printf("%d\n", '\100');
+    printf("%d\n", '\x01');
+    printf("%d\n", '\x0e');
+    printf("%d\n", '\x10');
+    printf("%d\n", '\x40');
+    printf("test \x40\n");
+
+    return 0;
+}
+```
+
