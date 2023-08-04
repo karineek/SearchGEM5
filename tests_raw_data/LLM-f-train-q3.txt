@@ -1,0 +1,52 @@
+I have another thing to ask, a corner case.
+
+For this example:
+// Modification timestamp: 2023-08-02 17:40:00
+// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00008.c
+#include <stdio.h>
+
+int main() {
+    int x;
+
+    x = 50;
+    do {
+        x = x - 1;
+    } while (x);
+    return x;
+}
+
+giving as an answer the second program:
+// Modification timestamp: 2023-08-03 10:15:00
+// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00008.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    int x;
+
+    x = 50;
+    do {
+        x = x - 1;
+    } while (x);
+
+    if (argc != 2) {
+        printf("Usage: %s <value>\n", argv[0]);
+        return 1;
+    }
+
+    x = atoi(argv[1]);
+    return x;
+}
+
+is very very bad. Please do not do it. 
+
+I can explain you why.
+
+This is because:
+ x = atoi(argv[1]);
+    return x;
+}
+
+this does not make much sense, it should be much earlier in the code of main function.
+
+Can you please do it from now on?
