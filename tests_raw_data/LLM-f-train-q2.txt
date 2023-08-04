@@ -33,6 +33,8 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
+But please make sure the comments are inside the program as its first line.
+
   int x = atoi(argv[1]);
   return x - 4;
 }
