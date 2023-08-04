@@ -1,0 +1,1478 @@
+// source: 2003-05-14-initialize-string.c
+extern int printf(const char *str, ...);
+
+int main() {
+  char title[] = "foo and stuff\n";
+  printf("%s", title);
+  return 0;
+}
+// source: 2003-05-21-BitfieldHandling.c
+struct test_empty {
+} e;
+int Esize = sizeof(e);
+
+struct rtx_def {
+  unsigned short code;
+  long long :3;
+  int mode : 8;
+  long long :0;
+  long long x :31;
+  long long y:31;
+} N = {2, 7, 1 }; int Nsize = sizeof(N);  // Size = 8
+
+struct test1 {
+  char x:1;
+  long long :0;
+} F1;  int F1size = sizeof(F1);  // Size = 4
+
+struct test2 {
+  long long x :4;
+} F2;  int F2size = sizeof(F2);  // Size = 4
+
+struct test3 {
+  char x:1;
+  long long :20;
+} F3;  int F3size = sizeof(F3);  // Size = 3
+
+struct test4 {
+  char x:1;
+  long long :21;
+  short Y : 14;
+} F4; int F4size = sizeof(F4);  // Size = 6
+
+struct test5 {
+  char x:1;
+  long long :17;
+  char Y : 1;
+} F5; int F5size = sizeof(F5); // Size = 3
+
+struct test6 {
+  char x:1;
+  long long :42;
+  int Y : 21;
+} F6; int F6size = sizeof(F6);  // Size = 8
+
+struct test {
+  char c;
+  char d : 3;
+  char e: 3;
+  int : 0;
+  char f;
+  char :0;
+  long long x : 4;
+} M;   int Msize = sizeof(M);  // Size = 8
+
+extern int printf(const char *str, ...);
+
+int main() {
+  printf("N: %d %d %d %d\n", N.code, N.mode, N.x, N.y);
+  printf("F1: %d\n", F1.x);
+  printf("F2: %d\n", F2.x);
+  printf("F3: %d\n", F3.x);
+  printf("F4: %d %d\n", F4.x, F4.Y);
+  printf("F5: %d %d\n", F5.x, F5.Y);
+  printf("F6: %d %d\n", F6.x, F6.Y);
+  printf("M: %d %d %d %d %d\n", M.c, M.d, M.e, M.f, (int)M.x);
+  
+  return 0;
+}
+// source: 2003-05-21-UnionBitfields.c
+#include <stdio.h>
+#include <math.h>
+
+int target_isinf(double x) {
+  union {
+    double d;
+    struct {
+      unsigned mantissa2;
+      unsigned mantissa1 : 20;
+      unsigned exponent  : 11;
+      unsigned sign      :  1;
+    } big_endian;
+  } u;
+
+  u.d = x;
+  return (u.big_endian.exponent == 2047 && u.big_endian.mantissa1 == 0 && u.big_endian.mantissa2 == 0);
+}
+
+int main() {
+  printf("%d %d\n", target_isinf(1234.42), target_isinf(1.0/5.0e-324));
+  return 0;
+}
+// source: 2003-05-21-UnionTest.c
+#include <stdio.h>
+
+int __signbit (double __x) {
+  union { double __d; int __i[3]; } __u = { __d: __x };
+  return __u.__i[1] < 0;
+}
+
+int main() {
+  printf("%d %d\n", __signbit(-1), __signbit(2.0));
+  return 0;
+}
+// source: 2003-05-22-LocalTypeTest.c
+#include <stdio.h>
+
+struct sometimes {
+  short offset; short bit;
+  short live_length; short calls_crossed;
+} Y;
+
+int main() {
+  int X;
+  {
+    struct sometimes { int X, Y; } S;
+    S.X = 1;
+    X = S.X;
+  }
+  { 
+    struct sometimes { signed char X; } S;
+    S.X = -1;
+    X += S.X;
+  }
+  X += Y.offset;
+
+  printf("Result is %d\n", X);
+  return X;
+}
+// source: 2003-05-22-VarSizeArray.c
+#include <stdio.h>
+
+int test(int Num) {
+  int Arr[Num];
+  Arr[2] = 0;
+  return Arr[2];
+}
+
+int main() {
+  printf("%d\n", test(4));
+  return 0;
+}
+// source: 2003-05-23-TransparentUnion.c
+#include <stdio.h>
+
+typedef union {
+  float *__fptr;
+  int *__iptr;
+} UNION __attribute__ ((__transparent_union__));
+
+int try(UNION U) {
+  return 1;
+}
+int test() {
+  int I;
+  float F;
+  return try(&I) | try(&F);
+}
+
+int main() {
+  if (test()) printf("ok");
+  return 0;
+}
+// source: 2003-06-16-InvalidInitializer.c
+typedef struct {
+    char *auth_pwfile;
+    int x;
+} auth_config_rec;
+
+void *Ptr = &((auth_config_rec*)0)->x;
+
+int main() { return 0; }
+// source: 2003-06-16-VolatileError.c
+/* This crashes the CFE.  */
+extern int volatile test;
+int volatile test = 0;
+
+int main() { return 0; }
+// source: 2003-10-12-GlobalVarInitializers.c
+#include <stdio.h>
+
+union { unsigned __l; float __d; } GlobalUnion = { 0x70c00000U };
+
+int main() {
+  union { unsigned __l; float __d; } LocalUnion = { 0x7fc00000U };
+
+  printf("%f %f\n", GlobalUnion.__d, LocalUnion.__d);
+
+  return 0;
+}
+
+
+
+// source: 2004-02-03-AggregateCopy.c
+#include <stdio.h>
+
+typedef struct {
+  int X;
+} agg;
+
+int main() {
+  agg A;  A.X = 123;
+  agg B, C;
+  B = C = A;
+
+  printf("%d, %d, %d\n", A.X, B.X, C.X);
+  return 0;
+}
+
+// source: 2004-03-15-IndirectGoto.c
+#include <stdio.h>
+int main() {
+  static const void *L[] = {&&L1, &&L2, &&L3, &&L4, 0 };
+  unsigned i = 0;
+  printf("A\n");
+L1:
+  printf("B\n");
+L2:
+  printf("C\n");
+L3:
+  printf("D\n");
+  goto *L[i++];
+L4: 
+  printf("E\n");
+  return 0;
+}
+// source: 2004-08-12-InlinerAndAllocas.c
+// A compiler cannot inline Callee into main unless it is prepared to reclaim
+// the stack memory allocated in it.
+
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+#include <stdlib.h>
+#else
+#include <alloca.h>
+#endif
+#include <stdio.h>
+
+static int Callee(int i) {
+  if (i != 0) {
+    char *X = alloca(1000);
+    sprintf(X, "%d\n", i);
+    return X[0];
+  }
+  return 0;
+}
+
+int main() {
+  int i, j = 0;
+  for (i = 0; i < 10000; ++i)
+    j += Callee(i);
+  printf("%d\n", j);
+  return 0;
+}
+// source: 2005-05-06-LongLongSignedShift.c
+extern int printf(const char *str, ...);
+
+int main(int argc, char **argv) {
+  printf("%lld\n", (argc-100LL) >> 38);
+
+  return 0;
+}
+// source: 2008-01-07-LongDouble.c
+#include <stdio.h>
+int main(void) {
+  long double x = 1.0;
+  printf("%Lf %Lf\n", x, x);
+  return 0;
+}
+// source: ConstructorDestructorAttributes.c
+#include <stdio.h>
+
+void ctor() __attribute__((constructor));
+
+void ctor() {
+   printf("Create!\n");
+}
+void dtor() __attribute__((destructor));
+
+void dtor() {
+   printf("Create!\n");
+}
+
+int main() { return 0; }
+// source: DuffsDevice.c
+/* This silly testcase is here to check that "Duff's Device" works properly
+ * in LLVM.  Guess what, it does.  :)
+ *
+ * For more info, see: http://www.lysator.liu.se/c/duffs-device.html
+ */
+
+#include <stdio.h>
+
+	sum(to, from, count)
+	register short *to, *from;
+	register count;
+	{
+		register n=(count+7)/8;
+		switch(count%8){
+		case 0:	do{	*to += *from++;
+		case 7:		*to += *from++;
+		case 6:		*to += *from++;
+		case 5:		*to += *from++;
+		case 4:		*to += *from++;
+		case 3:		*to += *from++;
+		case 2:		*to += *from++;
+		case 1:		*to += *from++;
+			}while(--n>0);
+		}
+	}
+
+int main() {
+	short Array[100];
+	short Sum = 0;
+	int i;
+
+	for (i = 0; i != 100; ++i)
+		Array[i] = i;
+
+	sum(&Sum, Array, 100);
+
+	printf("Sum is %d\n", Sum);
+        return 0;
+}
+// source: PR10189.c
+unsigned short
+safe_53 (int short ui1, int short ui2)
+{
+  return ui1 - ui2;
+}
+
+int short
+safe_60 (int short left, int right)
+{
+  return right ? 0 : left >> right;
+}
+
+struct S0
+{
+  int f;
+};
+
+struct S1
+{
+  int f3;
+};
+
+struct S2
+{
+  volatile struct S0 f2;
+};
+
+struct S3
+{
+  int f;
+};
+
+int short g_8;
+int g_20[][1][0];
+int g_37;
+
+struct S2 g_6;
+
+struct S3 g_169;
+
+struct S1 g_177;
+struct S2 g_1639[];
+
+char func_13 (unsigned, unsigned short, short);
+
+char func_21 (unsigned char, unsigned, int *);
+
+struct S2 func_1 (vo)
+{
+  int l_2 = 1;
+  l_2 && func_13 (0, 0, 0), 0;
+  return g_1639[0];
+}
+
+char func_13 (unsigned p_, unsigned short p_15, short p_1)
+{
+  int l_346;
+  int *l_701 = &g_37;
+  for (l_346 = 2; l_346 >= 0; l_346 -= 1)
+    {
+      for (; g_177.f3; g_177.f3 += 1);
+      for (p_15 = 0; p_15 <= 2; p_15 += 1)
+	*l_701 = safe_60 (g_6.f2.f, func_21 (g_169.f, 0, 0)) > 0;
+    }
+  return 0;
+}
+
+char
+func_21 (unsigned char p_, unsigned p_2, int *p_24)
+{
+  int *l_30 = &g_20[0][0][1];
+  int **l_29 = &l_30;
+  **l_29 = safe_53 (*l_30, g_8);
+  return **l_29;
+}
+
+int main (void)
+{
+  func_1 ();
+  return 0;
+}
+// source: PR1386.c
+#include <stdio.h>
+#include <stdint.h>
+
+struct X {
+  unsigned char pad : 4;
+  uint64_t a : 64;
+  uint64_t b : 60;
+} __attribute__((packed));
+
+int main (void)
+{
+  struct X x;
+  uint64_t bad_bits;
+
+  x.pad = 255;
+  x.a = -1ULL;
+  x.b = -1ULL;
+
+  bad_bits = ((uint64_t)-1ULL) ^ *(1+(uint64_t *) &x);
+  printf("bad bits: %llx\n", bad_bits);
+  return bad_bits != 0;
+}
+// source: PR491.c
+#include <stdio.h>
+
+static int assert_fail(const char* s, unsigned l)
+{
+    fprintf(stderr, "assertion failed in line %u: '%s'\n", l, s);
+    return 0;
+}
+#define ASSERT(expr)    ((expr) ? 1 : assert_fail(#expr,__LINE__))
+
+int test(int r) {
+#if !defined(__i386__) && !defined(__x86_64__)
+  #if !defined(BYTE_ORDER) || !defined(LITTLE_ENDIAN)
+     return r;
+  #else
+     if (BYTE_ORDER != LITTLE_ENDIAN) return r;
+  #endif
+#endif
+
+    /* little endian */
+    union { long l; unsigned char c[sizeof(long)]; } u;
+    u.l = 0; u.c[0] = 0x80;
+    r &= ASSERT(u.l == 128);
+    u.l = 0; u.c[sizeof(long)-1] = 0x80;
+    r &= ASSERT(u.l < 0);
+    return r;
+}
+
+int main() {
+    return test(1) != 1;
+}
+
+// source: PR640.c
+#include <stdarg.h>
+#include <stdio.h>
+
+static int test_stdarg_va(void* p1, ...)
+{
+    va_list ap;
+    unsigned long l;
+    int i1, i2;
+    void* p2;
+    va_start(ap, p1);
+    i1 = va_arg(ap, int);
+    l = va_arg(ap, unsigned long);
+    i2 = va_arg(ap, int);
+    p2 = va_arg(ap, void *);
+    va_end(ap);
+    return p1 == p2 && i1 == 1 && l == 0x76214365ul && i2 == 2;
+}
+
+#if defined(__GNUC__) && \
+    ((__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 4))
+
+static int test_stdarg_builtin_va(void* p1, ...)
+{
+    __builtin_va_list ap;
+    unsigned long l;
+    int i1, i2;
+    void* p2;
+    __builtin_va_start(ap, p1);
+    i1 = __builtin_va_arg(ap, int);
+    l = __builtin_va_arg(ap, unsigned long);
+    i2 = __builtin_va_arg(ap, int);
+    p2 = __builtin_va_arg(ap, void *);
+    __builtin_va_end(ap);
+    return p1 == p2 && i1 == 1 && l == 0x76214369ul && i2 == 2;
+}
+
+#endif
+
+static int test_stdarg(int r)
+{
+    char c1 = 1, c2 = 2;
+    if (test_stdarg_va(&r, c1, 0x76214365ul, c2, &r) != 1)
+        return 0;
+#if defined(__GNUC__) && \
+    ((__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 4))
+    if (test_stdarg_builtin_va(&r, c1, 0x76214369ul, c2, &r) != 1)
+        return 0;
+#endif
+    return r & 1;
+}
+
+
+int main(int argc, char **argv)
+{
+    if (test_stdarg(1) != 1) {
+        printf("ERROR\n");
+        return 1;
+    }
+    printf("All done.\n");
+    return 0;
+}
+
+// source: badidx.c
+/* -*- mode: c -*-
+ * $Id$
+ * http://www.bagley.org/~doug/shootout/
+ *
+ * this program is modified from:
+ *   http://cm.bell-labs.com/cm/cs/who/bwk/interps/pap.html
+ * Timing Trials, or, the Trials of Timing: Experiments with Scripting
+ * and User-Interface Languages</a> by Brian W. Kernighan and
+ * Christopher J. Van Wyk.
+ *
+ * I added free() to deallocate memory.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int
+main(int argc, char *argv[]) {
+    int i, n = ((argc == 2) ? atoi(argv[1]) : 1);
+    int *y = (int *) calloc(n, sizeof(int));
+    for (i=0; i < n; i++)
+      y[i] = i*i;
+    printf("%d\n", y[n-1]);
+    return(0);
+}
+
+// source: bigstack.c
+/*===- test/Regression/Transforms/Scalar/DecomposeMultiDimRefs.cpp     -----=*
+ * 
+ * This is a feature test that checks for correct code generation
+ * of the SAVE instruction when the stack size does not fit in the
+ * immediate field of the SAVE instruction.  This happens in main().
+ *===---------------------------------------------------------------------===*/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+typedef struct Flat_struct {
+  char   c;
+  float  x;
+} Flat_t;
+
+typedef struct Mixed_struct {
+  int    N;
+  double A[10];
+  double B[10][10];
+  Flat_t F[10];
+} Mixed_t;
+
+
+double
+AddMixed(Mixed_t* M)
+{
+  double sum = 0;
+  int i, j;
+  
+  for (i=0; i < 10; ++i)
+    sum += M->A[i];
+  
+  for (i=0; i < 10; ++i)
+    for (j=0; j < 10; ++j)
+      sum += M->B[i][j];
+  
+  for (i=0; i < 10; ++i) {
+    sum += (double) M->F[i].c;
+    sum += M->F[i].x;
+  }
+  
+  return sum;
+}
+
+void
+InitializeMixed(Mixed_t* M, int base)
+{
+  int i, j;
+  
+  for (i=0; i < 10; ++i)
+    M->A[i] = i + base;
+    
+  for (i=0; i < 10; ++i)
+    for (j=0; j < 10; ++j)
+      M->B[i][j] = i*10 + j + base;
+  
+  for (i=0; i < 10; ++i) {
+    M->F[i].c = 'Q';
+    M->F[i].x = i / 10 + base;
+  }
+}
+
+int
+main(int argc, char** argv)
+{
+  Mixed_t M;
+  Mixed_t MA[4];
+  int i;
+  
+  InitializeMixed(&M, 100);
+  printf("Sum(M)  = %.2f\n", AddMixed(&M));
+  
+  for (i=0; i < 4; i++) {
+    InitializeMixed(&MA[i], 100 * (i+2));
+    printf("Sum(MA[%d]) = %.2f\n", i, AddMixed(&MA[i]));
+  }
+
+  return 0;
+}
+// source: callargs.c
+#include <stdio.h>
+#include <stdarg.h>
+
+
+#undef LLVM_CAN_PASS_STRUCTS_BY_VALUE
+#ifdef LLVM_CAN_PASS_STRUCTS_BY_VALUE
+typedef struct SmallStruct_struct {
+  char c1, c2, c3, c4;
+  int  n; 
+} SmallStruct;
+
+
+typedef struct BigStruct_struct {
+  char       c1, c2, c3, c4;
+  double     d1, d2;                    /* Note: d1 will need padding */
+  int        n; 
+  struct BigStruct_struct* next;        /* Note: next will need padding */
+} BigStruct;
+
+
+SmallStruct
+printStructArgs(SmallStruct s1,              /* Could fit in reg */
+                int a1, float a2, char a3, double a4, char* a5,
+                BigStruct s2,                /* Must go on stack */
+                int a6, float a7, char a8, double a9, char* a10,
+                SmallStruct  s3,             /* Probably no available regs */
+                int a11, float a12, char a13, double a14, char* a15)
+{
+  SmallStruct result;
+  
+  printf("\nprintStructArgs with 13 arguments:\n");
+  printf("\tArg  1    : %c %c %c %c %d\n",  s1.c1, s1.c2, s1.c3, s1.c4, s1.n);
+  printf("\tArgs 2-6  : %d %f %c %lf %c\n", a1, a2, a3, a4, *a5);
+  printf("\tArg  7    : %c %c %c %c %lf %lf %d %p\n",
+                       s2.c1, s2.c2, s2.c3, s2.c4, s2.d1, s2.d2, s2.n,s2.next);
+  printf("\tArg  8    : %c %c %c %c %d\n",  s3.c1, s3.c2, s3.c3, s3.c4, s3.n);
+  printf("\tArgs 9-13 : %d %f %c %lf %c\n", a6, a7, a8, a9, *a10);
+  printf("\tArgs 14-18: %d %f %c %lf %c\n", a11, a12, a13, a14, *a15);
+  printf("\n");
+  
+  result.c1 = s2.c1;
+  result.c2 = s2.c2;
+  result.c3 = s2.c3;
+  result.c4 = s2.c4;
+  result.n  = s2.n;
+  
+  return result;
+}
+#endif  /* LLVM_CAN_PASS_STRUCTS_BY_VALUE */
+
+#undef LLC_SUPPORTS_VARARGS_FUNCTIONS
+#ifdef LLC_SUPPORTS_VARARGS_FUNCTIONS
+void
+printVarArgs(int a1, ...)
+{
+  double a2, a7,  a12;                  /* float is promoted to double! */
+  int    a3, a8,  a13;                  /* char is promoted to int! */
+  double a4, a9,  a14;
+  char  *a5, *a10, *a15;
+  int    a6, a11;
+  
+  va_list ap;
+  va_start(ap, a1);
+  a2  = va_arg(ap, double);
+  a3  = va_arg(ap, int);
+  a4  = va_arg(ap, double);
+  a5  = va_arg(ap, char*);
+  
+  a6  = va_arg(ap, int);
+  a7  = va_arg(ap, double);
+  a8  = va_arg(ap, int);
+  a9  = va_arg(ap, double);
+  a10 = va_arg(ap, char*);
+  
+  a11 = va_arg(ap, int);
+  a12 = va_arg(ap, double);
+  a13 = va_arg(ap, int);
+  a14 = va_arg(ap, double);
+  a15 = va_arg(ap, char*);
+  
+  printf("\nprintVarArgs with 15 arguments:\n");
+  printf("\tArgs 1-5  : %d %f %c %f %c\n", a1,  a2,  a3,  a4,  *a5);
+  printf("\tArgs 6-10 : %d %f %c %f %c\n", a6,  a7,  a8,  a9,  *a10);
+  printf("\tArgs 11-14: %d %f %c %f %c\n", a11, a12, a13, a14, *a15);
+  printf("\n");
+  return;
+}
+#endif /* LLC_SUPPORTS_VARARGS_FUNCTIONS */
+
+
+void
+printArgsNoRet(int a1,  float a2,  char a3,  double a4,  char* a5,
+               int a6,  float a7,  char a8,  double a9,  char* a10,
+               int a11, float a12, char a13, double a14, char* a15)
+{
+  printf("\nprintArgsNoRet with 15 arguments:\n");
+  printf("\tArgs 1-5  : %d %f %c %f %c\n", a1,  a2,  a3,  a4,  *a5);
+  printf("\tArgs 6-10 : %d %f %c %f %c\n", a6,  a7,  a8,  a9,  *a10);
+  printf("\tArgs 11-14: %d %f %c %f %c\n", a11, a12, a13, a14, *a15);
+  printf("\n");
+  return;
+}
+
+
+int
+main(int argc, char** argv)
+{
+#ifdef LLVM_CAN_PASS_STRUCTS_BY_VALUE
+  SmallStruct s1, s3, result;
+  BigStruct   s2;
+#endif /* LLVM_CAN_PASS_STRUCTS_BY_VALUE */
+  
+  printArgsNoRet(1,  2.1,  'c', 4.1,  "e",
+                 6,  7.1,  'h', 9.1,  "j",
+                 11, 12.1, 'm', 14.1, "o");
+  
+#ifdef LLC_SUPPORTS_VARARGS_FUNCTIONS
+  printVarArgs(1,  2.2,  'c', 4.2,  "e",
+               6,  7.2,  'h', 9.2,  "j",
+               11, 12.2, 'm', 14.2, "o");
+#endif /* LLC_SUPPORTS_VARARGS_FUNCTIONS */
+  
+#ifdef LLVM_CAN_PASS_STRUCTS_BY_VALUE
+  s1.c1 = 'a'; 
+  s1.c2 = 'b'; 
+  s1.c3 = 'c'; 
+  s1.c4 = 'd'; 
+  s1.n  = 111;
+  
+  s2.c1 = 'h'; 
+  s2.c2 = 'i'; 
+  s2.c3 = 'j'; 
+  s2.c4 = 'k'; 
+  s2.d1 = 1.1;
+  s2.d2 = 2.2;
+  s2.n  = 222;
+  s2.next = &s2;
+  
+  s3.c1 = 'w'; 
+  s3.c2 = 'x'; 
+  s3.c3 = 'y'; 
+  s3.c4 = 'z'; 
+  s3.n  = 333;
+  
+  result = printStructArgs(s1,
+                           1, 2.0, 'c', 4.0, "e",
+                           s2,
+                           6, 7.0, 'h', 9.0, "j",
+                           s3);
+  
+  printf("\nprintStructArgs returns:\n\t%c %c %c %c %d\n\n",
+         result.c1, result.c2, result.c3, result.c4, result.n);
+#endif /* LLVM_CAN_PASS_STRUCTS_BY_VALUE */
+
+  return 0;
+}
+// source: casts.c
+#include <stdlib.h>
+#include <stdio.h>
+
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS 1
+#endif
+#include <inttypes.h>
+#ifndef PRId64
+#define PRId64 "lld"
+#define PRIu64 "llu"
+#define PRIx64 "llx"
+#endif
+
+static int64_t lls[] = {
+  123ULL, -1LL, -14LL, 14, 1ULL << 63, 0
+};
+
+int
+main(int argc, char** argv)
+{
+  int8_t        C, c1;
+  uint8_t       uc1;
+
+  short         S, s1;
+  unsigned short us1;
+
+  int           i1, i;
+  unsigned      ui1;
+
+  int64_t       L, l1;
+  uint64_t      ul1;
+
+  float         F;
+  double        D;
+  
+  /* input values */
+  C = (char)  (argc >= 2)? atoi(argv[1]) : 0x64;           /* 100 = 'd' */
+  S = (short) (argc >= 3)? atoi(argv[2]) : -769;           /* 0xfcff = -769 */
+  L = (int64_t) (argc >= 4)? atoi(argv[3]) : 0xa3a3a3a3a3a3LL; /*179923220407203*/
+  
+  /* Test integer to integer conversions */
+  uc1 = (uint8_t) C;                       /* 100 = 'd' */
+  us1 = (unsigned short) C;                /* 100 = 'd' */
+  ui1 = (unsigned int) C;                  /* 100 = 'd' */
+  ul1 = (uint64_t) C;                      /* 100 = 'd' */
+
+  s1  = (short) C;                         /* 100 = 'd' */
+  i1  = (int) C;                           /* 100 = 'd' */
+  l1  = (int64_t) C;                       /* 100 = 'd' */
+  
+  printf("\nCHAR             C = '%c' (%d)\t\t(0x%x)\n", C, C, C);
+  printf("char to short   s1 = %d\t\t(0x%x)\n", s1, s1);
+  printf("char to int     i1 = %d\t\t(0x%x)\n", i1, i1);
+  printf("char to int64_t l1 = %"PRId64"\t\t(0x%"PRIx64")\n", l1, l1);
+
+  printf("\nchar to ubyte  uc1 = %u\t\t(0x%x)\n", uc1, uc1);
+  printf("char to ushort us1 = %u\t\t(0x%x)\n", us1, us1);
+  printf("char to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
+  printf("char to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
+
+  uc1 = (uint8_t) S;                            /* 0xff = 255 */
+  us1 = (unsigned short) S;                     /* 0xfcff = 64767 */
+  ui1 = (unsigned int) S;                       /* 0xfffffcff = 4294966527 */
+  ul1 = (uint64_t) S;                           /* */
+
+  c1  = (int8_t) S;                             /* 0xff = -1 */
+  i1  = (int) S;                                /* 0xfffffcff = -769 */
+  l1  = (int64_t) S;                            /* */
+
+  printf("\n\nSHORT            S = %d\t\t(0x%x)\n", S, S);
+  printf("short to byte    c1 = %d\t\t(0x%x)\n", c1, c1);
+  printf("short to int     i1 = %d\t\t(0x%x)\n", i1, i1);
+  printf("short to int64_t l1 = %"PRId64"\t\t(0x%"PRIx64")\n", l1, l1);
+
+  printf("\nshort to ubyte  uc1 = %u\t\t(0x%x)\n", uc1, uc1);
+  printf("short to ushort us1 = %u\t\t(0x%x)\n", us1, us1);
+  printf("short to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
+  printf("short to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
+
+  uc1 = (unsigned char) L;                      /* */
+  c1  = (int8_t) L;                             /* */
+  s1  = (short) L;                              /* */
+  us1 = (unsigned short) L;                     /* */
+  i1  = (int) L;                                /* */
+  ui1 = (unsigned int) L;                       /* */
+  ul1 = (uint64_t) L;                           /* */
+
+  printf("\n\nLONG            L = %"PRId64"\t\t(0x%"PRIx64")\n", L, L);
+  printf("long to byte    c1 = %d\t\t(0x%x)\n", c1, c1);
+  printf("long to short   s1 = %d\t\t(0x%x)\n", s1, s1);
+  printf("long to int     i1 = %d\t\t(0x%x)\n", i1, i1);
+
+  printf("\nlong to ubyte  uc1 = %u\t\t(0x%x)\n", uc1, uc1);
+  printf("long to ushort us1 = %u\t\t(0x%x)\n", us1, us1);
+  printf("long to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
+  printf("long to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
+
+  /* Test floating-point to integer conversions */
+  F = (float)  (argc >= 4)? atof(argv[3]) : 1.0;
+  D =          (argc >= 5)? atof(argv[4]) : 2.0;
+  
+  us1 = (unsigned short) F;
+  ui1 = (unsigned int) F;
+  ul1 = (uint64_t) F;
+
+  s1  = (short) F;
+  i1  = (int) F;
+  l1  = (int64_t) F;
+
+  printf("\n\nFLOAT            F = %f\n", F);
+  printf("float to short   s1 = %d\t\t(0x%x)\n", s1, s1);
+  printf("float to int     i1 = %d\t\t(0x%x)\n", i1, i1);
+
+  printf("float to ushort us1 = %u\t\t(0x%x)\n", us1, us1);
+  printf("float to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
+  printf("float to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
+
+  us1 = (unsigned short) D;
+  ui1 = (unsigned int) D;
+  ul1 = (uint64_t) D;
+  
+  s1  = (short) D;
+  i1  = (int) D;
+  l1  = (int64_t) D;
+
+  printf("\n\nDOUBLE            D = %f\n", D);
+  printf("double to short   s1 = %d\t\t(0x%x)\n", s1, s1);
+  printf("double to int     i1 = %d\t\t(0x%x)\n", i1, i1);
+  printf("double to int64_t l1 = %"PRId64"\t\t(0x%"PRIx64")\n", l1, l1);
+
+  printf("double to ushort us1 = %u\t\t(0x%x)\n", us1, us1);
+  printf("double to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
+  printf("double to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
+
+  for (i = 0; lls[i]; ++i) {
+    printf("double <- int64_t %"PRId64" = %f\n", lls[i], (double)lls[i]);
+    printf("double <- uint64_t %"PRIu64" = %f\n",
+           (uint64_t)lls[i], (double)(uint64_t)lls[i]);
+  }
+
+  return 0;
+}
+// source: compare.c
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int test_1(int ly) __attribute__((noinline));
+int test_1(int ly) {
+  if (ly <= INT32_MIN)
+    ly = INT32_MIN + 1;
+
+  return ly;
+}
+
+int test_2(int ly) __attribute__((noinline));
+int test_2(int ly) {
+  if (INT32_MIN >= ly)
+    ly = INT32_MIN + 1;
+
+  return ly;
+}
+
+int main () {
+  int x = 37;
+
+  printf ("x = %d (0x%x)\n", x, x);
+
+  int r1 = test_1(x);
+  printf ("test_1(x) = %d (0x%x)\n", r1, r1);
+
+  int r2 = test_2(x);
+  printf ("test_2(x) = %d (0x%x)\n", r2, r2);
+
+  return 0;
+}
+// source: float16-smoke.c
+#include <stdio.h>
+
+
+#ifdef __FLT16_DIG__
+
+typedef _Float16 fp16_t;
+__attribute__((noinline))
+void printArg(fp16_t a0) {
+  printf("printArg: %a\n", (double)a0);
+}
+
+fp16_t g_fp16 = 1.0;
+
+int main(int argc, char** argv) {
+  printArg((fp16_t)0.0);
+  printArg((fp16_t)0x1p0);
+  printArg((fp16_t)-0x1p-8);
+  printArg(g_fp16 + (fp16_t)0x1p0);
+
+  return 0;
+}
+
+#else
+
+int main() {
+  printf("printArg: 0x0p+0\n");
+  printf("printArg: 0x1p+0\n");
+  printf("printArg: -0x1p-8\n");
+  printf("printArg: 0x1p+1\n");
+  return 0;
+}
+
+#endif
+// source: globalrefs.c
+/* globalrefs.c - Test symbolic constant expressions constructed from
+ * global addresses and index expressions into global addresses.
+ * Do this both with global constants and with inline constant.
+ * Instead of printing absolute addresses, print out the differences in
+ * memory addresses to get output that matches that of the native compiler.
+ */
+
+#include <stdio.h>
+
+#define __STDC_LIMIT_MACROS 1
+#include <inttypes.h>
+
+struct test {
+  int A;
+  struct { unsigned X; unsigned Y; } S;
+  int B;
+  struct test* next;
+};
+
+struct test  TestArray[10];
+struct test  Test1;
+
+/* Create global symbolic constants from the addresses of the above globals */
+
+struct test* TestArrayPtr = &TestArray[3]; 
+long*        Aptr         = &Test1.A;
+unsigned*    Yptr         = &Test1.S.Y;
+struct test** NextPtr     = &Test1.next;
+
+void
+printdiff(void* p1, void* p2)
+{
+  printf(" %d", (int)((unsigned long) p1 - (unsigned long) p2));
+}
+
+int
+main(int argc, char** argv)
+{
+  unsigned long diff1, diff2, diff3, diff4; 
+
+  printdiff(&Test1.S.Y, &Test1.A);
+  printdiff(&Test1.next, &Test1.S.Y);
+  printf("\n");
+
+  diff1 = (unsigned long) &TestArray[3] - (unsigned long) TestArray;
+  diff3 = (unsigned long) &Test1.S.Y - (unsigned long) &Test1.A;
+  diff4 = (unsigned long) &Test1.next - (unsigned long) &Test1.S.Y;
+
+  if (diff1 != (diff1 / sizeof(*TestArray)) * sizeof(*TestArray))
+    return 1;
+  printf("&TestArray[3] - TestArray = 0x%lx\n", diff1 / sizeof(*TestArray));
+  printf("Xptr - Aptr          = 0x%lx\n", diff3);
+  printf("NextPtr - Xptr       = 0x%lx\n\n", diff4);
+
+  diff1 = (unsigned long) TestArrayPtr - (unsigned long) TestArray;
+  diff3 = (unsigned long) Yptr - (unsigned long) Aptr;
+  diff4 = (unsigned long) NextPtr - (unsigned long) Yptr;
+
+  if (diff1 != (diff1 / sizeof(*TestArray)) * sizeof(*TestArray))
+    return 1;
+  printf("&TestArray[3] - TestArray = 0x%lx\n", diff1 / sizeof(*TestArray));
+  printf("Xptr - Aptr          = 0x%lx\n", diff3);
+  printf("NextPtr - Xptr       = 0x%lx\n\n", diff4);
+
+  return 0;
+}
+// source: matrixTranspose.c
+typedef float fftw_real;
+
+void complex_transpose(fftw_real *rA, fftw_real *iA, int n, int is, int js)
+{
+     int i, j;
+
+     for (i = 1; i < n; ++i) {
+       for (j = 0; j < i; ++j) {
+         fftw_real ar, ai, br, bi;
+
+         ar = rA[i * is + j * js];
+         ai = iA[i * is + j * js];
+         br = rA[j * is + i * js];
+         bi = iA[j * is + i * js];
+
+         rA[j * is + i * js] = ar;
+         iA[j * is + i * js] = ai;
+         rA[i * is + j * js] = br;
+         iA[i * is + j * js] = bi;
+       }
+     }
+}
+
+extern int printf(const char *str, ...);
+
+fftw_real A[2048];
+int main(int argc, char **argv)
+{
+     int i;
+
+     fftw_real sum = 0.0;
+     for (i = 0; i < 2048; ++i) {
+       A[i] = i;
+       sum = sum + A[i];
+     }
+     printf("Checksum before = %lf\n", sum);
+    
+     for (i = 0; i < 10; ++i) {
+       complex_transpose(A, A+1, 32, 2, 64);
+     }
+    
+     sum = 0.0;
+     for (i = 0; i < 2048; ++i)
+       sum = sum + A[i];
+     printf("Checksum  after = %lf\n", sum);
+
+     return 0;
+}
+
+// source: pointer_arithmetic.c
+typedef struct {
+  int w;
+//  float x;
+//  double y;
+//  long long z;
+} S1Ty;
+
+typedef struct {
+  S1Ty A, B;
+} S2Ty;
+
+void takeS1(S1Ty *V) {}
+void takeVoid(void *P) {}
+
+int main() {
+  S2Ty E;
+  takeS1(&E.B);
+  takeVoid(&E);
+  return 0;
+}
+
+// source: sumarray.c
+#include <stdlib.h>
+#include <stdio.h>
+
+int SumArray(int Array[], int Num) {
+  unsigned i, Result = 0;
+  Array[34] = 1234;
+
+  for (i = 0; i < Num; ++i)
+    Result += Array[i];
+
+  return Result;
+}
+
+int main() {
+  int *Array = (int*)malloc(sizeof(int)*100);
+  int i;
+
+  for (i = 0; i < 100; i += 2)
+  	Array[i] = i*4;
+  for (i = 1; i < 100; i += 2)
+  	Array[i] = i*2;
+
+  printf("Produced: %d\n", SumArray(Array, 100));
+  return 0;
+}
+// source: sumarray2d.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int SumArray(int Array[][100], unsigned int NumI, unsigned int NumJ) {
+  unsigned i, j;
+  int Result = 0;
+  
+  for (i = 0; i < NumI; i++)
+    for (j = 0; j < NumJ; j++)
+      Result += Array[i][j];
+  
+  return Result;
+}
+
+int main() {
+  int Array[100][100];
+  unsigned int i, j;
+  
+  for (i = 0; i < 100; i++)
+    Array[i][i] = -i;
+  
+  for (i = 0; i < 100; i++)
+    for (j = 0; j < 100; j++)
+      if (j != i)
+        Array[i][j] = i+j;
+  
+  printf("Sum(Array[%d,%d] = %d\n", 100, 100, SumArray(Array, 100, 100));
+  
+  return 0;
+}
+// source: sumarraymalloc.c
+#include <stdlib.h>
+#include <stdio.h>
+
+#define SIZE 100
+
+static int SumArray(int *Array, unsigned Num) {
+  int Result = 0;
+  unsigned i;
+  for (i = 0; i < Num; ++i)
+    Result += Array[i];
+
+  return Result;
+}
+
+static int SumArray2(int *Array, unsigned Num) {
+  int Result = 0;
+  unsigned i;
+  for (i = 0; i < Num; ++i)
+    Result += *Array++;
+
+  return Result;
+}
+
+static void FillArray(int *Array, unsigned Num) {
+  unsigned i;
+  for (i = 0; i < Num; ++i)
+    Array[i] = i;
+}
+
+int
+main(int argc, char** argv)
+{
+  int size;
+  int *MyArray;
+  
+  size = (argc < 2)? SIZE : atoi(argv[1]);
+  MyArray = malloc(sizeof(int)* size);
+  
+  FillArray(MyArray, size);
+  printf("Sum1 = %d\n", SumArray(MyArray, SIZE));
+  printf("Sum2 = %d\n", SumArray2(MyArray, SIZE));
+  free(MyArray);
+  return(0);
+}
+// source: test_indvars.c
+
+#include <stdio.h>
+
+static void test_indvars(int *Array1, int Array2[100][200]) {
+  unsigned i, j;
+  Array1[1] = Array2[3][6] = 12345;
+
+  for (i = 0; i < 100; i+=2)
+    Array1[i] = i;           /* Step by non unit amount */
+
+  for (i = 3; i < 103; i++)
+    Array1[i] = i+4;         /* Step with an offset */
+
+  for (i = 13; i < 100; i++)
+    for (j = 0; j < 100; j+=3)       /* 2d array access */
+      Array2[i][j/3] = Array2[i][i];
+} 
+
+
+int main() {
+  int Array[100][200], i, j;
+  double sum = 0.0;
+  
+  for (i=0; i < 100; i+=2)
+    for (j=0; j < 200; j++)
+      Array[i][j] = 0;
+  test_indvars(Array[0], Array);
+
+  for (i=0; i < 100; i+=2)
+    for (j=0; j < 200; j++)
+      sum += Array[i][j];
+  
+  printf("Checksum = %.0lf\n", sum);
+  
+  return 0;
+}
+// source: testtrace.c
+#include <stdio.h>
+#include <string.h>
+
+/*
+ * Test routines for testing the tracing code.
+ */
+
+struct DummyStruct {
+  struct DummyStruct* next;
+  int seqnum;
+};
+
+int
+AddCounts(struct DummyStruct* S1,
+          struct DummyStruct* S2,
+          struct DummyStruct* S3, int noPrint)
+{
+  if (!noPrint)
+    printf("&S1 = %p\t&S2 = %p\t&S3 = %p\n", S1, S2, S3);
+  return S1->seqnum + S2->seqnum + S3->seqnum;
+}
+
+void
+testAllocaOrder(int noPrint)
+{
+  static int count = 0;
+  struct DummyStruct S1, S2, S3;
+  
+  S1.seqnum = ++count;
+  S2.seqnum = ++count;
+  S3.seqnum = ++count;
+  
+  printf("sum = %d\n", AddCounts(&S1, &S2, &S3, noPrint));
+}
+
+int
+main(int argc, char** argv)
+{
+  unsigned int i, noPrint = 1;
+  if (argc > 1 && ! strcmp(argv[1], "-d"))
+    noPrint = 0;
+  for (i=0; i < 10; ++i)
+    testAllocaOrder(noPrint);
+  return 0;
+}
+// source: uint64_to_float.c
+#include <stdio.h>
+#include <stdint.h>
+#include <fenv.h>
+#include <float.h>
+
+// tests uint64_t --> float conversions.  Not an exhaustive test, but sufficent
+// to identify all reasonable bugs in such routines that I have yet encountered.
+//
+// Specifically, we walk up to four bits through all possible bit positions.
+// This suffices to catch double-rounding errors from pretty much every
+// "reasonable" algorithm one might pick to implement this conversion.  (It
+// will miss lots of errors in "unreasonable" algorithms, but we trust that
+// the code under test at least passes a sniff test).
+//
+// We test in all four basic rounding modes, to further flush out any
+// double-rounding issues, or behavior at zero.
+
+typedef union
+{
+    uint32_t u;
+    float f;
+} float_bits;
+
+
+float
+floatundisf(uint64_t a)
+{
+    if (a == 0)
+        return 0.0F;
+    const unsigned N = sizeof(uint64_t) * 8;
+    int sd = N - __builtin_clzll(a);  /* number of significant digits */
+    int e = sd - 1;             /* 8 exponent */
+    if (sd > FLT_MANT_DIG)
+    {
+        /*  start:  0000000000000000000001xxxxxxxxxxxxxxxxxxxxxxPQxxxxxxxxxxxxxxxxxx
+         *  finish: 000000000000000000000000000000000000001xxxxxxxxxxxxxxxxxxxxxxPQR
+         *                                                12345678901234567890123456
+         *  1 = msb 1 bit
+         *  P = bit FLT_MANT_DIG-1 bits to the right of 1
+         *  Q = bit FLT_MANT_DIG bits to the right of 1
+         *  R = "or" of all bits to the right of Q
+         */
+        switch (sd)
+        {
+        case FLT_MANT_DIG + 1:
+            a <<= 1;
+            break;
+        case FLT_MANT_DIG + 2:
+            break;
+        default:
+            a = (a >> (sd - (FLT_MANT_DIG+2))) |
+                ((a & ((uint64_t)(-1) >> ((N + FLT_MANT_DIG+2) - sd))) != 0);
+        };
+        /* finish: */
+        a |= (a & 4) != 0;  /* Or P into R */
+        ++a;  /* round - this step may add a significant bit */
+        a >>= 2;  /* dump Q and R */
+        /* a is now rounded to FLT_MANT_DIG or FLT_MANT_DIG+1 bits */
+        if (a & ((uint64_t)1 << FLT_MANT_DIG))
+        {
+            a >>= 1;
+            ++e;
+        }
+        /* a is now rounded to FLT_MANT_DIG bits */
+    }
+    else
+    {
+        a <<= (FLT_MANT_DIG - sd);
+        /* a is now rounded to FLT_MANT_DIG bits */
+    }
+    float_bits fb;
+    fb.u = ((e + 127) << 23)       |  /* exponent */
+           ((int32_t)a & 0x007FFFFF);  /* mantissa */
+    return fb.f;
+}
+
+void test(uint64_t x) {
+	const float_bits expected = { .f = floatundisf(x) };
+	const float_bits observed = { .f = x };
+    
+	if (expected.u != observed.u) {
+		printf("Error detected @ 0x%016llx\n", x);
+		printf("\tExpected result: %a (0x%08x)\n", expected.f, expected.u);
+		printf("\tObserved result: %a (0x%08x)\n", observed.f, observed.u);
+	}
+}
+
+int main(int argc, char *argv[]) {
+  int i, j, k, l, m;
+	const uint64_t one = 1;
+	const uint64_t mone = -1;
+    
+    // FIXME: Other rounding modes are temporarily disabled until we have
+    // a canonical source to compare against.
+    const int roundingModes[4] = { FE_TONEAREST };
+    const char *modeNames[4] = {"to nearest", "down", "up", "towards zero"};
+    
+    for ( m=0; m<4; ++m) {
+        fesetround(roundingModes[0]);
+        printf("Testing uint64_t --> float conversions in round %s...\n",
+               modeNames[m]);
+    
+        test(0);
+	for ( i=0; i<64; ++i) {
+		test( one << i);
+		test(mone << i); 
+	for ( j=0; j<i; ++j) {
+		test(( one << i) + ( one << j));
+		test(( one << i) + (mone << j));
+		test((mone << i) + ( one << j));
+		test((mone << i) + (mone << j));
+	for ( k=0; k<j; ++k) {
+		test(( one << i) + ( one << j) + ( one << k));
+		test(( one << i) + ( one << j) + (mone << k));
+		test(( one << i) + (mone << j) + ( one << k));
+		test(( one << i) + (mone << j) + (mone << k));
+		test((mone << i) + ( one << j) + ( one << k));
+		test((mone << i) + ( one << j) + (mone << k));
+		test((mone << i) + (mone << j) + ( one << k));
+		test((mone << i) + (mone << j) + (mone << k));
+	for ( l=0; l<k; ++l) {
+		test(( one << i) + ( one << j) + ( one << k) + ( one << l));
+		test(( one << i) + ( one << j) + ( one << k) + (mone << l));
+		test(( one << i) + ( one << j) + (mone << k) + ( one << l));
+		test(( one << i) + ( one << j) + (mone << k) + (mone << l));
+		test(( one << i) + (mone << j) + ( one << k) + ( one << l));
+		test(( one << i) + (mone << j) + ( one << k) + (mone << l));
+		test(( one << i) + (mone << j) + (mone << k) + ( one << l));
+		test(( one << i) + (mone << j) + (mone << k) + (mone << l));
+		test((mone << i) + ( one << j) + ( one << k) + ( one << l));
+		test((mone << i) + ( one << j) + ( one << k) + (mone << l));
+		test((mone << i) + ( one << j) + (mone << k) + ( one << l));
+		test((mone << i) + ( one << j) + (mone << k) + (mone << l));
+		test((mone << i) + (mone << j) + ( one << k) + ( one << l));
+		test((mone << i) + (mone << j) + ( one << k) + (mone << l));
+		test((mone << i) + (mone << j) + (mone << k) + ( one << l));
+		test((mone << i) + (mone << j) + (mone << k) + (mone << l));
+	}
+	}
+	}
+	}
+    }
+	printf("Finished Testing.\n");
+  return 0;
+}
