@@ -1,0 +1,388 @@
+Script started on Mon 10 Jul 2023 08:35:38 PM BST
+23 ucacbbl@eden% echo "passed unittests, lets try Bobby's Hello World"
+passed unittests, lets try Bobby's Hello World
+24 ucacbbl@eden% echo "https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023#gem5-the-basics-and-hello-world"
+https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023#gem5-the-basics-and-hello-world
+25 ucacbbl@eden% echo "gem5_setup"; date
+gem5_setup
+Mon Jul 10 20:37:19 BST 2023
+26 ucacbbl@eden% setenv PATH /opt/rh/devtoolset-10/root/usr/bin:"$PATH"
+27 ucacbbl@eden% setenv PATH /opt/Python/Python-3.10.1/bin:/opt/Python/Python-3.7/bin:"$PATH"
+28 ucacbbl@eden% setenv LD_LIBRARY_PATH /opt/Python/Python-3.10.1/lib:"$LD_LIBRARY_PATH"
+29 ucacbbl@eden% 
+29 ucacbbl@eden% setenv PATH ~/.local/bin:"$PATH"
+30 ucacbbl@eden% cd cd gem5-ssbse-challenge-2023/
+cd: Too many arguments.
+31 ucacbbl@eden% cd cd gem5-ssbse-challenge-2023/[18Gcd [P[P[P
+32 ucacbbl@eden% pwd;date
+/cs/research/crest/projects1/ucacbbl/assugi/gem5/gem5-ssbse-challenge-2023
+Mon Jul 10 20:38:14 BST 2023
+33 ucacbbl@eden% ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py; echo "status $status"; date
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [SSBSE Challenge Track '23 Variant]
+gem5 compiled Jul  7 2023 14:22:27
+gem5 started Jul 10 2023 20:38:40
+gem5 executing on eden.cs.ucl.ac.uk, pid 16373
+command line: ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py
+
+warn: `Resource` has been deprecated. Please use the `obtain_resource` function instead.
+info: Using default config
+warn: Error getting resources from client gem5-resources: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+Exception: Resource with ID 'x86-hello64-static' not found.
+
+At:
+  src/python/gem5/resources/client_api/client_wrapper.py(116): get_resource_json_obj_from_client
+  src/python/gem5/resources/client.py(82): get_resource_json_obj
+  src/python/gem5/resources/resource.py(588): obtain_resource
+  src/python/gem5/resources/resource.py(786): Resource
+  ssbse-challenge-examples/hello.py(120): <module>
+  src/python/m5/main.py(609): main
+status 1
+Mon Jul 10 20:38:42 BST 2023
+34 ucacbbl@eden% echo sign:-(
+Too many ('s.
+35 ucacbbl@eden% echo "hmm do I need to build it 1st?"
+hmm do I need to build it 1st?
+36 ucacbbl@eden% ls -l `find -iname 'gem5.opt'`
+-rwx------ 1 ucacbbl crest 1129884824 Jul  7 14:25 ./build/ALL/gem5.opt
+37 ucacbbl@eden% "echo Hmmm se if get already exists message from scons..."
+echo Hmmm se if get already exists message from scons...: Command not found.
+38 ucacbbl@eden% date; scons build/ALL/gem5.opt; date
+Mon Jul 10 20:44:05 BST 2023
+scons: Reading SConscript files ...
+
+You're missing the pre-commit/commit-msg hooks. These hook help to ensure your
+code follows gem5's style rules on git commit and your commit messages follow
+our commit message requirements. This script will now install these hooks in
+your .git/hooks/ directory.
+Press enter to continue, or ctrl-c to abort:
+ [?1034h
+Cannot find 'pre-commit'. Please ensure all Python requirements are 
+installed. This can be done via 'pip install -r requirements.txt'.
+It is strongly recommended you install the pre-commit hooks before working with gem5. Do you want to continue compilation (y/n)?
+y
+Mkdir("/cs/research/crest/projects1/ucacbbl/assugi/gem5/gem5-ssbse-challenge-2023/build/ALL/gem5.build")
+Checking for linker -Wl,--as-needed support... (cached) yes
+Checking for compiler -gz support... (cached) yes
+Checking for linker -gz support... (cached) yes
+Info: Using Python config: python3-config
+Checking for C header file Python.h... (cached) yes
+Checking Python version... (cached) 3.10.1
+Checking for accept(0,0,0) in C++ library None... (cached) yes
+Checking for zlibVersion() in C++ library z... (cached) yes
+Checking for C library tcmalloc_minimal... (cached) no
+Checking for C library tcmalloc... (cached) no
+[33m[1mWarning: You can get a 12% performance improvement by installing tcmalloc (libgoogle-perftools-dev package on Ubuntu
+         or RedHat).(B[m
+Building in /cs/research/crest/projects1/ucacbbl/assugi/gem5/gem5-ssbse-challenge-2023/build/ALL
+Using saved variables file(s) /cs/research/crest/projects1/ucacbbl/assugi/gem5/gem5-ssbse-challenge-2023/build/ALL/gem5.build/variables
+Checking size of struct kvm_xsave ... (cached) yes
+Checking for C header file fenv.h... (cached) yes
+Checking for C header file png.h... (cached) yes
+Checking for clock_nanosleep(0,0,NULL,NULL) in C library None... (cached) yes
+Checking for C header file valgrind/valgrind.h... (cached) no
+Checking for pkg-config package hdf5-serial... (cached) no
+Checking for pkg-config package hdf5... (cached) no
+Checking for H5Fcreate("", 0, 0, 0) in C library hdf5... (cached) yes
+Checking for H5::H5File("", 0) in C++ library hdf5_cpp... (cached) yes
+Checking for C header file linux/kvm.h... (cached) yes
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library None... (cached) no
+Checking for timer_create(CLOCK_MONOTONIC, NULL, NULL) in C library rt... (cached) yes
+Checking for member exclude_host in struct perf_event_attr...(cached) yes
+Checking for C header file linux/if_tun.h... (cached) yes
+Checking for shm_open("/test", 0, 0) in C library None... (cached) yes
+[33m[1mWarning: While checking protoc version: [Errno 2] No such file or directory: 'protoc'(B[m
+[33m[1mWarning: Protocol buffer compiler (protoc) not found.
+         Please install protobuf-compiler for tracing support.(B[m
+Checking for backtrace_symbols_fd((void *)1, 0, 0) in C library None... (cached) yes
+Checking whether __i386__ is declared... (cached) no
+Checking whether __x86_64__ is declared... (cached) yes
+Checking for compiler -Wno-self-assign-overloaded support... (cached) yes
+Checking for linker -Wno-free-nonheap-object support... (cached) yes
+scons: done reading SConscript files.
+scons: Building targets ...
+(B[m [ISA DESC] [33m[33m[1msrc/arch/arm/isa/main.isa[34m[1m -> [33m[1mALL/arch/arm/generated/decoder-g.cc.inc, ALL/arch/arm/generated/decoder-ns.cc.inc, ALL/arch/arm/generated/decode-method.cc.inc, ALL/arch/arm/generated/decoder.hh, ALL/arch/arm/generated/decoder-g.hh.inc, ALL/arch/arm/generated/decoder-ns.hh.inc, ALL/arch/arm/generated/exec-g.cc.inc, ALL/arch/arm/generated/exec-ns.cc.inc, ALL/arch/arm/generated/decoder.cc, ALL/arch/arm/generated/inst-constrs-1.cc, ALL/arch/arm/generated/inst-constrs-2.cc, ALL/arch/arm/generated/inst-constrs-3.cc, ALL/arch/arm/generated/generic_cpu_exec_1.cc, ALL/arch/arm/generated/generic_cpu_exec_2.cc, ALL/arch/arm/generated/generic_cpu_exec_3.cc, ALL/arch/arm/generated/generic_cpu_exec_4.cc, ALL/arch/arm/generated/generic_cpu_exec_5.cc, ALL/arch/arm/generated/generic_cpu_exec_6.cc(B[m
+(B[m [ISA DESC] [33m[33m[1msrc/arch/mips/isa/main.isa[34m[1m -> [33m[1mALL/arch/mips/generated/decoder-g.cc.inc, ALL/arch/mips/generated/decoder-ns.cc.inc, ALL/arch/mips/generated/decode-method.cc.inc, ALL/arch/mips/generated/decoder.hh, ALL/arch/mips/generated/decoder-g.hh.inc, ALL/arch/mips/generated/decoder-ns.hh.inc, ALL/arch/mips/generated/exec-g.cc.inc, ALL/arch/mips/generated/exec-ns.cc.inc, ALL/arch/mips/generated/decoder.cc, ALL/arch/mips/generated/inst-constrs.cc, ALL/arch/mips/generated/generic_cpu_exec.cc(B[m
+(B[m [ISA DESC] [33m[33m[1msrc/arch/power/isa/main.isa[34m[1m -> [33m[1mALL/arch/power/generated/decoder-g.cc.inc, ALL/arch/power/generated/decoder-ns.cc.inc, ALL/arch/power/generated/decode-method.cc.inc, ALL/arch/power/generated/decoder.hh, ALL/arch/power/generated/decoder-g.hh.inc, ALL/arch/power/generated/decoder-ns.hh.inc, ALL/arch/power/generated/exec-g.cc.inc, ALL/arch/power/generated/exec-ns.cc.inc, ALL/arch/power/generated/decoder.cc, ALL/arch/power/generated/inst-constrs.cc, ALL/arch/power/generated/generic_cpu_exec.cc(B[m
+(B[m [ISA DESC] [33m[33m[1msrc/arch/riscv/isa/main.isa[34m[1m -> [33m[1mALL/arch/riscv/generated/decoder-g.cc.inc, ALL/arch/riscv/generated/decoder-ns.cc.inc, ALL/arch/riscv/generated/decode-method.cc.inc, ALL/arch/riscv/generated/decoder.hh, ALL/arch/riscv/generated/decoder-g.hh.inc, ALL/arch/riscv/generated/decoder-ns.hh.inc, ALL/arch/riscv/generated/exec-g.cc.inc, ALL/arch/riscv/generated/exec-ns.cc.inc, ALL/arch/riscv/generated/decoder.cc, ALL/arch/riscv/generated/inst-constrs.cc, ALL/arch/riscv/generated/generic_cpu_exec.cc(B[m
+(B[m [ISA DESC] [33m[33m[1msrc/arch/sparc/isa/main.isa[34m[1m -> [33m[1mALL/arch/sparc/generated/decoder-g.cc.inc, ALL/arch/sparc/generated/decoder-ns.cc.inc, ALL/arch/sparc/generated/decode-method.cc.inc, ALL/arch/sparc/generated/decoder.hh, ALL/arch/sparc/generated/decoder-g.hh.inc, ALL/arch/sparc/generated/decoder-ns.hh.inc, ALL/arch/sparc/generated/exec-g.cc.inc, ALL/arch/sparc/generated/exec-ns.cc.inc, ALL/arch/sparc/generated/decoder.cc, ALL/arch/sparc/generated/inst-constrs.cc, ALL/arch/sparc/generated/generic_cpu_exec.cc(B[m
+(B[m [ISA DESC] [33m[33m[1msrc/arch/x86/isa/main.isa[34m[1m -> [33m[1mALL/arch/x86/generated/decoder-g.cc.inc, ALL/arch/x86/generated/decoder-ns.cc.inc, ALL/arch/x86/generated/decode-method.cc.inc, ALL/arch/x86/generated/decoder.hh, ALL/arch/x86/generated/decoder-g.hh.inc, ALL/arch/x86/generated/decoder-ns.hh.inc, ALL/arch/x86/generated/exec-g.cc.inc, ALL/arch/x86/generated/exec-ns.cc.inc, ALL/arch/x86/generated/decoder.cc, ALL/arch/x86/generated/inst-constrs.cc, ALL/arch/x86/generated/generic_cpu_exec.cc(B[m
+Generating LALR tables
+(B[m [VER TAGS] [33m[33m[1m[34m[1m -> [33m[1mALL/sim/tags.cc(B[m
+scons: `build/ALL/gem5.opt' is up to date.
+scons: done building targets.
+[33m[1m*** Summary of Warnings ***(B[m
+[33m[1mWarning: You can get a 12% performance improvement by installing tcmalloc (libgoogle-perftools-dev package on Ubuntu
+         or RedHat).(B[m
+[33m[1mWarning: While checking protoc version: [Errno 2] No such file or directory: 'protoc'(B[m
+[33m[1mWarning: Protocol buffer compiler (protoc) not found.
+         Please install protobuf-compiler for tracing support.(B[m
+Mon Jul 10 20:45:45 BST 2023
+39 ucacbbl@eden% echo $status
+0
+40 ucacbbl@eden% echo "Hmm got scons: `build/ALL/gem5.opt' is up to date."[K but what else has it done?"
+Unmatched `.
+41 ucacbbl@eden% echo "Hmm got scons: `build/ALL/gem5.opt' is up to date. but what else has it done?"[18Gecho "Hmm got scons: `b[Pbuild/ALL/gem5.opt' is[P
+Hmm got scons: build/ALL/gem5.opt is up to date. but what else has it done?
+42 ucacbbl@eden% echo "Hmm got scons: build/ALL/gem5.opt is up to date. but what else has it done?"[39G[1@`[58G[1@'[102G[23G$status[K[18Gdate ; scons build/ALL/gem5.opt ; date[18G"echo Hmmm se if get already exists message from scons..."[18Gls -l `find -iname 'gem5.opt'`[K
+-rwx------ 1 ucacbbl crest 1129884824 Jul  7 14:25 ./build/ALL/gem5.opt
+43 ucacbbl@eden% ls -lr ' Jul  10 20:4'[1@|[1@ [1@g[1@r[1@e[1@p[1@ 
+44 ucacbbl@eden% ls -lr | grep ' Jul 10 20:4'[P[1@R
+drwx--S---  3 ucacbbl crest       2048[01;31m[K Jul 10 20:4[m[K5 gem5.build
+drwx--S---  4 ucacbbl crest      14336[01;31m[K Jul 10 20:4[m[K5 sim
+drwx--S--- 2 ucacbbl crest    4096[01;31m[K Jul 10 20:4[m[K4 generated
+-rw------- 1 ucacbbl crest    412513[01;31m[K Jul 10 20:4[m[K4 decode-method.cc.inc
+-rw------- 1 ucacbbl crest       214[01;31m[K Jul 10 20:4[m[K4 decoder.cc
+-rw------- 1 ucacbbl crest       506[01;31m[K Jul 10 20:4[m[K4 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      1182[01;31m[K Jul 10 20:4[m[K4 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest       386[01;31m[K Jul 10 20:4[m[K4 decoder.hh
+-rw------- 1 ucacbbl crest   3874785[01;31m[K Jul 10 20:4[m[K4 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest   3515939[01;31m[K Jul 10 20:4[m[K4 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest       737[01;31m[K Jul 10 20:4[m[K4 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   9573452[01;31m[K Jul 10 20:4[m[K4 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_1.cc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_2.cc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_3.cc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_4.cc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_5.cc
+-rw------- 1 ucacbbl crest       313[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec_6.cc
+-rw------- 1 ucacbbl crest       288[01;31m[K Jul 10 20:4[m[K4 inst-constrs-1.cc
+-rw------- 1 ucacbbl crest       288[01;31m[K Jul 10 20:4[m[K4 inst-constrs-2.cc
+-rw------- 1 ucacbbl crest       288[01;31m[K Jul 10 20:4[m[K4 inst-constrs-3.cc
+drwx--S--- 2 ucacbbl crest    2048[01;31m[K Jul 10 20:4[m[K4 generated
+-rw------- 1 ucacbbl crest   253840[01;31m[K Jul 10 20:4[m[K4 decode-method.cc.inc
+-rw------- 1 ucacbbl crest      215[01;31m[K Jul 10 20:4[m[K4 decoder.cc
+-rw------- 1 ucacbbl crest      760[01;31m[K Jul 10 20:4[m[K4 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      324[01;31m[K Jul 10 20:4[m[K4 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest      392[01;31m[K Jul 10 20:4[m[K4 decoder.hh
+-rw------- 1 ucacbbl crest   462049[01;31m[K Jul 10 20:4[m[K4 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest   305541[01;31m[K Jul 10 20:4[m[K4 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest      948[01;31m[K Jul 10 20:4[m[K4 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   749551[01;31m[K Jul 10 20:4[m[K4 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest      298[01;31m[K Jul 10 20:4[m[K4 generic_cpu_exec.cc
+-rw------- 1 ucacbbl crest      273[01;31m[K Jul 10 20:4[m[K4 inst-constrs.cc
+drwx--S--- 2 ucacbbl crest    2048[01;31m[K Jul 10 20:4[m[K5 generated
+-rw------- 1 ucacbbl crest    98172[01;31m[K Jul 10 20:4[m[K5 decode-method.cc.inc
+-rw------- 1 ucacbbl crest      216[01;31m[K Jul 10 20:4[m[K5 decoder.cc
+-rw------- 1 ucacbbl crest      445[01;31m[K Jul 10 20:4[m[K5 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      613[01;31m[K Jul 10 20:4[m[K5 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest      398[01;31m[K Jul 10 20:4[m[K5 decoder.hh
+-rw------- 1 ucacbbl crest   334528[01;31m[K Jul 10 20:4[m[K5 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest   214168[01;31m[K Jul 10 20:4[m[K5 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest      555[01;31m[K Jul 10 20:4[m[K5 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   684552[01;31m[K Jul 10 20:4[m[K5 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest      301[01;31m[K Jul 10 20:4[m[K5 generic_cpu_exec.cc
+-rw------- 1 ucacbbl crest      276[01;31m[K Jul 10 20:4[m[K5 inst-constrs.cc
+drwx--S--- 2 ucacbbl crest    2048[01;31m[K Jul 10 20:4[m[K5 generated
+-rw------- 1 ucacbbl crest   174490[01;31m[K Jul 10 20:4[m[K5 decode-method.cc.inc
+-rw------- 1 ucacbbl crest      216[01;31m[K Jul 10 20:4[m[K5 decoder.cc
+-rw------- 1 ucacbbl crest      538[01;31m[K Jul 10 20:4[m[K5 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      752[01;31m[K Jul 10 20:4[m[K5 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest      398[01;31m[K Jul 10 20:4[m[K5 decoder.hh
+-rw------- 1 ucacbbl crest   333486[01;31m[K Jul 10 20:4[m[K5 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest   228657[01;31m[K Jul 10 20:4[m[K5 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest      897[01;31m[K Jul 10 20:4[m[K5 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   479445[01;31m[K Jul 10 20:4[m[K5 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest      301[01;31m[K Jul 10 20:4[m[K5 generic_cpu_exec.cc
+-rw------- 1 ucacbbl crest      276[01;31m[K Jul 10 20:4[m[K5 inst-constrs.cc
+drwx--S--- 2 ucacbbl crest    2048[01;31m[K Jul 10 20:4[m[K5 generated
+-rw------- 1 ucacbbl crest   145575[01;31m[K Jul 10 20:4[m[K5 decode-method.cc.inc
+-rw------- 1 ucacbbl crest      216[01;31m[K Jul 10 20:4[m[K5 decoder.cc
+-rw------- 1 ucacbbl crest      461[01;31m[K Jul 10 20:4[m[K5 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      887[01;31m[K Jul 10 20:4[m[K5 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest      398[01;31m[K Jul 10 20:4[m[K5 decoder.hh
+-rw------- 1 ucacbbl crest   456123[01;31m[K Jul 10 20:4[m[K5 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest   258389[01;31m[K Jul 10 20:4[m[K5 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest      623[01;31m[K Jul 10 20:4[m[K5 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   970748[01;31m[K Jul 10 20:4[m[K5 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest      301[01;31m[K Jul 10 20:4[m[K5 generic_cpu_exec.cc
+-rw------- 1 ucacbbl crest      276[01;31m[K Jul 10 20:4[m[K5 inst-constrs.cc
+drwx--S--- 2 ucacbbl crest    2048[01;31m[K Jul 10 20:4[m[K5 generated
+-rw------- 1 ucacbbl crest  1328527[01;31m[K Jul 10 20:4[m[K5 decode-method.cc.inc
+-rw------- 1 ucacbbl crest      214[01;31m[K Jul 10 20:4[m[K5 decoder.cc
+-rw------- 1 ucacbbl crest      709[01;31m[K Jul 10 20:4[m[K5 decoder-g.cc.inc
+-rw------- 1 ucacbbl crest      992[01;31m[K Jul 10 20:4[m[K5 decoder-g.hh.inc
+-rw------- 1 ucacbbl crest      386[01;31m[K Jul 10 20:4[m[K5 decoder.hh
+-rw------- 1 ucacbbl crest  5544766[01;31m[K Jul 10 20:4[m[K5 decoder-ns.cc.inc
+-rw------- 1 ucacbbl crest  1289306[01;31m[K Jul 10 20:4[m[K5 decoder-ns.hh.inc
+-rw------- 1 ucacbbl crest      773[01;31m[K Jul 10 20:4[m[K5 exec-g.cc.inc
+-rw------- 1 ucacbbl crest   724711[01;31m[K Jul 10 20:4[m[K5 exec-ns.cc.inc
+-rw------- 1 ucacbbl crest      295[01;31m[K Jul 10 20:4[m[K5 generic_cpu_exec.cc
+-rw------- 1 ucacbbl crest      270[01;31m[K Jul 10 20:4[m[K5 inst-constrs.cc
+-rw------- 1 ucacbbl crest  126884[01;31m[K Jul 10 20:4[m[K4 scons_config.log
+-rw------- 1 ucacbbl crest 8643151[01;31m[K Jul 10 20:4[m[K5 sconsign.dblite
+-rw------- 1 ucacbbl crest     149[01;31m[K Jul 10 20:4[m[K4 variables
+-rw------- 1 ucacbbl crest    2482[01;31m[K Jul 10 20:4[m[K4 AccessPermission.cc
+-rw------- 1 ucacbbl crest    1614[01;31m[K Jul 10 20:4[m[K4 AccessPermission.hh
+-rw------- 1 ucacbbl crest    1422[01;31m[K Jul 10 20:4[m[K4 AccessType.cc
+-rw------- 1 ucacbbl crest     981[01;31m[K Jul 10 20:4[m[K4 AccessType.hh
+-rw------- 1 ucacbbl crest    1918[01;31m[K Jul 10 20:4[m[K4 CacheRequestType.cc
+-rw------- 1 ucacbbl crest    1304[01;31m[K Jul 10 20:4[m[K4 CacheRequestType.hh
+-rw------- 1 ucacbbl crest    1573[01;31m[K Jul 10 20:4[m[K4 CacheResourceType.cc
+-rw------- 1 ucacbbl crest    1137[01;31m[K Jul 10 20:4[m[K4 CacheResourceType.hh
+-rw------- 1 ucacbbl crest    2605[01;31m[K Jul 10 20:4[m[K4 CoherenceRequestType.cc
+-rw------- 1 ucacbbl crest    1531[01;31m[K Jul 10 20:4[m[K4 CoherenceRequestType.hh
+-rw------- 1 ucacbbl crest    2720[01;31m[K Jul 10 20:4[m[K4 CoherenceResponseType.cc
+-rw------- 1 ucacbbl crest    1671[01;31m[K Jul 10 20:4[m[K4 CoherenceResponseType.hh
+-rw------- 1 ucacbbl crest   35298[01;31m[K Jul 10 20:4[m[K4 Directory_Controller.cc
+-rw------- 1 ucacbbl crest    6620[01;31m[K Jul 10 20:4[m[K4 Directory_Controller.hh
+-rw------- 1 ucacbbl crest     852[01;31m[K Jul 10 20:4[m[K4 Directory_Controller.py
+-rw------- 1 ucacbbl crest     640[01;31m[K Jul 10 20:4[m[K4 Directory_Entry.cc
+-rw------- 1 ucacbbl crest    2740[01;31m[K Jul 10 20:4[m[K4 Directory_Entry.hh
+-rw------- 1 ucacbbl crest    2268[01;31m[K Jul 10 20:4[m[K4 Directory_Event.cc
+-rw------- 1 ucacbbl crest    1443[01;31m[K Jul 10 20:4[m[K4 Directory_Event.hh
+-rw------- 1 ucacbbl crest    1465[01;31m[K Jul 10 20:4[m[K4 DirectoryRequestType.cc
+-rw------- 1 ucacbbl crest    1145[01;31m[K Jul 10 20:4[m[K4 DirectoryRequestType.hh
+-rw------- 1 ucacbbl crest    3639[01;31m[K Jul 10 20:4[m[K4 Directory_State.cc
+-rw------- 1 ucacbbl crest    1940[01;31m[K Jul 10 20:4[m[K4 Directory_State.hh
+-rw------- 1 ucacbbl crest     787[01;31m[K Jul 10 20:4[m[K4 Directory_TBE.cc
+-rw------- 1 ucacbbl crest    4662[01;31m[K Jul 10 20:4[m[K4 Directory_TBE.hh
+-rw------- 1 ucacbbl crest   12045[01;31m[K Jul 10 20:4[m[K4 Directory_Transitions.cc
+-rw------- 1 ucacbbl crest   17406[01;31m[K Jul 10 20:4[m[K4 Directory_Wakeup.cc
+-rw------- 1 ucacbbl crest   18103[01;31m[K Jul 10 20:4[m[K4 DMA_Controller.cc
+-rw------- 1 ucacbbl crest    4871[01;31m[K Jul 10 20:4[m[K4 DMA_Controller.hh
+-rw------- 1 ucacbbl crest     681[01;31m[K Jul 10 20:4[m[K4 DMA_Controller.py
+-rw------- 1 ucacbbl crest    1683[01;31m[K Jul 10 20:4[m[K4 DMA_Event.cc
+-rw------- 1 ucacbbl crest    1101[01;31m[K Jul 10 20:4[m[K4 DMA_Event.hh
+-rw------- 1 ucacbbl crest    1510[01;31m[K Jul 10 20:4[m[K4 DMASequencerRequestType.cc
+-rw------- 1 ucacbbl crest    1187[01;31m[K Jul 10 20:4[m[K4 DMASequencerRequestType.hh
+-rw------- 1 ucacbbl crest    2172[01;31m[K Jul 10 20:4[m[K4 DMA_State.cc
+-rw------- 1 ucacbbl crest    1249[01;31m[K Jul 10 20:4[m[K4 DMA_State.hh
+-rw------- 1 ucacbbl crest     608[01;31m[K Jul 10 20:4[m[K4 DMA_TBE.cc
+-rw------- 1 ucacbbl crest    2425[01;31m[K Jul 10 20:4[m[K4 DMA_TBE.hh
+-rw------- 1 ucacbbl crest    5265[01;31m[K Jul 10 20:4[m[K4 DMA_Transitions.cc
+-rw------- 1 ucacbbl crest   10204[01;31m[K Jul 10 20:4[m[K4 DMA_Wakeup.cc
+-rw------- 1 ucacbbl crest    1664[01;31m[K Jul 10 20:4[m[K4 HtmCallbackMode.cc
+-rw------- 1 ucacbbl crest    1167[01;31m[K Jul 10 20:4[m[K4 HtmCallbackMode.hh
+-rw------- 1 ucacbbl crest    1984[01;31m[K Jul 10 20:4[m[K4 HtmFailedInCacheReason.cc
+-rw------- 1 ucacbbl crest    1377[01;31m[K Jul 10 20:4[m[K4 HtmFailedInCacheReason.hh
+-rw------- 1 ucacbbl crest    2083[01;31m[K Jul 10 20:4[m[K4 InvalidateGeneratorStatus.cc
+-rw------- 1 ucacbbl crest    1421[01;31m[K Jul 10 20:4[m[K4 InvalidateGeneratorStatus.hh
+-rw------- 1 ucacbbl crest   77758[01;31m[K Jul 10 20:4[m[K4 L1Cache_Controller.cc
+-rw------- 1 ucacbbl crest   12294[01;31m[K Jul 10 20:4[m[K4 L1Cache_Controller.hh
+-rw------- 1 ucacbbl crest    1220[01;31m[K Jul 10 20:4[m[K4 L1Cache_Controller.py
+-rw------- 1 ucacbbl crest     722[01;31m[K Jul 10 20:4[m[K4 L1Cache_Entry.cc
+-rw------- 1 ucacbbl crest    4040[01;31m[K Jul 10 20:4[m[K4 L1Cache_Entry.hh
+-rw------- 1 ucacbbl crest    3866[01;31m[K Jul 10 20:4[m[K4 L1Cache_Event.cc
+-rw------- 1 ucacbbl crest    2189[01;31m[K Jul 10 20:4[m[K4 L1Cache_Event.hh
+-rw------- 1 ucacbbl crest    4501[01;31m[K Jul 10 20:4[m[K4 L1Cache_State.cc
+-rw------- 1 ucacbbl crest    2176[01;31m[K Jul 10 20:4[m[K4 L1Cache_State.hh
+-rw------- 1 ucacbbl crest     818[01;31m[K Jul 10 20:4[m[K4 L1Cache_TBE.cc
+-rw------- 1 ucacbbl crest    5164[01;31m[K Jul 10 20:4[m[K4 L1Cache_TBE.hh
+-rw------- 1 ucacbbl crest   35062[01;31m[K Jul 10 20:4[m[K4 L1Cache_Transitions.cc
+-rw------- 1 ucacbbl crest   60565[01;31m[K Jul 10 20:4[m[K4 L1Cache_Wakeup.cc
+-rw------- 1 ucacbbl crest   75603[01;31m[K Jul 10 20:4[m[K4 L2Cache_Controller.cc
+-rw------- 1 ucacbbl crest   11420[01;31m[K Jul 10 20:4[m[K4 L2Cache_Controller.hh
+-rw------- 1 ucacbbl crest     944[01;31m[K Jul 10 20:4[m[K4 L2Cache_Controller.py
+-rw------- 1 ucacbbl crest     765[01;31m[K Jul 10 20:4[m[K4 L2Cache_Entry.cc
+-rw------- 1 ucacbbl crest    4733[01;31m[K Jul 10 20:4[m[K4 L2Cache_Entry.hh
+-rw------- 1 ucacbbl crest    3668[01;31m[K Jul 10 20:4[m[K4 L2Cache_Event.cc
+-rw------- 1 ucacbbl crest    2040[01;31m[K Jul 10 20:4[m[K4 L2Cache_Event.hh
+-rw------- 1 ucacbbl crest    4865[01;31m[K Jul 10 20:4[m[K4 L2Cache_State.cc
+-rw------- 1 ucacbbl crest    2650[01;31m[K Jul 10 20:4[m[K4 L2Cache_State.hh
+-rw------- 1 ucacbbl crest     871[01;31m[K Jul 10 20:4[m[K4 L2Cache_TBE.cc
+-rw------- 1 ucacbbl crest    6082[01;31m[K Jul 10 20:4[m[K4 L2Cache_TBE.hh
+-rw------- 1 ucacbbl crest   29522[01;31m[K Jul 10 20:4[m[K4 L2Cache_Transitions.cc
+-rw------- 1 ucacbbl crest   31182[01;31m[K Jul 10 20:4[m[K4 L2Cache_Wakeup.cc
+-rw------- 1 ucacbbl crest    1457[01;31m[K Jul 10 20:4[m[K4 LinkDirection.cc
+-rw------- 1 ucacbbl crest    1037[01;31m[K Jul 10 20:4[m[K4 LinkDirection.hh
+-rw------- 1 ucacbbl crest    1442[01;31m[K Jul 10 20:4[m[K4 LockStatus.cc
+-rw------- 1 ucacbbl crest     980[01;31m[K Jul 10 20:4[m[K4 LockStatus.hh
+-rw------- 1 ucacbbl crest   12633[01;31m[K Jul 10 20:4[m[K4 MachineType.cc
+-rw------- 1 ucacbbl crest    3783[01;31m[K Jul 10 20:4[m[K4 MachineType.hh
+-rw------- 1 ucacbbl crest    1717[01;31m[K Jul 10 20:4[m[K4 MaskPredictorIndex.cc
+-rw------- 1 ucacbbl crest    1162[01;31m[K Jul 10 20:4[m[K4 MaskPredictorIndex.hh
+-rw------- 1 ucacbbl crest    2068[01;31m[K Jul 10 20:4[m[K4 MaskPredictorTraining.cc
+-rw------- 1 ucacbbl crest    1302[01;31m[K Jul 10 20:4[m[K4 MaskPredictorTraining.hh
+-rw------- 1 ucacbbl crest    4403[01;31m[K Jul 10 20:4[m[K4 MaskPredictorType.cc
+-rw------- 1 ucacbbl crest    2123[01;31m[K Jul 10 20:4[m[K4 MaskPredictorType.hh
+-rw------- 1 ucacbbl crest    1525[01;31m[K Jul 10 20:4[m[K4 MemoryControlRequestType.cc
+-rw------- 1 ucacbbl crest    1203[01;31m[K Jul 10 20:4[m[K4 MemoryControlRequestType.hh
+-rw------- 1 ucacbbl crest    2318[01;31m[K Jul 10 20:4[m[K4 MemoryMsg.cc
+-rw------- 1 ucacbbl crest    9872[01;31m[K Jul 10 20:4[m[K4 MemoryMsg.hh
+-rw------- 1 ucacbbl crest    1895[01;31m[K Jul 10 20:4[m[K4 MemoryRequestType.cc
+-rw------- 1 ucacbbl crest    1263[01;31m[K Jul 10 20:4[m[K4 MemoryRequestType.hh
+-rw------- 1 ucacbbl crest    4134[01;31m[K Jul 10 20:4[m[K4 MessageSizeType.cc
+-rw------- 1 ucacbbl crest    2023[01;31m[K Jul 10 20:4[m[K4 MessageSizeType.hh
+-rw------- 1 ucacbbl crest    1665[01;31m[K Jul 10 20:4[m[K4 PrefetchBit.cc
+-rw------- 1 ucacbbl crest    1117[01;31m[K Jul 10 20:4[m[K4 PrefetchBit.hh
+-rw------- 1 ucacbbl crest    1294[01;31m[K Jul 10 20:4[m[K4 RequestMsg.cc
+-rw------- 1 ucacbbl crest    8540[01;31m[K Jul 10 20:4[m[K4 RequestMsg.hh
+-rw------- 1 ucacbbl crest    1880[01;31m[K Jul 10 20:4[m[K4 RequestStatus.cc
+-rw------- 1 ucacbbl crest    1306[01;31m[K Jul 10 20:4[m[K4 RequestStatus.hh
+-rw------- 1 ucacbbl crest    1311[01;31m[K Jul 10 20:4[m[K4 ResponseMsg.cc
+-rw------- 1 ucacbbl crest    6968[01;31m[K Jul 10 20:4[m[K4 ResponseMsg.hh
+-rw------- 1 ucacbbl crest    1641[01;31m[K Jul 10 20:4[m[K4 RubyAccessMode.cc
+-rw------- 1 ucacbbl crest    1091[01;31m[K Jul 10 20:4[m[K4 RubyAccessMode.hh
+-rw------- 1 ucacbbl crest    5341[01;31m[K Jul 10 20:4[m[K4 RubyRequestType.cc
+-rw------- 1 ucacbbl crest    2731[01;31m[K Jul 10 20:4[m[K4 RubyRequestType.hh
+-rw------- 1 ucacbbl crest    1264[01;31m[K Jul 10 20:4[m[K4 SequencerMsg.cc
+-rw------- 1 ucacbbl crest    8811[01;31m[K Jul 10 20:4[m[K4 SequencerMsg.hh
+-rw------- 1 ucacbbl crest    2299[01;31m[K Jul 10 20:4[m[K4 SequencerRequestType.cc
+-rw------- 1 ucacbbl crest    1460[01;31m[K Jul 10 20:4[m[K4 SequencerRequestType.hh
+-rw------- 1 ucacbbl crest    1515[01;31m[K Jul 10 20:4[m[K4 SequencerStatus.cc
+-rw------- 1 ucacbbl crest    1045[01;31m[K Jul 10 20:4[m[K4 SequencerStatus.hh
+-rw------- 1 ucacbbl crest    1784[01;31m[K Jul 10 20:4[m[K4 SeriesRequestGeneratorStatus.cc
+-rw------- 1 ucacbbl crest    1311[01;31m[K Jul 10 20:4[m[K4 SeriesRequestGeneratorStatus.hh
+-rw------- 1 ucacbbl crest    1770[01;31m[K Jul 10 20:4[m[K4 TesterStatus.cc
+-rw------- 1 ucacbbl crest    1100[01;31m[K Jul 10 20:4[m[K4 TesterStatus.hh
+-rw------- 1 ucacbbl crest    1858[01;31m[K Jul 10 20:4[m[K4 TransitionResult.cc
+-rw------- 1 ucacbbl crest    1253[01;31m[K Jul 10 20:4[m[K4 TransitionResult.hh
+-rw------- 1 ucacbbl crest    3360[01;31m[K Jul 10 20:4[m[K4 Types.hh
+-rw------- 1 ucacbbl crest      711[01;31m[K Jul 10 20:4[m[K5 tags.cc
+-rw-------  1 ucacbbl crest 16633[01;31m[K Jul 10 20:4[m[K5 parser.out
+45 ucacbbl@eden% echo "Ok lets not trust scons to do anything senisble..."
+Ok lets not trust scons to do anything senisble...
+46 ucacbbl@eden% ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py --isa ARM
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [SSBSE Challenge Track '23 Variant]
+gem5 compiled Jul  7 2023 14:22:27
+gem5 started Jul 10 2023 20:49:51
+gem5 executing on eden.cs.ucl.ac.uk, pid 17109
+command line: ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py --isa ARM
+
+warn: `Resource` has been deprecated. Please use the `obtain_resource` function instead.
+info: Using default config
+warn: Error getting resources from client gem5-resources: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+Exception: Resource with ID 'arm-hello64-static' not found.
+
+At:
+  src/python/gem5/resources/client_api/client_wrapper.py(116): get_resource_json_obj_from_client
+  src/python/gem5/resources/client.py(82): get_resource_json_obj
+  src/python/gem5/resources/resource.py(588): obtain_resource
+  src/python/gem5/resources/resource.py(786): Resource
+  ssbse-challenge-examples/hello.py(120): <module>
+  src/python/m5/main.py(609): main
+47 ucacbbl@eden% 
+47 ucacbbl@eden% ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [SSBSE Challenge Track '23 Variant]
+gem5 compiled Jul  7 2023 14:22:27
+gem5 started Jul 10 2023 20:50:35
+gem5 executing on eden.cs.ucl.ac.uk, pid 17154
+command line: ./build/ALL/gem5.opt ssbse-challenge-examples/hello.py
+
+warn: `Resource` has been deprecated. Please use the `obtain_resource` function instead.
+info: Using default config
+warn: Error getting resources from client gem5-resources: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+Exception: Resource with ID 'x86-hello64-static' not found.
+
+At:
+  src/python/gem5/resources/client_api/client_wrapper.py(116): get_resource_json_obj_from_client
+  src/python/gem5/resources/client.py(82): get_resource_json_obj
+  src/python/gem5/resources/resource.py(588): obtain_resource
+  src/python/gem5/resources/resource.py(786): Resource
+  ssbse-challenge-examples/hello.py(120): <module>
+  src/python/m5/main.py(609): main
+48 ucacbbl@eden% echo "see if bobby has words of wisdom..."
+see if bobby has words of wisdom...
+49 ucacbbl@eden% exit
+exit
+
+Script done on Mon 10 Jul 2023 08:53:05 PM BST

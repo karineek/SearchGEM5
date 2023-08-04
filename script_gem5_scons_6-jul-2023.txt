@@ -1,0 +1,291 @@
+Script started on Thu 06 Jul 2023 12:46:16 BST
+23 ucacbbl@eden% echo "continue script_gem5_clone.txt" `date`
+continue script_gem5_clone.txt Thu 6 Jul 12:46:37 BST 2023
+24 ucacbbl@eden% echo "Ahha sign out of GitHub"
+Ahha sign out of GitHub
+25 ucacbbl@eden% cd gem5-ssbse-challenge-2023/
+26 ucacbbl@eden% gcc -version
+[01m[Kgcc:[m[K [01;31m[Kerror: [m[Kunrecognized command-line option ‘[01m[K-version[m[K’
+[01m[Kgcc:[m[K [01;31m[Kfatal error: [m[Kno input files
+compilation terminated.
+27 ucacbbl@eden% gcc --version
+gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+28 ucacbbl@eden% python --version
+Python 3.7.3
+29 ucacbbl@eden% echo "Niel has installed scons for me"
+Niel has installed scons for me
+30 ucacbbl@eden% scons --version
+[?1034hSCons by Steven Knight et al.:
+	script: v3.1.2, 2020-01-22 06:48:41, by mockbuild on buildvm-15
+	engine: v3.1.2, 2020-01-22 06:48:41, by mockbuild on buildvm-15
+	engine path: ['/usr/lib/python2.7/site-packages/SCons']
+Copyright (c) 2001 - 2019 The SCons Foundation
+31 ucacbbl@eden% m4 --version
+m4 (GNU M4) 1.4.16
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Rene' Seindal.
+32 ucacbbl@eden% echo "https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023" 
+https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023
+33 ucacbbl@eden% teams &
+[1] 26203
+34 ucacbbl@eden% 
+[1]    Done                          teams
+34 ucacbbl@eden% ls -ltr
+total 896
+-rw-------  1 ucacbbl crest  5595 Jul  5 15:09 CODE-OF-CONDUCT.md
+-rw-------  1 ucacbbl crest 27383 Jul  5 15:09 CONTRIBUTING.md
+-rw-------  1 ucacbbl crest  2332 Jul  5 15:09 COPYING
+-rw-------  1 ucacbbl crest  5681 Jul  5 15:09 KCONFIG.md
+-rw-------  1 ucacbbl crest  1478 Jul  5 15:09 LICENSE
+-rw-------  1 ucacbbl crest  7790 Jul  5 15:09 MAINTAINERS.yaml
+-rw-------  1 ucacbbl crest    17 Jul  5 15:09 README
+-rw-------  1 ucacbbl crest 13850 Jul  5 15:09 README.md
+-rw-------  1 ucacbbl crest 53090 Jul  5 15:09 RELEASE-NOTES.md
+-rw-------  1 ucacbbl crest  2655 Jul  5 15:09 SConsopts
+-rwx------  1 ucacbbl crest 34704 Jul  5 15:09 SConstruct
+-rw-------  1 ucacbbl crest  9064 Jul  5 15:09 TESTING.md
+drwx--S---  2 ucacbbl crest  4096 Jul  5 15:09 build_opts
+drwx--S---  2 ucacbbl crest  2048 Jul  5 15:09 build_tools
+drwx--S--- 14 ucacbbl crest  2048 Jul  5 15:09 configs
+drwx--S--- 24 ucacbbl crest  2048 Jul  5 15:09 ext
+drwx--S---  3 ucacbbl crest  2048 Jul  5 15:09 include
+-rw-------  1 ucacbbl crest    13 Jul  5 15:09 optional-requirements.txt
+-rw-------  1 ucacbbl crest    50 Jul  5 15:09 pyproject.toml
+-rw-------  1 ucacbbl crest    19 Jul  5 15:09 requirements.txt
+drwx--S---  4 ucacbbl crest  2048 Jul  5 15:09 site_scons
+drwx--S--- 17 ucacbbl crest  2048 Jul  5 15:09 src
+drwx--S---  3 ucacbbl crest  2048 Jul  5 15:09 ssbse-challenge-examples
+drwx--S---  3 ucacbbl crest  2048 Jul  5 15:09 system
+drwx--S---  7 ucacbbl crest  2048 Jul  5 15:09 tests
+drwx--S--- 25 ucacbbl crest  6144 Jul  5 15:09 util
+35 ucacbbl@eden% scons build/{ISA}/gem5.{variant} -j {threads}[18G[1@d[1@a[1@t[1@e[1@;[1@ [69G; echo "stat us $status" ; date;[Adate; scons build/{ISA}/gem5.{variant} -j {threads}[P[80Guu[P[A[68G[P[80Gss[P[A[67G[P[80G  [P[A[66G[P[79G $$[P[A[65G[P[80Gss[P[A[64G[P[80Gtt[P[A[63G[P[80Gaa[P[A[62G[P[80Gtt[P[A[61G[P[80Guu[P[A[60G[80G[60G[1@1[80Gts[1@u[A[61G[P[80Guu[P[A[55G[P[80Gss[P[A[54G[P[80G""[P[A[53G[P[80G;;[P[A[52G[P[80G  [P[A[51G[P[79G dd[P[A[50G[P[80Gaate;[K[A[49G[P[80Gtte;[K[A[48G[P[80Gee;[K[A[47G[80G[47G[1@o[80Gt;e;[A[48G[80G[48G[1@p[80Gaete;[A[49G[80G[49G[1@t[80Gdtate;[A[50G}[P[80Gaate;[K[A[40G[P[80Gtte;[K[A[39G[P[80Gee;[K[A[38G[P[80G;;[K[A[37G[P[1@X[80G[37G[1@8[80Ge ;[A[38G[80G[38G[1@6[80Gt;e;[A[39G[P[80Gee;[K[A[38G[P[80G;;[K[A[37G[P[1@A[80G[37G[1@l[80Ge ;[A[38G[80G[38G[1@l[80Gt;e;[A[39G[P[80Gee;[K[A[38G[P[80G;;[K[A[37G[80G[37G[1@L[80Ge ;[A[38G[80G[38G[1@L[80Gt;e;[A[39G/gem5.opt -j 1[80G[53G[1@ [80Gaete;[A[54G[80G[54G[1@-[80Gdtate;[A[55G[1@-[80G[K a[1@d[A[56G[1@g[80G;d[1@ [A[57G[80G[57G[1@p[80G" [1@;[A[58G[80G[58G[1@r[80Gs;[1@"[A[59G[80G[59G[1@o[80Gu"[1@s[A[60G[80G[60G[1@f[80Gts[1@u[A[61G[80Gtu
+Thu  6 Jul 13:09:50 BST 2023
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+status 2
+Thu  6 Jul 13:09:50 BST 2023
+36 ucacbbl@eden% p[K36 ucacbbl@eden% python3 --version
+Python 3.10.1
+37 ucacbbl@eden% 
+[K37 ucacbbl@eden% d[K37 ucacbbl@eden% date[K[K[K[K"[Kecho "hmm not sure Tyr just doing as error message says" `date` 
+hmm not sure Tyr just doing as error message says Thu 6 Jul 13:21:54 BST 2023
+38 ucacbbl@eden% /usr/bin/env python3 $(which scons) build/ALL/gem5.opt -j 1 --g prof; echo "status $status"; date; 
+Illegal variable name.
+39 ucacbbl@eden% which python3
+/opt/Python/Python-3.10.1/bin/python3
+40 ucacbbl@eden% /usr/bin/env python3 /opt/Python/Python-3.10.1/bin/python3 buil d/ALL/gem5.opt -j 1 --gprof; echo "status $status"; date;
+  File "/opt/Python/Python-3.10.1/bin/python3", line 0
+    
+    ^
+SyntaxError: unknown parsing error
+status 1
+Thu  6 Jul 13:23:26 BST 2023
+41 ucacbbl@eden% /usr/bin/env python3 /opt/Python/Python-3.10.1/bin/python3 buil d/ALL/gem5.opt -j 1 --gprof ; echo "status $status" ; date ;[A[18G/usr/bin/env python3[80G[38G[1@=[80Gid[1@l[A[39G[P[80Gll[P[A[39G[80Gld
+/usr/bin/env: build/ALL/gem5.opt: No such file or directory
+status 127
+Thu  6 Jul 13:24:32 BST 2023
+42 ucacbbl@eden% /usr/bin/env python3=/opt/Python/Python-3.10.1/bin/python3 buil d/ALL/gem5.opt -j 1 --gprof ; echo "status $status" ; date ;[A[18G/usr/bin/env python3=/opt/Python/Python-3.10.1/bin/python3 busbuid[1@l[A[78Gcbul[1@i[A[79Gobi[1@u[A[80Gnu[1@b[1@s[1@ 
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+status 2
+Thu  6 Jul 13:24:51 BST 2023
+43 ucacbbl@eden% [K43 ucacbbl@eden% /usr/bin/env python3=/opt/Python/Python-3.10.1/bin/python3 scons build/ALL/gem5.opt -j 1 --gprof ; echo "status $status" ; date ;[18G/usr/bin/env python3[P
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+status 2
+Thu  6 Jul 13:25:44 BST 2023
+44 ucacbbl@eden% s[K44 ucacbbl@eden% setenv [18G[Kcp -p /usr/bin/python3 python
+45 ucacbbl@eden% ls -l python
+-rwxr-xr-x 1 ucacbbl crest 11336 Jun 20 12:55 python
+46 ucacbbl@eden% pwd
+/cs/research/crest/projects1/ucacbbl/assugi/gem5/gem5-ssbse-challenge-2023
+47 ucacbbl@eden% setenv ~/assugi/gem5/gem5-ssbse-challenge-2023:"$PATH"
+setenv: Variable name must begin with a letter.
+48 ucacbbl@eden% setenv ~/assugi/gem5/gem5-ssbse-challenge-2023:"$PATH"[18Gsetenv [1@P[1@A[1@T[1@H[1@ 
+49 ucacbbl@eden% python --version
+Python 3.6.8
+50 ucacbbl@eden% date ; /usr/bin/env python3=/opt/Python/Python-3.10.1/bin/pytho n3 scons build/ALL/gem5.opt -j 1 --gprof ; echo "status $status" ; date ;
+Thu  6 Jul 14:13:01 BST 2023
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+status 2
+Thu  6 Jul 14:13:01 BST 2023
+51 ucacbbl@eden% date ; /usr/bin/env python3=/opt/Python/Python-3.10.1/bin/pytho n3 scons build/ALL/gem5.opt -j 1 --gprof ; echo "status $status" ; date ;[A[18Gdate ; /usr/bin/env python3=/opt/Python/Python-3.10.1/bin/pythonn3 scons[P[P[P[P[P[P[P[P[A[80G[K  [P[A[80G bb[P[A[79G buu[P[A[78G buii[P[A[77G[P buill[P[A[76G[P[80Gdd[P[A[75G[P[80G//[P[A[74G[P[80GAA[P[A[73G[P[80GLL[P[A[72G[P[79GLLL[P[A[71G[P[80G//[P[A[70G[P[80Ggg[P[A[69G[P[80Gee[P[A[68G[P[80Gmm[P[A[67G[P[80G55[P[A[66G[P[80G..[P[A[65G[P[80Goo[P[A[64G[P[80Gpp[P[A[63G[P[80Gtt[P[A[62G[P[80G  [P[A[61G[P[79G --[P[A[60G[P[80Gjj[P[A[59G[P[80G  [P[A[58G[P[79G 11[P[A[57G[P[80G  [P[A[56G[P[79G --[P[A[55G[P[79G---[P[A[54G[P[80Ggg[P[A[53G[P[80Gpp[P[A[52G[P[80Grr[P[A[51G[P[80Goo[P[A[50G[P[80Gff[P[A[49G[P[80G  [P[A[48G[P[79G ;;[P[A[47G[P[80G  [P[A[46G[P[79G ee[P[A[45G[P[80Gcc[P[A[44G[P[80Ghh[P[A[43G[P[80Goo[P[A[42G[P[80G  [P[A[41G[P[79G ""[P[A[40G[P[80Gss[P[A[39G[P[80Gtt[P[A[38G[P[80Gaa[P[A[37G[P[80Gtt[P[A[36G[P[80Guu[P[A[35G[P[80Gss[P[A[34G[P[80G  [P[A[33G[P[79G $$[P[A[32G[P[80Gss[P[A[31G[P[80Gtt[P[A[30G[P[80Gaa[P[A[29G[P[80Gtt[P[A[28G[P[80Guu[P[A[27G[P[80Gss[P[A[26G[P[80G""[P[A[25G[80G[25G[1@s[80Gs [1@"[A[26G[80G[26G[1@c[80Gu"[1@s[A[27G[80G[27G[1@o[80Gts[1@u[A[28G[80G[28G[1@n[80Gau[1@t[A[29G[80G[29G[1@s[80Gtt[1@a[A[30G[80Gta
+Thu  6 Jul 14:16:20 BST 2023
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+status 2
+Thu  6 Jul 14:16:20 BST 2023
+52 ucacbbl@eden% scons build/ALL/gem5.opt -j 1
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+53 ucacbbl@eden% rm python
+54 ucacbbl@eden% ln -s /usr/bin/python3 python
+55 ucacbbl@eden% pythone[K --version
+Python 3.6.8
+56 ucacbbl@eden% date
+Thu  6 Jul 16:23:12 BST 2023
+57 ucacbbl@eden% scons build/ALL/gem5.opt -j 1
+[?1034hPython 3.6 or greater required, but you have Python 2.7.5
+[93m
+Python 3 is now required.
+
+The following are steps to compile gem5 in Python 3 environment,
+
+*Step 1*: ensure Python 3 is installed. On Ubuntu like systems, you can try this command:
+
+    sudo apt-get install python3 python-is-python3 python3-pydot
+
+To run Python 3 from a container, you can try the Docker files in util/dockerfiles folder.
+
+*Step 2*: ensure that scons is run in the Python 3 environment. If scons isn't run automatically with Python 3, you can force it by replacing `scons` by the following phrase,
+
+    /usr/bin/env python3 $(which scons)
+
+For example, the following command will let scons compile gem5/X86 in the Python 3 environment,
+
+   /usr/bin/env python3 $(which scons) build/X86/gem5.opt
+
+(Optional) For convenience reasons, you can set up an alias for the Python3 scons phrase in your environment. [0m
+
+58 ucacbbl@eden% ls -l python
+lrwxrwxrwx 1 ucacbbl crest 16 Jul  6 16:22 python -> /usr/bin/python3
+59 ucacbbl@eden% 
+59 ucacbbl@eden% echo "Have raised problem with Neil"
+Have raised problem with Neil
+60 ucacbbl@eden% echo "Have tried to joint[K gem5 users email list"
+Have tried to join gem5 users email list
+61 ucacbbl@eden% date
+Thu  6 Jul 16:37:42 BST 2023
+62 ucacbbl@eden% exit
+exit
+
+Script done on Thu 06 Jul 2023 16:37:44 BST

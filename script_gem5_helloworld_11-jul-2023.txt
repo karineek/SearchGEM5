@@ -1,0 +1,70 @@
+Script started on Tue 11 Jul 2023 13:20:15 BST
+23 ucacbbl@eden% echo "Hmm no reply from Bobby, try his non-SSBSE hollow world e xample" `date` `pwd`
+Hmm no reply from Bobby, try his non-SSBSE hollow world example Tue 11 Jul 13:21:00 BST 2023 /cs/research/crest/projects1/ucacbbl/assugi/gem5
+24 ucacbbl@eden% setenv PATH /opt/rh/devtoolset-10/root/usr/bin:"$PATH"
+25 ucacbbl@eden% setenv PATH /opt/Python/Python-3.10.1/bin:/opt/Python/Python-3. 7/bin:"$PATH"
+26 ucacbbl@eden% setenv LD_LIBRARY_PATH /opt/Python/Python-3.10.1/lib:"$LD_LIBRA RY_PATH"
+27 ucacbbl@eden% 
+27 ucacbbl@eden% setenv PATH ~/.local/bin:"$PATH"
+28 ucacbbl@eden% ./build/X86/gem5.opt hello-world.py
+./build/X86/gem5.opt: Command not found.
+29 ucacbbl@eden% gem5-ssbse-challenge-2023/build/X86/gem5.opt hello-world.py
+gem5-ssbse-challenge-2023/build/X86/gem5.opt: Command not found.
+30 ucacbbl@eden% pwd
+/cs/research/crest/projects1/ucacbbl/assugi/gem5
+31 ucacbbl@eden% ls -l ./gem5-ssbse-challenge-2023/build/ALL/gem5.opt
+-rwx------ 1 ucacbbl crest 1129884824 Jul  7 14:25 ./gem5-ssbse-challenge-2023/build/ALL/gem5.opt
+32 ucacbbl@eden% ./gem5-ssbse-challenge-2023/build/ALL/gem5.opt hello-world.py
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [SSBSE Challenge Track '23 Variant]
+gem5 compiled Jul  7 2023 14:22:27
+gem5 started Jul 11 2023 14:08:48
+gem5 executing on eden.cs.ucl.ac.uk, pid 21942
+command line: ./gem5-ssbse-challenge-2023/build/ALL/gem5.opt hello-world.py
+
+warn: An ISA for the SimpleProcessor was not set. This will result in usage of `runtime.get_runtime_isa` to obtain the ISA. This function is deprecated and will be removed in future releases of gem5. Please explicitly state the ISA via the processor constructor.
+warn: The `get_runtime_isa` function is deprecated. Please migrate away from using this function.
+Exception: Cannot determine the the runtime ISA. Either the 'TARGET_ISA' parameter must be set or the binary only compiled to one ISA.
+
+At:
+  src/python/gem5/runtime.py(84): get_runtime_isa
+  src/python/gem5/components/processors/simple_core.py(54): __init__
+  src/python/gem5/components/processors/simple_processor.py(67): <listcomp>
+  src/python/gem5/components/processors/simple_processor.py(66): __init__
+  hello-world.py(16): <module>
+  src/python/m5/main.py(609): main
+33 ucacbbl@eden% g[K33 ucacbbl@eden% gem5-ssbse-challenge-2023/build/ALL/gem5.opt hello-world.py
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [SSBSE Challenge Track '23 Variant]
+gem5 compiled Jul  7 2023 14:22:27
+gem5 started Jul 11 2023 14:10:06
+gem5 executing on eden.cs.ucl.ac.uk, pid 22047
+command line: gem5-ssbse-challenge-2023/build/ALL/gem5.opt hello-world.py
+
+warn: An ISA for the SimpleProcessor was not set. This will result in usage of `runtime.get_runtime_isa` to obtain the ISA. This function is deprecated and will be removed in future releases of gem5. Please explicitly state the ISA via the processor constructor.
+warn: The `get_runtime_isa` function is deprecated. Please migrate away from using this function.
+Exception: Cannot determine the the runtime ISA. Either the 'TARGET_ISA' parameter must be set or the binary only compiled to one ISA.
+
+At:
+  src/python/gem5/runtime.py(84): get_runtime_isa
+  src/python/gem5/components/processors/simple_core.py(54): __init__
+  src/python/gem5/components/processors/simple_processor.py(67): <listcomp>
+  src/python/gem5/components/processors/simple_processor.py(66): __init__
+  hello-world.py(16): <module>
+  src/python/m5/main.py(609): main
+34 ucacbbl@eden% gem5-ssbse-challenge-2023/build/ALL/gem5.opt hello-world.py[1@-[1@-[1@i[1@s[1@a[1@ [1@X[1@8[1@6[1@ 
+Usage
+=====
+  gem5.opt [gem5 options] script.py [script options]
+
+gem5.opt: error: no such option: --isa
+35 ucacbbl@eden% e[K35 ucacbbl@eden% echo "sent email to bobby"
+sent email to bobby
+36 ucacbbl@eden% exit
+exit
+
+Script done on Tue 11 Jul 2023 14:24:39 BST

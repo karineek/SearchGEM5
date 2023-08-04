@@ -1,0 +1,29 @@
+Script started on Wed 12 Jul 2023 09:48:40 BST
+23 ucacbbl@eden% echo "try Bobby's wgt [Ket suggestion, see his email today" `date`  `pwd`
+try Bobby's wget suggestion, see his email today Wed 12 Jul 09:49:22 BST 2023 /cs/research/crest/projects1/ucacbbl/assugi/gem5
+24 ucacbbl@eden% wget http://dist.gem5.org/dist/develop/test-progs/hello/bin/x86 /linux/hello64-static
+--2023-07-12 09:49:41--  http://dist.gem5.org/dist/develop/test-progs/hello/bin/x86/linux/hello64-static
+Resolving dist.gem5.org (dist.gem5.org)... 142.250.200.16, 2a00:1450:4009:822::2010
+Connecting to dist.gem5.org (dist.gem5.org)|142.250.200.16|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 810440 (791K) [application/octet-stream]
+Saving to: ‘hello64-static’
+
+ 0% [                                       ] 0           --.-K/s              100%[======================================>] 810,440     --.-K/s   in 0.01s   
+
+2023-07-12 09:49:41 (66.4 MB/s) - ‘hello64-static’ saved [810440/810440]
+
+25 ucacbbl@eden% e[K25 ucacbbl@eden% echo "status $status"
+status 0
+26 ucacbbl@eden% ls -l hello64-static
+-rw------- 1 ucacbbl crest 810440 Mar 26  2021 hello64-static
+27 ucacbbl@eden% fle [Kfile hello64-static
+hello64-static: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 2.6.32, BuildID[sha1]=0c6b81620305b242517c23e1e3f55dbe9f7395e8, not stripped
+28 ucacbbl@eden% echo "o[18G[Kecho "Looks fine, send script to Bobby"
+Looks fine, send script to Bobby
+29 ucacbbl@eden% .
+/usr/bin/.: Permission denied.
+30 ucacbbl@eden% .[Kexit
+exit
+
+Script done on Wed 12 Jul 2023 09:51:28 BST
