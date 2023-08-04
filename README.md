@@ -16,7 +16,7 @@ We construct it with the Unix command:
 cat *.c.x > all_tests.txt
 rm *.c.x
 ```
-the scripts and examples are in [raw_data](tests_raw_data).
+the scripts and examples are in [raw_data](data/tests_raw_data).
 
 ## Training LLM to turn a concrete test case into an AFL-interface template
 
