@@ -1,0 +1,1 @@
+Oh no! we are using now https://github.com/llvm/llvm-test-suite instead of https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/, can you reflect it in the comment?
