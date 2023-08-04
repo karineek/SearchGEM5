@@ -50,3 +50,6 @@ This is because:
 this does not make much sense, it should be much earlier in the code of main function.
 
 Can you please do it from now on?
+
+But don't forget the idea, you add comments with date and time and source to both programs.
+But you only add args to the second program.
