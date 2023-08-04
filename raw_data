@@ -1,0 +1,6337 @@
+// source: 00001.c
+int
+main()
+{
+	return 0;
+}
+// source: 00002.c
+int
+main()
+{
+	return 3-3;
+}
+// source: 00003.c
+int
+main()
+{
+	int x;
+	
+	x = 4;
+	return x - 4;
+}
+// source: 00004.c
+int
+main()
+{
+	int x;
+	int *p;
+	
+	x = 4;
+	p = &x;
+	*p = 0;
+
+	return *p;
+}
+// source: 00005.c
+int
+main()
+{
+	int x;
+	int *p;
+	int **pp;
+
+	x = 0;
+	p = &x;
+	pp = &p;
+
+	if(*p)
+		return 1;
+	if(**pp)
+		return 1;
+	else
+		**pp = 1;
+
+	if(x)
+		return 0;
+	else
+		return 1;
+}
+// source: 00006.c
+int
+main()
+{
+	int x;
+
+	x = 50;
+	while (x)
+		x = x - 1;
+	return x;
+}
+// source: 00007.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	for(x = 10; x; x = x - 1)
+		;
+	if(x)
+		return 1;
+	x = 10;
+	for (;x;)
+		x = x - 1;
+	return x;
+}
+// source: 00008.c
+int
+main()
+{
+	int x;
+
+	x = 50;
+	do 
+		x = x - 1;
+	while(x);
+	return x;
+}
+// source: 00009.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	x = x * 10;
+	x = x / 2;
+	x = x % 3;
+	return x - 2;
+}
+// source: 00010.c
+int
+main()
+{
+	start:
+		goto next;
+		return 1;
+	success:
+		return 0;
+	next:
+	foo:
+		goto success;
+		return 1;
+}
+// source: 00011.c
+int
+main()
+{
+	int x;
+	int y;
+	x = y = 0;
+	return x;
+}
+// source: 00012.c
+int
+main()
+{
+	return (2 + 2) * 2 - 8;
+}
+// source: 00013.c
+int
+main()
+{
+	int x;
+	int *p;
+	
+	x = 0;
+	p = &x;
+	return p[0];
+}
+// source: 00014.c
+int
+main()
+{
+	int x;
+	int *p;
+	
+	x = 1;
+	p = &x;
+	p[0] = 0;
+	return x;
+}
+// source: 00015.c
+int
+main()
+{
+	int arr[2];
+
+	arr[0] = 1;
+	arr[1] = 2;
+
+	return arr[0] + arr[1] - 3;
+}
+// source: 00016.c
+int
+main()
+{
+	int arr[2];
+	int *p;
+	
+	p = &arr[1];
+	*p = 0;
+	return arr[1];
+}
+// source: 00017.c
+int
+main()
+{
+	struct { int x; int y; } s;
+	
+	s.x = 3;
+	s.y = 5;
+	return s.y - s.x - 2; 
+}
+// source: 00018.c
+int
+main()
+{
+
+	struct S { int x; int y; } s;
+	struct S *p;
+
+	p = &s;	
+	s.x = 1;
+	p->y = 2;
+	return p->y + p->x - 3; 
+}
+
+// source: 00019.c
+int
+main()
+{
+	struct S { struct S *p; int x; } s;
+	
+	s.x = 0;
+	s.p = &s;
+	return s.p->p->p->p->p->x;
+}
+
+// source: 00020.c
+int
+main()
+{
+	int x, *p, **pp;
+	
+	x = 0;
+	p = &x;
+	pp = &p;
+	return **pp;
+}
+// source: 00021.c
+int
+foo(int a, int b)
+{
+	return 2 + a - b;
+}
+
+int
+main()
+{
+	return foo(1, 3);
+}
+
+// source: 00022.c
+typedef int x;
+
+int
+main()
+{
+	x v;
+	v = 0;
+	return v;
+}
+
+// source: 00023.c
+int x;
+
+int
+main()
+{
+	x = 0;
+	return x;
+}
+
+// source: 00024.c
+typedef struct { int x; int y; } s;
+
+s v;
+
+int
+main()
+{
+	v.x = 1;
+	v.y = 2;
+	return 3 - v.x - v.y;
+}
+
+// source: 00025.c
+int strlen(char *);
+
+int
+main()
+{
+	char *p;
+	
+	p = "hello";
+	return strlen(p) - 5;
+}
+// source: 00026.c
+int
+main()
+{
+	char *p;
+	
+	p = "hello";
+	return p[0] - 104;
+}
+// source: 00027.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	x = x | 4;
+	return x - 5;
+}
+
+// source: 00028.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	x = x & 3;
+	return x - 1;
+}
+
+// source: 00029.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	x = x ^ 3;
+	return x - 2;
+}
+
+// source: 00030.c
+int
+f()
+{
+	return 100;
+}
+
+int
+main()
+{
+	if (f() > 1000)
+		return 1;
+	if (f() >= 1000)
+		return 1;
+	if (1000 < f())
+		return 1;
+	if (1000 <= f())
+		return 1;
+	if (1000 == f())
+		return 1;
+	if (100 != f())
+		return 1;
+	return 0;
+}
+
+// source: 00031.c
+int
+zero()
+{
+	return 0;
+}
+
+int
+one()
+{
+	return 1;
+}
+
+int
+main()
+{
+	int x;
+	int y;
+	
+	x = zero();
+	y = ++x;
+	if (x != 1)
+		return 1;
+	if (y != 1)
+		return 1;
+	
+	x = one();	
+	y = --x;
+	if (x != 0)
+		return 1;
+	if (y != 0)
+		return 1;
+	
+	x = zero();
+	y = x++;
+	if (x != 1)
+		return 1;
+	if (y != 0)
+		return 1;
+	
+	x = one();
+	y = x--;
+	if (x != 0)
+		return 1;
+	if (y != 1)
+		return 1;
+	
+	return 0;
+}
+// source: 00032.c
+int
+main()
+{
+	int arr[2];
+	int *p;
+	
+	arr[0] = 2;
+	arr[1] = 3;
+	p = &arr[0];
+	if(*(p++) != 2)
+		return 1;
+	if(*(p++) != 3)
+		return 2;
+	
+	p = &arr[1];
+	if(*(p--) != 3)
+		return 1;
+	if(*(p--) != 2)
+		return 2;
+		
+	p = &arr[0];
+	if(*(++p) != 3)
+		return 1;
+	
+	p = &arr[1];
+	if(*(--p) != 2)
+		return 1;
+
+	return 0;
+}
+// source: 00033.c
+int g;
+
+int
+effect()
+{
+	g = 1;
+	return 1;
+}
+
+int
+main()
+{
+    int x;
+    
+    g = 0;
+    x = 0;
+    if(x && effect())
+    	return 1;
+    if(g)
+    	return 2;
+    x = 1;
+    if(x && effect()) {
+    	if(g != 1)
+    		return 3;
+    } else {
+    	return 4;
+    }
+    g = 0;
+    x = 1;
+    if(x || effect()) {
+    	if(g)
+    		return 5;
+    } else {
+    	return 6;
+    }
+    x = 0;
+    if(x || effect()) {
+    	if(g != 1)
+    		return 7;
+    } else {
+    	return 8;
+    } 
+    return 0;
+}
+
+// source: 00034.c
+int
+main()
+{
+	int x;
+	
+	x = 0;
+	while(1)
+		break;
+	while(1) {
+		if (x == 5) {
+			break;
+		}
+		x = x + 1;
+		continue;
+	}
+	for (;;) {
+		if (x == 10) {
+			break;
+		}
+		x = x + 1;
+		continue;
+	}
+	do {
+		if (x == 15) {
+			break;
+		}
+		x = x + 1;
+		continue;
+	} while(1);
+	return x - 15;
+}
+
+// source: 00035.c
+int
+main()
+{
+	int x;
+	
+	x = 4;
+	if(!x != 0)
+		return 1;
+	if(!!x != 1)
+		return 1;
+	if(-x != 0 - 4)
+		return 1;
+	return 0;
+}
+
+// source: 00036.c
+int
+main()
+{
+	int x;
+	
+	x = 0;
+	x += 2;
+	x += 2;
+	if (x != 4)
+		return 1;
+	x -= 1;
+	if (x != 3)
+		return 2;
+	x *= 2;
+	if (x != 6)
+		return 3;
+		
+	return 0;
+}
+// source: 00037.c
+int
+main()
+{
+	int x[2];
+	int *p;
+	
+	x[1] = 7;
+	p = &x[0];
+	p = p + 1;
+	
+	if(*p != 7)
+		return 1;
+	if(&x[1] - &x[0] != 1)
+		return 1;
+	
+	return 0;
+}
+// source: 00038.c
+int
+main()
+{
+	int x, *p;
+
+	if (sizeof(0) < 2)
+		return 1;
+	if (sizeof 0 < 2)
+		return 1;
+	if (sizeof(char) < 1)
+		return 1;
+	if (sizeof(int) - 2 < 0)
+		return 1;
+	if (sizeof(&x) != sizeof p)
+		return 1;
+	return 0;
+}
+// source: 00039.c
+int
+main()
+{
+	void *p;
+	int x;
+	
+	x = 2;
+	p = &x;
+	
+	if(*((int*)p) != 2)
+		return 1;
+	return 0;
+}
+// source: 00040.c
+#include <stdlib.h>
+
+int N;
+int *t;
+
+int
+chk(int x, int y)
+{
+        int i;
+        int r;
+
+        for (r=i=0; i<8; i++) {
+                r = r + t[x + 8*i];
+                r = r + t[i + 8*y];
+                if (x+i < 8 & y+i < 8)
+                        r = r + t[x+i + 8*(y+i)];
+                if (x+i < 8 & y-i >= 0)
+                        r = r + t[x+i + 8*(y-i)];
+                if (x-i >= 0 & y+i < 8)
+                        r = r + t[x-i + 8*(y+i)];
+                if (x-i >= 0 & y-i >= 0)
+                        r = r + t[x-i + 8*(y-i)];
+        }
+        return r;
+}
+
+int
+go(int n, int x, int y)
+{
+        if (n == 8) {
+                N++;
+                return 0;
+        }
+        for (; y<8; y++) {
+                for (; x<8; x++)
+                        if (chk(x, y) == 0) {
+                                t[x + 8*y]++;
+                                go(n+1, x, y);
+                                t[x + 8*y]--;
+                        }
+                x = 0;
+        }
+	return 0;
+}
+
+int
+main()
+{
+        t = calloc(64, sizeof(int));
+        go(0, 0, 0);
+        if(N != 92)
+        	return 1;
+        return 0;
+}
+
+// source: 00041.c
+int
+main() {
+	int n;
+	int t;
+	int c;
+	int p;
+
+	c = 0;
+	n = 2;
+	while (n < 5000) {
+		t = 2;
+		p = 1;
+		while (t*t <= n) {
+			if (n % t == 0)
+				p = 0;
+			t++;
+		}
+		n++;
+		if (p)
+			c++;
+	}
+	if (c != 669)
+		return 1;
+	return 0;
+}
+
+// source: 00042.c
+int
+main()
+{
+	union { int a; int b; } u;
+	u.a = 1;
+	u.b = 3;
+	
+	if (u.a != 3 || u.b != 3)
+		return 1;
+	return 0;
+}
+// source: 00043.c
+struct s {
+    int x;
+    struct {
+        int y;
+        int z;
+    } nest;
+};
+
+int
+main() {
+    struct s v;
+    v.x = 1;
+    v.nest.y = 2;
+    v.nest.z = 3;
+    if (v.x + v.nest.y + v.nest.z != 6)
+        return 1;
+    return 0;
+}
+
+// source: 00044.c
+struct T;
+
+struct T {
+	int x;
+};
+
+int
+main()
+{
+	struct T v;
+	{ struct T { int z; }; }
+	v.x = 2;
+	if(v.x != 2)
+		return 1;
+	return 0;
+}
+// source: 00045.c
+int x = 5;
+long y = 6;
+int *p = &x;
+
+int
+main()
+{
+	if (x != 5) 
+		return 1;
+	if (y != 6)
+		return 2;
+	if (*p != 5)
+		return 3;
+	return 0;
+}
+
+// source: 00046.c
+typedef struct {
+	int a;
+	union {
+		int b1;
+		int b2;
+	};
+	struct { union { struct { int c; }; }; };
+	struct {
+		int d;
+	};
+} s;
+
+int
+main()
+{
+	s v;
+	
+	v.a = 1;
+	v.b1 = 2;
+	v.c = 3;
+	v.d = 4;
+	
+	if (v.a != 1)
+		return 1;
+	if (v.b1 != 2 && v.b2 != 2)
+		return 2;
+	if (v.c != 3)
+		return 3;
+	if (v.d != 4)
+		return 4;
+	
+	return 0;
+}
+// source: 00047.c
+struct { int a; int b; int c; } s = {1, 2, 3};
+
+int
+main()
+{
+	if (s.a != 1)
+		return 1;
+	if (s.b != 2)
+		return 2;
+	if (s.c != 3)
+		return 3;
+
+	return 0;
+}
+// source: 00048.c
+struct S {int a; int b;};
+struct S s = { .b = 2, .a = 1};
+
+int
+main()
+{
+	if(s.a != 1)
+		return 1;
+	if(s.b != 2)
+		return 2;
+	return 0;
+}
+// source: 00049.c
+int x = 10;
+
+struct S {int a; int *p;};
+struct S s = { .p = &x, .a = 1};
+
+int
+main()
+{
+	if(s.a != 1)
+		return 1;
+	if(*s.p != 10)
+		return 2;
+	return 0;
+}
+// source: 00050.c
+struct S1 {
+	int a;
+	int b;
+};
+
+struct S2 {
+	int a;
+	int b;
+	union {
+		int c;
+		int d;
+	};
+	struct S1 s;
+};
+
+struct S2 v = {1, 2, 3, {4, 5}};
+
+int
+main()
+{
+	if(v.a != 1)
+		return 1;
+	if(v.b != 2)
+		return 2;
+	if(v.c != 3 || v.d != 3)
+		return 3;
+	if(v.s.a != 4)
+		return 4;
+	if(v.s.b != 5)
+		return 5;
+	
+	return 0;
+}
+// source: 00051.c
+int x = 0;
+
+int
+main()
+{
+	switch(x)
+		case 0:
+			;
+	switch(x)
+		case 0:
+			switch(x) {
+				case 0:
+					goto next;
+				default:
+					return 1;
+			}
+	return 1;
+	next:
+	switch(x)
+		case 1:
+			return 1;
+	switch(x) {
+		{
+			x = 1 + 1;
+			foo:
+			case 1:
+				return 1;
+		}
+	}
+	switch(x) {
+		case 0:
+			return x;
+		case 1:
+			return 1;
+		default:
+			return 1;
+	}
+}
+// source: 00052.c
+int
+main()
+{
+	struct T { int x; };
+	{
+		struct T s;
+		s.x = 0;
+		return s.x;
+	}
+}
+// source: 00053.c
+int
+main()
+{
+	struct T { int x; } s1;
+	s1.x = 1;
+	{
+		struct T { int y; } s2;
+		s2.y = 1;
+		if (s1.x - s2.y != 0)
+			return 1;
+	}
+	return 0;
+}
+// source: 00054.c
+enum E {
+	x,
+	y,
+	z,
+};
+
+int
+main()
+{
+	enum E e;
+
+	if(x != 0)
+		return 1;
+	if(y != 1)
+		return 2;
+	if(z != 2)
+		return 3;
+	
+	e = x;
+	return e;
+}
+
+// source: 00055.c
+enum E {
+	x,
+	y = 2,
+	z,
+};
+
+int
+main()
+{
+	enum E e;
+
+	if(x != 0)
+		return 1;
+	if(y != 2)
+		return 2;
+	if(z != 3)
+		return 3;
+	
+	e = x;
+	return e;
+}
+
+// source: 00056.c
+#include <stdio.h>
+
+int main() 
+{
+   int a;
+   a = 42;
+   printf("%d\n", a);
+
+   int b = 64;
+   printf("%d\n", b);
+
+   int c = 12, d = 34;
+   printf("%d, %d\n", c, d);
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00057.c
+int
+main()
+{
+	char a[16], b[16];
+	
+	if(sizeof(a) != sizeof(b))
+		return 1;
+	return 0;
+}
+// source: 00058.c
+int main()
+{
+	char * s;
+	
+	s = "abc" "def";
+	if(s[0] != 'a') return 1;
+	if(s[1] != 'b') return 2;
+	if(s[2] != 'c') return 3;
+	if(s[3] != 'd') return 4;
+	if(s[4] != 'e') return 5;
+	if(s[5] != 'f') return 6;
+	if(s[6] != 0) return 7;
+	
+	return 0;
+}
+// source: 00059.c
+int
+main()
+{
+	if ('a' != 97)
+		return 1;
+		
+	return 0;
+}
+// source: 00060.c
+// line comment
+
+int
+main()
+{
+	/*
+		multiline
+		comment
+	*/
+	return 0;
+}
+// source: 00061.c
+#define FOO 0
+
+int main()
+{
+	return FOO;
+}
+
+// source: 00062.c
+#ifdef FOO
+	XXX
+#ifdef BAR
+	XXX
+#endif
+	XXX
+#endif
+
+#define FOO 1
+
+#ifdef FOO
+
+#ifdef FOO
+int x = 0;
+#endif
+
+int
+main()
+{
+	return x;
+}
+#endif
+
+
+
+// source: 00063.c
+#define BAR 0
+#ifdef BAR
+	#ifdef FOO
+		XXX
+		#ifdef FOO
+			XXX
+		#endif
+	#else
+		#define FOO
+		#ifdef FOO
+			int x = BAR;
+		#endif
+	#endif
+#endif
+
+int
+main()
+{
+	return BAR;
+}
+// source: 00064.c
+#define X 6 / 2
+
+int
+main()
+{
+	return X - 3;
+}
+// source: 00065.c
+#define ADD(X, Y) (X + Y)
+
+
+int
+main()
+{
+	return ADD(1, 2) - 3;
+}
+// source: 00066.c
+#define A 3
+#define FOO(X,Y,Z) X + Y + Z
+#define SEMI ;
+
+int
+main()
+{
+	if(FOO(1, 2, A) != 6)
+		return 1 SEMI
+	return FOO(0,0,0);
+}
+// source: 00067.c
+#if 1
+int x = 0;
+#endif
+
+#if 0
+int x = 1;
+#if 1
+ X
+#endif
+#ifndef AAA
+ X
+#endif
+#endif
+
+int main()
+{
+	return x;
+}
+// source: 00068.c
+#if 0
+X
+#elif 1
+int x = 0;
+#else
+X
+#endif
+
+int
+main()
+{
+	return x;
+}
+// source: 00069.c
+#if 0
+X
+#elif 0
+X
+#elif 1
+int x = 0;
+#endif
+
+int
+main()
+{
+	return x;
+}
+// source: 00070.c
+#ifndef DEF
+int x = 0;
+#endif
+
+#define DEF
+
+#ifndef DEF
+X
+#endif
+
+int
+main()
+{
+	return x;
+}
+// source: 00071.c
+#define X 1
+#undef X
+
+#ifdef X
+FAIL
+#endif
+
+int
+main()
+{
+	return 0;
+}
+// source: 00072.c
+int
+main()
+{
+	int arr[2];
+	int *p;
+	
+	p = &arr[0];
+	p += 1;
+	*p = 123;
+	
+	if(arr[1] != 123)
+		return 1;
+	return 0;
+}
+// source: 00073.c
+int
+main()
+{
+	int arr[2];
+	int *p;
+	
+	p = &arr[1];
+	p -= 1;
+	*p = 123;
+	
+	if(arr[0] != 123)
+		return 1;
+	return 0;
+}
+// source: 00074.c
+#if defined X
+X
+#endif
+
+#if defined(X)
+X
+#endif
+
+#if X
+X
+#endif
+
+#define X 0
+
+#if X
+X
+#endif
+
+#if defined(X)
+int x = 0;
+#endif
+
+#undef X
+#define X 1
+
+#if X
+int
+main()
+{
+	return 0;
+}
+#endif
+// source: 00075.c
+#if (-2) != -2
+#error fail
+#endif
+
+#if (0 || 0) != 0
+#error fail
+#endif
+
+#if (1 || 0) != 1
+#error fail
+#endif
+
+#if (1 || 1) != 1
+#error fail
+#endif
+
+#if (0 && 0) != 0
+#error fail
+#endif
+
+#if (1 && 0) != 0
+#error fail
+#endif
+
+#if (0 && 1) != 0
+#error fail
+#endif
+
+#if (1 && 1) != 1
+#error fail
+#endif
+
+#if (0xf0 | 1) != 0xf1
+#error fail
+#endif
+
+#if (0xf0 & 1) != 0
+#error fail
+#endif
+
+#if (0xf0 & 0x1f) != 0x10
+#error fail
+#endif
+
+#if (1 ^ 1) != 0
+#error fail
+#endif
+
+#if (1 == 1) != 1
+#error fail
+#endif
+
+#if (1 == 0) != 0
+#error fail
+#endif
+
+#if (1 != 1) != 0
+#error fail
+#endif
+
+#if (0 != 1) != 1
+#error fail
+#endif
+
+#if (0 > 1) != 0
+#error fail
+#endif
+
+#if (0 < 1) != 1
+#error fail
+#endif
+
+#if (0 > -1) != 1
+#error fail
+#endif
+
+#if (0 < -1) != 0
+#error fail
+#endif
+
+#if (0 >= 1) != 0
+#error fail
+#endif
+
+#if (0 <= 1) != 1
+#error fail
+#endif
+
+#if (0 >= -1) != 1
+#error fail
+#endif
+
+#if (0 <= -1) != 0
+#error fail
+#endif
+
+#if (0 < 0) != 0
+#error fail
+#endif
+
+#if (0 <= 0) != 1
+#error fail
+#endif
+
+#if (0 > 0) != 0
+#error fail
+#endif
+
+#if (0 >= 0) != 1
+#error fail
+#endif
+
+#if (1 << 1) != 2
+#error fail
+#endif
+
+#if (2 >> 1) != 1
+#error fail
+#endif
+
+#if (2 + 1) != 3
+#error fail
+#endif
+
+#if (2 - 3) != -1
+#error fail
+#endif
+
+#if (2 * 3) != 6
+#error fail
+#endif
+
+#if (6 / 3) != 2
+#error fail
+#endif
+
+#if (7 % 3) != 1
+#error fail
+#endif
+
+#if (2+2*3+2) != 10
+#error fail
+#endif
+
+#if ((2+2)*(3+2)) != 20
+#error fail
+#endif
+
+#if (2 + 2 + 2 + 2 == 2 + 2 * 3) != 1
+#error fail
+#endif
+
+#if (0 ? 1 : 3) != 3
+#error fail
+#endif
+
+#if (1 ? 3 : 1) != 3
+#error fail
+#endif
+
+int
+main()
+{
+	return 0;
+}
+
+// source: 00076.c
+int
+main()
+{
+	if(0 ? 1 : 0)
+		return 1;
+	if(1 ? 0 : 1)
+		return 2;
+	return 0;
+}
+// source: 00077.c
+int
+foo(int x[100])
+{
+	int y[100];
+	int *p;
+	
+	y[0] = 2000;
+	
+	if(x[0] != 1000)
+	{
+		return 1;
+	}
+	
+	p = x;
+	
+	if(p[0] != 1000)
+	{
+		return 2;
+	}
+	
+	p = y;
+	
+	if(p[0] != 2000)
+	{
+		return 3;
+	}
+	
+	if(sizeof(x) != sizeof(void*))
+	{
+		return 4;
+	}
+	
+	if(sizeof(y) <= sizeof(x))
+	{
+		return 5;
+	}
+	
+	return 0;
+}
+
+int
+main()
+{
+	int x[100];
+	x[0] = 1000;
+	
+	return foo(x);
+}
+// source: 00078.c
+int
+f1(char *p)
+{
+	return *p+1;
+}
+
+int
+main()
+{
+	char s = 1;
+	int v[1000];
+	int f1(char *);
+
+	if (f1(&s) != 2)
+		return 1;
+	return 0;
+}
+// source: 00079.c
+#define x(y) ((y) + 1)
+
+int
+main()
+{
+	int x;
+	int y;
+	
+	y = 0;
+	x = x(y);
+	
+	if(x != 1)
+		return 1;
+	
+	return 0;
+}
+
+// source: 00080.c
+void
+voidfn()
+{
+    return;
+}
+
+int
+main()
+{
+    voidfn();
+    return 0;
+}
+// source: 00081.c
+int
+main()
+{
+	long long x;
+	
+	x = 0;
+	x = x + 1;
+	if (x != 1)
+		return 1;
+	return 0;
+}
+// source: 00082.c
+int
+main()
+{
+	unsigned long long x;
+	
+	x = 0;
+	x = x + 1;
+	if (x != 1)
+		return 1;
+	return 0;
+}
+// source: 00083.c
+#define CALL(FUN, ...) FUN(__VA_ARGS__)
+
+int
+one(int a)
+{
+	if (a != 1)
+		return 1;
+	
+	return 0;
+}
+
+int
+two(int a, int b)
+{
+	if (a != 1)
+		return 1;
+	if (b != 2)
+		return 1;
+	
+	return 0;
+}
+
+int
+three(int a, int b, int c)
+{
+	if (a != 1)
+		return 1;
+	if (b != 2)
+		return 1;
+	if (c != 3)
+		return 1;
+	
+	return 0;
+}
+
+int
+main()
+{
+	if (CALL(one, 1))
+		return 2;
+	if (CALL(two, 1, 2))
+		return 3;
+	if (CALL(three, 1, 2, 3))
+		return 4;
+	
+	return 0;
+}
+// source: 00084.c
+#define ARGS(...) __VA_ARGS__
+
+int
+none()
+{
+	return 0;
+}
+
+int
+one(int a)
+{
+	if (a != 1)
+		return 1;
+	
+	return 0;
+}
+
+int
+two(int a, int b)
+{
+	if (a != 1)
+		return 1;
+	if (b != 2)
+		return 1;
+	
+	return 0;
+}
+
+int
+three(int a, int b, int c)
+{
+	if (a != 1)
+		return 1;
+	if (b != 2)
+		return 1;
+	if (c != 3)
+		return 1;
+	
+	return 0;
+}
+
+int
+main()
+{
+	if (none(ARGS()))
+		return 1;
+	if (one(ARGS(1)))
+		return 2;
+	if (two(ARGS(1, 2)))
+		return 3;
+	if (three(ARGS(1, 2, 3)))
+		return 4;
+	return 0;
+}
+// source: 00085.c
+#define ZERO_0() 0
+#define ZERO_1(A) 0
+#define ZERO_2(A, B) 0
+#define ZERO_VAR(...) 0
+#define ZERO_1_VAR(A, ...) 0
+
+int
+main()
+{
+	if (ZERO_0())
+		return 1;
+	if (ZERO_1(1))
+		return 1;
+	if (ZERO_2(1, 2))
+		return 1;
+	if (ZERO_VAR(1))
+		return 1;
+	if (ZERO_VAR(1, 2))
+		return 1;
+	if (ZERO_1_VAR(1, 2))
+		return 1;
+	if (ZERO_1_VAR(1, 2, 3))
+		return 1;
+		
+	return 0;
+}
+// source: 00086.c
+int
+main()
+{
+	short x;
+	
+	x = 0;
+	x = x + 1;
+	if (x != 1)
+		return 1;
+	return 0;
+}
+// source: 00087.c
+struct S
+{
+	int	(*fptr)();
+};
+
+int
+foo()
+{
+	return 0;
+}
+
+int
+main()
+{
+	struct S v;
+	
+	v.fptr = foo;
+	return v.fptr();
+}
+
+// source: 00088.c
+int (*fptr)() = 0;
+
+
+int
+main()
+{
+	if (fptr)
+		return 1;
+	return 0;
+}
+
+// source: 00089.c
+int
+zero()
+{
+	return 0;
+}
+
+struct S
+{
+	int (*zerofunc)();
+} s = { &zero };
+
+struct S *
+anon()
+{
+	return &s;
+}
+
+typedef struct S * (*fty)();
+
+fty
+go()
+{
+	return &anon;
+}
+
+int
+main()
+{
+	return go()()->zerofunc();
+}
+// source: 00090.c
+int a[3] = {0, 1, 2};
+
+int
+main()
+{
+	if (a[0] != 0)
+		return 1;
+	if (a[1] != 1)
+		return 2;
+	if (a[2] != 2)
+		return 3;
+	
+	return 0;
+}
+// source: 00091.c
+typedef struct {
+	int v;
+	int sub[2];
+} S;
+
+S a[1] = {{1, {2, 3}}};
+
+int
+main()
+{
+	if (a[0].v != 1)
+		return 1;
+	if (a[0].sub[0] != 2)
+		return 2;
+	if (a[0].sub[1] != 3)
+		return 3;
+	
+	return 0;
+}
+// source: 00092.c
+int a[] = {5, [2] = 2, 3};
+
+int
+main()
+{
+	if (sizeof(a) != 4*sizeof(int))
+		return 1;
+		
+	if (a[0] != 5)
+		return 2;
+	if (a[1] != 0)
+		return 3;
+	if (a[2] != 2)
+		return 4;
+	if (a[3] != 3)
+		return 5;
+	
+	return 0;
+}
+// source: 00093.c
+int a[] = {1, 2, 3, 4};
+
+int
+main()
+{
+	if (sizeof(a) != 4*sizeof(int))
+		return 1;
+	
+	return 0;
+}
+// source: 00094.c
+extern int x;
+
+int main()
+{
+	return 0;
+}
+// source: 00095.c
+int x;
+int x = 3;
+int x;
+
+int main();
+
+void *
+foo()
+{
+	return &main;
+}
+
+int
+main()
+{
+	if (x != 3)
+		return 0;
+
+	x = 0;
+	return x;
+}
+
+// source: 00096.c
+int x, x = 3, x;
+
+int
+main()
+{
+	if (x != 3)
+		return 0;
+
+	x = 0;
+	return x;
+}
+
+// source: 00097.c
+#define NULL ((void*)0)
+#define NULL ((void*)0)
+
+#define FOO(X, Y) (X + Y + Z)
+#define FOO(X, Y) (X + Y + Z)
+
+#define BAR(X, Y, ...) (X + Y + Z)
+#define BAR(X, Y, ...) (X + Y + Z)
+
+int
+main()
+{
+	return 0;
+}
+// source: 00098.c
+int
+main()
+{
+	return L'\0';
+}
+// source: 00099.c
+
+typedef struct  { int n; } Vec;
+
+static void
+vecresize(Vec *v, int cap)
+{
+	return;
+}
+
+int main()
+{
+	return 0;
+}
+// source: 00100.c
+int
+foo(void)
+{
+	return 0;
+}
+
+int
+main()
+{
+	return foo();
+}
+// source: 00101.c
+int
+main()
+{
+  int c;
+  c = 0;
+  do
+    ;
+  while (0);
+  return c;
+}
+// source: 00102.c
+int
+main()
+{
+	int x;
+	
+	x = 1;
+	if ((x << 1) != 2)
+		return 1;
+	
+	return 0;
+}
+// source: 00103.c
+int
+main()
+{
+	int x;
+	void *foo;
+	void **bar;
+	
+	x = 0;
+	
+	foo = (void*)&x;
+	bar = &foo;
+	
+	return **(int**)bar;
+}
+// source: 00104.c
+#include <stdint.h>
+
+int
+main()
+{
+	int32_t x;
+	int64_t l;
+	
+	x = 0;
+	l = 0;
+	
+	x = ~x;
+	if (x != 0xffffffff)
+		return 1;
+	
+	l = ~l;
+	if (x != 0xffffffffffffffff)
+		return 2;
+
+	
+	return 0;
+}
+// source: 00105.c
+int
+main()
+{
+	int i;
+
+	for(i = 0; i < 10; i++)
+		if (!i)
+			continue;
+	
+	return 0;
+}
+// source: 00106.c
+struct S1 { int x; };
+struct S2 { struct S1 s1; };
+
+int
+main()
+{
+	struct S2 s2;
+	s2.s1.x = 1;
+	return 0;
+}
+// source: 00107.c
+typedef int myint;
+myint x = (myint)1;
+
+int
+main(void)
+{
+	return x-1;
+}
+// source: 00108.c
+int foo(void);
+int foo(void);
+#define FOO 0
+
+int
+main()
+{
+	return FOO;
+}
+// source: 00109.c
+int
+main()
+{
+	int x = 0;
+	int y = 1;
+	if(x ? 1 : 0)
+		return 1;
+	if(y ? 0 : 1)
+		return 2;
+	return 0;
+}
+// source: 00110.c
+extern int x;
+int x;
+
+int
+main()
+{
+	return x;
+}
+// source: 00111.c
+int
+main()
+{
+	short s = 1;
+	long l = 1;
+
+	s -= l;
+	return s;
+}
+// source: 00112.c
+int
+main()
+{
+	return "abc" == (void *)0;
+}
+// source: 00113.c
+int
+main()
+{
+	int a = 0;
+	float f = a + 1;
+
+	return f == a;
+}
+// source: 00114.c
+int main(void);
+
+int
+main()
+{
+	return 0;
+}
+// source: 00115.c
+#define B "b"
+
+char s[] = "a" B "c";
+
+int
+main()
+{
+	if (s[0] != 'a')
+		return 1;
+	if (s[1] != 'b')
+		return 2;
+	if (s[2] != 'c')
+		return 3;
+	if (s[3] != '\0')
+		return 4;
+	return 0;
+}
+// source: 00116.c
+int
+f(int f)
+{
+	return f;
+}
+
+int
+main()
+{
+	return f(0);
+}
+// source: 00117.c
+int main()
+{
+	int x[] = { 1, 0 };
+	return x[1];
+}
+// source: 00118.c
+int
+main()
+{
+	struct { int x; } s = { 0 };
+	return s.x;
+}
+// source: 00119.c
+double x = 100;
+
+int
+main()
+{
+	return x < 1;
+}
+// source: 00120.c
+struct {
+	enum { X } x;
+} s;
+
+
+int
+main()
+{
+	return X;
+}
+// source: 00121.c
+int f(int a), g(int a), a;
+
+
+int
+main()
+{
+	return f(1) - g(1);
+}
+
+int
+f(int a)
+{
+	return a;
+}
+
+int
+g(int a)
+{
+	return a;
+}
+// source: 00122.c
+#define F(a, b) a
+int
+main()
+{
+	return F(, 1) 0;
+}
+// source: 00123.c
+double x = 100.0;
+
+int
+main()
+{
+	return x < 1;
+}
+// source: 00124.c
+int
+f2(int c, int b)
+{
+	return c - b;
+}
+
+int (*
+f1(int a, int b))(int c, int b)
+{
+	if (a != b)
+		return f2;
+	return 0;
+}
+
+int
+main()
+{
+	int (* (*p)(int a, int b))(int c, int d) = f1;
+
+
+	return (*(*p)(0, 2))(2, 2);
+}
+// source: 00125.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	printf("hello world\n");
+	return 0;
+}
+// source: 00126.c
+int
+main()
+{
+        int x;
+
+        x = 3;
+        x = !x;
+        x = !x;
+        x = ~x;
+        x = -x;
+        if(x != 2)
+                return 1;
+        return 0;
+}
+// source: 00127.c
+int c;
+
+int
+main()
+{
+	if(0) {
+		return 1;
+	} else if(0) {
+	} else {
+		if(1) {
+			if(c)
+				return 1;
+			else
+				return 0;
+		} else {
+			return 1;
+		}
+	}
+	return 1;
+}
+// source: 00128.c
+
+int a;
+unsigned b;
+char c;
+signed char d;
+unsigned char e;
+long f;
+unsigned long g;
+long long h;
+unsigned long long i;
+short j;
+unsigned short k;
+
+int
+main(void)
+{
+	a = b;
+	a = c;
+	a = d;
+	a = e;
+	a = f;
+	a = g;
+	a = h;
+	a = i;
+	a = j;
+	a = k;
+
+	b = a;
+	b = c;
+	b = d;
+	b = e;
+	b = f;
+	b = g;
+	b = h;
+	b = i;
+	b = j;
+	b = k;
+
+	c = a;
+	c = b;
+	c = d;
+	c = e;
+	c = f;
+	c = g;
+	c = h;
+	c = i;
+	c = j;
+	c = k;
+
+	d = a;
+	d = b;
+	d = c;
+	d = e;
+	d = f;
+	d = g;
+	d = h;
+	d = i;
+	d = j;
+	d = k;
+
+	e = a;
+	e = b;
+	e = c;
+	e = d;
+	e = f;
+	e = g;
+	e = h;
+	e = i;
+	e = j;
+	e = k;
+
+	f = a;
+	f = b;
+	f = c;
+	f = d;
+	f = e;
+	f = g;
+	f = h;
+	f = i;
+	f = j;
+	f = k;
+
+	g = a;
+	g = b;
+	g = c;
+	g = d;
+	g = e;
+	g = f;
+	g = h;
+	g = i;
+	g = j;
+	g = k;
+
+	h = a;
+	h = b;
+	h = c;
+	h = d;
+	h = e;
+	h = f;
+	h = g;
+	h = i;
+	h = j;
+	h = k;
+
+	i = a;
+	i = b;
+	i = c;
+	i = d;
+	i = e;
+	i = f;
+	i = g;
+	i = h;
+	i = j;
+	i = k;
+
+	j = a;
+	j = b;
+	j = c;
+	j = d;
+	j = e;
+	j = f;
+	j = g;
+	j = h;
+	j = i;
+	j = k;
+
+	k = a;
+	k = b;
+	k = c;
+	k = d;
+	k = e;
+	k = f;
+	k = g;
+	k = h;
+	k = j;
+	k = i;
+
+	return 0;
+}
+// source: 00129.c
+typedef struct s s;
+
+struct s {
+	struct s1 {
+		int s;
+		struct s2 {
+			int s;
+		} s1;
+	} s;
+} s2;
+
+#define s s
+
+int
+main(void)
+{
+#undef s
+	goto s;
+	struct s s;
+		{
+			int s;
+			return s;
+		}
+	return s.s.s + s.s.s1.s;
+	s:
+		{
+			return 0;
+		}
+	return 1;
+}
+// source: 00130.c
+int
+main()
+{
+	char arr[2][4], (*p)[4], *q;
+	int v[4];
+
+	p = arr;
+	q = &arr[1][3];
+	arr[1][3] = 2;
+	v[0] = 2;
+
+	if (arr[1][3] != 2)
+		return 1;
+	if (p[1][3] != 2)
+		return 1;
+	if (*q != 2)
+		return 1;
+	if (*v != 2)
+		return 1;
+
+	return 0;
+}
+// source: 00131.c
+#include <stdio.h>
+
+int main() 
+{
+   printf("Hello\n");
+   printf("Hello\n"); /* this is a comment */ printf("Hello\n");
+   printf("Hello\n");
+   // this is also a comment sayhello();
+   printf("Hello\n");
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00132.c
+#include <stdio.h>
+
+int main() 
+{
+   printf("Hello world\n");
+
+   int Count;
+   for (Count = -5; Count <= 5; Count++)
+      printf("Count = %d\n", Count);
+
+   printf("String 'hello', 'there' is '%s', '%s'\n", "hello", "there");
+   printf("Character 'A' is '%c'\n", 65);
+   printf("Character 'a' is '%c'\n", 'a');
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00133.c
+int main(void)
+{
+	int i;
+	unsigned u;
+
+	i = 1;
+	i = -1;
+	i = -1l;
+	i = -1u;
+	i = -1ll;
+	i = 32766 + 1 & 3;
+	i = (int) 32768 < 0;
+	i = -1u < 0;
+
+	u = 1;
+	u = -1;
+	u = -1l;
+	u = -1u;
+	u = -1ll;
+	u = (unsigned) 32768 < 0;
+	u = 32766 + 1 & 3;
+	u = -1u < 0;
+	return 0;
+}
+// source: 00134.c
+int
+main(void)
+{
+	long i;
+	unsigned long u;
+
+	i = 1;
+	i = -1;
+	i = -1l;
+	i = -1u;
+	i = -1ll;
+	i = (1ll << 32) - 1 & 3;
+	i = (long) ((1ll << 32) - 1) < 0;
+	i = -1u < 0;
+
+	u = 1;
+	u = -1;
+	u = -1l;
+	u = -1u;
+	u = -1ll;
+	u = (1ll << 32) - 1 & 3;
+	u = (long) ((1ll << 32) - 1) < 0;
+	u = -1u < 0;
+	return 0;
+}
+// source: 00135.c
+int
+main(void)
+{
+	long long i;
+	unsigned long long u;
+
+	i = 1;
+	i = -1;
+	i = -1l;
+	i = -1u;
+	i = -1ll;
+	i = -1ll & 3;
+	i = -1ll < 0;
+
+	u = 1;
+	u = -1;
+	u = -1l;
+	u = -1u;
+	u = -1ll;
+	u = -1llu & 3;
+	u = -1llu < 0;
+	return 0;
+}
+// source: 00136.c
+#define FOO
+
+#ifdef FOO
+	int a;
+	int b;
+	#undef FOO
+	#ifndef FOO
+		int c;
+		int d;
+	#else
+		int e;
+		int f;
+	#endif
+	int e;
+	int f;
+	#ifdef FOO
+		int c_;
+		int d_;
+	#else
+		int e_;
+		int f_;
+	#endif
+	int e_;
+	int f_;
+int
+main()
+{
+	return 0;
+}
+#else
+	int j;
+	int k;
+	#ifdef FOO
+		int j;
+		int k;
+	#else
+		int n;
+		int o;
+	#endif
+	int n;
+	int o;
+	#ifndef FOO
+		int r;
+		int s;
+	#else
+		int t;
+		int u;
+	#endif
+	int t;
+	int u;
+	#error bad branch
+#endif
+// source: 00137.c
+#define x(y) #y
+
+int
+main(void)
+{
+	char *p;
+	p = x(hello)  " is better than bye";
+
+	return (*p == 'h') ? 0 : 1;
+}
+// source: 00138.c
+#define M(x) x
+#define A(a,b) a(b)
+
+int
+main(void)
+{
+	char *a = A(M,"hi");
+
+	return (a[1] == 'i') ? 0 : 1;
+}
+// source: 00139.c
+/*
+ * f(2) will expand to 2*g, which will expand to 2*f, and in this
+ * moment f will not be expanded because the macro definition is
+ * a function alike macro, and in this case there is no arguments.
+ */
+#define f(a) a*g
+#define g f
+
+int
+main(void)
+{
+        int f = 0;
+
+        return f(2);
+}
+// source: 00140.c
+struct foo {
+	int i, j, k;
+	char *p;
+	float v;
+};
+
+int
+f1(struct foo f, struct foo *p, int n, ...)
+{
+	if (f.i != p->i)
+		return 0;
+	return p->j + n;
+}
+
+int
+main(void)
+{
+	struct foo f;
+
+	f.i = f.j = 1;
+	f1(f, &f, 2);
+	f1(f, &f, 2, 1, f, &f);
+
+	return 0;
+}
+// source: 00141.c
+#define CAT(x,y) x ## y
+#define XCAT(x,y) CAT(x,y)
+#define FOO foo
+#define BAR bar
+
+int
+main(void)
+{
+	int foo, bar, foobar;
+
+	CAT(foo,bar) = foo + bar;
+	XCAT(FOO,BAR) = foo + bar;
+	return 0;
+}
+// source: 00142.c
+#if defined(FOO)
+int a;
+#elif !defined(FOO) && defined(BAR)
+int b;
+#elif !defined(FOO) && !defined(BAR)
+int c;
+#else
+int d;
+#endif
+
+int
+main(void)
+{
+	return c;
+}
+// source: 00143.c
+/* Disgusting, no?  But it compiles and runs just fine.  I feel a combination of
+   pride and revulsion at this discovery.  If no one's thought of it before,
+   I think I'll name it after myself.
+   It amazes me that after 10 years of writing C there are still
+   little corners that I haven't explored fully.
+   - Tom Duff */
+
+int main()
+{
+    int  count, n;
+    short *from, *to;
+    short a[39], b[39];
+
+    for(n = 0; n < 39; n++) {
+        a[n] = n;
+        b[n] = 0;
+    }
+    from = a;
+    to = b;
+    count = 39;
+    n = (count + 7) / 8;
+    switch (count % 8) {
+    case 0: do { *to++ = *from++;
+    case 7:      *to++ = *from++;
+    case 6:      *to++ = *from++;
+    case 5:      *to++ = *from++;
+    case 4:      *to++ = *from++;
+    case 3:      *to++ = *from++;
+    case 2:      *to++ = *from++;
+    case 1:      *to++ = *from++;
+            } while (--n > 0);
+    }
+    for(n = 0; n < 39; n++)
+        if(a[n] != b[n])
+            return 1;
+    return 0;
+}// source: 00144.c
+int
+main(void)
+{
+	int i, *q;
+	void *p;
+
+	i = i ? 0 : 0l;
+	p = i ? (void *) 0 : 0;
+	p = i ? 0 : (void *) 0;
+	p = i ? 0 : (const void *) 0;
+	q = i ? 0 : p;
+	q = i ? p : 0;
+	q = i ? q : 0;
+	q = i ? 0 : q;
+
+	return (int) q;
+}
+// source: 00145.c
+#if 0 != (0 && (0/0))
+   #error 0 != (0 && (0/0))
+#endif
+
+#if 1 != (-1 || (0/0))
+   #error 1 != (-1 || (0/0))
+#endif
+
+#if 3 != (-1 ? 3 : (0/0))
+   #error 3 != (-1 ? 3 : (0/0))
+#endif
+
+int
+main()
+{
+	return 0;
+}
+// source: 00146.c
+struct S { int a; int b; };
+struct S s = {1, 2};
+
+int
+main()
+{
+	if(s.a != 1)
+		return 1;
+	if(s.b != 2)
+		return 2;
+	return 0;
+}
+// source: 00147.c
+int arr[3] = {[2] = 2, [0] = 0, [1] = 1};
+
+int
+main()
+{
+	if(arr[0] != 0)
+		return 1;
+	if(arr[1] != 1)
+		return 2;
+	if(arr[2] != 2)
+		return 3;
+	return 0;
+}
+// source: 00148.c
+struct S {int a; int b;};
+struct S arr[2] = {[1] = {3, 4}, [0] = {1, 2}};
+
+int
+main()
+{
+	if(arr[0].a != 1)
+		return 1;
+	if(arr[0].b != 2)
+		return 2;
+	if(arr[1].a != 3)
+		return 3;
+	if(arr[1].b != 4)
+		return 4;
+	return 0;
+}
+// source: 00149.c
+struct S { int a; int b; };
+struct S *s = &(struct S) { 1, 2 };
+
+int
+main()
+{
+	if(s->a != 1)
+		return 1;
+	if(s->b != 2)
+		return 2;
+	return 0;
+}
+// source: 00150.c
+struct S1 {
+	int a;
+	int b;
+};
+struct S2 {
+	struct S1 s1;
+	struct S1 *ps1;
+	int arr[2];
+};
+struct S1 gs1 = { .a = 1, 2 };
+struct S2 *s = &(struct S2) {
+	{.b = 2, .a = 1},
+	&gs1,
+	{[0] = 1,  1+1}
+};
+
+int
+main()
+{
+	if(s->s1.a != 1)
+		return 1;
+	if(s->s1.b != 2)
+		return 2;
+	if(s->ps1->a != 1)
+		return 3;
+	if(s->ps1->b != 2)
+		return 4;
+	if(s->arr[0] != 1)
+		return 5;
+	if(s->arr[1] != 2)
+		return 6;
+	return 0;
+}
+// source: 00151.c
+int arr[][3][5] = {
+	{
+		{ 0, 0, 3, 5 },
+		{ 1, [3] = 6, 7 },
+	},
+	{
+		{ 1, 2 },
+		{ [4] = 7, },
+	},
+};
+
+int
+main(void)
+{
+	return !(arr[0][1][4] == arr[1][1][4]);
+}
+// source: 00152.c
+#undef  line
+#define line 1000
+
+#line line
+#if 1000 != __LINE__
+	#error "  # line line" not work as expected
+#endif
+
+int
+main()
+{
+	return 0;
+}
+// source: 00153.c
+#define x f
+#define y() f
+
+typedef struct { int f; } S;
+
+int
+main()
+{
+	S s;
+
+	s.x = 0;
+	return s.y();
+}
+// source: 00154.c
+#include <stdio.h>
+
+struct fred
+{
+   int boris;
+   int natasha;
+};
+
+int main()
+{
+   struct fred bloggs;
+
+   bloggs.boris = 12;
+   bloggs.natasha = 34;
+
+   printf("%d\n", bloggs.boris);
+   printf("%d\n", bloggs.natasha);
+
+   struct fred jones[2];
+   jones[0].boris = 12;
+   jones[0].natasha = 34;
+   jones[1].boris = 56;
+   jones[1].natasha = 78;
+
+   printf("%d\n", jones[0].boris);
+   printf("%d\n", jones[0].natasha);
+   printf("%d\n", jones[1].boris);
+   printf("%d\n", jones[1].natasha);
+
+   return 0;
+}
+// source: 00155.c
+
+int
+main(void)
+{
+	sizeof((int) 1);
+	return 0;
+}
+// source: 00156.c
+#include <stdio.h>
+
+int main() 
+{
+   int Count;
+
+   for (Count = 1; Count <= 10; Count++)
+   {
+      printf("%d\n", Count);
+   }
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00157.c
+#include <stdio.h>
+
+int main() 
+{
+   int Count;
+   int Array[10];
+
+   for (Count = 1; Count <= 10; Count++)
+   {
+      Array[Count-1] = Count * Count;
+   }
+
+   for (Count = 0; Count < 10; Count++)
+   {
+      printf("%d\n", Array[Count]);
+   }
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00158.c
+#include <stdio.h>
+
+int main()
+{
+   int Count;
+
+   for (Count = 0; Count < 4; Count++)
+   {
+      printf("%d\n", Count);
+      switch (Count)
+      {
+         case 1:
+            printf("%d\n", 1);
+            break;
+
+         case 2:
+            printf("%d\n", 2);
+            break;
+
+         default:
+            printf("%d\n", 0);
+            break;
+      }
+   }
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00159.c
+#include <stdio.h>
+
+int myfunc(int x)
+{
+   return x * x;
+}
+
+void vfunc(int a)
+{
+   printf("a=%d\n", a);
+}
+
+void qfunc()
+{
+   printf("qfunc()\n");
+}
+
+void zfunc()
+{
+   ((void (*)(void))0) ();
+}
+
+int main()
+{
+   printf("%d\n", myfunc(3));
+   printf("%d\n", myfunc(4));
+
+   vfunc(1234);
+
+   qfunc();
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00160.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   int p;
+   int t;
+
+   a = 1;
+   p = 0;
+   t = 0;
+
+   while (a < 100)
+   {
+      printf("%d\n", a);
+      t = a;
+      a = t + p;
+      p = t;
+   }
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00161.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   int p;
+   int t;
+
+   a = 1;
+   p = 0;
+   t = 0;
+
+   do
+   {
+      printf("%d\n", a);
+      t = a;
+      a = t + p;
+      p = t;
+   } while (a < 100);
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00162.c
+void foo(int [5]);
+void fooc(int x[const 5]);
+void foos(int x[static 5]);
+void foov(int x[volatile 5]);
+void foor(int x[restrict 5]);
+void fooc(int [const 5]);
+void foos(int [static 5]);
+void foov(int [volatile 5]);
+void foor(int [restrict 5]);
+void fooc(int (* const x));
+void foos(int *x);
+void foov(int * volatile x);
+void foor(int * restrict x);
+void fooc(int x[volatile 5])
+{
+  x[3] = 42;
+#ifdef INVALID
+  x = 0;
+#endif
+}
+void foovm(int x[const *]);
+void foovm(int * const x);
+#ifdef INVALID
+void wrongc(int x[3][const 4]);
+void wrongvm(int x[static *]);
+void foovm(int x[const *])
+{
+  x[2] = 1;
+}
+#endif
+int main()
+{
+  return 0;
+}
+// source: 00163.c
+#include <stdio.h>
+
+struct ziggy
+{
+   int a;
+   int b;
+   int c;
+} bolshevic;
+
+int main()
+{
+   int a;
+   int *b;
+   int c;
+
+   a = 42;
+   b = &a;
+   printf("a = %d\n", *b);
+
+   bolshevic.a = 12;
+   bolshevic.b = 34;
+   bolshevic.c = 56;
+
+   printf("bolshevic.a = %d\n", bolshevic.a);
+   printf("bolshevic.b = %d\n", bolshevic.b);
+   printf("bolshevic.c = %d\n", bolshevic.c);
+
+   struct ziggy *tsar = &bolshevic;
+
+   printf("tsar->a = %d\n", tsar->a);
+   printf("tsar->b = %d\n", tsar->b);
+   printf("tsar->c = %d\n", tsar->c);
+
+   b = &(bolshevic.b);
+   printf("bolshevic.b = %d\n", *b);
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00164.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   int b;
+   int c;
+   int d;
+   int e;
+   int f;
+   int x;
+   int y;
+
+   a = 12;
+   b = 34;
+   c = 56;
+   d = 78;
+   e = 0;
+   f = 1;
+
+   printf("%d\n", c + d);
+   printf("%d\n", (y = c + d));
+   printf("%d\n", e || e && f);
+   printf("%d\n", e || f && f);
+   printf("%d\n", e && e || f);
+   printf("%d\n", e && f || f);
+   printf("%d\n", a && f | f);
+   printf("%d\n", a | b ^ c & d);
+   printf("%d, %d\n", a == a, a == b);
+   printf("%d, %d\n", a != a, a != b);
+   printf("%d\n", a != b && c != d);
+   printf("%d\n", a + b * c / f);
+   printf("%d\n", a + b * c / f);
+   printf("%d\n", (4 << 4));
+   printf("%d\n", (64 >> 4));
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00165.c
+#include <stdio.h>
+
+#define FRED 12
+#define BLOGGS(x) (12*(x))
+
+int main()
+{
+   printf("%d\n", FRED);
+   printf("%d, %d, %d\n", BLOGGS(1), BLOGGS(2), BLOGGS(3));
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00166.c
+#include <stdio.h>
+
+int main()
+{
+   int a = 24680;
+   int b = 01234567;
+   int c = 0x2468ac;
+   int d = 0x2468AC;
+
+   printf("%d\n", a);
+   printf("%d\n", b);
+   printf("%d\n", c);
+   printf("%d\n", d);
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00167.c
+#include <stdio.h>
+
+int main()
+{
+   int a = 1;
+
+   if (a)
+      printf("a is true\n");
+   else
+      printf("a is false\n");
+
+   int b = 0;
+   if (b)
+      printf("b is true\n");
+   else
+      printf("b is false\n");
+
+   return 0;
+}
+
+// vim: set expandtab ts=4 sw=3 sts=3 tw=80 :
+// source: 00168.c
+#include <stdio.h>
+
+int factorial(int i) 
+{
+   if (i < 2)
+      return i;
+   else
+      return i * factorial(i - 1);
+}
+
+int main()
+{
+   int Count;
+
+   for (Count = 1; Count <= 10; Count++)
+      printf("%d\n", factorial(Count));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00169.c
+#include <stdio.h>
+
+int main()
+{
+   int x, y, z;
+
+   for (x = 0; x < 2; x++)
+   {
+      for (y = 0; y < 3; y++)
+      {
+         for (z = 0; z < 3; z++)
+         {
+            printf("%d %d %d\n", x, y, z);
+         }
+      }
+   }
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00170.c
+#include <stdio.h>
+
+enum fred
+{
+   a,
+   b,
+   c,
+   d,
+   e = 54,
+   f = 73,
+   g,
+   h
+};
+
+/* All following uses of enum efoo should compile
+   without warning.  While forward enums aren't ISO C,
+   it's accepted by GCC also in strict mode, and only warned
+   about with -pedantic.  This happens in the real world.  */
+/* Strict ISO C doesn't allow this kind of forward declaration of
+   enums, but GCC accepts it (and gives only pedantic warning), and
+   it occurs in the wild.  */
+enum efoo;
+struct Sforward_use {
+    int (*fmember) (enum efoo x);
+};
+
+extern enum efoo it_real_fn(void);
+enum efoo {
+  ONE,
+  TWO,
+};
+struct S2 {
+  enum efoo (*f2) (void);
+};
+void should_compile(struct S2 *s)
+{
+  s->f2 = it_real_fn;
+}
+
+enum efoo it_real_fn(void)
+{
+  return TWO;
+}
+
+static unsigned int deref_uintptr(unsigned int *p)
+{
+  return *p;
+}
+
+enum Epositive {
+    epos_one, epos_two
+};
+
+int main()
+{
+   enum fred frod;
+   enum Epositive epos = epos_two;
+
+   printf("%d %d %d %d %d %d %d %d\n", a, b, c, d, e, f, g, h);
+   /* printf("%d\n", frod); */
+   frod = 12;
+   printf("%d\n", frod);
+   frod = e;
+   printf("%d\n", frod);
+
+   /* Following should compile without warning.  */
+   printf ("enum to int: %u\n", deref_uintptr(&epos));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00171.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   int *b;
+   int *c;
+
+   a = 42;
+   b = &a;
+   c = NULL;
+
+   printf("%d\n", *b);
+
+   if (b == NULL)
+      printf("b is NULL\n");
+   else
+      printf("b is not NULL\n");
+
+   if (c == NULL)
+      printf("c is NULL\n");
+   else
+      printf("c is not NULL\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00172.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   int b;
+   int *d;
+   int *e;
+   d = &a;
+   e = &b;
+   a = 12;
+   b = 34;
+   printf("%d\n", *d);
+   printf("%d\n", *e);
+   printf("%d\n", d == e);
+   printf("%d\n", d != e);
+   d = e;
+   printf("%d\n", d == e);
+   printf("%d\n", d != e);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00173.c
+#include <stdio.h>
+
+int main()
+{
+   int x = 'a';
+   char y = x;
+
+   char *a = "hello";
+
+   printf("%s\n", a);
+
+   int c;
+   c = *a;
+
+   char *b;
+   for (b = a; *b != 0; b++)
+      printf("%c: %d\n", *b, *b);
+
+   char destarray[10];
+   char *dest = &destarray[0];
+   char *src = a;
+
+   while (*src != 0)
+      *dest++ = *src++;
+
+   *dest = 0;
+
+   printf("copied string is %s\n", destarray);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00174.c
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+   // variables
+   float a = 12.34 + 56.78;
+   printf("%f\n", a);
+
+   // infix operators
+   printf("%f\n", 12.34 + 56.78);
+   printf("%f\n", 12.34 - 56.78);
+   printf("%f\n", 12.34 * 56.78);
+   printf("%f\n", 12.34 / 56.78);
+
+   // comparison operators
+   printf("%d %d %d %d %d %d\n", 12.34 < 56.78, 12.34 <= 56.78, 12.34 == 56.78, 12.34 >= 56.78, 12.34 > 56.78, 12.34 != 56.78);
+   printf("%d %d %d %d %d %d\n", 12.34 < 12.34, 12.34 <= 12.34, 12.34 == 12.34, 12.34 >= 12.34, 12.34 > 12.34, 12.34 != 12.34);
+   printf("%d %d %d %d %d %d\n", 56.78 < 12.34, 56.78 <= 12.34, 56.78 == 12.34, 56.78 >= 12.34, 56.78 > 12.34, 56.78 != 12.34);
+
+   // assignment operators
+   a = 12.34;
+   a += 56.78;
+   printf("%f\n", a);
+
+   a = 12.34;
+   a -= 56.78;
+   printf("%f\n", a);
+
+   a = 12.34;
+   a *= 56.78;
+   printf("%f\n", a);
+
+   a = 12.34;
+   a /= 56.78;
+   printf("%f\n", a);
+
+   // prefix operators
+   printf("%f\n", +12.34);
+   printf("%f\n", -12.34);
+
+   // type coercion
+   a = 2;
+   printf("%f\n", a);
+   printf("%f\n", sin(2));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00175.c
+#include <stdio.h>
+
+void charfunc(char a)
+{
+   printf("char: %c\n", a);
+}
+
+void intfunc(int a)
+{
+   printf("int: %d\n", a);
+}
+
+void floatfunc(float a)
+{
+   printf("float: %f\n", a);
+}
+
+int main()
+{
+   charfunc('a');
+   charfunc(98);
+   charfunc(99.0);
+
+   intfunc('a');
+   intfunc(98);
+   intfunc(99.0);
+
+   floatfunc('a');
+   floatfunc(98);
+   floatfunc(99.0);
+
+   /* printf("%c %d %f\n", 'a', 'b', 'c'); */
+   /* printf("%c %d %f\n", 97, 98, 99); */
+   /* printf("%c %d %f\n", 97.0, 98.0, 99.0); */
+
+   char b = 97;
+   char c = 97.0;
+
+   printf("%d %d\n", b, c);
+
+   int d = 'a';
+   int e = 97.0;
+
+   printf("%d %d\n", d, e);
+
+   float f = 'a';
+   float g = 97;
+
+   printf("%f %f\n", f, g);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00176.c
+#include <stdio.h>
+
+int array[16];
+
+//Swap integer values by array indexes
+void swap(int a, int b)
+{
+   int tmp  = array[a];
+   array[a] = array[b];
+   array[b] = tmp;
+}
+
+//Partition the array into two halves and return the
+//index about which the array is partitioned
+int partition(int left, int right)
+{
+   int pivotIndex = left;
+   int pivotValue = array[pivotIndex];
+   int index = left;
+   int i;
+
+   swap(pivotIndex, right);
+   for(i = left; i < right; i++)
+   {
+      if(array[i] < pivotValue)
+      {
+         swap(i, index);
+         index += 1;
+      }
+   }
+   swap(right, index);
+
+   return index;
+}
+
+//Quicksort the array
+void quicksort(int left, int right)
+{
+   if(left >= right)
+      return;
+
+   int index = partition(left, right);
+   quicksort(left, index - 1);
+   quicksort(index + 1, right);
+}
+
+int main()
+{
+   int i;
+
+   array[0] = 62;
+   array[1] = 83;
+   array[2] = 4;
+   array[3] = 89;
+   array[4] = 36;
+   array[5] = 21;
+   array[6] = 74;
+   array[7] = 37;
+   array[8] = 65;
+   array[9] = 33;
+   array[10] = 96;
+   array[11] = 38;
+   array[12] = 53;
+   array[13] = 16;
+   array[14] = 74;
+   array[15] = 55;
+
+   for (i = 0; i < 16; i++)
+      printf("%d ", array[i]);
+
+   printf("\n");
+
+   quicksort(0, 15);
+
+   for (i = 0; i < 16; i++)
+      printf("%d ", array[i]);
+
+   printf("\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00177.c
+#include <stdio.h>
+
+int main()
+{
+   printf("%d\n", '\1');
+   printf("%d\n", '\10');
+   printf("%d\n", '\100');
+   printf("%d\n", '\x01');
+   printf("%d\n", '\x0e');
+   printf("%d\n", '\x10');
+   printf("%d\n", '\x40');
+   printf("test \x40\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00178.c
+#include <stdio.h>
+
+int main()
+{
+   char a;
+   int b;
+   double c;
+
+   printf("%d\n", sizeof(a));
+   printf("%d\n", sizeof(b));
+   printf("%d\n", sizeof(c));
+
+   printf("%d\n", sizeof(!a));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00179.c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char a[10];
+
+   strcpy(a, "hello");
+   printf("%s\n", a);
+
+   strncpy(a, "gosh", 2);
+   printf("%s\n", a);
+
+   printf("%d\n", strcmp(a, "apple") > 0);
+   printf("%d\n", strcmp(a, "goere") > 0);
+   printf("%d\n", strcmp(a, "zebra") < 0);
+
+   printf("%d\n", strlen(a));
+
+   strcat(a, "!");
+   printf("%s\n", a);
+
+   printf("%d\n", strncmp(a, "apple", 2) > 0);
+   printf("%d\n", strncmp(a, "goere", 2) == 0);
+   printf("%d\n", strncmp(a, "goerg", 2) == 0);
+   printf("%d\n", strncmp(a, "zebra", 2) < 0);
+
+   printf("%s\n", strchr(a, 'o'));
+   printf("%s\n", strrchr(a, 'l'));
+   printf("%d\n", strrchr(a, 'x') == NULL);
+
+   memset(&a[1], 'r', 4);
+   printf("%s\n", a);
+
+   memcpy(&a[2], a, 2);
+   printf("%s\n", a);
+
+   printf("%d\n", memcmp(a, "apple", 4) > 0);
+   printf("%d\n", memcmp(a, "grgr", 4) == 0);
+   printf("%d\n", memcmp(a, "zebra", 4) < 0);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00180.c
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char a[10];
+   strcpy(a, "abcdef");
+   printf("%s\n", &a[1]);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00181.c
+/* example from http://barnyard.syr.edu/quickies/hanoi.c */
+
+/* hanoi.c: solves the tower of hanoi problem. (Programming exercise.) */
+/* By Terry R. McConnell (12/2/97) */
+/* Compile: cc -o hanoi hanoi.c */
+
+/* This program does no error checking. But then, if it's right, 
+   it's right ... right ? */
+
+
+/* The original towers of hanoi problem seems to have been originally posed
+   by one M. Claus in 1883. There is a popular legend that goes along with
+   it that has been often repeated and paraphrased. It goes something like this:
+   In the great temple at Benares there are 3 golden spikes. On one of them,
+   God placed 64 disks increasing in size from bottom to top, at the beginning
+   of time. Since then, and to this day, the priest on duty constantly transfers
+   disks, one at a time, in such a way that no larger disk is ever put on top
+   of a smaller one. When the disks have been transferred entirely to another
+   spike the Universe will come to an end in a large thunderclap.
+
+   This paraphrases the original legend due to DeParville, La Nature, Paris 1884,
+   Part I, 285-286. For this and further information see: Mathematical 
+   Recreations & Essays, W.W. Rouse Ball, MacMillan, NewYork, 11th Ed. 1967,
+   303-305.
+ *
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define TRUE 1
+#define FALSE 0
+
+/* This is the number of "disks" on tower A initially. Taken to be 64 in the
+ * legend. The number of moves required, in general, is 2^N - 1. For N = 64,
+ * this is 18,446,744,073,709,551,615 */
+#define N 4
+
+/* These are the three towers. For example if the state of A is 0,1,3,4, that
+ * means that there are three discs on A of sizes 1, 3, and 4. (Think of right
+ * as being the "down" direction.) */
+int A[N], B[N], C[N]; 
+
+void Hanoi(int,int*,int*,int*);
+
+/* Print the current configuration of A, B, and C to the screen */
+void PrintAll()
+{
+   int i;
+
+   printf("A: ");
+   for(i=0;i<N;i++)printf(" %d ",A[i]);
+   printf("\n");
+
+   printf("B: ");
+   for(i=0;i<N;i++)printf(" %d ",B[i]);
+   printf("\n");
+
+   printf("C: ");
+   for(i=0;i<N;i++)printf(" %d ",C[i]);
+   printf("\n");
+   printf("------------------------------------------\n");
+   return;
+}
+
+/* Move the leftmost nonzero element of source to dest, leave behind 0. */
+/* Returns the value moved (not used.) */
+int Move(int *source, int *dest)
+{
+   int i = 0, j = 0;
+
+   while (i<N && (source[i])==0) i++;
+   while (j<N && (dest[j])==0) j++;
+
+   dest[j-1] = source[i];
+   source[i] = 0;
+   PrintAll();       /* Print configuration after each move. */
+   return dest[j-1];
+}
+
+
+/* Moves first n nonzero numbers from source to dest using the rules of Hanoi.
+   Calls itself recursively.
+   */
+void Hanoi(int n,int *source, int *dest, int *spare)
+{
+   int i;
+   if(n==1){
+      Move(source,dest);
+      return;
+   }
+
+   Hanoi(n-1,source,spare,dest);
+   Move(source,dest);
+   Hanoi(n-1,spare,dest,source);	
+   return;
+}
+
+int main()
+{
+   int i;
+
+   /* initialize the towers */
+   for(i=0;i<N;i++)A[i]=i+1;
+   for(i=0;i<N;i++)B[i]=0;
+   for(i=0;i<N;i++)C[i]=0;
+
+   printf("Solution of Tower of Hanoi Problem with %d Disks\n\n",N);
+
+   /* Print the starting state */
+   printf("Starting state:\n");
+   PrintAll();
+   printf("\n\nSubsequent states:\n\n");
+
+   /* Do it! Use A = Source, B = Destination, C = Spare */
+   Hanoi(N,A,B,C);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00182.c
+/* example from http://barnyard.syr.edu/quickies/led.c */
+
+/* led.c: print out number as if on 7 line led display. I.e., write integer
+   given on command line like this:  
+      _   _       _  
+   |  _|  _| |_| |_  
+   | |_   _|   |  _| etc.
+
+   We assume the terminal behaves like a classical teletype. So the top
+   lines of all digits have to be printed first, then the middle lines of
+   all digits, etc.
+
+   By Terry R. McConnell
+
+compile: cc -o led led.c
+
+If you just want to link in the subroutine print_led that does all the
+work, compile with -DNO_MAIN, and declare the following in any source file
+that uses the call:
+
+extern void print_led(unsigned long x, char *buf);
+
+Bug: you cannot call repeatedly to print more than one number to a line.
+That would require curses or some other terminal API that allows moving the
+cursor to a previous line.
+
+*/
+
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+#define MAX_DIGITS 32
+#define NO_MAIN
+
+
+/* Print the top line of the digit d into buffer. 
+   Does not null terminate buffer. */
+
+void topline(int d, char *p){
+
+   *p++ = ' ';
+   switch(d){
+
+      /* all these have _ on top line */
+
+      case 0:
+      case 2:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 9:
+         *p++ = '_';
+         break;
+      default:
+         *p++=' ';
+
+   }
+   *p++=' ';
+}
+
+/* Print the middle line of the digit d into the buffer. 
+   Does not null terminate. */
+
+void midline(int d, char *p){
+
+   switch(d){
+
+      /* those that have leading | on middle line */
+
+      case 0:
+      case 4:
+      case 5:
+      case 6:
+      case 8:
+      case 9:
+         *p++='|';
+         break;
+      default:
+         *p++=' ';	
+   }
+   switch(d){
+
+      /* those that have _ on middle line */
+
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 8:
+      case 9:
+         *p++='_';
+         break;
+      default:
+         *p++=' ';
+
+   }
+   switch(d){
+
+      /* those that have closing | on middle line */
+
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 7:
+      case 8:
+      case 9:
+         *p++='|';
+         break;
+      default:
+         *p++=' ';
+
+   }
+}
+
+/* Print the bottom line of the digit d. Does not null terminate. */
+
+void botline(int d, char *p){
+
+
+   switch(d){
+
+      /* those that have leading | on bottom line */
+
+      case 0:
+      case 2:
+      case 6:
+      case 8:
+         *p++='|';
+         break;
+      default:
+         *p++=' ';	
+   }
+   switch(d){
+
+      /* those that have _ on bottom line */
+
+      case 0:
+      case 2:
+      case 3:
+      case 5:
+      case 6:
+      case 8:
+         *p++='_';
+         break;
+      default:
+         *p++=' ';
+
+   }
+   switch(d){
+
+      /* those that have closing | on bottom line */
+
+      case 0:
+      case 1:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+         *p++='|';
+         break;
+      default:
+         *p++=' ';
+
+   }
+}
+
+/* Write the led representation of integer to string buffer. */
+
+void print_led(unsigned long x, char *buf)
+{
+
+   int i=0,n;
+   static int d[MAX_DIGITS];
+
+
+   /* extract digits from x */
+
+   n = ( x == 0L ? 1 : 0 );  /* 0 is a digit, hence a special case */
+
+   while(x){
+      d[n++] = (int)(x%10L);
+      if(n >= MAX_DIGITS)break;
+      x = x/10L;
+   }
+
+   /* print top lines of all digits */
+
+   for(i=n-1;i>=0;i--){
+      topline(d[i],buf);
+      buf += 3;
+      *buf++=' ';
+   }
+   *buf++='\n'; /* move teletype to next line */
+
+   /* print middle lines of all digits */
+
+   for(i=n-1;i>=0;i--){
+      midline(d[i],buf);
+      buf += 3;
+      *buf++=' ';
+   }
+   *buf++='\n';
+
+   /* print bottom lines of all digits */
+
+   for(i=n-1;i>=0;i--){
+      botline(d[i],buf);
+      buf += 3;
+      *buf++=' ';
+   }
+   *buf++='\n';
+   *buf='\0';
+}
+
+int main()
+{
+   char buf[5*MAX_DIGITS];
+   print_led(1234567, buf);
+   printf("%s\n",buf);
+
+   return 0;
+}
+
+#ifndef NO_MAIN
+int main(int argc, char **argv)
+{
+
+   int i=0,n;
+   long x;
+   static int d[MAX_DIGITS];
+   char buf[5*MAX_DIGITS];
+
+   if(argc != 2){
+      fprintf(stderr,"led: usage: led integer\n");
+      return 1;
+   }
+
+   /* fetch argument from command line */
+
+   x = atol(argv[1]);
+
+   /* sanity check */
+
+   if(x<0){
+      fprintf(stderr,"led: %d must be non-negative\n",x);
+      return 1;
+   }
+
+   print_led(x,buf);
+   printf("%s\n",buf);
+
+   return 0;
+
+}
+#endif
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00183.c
+#include <stdio.h>
+
+int main()
+{
+   int Count;
+
+   for (Count = 0; Count < 10; Count++)
+   {
+      printf("%d\n", (Count < 5) ? (Count*Count) : (Count * 3));
+   }
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00184.c
+#include <stdio.h>
+
+int main()
+{
+   char a;
+   short b;
+
+   printf("%d %d\n", sizeof(char), sizeof(a));
+   printf("%d %d\n", sizeof(short), sizeof(b));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00185.c
+#include <stdio.h>
+
+int main()
+{
+   int Count;
+
+   int Array[10] = { 12, 34, 56, 78, 90, 123, 456, 789, 8642, 9753 };
+
+   for (Count = 0; Count < 10; Count++)
+      printf("%d: %d\n", Count, Array[Count]);
+
+   int Array2[10] = { 12, 34, 56, 78, 90, 123, 456, 789, 8642, 9753, };
+
+   for (Count = 0; Count < 10; Count++)
+      printf("%d: %d\n", Count, Array2[Count]);
+
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00186.c
+#include <stdio.h>
+
+int main()
+{
+   char Buf[100];
+   int Count;
+
+   for (Count = 1; Count <= 20; Count++)
+   {
+      sprintf(Buf, "->%02d<-\n", Count);
+      printf("%s", Buf);
+   }
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00187.c
+#include <stdio.h>
+
+int main()
+{
+   FILE *f = fopen("fred.txt", "w");
+   fwrite("hello\nhello\n", 1, 12, f);
+   fclose(f);
+
+   char freddy[7];
+   f = fopen("fred.txt", "r");
+   if (fread(freddy, 1, 6, f) != 6)
+      printf("couldn't read fred.txt\n");
+
+   freddy[6] = '\0';
+   fclose(f);
+
+   printf("%s", freddy);
+
+   int InChar;
+   char ShowChar;
+   f = fopen("fred.txt", "r");
+   while ( (InChar = fgetc(f)) != EOF)
+   {
+      ShowChar = InChar;
+      if (ShowChar < ' ')
+         ShowChar = '.';
+
+      printf("ch: %d '%c'\n", InChar, ShowChar);
+   }
+   fclose(f);
+
+   f = fopen("fred.txt", "r");
+   while ( (InChar = getc(f)) != EOF)
+   {
+      ShowChar = InChar;
+      if (ShowChar < ' ')
+         ShowChar = '.';
+
+      printf("ch: %d '%c'\n", InChar, ShowChar);
+   }
+   fclose(f);
+
+   f = fopen("fred.txt", "r");
+   while (fgets(freddy, sizeof(freddy), f) != NULL)
+      printf("x: %s", freddy);
+
+   fclose(f);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00188.c
+#include <stdio.h>
+
+int main()
+{
+   printf("#include test\n");
+
+#if 1
+#if 0
+   printf("a\n");
+#else
+   printf("b\n");
+#endif
+#else
+#if 0
+   printf("c\n");
+#else
+   printf("d\n");
+#endif
+#endif
+
+#if 0
+#if 1
+   printf("e\n");
+#else
+   printf("f\n");
+#endif
+#else
+#if 1
+   printf("g\n");
+#else
+   printf("h\n");
+#endif
+#endif
+
+#define DEF
+
+#ifdef DEF
+#ifdef DEF
+   printf("i\n");
+#else
+   printf("j\n");
+#endif
+#else
+#ifdef DEF
+   printf("k\n");
+#else
+   printf("l\n");
+#endif
+#endif
+
+#ifndef DEF
+#ifndef DEF
+   printf("m\n");
+#else
+   printf("n\n");
+#endif
+#else
+#ifndef DEF
+   printf("o\n");
+#else
+   printf("p\n");
+#endif
+#endif
+
+#define ONE 1
+#define ZERO 0
+
+#if ONE
+#if ZERO
+   printf("q\n");
+#else
+   printf("r\n");
+#endif
+#else
+#if ZERO
+   printf("s\n");
+#else
+   printf("t\n");
+#endif
+#endif
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00189.c
+#include <stdio.h>
+
+int fred(int p)
+{
+   printf("yo %d\n", p);
+   return 42;
+}
+
+int (*f)(int) = &fred;
+
+/* To test what this is supposed to test the destination function
+   (fprint here) must not be called directly anywhere in the test.  */
+int (*fprintfptr)(FILE *, const char *, ...) = &fprintf;
+
+int main()
+{
+   fprintfptr(stdout, "%d\n", (*f)(24));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00190.c
+#include <stdio.h>
+
+void fred(void)
+{
+   printf("yo\n");
+}
+
+int main()
+{
+   fred();
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00191.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+
+   for (a = 0; a < 2; a++)
+   {
+      int b = a;
+   }
+
+   printf("it's all good\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00192.c
+#include <stdio.h>
+
+int main()
+{
+   int Count = 0;
+
+   for (;;)
+   {
+      Count++;
+      printf("%d\n", Count);
+      if (Count >= 10)
+         break;
+   }
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00193.c
+#include <stdio.h>
+
+void fred(int x)
+{
+   switch (x)
+   {
+      case 1: printf("1\n"); return;
+      case 2: printf("2\n"); break;
+      case 3: printf("3\n"); return;
+   }
+
+   printf("out\n");
+}
+
+int main()
+{
+   fred(1);
+   fred(2);
+   fred(3);
+
+   return 0;
+}    
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00194.c
+#include <stdio.h>
+
+int main()
+{
+   int a;
+   char b;
+
+   a = 0;
+   while (a < 2)
+   {
+      printf("%d", a++);
+      break;
+
+      b = 'A';
+      while (b < 'C')
+      {
+         printf("%c", b++);
+      }
+      printf("e");
+   }
+   printf("\n");
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00195.c
+#include <stdio.h>
+
+struct point
+{
+   double x;
+   double y;
+};
+
+struct point point_array[100];
+
+int main()
+{
+   int my_point = 10;
+
+   point_array[my_point].x = 12.34;
+   point_array[my_point].y = 56.78;
+
+   printf("%f, %f\n", point_array[my_point].x, point_array[my_point].y);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00196.c
+#include <stdio.h>
+
+int fred()
+{
+   printf("fred\n");
+   return 0;
+}
+
+int joe()
+{
+   printf("joe\n");
+   return 1;
+}
+
+int main()
+{
+   printf("%d\n", fred() && joe());
+   printf("%d\n", fred() || joe());
+   printf("%d\n", joe() && fred());
+   printf("%d\n", joe() || fred());
+   printf("%d\n", fred() && (1 + joe()));
+   printf("%d\n", fred() || (0 + joe()));
+   printf("%d\n", joe() && (0 + fred()));
+   printf("%d\n", joe() || (1 + fred()));
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00197.c
+#include <stdio.h>
+
+static int fred = 1234;
+static int joe;
+
+void henry()
+{
+   static int fred = 4567;
+
+   printf("%d\n", fred);
+   fred++;
+}
+
+int main()
+{
+   printf("%d\n", fred);
+   henry();
+   henry();
+   henry();
+   henry();
+   printf("%d\n", fred);
+   fred = 8901;
+   joe = 2345;
+   printf("%d\n", fred);
+   printf("%d\n", joe);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00198.c
+#include <stdio.h>
+
+enum fred { a, b, c };
+
+int main()
+{
+   printf("a=%d\n", a);
+   printf("b=%d\n", b);
+   printf("c=%d\n", c);
+
+   enum fred d;
+
+   typedef enum { e, f, g } h;
+   typedef enum { i, j, k } m;
+
+   printf("e=%d\n", e);
+   printf("f=%d\n", f);
+   printf("g=%d\n", g);
+
+   printf("i=%d\n", i);
+   printf("j=%d\n", j);
+   printf("k=%d\n", k);
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00199.c
+#include <stdio.h>
+
+void fred()
+{
+   printf("In fred()\n");
+   goto done;
+   printf("In middle\n");
+done:
+   printf("At end\n");
+}
+
+void joe()
+{
+   int b = 5678;
+
+   printf("In joe()\n");
+
+   {
+      int c = 1234;
+      printf("c = %d\n", c);
+      goto outer;
+      printf("uh-oh\n");
+   }
+
+outer:    
+
+   printf("done\n");
+}
+
+void henry()
+{
+   int a;
+
+   printf("In henry()\n");
+   goto inner;
+
+   {
+      int b;
+inner:    
+      b = 1234;
+      printf("b = %d\n", b);
+   }
+
+   printf("done\n");
+}
+
+int main()
+{
+   fred();
+   joe();
+   henry();
+
+   return 0;
+}
+
+/* vim: set expandtab ts=4 sw=3 sts=3 tw=80 :*/
+// source: 00200.c
+/* $Id: lshift-type.c 53089 2012-07-06 11:18:26Z vinc17/ypig $
+
+Tests on left-shift type, written by Vincent Lefevre <vincent@vinc17.net>.
+
+ISO C99 TC3 says: [6.5.7#3] "The integer promotions are performed on
+each of the operands. The type of the result is that of the promoted
+left operand."
+*/
+
+#include <stdio.h>
+
+#define PTYPE(M) ((M) < 0 || -(M) < 0 ? -1 : 1) * (int) sizeof((M)+0)
+#define CHECK(X,T) check(#X, PTYPE(X), PTYPE((X) << (T) 1))
+#define TEST1(X,T) do { CHECK(X,T); CHECK(X,unsigned T); } while (0)
+#define TEST2(X)                 \
+  do                             \
+    {                            \
+      TEST1((X),short);          \
+      TEST1((X),int);            \
+      TEST1((X),long);           \
+      TEST1((X),long long);      \
+    }                            \
+  while (0)
+#define TEST3(X,T) do { TEST2((T)(X)); TEST2((unsigned T)(X)); } while (0)
+#define TEST4(X)                 \
+  do                             \
+    {                            \
+      TEST3((X),short);          \
+      TEST3((X),int);            \
+      TEST3((X),long);           \
+      TEST3((X),long long);      \
+    }                            \
+ while (0)
+
+static int debug, nfailed = 0;
+
+static void check (const char *s, int arg1, int shift)
+{
+  int failed = arg1 != shift;
+  if (debug || failed)
+    printf ("%s %d %d\n", s, arg1, shift);
+  nfailed += failed;
+}
+
+int main (int argc, char **argv)
+{
+  debug = argc > 1;
+  TEST4(1);
+  TEST4(-1);
+  printf ("%d test(s) failed\n", nfailed);
+  return nfailed != 0;
+}
+// source: 00201.c
+#include <stdio.h>	// printf()
+
+#define CAT2(a,b) a##b
+#define CAT(a,b) CAT2(a,b)
+#define AB(x) CAT(x,y)
+
+int main(void)
+{
+  int xy = 42;
+  printf("%d\n", CAT(A,B)(x));
+  return 0;
+}
+// source: 00202.c
+#include <stdio.h>
+
+#define P(A,B) A ## B ; bob
+#define Q(A,B) A ## B+
+
+int main(void)
+{
+    int bob, jim = 21;
+    bob = P(jim,) *= 2;
+    printf("jim: %d, bob: %d\n", jim, bob);
+    jim = 60 Q(+,)3;
+    printf("jim: %d\n", jim);
+    return 0;
+}
+// source: 00203.c
+#include <stdio.h>
+
+int main()
+{
+    long long int res = 0;
+
+    if (res < -2147483648LL) {
+        printf("Error: 0 < -2147483648\n");
+        return 1;
+    }
+    else
+    if (2147483647LL < res) {
+        printf("Error: 2147483647 < 0\n");
+        return 2;
+    }
+    else
+        printf("long long constant test ok.\n");
+    return 0;
+}
+// source: 00204.c
+// This program is designed to test some arm64-specific things, such as the
+// calling convention, but should give the same results on any architecture.
+
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdio.h>
+
+struct s1 { char x[1]; } s1 = { "0" };
+struct s2 { char x[2]; } s2 = { "12" };
+struct s3 { char x[3]; } s3 = { "345" };
+struct s4 { char x[4]; } s4 = { "6789" };
+struct s5 { char x[5]; } s5 = { "abcde" };
+struct s6 { char x[6]; } s6 = { "fghijk" };
+struct s7 { char x[7]; } s7 = { "lmnopqr" };
+struct s8 { char x[8]; } s8 = { "stuvwxyz" };
+struct s9 { char x[9]; } s9 = { "ABCDEFGHI" };
+struct s10 { char x[10]; } s10 = { "JKLMNOPQRS" };
+struct s11 { char x[11]; } s11 = { "TUVWXYZ0123" };
+struct s12 { char x[12]; } s12 = { "456789abcdef" };
+struct s13 { char x[13]; } s13 = { "ghijklmnopqrs" };
+struct s14 { char x[14]; } s14 = { "tuvwxyzABCDEFG" };
+struct s15 { char x[15]; } s15 = { "HIJKLMNOPQRSTUV" };
+struct s16 { char x[16]; } s16 = { "WXYZ0123456789ab" };
+struct s17 { char x[17]; } s17 = { "cdefghijklmnopqrs" };
+
+struct hfa11 { float a; } hfa11 = { 11.1 };
+struct hfa12 { float a, b; } hfa12 = { 12.1, 12.2 };
+struct hfa13 { float a, b, c; } hfa13 = { 13.1, 13.2, 13.3 };
+struct hfa14 { float a, b, c, d; } hfa14 = { 14.1, 14.2, 14.3, 14.4 };
+
+struct hfa21 { double a; } hfa21 = { 21.1 };
+struct hfa22 { double a, b; } hfa22 = { 22.1, 22.2 };
+struct hfa23 { double a, b, c; } hfa23 = { 23.1, 23.2, 23.3 };
+struct hfa24 { double a, b, c, d; } hfa24 = { 24.1, 24.2, 24.3, 24.4 };
+
+struct hfa31 { long double a; } hfa31 = { 31.1 };
+struct hfa32 { long double a, b; } hfa32 = { 32.1, 32.2 };
+struct hfa33 { long double a, b, c; } hfa33 = { 33.1, 33.2, 33.3 };
+struct hfa34 { long double a, b, c, d; } hfa34 = { 34.1, 34.2, 34.3, 34.4 };
+
+void fa_s1(struct s1 a) { printf("%.1s\n", a.x); }
+void fa_s2(struct s2 a) { printf("%.2s\n", a.x); }
+void fa_s3(struct s3 a) { printf("%.3s\n", a.x); }
+void fa_s4(struct s4 a) { printf("%.4s\n", a.x); }
+void fa_s5(struct s5 a) { printf("%.5s\n", a.x); }
+void fa_s6(struct s6 a) { printf("%.6s\n", a.x); }
+void fa_s7(struct s7 a) { printf("%.7s\n", a.x); }
+void fa_s8(struct s8 a) { printf("%.8s\n", a.x); }
+void fa_s9(struct s9 a) { printf("%.9s\n", a.x); }
+void fa_s10(struct s10 a) { printf("%.10s\n", a.x); }
+void fa_s11(struct s11 a) { printf("%.11s\n", a.x); }
+void fa_s12(struct s12 a) { printf("%.12s\n", a.x); }
+void fa_s13(struct s13 a) { printf("%.13s\n", a.x); }
+void fa_s14(struct s14 a) { printf("%.14s\n", a.x); }
+void fa_s15(struct s15 a) { printf("%.15s\n", a.x); }
+void fa_s16(struct s16 a) { printf("%.16s\n", a.x); }
+void fa_s17(struct s17 a) { printf("%.17s\n", a.x); }
+
+void fa_hfa11(struct hfa11 a)
+{ printf("%.1f\n", a.a); }
+void fa_hfa12(struct hfa12 a)
+{ printf("%.1f %.1f\n", a.a, a.a); }
+void fa_hfa13(struct hfa13 a)
+{ printf("%.1f %.1f %.1f\n", a.a, a.b, a.c); }
+void fa_hfa14(struct hfa14 a)
+{ printf("%.1f %.1f %.1f %.1f\n", a.a, a.b, a.c, a.d); }
+
+void fa_hfa21(struct hfa21 a)
+{ printf("%.1f\n", a.a); }
+void fa_hfa22(struct hfa22 a)
+{ printf("%.1f %.1f\n", a.a, a.a); }
+void fa_hfa23(struct hfa23 a)
+{ printf("%.1f %.1f %.1f\n", a.a, a.b, a.c); }
+void fa_hfa24(struct hfa24 a)
+{ printf("%.1f %.1f %.1f %.1f\n", a.a, a.b, a.c, a.d); }
+
+void fa_hfa31(struct hfa31 a)
+{ printf("%.1Lf\n", a.a); }
+void fa_hfa32(struct hfa32 a)
+{ printf("%.1Lf %.1Lf\n", a.a, a.a); }
+void fa_hfa33(struct hfa33 a)
+{ printf("%.1Lf %.1Lf %.1Lf\n", a.a, a.b, a.c); }
+void fa_hfa34(struct hfa34 a)
+{ printf("%.1Lf %.1Lf %.1Lf %.1Lf\n", a.a, a.b, a.c, a.d); }
+
+void fa1(struct s8 a, struct s9 b, struct s10 c, struct s11 d,
+         struct s12 e, struct s13 f)
+{
+    printf("%.3s %.3s %.3s %.3s %.3s %.3s\n", a.x, b.x, c.x, d.x, e.x, f.x);
+}
+
+void fa2(struct s9 a, struct s10 b, struct s11 c, struct s12 d,
+         struct s13 e, struct s14 f)
+{
+    printf("%.3s %.3s %.3s %.3s %.3s %.3s\n", a.x, b.x, c.x, d.x, e.x, f.x);
+}
+
+void fa3(struct hfa14 a, struct hfa23 b, struct hfa32 c)
+{
+    printf("%.1f %.1f %.1f %.1f %.1Lf %.1Lf\n",
+           a.a, a.d, b.a, b.c, c.a, c.b);
+}
+
+void fa4(struct s1 a, struct hfa14 b, struct s2 c, struct hfa24 d,
+         struct s3 e, struct hfa34 f)
+{
+    printf("%.1s %.1f %.1f %.2s %.1f %.1f %.3s %.1Lf %.1Lf\n",
+           a.x, b.a, b.d, c.x, d.a, d.d, e.x, f.a, f.d);
+}
+
+void arg(void)
+{
+    printf("Arguments:\n");
+    fa_s1(s1);
+    fa_s2(s2);
+    fa_s3(s3);
+    fa_s4(s4);
+    fa_s5(s5);
+    fa_s6(s6);
+    fa_s7(s7);
+    fa_s8(s8);
+    fa_s9(s9);
+    fa_s10(s10);
+    fa_s11(s11);
+    fa_s12(s12);
+    fa_s13(s13);
+    fa_s14(s14);
+    fa_s15(s15);
+    fa_s16(s16);
+    fa_s17(s17);
+    fa_hfa11(hfa11);
+    fa_hfa12(hfa12);
+    fa_hfa13(hfa13);
+    fa_hfa14(hfa14);
+    fa_hfa21(hfa21);
+    fa_hfa22(hfa22);
+    fa_hfa23(hfa23);
+    fa_hfa24(hfa24);
+    fa_hfa31(hfa31);
+    fa_hfa32(hfa32);
+    fa_hfa33(hfa33);
+    fa_hfa34(hfa34);
+    fa1(s8, s9, s10, s11, s12, s13);
+    fa2(s9, s10, s11, s12, s13, s14);
+    fa3(hfa14, hfa23, hfa32);
+    fa4(s1, hfa14, s2, hfa24, s3, hfa34);
+}
+
+struct s1 fr_s1(void) { return s1; }
+struct s2 fr_s2(void) { return s2; }
+struct s3 fr_s3(void) { return s3; }
+struct s4 fr_s4(void) { return s4; }
+struct s5 fr_s5(void) { return s5; }
+struct s6 fr_s6(void) { return s6; }
+struct s7 fr_s7(void) { return s7; }
+struct s8 fr_s8(void) { return s8; }
+struct s9 fr_s9(void) { return s9; }
+struct s10 fr_s10(void) { return s10; }
+struct s11 fr_s11(void) { return s11; }
+struct s12 fr_s12(void) { return s12; }
+struct s13 fr_s13(void) { return s13; }
+struct s14 fr_s14(void) { return s14; }
+struct s15 fr_s15(void) { return s15; }
+struct s16 fr_s16(void) { return s16; }
+struct s17 fr_s17(void) { return s17; }
+
+struct hfa11 fr_hfa11(void) { return hfa11; }
+struct hfa12 fr_hfa12(void) { return hfa12; }
+struct hfa13 fr_hfa13(void) { return hfa13; }
+struct hfa14 fr_hfa14(void) { return hfa14; }
+
+struct hfa21 fr_hfa21(void) { return hfa21; }
+struct hfa22 fr_hfa22(void) { return hfa22; }
+struct hfa23 fr_hfa23(void) { return hfa23; }
+struct hfa24 fr_hfa24(void) { return hfa24; }
+
+struct hfa31 fr_hfa31(void) { return hfa31; }
+struct hfa32 fr_hfa32(void) { return hfa32; }
+struct hfa33 fr_hfa33(void) { return hfa33; }
+struct hfa34 fr_hfa34(void) { return hfa34; }
+
+void ret(void)
+{
+    struct s1 t1 = fr_s1();
+    struct s2 t2 = fr_s2();
+    struct s3 t3 = fr_s3();
+    struct s4 t4 = fr_s4();
+    struct s5 t5 = fr_s5();
+    struct s6 t6 = fr_s6();
+    struct s7 t7 = fr_s7();
+    struct s8 t8 = fr_s8();
+    struct s9 t9 = fr_s9();
+    struct s10 t10 = fr_s10();
+    struct s11 t11 = fr_s11();
+    struct s12 t12 = fr_s12();
+    struct s13 t13 = fr_s13();
+    struct s14 t14 = fr_s14();
+    struct s15 t15 = fr_s15();
+    struct s16 t16 = fr_s16();
+    struct s17 t17 = fr_s17();
+    printf("Return values:\n");
+    printf("%.1s\n", t1.x);
+    printf("%.2s\n", t2.x);
+    printf("%.3s\n", t3.x);
+    printf("%.4s\n", t4.x);
+    printf("%.5s\n", t5.x);
+    printf("%.6s\n", t6.x);
+    printf("%.7s\n", t7.x);
+    printf("%.8s\n", t8.x);
+    printf("%.9s\n", t9.x);
+    printf("%.10s\n", t10.x);
+    printf("%.11s\n", t11.x);
+    printf("%.12s\n", t12.x);
+    printf("%.13s\n", t13.x);
+    printf("%.14s\n", t14.x);
+    printf("%.15s\n", t15.x);
+    printf("%.16s\n", t16.x);
+    printf("%.17s\n", t17.x);
+    printf("%.1f\n", fr_hfa11().a);
+    printf("%.1f %.1f\n", fr_hfa12().a, fr_hfa12().b);
+    printf("%.1f %.1f\n", fr_hfa13().a, fr_hfa13().c);
+    printf("%.1f %.1f\n", fr_hfa14().a, fr_hfa14().d);
+    printf("%.1f\n", fr_hfa21().a);
+    printf("%.1f %.1f\n", fr_hfa22().a, fr_hfa22().b);
+    printf("%.1f %.1f\n", fr_hfa23().a, fr_hfa23().c);
+    printf("%.1f %.1f\n", fr_hfa24().a, fr_hfa24().d);
+    printf("%.1Lf\n", fr_hfa31().a);
+    printf("%.1Lf %.1Lf\n", fr_hfa32().a, fr_hfa32().b);
+    printf("%.1Lf %.1Lf\n", fr_hfa33().a, fr_hfa33().c);
+    printf("%.1Lf %.1Lf\n", fr_hfa34().a, fr_hfa34().d);
+}
+
+int match(const char **s, const char *f)
+{
+    const char *p = *s;
+    for (p = *s; *f && *f == *p; f++, p++)
+        ;
+    if (!*f) {
+        *s = p - 1;
+        return 1;
+    }
+    return 0;
+}
+
+void myprintf(const char *format, ...)
+{
+    const char *s;
+    va_list ap;
+    va_start(ap, format);
+    for (s = format; *s; s++) {
+        if (match(&s, "%7s")) {
+            struct s7 t7 = va_arg(ap, struct s7);
+            printf("%.7s", t7.x);
+        }
+        else if (match(&s, "%9s")) {
+            struct s9 t9 = va_arg(ap, struct s9);
+            printf("%.9s", t9.x);
+        }
+        else if (match(&s, "%hfa11")) {
+            struct hfa11 x = va_arg(ap, struct hfa11);
+            printf("%.1f,%.1f", x.a, x.a);
+        }
+        else if (match(&s, "%hfa12")) {
+            struct hfa12 x = va_arg(ap, struct hfa12);
+            printf("%.1f,%.1f", x.a, x.b);
+        }
+        else if (match(&s, "%hfa13")) {
+            struct hfa13 x = va_arg(ap, struct hfa13);
+            printf("%.1f,%.1f", x.a, x.c);
+        }
+        else if (match(&s, "%hfa14")) {
+            struct hfa14 x = va_arg(ap, struct hfa14);
+            printf("%.1f,%.1f", x.a, x.d);
+        }
+        else if (match(&s, "%hfa21")) {
+            struct hfa21 x = va_arg(ap, struct hfa21);
+            printf("%.1f,%.1f", x.a, x.a);
+        }
+        else if (match(&s, "%hfa22")) {
+            struct hfa22 x = va_arg(ap, struct hfa22);
+            printf("%.1f,%.1f", x.a, x.b);
+        }
+        else if (match(&s, "%hfa23")) {
+            struct hfa23 x = va_arg(ap, struct hfa23);
+            printf("%.1f,%.1f", x.a, x.c);
+        }
+        else if (match(&s, "%hfa24")) {
+            struct hfa24 x = va_arg(ap, struct hfa24);
+            printf("%.1f,%.1f", x.a, x.d);
+        }
+        else if (match(&s, "%hfa31")) {
+            struct hfa31 x = va_arg(ap, struct hfa31);
+            printf("%.1Lf,%.1Lf", x.a, x.a);
+        }
+        else if (match(&s, "%hfa32")) {
+            struct hfa32 x = va_arg(ap, struct hfa32);
+            printf("%.1Lf,%.1Lf", x.a, x.b);
+        }
+        else if (match(&s, "%hfa33")) {
+            struct hfa33 x = va_arg(ap, struct hfa33);
+            printf("%.1Lf,%.1Lf", x.a, x.c);
+        }
+        else if (match(&s, "%hfa34")) {
+            struct hfa34 x = va_arg(ap, struct hfa34);
+            printf("%.1Lf,%.1Lf", x.a, x.d);
+        }
+        else
+            putchar(*s);
+    }
+    putchar('\n');
+}
+
+void stdarg(void)
+{
+    printf("stdarg:\n");
+    myprintf("%9s %9s %9s %9s %9s %9s", s9, s9, s9, s9, s9, s9);
+    myprintf("%7s %9s %9s %9s %9s %9s", s7, s9, s9, s9, s9, s9);
+
+    myprintf("HFA long double:");
+    myprintf("%hfa34 %hfa34 %hfa34 %hfa34", hfa34, hfa34, hfa34, hfa34);
+    myprintf("%hfa33 %hfa34 %hfa34 %hfa34", hfa33, hfa34, hfa34, hfa34);
+    myprintf("%hfa32 %hfa34 %hfa34 %hfa34", hfa32, hfa34, hfa34, hfa34);
+    myprintf("%hfa31 %hfa34 %hfa34 %hfa34", hfa31, hfa34, hfa34, hfa34);
+
+    myprintf("%hfa32 %hfa33 %hfa33 %hfa33 %hfa33",
+             hfa32, hfa33, hfa33, hfa33, hfa33);
+    myprintf("%hfa31 %hfa33 %hfa33 %hfa33 %hfa33",
+             hfa31, hfa33, hfa33, hfa33, hfa33);
+    myprintf("%hfa33 %hfa33 %hfa33 %hfa33",
+             hfa33, hfa33, hfa33, hfa33);
+
+    myprintf("%hfa34 %hfa32 %hfa32 %hfa32 %hfa32",
+             hfa34, hfa32, hfa32, hfa32, hfa32);
+    myprintf("%hfa33 %hfa32 %hfa32 %hfa32 %hfa32",
+             hfa33, hfa32, hfa32, hfa32, hfa32);
+
+    myprintf("%hfa34 %hfa32 %hfa31 %hfa31 %hfa31 %hfa31",
+             hfa34, hfa32, hfa31, hfa31, hfa31, hfa31);
+
+    myprintf("HFA double:");
+    myprintf("%hfa24 %hfa24 %hfa24 %hfa24", hfa24, hfa24, hfa24, hfa24);
+    myprintf("%hfa23 %hfa24 %hfa24 %hfa24", hfa23, hfa24, hfa24, hfa24);
+    myprintf("%hfa22 %hfa24 %hfa24 %hfa24", hfa22, hfa24, hfa24, hfa24);
+    myprintf("%hfa21 %hfa24 %hfa24 %hfa24", hfa21, hfa24, hfa24, hfa24);
+
+    myprintf("%hfa22 %hfa23 %hfa23 %hfa23 %hfa23",
+             hfa22, hfa23, hfa23, hfa23, hfa23);
+    myprintf("%hfa21 %hfa23 %hfa23 %hfa23 %hfa23",
+             hfa21, hfa23, hfa23, hfa23, hfa23);
+    myprintf("%hfa23 %hfa23 %hfa23 %hfa23",
+             hfa23, hfa23, hfa23, hfa23);
+
+    myprintf("%hfa24 %hfa22 %hfa22 %hfa22 %hfa22",
+             hfa24, hfa22, hfa22, hfa22, hfa22);
+    myprintf("%hfa23 %hfa22 %hfa22 %hfa22 %hfa22",
+             hfa23, hfa22, hfa22, hfa22, hfa22);
+
+    myprintf("%hfa24 %hfa22 %hfa21 %hfa21 %hfa21 %hfa21",
+             hfa24, hfa22, hfa21, hfa21, hfa21, hfa21);
+
+    myprintf("HFA float:");
+    myprintf("%hfa14 %hfa14 %hfa14 %hfa14", hfa14, hfa14, hfa14, hfa14);
+    myprintf("%hfa13 %hfa14 %hfa14 %hfa14", hfa13, hfa14, hfa14, hfa14);
+    myprintf("%hfa12 %hfa14 %hfa14 %hfa14", hfa12, hfa14, hfa14, hfa14);
+    myprintf("%hfa11 %hfa14 %hfa14 %hfa14", hfa11, hfa14, hfa14, hfa14);
+
+    myprintf("%hfa12 %hfa13 %hfa13 %hfa13 %hfa13",
+             hfa12, hfa13, hfa13, hfa13, hfa13);
+    myprintf("%hfa11 %hfa13 %hfa13 %hfa13 %hfa13",
+             hfa11, hfa13, hfa13, hfa13, hfa13);
+    myprintf("%hfa13 %hfa13 %hfa13 %hfa13",
+             hfa13, hfa13, hfa13, hfa13);
+
+    myprintf("%hfa14 %hfa12 %hfa12 %hfa12 %hfa12",
+             hfa14, hfa12, hfa12, hfa12, hfa12);
+    myprintf("%hfa13 %hfa12 %hfa12 %hfa12 %hfa12",
+             hfa13, hfa12, hfa12, hfa12, hfa12);
+
+    myprintf("%hfa14 %hfa12 %hfa11 %hfa11 %hfa11 %hfa11",
+             hfa14, hfa12, hfa11, hfa11, hfa11, hfa11);
+}
+
+void pll(unsigned long long x)
+{
+    printf("%llx\n", x);
+}
+
+void movi(void)
+{
+    printf("MOVI:\n");
+    pll(0);
+    pll(0xabcd);
+    pll(0xabcd0000);
+    pll(0xabcd00000000);
+    pll(0xabcd000000000000);
+    pll(0xffffabcd);
+    pll(0xabcdffff);
+    pll(0xffffffffffffabcd);
+    pll(0xffffffffabcdffff);
+    pll(0xffffabcdffffffff);
+    pll(0xabcdffffffffffff);
+    pll(0xaaaaaaaa);
+    pll(0x5555555555555555);
+    pll(0x77777777);
+    pll(0x3333333333333333);
+    pll(0xf8f8f8f8);
+    pll(0x1e1e1e1e1e1e1e1e);
+    pll(0x3f803f80);
+    pll(0x01ff01ff01ff01ff);
+    pll(0x007fffc0);
+    pll(0x03fff80003fff800);
+    pll(0x0007fffffffffe00);
+
+    pll(0xabcd1234);
+    pll(0xabcd00001234);
+    pll(0xabcd000000001234);
+    pll(0xabcd12340000);
+    pll(0xabcd000012340000);
+    pll(0xabcd123400000000);
+    pll(0xffffffffabcd1234);
+    pll(0xffffabcdffff1234);
+    pll(0xabcdffffffff1234);
+    pll(0xffffabcd1234ffff);
+    pll(0xabcdffff1234ffff);
+    pll(0xabcd1234ffffffff);
+
+    pll(0xffffef0123456789);
+    pll(0xabcdef012345ffff);
+
+    pll(0xabcdef0123456789);
+}
+
+static uint32_t addip0(uint32_t x) { return x + 0; }
+static uint64_t sublp0(uint64_t x) { return x - 0; }
+static uint32_t addip123(uint32_t x) { return x + 123; }
+static uint64_t addlm123(uint64_t x) { return x + -123; }
+static uint64_t sublp4095(uint64_t x) { return x - 4095; }
+static uint32_t subim503808(uint32_t x) { return x - -503808; }
+static uint64_t addp12345(uint64_t x) { return x + 12345; }
+static uint32_t subp12345(uint32_t x) { return x - 12345; }
+
+static uint32_t mvni(uint32_t x) { return 0xffffffff - x; }
+static uint64_t negl(uint64_t x) { return 0 - x; }
+static uint32_t rsbi123(uint32_t x) { return 123 - x; }
+static uint64_t rsbl123(uint64_t x) { return 123 - x; }
+
+static uint32_t andi0(uint32_t x) { return x & 0; }
+static uint64_t andlm1(uint64_t x) { return x & -1; }
+static uint64_t orrl0(uint64_t x) { return x | 0; }
+static uint32_t orrim1(uint32_t x) { return x | -1; }
+static uint32_t eori0(uint32_t x) { return x ^ 0; }
+static uint64_t eorlm1(uint64_t x) { return x ^ -1; }
+static uint32_t and0xf0(uint32_t x) { return x & 0xf0; }
+static uint64_t orr0xf0(uint64_t x) { return x | 0xf0; }
+static uint64_t eor0xf0(uint64_t x) { return x ^ 0xf0; }
+
+static uint32_t lsli0(uint32_t x) { return x << 0; }
+static uint32_t lsri0(uint32_t x) { return x >> 0; }
+static int64_t asrl0(int64_t x) { return x >> 0; }
+static uint32_t lsli1(uint32_t x) { return x << 1; }
+static uint32_t lsli31(uint32_t x) { return x << 31; }
+static uint64_t lsll1(uint64_t x) { return x << 1; }
+static uint64_t lsll63(uint64_t x) { return x << 63; }
+static uint32_t lsri1(uint32_t x) { return x >> 1; }
+static uint32_t lsri31(uint32_t x) { return x >> 31; }
+static uint64_t lsrl1(uint64_t x) { return x >> 1; }
+static uint64_t lsrl63(uint64_t x) { return x >> 63; }
+static int32_t asri1(int32_t x) { return x >> 1; }
+static int32_t asri31(int32_t x) { return x >> 31; }
+static int64_t asrl1(int64_t x) { return x >> 1; }
+static int64_t asrl63(int64_t x) { return x >> 63; }
+
+void opi(void)
+{
+    int x = 1000;
+    pll(addip0(x));
+    pll(sublp0(x));
+    pll(addip123(x));
+    pll(addlm123(x));
+    pll(sublp4095(x));
+    pll(subim503808(x));
+    pll(addp12345(x));
+    pll(subp12345(x));
+    pll(mvni(x));
+    pll(negl(x));
+    pll(rsbi123(x));
+    pll(rsbl123(x));
+    pll(andi0(x));
+    pll(andlm1(x));
+    pll(orrl0(x));
+    pll(orrim1(x));
+    pll(eori0(x));
+    pll(eorlm1(x));
+    pll(and0xf0(x));
+    pll(orr0xf0(x));
+    pll(eor0xf0(x));
+    pll(lsli0(x));
+    pll(lsri0(x));
+    pll(asrl0(x));
+    pll(lsli1(x));
+    pll(lsli31(x));
+    pll(lsll1(x));
+    pll(lsll63(x));
+    pll(lsri1(x));
+    pll(lsri31(x));
+    pll(lsrl1(x));
+    pll(lsrl63(x));
+    pll(asri1(x));
+    pll(asri31(x));
+    pll(asrl1(x));
+    pll(asrl63(x));
+}
+
+void pcs(void)
+{
+    arg();
+    ret();
+    stdarg();
+    movi();
+    opi();
+}
+
+int main()
+{
+    pcs();
+    return 0;
+}
+// source: 00205.c
+#include <stdio.h>
+
+/* This test is a snippet from the J interpreter */
+
+typedef long I;
+typedef struct{I c[4];I b,e,k;} PT;
+
+PT cases[] = {
+ ((I)4194304L +(I)2097152L +(I)67108864L), (I)262144L, (((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), -1L, 1,2,1,
+ ((I)+4194304L +(I)2097152L +(I)67108864L)+( (I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (I)262144L, (I)262144L, (((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), 2,3,2,
+ ((I)4194304L +(I)2097152L +(I)67108864L)+( (I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), (I)262144L, (((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), 1,3,2,
+ ((I)4194304L +(I)2097152L +(I)67108864L)+( (I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), (I)524288L, -1L, 1,2,1,
+ ((I)4194304L +(I)2097152L +(I)67108864L)+( (I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), (I)1048576L, (I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), 1,3,1,
+ ((I)4194304L +(I)2097152L +(I)67108864L)+( (I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), (I)262144L, (I)262144L, 1,3,1,
+ ((I)4194304L +(I)2097152L +(I)67108864L), ((I)1048576L +(I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), ((I)1048576L +(I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), -1L, 1,2,1,
+ (I)33554432L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L), (I)2097152L, ((I)1048576L +(I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), -1L, 0,2,1,
+ (I)67108864L, ((I)1048576L +(I)524288L +(I)262144L +(((I)1L +(I)256L +(I)4L +(I)8L +(I)16L +(I)64L +(I)128L +(I)268435456L +(I)536870912L +(I)1024L +(I)4096L +(I)8192L +(I)16384L)+((I)2L +(I)131072L +(I)2048L)+(I)32L +(I)32768L +(I)65536L)), (I)134217728L, -1L, 0,2,0,
+};
+
+int main() {
+    int i, j;
+
+    for(j=0; j < sizeof(cases)/sizeof(cases[0]); j++) {
+	for(i=0; i < sizeof(cases->c)/sizeof(cases->c[0]); i++)
+	    printf("cases[%d].c[%d]=%ld\n", j, i, cases[j].c[i]);
+
+	printf("cases[%d].b=%ld\n", j, cases[j].b);
+	printf("cases[%d].e=%ld\n", j, cases[j].e);
+	printf("cases[%d].k=%ld\n", j, cases[j].k);
+	printf("\n");
+    }
+    return 0;
+}
+// source: 00206.c
+#include <stdio.h>
+
+int main()
+{
+    /* must not affect how #pragma ppop_macro works */
+    #define pop_macro foobar1
+
+    /* must not affect how #pragma push_macro works */
+    #define push_macro foobar2
+
+    #undef abort
+    #define abort "111"
+    printf("abort = %s\n", abort);
+
+    #pragma push_macro("abort")
+    #undef abort
+    #define abort "222"
+    printf("abort = %s\n", abort);
+
+    #pragma push_macro("abort")
+    #undef abort
+    #define abort "333"
+    printf("abort = %s\n", abort);
+
+    #pragma pop_macro("abort")
+    printf("abort = %s\n", abort);
+
+    #pragma pop_macro("abort")
+    printf("abort = %s\n", abort);
+}
+// source: 00207.c
+#include <stdio.h>
+
+/* This test segfaults as of April 27, 2015. */
+void f1(int argc)
+{
+  char test[argc];
+  if(0)
+  label:
+    printf("boom!\n");
+  if(argc-- == 0)
+    return;
+  goto label;
+}
+
+/* This segfaulted on 2015-11-19. */
+void f2(void)
+{
+    goto start;
+    {
+        int a[1 && 1]; /* not a variable-length array */
+        int b[1 || 1]; /* not a variable-length array */
+        int c[1 ? 1 : 1]; /* not a variable-length array */
+    start:
+        a[0] = 0;
+        b[0] = 0;
+        c[0] = 0;
+    }
+}
+
+void f3(void)
+{
+    printf("%d\n", 0 ? printf("x1\n") : 11);
+    printf("%d\n", 1 ? 12 : printf("x2\n"));
+    printf("%d\n", 0 && printf("x3\n"));
+    printf("%d\n", 1 || printf("x4\n"));
+}
+
+int main()
+{
+  f1(2);
+  f2();
+  f3();
+
+  return 0;
+}
+// source: 00208.c
+#include <stdio.h>
+struct wchar {
+    char *data; char mem[1];
+};
+struct wint {
+    char *data; int mem[1];
+};
+int f1char (void) {
+    char s[9]="nonono";
+    struct wchar q = {"bugs"};
+    return !s[0];
+}
+int f1int (void) {
+    char s[9]="nonono";
+    struct wint q = {"bugs"};
+    return !s[0];
+}
+int main (void) {
+   char s[9]="nonono";
+   static struct wchar q = {"bugs", {'c'}};
+   //printf ("tcc has %s %s\n", s, q.data);
+   if (f1char() || f1int())
+     printf ("bla\n");
+   return !s[0];
+}
+// source: 00209.c
+/* The following are all valid decls, even though some subtypes
+   are incomplete.  */
+enum E *e;
+const enum E *e1;
+enum E const *e2;
+struct S *s;
+const struct S *s1;
+struct S const *s2;
+
+/* Various strangely looking declarators, which are all valid
+   and have to map to the same numbered typedefs. */
+typedef int (*fptr1)();
+int f1 (int (), int);
+typedef int (*fptr2)(int x);
+int f2 (int (int x), int);
+typedef int (*fptr3)(int);
+int f3 (int (int), int);
+typedef int (*fptr4[4])(int);
+int f4 (int (*[4])(int), int);
+typedef int (*fptr5)(fptr1);
+int f5 (int (int()), fptr1);
+int f1 (fptr1 fp, int i)
+{
+  return (*fp)(i);
+}
+int f2 (fptr2 fp, int i)
+{
+  return (*fp)(i);
+}
+int f3 (fptr3 fp, int i)
+{
+  return (*fp)(i);
+}
+int f4 (fptr4 fp, int i)
+{
+  return (*fp[i])(i);
+}
+int f5 (fptr5 fp, fptr1 i)
+{
+  return fp(i);
+}
+int f8 (int ([4]), int);
+int main () { return 0; }
+// source: 00210.c
+typedef unsigned short uint16_t;
+typedef unsigned char uint8_t;
+
+typedef union Unaligned16a {
+  uint16_t u;
+  uint8_t b[2];
+} __attribute__((packed)) Unaligned16a;
+
+typedef union __attribute__((packed)) Unaligned16b {
+  uint16_t u;
+  uint8_t b[2];
+} Unaligned16b;
+
+extern void foo (void) __attribute__((stdcall));
+void __attribute__((stdcall)) foo (void)
+{
+}
+
+/* The actual attribute isn't important, must just be
+   parsable.  */
+#define ATTR __attribute__((__noinline__))
+int ATTR actual_function() {
+  return 42;
+}
+
+extern int printf (const char *, ...);
+int main()
+{
+    void *function_pointer = &actual_function;
+
+    int a = ((ATTR int(*) (void)) function_pointer)();
+    printf("%i\n", a);
+
+    /* In the following we once misparsed 'ATTR *' is a btype
+       and hence the whole type was garbled.  */
+    int b = ( (int(ATTR *)(void))  function_pointer)();
+    printf("%i\n", b);
+
+    return 0;
+}
+// source: 00211.c
+extern int printf(const char *format, ...);
+
+#define ACPI_TYPE_INVALID       0x1E
+#define NUM_NS_TYPES            ACPI_TYPE_INVALID+1
+int array[NUM_NS_TYPES];
+
+#define n 0xe
+int main()
+{
+    printf("n+1 = %d\n", n+1);
+//    printf("n+1 = %d\n", 0xe+1);
+}
+// source: 00212.c
+#include <stdio.h>
+
+int
+main()
+{
+#if defined(__LLP64__)
+	if (sizeof(short) == 2
+	    && sizeof(int) == 4
+	    && sizeof(long int) == 4
+	    && sizeof(long long int) == 8
+	    && sizeof(void*) == 8) {
+		(void)printf("Ok\n");
+	} else {
+		(void)printf("KO __LLP64__\n");
+	}
+#elif defined(__LP64__)
+	if (sizeof(short) == 2
+	    && sizeof(int) == 4
+	    && sizeof(long int) == 8
+	    && sizeof(long long int) == 8
+	    && sizeof(void*) == 8) {
+		(void)printf("Ok\n");
+	} else {
+		(void)printf("KO __LP64__\n");
+	}
+#elif defined(__ILP32__)
+	if (sizeof(short) == 2
+	    && sizeof(int) == 4
+	    && sizeof(long int) == 4
+	    && sizeof(void*) == 4) {
+		(void)printf("Ok\n");
+	} else {
+		(void)printf("KO __ILP32__\n");
+	}
+#else
+	(void)printf("KO no __*LP*__ defined.\n");
+#endif
+}
+// source: 00213.c
+/* This checks various ways of dead code inside if statements
+   where there are non-obvious ways of how the code is actually
+   not dead due to reachable by labels.  */
+extern int printf (const char *, ...);
+static void kb_wait_1(void)
+{
+  unsigned long timeout = 2;
+  do {
+      /* Here the else arm is a statement expression that's supposed
+         to be suppressed.  The label inside the while would unsuppress
+	 code generation again if not handled correctly.  And that
+	 would wreak havoc to the cond-expression because there's no
+	 jump-around emitted, the whole statement expression really
+	 needs to not generate code (perhaps except useless forward jumps).  */
+      (1 ? 
+       printf("timeout=%ld\n", timeout) :
+       ({
+	int i = 1;
+	while (1)
+	  while (i--)
+	    some_label:
+	      printf("error\n");
+	goto some_label;
+	})
+      );
+      timeout--;
+  } while (timeout);
+}
+
+static int global;
+
+static void foo(int i)
+{
+  global+=i;
+  printf ("g=%d\n", global);
+}
+
+static int check(void)
+{
+  printf ("check %d\n", global);
+  return 1;
+}
+
+static void dowhile(void)
+{
+  do {
+      foo(1);
+      if (global == 1) {
+	  continue;
+      } else if (global == 2) {
+	  continue;
+      }
+      /* The following break shouldn't disable the check() call,
+         as it's reachable by the continues above.  */
+      break;
+  } while (check());
+}
+
+int main (void)
+{
+  int i = 1;
+  kb_wait_1();
+
+  /* Simple test of dead code at first sight which isn't actually dead. */
+  if (0) {
+yeah:
+      printf ("yeah\n");
+  } else {
+      printf ("boo\n");
+  }
+  if (i--)
+    goto yeah;
+
+  /* Some more non-obvious uses where the problems are loops, so that even
+     the first loop statements aren't actually dead.  */
+  i = 1;
+  if (0) {
+      while (i--) {
+	  printf ("once\n");
+enterloop:
+	  printf ("twice\n");
+      }
+  }
+  if (i >= 0)
+    goto enterloop;
+
+  /* The same with statement expressions.  One might be tempted to
+     handle them specially by counting if inside statement exprs and
+     not unsuppressing code at loops at all then.
+     See kb_wait_1 for the other side of the medal where that wouldn't work.  */
+  i = ({
+      int j = 1;
+      if (0) {
+	  while (j--) {
+	      printf ("SEonce\n");
+    enterexprloop:
+	      printf ("SEtwice\n");
+	  }
+      }
+      if (j >= 0)
+	goto enterexprloop;
+      j; });
+
+  /* The other two loop forms: */
+  i = 1;
+  if (0) {
+      for (i = 1; i--;) {
+	  printf ("once2\n");
+enterloop2:
+	  printf ("twice2\n");
+      }
+  }
+  if (i > 0)
+    goto enterloop2;
+
+  i = 1;
+  if (0) {
+      do {
+	  printf ("once3\n");
+enterloop3:
+	  printf ("twice3\n");
+      } while (i--);
+  }
+  if (i > 0)
+    goto enterloop3;
+
+  /* And check that case and default labels have the same effect
+     of disabling code suppression.  */
+  i = 41;
+  switch (i) {
+      if (0) {
+	  printf ("error\n");
+      case 42:
+	  printf ("error2\n");
+      case 41:
+	  printf ("caseok\n");
+      }
+  }
+
+  i = 41;
+  switch (i) {
+      if (0) {
+	  printf ("error3\n");
+      default:
+	  printf ("caseok2\n");
+	  break;
+      case 42:
+	  printf ("error4\n");
+      }
+  }
+
+  dowhile();
+
+  return 0;
+}
+// source: 00214.c
+/* Check some way in where code suppression caused various
+   miscompilations.  */
+extern int printf (const char *, ...);
+typedef unsigned long size_t;
+
+size_t _brk_start, _brk_end;
+void * extend_brk(size_t size, size_t align)
+{
+    size_t mask = align - 1;
+    void *ret = 0;
+
+     do {
+	 if (__builtin_expect(!!(_brk_start == 0), 0))
+	   do {
+	       printf("wrong1\n");
+	   } while (0);
+     } while (0);
+     _brk_end = (_brk_end + mask) & ~mask;
+     ret = (void *)_brk_end;
+     _brk_end += size;
+
+     return ret;
+}
+
+static void get_args (int a, int b)
+{
+  if (a != 1)
+    printf("wrong2\n");
+  else
+    printf("okay\n");
+}
+
+void bla(void)
+{
+  int __ret = 42;
+  ({
+    if (__builtin_expect(!!(0), 0)) {
+      if (__builtin_expect(!!__ret, 0))
+        printf("wrong3\n");
+      int x = !!(__ret);
+    }
+    __ret;
+  });
+  get_args(!!__ret, sizeof(__ret));
+}
+
+_Bool chk(unsigned long addr, unsigned long limit, unsigned long size)
+{
+  _Bool ret;
+  /* This just needs to compile, no runtime test.  (And it doesn't compile
+     only with certain internal checking added that's not committed).  */
+  if (0)
+    ret = 0 != (!!(addr > limit - size));
+}
+
+int main()
+{
+  void *r;
+  _brk_start = 1024;
+  _brk_end = 1024;
+  r = extend_brk (4096, 16);
+  if (!r)
+    printf("wrong4\n");
+  else
+    printf("okay\n");
+  bla();
+  return 0;
+}
+// source: 00215.c
+extern int printf(const char *format, ...);
+static void kb_wait_1(void)
+{
+    unsigned long timeout = 2;
+    do {
+        if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            while (1)
+                printf("error\n");
+        }
+        timeout--;
+    } while (timeout);
+}
+static void kb_wait_2(void)
+{
+    unsigned long timeout = 2;
+    do {
+        if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            for (;;)
+                printf("error\n");
+        }
+        timeout--;
+    } while (timeout);
+}
+static void kb_wait_2_1(void)
+{
+    unsigned long timeout = 2;
+    do {
+        if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            do {
+                printf("error\n");
+            } while (1);
+        }
+        timeout--;
+    } while (timeout);
+}
+static void kb_wait_2_2(void)
+{
+    unsigned long timeout = 2;
+    do {
+        if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            label:
+                printf("error\n");
+            goto label;
+        }
+        timeout--;
+    } while (timeout);
+}
+static void kb_wait_3(void)
+{
+    unsigned long timeout = 2;
+    do {
+        if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            int i = 1;
+            goto label;
+            i = i + 2;
+        label:
+            i = i + 3;
+        }
+        timeout--;
+    } while (timeout);
+}
+static void kb_wait_4(void)
+{
+    unsigned long timeout = 2;
+    do {
+	if (1) printf("timeout=%ld\n", timeout);
+        else
+        {
+            switch(timeout) {
+                case 2:
+                    printf("timeout is 2");
+                    break;
+                case 1:
+                    printf("timeout is 1");
+                    break;
+                default:
+                    printf("timeout is 0?");
+                    break;
+            };
+            /* return; */
+        }
+        timeout--;
+    } while (timeout);
+}
+int main()
+{
+    printf("begin\n");
+    kb_wait_1();
+    kb_wait_2();
+    kb_wait_2_1();
+    kb_wait_2_2();
+    kb_wait_3();
+    kb_wait_4();
+    printf("end\n");
+    return 0;
+}
+// source: 00216.c
+typedef unsigned char u8;
+typedef struct {} empty_s;
+struct contains_empty {
+    u8 a;
+    empty_s empty;
+    u8 b;
+};
+struct contains_empty ce = { { (1) }, (empty_s){}, 022, };
+/* The following decl of 'q' would demonstrate the TCC bug in init_putv when
+   handling copying compound literals.  (Compound literals
+   aren't acceptable constant initializers in isoc99, but
+   we accept them like gcc, except for this case)
+//char *q = (char *){ "trara" }; */
+struct SS {u8 a[3], b; };
+struct SS sinit16[] = { { 1 }, 2 };
+struct S
+{
+  u8 a,b;
+  u8 c[2];
+};
+
+struct T
+{
+  u8 s[16];
+  u8 a;
+};
+
+struct U
+{
+  u8 a;
+  struct S s;
+  u8 b;
+  struct T t;
+};
+
+struct V
+{
+  struct S s;
+  struct T t;
+  u8 a;
+};
+
+struct W
+{
+  struct V t;
+  struct S s[];
+};
+
+struct S gs = ((struct S){1, 2, 3, 4});
+struct S gs2 = {1, 2, {3, 4}};
+struct T gt = {"hello", 42};
+struct U gu = {3, 5,6,7,8, 4, "huhu", 43};
+struct U gu2 = {3, {5,6,7,8}, 4, {"huhu", 43}};
+/* Optional braces around scalar initializers.  Accepted, but with
+   a warning.  */
+struct U gu3 = { {3}, {5,6,7,8,}, 4, {"huhu", 43}};
+/* Many superfluous braces and leaving out one initializer for U.s.c[1] */
+struct U gu4 = { 3, {5,6,7,},  5, { "bla", {44}} };
+/* Superfluous braces and useless parens around values */
+struct S gs3 = { (1), {(2)}, {(((3))), {4}}};
+/* Superfluous braces, and leaving out braces for V.t, plus cast */
+struct V gv = {{{3},4,{5,6}}, "haha", (u8)45, 46};
+/* Compound literal */
+struct V gv2 = {(struct S){7,8,{9,10}}, {"hihi", 47}, 48};
+/* Parens around compound literal */
+struct V gv3 = {((struct S){7,8,{9,10}}), {"hoho", 49}, 50};
+/* Initialization of a flex array member (warns in GCC) */
+struct W gw = {{1,2,3,4}, {1,2,3,4,5}};
+
+union UU {
+    u8 a;
+    u8 b;
+};
+struct SU {
+    union UU u;
+    u8 c;
+};
+struct SU gsu = {5,6};
+
+/* Unnamed struct/union members aren't ISO C, but it's a widely accepted
+   extension.  See below for further extensions to that under -fms-extension.*/
+union UV {
+    struct {u8 a,b;};
+    struct S s;
+};
+union UV guv = {{6,5}};
+union UV guv2 = {{.b = 7, .a = 8}};
+union UV guv3 = {.b = 8, .a = 7};
+
+/* Under -fms-extensions also the following is valid:
+union UV2 {
+    struct Anon {u8 a,b;};    // unnamed member, but tagged struct, ...
+    struct S s;
+};
+struct Anon gan = { 10, 11 }; // ... which makes it available here.
+union UV2 guv4 = {{4,3}};     // and the other inits from above as well
+*/
+
+struct in6_addr {
+    union {
+	u8 u6_addr8[16];
+	unsigned short u6_addr16[8];
+    } u;
+};
+struct flowi6 {
+    struct in6_addr saddr, daddr;
+};
+struct pkthdr {
+    struct in6_addr daddr, saddr;
+};
+struct pkthdr phdr = { { { 6,5,4,3 } }, { { 9,8,7,6 } } };
+
+struct Wrap {
+    void *func;
+};
+int global;
+void inc_global (void)
+{
+  global++;
+}
+
+struct Wrap global_wrap[] = {
+    ((struct Wrap) {inc_global}),
+    inc_global,
+};
+
+#include <stdio.h>
+void print_ (const char *name, const u8 *p, long size)
+{
+  printf ("%s:", name);
+  while (size--) {
+      printf (" %x", *p++);
+  }
+  printf ("\n");
+}
+#define print(x) print_(#x, (u8*)&x, sizeof (x))
+#if 1
+void foo (struct W *w, struct pkthdr *phdr_)
+{
+  struct S ls = {1, 2, 3, 4};
+  struct S ls2 = {1, 2, {3, 4}};
+  struct T lt = {"hello", 42};
+  struct U lu = {3, 5,6,7,8, 4, "huhu", 43};
+  struct U lu1 = {3, ls, 4, {"huhu", 43}};
+  struct U lu2 = {3, (ls), 4, {"huhu", 43}};
+  const struct S *pls = &ls;
+  struct S ls21 = *pls;
+  struct U lu22 = {3, *pls, 4, {"huhu", 43}};
+  /* Incomplete bracing.  */
+  struct U lu21 = {3, ls, 4, "huhu", 43};
+  /* Optional braces around scalar initializers.  Accepted, but with
+     a warning.  */
+  struct U lu3 = { 3, {5,6,7,8,}, 4, {"huhu", 43}};
+  /* Many superfluous braces and leaving out one initializer for U.s.c[1] */
+  struct U lu4 = { 3, {5,6,7,},  5, { "bla", 44} };
+  /* Superfluous braces and useless parens around values */
+  struct S ls3 = { (1), (2), {(((3))), 4}};
+  /* Superfluous braces, and leaving out braces for V.t, plus cast */
+  struct V lv = {{3,4,{5,6}}, "haha", (u8)45, 46};
+  /* Compound literal */
+  struct V lv2 = {(struct S)w->t.s, {"hihi", 47}, 48};
+  /* Parens around compound literal */
+  struct V lv3 = {((struct S){7,8,{9,10}}), ((const struct W *)w)->t.t, 50};
+  const struct pkthdr *phdr = phdr_;
+  struct flowi6 flow = { .daddr = phdr->daddr, .saddr = phdr->saddr };
+  int elt = 0x42;
+  /* Range init, overlapping */
+  struct T lt2 = { { [1 ... 5] = 9, [6 ... 10] = elt, [4 ... 7] = elt+1 }, 1 };
+  print(ls);
+  print(ls2);
+  print(lt);
+  print(lu);
+  print(lu1);
+  print(lu2);
+  print(ls21);
+  print(lu21);
+  print(lu22);
+  print(lu3);
+  print(lu4);
+  print(ls3);
+  print(lv);
+  print(lv2);
+  print(lv3);
+  print(lt2);
+  print(flow);
+}
+#endif
+
+void test_compound_with_relocs (void)
+{
+  struct Wrap local_wrap[] = {
+      ((struct Wrap) {inc_global}),
+      inc_global,
+  };
+  void (*p)(void);
+  p = global_wrap[0].func; p();
+  p = global_wrap[1].func; p();
+  p = local_wrap[0].func; p();
+  p = local_wrap[1].func; p();
+}
+
+void sys_ni(void) { printf("ni\n"); }
+void sys_one(void) { printf("one\n"); }
+void sys_two(void) { printf("two\n"); }
+void sys_three(void) { printf("three\n"); }
+typedef void (*fptr)(void);
+const fptr table[3] = {
+    [0 ... 2] = &sys_ni,
+    [0] = sys_one,
+    [1] = sys_two,
+    [2] = sys_three,
+};
+
+void test_multi_relocs(void)
+{
+  int i;
+  for (i = 0; i < sizeof(table)/sizeof(table[0]); i++)
+    table[i]();
+}
+
+/* Following is from GCC gcc.c-torture/execute/20050613-1.c.  */
+
+struct SEA { int i; int j; int k; int l; };
+struct SEB { struct SEA a; int r[1]; };
+struct SEC { struct SEA a; int r[0]; };
+struct SED { struct SEA a; int r[]; };
+
+static void
+test_correct_filling (struct SEA *x)
+{
+  static int i;
+  if (x->i != 0 || x->j != 5 || x->k != 0 || x->l != 0)
+    printf("sea_fill%d: wrong\n", i);
+  else
+    printf("sea_fill%d: okay\n", i);
+  i++;
+}
+
+int
+test_zero_init (void)
+{
+  /* The peculiarity here is that only a.j is initialized.  That
+     means that all other members must be zero initialized.  TCC
+     once didn't do that for sub-level designators.  */
+  struct SEB b = { .a.j = 5 };
+  struct SEC c = { .a.j = 5 };
+  struct SED d = { .a.j = 5 };
+  test_correct_filling (&b.a);
+  test_correct_filling (&c.a);
+  test_correct_filling (&d.a);
+  return 0;
+}
+
+int main()
+{
+  print(ce);
+  print(gs);
+  print(gs2);
+  print(gt);
+  print(gu);
+  print(gu2);
+  print(gu3);
+  print(gu4);
+  print(gs3);
+  print(gv);
+  print(gv2);
+  print(gv3);
+  print(sinit16);
+  print(gw);
+  print(gsu);
+  print(guv);
+  print(guv.b);
+  print(guv2);
+  print(guv3);
+  print(phdr);
+  foo(&gw, &phdr);
+  //printf("q: %s\n", q);
+  test_compound_with_relocs();
+  test_multi_relocs();
+  test_zero_init();
+  return 0;
+}
+// source: 00217.c
+int printf(const char *, ...);
+char t[] = "012345678";
+
+int main(void)
+{
+    char *data = t;
+    unsigned long long r = 4;
+    unsigned a = 5;
+    unsigned long long b = 12;
+
+    *(unsigned*)(data + r) += a - b;
+
+    printf("data = \"%s\"\n", data);
+    return 0;
+}
+// source: 00218.c
+/* This checks if enums needing 8 bit but only having positive
+   values are correctly zero extended (instead of sign extended)
+   when stored into/loaded from a 8 bit bit-field of enum type (which
+   itself is implementation defined, so isn't necessarily supported by all
+   other compilers).  */
+enum tree_code {
+  SOME_CODE = 148, /* has bit 7 set, and hence all further enum values as well */
+  LAST_AND_UNUSED_TREE_CODE
+};
+typedef union tree_node *tree;
+struct tree_common
+{
+  union tree_node *chain;
+  union tree_node *type;
+  enum tree_code code : 8;
+  unsigned side_effects_flag : 1;
+};
+union tree_node
+{
+  struct tree_common common;
+ };
+enum c_tree_code {
+  C_DUMMY_TREE_CODE = LAST_AND_UNUSED_TREE_CODE,
+  STMT_EXPR,
+  LAST_C_TREE_CODE
+};
+enum cplus_tree_code {
+  CP_DUMMY_TREE_CODE = LAST_C_TREE_CODE,
+  AMBIG_CONV,
+  LAST_CPLUS_TREE_CODE
+};
+
+extern int printf(const char *, ...);
+int blah(){return 0;}
+
+int convert_like_real (tree convs)
+{
+  switch (((enum tree_code) (convs)->common.code))
+    {
+    case AMBIG_CONV: /* This has bit 7 set, which must not be the sign
+			bit in tree_common.code, i.e. the bitfield must
+			be somehow marked unsigned.  */
+      return blah();
+    default:
+      break;
+    };
+   printf("unsigned enum bit-fields broken\n");
+}
+
+int main()
+{
+  union tree_node convs;
+
+  convs.common.code = AMBIG_CONV;
+  convert_like_real (&convs);
+  return 0;
+}
+// source: 00219.c
+#include <stdio.h>
+
+const int a = 0;
+
+struct a {
+	int a;
+};
+
+struct b {
+	int a;
+};
+
+int a_f()
+{
+	return 20;
+}
+
+int b_f()
+{
+	return 10;
+}
+
+typedef int (*fptr)(int);
+int foo(int i)
+{
+  return i;
+}
+
+typedef int int_type1;
+
+#define gen_sw(a) _Generic(a, const char *: 1, default: 8, int: 123);
+
+int main()
+{
+	int i = 0;
+	signed long int l = 2;
+	struct b titi;
+	const int * const ptr;
+	const char *ti;
+	int_type1 i2;
+
+	i = _Generic(a, int: a_f, const int: b_f)();
+	printf("%d\n", i);
+	i = _Generic(a, int: a_f() / 2, const int: b_f() / 2);
+	printf("%d\n", i);
+	i = _Generic(ptr, int *:1, int * const:2, default:20);
+	printf("%d\n", i);
+	i = gen_sw(a);
+	printf("%d\n", i);
+	i = _Generic(titi, struct a:1, struct b:2, default:20);
+	printf("%d\n", i);
+	i = _Generic(i2, char: 1, int : 0);
+	printf("%d\n", i);
+	i = _Generic(a, char:1, int[4]:2, default:5);
+	printf("%d\n", i);
+	i = _Generic(17, int :1, int **:2);
+	printf("%d\n", i);
+	i = _Generic(17L, int :1, long :2, long long : 3);
+	printf("%d\n", i);
+	i = _Generic("17, io", char *: 3, const char *: 1);
+	printf("%d\n", i);
+	i = _Generic(ti, const unsigned char *:1, const char *:4, char *:3,
+		     const signed char *:2);
+	printf("%d\n", i);
+	printf("%s\n", _Generic(i + 2L, long: "long", int: "int",
+				long long: "long long"));
+	i = _Generic(l, long: 1, int: 2);
+	printf("%d\n", i);
+	i = _Generic(foo, fptr: 3, int: 4);
+	printf("%d\n", i);
+	return 0;
+}
+// source: 00220.c
+// this file contains BMP chars encoded in UTF-8
+#include <stdio.h>
+#include <wchar.h>
+
+int main()
+{
+    wchar_t s[] = L"hello$$你好¢¢世界€€world";
+    wchar_t *p;
+    for (p = s; *p; p++) printf("%04X ", (unsigned) *p);
+    printf("\n");
+    return 0;
+}
