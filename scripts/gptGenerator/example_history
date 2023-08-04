@@ -1,0 +1,43 @@
+// source: 00035.c
+int main()
+{
+    int x;
+
+    x = 4;
+    return x - 4;
+}
+REQRES
+Program 1 (00003.c):
+```
+// Modification timestamp: 2023-08-02 17:40:00
+// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
+
+#include <stdio.h>
+
+int main() {
+    int x;
+
+    x = 4;
+    return x - 4;
+}
+
+```
+
+and Program 2 (00003.c):
+```
+// Modification timestamp: 2023-08-02 15:30:00
+// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  return x - 4;
+}
+```
