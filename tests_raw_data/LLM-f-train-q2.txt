@@ -33,8 +33,10 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-But please make sure the comments are inside the program as its first line.
-
   int x = atoi(argv[1]);
   return x - 4;
 }
+
+But please make sure the comments are inside the program as its first line.
+Also, don't forget to do the args for program 2.
+Also, don't add any additional includes to program 1.
