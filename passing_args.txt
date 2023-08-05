@@ -1,0 +1,17 @@
+Passing args to gem5
+args.c
+#include <stdio.h>
+int main(const int argc, const char* argv[]){
+  for(int i=1;i<argc;i++){printf("argv[%d]:%s,",i,argv[i]);fflush(stdout);}
+  printf("\n");
+  return 99;
+}
+compile
+gcc argc.c
+run example
+a.out x y z
+argv[1]:x,argv[2]:y,argv[3]:z,
+use _deprecated example!!
+gem5.opt ./gem5-ssbse-challenge-2023/configs/deprecated/example/se.py -c a.out --option "a b c d eee"
+notice gem5 simulates printf in a.out ok
+notice gem5 warning that a.out returns 99 (rather than zero)
