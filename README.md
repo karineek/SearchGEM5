@@ -82,3 +82,8 @@ After removing all invalid programs from the input set, we use the reference mac
 a specific version of a compiler and a set of compilation flags to generate a corpus of binaries.
 
 We use the corpus of binaries for testing gem5.
+
+Use this script to automate these two steps:
+```
+scripts % ./generate_corpus_of_binaries_and_native_logger.sh ../data/text ../data/corpusOfBinaries clang -O3 ../data/plainTextDiffTest.log
+```
