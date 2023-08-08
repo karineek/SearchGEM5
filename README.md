@@ -1,6 +1,23 @@
 # Gem5Testing
 Gem5 testing project.
 
+# gem5 instrumentation
+
+The requirements are:
+```
+sudo apt-get update
+sudo apt-get install build-essential git m4 scons zlib1g zlib1g-dev \
+                     libprotobuf-dev protobuf-compiler libprotoc-dev \
+                     libgoogle-perftools-dev python3-dev python3-six \
+                     python-is-python3
+```
+
+Getting gem5:
+```
+git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
+```
+
+
 # Process
 
 The process contains several steps. First, we need to extract many test cases for compilers as a single big text file. We then train an LLM to do two functionalities: (i) take a code and turn it into a template and (ii) take a template and turn it into a code (with or without a specific assignment to the template's required values).
