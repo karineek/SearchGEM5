@@ -17,6 +17,11 @@ Getting gem5:
 git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 ```
 
+Building gem5:
+```
+cd gem5-ssbse-challenge-2023
+scons -jX build/<target architecture>/gem5.opt
+```
 
 # Process
 
