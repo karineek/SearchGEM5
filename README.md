@@ -72,3 +72,13 @@ int main(int argc, char *argv[]) {
 ```
 
 This will give us two programs to start our work.
+
+## Cleaning the data 
+Once having a corpus of programs or template programs generated automatically via LLM, we clean the data.
+We remove any .c file that failed compilation of the reference platform.
+
+## Generating a corpus of binaries
+After removing all invalid programs from the input set, we use the reference machine with 
+a specific version of a compiler and a set of compilation flags to generate a corpus of binaries.
+
+We use the corpus of binaries for testing gem5.
