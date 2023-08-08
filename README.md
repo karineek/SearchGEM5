@@ -21,7 +21,7 @@ The original gem5 code is [here](https://github.com/gem5/gem5).
 Building gem5:
 ```
 cd gem5-ssbse-challenge-2023
-scons -jX build/<target architecture>/gem5.opt
+scons build/X86/gem5.opt -j 4
 ```
 
 # Process
