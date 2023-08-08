@@ -6,16 +6,17 @@ Gem5 testing project.
 The requirements are:
 ```
 sudo apt-get update
-sudo apt-get install build-essential git m4 scons zlib1g zlib1g-dev \
-                     libprotobuf-dev protobuf-compiler libprotoc-dev \
-                     libgoogle-perftools-dev python3-dev python3-six \
-                     python-is-python3
+sudo apt install build-essential git m4 scons zlib1g zlib1g-dev \
+    libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
+    python3-dev libboost-all-dev pkg-config
 ```
+These requirements can differ from one OS to another, see the full requirements [here](https://www.gem5.org/documentation/general_docs/building).
 
 Getting gem5:
 ```
 git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 ```
+The original gem5 code is [here](https://github.com/gem5/gem5).
 
 Building gem5:
 ```
