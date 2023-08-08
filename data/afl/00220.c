@@ -1,4 +1,3 @@
-
 // Modification timestamp: 2023-08-04 15:04:01
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00220.c
 

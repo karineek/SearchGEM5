@@ -1,4 +1,3 @@
-
 // Modification timestamp: 2023-08-04 14:35:59
 // Original Source: https://barnyard.syr.edu/quickies/led.c
 

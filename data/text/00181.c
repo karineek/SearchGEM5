@@ -1,4 +1,3 @@
-
 // Modification timestamp: 2023-08-04 14:35:02
 // Original Source: http://barnyard.syr.edu/quickies/hanoi.c
 

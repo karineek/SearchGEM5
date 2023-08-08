@@ -1,4 +1,3 @@
-
 // Modification timestamp: 2023-08-04 15:03:02
 // Original Source: https://sourceware.org/git/?p=gcc.git;a=blob;f=gcc/testsuite/gcc.dg/noncompile/enum-3.c
 
