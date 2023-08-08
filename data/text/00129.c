@@ -15,7 +15,7 @@ struct s {
 #define s s
 
 int main(void) {
-    undef s;
+#undef s;
     goto s;
     struct s s;
     {

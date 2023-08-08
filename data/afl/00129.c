@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     }
 
     int x = atoi(argv[1]);
-    undef s;
+#undef s;
     goto s;
     struct s s;
     {
