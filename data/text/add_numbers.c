@@ -4,12 +4,9 @@
 #include <stdio.h>
 
 int main() {    
-    int number1, number2, sum;
-    
-    printf("Enter two integers: ");
-    scanf("%d %d", &number1, &number2);
+    int number1=5, number2=10, sum;
 
-    // calculate the sum
+    // Calculate the sum
     sum = number1 + number2;      
     
     printf("%d + %d = %d", number1, number2, sum);
