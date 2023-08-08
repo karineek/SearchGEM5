@@ -4,10 +4,7 @@
 #include <stdio.h>
 
 int main() {
-    double a, b, product;
-
-    printf("Enter two numbers: ");
-    scanf("%lf %lf", &a, &b);  
+    double a=11.5, b=0.34234523, product;
 
     // Calculating product
     product = a * b;
