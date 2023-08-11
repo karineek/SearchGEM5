@@ -1,6 +1,10 @@
 # Gem5Testing
 Gem5 testing project.
 
+There are two projects:
+- Main: https://github.com/gem5/gem5
+- For the challenge: https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023
+
 # gem5 instrumentation
 
 The requirements are:
