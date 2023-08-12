@@ -49,6 +49,10 @@ If this ends properly, then we get:
  [    LINK]  -> X86/gem5.opt
 scons: done building targets.
 ```
+To test the build is working:
+```
+user@machine:~/gem5-ssbse-challenge-2023$ ./build/X86/gem5.opt --version
+```
 
 To fully instrument gem5 with AFL:
 TODO
