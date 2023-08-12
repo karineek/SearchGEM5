@@ -29,6 +29,32 @@ cd gem5-ssbse-challenge-2023
 pip install -r requirements.txt
 scons build/X86/gem5.opt -j 4
 ```
+If this ends properly, then we get:
+```
+ [     CXX] X86/mem/ruby/protocol/SequencerRequestType.cc -> .o
+ [     CXX] X86/mem/ruby/protocol/SequencerStatus.cc -> .o
+ [     CXX] X86/mem/ruby/protocol/SeriesRequestGeneratorStatus.cc -> .o
+ [     CXX] X86/mem/ruby/protocol/TesterStatus.cc -> .o
+ [     CXX] X86/mem/ruby/protocol/TransitionResult.cc -> .o
+ [     CXX] X86/mem/ruby/slicc_interface/Controller.py.cc -> .o
+ [SO Param] m5.objects.Controller, RubyController -> X86/python/_m5/param_RubyController.cc
+ [     CXX] X86/python/_m5/param_RubyController.cc -> .o
+ [     CXX] src/mem/ruby/slicc_interface/AbstractController.cc -> X86/mem/ruby/slicc_interface/AbstractController.o
+ [     CXX] src/mem/ruby/slicc_interface/AbstractCacheEntry.cc -> X86/mem/ruby/slicc_interface/AbstractCacheEntry.o
+ [     CXX] src/mem/ruby/slicc_interface/RubyRequest.cc -> X86/mem/ruby/slicc_interface/RubyRequest.o
+ [     CXX] X86/python/m5/defines.py.cc -> .o
+ [     CXX] X86/python/m5/info.py.cc -> .o
+ [     CXX] src/base/date.cc -> X86/base/date.o
+ [    LINK]  -> X86/gem5.opt
+scons: done building targets.
+```
+
+To fully instrument gem5 with AFL:
+TODO
+
+To partially instrument gem5 with AFL:
+TODO
+
 
 # Process
 
