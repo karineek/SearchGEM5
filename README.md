@@ -31,6 +31,7 @@ scons build/X86/gem5.opt -j 4
 ```
 If this ends properly, then we get:
 ```
+...
  [     CXX] X86/mem/ruby/protocol/SequencerRequestType.cc -> .o
  [     CXX] X86/mem/ruby/protocol/SequencerStatus.cc -> .o
  [     CXX] X86/mem/ruby/protocol/SeriesRequestGeneratorStatus.cc -> .o
