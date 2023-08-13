@@ -104,6 +104,33 @@ afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN
 scons: done building targets.
 ```
 
+Example of how to use it. Create main.c:
+```
+$ more main.c
+#include <stdio.h>
+int main ()
+{
+  int x = 5;int y = 5;
+  printf("In the main proc. %d,%d",x,y);
+  return x+y;
+}
+```
+Then run gem5 plain (from gem5-ssbse-challenge-2023 folder):
+```
+build/X86/gem5.opt configs/deprecated/example/se.py -c main.o
+```
+Results:
+```
+...
+**** REAL SIMULATION ****
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+In the main proc. 5,5Exiting @ tick 176345000 because exiting with last active thread context
+Simulated exit code not 0! Exit code is 10
+```
 
 To partially instrument gem5 with AFL:
 TODO
