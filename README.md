@@ -49,13 +49,41 @@ If this ends properly, then we get:
  [    LINK]  -> X86/gem5.opt
 scons: done building targets.
 ```
-To test the build is working:
+To test if the build is working:
 ```
-user@machine:~/gem5-ssbse-challenge-2023$ ./build/X86/gem5.opt --version
+user@machine:~/gem5-ssbse-challenge-2023$ ./build/X86/gem5.opt -C
 ```
 
+## AFL Instrumentation of gem5
+
 To fully instrument gem5 with AFL:
-TODO
+
+Need then to run with different CC and CCX flags:
+```
+CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
+```
+ending like this:
+```
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2714 locations (non-hardened mode, inline, ratio 100%).
+ [     CXX] X86/python/m5/info.py.cc -> .o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 4610 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+ [     CXX] src/base/date.cc -> X86/base/date.o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[!] WARNING: No instrumentation targets found.
+ [    LINK]  -> X86/gem5.opt
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+scons: done building targets.
+```
+
 
 To partially instrument gem5 with AFL:
 TODO
