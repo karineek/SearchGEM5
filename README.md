@@ -135,6 +135,13 @@ Simulated exit code not 0! Exit code is 10
 To partially instrument gem5 with AFL:
 TODO
 
+## Fuzzing with AFL
+
+You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
+```
+echo core >/proc/sys/kernel/core_pattern
+afl-fuzz -i input -o output build/X86/gem5.opt configs/deprecated/example/se.py -c
+```
 
 # Process
 
