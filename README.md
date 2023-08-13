@@ -139,8 +139,13 @@ TODO
 
 You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
+mkdir afl; cd afl
+mkdir input
+cp *.o input/
+
 echo core >/proc/sys/kernel/core_pattern
-afl-fuzz -i input -o output build/X86/gem5.opt configs/deprecated/example/se.py -c
+
+afl-fuzz -i input -o output ../build/X86/gem5.opt ../configs/deprecated/example/se.py -c
 ```
 
 # Process
