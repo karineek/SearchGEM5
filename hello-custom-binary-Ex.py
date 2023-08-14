@@ -82,7 +82,7 @@ parser.add_argument(
 parser.add_argument(
     "--options",
     type=str,
-    required=True,
+    required=False,
 )
 
 args = parser.parse_args()
@@ -133,17 +133,20 @@ board = SimpleBoard(
 # obtject as it's parameter, but other types of Resources may be created.
 # See "src/python/gem5/resources/resource.py" for more resource types that
 # may be created.
-print(args.options.split())
-board.set_se_binary_workload(BinaryResource(local_path=args.binary),arguments=args.options.split())
 
+#print(args.options.split())
+if(args.options is None):
+    board.set_se_binary_workload(BinaryResource(local_path=args.binary))
+else:
+    board.set_se_binary_workload(BinaryResource(local_path=args.binary),arguments=args.options.split())
 # Lastly we run the simulation with the "Simulator" module.
 simulator = Simulator(board=board)
-simulator.run()
+exitVal=simulator.run()
 
 # Once the simulation is complete we print the exit reason and tick count. This
 # isn't required but can be useful for debugging.
 print(
-    "Exiting @ tick {} because {}.".format(
-        simulator.get_current_tick(), simulator.get_last_exit_event_cause()
+    "Exiting @ tick {} because {} with exit code {}.".format(
+        simulator.get_current_tick(), simulator.get_last_exit_event_cause(),exitVal
     )
 )
