@@ -71,15 +71,21 @@ To fully instrument gem5 with AFL, copy first the scons scripts that allow afl c
 cp script/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
 cp script/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
 ```
-Then install AFL++ for GCC so you can use GCC-based instrumentation of AFL for gem5. Some steps to reproduce it if your system default is GCC-11:
+Then install AFL++ for GCC so you can use GCC-based instrumentation of AFL for gem5. Some steps to reproduce it if your system default is GCC-11 and llvm-13:
 ```
 sudo rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
-sudo rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++
+sudo rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++ /usr/bin/cc
 sudo ln -s /usr/bin/cpp-11 /usr/bin/cpp
 sudo ln -s /usr/bin/gcc-11 /usr/bin/gcc
+sudo ln -s /usr/bin/gcc-11 /usr/bin/cc
 sudo ln -s /usr/bin/g++-11 /usr/bin/g++
 sudo ln -s /usr/bin/g++-11 /usr/bin/c++
 sudo ln -s /usr/bin/gcov-11 /usr/bin/gcov
+
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 13
+sudo ln -s /usr/bin/llvm-config-13 /usr/bin/llvm-config
 
 git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd AFLplusplus
