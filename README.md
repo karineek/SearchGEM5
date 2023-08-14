@@ -54,9 +54,19 @@ To test if the build is working:
 user@machine:~/gem5-ssbse-challenge-2023$ ./build/X86/gem5.opt -C
 ```
 
+To run gem5 with 1 argument:
+```
+build/X86/gem5.opt configs/deprecated/example/se.py -c 00007.o -o "5"
+```
+with two arguments:
+```
+build/X86/gem5.opt configs/deprecated/example/se.py -c t.o -o "5 5"
+```
+And so on.
+
 ## AFL Instrumentation of gem5
 
-To fully instrument gem5 with AFL, copy first the scons scripts that allows afl compilation into gem5-ssbse-challenge-2023:
+To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
 ```
 cp script/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
 cp script/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
