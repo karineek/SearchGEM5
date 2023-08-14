@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 15:39:02
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/C/StructModifyTest.c
-
+// Modification timestamp: 2023-08-14 17:27:16
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/StructModifyTest.c
 typedef struct {
   int w;
   float x;
@@ -33,3 +31,4 @@ int main() {
   printS1(&E.B);
   return 0;
 }
+

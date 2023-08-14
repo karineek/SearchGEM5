@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 15:14:03
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/2006-01-23-UnionInit.c
-
+// Modification timestamp: 2023-08-14 17:18:22
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2006-01-23-UnionInit.c
 #include <stdio.h>
 
 //===- PR156 --------------------------------------------------------------===//

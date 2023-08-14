@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 15:55:21
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
+// Modification timestamp: 2023-08-14 17:32:46
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2004-03-15-IndirectGoto.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
@@ -25,3 +23,4 @@ L4:
   printf("E\n");
   return 0;
 }
+

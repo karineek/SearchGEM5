@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:38:20
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/AtomicOps.c
-
+// Modification timestamp: 2023-08-14 17:27:03
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/AtomicOps.c
 #include <stdio.h>
 
 int foo(volatile *mem, int val, int c) {

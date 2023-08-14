@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:43:55
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/TSVC/StructBitfieldInit/ms_struct-bitfield-init.c
-
+// Modification timestamp: 2023-08-14 17:28:59
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/ms_struct-bitfield-init.c
 #include <stdlib.h>
 
 #define ATTR __attribute__((__ms_struct__))
@@ -67,3 +65,4 @@ int main() {
     abort();
   return 0;
 }
+

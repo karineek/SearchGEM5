@@ -1,6 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:33:58
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/CMakeFiles/2020-01-06-coverage-005.c
+// Modification timestamp: 2023-08-14 17:25:36
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2020-01-06-coverage-005.c
 
 #include <stdint.h>
 #include <stdio.h>
@@ -42,42 +41,27 @@ i : {
 }
 
 int main(int argc, char *argv[]) {
-  int16_t val_10;
-  int16_t temp_5;
-  int64_t val_9;
-  uint64_t temp_4;
-  int64_t val_8;
-  uint64_t temp_3;
-  int16_t val_7;
-  int16_t temp_2;
-  int64_t val_6;
-  uint64_t temp_1;
-  int16_t val_5;
-  int64_t val_4;
-  uint32_t val_3;
-  uint32_t val_2;
-  uint32_t val_1;
-
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
+  if (argc != 12) {
+    printf("Usage: %s <val_1> <val_2> <val_3> <val_4> <val_5> <val_6> <val_7> <val_8> <val_9> <val_10>\n", argv[0]);
     return 1;
   }
 
-  val_1 = atoi(argv[1]);
-  val_2 = 0xFFFFFFFA;
-  val_3 = 0;
-  val_4 = 256;
-  val_5 = -7;
-  val_6 = -9223372032559808512;
-  val_7 = 0;
-  val_8 = -72318388763361280;
-  val_9 = 0;
-  val_10 = 0;
-  temp_1 = val_6;
-  temp_2 = val_7;
-  temp_3 = val_8;
-  temp_4 = val_9;
-  temp_5 = val_10;
+  int32_t val_1 = atoi(argv[1]);
+  int32_t val_2 = atoi(argv[2]);
+  int32_t val_3 = atoi(argv[3]);
+  int64_t val_4 = atoll(argv[4]);
+  int16_t val_5 = atoi(argv[5]);
+  int64_t val_6 = atoll(argv[6]);
+  int16_t val_7 = atoi(argv[7]);
+  int64_t val_8 = atoll(argv[8]);
+  int64_t val_9 = atoll(argv[9]);
+  int16_t val_10 = atoi(argv[10]);
+
+  uint64_t temp_1 = val_6;
+  int16_t temp_2 = val_7;
+  uint64_t temp_3 = val_8;
+  uint64_t temp_4 = val_9;
+  int16_t temp_5 = val_10;
 
   t = &temp_5;
   s = &temp_4;

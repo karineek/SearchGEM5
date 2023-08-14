@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:14:36
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MallocBench/divrem.c
-
+// Modification timestamp: 2023-08-14 17:18:30
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2006-02-04-DivRem.c
 #include <stdio.h>
 
 void test(unsigned X, unsigned Y) {
@@ -19,3 +17,4 @@ int main(void) {
 
   return(0);
 }
+

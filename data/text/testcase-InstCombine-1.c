@@ -1,7 +1,9 @@
-
-// Modification timestamp: 2023-08-10 15:49:51
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Bitcode/Transforms/InstCombine/testcase-InstCombine-1.c
-
+// Modification timestamp: 2023-08-14 17:30:45
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/testcase-InstCombine-1.c
+/*
+   The test targets function operator<(const PHIUsageRecord &RHS) in
+   InstCombinePHI.cpp.
+*/
 #include <stdint.h>
 #include <stdio.h>
 #pragma pack(1)

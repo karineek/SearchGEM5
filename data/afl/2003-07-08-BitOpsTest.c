@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 14:51:31
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/BitOps/2003-07-08-BitOpsTest.c
+// Modification timestamp: 2023-08-14 17:14:13
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-07-08-BitOpsTest.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 void test(int A, int B, int C, int D) {
   int bxor = A ^ B ^ C ^ D;
@@ -27,6 +25,6 @@ int main(int argc, char *argv[]) {
   int D = atoi(argv[4]);
 
   test(A, B, C, D);
-
   return 0;
 }
+

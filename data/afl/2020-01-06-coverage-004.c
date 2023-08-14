@@ -1,11 +1,10 @@
-c
-// Modification timestamp: 2023-08-10 15:32:53
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Applications/obsequi/coverage-004.c
+// Modification timestamp: 2023-08-14 17:25:17
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2020-01-06-coverage-004.c
 
-#include <stdint.h>
 #include <stdio.h>
-#include <inttypes.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 int32_t a, b;
 
@@ -22,7 +21,7 @@ int64_t h(int32_t i) {
   {
     x = i && (2036854775807 / a) && i;
     return x;
-  };
+  }
 }
 
 void j() {
@@ -33,29 +32,20 @@ void j() {
 int32_t h_call_argument_1;
 int64_t y;
 
-int main(int argc, char* argv[]) {
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
+int main(int argc, char *argv[]) {
+  if (argc != 8) {
+    printf("Usage: %s <val_1> <val_2> <val_3> <val_4> <val_5> <val_6> <val_7>\n", argv[0]);
     return 1;
   }
 
-  int64_t val_7;
-  int32_t val_6;
-  int64_t val_5;
-  int64_t val_4;
-  int64_t temp_1;
-  uint16_t val_3;
-  int32_t val_2;
-  int32_t val_1;
-
-  val_1 = 251;
-  val_2 = -2113601536;
-  val_3 = 12027;
-  val_4 = 0;
-  val_5 = 70651297207679744;
-  val_6 = atoi(argv[1]);
-  val_7 = 2089739496336261183;
-  temp_1 = val_4;
+  int64_t val_7 = atoi(argv[7]);
+  int32_t val_6 = atoi(argv[6]);
+  int64_t val_5 = atoi(argv[5]);
+  int64_t val_4 = atoi(argv[4]);
+  int64_t temp_1 = val_4;
+  uint16_t val_3 = atoi(argv[3]);
+  int32_t val_2 = atoi(argv[2]);
+  int32_t val_1 = atoi(argv[1]);
 
   y = val_7;
   h_call_argument_1 = val_6;

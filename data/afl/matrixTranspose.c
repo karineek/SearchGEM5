@@ -1,11 +1,7 @@
-
-// Modification timestamp: 2023-08-02 15:30:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/llubenchmark/fftw-3.3.4/matrixTranspose.c
+// Modification timestamp: 2023-08-14 17:36:02
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//matrixTranspose.c
 
 #include <stdio.h>
-#include <stdlib.h>
-
-typedef float fftw_real;
 
 void complex_transpose(fftw_real *rA, fftw_real *iA, int n, int is, int js)
 {
@@ -31,25 +27,31 @@ void complex_transpose(fftw_real *rA, fftw_real *iA, int n, int is, int js)
 extern int printf(const char *str, ...);
 
 fftw_real A[2048];
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-     int i;
+    if (argc != 1) {
+        printf("Usage: %s\n", argv[0]);
+        return 1;
+    }
 
-     fftw_real sum = 0.0;
-     for (i = 0; i < 2048; ++i) {
-       A[i] = atoi(argv[1]);
-       sum = sum + A[i];
-     }
-     printf("Checksum before = %lf\n", sum);
+    int i;
 
-     for (i = 0; i < 10; ++i) {
-       complex_transpose(A, A+1, atoi(argv[2]), atoi(argv[3]), atoi(argv[4]));
-     }
+    fftw_real sum = 0.0;
+    for (i = 0; i < 2048; ++i) {
+        A[i] = i;
+        sum = sum + A[i];
+    }
+    printf("Checksum before = %lf\n", sum);
 
-     sum = 0.0;
-     for (i = 0; i < 2048; ++i)
-       sum = sum + A[i];
-     printf("Checksum  after = %lf\n", sum);
+    for (i = 0; i < 10; ++i) {
+        complex_transpose(A, A+1, 32, 2, 64);
+    }
 
-     return 0;
+    sum = 0.0;
+    for (i = 0; i < 2048; ++i)
+        sum = sum + A[i];
+    printf("Checksum  after = %lf\n", sum);
+
+    return 0;
 }
+

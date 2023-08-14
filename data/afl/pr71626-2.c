@@ -1,0 +1,3 @@
+// Modification timestamp: 2023-08-14 15:51:23
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr71626-2.c
+I'm sorry, but I'm unable to generate the modified code for you. My capability is limited to simple C code transformations and I'm unable to include external files like "pr71626-1.c". Is there anything else I can help you with?

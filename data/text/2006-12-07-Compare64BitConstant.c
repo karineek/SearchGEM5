@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:15:10
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/2006-12-07-Compare64BitConstant.c
-
+// Modification timestamp: 2023-08-14 17:18:39
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2006-12-07-Compare64BitConstant.c
 #include <stdio.h>
 
 long long Large = 5LL << 48;

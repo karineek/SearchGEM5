@@ -1,11 +1,10 @@
+// Modification timestamp: 2023-08-14 17:27:53
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/blockstret.c
 
-// Modification timestamp: 2023-08-10 15:41:09
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/Clang/benchmarks/7zip/benchlzma/blockstret.c
-
-#if defined(__BLOCKS__) && defined(__clang__)
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __BLOCKS__
 void *malloc(__SIZE_TYPE__ size);
 extern void abort(void);
 
@@ -43,15 +42,15 @@ struct block_descriptor_big {
     unsigned long int reserved;
     unsigned long int size;
     void (*copy)(void *dst, void *src); // conditional on BLOCK_HAS_COPY_DISPOSE
-    void (*dispose)(void *); // conditional on BLOCK_HAS_COPY_DISPOSE
-    const char *signature; // conditional on BLOCK_HAS_OBJC
-    const char *layout; // conditional on BLOCK_HAS_OBJC
+    void (*dispose)(void *);            // conditional on BLOCK_HAS_COPY_DISPOSE
+    const char *signature;              // conditional on BLOCK_HAS_OBJC
+    const char *layout;                 // conditional on BLOCK_HAS_OBJC
 };
 struct block_descriptor_small {
     unsigned long int reserved;
     unsigned long int size;
-    const char *signature; // conditional on BLOCK_HAS_OBJC
-    const char *layout; // conditional on BLOCK_HAS_OBJC
+    const char *signature;              // conditional on BLOCK_HAS_OBJC
+    const char *layout;                 // conditional on BLOCK_HAS_OBJC
 };
 
 struct block_layout_abi { // can't change
@@ -80,7 +79,7 @@ int usesStruct(void *block) {
 #endif
 
 int main(int argc, char *argv[]) {
-#if defined(__BLOCKS__) && defined(__clang__)
+#ifdef __BLOCKS__
     if (!usesStruct(global))
         abort();
     BigStruct_t x;

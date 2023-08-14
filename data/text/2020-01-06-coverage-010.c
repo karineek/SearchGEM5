@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:37:20
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Benchmarks/Prolangs-C/coverage-010.c
-
+// Modification timestamp: 2023-08-14 17:26:52
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2020-01-06-coverage-010.c
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>

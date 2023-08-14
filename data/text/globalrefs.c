@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 16:08:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/globalrefs.c
-
+// Modification timestamp: 2023-08-14 17:35:48
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//globalrefs.c
 /* globalrefs.c - Test symbolic constant expressions constructed from
  * global addresses and index expressions into global addresses.
  * Do this both with global constants and with inline constant.

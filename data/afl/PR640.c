@@ -1,10 +1,8 @@
-
-// Modification timestamp: 2023-08-10 15:59:19
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/UnitTests/PR640.c
+// Modification timestamp: 2023-08-14 17:33:52
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//PR640.c
 
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 static int test_stdarg_va(void* p1, ...)
 {
@@ -41,10 +39,12 @@ static int test_stdarg_builtin_va(void* p1, ...)
 
 #endif
 
-static int test_stdarg(int r)
+static int test_stdarg(int r, char c1, char c2)
 {
-    char c1 = 1, c2 = 2;
-    if (test_stdarg_va(&r, c1, 0x76214365ul, c2, &r) != 1)
+    unsigned long l = 0x76214365ul; // Replace constant with argument assignment
+    void* p = &r; // Replace constant with argument assignment
+
+    if (test_stdarg_va(&r, c1, l, c2, p) != 1)
         return 0;
 #if defined(__GNUC__) && \
     ((__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 4))
@@ -57,13 +57,14 @@ static int test_stdarg(int r)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2) {
-        printf("Usage: %s <value>\n", argv[0]);
+    if (argc != 3) {
+        printf("Usage: %s <char1> <char2>\n", argv[0]);
         return 1;
     }
+    char c1 = argv[1][0]; // Convert first argument to char
+    char c2 = argv[2][0]; // Convert second argument to char
 
-    int r = atoi(argv[1]);
-    if (test_stdarg(r) != 1) {
+    if (test_stdarg(1, c1, c2) != 1) {
         printf("ERROR\n");
         return 1;
     }

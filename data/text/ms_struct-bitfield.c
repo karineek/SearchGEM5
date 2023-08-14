@@ -1,8 +1,6 @@
-
-// Modification timestamp: 2023-08-10 15:45:40
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/ms_struct-bitfield.c
-
-extern void abort();
+// Modification timestamp: 2023-08-14 17:29:26
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/ms_struct-bitfield.c
+extern void abort ();
 
 #define ATTR __attribute__((__ms_struct__))
 
@@ -126,7 +124,8 @@ struct_8 test_struct_8 = { 126, 1821, 22, 125, 6, 0, 2432638 };
 struct_9 test_struct_9 = { 20.0, 3, 23957, 20.0, 1001631 };
 
 
-int main (void)
+int
+main (void)
 {
 
   if (size_struct_0 != sizeof (struct_0))

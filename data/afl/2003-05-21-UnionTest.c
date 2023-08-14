@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 15:53:16
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Benchmarks/Misc/2003-05-21-UnionTest.c
+// Modification timestamp: 2023-08-14 17:32:16
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-21-UnionTest.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int __signbit (double __x) {
   union { double __d; int __i[3]; } __u = { __d: __x };
@@ -11,12 +9,14 @@ int __signbit (double __x) {
 }
 
 int main(int argc, char *argv[]) {
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
+  if (argc != 3) {
+    printf("Usage: %s <value1> <value2>\n", argv[0]);
     return 1;
   }
 
-  double x = atof(argv[1]);
-  printf("%d %d\n", __signbit(-1), __signbit(x));
+  double val1 = atof(argv[1]);
+  double val2 = atof(argv[2]);
+
+  printf("%d %d\n", __signbit(val1), __signbit(val2));
   return 0;
 }

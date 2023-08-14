@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:30:16
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:24:25
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2010-05-24-BitfieldTest.c
 /* From Radar 7980096.  Test case by Shantonu Sen! */
 #include <assert.h>
 

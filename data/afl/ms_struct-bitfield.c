@@ -1,6 +1,8 @@
+// Modification timestamp: 2023-08-14 17:29:26
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/ms_struct-bitfield.c
 
-// Modification timestamp: 2023-08-10 15:45:40
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/ms_struct-bitfield.c
+#include <stdio.h>
+#include <stdlib.h>
 
 extern void abort();
 
@@ -19,97 +21,97 @@ extern void abort();
 
 struct _struct_0
 {
-  char member_0;
+    char member_0;
 } ATTR;
 typedef struct _struct_0 struct_0;
 
 struct _struct_1
 {
-  char member_0;
-  short member_1:13;
+    char member_0;
+    short member_1:13;
 } ATTR;
 typedef struct _struct_1 struct_1;
 
 struct _struct_2
 {
-  double member_0;
-  unsigned char member_1:8;
-  int member_2:32;
-  unsigned char member_3:5;
-  short member_4:14;
-  short member_5:13;
-  unsigned char:0;
+    double member_0;
+    unsigned char member_1:8;
+    int member_2:32;
+    unsigned char member_3:5;
+    short member_4:14;
+    short member_5:13;
+    unsigned char:0;
 } ATTR;
 typedef struct _struct_2 struct_2;
 
 struct _struct_3
 {
-  unsigned int member_0:26;
-  unsigned char member_1:2;
+    unsigned int member_0:26;
+    unsigned char member_1:2;
 
 } ATTR;
 typedef struct _struct_3 struct_3;
 
 struct _struct_4
 {
-  unsigned char member_0:7;
-  double member_1;
-  double member_2;
-  short member_3:5;
-  char member_4:2;
+    unsigned char member_0:7;
+    double member_1;
+    double member_2;
+    short member_3:5;
+    char member_4:2;
 
 } ATTR;
 typedef struct _struct_4 struct_4;
 
 struct _struct_5
 {
-  unsigned short member_0:12;
-  int member_1:1;
-  unsigned short member_2:6;
+    unsigned short member_0:12;
+    int member_1:1;
+    unsigned short member_2:6;
 
 } ATTR;
 typedef struct _struct_5 struct_5;
 
 struct _struct_6
 {
-  unsigned char member_0:7;
-  unsigned int member_1:25;
-  char member_2:1;
-  double member_3;
-  short member_4:9;
-  double member_5;
+    unsigned char member_0:7;
+    unsigned int member_1:25;
+    char member_2:1;
+    double member_3;
+    short member_4:9;
+    double member_5;
 
 } ATTR;
 typedef struct _struct_6 struct_6;
 
 struct _struct_7
 {
-  double member_0;
+    double member_0;
 
 } ATTR;
 typedef struct _struct_7 struct_7;
 
 struct _struct_8
 {
-  unsigned char member_0:7;
-  int member_1:11;
-  int member_2:5;
-  int:0;
-  char member_4:8;
-  unsigned short member_5:4;
-  unsigned char member_6:3;
-  int member_7:23;
+    unsigned char member_0:7;
+    int member_1:11;
+    int member_2:5;
+    int:0;
+    char member_4:8;
+    unsigned short member_5:4;
+    unsigned char member_6:3;
+    int member_7:23;
 
 } ATTR;
 typedef struct _struct_8 struct_8;
 
 struct _struct_9
 {
-  double member_0;
-  unsigned int member_1:6;
-  int member_2:17;
-  double member_3;
-  unsigned int member_4:22;
+    double member_0;
+    unsigned int member_1:6;
+    int member_2:17;
+    double member_3;
+    unsigned int member_4:22;
 
 } ATTR;
 typedef struct _struct_9 struct_9;
@@ -125,39 +127,37 @@ struct_7 test_struct_7 = { 20.0 };
 struct_8 test_struct_8 = { 126, 1821, 22, 125, 6, 0, 2432638 };
 struct_9 test_struct_9 = { 20.0, 3, 23957, 20.0, 1001631 };
 
-
 int main(void)
 {
+    if (size_struct_0 != sizeof(struct_0))
+        abort();
 
-  if (size_struct_0 != sizeof(struct_0))
-    abort();
+    if (size_struct_1 != sizeof(struct_1))
+        abort();
 
-  if (size_struct_1 != sizeof(struct_1))
-    abort();
+    if (size_struct_2 != sizeof(struct_2))
+        abort();
 
-  if (size_struct_2 != sizeof(struct_2))
-    abort();
+    if (size_struct_3 != sizeof(struct_3))
+        abort();
 
-  if (size_struct_3 != sizeof(struct_3))
-    abort();
+    if (size_struct_4 != sizeof(struct_4))
+        abort();
 
-  if (size_struct_4 != sizeof(struct_4))
-    abort();
+    if (size_struct_5 != sizeof(struct_5))
+        abort();
 
-  if (size_struct_5 != sizeof(struct_5))
-    abort();
+    if (size_struct_6 != sizeof(struct_6))
+        abort();
 
-  if (size_struct_6 != sizeof(struct_6))
-    abort();
+    if (size_struct_7 != sizeof(struct_7))
+        abort();
 
-  if (size_struct_7 != sizeof(struct_7))
-    abort();
+    if (size_struct_8 != sizeof(struct_8))
+        abort();
 
-  if (size_struct_8 != sizeof(struct_8))
-    abort();
+    if (size_struct_9 != sizeof(struct_9))
+        abort();
 
-  if (size_struct_9 != sizeof(struct_9))
-    abort();
-
-  return 0;
+    return 0;
 }

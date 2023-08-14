@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 14:51:11
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Programs/SingleSource/UnitTests/2003-07-06-IntOverflow.c
-
+// Modification timestamp: 2023-08-14 17:14:06
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-07-06-IntOverflow.c
 /*
  * This test stresses masking and sign-extension after int operations
  * that cause overflow, producing bogus high-order bits.

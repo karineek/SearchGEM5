@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:53:16
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Benchmarks/Misc/2003-05-21-UnionTest.c
-
+// Modification timestamp: 2023-08-14 17:32:16
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-21-UnionTest.c
 #include <stdio.h>
 
 int __signbit (double __x) {

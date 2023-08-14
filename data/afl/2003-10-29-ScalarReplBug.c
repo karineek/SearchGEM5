@@ -1,12 +1,10 @@
-
-// Modification timestamp: 2023-08-10 15:09:04
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/llc/2003-10-29-ScalarReplBug.c
+// Modification timestamp: 2023-08-14 17:16:15
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-10-29-ScalarReplBug.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 typedef struct {
-  char name [80];
+  char name[80];
   int val;
   unsigned uval;
 } data;
@@ -33,12 +31,10 @@ int main(int argc, char *argv[])
     printf("Usage: %s <value>\n", argv[0]);
     return 1;
   }
-
-  int x = atoi(argv[1]);
   
   data d;
 
-  d.uval = x;
+  d.uval = atoi(argv[1]);
   iter(callback, &d);
   return 0;
 }

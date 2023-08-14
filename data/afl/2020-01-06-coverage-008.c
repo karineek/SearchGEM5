@@ -1,11 +1,9 @@
-
-// Modification timestamp: 2023-08-10 15:35:29
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
+// Modification timestamp: 2023-08-14 17:26:08
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2020-01-06-coverage-008.c
 
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>
-#include <stdlib.h>
 
 struct a {
   int64_t b;

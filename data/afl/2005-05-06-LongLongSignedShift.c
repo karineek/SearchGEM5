@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 15:55:55
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/llvm-test/2005-05-06-LongLongSignedShift.c
+// Modification timestamp: 2023-08-14 17:32:55
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2005-05-06-LongLongSignedShift.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
@@ -11,9 +9,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  int x = atoi(argv[1]);
-  int result = (x-100) >> 38;
-  printf("%d\n", result);
+  printf("%lld\n", (atoi(argv[1])-100LL) >> 38);
 
   return 0;
 }

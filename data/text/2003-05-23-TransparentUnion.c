@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:54:05
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/TransparentUnion.c
-
+// Modification timestamp: 2023-08-14 17:32:28
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-23-TransparentUnion.c
 #include <stdio.h>
 
 typedef union {
@@ -12,7 +10,6 @@ typedef union {
 int try(UNION U) {
   return 1;
 }
-
 int test() {
   int I;
   float F;

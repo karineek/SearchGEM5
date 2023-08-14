@@ -1,22 +1,22 @@
+// Modification timestamp: 2023-08-14 17:32:24
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-22-VarSizeArray.c
 
-// Modification timestamp: 2023-08-10 15:53:50
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Applications/obsequi/2003-05-22-VarSizeArray.c
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int test(int Num) {
   int Arr[Num];
-  Arr[2] = 0;
-  return Arr[2];
+  Arr[atoi(argv[2])] = atoi(argv[3]);
+  return Arr[atoi(argv[2])];
 }
 
 int main(int argc, char *argv[]) {
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
+  if (argc != 4) {
+    printf("Usage: %s <Num> <index> <value>\n", argv[0]);
     return 1;
   }
 
-  int Num = atoi(argv[1]);
-  printf("%d\n", test(Num));
+  printf("%d\n", test(atoi(argv[1])));
   return 0;
 }

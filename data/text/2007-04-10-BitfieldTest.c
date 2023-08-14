@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:27:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Bitfield/2007-04-10-BitfieldTest.c
-
+// Modification timestamp: 2023-08-14 17:23:10
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2007-04-10-BitfieldTest.c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -32,3 +30,4 @@ int main(int argc, char *argv[])
         printf("p = 0x%02X\n", uu.s.p);
         return 0;
 }
+

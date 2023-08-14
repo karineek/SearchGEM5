@@ -1,9 +1,6 @@
-
-// Modification timestamp: 2023-08-10 15:55:21
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
-
+// Modification timestamp: 2023-08-14 17:32:46
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2004-03-15-IndirectGoto.c
 #include <stdio.h>
-
 int main() {
   static const void *L[] = {&&L1, &&L2, &&L3, &&L4, 0 };
   unsigned i = 0;

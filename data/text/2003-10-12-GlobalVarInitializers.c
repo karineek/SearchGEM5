@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 15:54:47
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/2003-10-12-GlobalVarInitializers.c
-
+// Modification timestamp: 2023-08-14 17:32:37
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-10-12-GlobalVarInitializers.c
 #include <stdio.h>
 
 union { unsigned __l; float __d; } GlobalUnion = { 0x70c00000U };
@@ -13,3 +11,6 @@ int main() {
 
   return 0;
 }
+
+
+

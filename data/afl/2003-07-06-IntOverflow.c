@@ -1,20 +1,8 @@
-c
-// Modification timestamp: 2023-08-10 14:51:11
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Programs/SingleSource/UnitTests/2003-07-06-IntOverflow.c
+// Modification timestamp: 2023-08-14 17:14:06
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-07-06-IntOverflow.c
 
-/*
- * This test stresses masking and sign-extension after int operations
- * that cause overflow, producing bogus high-order bits.
- * The basic overflow situation (x * x + y * y, for x = y = 1 << 21)
- * actually happens in Olden-perimeter, in the function CheckOutside.
- *
- * Several things have to happen correctly:
- * -- correct constant folding if it is done at compile-time
- * -- correct sign-extensions during native code generation for -, * and /.
- * -- correct handling of high bits during native code generation for
- *    a sequence of operations involving -, * and /.
- */
 #include <stdio.h>
+#include <stdlib.h>
 
 void compareOvf(int x, int y)
 {
@@ -46,14 +34,8 @@ void subtractOvf(int x, int y)
   printf("subtract after overflow = %d (0x%x)\n", rem, rem);
 }
 
-int main(int argc, char *argv[])
-{
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
-    return 1;
-  }
-
-  int b21 = atoi(argv[1]);
+int main(int argc, char *argv[]) {
+  int b21 = atoi(argv[1]) << 21;
   compareOvf(b21,       b21);
   divideOvf(b21 + 1,    b21 + 2);
   divideNeg(b21 + 1,    b21 + 2);       /* arg1 must be < arg2 */
