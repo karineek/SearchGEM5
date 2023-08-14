@@ -1,9 +1,7 @@
-c
-// Modification timestamp: 2023-08-10 14:44:34
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/StructArgs.c
+// Modification timestamp: 2023-08-14 17:11:50
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2002-10-12-StructureArgs.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 struct vec2 { double X, Y; };
 
@@ -13,7 +11,7 @@ void print(struct vec2 S, struct vec2 T) {
 
 int main(int argc, char *argv[]) {
     if (argc != 5) {
-        printf("Usage: %s <U.X> <U.Y> <V.X> <V.Y>\n", argv[0]);
+        printf("Usage: %s <value1> <value2> <value3> <value4>\n", argv[0]);
         return 1;
     }
 
@@ -25,3 +23,4 @@ int main(int argc, char *argv[]) {
     print(U, V);
     return 0;
 }
+

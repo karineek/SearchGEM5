@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 16:09:16
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MallocBench/sumarray.c
-
+// Modification timestamp: 2023-08-14 17:36:13
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//sumarray.c
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -20,9 +18,9 @@ int main() {
   int i;
 
   for (i = 0; i < 100; i += 2)
-    Array[i] = i*4;
+  	Array[i] = i*4;
   for (i = 1; i < 100; i += 2)
-    Array[i] = i*2;
+  	Array[i] = i*2;
 
   printf("Produced: %d\n", SumArray(Array, 100));
   return 0;

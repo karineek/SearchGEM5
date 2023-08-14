@@ -1,6 +1,7 @@
-
-// Modification timestamp: 2023-08-10 15:55:44
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Applications/ALAC/2004-08-12-InlinerAndAllocas.c
+// Modification timestamp: 2023-08-14 17:32:53
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2004-08-12-InlinerAndAllocas.c
+// A compiler cannot inline Callee into main unless it is prepared to reclaim
+// the stack memory allocated in it.
 
 #if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 #include <stdlib.h>

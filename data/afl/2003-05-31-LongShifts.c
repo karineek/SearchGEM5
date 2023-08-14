@@ -1,9 +1,10 @@
+// Modification timestamp: 2023-08-14 17:13:55
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-05-31-LongShifts.c
 
-// Modification timestamp: 2023-08-10 14:50:30
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/2003-05-31-LongShifts.c
 
 #include <stdio.h>
-#include <stdlib.h>
+
+extern int printf(const char *str, ...);
 
 void Test(long long Val, int Amt) {
   printf("0x%llx op %d:\n", Val, Amt);
@@ -24,16 +25,18 @@ volatile struct {
   {  6000000000LL, 34}
 };
 
-int main(int argc, char**argv) {
-  if (argc != 3) {
-    printf("Usage: %s <value1> <value2>\n", argv[0]);
+int main(int argc, char** argv) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
     return 1;
   }
-
-  long long Val = atoll(argv[1]);
-  int Amt = atoi(argv[2]);
-
-  Test(Val, Amt);
+  int index = atoi(argv[1]);
+  if (index < 0 || index >= sizeof(Vals)/sizeof(Vals[0])) {
+    printf("Index out of range.\n");
+    return 1;
+  }
   
+  Test(Vals[index].A, Vals[index].V);
+
   return 0;
 }

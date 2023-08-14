@@ -1,5 +1,3 @@
-## Training LLM to turn a concrete test case into an AFL-interface template
-
 The idea is to take a program:
 ```
 int
@@ -11,32 +9,12 @@ main()
 	return x - 4;
 }
 ```
-from a known source, say: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
-and ask the LLM model to do the following. Please create two C files from the file above. The first file, should contain no additional includes, but be documented with two additional comments: time and date, and the source of this file. The second file is similar to the first file but with the following twist. It replaces all constants in the function main, with args assignments and of course, adds any includes needed, and the comments before with date and time and the source of the original file.
+from a known source and create one C file from the file above. The file is similar to the above file but with the following twist.
+It replaces all constants in the function main, with args assignments and of course, adds any includes needed.
+Any constants in the main function are replaced with args assignments. this includes string literals, numbers, etc.
 
-ChatGPT gave us for the example above, the following two files:
-
-Program 1 (00003.c):
+So the above file becomes:
 ```
-// Modification timestamp: 2023-08-02 17:40:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
-
-#include <stdio.h>
-
-int main() {
-    int x;
-
-    x = 4;
-    return x - 4;
-}
-
-```
-
-and Program 2 (00003.c):
-```
-// Modification timestamp: 2023-08-02 15:30:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -51,36 +29,29 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-This will give us two programs to start our work.
+or
 
-Let's try again.
-
-I give you this:
-int
-main()
-{
-	int x;
-
-	x = 4;
-	return x - 4;
-}
-
-and you return two programs. The first program is:
-// Modification timestamp: 2023-08-02 17:40:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
-
-int main() {
-  int x;
-
-  x = 4;
-  return x - 4;
-}
-and the second program is this:
-// Modification timestamp: 2023-08-02 15:30:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00003.c
-
+```
 #include <stdio.h>
-#include <stdlib.h>
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", a3, *a5);
+}
+
+int main(int argc, char *argv[]) {
+  printArgsNoRet('c', "e");
+  return 0;
+}
+```
+
+becomes:
+
+```
+#include <stdio.h>
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", a3, *a5);
+}
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
@@ -88,19 +59,18 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  int x = atoi(argv[1]);
-  return x - 4;
+  printArgsNoRet(argv[1][0], argv[2]);
+  return 0;
 }
+```
 
-But please make sure the comments are inside the program as its first line.
-Also, don't forget to do the args for program 2.
-Also, don't add any additional includes to program 1.
+Don't forget to add the args to the main function if they are not there. In the case they are there, just extend
+their usage for additional assignments. i.e. if the main uses args up to x, assign constants from x+1 and on as needed.
 
-I have another thing to ask, a corner case.
+Make sure ALL constants are replaced with args assignments.
 
-For this example:
-// Modification timestamp: 2023-08-02 17:40:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00008.c
+Also in cases like this:
+```
 #include <stdio.h>
 
 int main() {
@@ -112,10 +82,9 @@ int main() {
     } while (x);
     return x;
 }
-
-giving as an answer the second program:
-// Modification timestamp: 2023-08-03 10:15:00
-// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00008.c
+```
+giving this as an answer:
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -135,24 +104,5 @@ int main(int argc, char *argv[]) {
     x = atoi(argv[1]);
     return x;
 }
-
-is very very bad. Please do not do it.
-
-I can explain you why.
-
-This is because:
- x = atoi(argv[1]);
-    return x;
-}
-
-this does not make much sense, it should be much earlier in the code of main function.
-
-Can you please do it from now on?
-
-But don't forget the idea, you add comments with date and time and source to both programs.
-But you only add args to the second program. But don't forget the args for the second program, you need to replace all
-constants in the main function with args assignments.
-
-One more thing, the timestamps are wrong, could you instead replace them with the string:
-TIMESTAMP_REPLACEMENT_STRING_GPT_GENERATED
-And always ensure you include the entire prefix of the original source file, and not just the file name!
+```
+is very very bad. Please do not do it as the conversion should occur as early as possible in the program.

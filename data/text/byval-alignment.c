@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:41:28
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:28:01
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/byval-alignment.c
 #include <stdio.h>
 
 struct s0 {
@@ -23,4 +21,3 @@ int main() {
   printf("g0.x: %.4f, g0.y: %.4f\n", (double) g0.x, (double) g0.y);
   return 0;
 }
-

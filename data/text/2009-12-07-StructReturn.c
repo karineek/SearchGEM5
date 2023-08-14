@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:29:59
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Benchmarks/Misc/2009-12-07-StructReturn.c
-
+// Modification timestamp: 2023-08-14 17:24:18
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2009-12-07-StructReturn.c
 /* <rdar://problem/7437022> */
 /* Just enough complexity to frighten the optimizer and expose a bug
    in an ugly one-file testcase. */

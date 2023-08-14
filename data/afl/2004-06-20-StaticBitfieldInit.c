@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 15:09:38
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/test/CodeGen/2004-06-20-StaticBitfieldInit.c
+// Modification timestamp: 2023-08-14 17:16:24
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2004-06-20-StaticBitfieldInit.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 struct T {
   unsigned X : 5;
@@ -11,17 +9,23 @@ struct T {
   unsigned Z : 5;
 };
 
-struct T GV;
+struct T GV = {
+  atoi(argv[1]),
+  atoi(argv[2]),
+  atoi(argv[3])
+};
 
 int main(int argc, char *argv[]) {
   if (argc != 4) {
-    printf("Usage: %s <X> <Y> <Z>\n", argv[0]);
+    printf("Usage: %s <value1> <value2> <value3>\n", argv[0]);
     return 1;
   }
 
-  GV.X = atoi(argv[1]);
-  GV.Y = atoi(argv[2]);
-  GV.Z = atoi(argv[3]);
+  struct T GV = {
+    atoi(argv[1]),
+    atoi(argv[2]),
+    atoi(argv[3])
+  };
 
   printf("%d %d %d\n", GV.X, GV.Y, GV.Z);
   return 0;

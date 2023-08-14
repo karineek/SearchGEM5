@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:08:30
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/McCat/08-main/cvt2a/2003-09-18-BitFieldTest.c
-
+// Modification timestamp: 2023-08-14 17:16:07
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-09-18-BitFieldTest.c
 #include <stdio.h>
 
 struct rtx_def {
@@ -20,3 +18,5 @@ int main() {
   printf("%d %d\n", D.jump, D.call);
   return 0;
 }
+
+

@@ -1,6 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:27:14
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/test/Programs/single-source/2007-04-25-weak.c
+// Modification timestamp: 2023-08-14 17:23:15
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2007-04-25-weak.c
 
 #if !defined(__linux__) && !defined(__FreeBSD__) && !defined(__NetBSD__) && !defined(__OpenBSD__)
 extern int test_weak () __attribute__ ((weak_import));

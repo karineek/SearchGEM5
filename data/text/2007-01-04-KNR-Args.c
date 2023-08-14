@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:26:17
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/2007-01-04-KNR-Args.c
-
+// Modification timestamp: 2023-08-14 17:22:57
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2007-01-04-KNR-Args.c
 #include <stdio.h>
 
 p1 (c, f1, s, d1, i, f2, l, d2)
@@ -20,3 +18,4 @@ int main(int argc, const char *argv[]) {
   p2 ('a', 4.0, 1, 5.0, 2, 4.0, 3, 5.0);
   return 0;
 }
+

@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:34:51
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MiBench/telecomm-crc32/telecomm-crc32.c
-
+// Modification timestamp: 2023-08-14 17:25:55
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2020-01-06-coverage-007.c
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>

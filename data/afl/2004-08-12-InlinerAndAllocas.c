@@ -1,17 +1,11 @@
+// Modification timestamp: 2023-08-14 17:32:53
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2004-08-12-InlinerAndAllocas.c
 
-// Modification timestamp: 2023-08-10 15:55:44
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Applications/ALAC/2004-08-12-InlinerAndAllocas.c
-
-#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
-#include <stdlib.h>
-#else
-#include <alloca.h>
-#endif
 #include <stdio.h>
+#include <stdlib.h>
 
-static int Callee(int i) {
+static int Callee(int i, char *X) {
   if (i != 0) {
-    char *X = alloca(1000);
     sprintf(X, "%d\n", i);
     return X[0];
   }
@@ -25,8 +19,10 @@ int main(int argc, char *argv[]) {
   }
 
   int i, j = 0;
-  for (i = 0; i < 10000; ++i)
-    j += Callee(i);
+  char *X = (char *)malloc(1000 * sizeof(char));
+  for (i = 0; i < atoi(argv[1]); ++i)
+    j += Callee(i, X);
   printf("%d\n", j);
+  free(X);
   return 0;
 }

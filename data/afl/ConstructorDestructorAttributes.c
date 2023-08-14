@@ -1,13 +1,11 @@
-
-// Modification timestamp: 2023-08-10 15:56:24
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/ConstructorDestructorAttributes.c
+// Modification timestamp: 2023-08-14 17:33:02
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//ConstructorDestructorAttributes.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
-void ctor() __attribute__((constructor));
+void ctor(int argc, char *argv[]) __attribute__((constructor));
 
-void ctor() {
+void ctor(int argc, char *argv[]) {
    printf("Create!\n");
 }
 void dtor() __attribute__((destructor));
@@ -16,11 +14,4 @@ void dtor() {
    printf("Create!\n");
 }
 
-int main(int argc, char *argv[]) {
-  if (argc != 2) {
-    printf("Usage: %s <value>\n", argv[0]);
-    return 1;
-  }
-
-  return 0;
-}
+int main(int argc, char *argv[]) { return 0; }

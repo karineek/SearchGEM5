@@ -1,10 +1,8 @@
-
-// Modification timestamp: 2023-08-10 15:52:59
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/Generic/2003-05-21-UnionBitfields.c
+// Modification timestamp: 2023-08-14 17:32:11
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-21-UnionBitfields.c
 
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 
 int target_isinf(double x) {
   union {
@@ -28,6 +26,7 @@ int main(int argc, char *argv[]) {
   }
 
   double x = atof(argv[1]);
-  printf("%d %d\n", target_isinf(1234.42), target_isinf(x));
+  printf("%d\n", target_isinf(x));
   return 0;
 }
+

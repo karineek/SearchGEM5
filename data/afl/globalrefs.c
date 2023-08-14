@@ -1,13 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 16:08:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/globalrefs.c
-
-/* globalrefs.c - Test symbolic constant expressions constructed from
- * global addresses and index expressions into global addresses.
- * Do this both with global constants and with inline constant.
- * Instead of printing absolute addresses, print out the differences in
- * memory addresses to get output that matches that of the native compiler.
- */
+// Modification timestamp: 2023-08-14 17:35:48
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//globalrefs.c
 
 #include <stdio.h>
 
@@ -31,15 +23,16 @@ long*        Aptr         = &Test1.A;
 unsigned*    Yptr         = &Test1.S.Y;
 struct test** NextPtr     = &Test1.next;
 
-void
-printdiff(void* p1, void* p2)
-{
+void printdiff(void* p1, void* p2) {
   printf(" %d", (int)((unsigned long) p1 - (unsigned long) p2));
 }
 
-int
-main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
+  if (argc != 1) {
+    printf("Usage: %s\n", argv[0]);
+    return 1;
+  }
+
   unsigned long diff1, diff2, diff3, diff4;
 
   printdiff(&Test1.S.Y, &Test1.A);

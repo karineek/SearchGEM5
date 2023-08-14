@@ -1,0 +1,56 @@
+// Modification timestamp: 2023-08-14 15:40:36
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr63641.c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+__attribute__ ((noinline, noclone)) int
+foo(unsigned char b, char* tab1)
+{
+  if (0x0 <= b && b <= 0x8)
+    goto lab;
+  if (b == 0x0b)
+    goto lab;
+  if (0x0e <= b && b <= 0x1a)
+    goto lab;
+  if (0x1c <= b && b <= 0x1f)
+    goto lab;
+  return 0;
+lab:
+  return 1;
+}
+
+__attribute__ ((noinline, noclone)) int
+bar(unsigned char b, char* tab2)
+{
+  if (0x0 <= b && b <= 0x8)
+    goto lab;
+  if (b == 0x0b)
+    goto lab;
+  if (0x0e <= b && b <= 0x1a)
+    goto lab;
+  if (0x3c <= b && b <= 0x3f)
+    goto lab;
+  return 0;
+lab:
+  return 1;
+}
+
+int main(int argc, char *argv[]) {
+  char tab1[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 };
+  char tab2[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 };
+
+  int i;
+  asm volatile ("" : : : "memory");
+  for (i = 0; i < 256; i++)
+    if (foo(i, tab1) != (i < 32 ? tab1[i] : 0))
+      __builtin_abort ();
+  for (i = 0; i < 256; i++)
+    if (bar(i, tab2) != (i < 64 ? tab2[i] : 0))
+      __builtin_abort ();
+  return 0;
+}

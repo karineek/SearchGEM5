@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 16:08:53
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/pointer_arithmetic.c
-
+// Modification timestamp: 2023-08-14 17:36:06
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//pointer_arithmetic.c
 typedef struct {
   int w;
 //  float x;

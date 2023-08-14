@@ -1,6 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 15:14:03
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/2006-01-23-UnionInit.c
+// Modification timestamp: 2023-08-14 17:18:22
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2006-01-23-UnionInit.c
 
 #include <stdio.h>
 
@@ -140,13 +139,18 @@ struct foo2 foo2 = { 23122, -12312731, -312 };
 //===- Checker ------------------------------------------------------------===//
 
 int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+  
   union ucast XX;
   spinlock_t lock;
   printf("PR156: %s\n", init_task_union.task.comm);
   printf("PR295/PR568: %d, %d\n", fixed_tl[0].word.pad, fixed_tl[0].base);
   printf("PR574: %d, %d, %d, %d\n", (int)bkv4.gv4.av4, cav1.dv1, cav1.ev1,
          cav1.fv1[0]);
-  printf("PR162: %d, %d, %d\n", V.X.A, V.X.B, V.C);
+  printf("PR162: %d, %d\n", V.X.A, V.X.B);
   printf("PR650: %s, %d\n", nd.data, nd.alignmentDummy);
   printf("PR199: %d, %d, %d, %d\n", hobbit.a, hobbit.values[0],
          hobbit.values[1], hobbit.values[2]);

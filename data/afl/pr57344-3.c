@@ -1,0 +1,29 @@
+// Modification timestamp: 2023-08-14 15:28:21
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr57344-3.c
+
+#include <stdio.h>
+
+struct __attribute__((packed)) S
+{
+  long long int a : 43;
+  long long int b : 22;
+  char c;
+  long long int : 0;
+} s[2];
+int i;
+
+__attribute__((noinline, noclone)) void
+foo (long long int x)
+{
+  if (x != -3161LL)
+    __builtin_abort ();
+  asm volatile ("" : : : "memory");
+}
+
+int main(int argc, char *argv[]) {
+  struct S t = { 0, atoi(argv[1]) };
+  s[1] = t;
+  for (; i < 1; i++)
+    foo (s[1].b);
+  return 0;
+}

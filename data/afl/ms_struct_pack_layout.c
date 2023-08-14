@@ -1,9 +1,8 @@
-c
-// Modification timestamp: 2023-08-10 15:47:53
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/ms_struct_pack_layout.c
+// Modification timestamp: 2023-08-14 17:30:11
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/ms_struct_pack_layout.c
 
 #include <stddef.h>
-#include <string.h>
+#include <stdio.h>
 
 extern void abort();
 
@@ -32,8 +31,6 @@ struct three {
   unsigned char c:7;
 } ATTR;
 
-/* Bitfields of size 0 have some truly odd behaviors. */
-
 struct four {
   unsigned short a:3;
   unsigned short b:9;
@@ -50,8 +47,8 @@ struct five {
 
 struct six {
   char a :8;
-  int :0;    /* not ignored; prior field IS a bitfield, causes
-                 struct alignment as well. */
+  int :0;	/* not ignored; prior field IS a bitfield, causes
+		   struct alignment as well. */
   char b;
   char c;
 } ATTR;
@@ -59,78 +56,76 @@ struct six {
 struct seven {
   char a:8;
   char :0;
-  int  :0;    /* Ignored; prior field is zero size bitfield. */
+  int  :0;	/* Ignored; prior field is zero size bitfield. */
   char b;
   char c;
 } ATTR;
 
-struct eight { /* ms size 4 */
+struct eight {
   short b:3;
   char  c;
 } ATTR;
 
 #define LONGLONG long long
 
-union nine {   /* ms size 8 */
+union nine {
   LONGLONG a:3;
   char  c;
 } ATTR;
 
-struct ten {   /* ms size 16 */
+struct ten {
   LONGLONG a:3;
   LONGLONG b:3;
   char  c;
 } ATTR;
 
-
 #define val(s,f) (s.f)
 
 #define check_struct(_X) \
 { \
-  if (sizeof (struct _X) != exp_sizeof_##_X ) \
-    abort();                    \
+  if (sizeof (struct _X) != exp_sizeof_##_X )	\
+    abort();					\
   memcpy(&test_##_X, filler, sizeof(test_##_X));\
-  if (val(test_##_X,c) != exp_##_X##_c)  \
-     abort();                    \
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+     abort();					\
 }
 
 #define check_union(_X) \
 { \
-  if (sizeof (union _X) != exp_sizeof_##_X ) \
+  if (sizeof (union _X) != exp_sizeof_##_X )	\
     abort();                                    \
   memcpy(&test_##_X, filler, sizeof(test_##_X));\
-  if (val(test_##_X,c) != exp_##_X##_c)  \
-     abort();                    \
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
+     abort();					\
 }
 
 #define check_struct_size(_X) \
 { \
-  if (sizeof (struct _X) != exp_sizeof_##_X ) \
+  if (sizeof (struct _X) != exp_sizeof_##_X )	\
     abort();                                    \
 }
 
 #define check_struct_off(_X) \
 { \
   memcpy(&test_##_X, filler, sizeof(test_##_X));\
-  if (val(test_##_X,c) != exp_##_X##_c)  \
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
     abort();                                    \
 }
 
 #define check_union_size(_X) \
 { \
-  if (sizeof (union _X) != exp_sizeof_##_X ) \
+  if (sizeof (union _X) != exp_sizeof_##_X )	\
     abort();                                    \
 }
 
 #define check_union_off(_X) \
 { \
   memcpy(&test_##_X, filler, sizeof(test_##_X));\
-  if (val(test_##_X,c) != exp_##_X##_c)  \
+  if (val(test_##_X,c) != exp_##_X##_c) 	\
     abort();                                    \
 }
 
-int main() {
-
+int main(int argc, char *argv[]) {
   unsigned char filler[16];
   struct one test_one;
   struct two test_two;
@@ -169,27 +164,27 @@ int main() {
   for ( i = 0; i < 16; i++ )
     filler[i] = i;
 
-  check_struct_off(one);
-  check_struct_off(two);
-  check_struct_off(three);
-  check_struct_off(four);
-  check_struct_off(five);
-  check_struct_off(six);
-  check_struct_off(seven);
-  check_struct_off(eight);
-  check_union_off(nine);
-  check_struct_off(ten);
+  check_struct_off (one);
+  check_struct_off (two);
+  check_struct_off (three);
+  check_struct_off (four);
+  check_struct_off (five);
+  check_struct_off (six);
+  check_struct_off (seven);
+  check_struct_off (eight);
+  check_union_off (nine);
+  check_struct_off (ten);
 
-  check_struct_size(one);
-  check_struct_size(two);
-  check_struct_size(three);
-  check_struct_size(four);
-  check_struct_size(five);
-  check_struct_size(six);
-  check_struct_size(seven);
-  check_struct_size(eight);
-  check_union_size(nine);
-  check_struct_size(ten);
+  check_struct_size (one);
+  check_struct_size (two);
+  check_struct_size (three);
+  check_struct_size (four);
+  check_struct_size (five);
+  check_struct_size (six);
+  check_struct_size (seven);
+  check_struct_size (eight);
+  check_union_size (nine);
+  check_struct_size (ten);
 
   return 0;
 }

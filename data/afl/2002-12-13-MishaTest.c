@@ -1,14 +1,9 @@
-
-// Modification timestamp: 2023-08-10 14:45:19
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Modification timestamp: 2023-08-14 17:12:03
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2002-12-13-MishaTest.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
-sum(to, from, count)
-     short *to, *from;
-     short count;
-{
+void sum(short *to, short *from, short count) {
   int i;
   for (i = 0; i != count; ++i)
     *to += *from++;
@@ -16,8 +11,8 @@ sum(to, from, count)
 
 #define NUM 2
 int main(int argc, char *argv[]) {
-  if (argc != 3) {
-    printf("Usage: %s <value1> <value2>\n", argv[0]);
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
     return 1;
   }
 
@@ -33,3 +28,4 @@ int main(int argc, char *argv[]) {
   printf("Sum is %d\n", Sum);
   return 0;
 }
+

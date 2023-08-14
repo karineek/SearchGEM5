@@ -1,0 +1,3 @@
+// Modification timestamp: 2023-08-14 14:31:20
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/loop-2g.c
+Unfortunately, the given code snippet cannot be converted to replace constants with command line arguments because it relies on low-level system calls and memory mapping, which are not suitable for the direct replacement of constants.

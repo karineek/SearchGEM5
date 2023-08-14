@@ -1,0 +1,74 @@
+// Modification timestamp: 2023-08-14 14:44:31
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr20100-1.c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+static unsigned short g = 0;
+static unsigned short p = 0;
+unsigned char e;
+
+static unsigned short next_g(void)
+{
+    return g == e - 1 ? 0 : g + 1;
+}
+
+static unsigned short curr_p(void)
+{
+    return p;
+}
+
+static unsigned short inc_g(void)
+{
+    return g = next_g();
+}
+
+static unsigned short curr_g(void)
+{
+    return g;
+}
+
+static char ring_empty(void)
+{
+    if (curr_p() == curr_g())
+        return 1;
+    else
+        return 0;
+}
+
+char frob(unsigned short a, unsigned short b)
+{
+    g = a;
+    p = b;
+    inc_g();
+    return ring_empty();
+}
+
+unsigned short get_n(void)
+{
+    unsigned short n = 0;
+    unsigned short org_g;
+    org_g = curr_g();
+    while (!ring_empty() && n < 5)
+    {
+        inc_g();
+        n++;
+    }
+    return n;
+}
+
+void abort(void);
+void exit(int);
+
+int main(int argc, char *argv[])
+{
+    if (argc != 2) {
+        printf("Usage: %s <e_value>\n", argv[0]);
+        return 1;
+    }
+
+    e = atoi(argv[1]);
+    if (frob(0, 2) != 0 || g != 1 || p != 2 || e != 3 || get_n() != 1 || g != 2 || p != 2)
+        abort();
+    exit(0);
+}

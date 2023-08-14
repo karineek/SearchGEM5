@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 16:00:27
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:34:08
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//bigstack.c
 /*===- test/Regression/Transforms/Scalar/DecomposeMultiDimRefs.cpp     -----=*
  *
  * This is a feature test that checks for correct code generation

@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:53:50
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Applications/obsequi/2003-05-22-VarSizeArray.c
-
+// Modification timestamp: 2023-08-14 17:32:24
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-22-VarSizeArray.c
 #include <stdio.h>
 
 int test(int Num) {

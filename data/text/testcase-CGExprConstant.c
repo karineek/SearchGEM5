@@ -1,7 +1,13 @@
-c
-// Modification timestamp: 2023-08-10 15:48:39
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:30:23
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/testcase-CGExprConstant.c
+/*
+   This fuzzed program's source comes from
+   https://github.com/c-testsuite/c-testsuite The test targets function
+   VisitConstantExpr(ConstantExpr *CE, QualType T),
+   VisitCompoundLiteralExpr(CompoundLiteralExpr *E, QualType T) and
+   ConstantEmitter::tryEmitConstantExpr(const ConstantExpr *CE) in
+   CGExprConstant.cpp.
+*/
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>

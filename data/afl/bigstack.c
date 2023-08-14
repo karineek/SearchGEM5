@@ -1,13 +1,5 @@
-
-// Modification timestamp: 2023-08-10 16:00:27
-// Original Source: https://github.com/llvm/llvm-test-suite
-
-/*===- test/Regression/Transforms/Scalar/DecomposeMultiDimRefs.cpp     -----=*
- *
- * This is a feature test that checks for correct code generation
- * of the SAVE instruction when the stack size does not fit in the
- * immediate field of the SAVE instruction.  This happens in main().
- *===---------------------------------------------------------------------===*/
+// Modification timestamp: 2023-08-14 17:34:08
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//bigstack.c
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -71,11 +63,16 @@ main(int argc, char** argv)
   Mixed_t MA[4];
   int i;
 
+  if (argc != 1) {
+    printf("Usage: %s\n", argv[0]);
+    return 1;
+  }
+
   InitializeMixed(&M, atoi(argv[1]));
   printf("Sum(M)  = %.2f\n", AddMixed(&M));
 
   for (i=0; i < 4; i++) {
-    InitializeMixed(&MA[i], 100 * (i+2));
+    InitializeMixed(&MA[i], atoi(argv[i + 2]));
     printf("Sum(MA[%d]) = %.2f\n", i, AddMixed(&MA[i]));
   }
 

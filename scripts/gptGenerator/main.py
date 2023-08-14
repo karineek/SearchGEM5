@@ -1,6 +1,6 @@
 """
 USAGE:
-    python main.py <prompt_file> <openai_key> <debug>
+    python main.py <prompt_file> <openai_key> <source_url> <debug>
 
     The training information is in preamble and example_history
     preamble is a single system message to the model explaining its behavior
@@ -9,7 +9,8 @@ USAGE:
 
     An openai api key must be provided in a .env file in the same directory as this file under the name OPENAI_API_KEY
     If there is an error, you can set the DEBUG environment variable to true to see the models that are available to you
-    incase you need to change the model id
+    incase you need to change the model id. The source url refers to the url preceeding each file name in the response:
+    i.e. // Original Source: <source_url>/<file_name>
 
 NOTE:
     Sometimes it fails to generate a filename as requested, if so, it will try again,
@@ -22,6 +23,7 @@ import sys
 import openai
 from dotenv import load_dotenv
 import time
+import re
 
 load_dotenv()
 
@@ -42,37 +44,28 @@ def extract_code(response):
     """Extract the code block from the response as well as the name associated with it"""
     content = response["choices"][0]["message"]["content"]
 
-    timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
-    content = content.replace("TIMESTAMP_REPLACEMENT_STRING_GPT_GENERATED", timestamp)
+    content = content.replace("```cpp", "") # Incase it includes language tags
+    content = content.replace("```c", "") # Incase it includes language tags
+    content = content.replace("```", "") # otherwise
 
-    program_1 = content.split("Program 1")[1].split("Program 2")[0]
-    program_2 = content.split("Program 2")[1]
+    return content
 
-    code_1 = program_1.split("```")[1]
-    code_2 = program_2.split("```")[1]
 
-    name = content.split("Program 1")[1].split("```")[0].replace("(", "").replace(")", "").replace(":", "").strip()
+def insert_format(content, src, file_name):
+    timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
-    if name == "":
-        name = content.split("Program 2")[1].split("```")[0].replace("(", "").replace(")", "").replace(":", "").strip()
-
-    if name == "":
-        print("ERROR: Could not find name of program")
-        raise Exception("Could not find name of program")
-
-    return (code_1, name), (code_2, name)
+    return f"// Modification timestamp: {timestamp}\n// Original Source: {src}/{file_name}\n{content}"
 
 
 def prompt(text, preamble_text, example_array):
     return openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-16k",
         temperature=0.9,    # a temperature of 0.9 seems to work best
         messages=[
             {
                 'role': 'system', 'content': preamble_text
             },
-            example_array[0],
-            example_array[1],
+            *example_array,
             {
                 'role': 'user', 'content': text
             }
@@ -86,11 +79,11 @@ def save_prompt(code, file):
         f.write(code)
 
 
-def save_from_prompt(text, preamble="", example=[]):
+def save_from_prompt(text, src, file_name, preamble="", example=[]):
     response = prompt(text, preamble, example)
-    (program_1, program_2) = extract_code(response)
-    save_prompt(program_1[0], f"text/{program_1[1]}")
-    save_prompt(program_2[0], f"afl/{program_2[1]}")
+    prog = extract_code(response)
+    save_prompt(insert_format(text, src, file_name), f"text/{file_name}")
+    save_prompt(insert_format(prog, src, file_name), f"afl/{file_name}")
 
 
 if __name__ == '__main__':
@@ -104,6 +97,9 @@ if __name__ == '__main__':
         openai.api_key = sys.argv[2]
 
     if len(sys.argv) > 3:
+        source = sys.argv[3]
+
+    if len(sys.argv) > 4:
         debug = sys.argv[3] == "true"
 
     if debug:
@@ -128,14 +124,30 @@ if __name__ == '__main__':
     with open(file, "r") as f:
         p = f.read()
 
+    input_programs = []
+
+    for inp in p.split("// source: "):
+        # get name and code
+        if inp == "":
+            continue
+        split = inp.split("\n")
+        name = split[0]
+        code = split[1:]
+        code = "\n".join(code)
+
+        input_programs.append((name, code))
+
     setup_folders()
 
-    try:
-        save_from_prompt(p, preamble, example)
-    except Exception as e:
-        print("Error, trying again")
-        try:
-            save_from_prompt(p, preamble, example)
-        except Exception as e:
-            print(e)
-            sys.exit(1)
+    for (name, code) in input_programs:
+        print(f"Generating code for {name}")
+        fail_count = 0
+        while fail_count < 2:
+            try:
+                save_from_prompt(code, source, name, preamble, example)
+                break
+            except Exception as e:
+                print(e)
+                print("Failed to generate code, trying again")
+                fail_count += 1
+

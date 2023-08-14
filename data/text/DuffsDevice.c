@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:56:57
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Programs/SingleSource/Benchmarks/Misc/DuffsDevice.c
-
+// Modification timestamp: 2023-08-14 17:33:09
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//DuffsDevice.c
 /* This silly testcase is here to check that "Duff's Device" works properly
  * in LLVM.  Guess what, it does.  :)
  *
@@ -10,43 +8,34 @@
 
 #include <stdio.h>
 
-sum(to, from, count)
-register short *to, *from;
-register count;
-{
-    register n = (count + 7) / 8;
-    switch (count % 8) {
-        case 0:
-            do {
-                *to += *from++;
-        case 7:
-                *to += *from++;
-        case 6:
-                *to += *from++;
-        case 5:
-                *to += *from++;
-        case 4:
-                *to += *from++;
-        case 3:
-                *to += *from++;
-        case 2:
-                *to += *from++;
-        case 1:
-                *to += *from++;
-            } while (--n > 0);
-    }
-}
+	sum(to, from, count)
+	register short *to, *from;
+	register count;
+	{
+		register n=(count+7)/8;
+		switch(count%8){
+		case 0:	do{	*to += *from++;
+		case 7:		*to += *from++;
+		case 6:		*to += *from++;
+		case 5:		*to += *from++;
+		case 4:		*to += *from++;
+		case 3:		*to += *from++;
+		case 2:		*to += *from++;
+		case 1:		*to += *from++;
+			}while(--n>0);
+		}
+	}
 
 int main() {
-    short Array[100];
-    short Sum = 0;
-    int i;
+	short Array[100];
+	short Sum = 0;
+	int i;
 
-    for (i = 0; i != 100; ++i)
-        Array[i] = i;
+	for (i = 0; i != 100; ++i)
+		Array[i] = i;
 
-    sum(&Sum, Array, 100);
+	sum(&Sum, Array, 100);
 
-    printf("Sum is %d\n", Sum);
-    return 0;
+	printf("Sum is %d\n", Sum);
+        return 0;
 }

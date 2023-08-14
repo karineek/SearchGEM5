@@ -1,6 +1,6 @@
+// Modification timestamp: 2023-08-14 17:35:15
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//casts.c
 
-// Modification timestamp: 2023-08-10 16:06:12
-// Original Source: https://github.com/llvm/llvm-test-suite
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,6 +22,11 @@ static int64_t lls[] = {
 int
 main(int argc, char** argv)
 {
+  if (argc < 5) {
+    printf("Usage: %s <value1> <value2> <value3> <value4>\n", argv[0]);
+    return 1;
+  }
+
   int8_t        C, c1;
   uint8_t       uc1;
 
@@ -38,19 +43,19 @@ main(int argc, char** argv)
   double        D;
 
   /* input values */
-  C = (char)  (argc >= 2)? atoi(argv[1]) : 0x64;           /* 100 = 'd' */
-  S = (short) (argc >= 3)? atoi(argv[2]) : -769;           /* 0xfcff = -769 */
-  L = (int64_t) (argc >= 4)? atoi(argv[3]) : 0xa3a3a3a3a3a3LL; /*179923220407203*/
+  C = (char)  atoi(argv[1]);
+  S = (short) atoi(argv[2]);
+  L = (int64_t) atoll(argv[3]);
 
   /* Test integer to integer conversions */
-  uc1 = (uint8_t) C;                       /* 100 = 'd' */
-  us1 = (unsigned short) C;                /* 100 = 'd' */
-  ui1 = (unsigned int) C;                  /* 100 = 'd' */
-  ul1 = (uint64_t) C;                      /* 100 = 'd' */
+  uc1 = (uint8_t) C;
+  us1 = (unsigned short) C;
+  ui1 = (unsigned int) C;
+  ul1 = (uint64_t) C;
 
-  s1  = (short) C;                         /* 100 = 'd' */
-  i1  = (int) C;                           /* 100 = 'd' */
-  l1  = (int64_t) C;                       /* 100 = 'd' */
+  s1  = (short) C;
+  i1  = (int) C;
+  l1  = (int64_t) C;
 
   printf("\nCHAR             C = '%c' (%d)\t\t(0x%x)\n", C, C, C);
   printf("char to short   s1 = %d\t\t(0x%x)\n", s1, s1);
@@ -62,14 +67,14 @@ main(int argc, char** argv)
   printf("char to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
   printf("char to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
 
-  uc1 = (uint8_t) S;                            /* 0xff = 255 */
-  us1 = (unsigned short) S;                     /* 0xfcff = 64767 */
-  ui1 = (unsigned int) S;                       /* 0xfffffcff = 4294966527 */
-  ul1 = (uint64_t) S;                           /* */
+  uc1 = (uint8_t) S;
+  us1 = (unsigned short) S;
+  ui1 = (unsigned int) S;
+  ul1 = (uint64_t) S;
 
-  c1  = (int8_t) S;                             /* 0xff = -1 */
-  i1  = (int) S;                                /* 0xfffffcff = -769 */
-  l1  = (int64_t) S;                            /* */
+  c1  = (int8_t) S;
+  i1  = (int) S;
+  l1  = (int64_t) S;
 
   printf("\n\nSHORT            S = %d\t\t(0x%x)\n", S, S);
   printf("short to byte    c1 = %d\t\t(0x%x)\n", c1, c1);
@@ -81,13 +86,13 @@ main(int argc, char** argv)
   printf("short to uint   ui1 = %u\t\t(0x%x)\n", ui1, ui1);
   printf("short to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
 
-  uc1 = (unsigned char) L;                      /* */
-  c1  = (int8_t) L;                             /* */
-  s1  = (short) L;                              /* */
-  us1 = (unsigned short) L;                     /* */
-  i1  = (int) L;                                /* */
-  ui1 = (unsigned int) L;                       /* */
-  ul1 = (uint64_t) L;                           /* */
+  uc1 = (unsigned char) L;
+  c1  = (int8_t) L;
+  s1  = (short) L;
+  us1 = (unsigned short) L;
+  i1  = (int) L;
+  ui1 = (unsigned int) L;
+  ul1 = (uint64_t) L;
 
   printf("\n\nLONG            L = %"PRId64"\t\t(0x%"PRIx64")\n", L, L);
   printf("long to byte    c1 = %d\t\t(0x%x)\n", c1, c1);
@@ -100,8 +105,8 @@ main(int argc, char** argv)
   printf("long to uint64_t ul1 = %"PRIu64"\t\t(0x%"PRIx64")\n", ul1, ul1);
 
   /* Test floating-point to integer conversions */
-  F = (float)  (argc >= 4)? atof(argv[3]) : 1.0;
-  D =          (argc >= 5)? atof(argv[4]) : 2.0;
+  F = (float)  atof(argv[4]);
+  D =          atof(argv[5]);
 
   us1 = (unsigned short) F;
   ui1 = (unsigned int) F;

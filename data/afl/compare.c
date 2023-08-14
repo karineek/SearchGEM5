@@ -1,6 +1,5 @@
-
-// Modification timestamp: 2023-08-10 16:06:37
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
+// Modification timestamp: 2023-08-14 17:35:22
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//compare.c
 
 #include <stdint.h>
 #include <stddef.h>

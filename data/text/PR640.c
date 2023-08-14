@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:59:19
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/UnitTests/PR640.c
-
+// Modification timestamp: 2023-08-14 17:33:52
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//PR640.c
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -63,3 +61,4 @@ int main(int argc, char **argv)
     printf("All done.\n");
     return 0;
 }
+

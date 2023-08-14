@@ -1,8 +1,8 @@
-
-// Modification timestamp: 2023-08-10 15:58:28
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Modification timestamp: 2023-08-14 17:33:36
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//PR491.c
 
 #include <stdio.h>
+#include <stdlib.h>
 
 static int assert_fail(const char* s, unsigned l)
 {
@@ -11,7 +11,7 @@ static int assert_fail(const char* s, unsigned l)
 }
 #define ASSERT(expr)    ((expr) ? 1 : assert_fail(#expr,__LINE__))
 
-int test(int r) {
+int test(int r, int argc, char* argv[]) {
 #if !defined(__i386__) && !defined(__x86_64__)
   #if !defined(BYTE_ORDER) || !defined(LITTLE_ENDIAN)
      return r;
@@ -29,6 +29,12 @@ int test(int r) {
     return r;
 }
 
-int main(int argc, char *argv[]) {
-    return test(1) != 1;
+int main(int argc, char* argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  return test(1, atoi(argv[1]), argv);
 }
+

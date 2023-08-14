@@ -1,7 +1,5 @@
-c
-// Modification timestamp: 2023-08-10 15:51:01
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MallocBench/espresso/espresso.c
-
+// Modification timestamp: 2023-08-14 17:31:29
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/vla.c
 #include <stdio.h>
 extern void abort();
 

@@ -1,11 +1,13 @@
-C
-// Modification timestamp: 2023-08-10 15:49:18
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:30:34
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/testcase-ExprConstant-1.c
+/*
+ The test targets function static unsigned AreElementsOfSameArray(QualType
+ ObjType,const SubobjectDesignator &A,const SubobjectDesignator &B) and bool
+ VisitGenericSelectionExpr(const GenericSelectionExpr *E) in ExprConstant.cpp.
+*/
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>
-
 int main() {
   int32_t x[66];
   int32_t *p;

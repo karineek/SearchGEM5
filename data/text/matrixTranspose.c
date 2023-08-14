@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-02 17:40:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/llubenchmark/fftw-3.3.4/matrixTranspose.c
-
+// Modification timestamp: 2023-08-14 17:36:02
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//matrixTranspose.c
 typedef float fftw_real;
 
 void complex_transpose(fftw_real *rA, fftw_real *iA, int n, int is, int js)
@@ -50,3 +48,4 @@ int main(int argc, char **argv)
 
      return 0;
 }
+

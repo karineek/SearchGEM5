@@ -1,7 +1,10 @@
-
-// Modification timestamp: 2023-08-10 14:58:47
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/UnitTests/2003-07-09-SignedArgs.c
-
+// Modification timestamp: 2023-08-14 17:15:00
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-07-09-SignedArgs.c
+/*
+ * Test sign extensions on short signed values passed as arguments
+ * to function calls.  Include arithmetic to produce extra high bits
+ * from operations that overflow.  Lots of codes do this!
+ */
 #include <stdio.h>
 #include <stdarg.h>
 #include <inttypes.h>

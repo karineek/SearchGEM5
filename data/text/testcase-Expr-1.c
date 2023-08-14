@@ -1,6 +1,12 @@
-c
-// Modification timestamp: 2023-08-10 15:49:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/Vector/SSE/2008-09-30-VAQ.c
+// Modification timestamp: 2023-08-14 17:30:30
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/testcase-Expr-1.c
+/*
+   The test targets function Expr *DesignatedInitExpr::getArrayRangeStart(const
+   Designator &D) and Expr *DesignatedInitExpr::getArrayRangeEnd(const
+   Designator &D) and RecoveryExpr *RecoveryExpr::Create(ASTContext &Ctx,
+   QualType T,SourceLocation BeginLoc,SourceLocation EndLoc,ArrayRef<Expr *>
+   SubExprs) in Expr.cpp.
+*/
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>

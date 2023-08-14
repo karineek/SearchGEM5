@@ -1,6 +1,6 @@
-c
-// Modification timestamp: 2023-08-10 15:29:24
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Regression/C/2009-04-16-BitfieldInitialization.c
+// Modification timestamp: 2023-08-14 17:24:09
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2009-04-16-BitfieldInitialization.c
+// PR3510 & rdar://6564697
 
 struct ty {
   int info;

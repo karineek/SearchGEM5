@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:09:04
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/llc/2003-10-29-ScalarReplBug.c
-
+// Modification timestamp: 2023-08-14 17:16:15
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-10-29-ScalarReplBug.c
 #include <stdio.h>
 
 typedef struct {

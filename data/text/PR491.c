@@ -1,7 +1,5 @@
-
-// Modification timestamp: 2023-08-10 15:58:28
-// Original Source: https://github.com/llvm/llvm-test-suite
-
+// Modification timestamp: 2023-08-14 17:33:36
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//PR491.c
 #include <stdio.h>
 
 static int assert_fail(const char* s, unsigned l)
@@ -32,3 +30,4 @@ int test(int r) {
 int main() {
     return test(1) != 1;
 }
+

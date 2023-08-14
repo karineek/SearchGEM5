@@ -1,20 +1,23 @@
-
-// Modification timestamp: 2023-08-10 15:14:18
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Modification timestamp: 2023-08-14 17:18:25
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2006-01-29-SimpleIndirectCall.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
-void hello(int argc, char **argv) {
+void hello() {
   printf("Hello, world!\n");
 }
 
-void goodbye(int argc, char **argv) {
+void goodbye() {
   printf("Goodbye, world!\n");
 }
 
-int main(int argc, char **argv) {
-  void (*f)(int, char **) = (argc > 1) ? &hello : &goodbye;
-  f(argc, argv);
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  void (*f)() = (atoi(argv[1]) > 1) ? &hello : &goodbye;
+  f();
   return 0;
 }

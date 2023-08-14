@@ -1,10 +1,94 @@
-c
-// Modification timestamp: 2023-08-10 15:29:24
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Regression/C/2009-04-16-BitfieldInitialization.c
+// Modification timestamp: 2023-08-14 17:24:09
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2009-04-16-BitfieldInitialization.c
 
 #include <stdio.h>
 
+struct ty {
+  int info;
+  union {
+    int id;
+    char *str;
+  } u;
+} t1 = { 101, 1 };
+
+struct ty2 {
+  float info;
+  char x;
+  int Y;
+} t2 = { 101, 1, 204 };
+
+struct ty3 {
+  int A;
+  char C[];
+} t3 = { 4, "fo" };
+
+struct ty4 {
+  long double x;
+  char y;
+  long double z;
+} t4 = { 1.0, 4, 17.0 };
+
+struct {
+  char x;
+  unsigned char y : 4;
+} t5a = { 101, 15 };
+
+struct {
+  char x;
+  unsigned short y : 12;
+} t5b = { 101, 1231 };
+
+struct {
+  char x;
+  unsigned char y : 4;
+  unsigned char z : 7;
+} t5 = { 101, 15, 123 };
+
+struct {
+  long double x;
+  unsigned char y : 4;
+} t6 = { 123.412, 5 };
+
+struct {
+  char x;
+  unsigned char y : 4;
+  unsigned char q : 3;
+  unsigned char z : 7;
+} t7 = { 101, 15, 123 };
+
+struct {
+  char x;
+  unsigned short y : 4;
+  unsigned short q : 12;
+} t7a = { 101, 15, 123 };
+
+struct sDescrItem {
+  char what;
+  char *types;
+  char type;
+} t8 = { 16, 0, 32 };
+
+struct resword {
+  const int *a;
+  unsigned b : 16;
+  int c : 16;
+} t9 = { 0, 123, 456 };
+
+struct t10s {
+  short a;
+  int *b;
+} t10;
+
+int x = 42;
+
 int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  t10.b = &x;
+  
   printf("1: %d, %d\n", t1.info, t1.u.id);
   printf("2: %f, %d, %d\n", t2.info, t2.x, t2.Y);
   printf("3: %d %s\n", t3.A, t3.C);
@@ -18,5 +102,6 @@ int main(int argc, char *argv[]) {
   printf("8: %d %d\n", t8.what, t8.type);
   printf("9: %d %d\n", t9.b, t9.c);
   printf("10: %d\n", *t10.b);
+  
   return 0;
 }

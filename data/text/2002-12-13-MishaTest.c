@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 14:45:19
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Modification timestamp: 2023-08-14 17:12:03
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2002-12-13-MishaTest.c
 
 #include <stdio.h>
-
 sum(to, from, count)
      short *to, *from;
      short count;

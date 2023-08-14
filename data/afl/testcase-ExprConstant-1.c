@@ -1,20 +1,19 @@
-C
-// Modification timestamp: 2023-08-10 15:49:18
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Modification timestamp: 2023-08-14 17:30:34
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/testcase-ExprConstant-1.c
 
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>
 
 int main(int argc, char *argv[]) {
+  int32_t x[66];
+  int32_t *p;
+
   if (argc != 2) {
     printf("Usage: %s <value>\n", argv[0]);
     return 1;
   }
-  
-  int32_t x[66];
-  int32_t *p;
-  
+
   x[2] = atoi(argv[1]);
   p = &x[5];
   printf("%" PRId32, x[2]);

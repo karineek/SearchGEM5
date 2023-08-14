@@ -1,14 +1,10 @@
-c
-// Modification timestamp: 2023-08-10 15:53:36
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/PR2003-05-22-LocalTypeTest.c
-
+// Modification timestamp: 2023-08-14 17:32:20
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/Regression/C//2003-05-22-LocalTypeTest.c
 #include <stdio.h>
 
 struct sometimes {
-  short offset;
-  short bit;
-  short live_length;
-  short calls_crossed;
+  short offset; short bit;
+  short live_length; short calls_crossed;
 } Y;
 
 int main() {

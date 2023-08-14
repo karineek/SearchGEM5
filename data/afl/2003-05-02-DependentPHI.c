@@ -1,9 +1,7 @@
-
-// Modification timestamp: 2023-08-10 14:46:00
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/UnitTests/2003-05-02-DependentPHI.c
+// Modification timestamp: 2023-08-14 17:12:20
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-05-02-DependentPHI.c
 
 #include <stdio.h>
-#include <stdlib.h>
 
 typedef struct List {
   struct List *Next;
@@ -19,10 +17,14 @@ List Node5 = {&Node4, 0};
 
 
 int main(int argc, char *argv[]) {
-    int arg = argc > 1 ? atoi(argv[1]) : -1;
-    List *PrevL, *CurL;
-    for (PrevL = 0, CurL = &Node5; CurL; PrevL = CurL, CurL = CurL->Next) {
-	printf("%d %d\n", CurL->Data + arg, PrevL ? PrevL->Data + arg : -1);
-    }
-    return 0;
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  List *PrevL, *CurL;
+  for (PrevL = 0, CurL = &Node5; CurL; PrevL = CurL, CurL = CurL->Next) {
+    printf("%d %d\n", CurL->Data, PrevL ? PrevL->Data : atoi(argv[1]));
+  }
+  return 0;
 }
