@@ -89,12 +89,13 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     data->out_buff[0] = '\0';
 
     // Find numeric parts and mutate them using mutateNumericValue function
-    char *token = strtok((char *)new_buf, " ");
+    static char delimit[]=" \n";
+    char *token = strtok((char *)new_buf, delimit);
     strcpy(data->out_buff,token);
     token = strtok(NULL, " "); // Next token
-    while (token != NULL) {
-        strncat(data->out_buff, " ", 1); // add back the space
+    strncat(data->out_buff, "\n", 1); // add back the newline
 
+    while (token != NULL) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
@@ -106,6 +107,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         strncat(data->out_buff, data->input_digit, len);
 
 	token = strtok(NULL, " "); // Next token
+        if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
    }
    strcpy((char *)new_buf, data->out_buff);
 }
@@ -175,8 +177,8 @@ int main () {
 
 
     char *input = (char *)malloc(250 * sizeof(char));
-    printf("./a.out 5 5\n");
-    strcpy(input, "./a.out 5 5");
+    printf("./a.out\n5 5\n");
+    strcpy(input, "./a.out\n5 5");
     findAndMutateArgs((unsigned char *)input, data);
 
     // Print characters until the null-terminator is encountered
