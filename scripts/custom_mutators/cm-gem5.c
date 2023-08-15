@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include <time.h>
 
-#define DEBUG_CM 1 // Debug or afl plugin
+//#define DEBUG_CM 1 // Debug or afl plugin
 
 
 #ifndef DEBUG_CM
@@ -19,14 +19,14 @@ typedef struct my_mutator {
 
   afl_state_t *afl;
 
-  char* out_buff;
+  char* out_buff; // The whole args in buffers
 
-  char* input_digit;
+  char* input_digit; // Buffer for register mutations
 
 } my_mutator_t;
 
-#define MAX_DATA_SIZE (20)
 #define MAX_CMDLINE_SIZE (250)
+#define MAX_DATA_SIZE (20)
 
 /**
  * Initialize this custom mutator
@@ -45,24 +45,18 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
   my_mutator_t *data = calloc(1, sizeof(my_mutator_t));
   if (!data) {
-
     perror("afl_custom_init alloc");
     return NULL;
-
   }
 
   if ((data->out_buff = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
-
     perror("afl_custom_init malloc");
     return NULL;
-
   }
 
   if ((data->input_digit = (char *)malloc(MAX_DATA_SIZE)) == NULL) {
-
     perror("afl_custom_init malloc");
     return NULL;
-
   }
 
   data->afl = afl;
@@ -72,6 +66,12 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 }
 
 void mutateUInt32Value(char *token, my_mutator_t *data) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
     unsigned int num;
     if (sscanf(token, "%u", &num) == 1) {
         int bit_pos =
@@ -79,7 +79,8 @@ void mutateUInt32Value(char *token, my_mutator_t *data) {
 		(data->afl) ? rand_below(data->afl, (sizeof(unsigned int) * 8)) :
 #endif
 			rand() % (sizeof(unsigned int) * 8); // Random location in the register
-        num ^= (1u << bit_pos); // Bit flip it
+
+	num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, "%d", num); // Copy it back
     }
 }
@@ -174,6 +175,7 @@ int main () {
 
 
     char *input = (char *)malloc(250 * sizeof(char));
+    printf("./a.out 5 5\n");
     strcpy(input, "./a.out 5 5");
     findAndMutateArgs((unsigned char *)input, data);
 
