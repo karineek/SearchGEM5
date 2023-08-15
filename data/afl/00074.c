@@ -13,14 +13,14 @@ X
 X
 #endif
 
-#define X argc
+#define X 0
 
 #if X
 X
 #endif
 
 #if defined(X)
-int x = atoi(argv[1]);
+int x = 0;
 #endif
 
 #undef X
@@ -28,6 +28,10 @@ int x = atoi(argv[1]);
 
 #if X
 int main(int argc, char *argv[]) {
-    return 0;
+    if (argc != 1) {
+        printf("Usage: %s\n", argv[0]);
+        return 1;
+    }
+    return atoi(argv[1]);
 }
 #endif
