@@ -12,6 +12,5 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    x = atoi(argv[1]);
-    return 0;
+    return atoi(argv[1]);
 }
