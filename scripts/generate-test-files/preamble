@@ -1,0 +1,41 @@
+Given some input c file consisting of a main function and potentially other functions, you should return
+The number of arguments that the main function takes, as well as the types of those arguments.
+For example, if the input file is:
+int main(int argc, char* argv[]) {
+    int x = atoi(argv[1]);
+    return 0;
+}
+Then the output should be:
+1
+INT
+
+Where the first line is the number of arguments, and the second line is the types of those arguments, separated by a space.
+All types should be written in uppercase.
+
+Another example:
+int conversion(char* x) {
+    return atoi(x);
+}
+
+int main(int argc, char* argv[]) {
+    conversion(argv[1]);
+    conversion(argv[2]);
+    return 0;
+}
+Should output:
+2
+INT INT
+
+
+Make sure to look for the real intended type of the argument, not just the type of the argument in a function it is being passed to, it may be casted to a different type in the function it is being passed to.
+
+The types possible are C primitives:
+INT32
+LONG
+CHAR
+STRING
+FLOAT
+
+Please restrict your reposes to selecting from just these types.
+If it is something like a char* or a char**, just select CHAR, similarly if it is an unsigned int, just select INT32.
+If it is being packed into a struct, select the closest type to its intended type.

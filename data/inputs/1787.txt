@@ -1,0 +1,1 @@
+/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/string-opt-5.c 0 stringValue
