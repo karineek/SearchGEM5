@@ -43,7 +43,9 @@ for so_file in "$so_folder"/*.c.o.o; do
     fi
 done
 
+# fix format
+sed -i 's:.c.o.o :.c.o.o\n:g' txt_folder/*
 
-
+# DONE.
 
 
