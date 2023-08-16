@@ -32,7 +32,7 @@ typedef struct my_mutator {
 #define MAX_CMDLINE_SIZE (250)
 #define MAX_FILE_NAME_SIZE (100)
 #define MAX_ARGS_SIZE (140)
-#define MAX_DATA_SIZE (20)
+#define MAX_DATA_SIZE (45)
 
 /**
  * Initialize this custom mutator
@@ -269,7 +269,8 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
 
     // Read tokens of data types
-    char* types_token = 0, buf_token = 0;
+    char* types_token = 0;
+    char* buf_token = 0;
     readTypes(data, buf_token); bool invalid_tokens = (!buf_token);
     if (!invalid_tokens) {
 	types_token = strtok(buf_token, " ");
@@ -369,14 +370,16 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
-    new_buf = (uint8_t *)realloc(new_buf, actual_size);
-    if (!new_buf) {
+    uint8_t *new_new_buf = malloc(actual_size);
+    if ((!new_buf) || (!new_new_buf)) {
         WARNF("Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
         return 0;
     }
+    memcpy(new_new_buf, new_buf, actual_size);
+    free(new_buf);
 
     // Set it as output buff
-    *out_buf = new_buf;
+    *out_buf = new_new_buf;
     return new_size;
 }
 
@@ -486,6 +489,107 @@ int main () {
     }
     printf("\n");
     free(input_digit2);
+
+
+    /**************/
+    /*   TEST 6   */
+    /**************/
+    printf("\n>> TEST 6: mutateUInt64Value with hd\n");
+
+    input_digit2 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit2, "-5");
+    mutateUInt16Value(input_digit2,data,"%hd");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit2[i] != '\0'; i++) {
+        printf("%c", input_digit2[i]);
+    }
+    printf("\n");
+    free(input_digit2);
+
+
+
+    /**************/
+    /*   TEST 7   */
+    /**************/
+    printf("\n>> TEST 7: mutateUInt64Value with hu\n");
+
+    char* input_digit3 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit3, "-5");
+    mutateUInt16Value(input_digit3,data,"%hu");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit3[i] != '\0'; i++) {
+        printf("%c", input_digit3[i]);
+    }
+    printf("\n");
+    free(input_digit3);
+
+
+
+    /**************/
+    /*   TEST 8   */
+    /**************/
+    printf("\n>> TEST 8: mutateUInt64Value with hhd\n");
+
+    char* input_digit4 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit4, "-5");
+    mutateUInt8Value(input_digit4,data,"%hhd");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit4[i] != '\0'; i++) {
+        printf("%c", input_digit4[i]);
+    }
+    printf("\n");
+    free(input_digit4);
+
+
+
+    /**************/
+    /*   TEST 9   */
+    /**************/
+    printf("\n>> TEST 9: mutateUInt64Value with hhu\n");
+
+    input_digit3 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit3, "-5");
+    mutateUInt8Value(input_digit3,data,"%hhu");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit3[i] != '\0'; i++) {
+        printf("%c", input_digit3[i]);
+    }
+    printf("\n");
+    free(input_digit3);
+
+
+
+    /**************/
+    /*   TEST 10  */
+    /**************/
+    printf("\n>> TEST 10: mutateUInt64Value with f\n");
+
+    input_digit4 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit4, "-5.0f");
+    mutateFloatValue(input_digit4,data);
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit4[i] != '\0'; i++) {
+        printf("%c", input_digit4[i]);
+    }
+    printf("\n");
+    free(input_digit4);
+
+
+
+    /**************/
+    /*   TEST 11   */
+    /**************/
+    printf("\n>> TEST 11: mutateUInt64Value with lf\n");
+
+    input_digit3 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit3, "5.9");
+    mutateDoubleValue(input_digit3,data);
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit3[i] != '\0'; i++) {
+        printf("%c", input_digit3[i]);
+    }
+    printf("\n");
+    free(input_digit3);
 
 
     // Free all
