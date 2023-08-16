@@ -257,7 +257,7 @@ void mutateStringValue(char *token, my_mutator_t *data) {
 #endif
         rand() % strlen(token); // Random location in the register
 
-    uint8_t *mutate_buf = malloc(MAX_DATA_SIZE);
+    char* mutate_buf = malloc(MAX_DATA_SIZE);
     sprintf(mutate_buf, "%hhd", (int8_t) token[pos]); // Copy it back
     mutateUInt8Value(mutate_buf,data,"%hhd");
 
