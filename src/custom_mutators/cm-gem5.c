@@ -21,11 +21,14 @@ typedef struct my_mutator {
 
   char* out_buff; // The whole args in buffers
 
+  char* file_name_types; // The name of the file with types to mutate
+
   char* input_digit; // Buffer for register mutations
 
 } my_mutator_t;
 
 #define MAX_CMDLINE_SIZE (250)
+#define MAX_FILE_NAME_SIZE (100)
 #define MAX_DATA_SIZE (20)
 
 /**
@@ -54,6 +57,11 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
     return NULL;
   }
 
+  if ((data->file_name_types = (char *)malloc(MAX_FILE_NAME_SIZE)) == NULL) {
+    perror("afl_custom_init malloc");
+    return NULL;
+  }
+
   if ((data->input_digit = (char *)malloc(MAX_DATA_SIZE)) == NULL) {
     perror("afl_custom_init malloc");
     return NULL;
@@ -65,7 +73,8 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
 }
 
-void mutateUInt32Value(char *token, my_mutator_t *data) {
+// Bit flip integer of 32 bits
+void mutateUInt32Value(char *token, my_mutator_t *data, char* format) {
 #ifdef DEBUG_CM
     static int rand_next = 0;
     srand(time(NULL)+rand_next); // randomize seed
@@ -81,12 +90,36 @@ void mutateUInt32Value(char *token, my_mutator_t *data) {
 			rand() % (sizeof(unsigned int) * 8); // Random location in the register
 
 	num ^= (1u << bit_pos); // Bit flip it
-        sprintf(token, "%d", num); // Copy it back
+        sprintf(token, format, num); // Copy it back
     }
 }
 
+// Bit flip integer of 64 bits
+void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    unsigned long num;
+    if (sscanf(token, "%lu", &num) == 1) {
+        int bit_pos =
+#ifndef DEBUG_CM
+                (data->afl) ? rand_below(data->afl, (sizeof(unsigned long) * 8)) :
+#endif
+                        rand() % (sizeof(unsigned long) * 8); // Random location in the register
+
+        num ^= (1ul << bit_pos); // Bit flip it
+        sprintf(token, format, num); // Copy it back
+    }
+}
+
+// Mutate arguments for the binary in the corpus
 void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
+    // Init buffers
     data->out_buff[0] = '\0';
+    data->file_name_types[0] = '\0';
 
     // Find numeric parts and mutate them using mutateNumericValue function
     static char delimit[]=" \n";
@@ -99,15 +132,16 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
-    	mutateUInt32Value(data->input_digit, data);
+    	mutateUInt32Value(data->input_digit, data, "%u");
         // TODO: add other data types
 
-        // Append the mutated string
+        // Append the mutated string:
         size_t len = strlen(data->input_digit);
         size_t len_all = strlen(data->out_buff);
         if ((len + len_all) < (MAX_CMDLINE_SIZE - 1))
             strncat(data->out_buff, data->input_digit, len);
 
+        // Next iteration:
 	token = strtok(NULL, " "); // Next token
         if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
    }
@@ -175,6 +209,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 void afl_custom_deinit(my_mutator_t *data) {
   data->afl = 0;
   free(data->out_buff);
+  free(data->file_name_types);
   free(data->input_digit);
   free(data);
 
@@ -182,17 +217,30 @@ void afl_custom_deinit(my_mutator_t *data) {
 
 #ifdef DEBUG_CM
 int main () {
-    my_mutator_t *data = afl_custom_init(0,0);
+    my_mutator_t *data = afl_custom_init(0,0); // Create dummy mutator data
+
+
+    /**************/
+    /*   TEST 1   */
+    /**************/
+    printf(">> TEST 1: mutateUInt32Value with d\n");
 
     char* input_digit = (char *)malloc(20 * sizeof(char));
-    strcpy(input_digit, "5");
-    mutateUInt32Value(input_digit,data);
+    strcpy(input_digit, "-5");
+    mutateUInt32Value(input_digit,data,"%d");
     // Print characters until the null-terminator is encountered
     for (int i = 0; input_digit[i] != '\0'; i++) {
         printf("%c", input_digit[i]);
     }
     printf("\n");
     free(input_digit);
+
+
+
+    /**************/
+    /*   TEST 2   */
+    /**************/
+    printf("\n>> TEST 2: findAndMutateArgs\n");
 
 
     char *input = (char *)malloc(250 * sizeof(char));
@@ -205,6 +253,61 @@ int main () {
         printf("%c", input[i]);
     }
     printf("\n");
+    free(input);
+
+
+
+    /**************/
+    /*   TEST 3   */
+    /**************/
+    printf("\n>> TEST 3: findAndMutateArgs - Real example\n");
+
+    // Test of new ideas:
+    char *input2 = (char *)malloc(250 * sizeof(char));
+    printf("/home/ubuntu/gem5-ssbse-challenge-2023/afl/input-args/00003.c.o\n0\n");
+    strcpy(input2, "/home/ubuntu/gem5-ssbse-challenge-2023/afl/input-args/00003.c.o\n0");
+    findAndMutateArgs((unsigned char *)input, data);
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input2[i] != '\0'; i++) {
+        printf("%c", input2[i]);
+    }
+    printf("\n");
+    free(input2);
+
+
+
+    /**************/
+    /*   TEST 4   */
+    /**************/
+    printf("\n>> TEST 4: mutateUInt64Value with ld\n");
+
+    char* input_digit1 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit1, "-5");
+    mutateUInt64Value(input_digit1,data,"%ld");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit1[i] != '\0'; i++) {
+        printf("%c", input_digit1[i]);
+    }
+    printf("\n");
+    free(input_digit1);
+
+
+
+    /**************/
+    /*   TEST 5   */
+    /**************/
+    printf("\n>> TEST 5: mutateUInt64Value with lu\n");
+
+    char* input_digit2 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit2, "-5");
+    mutateUInt64Value(input_digit2,data,"%lu");
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit2[i] != '\0'; i++) {
+        printf("%c", input_digit2[i]);
+    }
+    printf("\n");
+    free(input_digit2);
+
 
     // Free all
     afl_custom_deinit(data);
