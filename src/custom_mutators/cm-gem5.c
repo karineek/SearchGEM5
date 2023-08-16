@@ -375,12 +375,16 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
         WARNF("Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
         return 0;
     }
+    //printf("Size: %zu", actual_size);
     memcpy(new_new_buf, new_buf, actual_size);
-    free(new_buf);
 
     // Set it as output buff
     *out_buf = new_new_buf;
-    return new_size;
+
+    // Clear the old data
+    free(new_buf);
+
+    return actual_size;
 }
 
 /**
