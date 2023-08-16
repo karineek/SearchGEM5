@@ -82,23 +82,72 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 }
 
 // Read the types from file
-void readTypes(my_mutator_t *data) {
+void readTypes(my_mutator_t *data, char* buffer) {
     // Open the file for reading
     FILE *file = fopen(data->file_name_types, "r");
     if (file == NULL) {
         perror("Error opening file");
+        buffer = 0;
+        return;
+    }
+
+    // Allocate space
+    if ((buffer = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
+        perror("afl buffer malloc failed");
         return;
     }
 
     // Read the file line by line
-    char buffer[256]; // Adjust the buffer size as needed
-    while (fgets(buffer, sizeof(buffer), file) != NULL) {
-        // Print each line (or process it as needed)
-        printf("Read line: %s", buffer);
+    if (fgets(buffer, sizeof(buffer), file) == NULL) {
+        perror("Error reading file");
+        buffer = 0;
+        return;
     }
 
     // Close the file
     fclose(file);
+}
+
+// Bit flip integer of 8 bits
+void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    unsigned char num;
+    if (sscanf(token, "%hhu", &num) == 1) {
+        int bit_pos =
+#ifndef DEBUG_CM
+                (data->afl) ? rand_below(data->afl, (sizeof(unsigned char) * 8)) :
+#endif
+                        rand() % (sizeof(unsigned char) * 8); // Random location in the register
+
+        num ^= (1u << bit_pos); // Bit flip it
+        sprintf(token, format, num); // Copy it back
+    }
+}
+
+// Bit flip integer of 16 bits
+void mutateUInt16Value(char *token, my_mutator_t *data, char* format) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    unsigned short num;
+    if (sscanf(token, "%hu", &num) == 1) {
+        int bit_pos =
+#ifndef DEBUG_CM
+                (data->afl) ? rand_below(data->afl, (sizeof(unsigned short) * 8)) :
+#endif
+                        rand() % (sizeof(unsigned short) * 8); // Random location in the register
+
+        num ^= (1u << bit_pos); // Bit flip it
+        sprintf(token, format, num); // Copy it back
+    }
 }
 
 // Bit flip integer of 32 bits
@@ -143,7 +192,55 @@ void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
     }
 }
 
-// Prepare data before mutating
+// Float bit flip
+void mutateFloatValue(char *token, my_mutator_t *data) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    float num;
+    unsigned int int_repr;
+    if (sscanf(token, "%f", &num) == 1) {
+        memcpy(&int_repr, &num, sizeof(float)); // dump to uint
+        int bit_pos =
+#ifndef DEBUG_CM
+                (data->afl) ? rand_below(data->afl, (sizeof(unsigned int) * 8)) :
+#endif
+                        rand() % (sizeof(unsigned int) * 8); // Random location in the register
+
+        int_repr ^= (1u << bit_pos); // Bit flip it
+        memcpy(&num, &int_repr, sizeof(float)); // back to float
+        sprintf(token, "%f", num); // Copy it back
+    }
+}
+
+// Double bit flip
+void mutateDoubleValue(char *token, my_mutator_t *data) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    double num;
+    unsigned long int_repr;
+    if (sscanf(token, "%lf", &num) == 1) {
+        memcpy(&int_repr, &num, sizeof(double)); // dump to uint
+        int bit_pos =
+#ifndef DEBUG_CM
+                (data->afl) ? rand_below(data->afl, (sizeof(unsigned long) * 8)) :
+#endif
+                        rand() % (sizeof(unsigned long) * 8); // Random location in the register
+
+        int_repr ^= (1ul << bit_pos); // Bit flip it
+        memcpy(&num, &int_repr, sizeof(double)); // back to float
+        sprintf(token, "%lf", num); // Copy it back
+    }
+}
+
+// Prepare data before mutation
 void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data) {
     // Init buffers
     data->out_buff[0] = '\0';
@@ -171,14 +268,46 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		// t.c.o - cannot be smaller
     if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
 
+    // Read tokens of data types
+    char* types_token = 0, buf_token = 0;
+    readTypes(data, buf_token); bool invalid_tokens = (!buf_token);
+    if (!invalid_tokens) {
+	types_token = strtok(buf_token, " ");
+        if (types_token != NULL && strcmp(types_token,"BINARY") == 0)
+	    types_token = strtok(NULL, " "); // Next type token, we don't mutate here the binary (differnt mutation)
+    }
+
     // Find numeric parts and mutate them using mutateNumericValue function
     char *token = strtok(data->input_args, " ");
     while (token != NULL) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
-    	mutateUInt32Value(data->input_digit, data, "%u");
-        // TODO: add other data types
+
+        if (invalid_tokens)
+    	    mutateUInt32Value(data->input_digit, data, "%u");
+	else if (strcmp(types_token,"UINT32") == 0)
+	    mutateUInt32Value(data->input_digit, data, "%u");
+        else if (strcmp(types_token,"INT32") == 0)
+            mutateUInt32Value(data->input_digit, data, "%d");
+        else if (strcmp(types_token,"ULONG") == 0)
+            mutateUInt64Value(data->input_digit, data, "%lu");
+        else if (strcmp(types_token,"LONG") == 0)
+            mutateUInt64Value(data->input_digit, data, "%ld");
+        else if (strcmp(types_token,"USHORT") == 0)
+            mutateUInt16Value(data->input_digit, data, "%hu");
+        else if (strcmp(types_token,"SHORT") == 0)
+            mutateUInt16Value(data->input_digit, data, "%hd");
+        else if (strcmp(types_token,"UCHAR") == 0)
+            mutateUInt16Value(data->input_digit, data, "%hhu");
+        else if (strcmp(types_token,"CHAR") == 0)
+            mutateUInt16Value(data->input_digit, data, "%hhd");
+        else if (strcmp(types_token,"FLOAT") == 0)
+            mutateFloatValue(data->input_digit, data);
+        else if (strcmp(types_token,"DOUBLE") == 0)
+            mutateDoubleValue(data->input_digit, data);
+	else
+	    mutateUInt32Value(data->input_digit, data, "%u");
 
         // Append the mutated string:
         size_t len = strlen(data->input_digit);
@@ -189,6 +318,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         // Next iteration:
 	token = strtok(NULL, " "); // Next token
         if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
+        if (!invalid_tokens && types_token != NULL) types_token = strtok(NULL, " "); // Next type token
    }
    strcpy((char *)new_buf, data->out_buff);
 }
