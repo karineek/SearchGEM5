@@ -104,7 +104,9 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 
         // Append the mutated string
         size_t len = strlen(data->input_digit);
-        strncat(data->out_buff, data->input_digit, len);
+        size_t len_all = strlen(data->out_buff);
+        if ((len + len_all) < (MAX_CMDLINE_SIZE - 1))
+            strncat(data->out_buff, data->input_digit, len);
 
 	token = strtok(NULL, " "); // Next token
         if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
@@ -133,10 +135,18 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
                        size_t add_buf_size,  // add_buf can be NULL
                        size_t max_size) {
 
-    size_t new_size = buf_size;
+    size_t new_size = MAX_CMDLINE_SIZE <= max_size ? MAX_CMDLINE_SIZE : max_size;
+    if (new_size < buf_size) {
+        WARNF("Max size of register is: %zu, %zu", new_size, buf_size);
+        return 0; // We cannot work with this
+    }
+
+    // Allocate a new buffer for the edits
     uint8_t *new_buf = malloc(new_size);
-    if (!new_buf)
+    if (!new_buf) {
+        WARNF("Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
         return 0;
+    }
 
     // Copy the original input data
     memcpy(new_buf, buf, buf_size);
@@ -144,6 +154,15 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     // bit flip on the arguments
     findAndMutateArgs(new_buf, data);
 
+    // Shrink the buffer till \0
+    size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
+    new_buf = (uint8_t *)realloc(new_buf, actual_size);
+    if (!new_buf) {
+        WARNF("Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
+        return 0;
+    }
+
+    // Set it as output buff
     *out_buf = new_buf;
     return new_size;
 }
@@ -154,7 +173,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
  * @param data The data ptr from afl_custom_init
  */
 void afl_custom_deinit(my_mutator_t *data) {
-
+  data->afl = 0;
   free(data->out_buff);
   free(data->input_digit);
   free(data);
