@@ -1,0 +1,72 @@
+\newcommand{\gem5}{gem5} %note no capital letters
+
+Section{Background}
+
+\gem5{} is a state of the art
+discrete time simulator for  logic circuits.
+It is often used to try out the logic design of new electronic
+components
+such as memory cache systems, FPGAs, even CPUs.
+\gem5{} is a large open source project hosted on GitHub
+written mostly in C++ and Python.
+For the SSBSE~2023 Challange Track,
+Dr.~Bobby~R.\ Bruce
+prepared a dedicated GitHub clone%
+\footnote{%
+7 June 2023
+\URL{https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023}
+}.
+The 2023 challange track version
+is based on \gem5{} staging branch v23.0
+but with the latest \gem5{} features and improvements
+merged into a stable release
+and the addition of  ssbse-challenge-examples.
+The 2023 challange track,
+%du 29738432
+including object, shared library and images can occupy
+%gawk 'END{print 29738432/1024/1024}' /dev/null 28.3608
+more than 28~GB.
+%
+%perl ~/cloc-1.64.pl .
+%   14989 text files.
+%   11541 unique files.                                          
+%    5143 files ignored.
+%
+%http://cloc.sourceforge.net v 1.64  T=195.72 s (50.8 files/s, 12400.0 lines/s)
+%--------------------------------------------------------------------------------
+%Language                      files          blank        comment           code
+%--------------------------------------------------------------------------------
+%C++                            4076         135318         154554         629847
+%C/C++ Header                   3224          98417         156412         379048
+%Pascal                           11          84751         299422         145255
+%Python                         1496          36364          79634         116603
+%C                               448           8220          14267          27599
+%DOS Batch                        13            243              0          16296
+%XML                             146             85           2390           9162
+%JSON                            209              0              0           7519
+%HTML                              4            841              4           3588
+%YAML                             24            457            394           2853
+%Assembly                         34            704           2082           2437
+%CMake                            22            482            704           2392
+%Bourne Shell                     28            347            928           1705
+%m4                                4            246              0           1415
+%Fortran 77                      137              0             68            492
+%make                             25            209            364            423
+%Lisp                             10             33             25            349
+%Perl                              3             92            280            325
+%SASS                              2             37              3            165
+%awk                               5             43              0            162
+%Visual Basic                     13              1              0            150
+%Protocol Buffers                  3             20            144            111
+%Java                              2             24             65             82
+%Bourne Again Shell                2             21             61             73
+%C Shell                           1              7              0             51
+%sed                               2              5             70             16
+%CSS                               1              0              0              3
+%--------------------------------------------------------------------------------
+%SUM:                           9945         366967         711871        1348121
+%--------------------------------------------------------------------------------
+In terms of programs,
+there are 1\,348,\121 lines of code,
+comprising more than a million lines of C++ and header files.
+The rest is mostly python code and scripts.
