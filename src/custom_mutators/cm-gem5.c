@@ -23,12 +23,15 @@ typedef struct my_mutator {
 
   char* file_name_types; // The name of the file with types to mutate
 
+  char* input_args; // Keeps the input arguments for mutating
+
   char* input_digit; // Buffer for register mutations
 
 } my_mutator_t;
 
 #define MAX_CMDLINE_SIZE (250)
 #define MAX_FILE_NAME_SIZE (100)
+#define MAX_ARGS_SIZE (140)
 #define MAX_DATA_SIZE (20)
 
 /**
@@ -62,6 +65,11 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
     return NULL;
   }
 
+  if ((data->input_args = (char *)malloc(MAX_ARGS_SIZE)) == NULL) {
+    perror("afl_custom_init malloc");
+    return NULL;
+  }
+
   if ((data->input_digit = (char *)malloc(MAX_DATA_SIZE)) == NULL) {
     perror("afl_custom_init malloc");
     return NULL;
@@ -71,6 +79,26 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
   return data;
 
+}
+
+// Read the types from file
+void readTypes(my_mutator_t *data) {
+    // Open the file for reading
+    FILE *file = fopen(data->file_name_types, "r");
+    if (file == NULL) {
+        perror("Error opening file");
+        return;
+    }
+
+    // Read the file line by line
+    char buffer[256]; // Adjust the buffer size as needed
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        // Print each line (or process it as needed)
+        printf("Read line: %s", buffer);
+    }
+
+    // Close the file
+    fclose(file);
 }
 
 // Bit flip integer of 32 bits
@@ -115,19 +143,36 @@ void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
     }
 }
 
-// Mutate arguments for the binary in the corpus
-void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
+// Prepare data before mutating
+void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data) {
     // Init buffers
     data->out_buff[0] = '\0';
     data->file_name_types[0] = '\0';
+    data->input_args[0] = '\0';
+
+    char *token = strtok((char *)new_buf, "\n");  // Split lines
+    strcpy(data->out_buff,token);                 // Keep the name of the binary
+    strncat(data->out_buff, "\n", 1);             // Add back the newline
+    strcpy(data->file_name_types, token);         // Keep the file name
+    strncat(data->file_name_types, ".types", 6);  // Add back the .types ending
+
+    // Add the args lines again
+    token = strtok(NULL, "\n");
+    if (token != NULL) {
+       strcpy(data->input_args, token);
+    }
+}
+
+// Mutate arguments for the binary in the corpus
+void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
+    // Init data used for mutating
+    initCurrentMutationData(new_buf, data);
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		// All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		// t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
 
     // Find numeric parts and mutate them using mutateNumericValue function
-    static char delimit[]=" \n";
-    char *token = strtok((char *)new_buf, delimit);
-    strcpy(data->out_buff,token);
-    token = strtok(NULL, " "); // Next token
-    strncat(data->out_buff, "\n", 1); // add back the newline
-
+    char *token = strtok(data->input_args, " ");
     while (token != NULL) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
@@ -187,6 +232,10 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     // bit flip on the arguments
     findAndMutateArgs(new_buf, data);
+    if (!new_buf) {
+        WARNF("Bad generation for buffer with mutations.");
+        return 0;
+    }
 
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
@@ -210,9 +259,9 @@ void afl_custom_deinit(my_mutator_t *data) {
   data->afl = 0;
   free(data->out_buff);
   free(data->file_name_types);
+  free(data->input_args);
   free(data->input_digit);
   free(data);
-
 }
 
 #ifdef DEBUG_CM

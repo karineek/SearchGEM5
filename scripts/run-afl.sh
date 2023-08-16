@@ -1,0 +1,1 @@
+ AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="/home/ubuntu/Gem5Testing/src/custom_mutators/cm-gem5.so" /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 5000 -i corpus/ -o output -- /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@
