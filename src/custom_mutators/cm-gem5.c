@@ -123,7 +123,7 @@ void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
                 (data->afl) ? rand_below(data->afl, (sizeof(unsigned char) * 8)) :
 #endif
                         rand() % (sizeof(unsigned char) * 8); // Random location in the register
-
+        printf("size %d\n",bit_pos);
         num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -240,6 +240,33 @@ void mutateDoubleValue(char *token, my_mutator_t *data) {
     }
 }
 
+
+// String bit flip
+void mutateStringValue(char *token, my_mutator_t *data) {
+#ifdef DEBUG_CM
+    static int rand_next = 0;
+    srand(time(NULL)+rand_next); // randomize seed
+    rand_next++;
+#endif
+
+    if (!token) return;
+
+    int pos =
+#ifndef DEBUG_CM
+    	(data->afl) ? rand_below(data->afl, strlen(token)) :
+#endif
+        rand() % strlen(token); // Random location in the register
+
+    uint8_t *mutate_buf = malloc(MAX_DATA_SIZE);
+    sprintf(mutate_buf, "%hhd", (int8_t) token[pos]); // Copy it back
+    mutateUInt8Value(mutate_buf,data,"%hhd");
+
+    int integerValue = atoi(mutate_buf); // Convert string to integer
+    token[pos] = (char)integerValue; // Convert integer to char
+
+    free(mutate_buf);
+}
+
 // Prepare data before mutation
 void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data) {
     // Init buffers
@@ -307,6 +334,8 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
             mutateFloatValue(data->input_digit, data);
         else if (strcmp(types_token,"DOUBLE") == 0)
             mutateDoubleValue(data->input_digit, data);
+        else if (strcmp(types_token,"STRING") == 0)
+            mutateStringValue(data->input_digit, data);
 	else
 	    mutateUInt32Value(data->input_digit, data, "%u");
 
@@ -581,13 +610,30 @@ int main () {
 
 
     /**************/
-    /*   TEST 11   */
+    /*   TEST 11  */
     /**************/
     printf("\n>> TEST 11: mutateUInt64Value with lf\n");
 
     input_digit3 = (char *)malloc(20 * sizeof(char));
     strcpy(input_digit3, "5.9");
     mutateDoubleValue(input_digit3,data);
+    // Print characters until the null-terminator is encountered
+    for (int i = 0; input_digit3[i] != '\0'; i++) {
+        printf("%c", input_digit3[i]);
+    }
+    printf("\n");
+    free(input_digit3);
+
+
+
+    /**************/
+    /*   TEST 12  */
+    /**************/
+    printf("\n>> TEST 12: mutateUInt64Value with string\n");
+
+    input_digit3 = (char *)malloc(20 * sizeof(char));
+    strcpy(input_digit3, "foo");
+    mutateStringValue(input_digit3,data);
     // Print characters until the null-terminator is encountered
     for (int i = 0; input_digit3[i] != '\0'; i++) {
         printf("%c", input_digit3[i]);
