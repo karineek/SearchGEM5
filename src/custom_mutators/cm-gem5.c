@@ -313,8 +313,6 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
 
-	printf(">>>> many: %d\n", is_many_args);
-
 	// TODO: Nasty mutation
 
         if ((is_many_args) && (mutator_rand(data, 0, 1000) < 350))
