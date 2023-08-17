@@ -421,10 +421,10 @@ void afl_custom_deinit(my_mutator_t *data) {
 }
 
 #ifdef DEBUG_CM
-int main () {
+int main (int argc, char *argv[]) {
     my_mutator_t *data = afl_custom_init(0,0); // Create dummy mutator data
 
-
+#ifndef TEST_CM
     /**************/
     /*   TEST 1   */
     /**************/
@@ -630,6 +630,37 @@ int main () {
     }
     printf("\n");
     free(input_digit3);
+#else
+
+    printf("Start the test!\n");
+    if (argc != 2) {
+        printf("Usage: %s <string>\n", argv[0]);
+        return 1;
+    }
+
+    char *input_string = argv[1];
+    printf(">>>> Input String: %s\n", input_string);
+    printf(">>>> TEST: findAndMutateArgs\n");
+    if (!data) printf(">> ERROR AFL OBJECT WAS NOT ALLOCATED\n");
+    char *input = (char *)malloc(250 * sizeof(char));
+    strcpy(input, input_string);
+    findAndMutateArgs((unsigned char *)input, data);
+
+    // Print characters until the null-terminator is encountered
+    printf(">>>> End of test\n>>>>>> ");
+    for (int i = 0; input[i] != '\0'; i++) {
+        printf("%c", input[i]);
+    }
+    printf("\n");
+
+    printf("Result of test:\n");
+    printf(">>>> Output Buffer String: %s\n", data->out_buff);
+    printf(">>>> Output Buffer String: %s\n", data->file_name_types);
+    printf(">>>> Output Buffer String: %s\n", data->input_args);
+    if (strlen(data->input_args) < 5) 
+        printf(">>>> DIAGNOSIS: Input file is invalid. Do you have two lines in .txt file?\n");
+
+#endif
 
 
     // Free all

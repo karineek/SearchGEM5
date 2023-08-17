@@ -11,6 +11,9 @@ echo ">> Running test $txt with binary $binary and types $types"
 cat -n $txt
 cat -n $types
 
+echo "Checking test: "
+./check_folders_integrity.sh $1 $2 $3
+
 current_folder=`pwd`
 cd ../..
 gem5_script=`pwd`"/hello-custom-binary-Ex.py"
