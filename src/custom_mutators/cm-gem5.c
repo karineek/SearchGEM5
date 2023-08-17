@@ -313,7 +313,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
 
-	printf(">>>> Output TOKEN: %s\n", types_token);
+	printf(">>>> many: %d\n", is_many_args);
 
 	// TODO: Nasty mutation
 

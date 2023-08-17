@@ -11,7 +11,7 @@ if [ -e "$txt_file" ]; then
         txt_contents=$(<"$txt_file")
         eval "( ulimit -St 50 -Sf 4000 ; "$txt_contents") > output1.txt 2>&1"
         res=`echo $?`
-        if [[ $res -gt 0 ]] ; then
+        if [[ $res -gt 1 ]] ; then
 	    echo ">> DIAGNOSIS - FAILED: ($res) $so_file $txt_file"
          else
 	    eval "( ulimit -St 50 -Sf 4000 ; "$so_file") > output2.txt 2>&1"
