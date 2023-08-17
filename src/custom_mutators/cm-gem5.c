@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <time.h>
+#include <limits.h>
 
 //#define DEBUG_CM 1 // Debug or afl plugin
 
@@ -108,22 +109,35 @@ void readTypes(my_mutator_t *data, char* buffer) {
     fclose(file);
 }
 
-// Bit flip integer of 8 bits
-void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
+// Random int generator - either len or rate used!
+int mutator_rand(my_mutator_t *data, size_t len, int rate) {
+    if (rate == 0 && len == 0) return 0;
+    if (!data) return 0;
+
 #ifdef DEBUG_CM
     static int rand_next = 0;
     srand(time(NULL)+rand_next); // randomize seed
     rand_next++;
 #endif
 
+    int num =
+#ifndef DEBUG_CM
+        (data->afl) ? rand_below(data->afl, (rate==0 ? len : rate)) :
+#endif
+        rand() % (rate==0 ? len : rate); // Random location in the register
+    return num;
+}
+
+// Bit flip integer of 8 bits
+void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
+    if (!token) return;
+    if (!data) return;
+    if (!format) return;
+
     unsigned char num;
     if (sscanf(token, "%hhu", &num) == 1) {
-        int bit_pos =
-#ifndef DEBUG_CM
-                (data->afl) ? rand_below(data->afl, (sizeof(unsigned char) * 8)) :
-#endif
-                        rand() % (sizeof(unsigned char) * 8); // Random location in the register
-        printf("size %d\n",bit_pos);
+        int bit_pos = ((num != (unsigned char)CHAR_MIN) && mutator_rand(data, 0, 1000) < 50) ? (sizeof(unsigned char) * 8) - 1 // Sign flip
+                :  mutator_rand(data, (sizeof(unsigned char) * 8), 0); // Bit flip
         num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -131,20 +145,14 @@ void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
 
 // Bit flip integer of 16 bits
 void mutateUInt16Value(char *token, my_mutator_t *data, char* format) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
+    if (!token) return;
+    if (!data) return;
+    if (!format) return;
 
     unsigned short num;
     if (sscanf(token, "%hu", &num) == 1) {
-        int bit_pos =
-#ifndef DEBUG_CM
-                (data->afl) ? rand_below(data->afl, (sizeof(unsigned short) * 8)) :
-#endif
-                        rand() % (sizeof(unsigned short) * 8); // Random location in the register
-
+        int bit_pos = ((num != (unsigned short)SHRT_MIN) && mutator_rand(data, 0, 1000) < 10) ? (sizeof(unsigned short) * 8) - 1 // Sign flip
+                : mutator_rand(data, (sizeof(unsigned short) * 8), 0); // Bit flip
         num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -152,20 +160,14 @@ void mutateUInt16Value(char *token, my_mutator_t *data, char* format) {
 
 // Bit flip integer of 32 bits
 void mutateUInt32Value(char *token, my_mutator_t *data, char* format) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
+    if (!token) return;
+    if (!data) return;
+    if (!format) return;
 
     unsigned int num;
     if (sscanf(token, "%u", &num) == 1) {
-        int bit_pos =
-#ifndef DEBUG_CM
-		(data->afl) ? rand_below(data->afl, (sizeof(unsigned int) * 8)) :
-#endif
-			rand() % (sizeof(unsigned int) * 8); // Random location in the register
-
+        int bit_pos = ((num != (unsigned int)INT_MIN) && mutator_rand(data, 0, 1000) < 20) ? (sizeof(unsigned int) * 8) - 1 // Sign flip
+                : mutator_rand(data, (sizeof(unsigned int) * 8), 0); // Bit flip
 	num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -173,20 +175,14 @@ void mutateUInt32Value(char *token, my_mutator_t *data, char* format) {
 
 // Bit flip integer of 64 bits
 void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
+    if (!token) return;
+    if (!data) return;
+    if (!format) return;
 
     unsigned long num;
     if (sscanf(token, "%lu", &num) == 1) {
-        int bit_pos =
-#ifndef DEBUG_CM
-                (data->afl) ? rand_below(data->afl, (sizeof(unsigned long) * 8)) :
-#endif
-                        rand() % (sizeof(unsigned long) * 8); // Random location in the register
-
+        int bit_pos = ((num != (unsigned long)LONG_MIN) && mutator_rand(data, 0, 1000) < 30) ? (sizeof(unsigned long) * 8) - 1 // Sign flip
+		: mutator_rand(data, (sizeof(unsigned long) * 8), 0); // Bit flip
         num ^= (1ul << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -194,22 +190,15 @@ void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
 
 // Float bit flip
 void mutateFloatValue(char *token, my_mutator_t *data) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
+    if (!token) return;
+    if (!data) return;
 
     float num;
     unsigned int int_repr;
     if (sscanf(token, "%f", &num) == 1) {
+	// Flip bit
         memcpy(&int_repr, &num, sizeof(float)); // dump to uint
-        int bit_pos =
-#ifndef DEBUG_CM
-                (data->afl) ? rand_below(data->afl, (sizeof(unsigned int) * 8)) :
-#endif
-                        rand() % (sizeof(unsigned int) * 8); // Random location in the register
-
+        int bit_pos = mutator_rand(data, (sizeof(unsigned int) * 8), 0);
         int_repr ^= (1u << bit_pos); // Bit flip it
         memcpy(&num, &int_repr, sizeof(float)); // back to float
         sprintf(token, "%f", num); // Copy it back
@@ -218,45 +207,27 @@ void mutateFloatValue(char *token, my_mutator_t *data) {
 
 // Double bit flip
 void mutateDoubleValue(char *token, my_mutator_t *data) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
+    if (!token) return;
+    if (!data) return;
 
     double num;
     unsigned long int_repr;
     if (sscanf(token, "%lf", &num) == 1) {
+        // Flip bit
         memcpy(&int_repr, &num, sizeof(double)); // dump to uint
-        int bit_pos =
-#ifndef DEBUG_CM
-                (data->afl) ? rand_below(data->afl, (sizeof(unsigned long) * 8)) :
-#endif
-                        rand() % (sizeof(unsigned long) * 8); // Random location in the register
-
+        int bit_pos = mutator_rand(data, (sizeof(unsigned long) * 8), 0);
         int_repr ^= (1ul << bit_pos); // Bit flip it
         memcpy(&num, &int_repr, sizeof(double)); // back to float
         sprintf(token, "%lf", num); // Copy it back
     }
 }
 
-
 // String bit flip
 void mutateStringValue(char *token, my_mutator_t *data) {
-#ifdef DEBUG_CM
-    static int rand_next = 0;
-    srand(time(NULL)+rand_next); // randomize seed
-    rand_next++;
-#endif
-
     if (!token) return;
+    if (!data) return;
 
-    int pos =
-#ifndef DEBUG_CM
-    	(data->afl) ? rand_below(data->afl, strlen(token)) :
-#endif
-        rand() % strlen(token); // Random location in the register
-
+    int pos = mutator_rand(data, strlen(token), 0);
     char* mutate_buf = malloc(MAX_DATA_SIZE);
     sprintf(mutate_buf, "%hhd", (int8_t) token[pos]); // Copy it back
     mutateUInt8Value(mutate_buf,data,"%hhd");
@@ -287,6 +258,20 @@ void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data) {
     }
 }
 
+bool is_one_arg_call(char *str) {
+    if (!str) return true; // empty string means no tokens - true
+
+    const char *pos = str;
+    int count = 0;
+    if (str[0] != ' ') count = -1;
+
+    while ((pos = strchr(pos, ' ')) != NULL) {
+        count++;
+        pos++; // Move to the next character position
+    }
+    return (count < 2); // BiNARY INT => 1 space and 1 args.
+}
+
 // Mutate arguments for the binary in the corpus
 void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     // Init data used for mutating
@@ -307,12 +292,17 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 
     // Find numeric parts and mutate them using mutateNumericValue function
     char *token = strtok(data->input_args, " ");
+    bool is_many_args = !is_one_arg_call(buf_token);
     while (token != NULL) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
 
-        if (invalid_tokens)
+	// TODO: Nasty mutation
+
+        if ((is_many_args) && (mutator_rand(data, 0, 1000) < 350))
+            is_many_args = false; // Just skip one replace
+        else if (invalid_tokens)
     	    mutateUInt32Value(data->input_digit, data, "%u");
 	else if (strcmp(types_token,"UINT32") == 0)
 	    mutateUInt32Value(data->input_digit, data, "%u");
@@ -615,7 +605,7 @@ int main () {
     printf("\n>> TEST 11: mutateUInt64Value with lf\n");
 
     input_digit3 = (char *)malloc(20 * sizeof(char));
-    strcpy(input_digit3, "5.9");
+    strcpy(input_digit3, "5.967867868");
     mutateDoubleValue(input_digit3,data);
     // Print characters until the null-terminator is encountered
     for (int i = 0; input_digit3[i] != '\0'; i++) {
