@@ -348,7 +348,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         size_t len = strlen(data->input_digit);
         size_t len_all = strlen(data->out_buff);
         if ((len + len_all) < (MAX_CMDLINE_SIZE - 1))
-            strncat(data->out_buff, data->input_digit, len);
+            strcat(data->out_buff, data->input_digit);
 
         // Next iteration:
 	token = strtok_r(NULL, " ", &saveptr1); // Next token
