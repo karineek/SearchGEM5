@@ -657,7 +657,7 @@ int main (int argc, char *argv[]) {
     printf(">>>> Output Buffer String: %s\n", data->out_buff);
     printf(">>>> Output Buffer String: %s\n", data->file_name_types);
     printf(">>>> Output Buffer String: %s\n", data->input_args);
-    if (strlen(data->input_args) < 5) 
+    if (strlen(data->input_args) < 1)
         printf(">>>> DIAGNOSIS: Input file is invalid. Do you have two lines in .txt file?\n");
 
 #endif
