@@ -1,0 +1,343 @@
+// source: 2002-04-17-PrintfChar.c
+/* this little micro testcase is due to lli printing out char values
+ * incorrectly through printf.
+ */
+int printf(const char*, ...);
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", (int)a3, (int)*a5);
+}
+
+int main() {
+  printArgsNoRet('c', "e");
+  return 0;
+}
+// source: 2002-05-02-ArgumentTest.c
+extern int printf(const char *str, ...);
+
+void testfunc(short s, float X, char C, long long LL, int I, double D) {
+	printf("%d, %f, %d, %lld, %d, %f\n", s, X, C, LL, I, D);
+}
+
+int main() {
+	testfunc(12, 1.245f, 'x', 123456677890LL, -10, 45e14);
+        return 0;
+}
+
+// source: 2002-05-02-CastTest.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+
+/* Linux defines these in stdint.h, sun might not have that file, don't mess
+   around when it's this easy to fix */
+typedef unsigned char uint8;
+typedef   signed char int8;
+
+int
+main(int argc, char** argv)
+{
+  char  c1 = (argc >= 2)? atoi(argv[1]) : 100;  /* 100 = 'd' */
+  short s1 = (argc >= 3)? atoi(argv[2]) : -769; /* 0xfcff = -769 */
+
+  unsigned char ubc0 = (unsigned char) c1;      /* 100 = 'd' */
+  uint8  ubs0 = (uint8) s1;                     /* 0xff = 255 */
+  uint8  ubs1 = ubs0+1;                         /* ((uint8) 0xff) + 1) = 0 */
+
+  int8   bs0  = (int8) ubs0;                    /* (int8) 0xff = -1 */
+  int8   bs1  = (int8) (ubs0 + 1U);             /* (int8) (0xff + 0x1) = 0 */
+
+  unsigned char  uc2 = (unsigned char) c1;      /* 100 = 'd' */
+  unsigned short us2 = (unsigned short) s1;     /* 0xfcff = 64767 */
+
+  int ic3 = (int) c1;                           /* 100 = 'd' */
+  int is3 = (int) s1;                           /* 0xfffffcff = -769 */
+  int is4 = ((int) ubs0) + 1;                   /* ((int) 0xff) + 1 = 256 */
+  int is5 = ((int)  bs0) + 1;                   /* ((int) -1)   + 1 = 0 */
+
+  unsigned int uic4 = (unsigned int) c1;        /*  100 = 'd' */
+  unsigned int uis4 = (unsigned int) s1;        /* 0xfffff7ff = 4294966527 */
+
+  printf("ubc0 = '%c'\t   [0x%x]\n", ubc0, ubc0);
+  printf("ubs0 = %u\t   [0x%x]\n",   ubs0, ubs0);
+  printf("ubs1 = %u\t   [0x%x]\n",   ubs1, ubs1);
+  printf("bs0  = %d\t   [0x%x]\n",   bs0,  bs0);
+  printf("bs1  = %d\t   [0x%x]\n",   bs1,  bs1);
+  printf("c1   = '%c'\t   [0x%x]\n", c1,   c1);
+  printf("s1   = %d\t   [0x%x]\n",   s1,   s1);
+  printf("uc2  = '%c'\t   [0x%x]\n", uc2,  uc2);
+  printf("us2  = %u\t   [0x%x]\n",   us2,  us2);
+  printf("ic3  = '%c'\t   [0x%x]\n", ic3,  ic3);
+  printf("is3  = %d\t   [0x%x]\n",   is3,  is3);
+  printf("is4  = %d\t   [0x%x]\n",   is4,  is4);
+  printf("is5  = %d\t   [0x%x]\n",   is5,  is5);
+  printf("uic4 = '%c'\t   [0x%x]\n", uic4, uic4);
+  printf("uis4 = %u  [0x%x]\n",   uis4, uis4);
+
+  return 0;
+}
+// source: 2002-05-02-CastTest1.c
+int printf(const char *, ...);
+
+int
+main(int argc, char** argv)
+{
+  signed char c0  = -1;
+  unsigned char c1 = 255;
+  printf("bs0  = %d %d\n", c0, c1);
+  return 0;
+}
+// source: 2002-05-02-CastTest2.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+
+int
+main(int argc, char** argv) {
+  short s1 = (argc > 120) ? atoi(argv[1]) : -769; /* 0xf7ff = -769 */
+
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+  printf("us2  = %u\n",   us2);
+  return 0;
+}
+// source: 2002-05-02-CastTest3.c
+int printf(const char *, ...);
+
+int main(int argc, char** argv) {
+  short s1 = (argc >= 3)? argc : -769; /* 0xf7ff = -769 */
+
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+
+  printf("s1   = %d\n",   s1);
+  printf("us2  = %u\n",   us2);
+  return 0;
+}
+// source: 2002-05-02-ManyArguments.c
+
+#include <stdio.h>
+
+void printfn(int a, short b, double C, float D, signed char E, char F, void *G, double *H, int I, long long J) {
+	printf("%d, %d, %f, %f, %d\n", a, b, C, D, E);
+	printf("%d, %ld, %ld, %d, %lld\n", F, (long) G, (long) H, I, J);
+}
+
+int main() {
+	printfn(12, 2, 123.234, 1231.12312f, -12, 23, (void*)123456, 0, 1234567, 123124124124LL);
+	return 0;
+}
+// source: 2002-05-03-NotTest.c
+
+#include <stdio.h>
+
+void testBitWiseNot(int A, int B, int C, int D) {
+  printf("Bitwise Not: %d %d %d %d\n", ~A, ~B, ~C, ~D);
+}
+
+void testBooleanNot(int A, int B, int C, int D) {
+  printf("Boolean Not: %d %d %d %d %d %d\n",
+         !(A > 0 && B > 0),
+         !(A > 0 && C > 0),
+         !(A > 0 && D > 0),
+         !(B > 0 && C > 0),
+         !(B > 0 && D > 0),
+         !(C > 0 && D > 0));
+
+}
+
+int main() {
+  testBitWiseNot(1, 2, -3, 5);
+  testBooleanNot(1, 2, -3, 5);
+  return 0;
+}
+// source: 2002-05-19-DivTest.c
+
+#ifndef __STDC_LIMIT_MACROS
+#define __STDC_LIMIT_MACROS 1
+#endif
+#include <inttypes.h>
+
+extern int printf(const char *, ...);
+
+void testL(int64_t Arg) {
+  printf("%d\n", (int) (Arg / ((int64_t)1 << 4)));
+  printf("%d\n", (int) (Arg / ((int64_t)1 << 46)));
+}
+
+void test(int Arg) {
+  printf("%d\n", Arg / (1 << 0));
+  printf("%d\n", Arg / (1 << 4));
+  printf("%d\n", Arg / (1 << 18));
+  printf("%d\n", Arg / (1 << 30));
+}
+
+int main() {
+  int B20 = - (1 << 20);
+  int64_t B53 = - ((int64_t)1 << 53);
+
+  test(B20 + 32);
+  test(B20 + 33);
+
+  testL(B53 + 64);
+  testL(B53 + 65);
+
+  return 0;
+}
+// source: 2002-08-02-CastTest.c
+#include <stdio.h>
+
+unsigned test(unsigned X) {
+  return (unsigned char)X;
+}
+
+int main() {
+	printf("%d\n", test(123456));
+        return 0;
+}
+
+// source: 2002-08-02-CastTest2.c
+int printf(const char *, ...);
+
+void test(short s1) {
+  unsigned short us2 = (unsigned short) s1;     /* 0xf7ff = 64767 */
+
+  printf("s1   = %d\n",   s1);
+  printf("us2  = %u\n",   us2);
+}
+
+int main() {
+  test(-769);
+  return 0;
+}
+// source: 2002-08-19-CodegenBug.c
+/* This testcase tests a problem that occurred due to the way call nodes are
+ * generated by llvmgcc.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    unsigned char *validate_array;
+
+    validate_array = (unsigned char *)malloc(64);
+    if (validate_array == 0) {
+	printf("FAILURE!\n");
+	exit(1);
+    }
+
+    printf("SUCCESS\n");
+    return 0;
+}
+// source: 2002-10-09-ArrayResolution.c
+#include <stdio.h>
+#define NUM 32
+
+int Array[];
+int Array[NUM];
+int Foo;            /* If writing to the wrong "Array", this will get clobbered */
+
+int main() {
+  unsigned i;
+  for (i = 0; i != NUM; ++i)
+    Array[i] = 5;
+
+  printf("%d\n", Foo);
+  return 0;
+}
+
+// source: 2002-10-12-StructureArgs.c
+#include <stdio.h>
+
+struct vec2 { double X, Y; };
+
+void print(struct vec2 S, struct vec2 T) {
+	printf("%f, %f, %f, %f\n", S.X, S.Y, T.X, T.Y);
+}
+
+int main() {
+	struct vec2 U, V;
+	U.X = .5; U.Y = 1.2;
+	V.X = -123.01; V.Y = 1/3.0;
+	print(U, V);
+	return 0;
+}
+// source: 2002-10-12-StructureArgsSimple.c
+#include <stdio.h>
+
+struct vec2 { double X, Y; };
+
+void print(struct vec2 S) {
+	printf("%f, %f\n", S.X, S.Y);
+}
+
+int main() {
+	struct vec2 U;
+	U.X = .5; U.Y = 1.2;
+	print(U);
+	return 0;
+}
+// source: 2002-10-13-BadLoad.c
+unsigned long window_size = 0x10000;
+
+unsigned test() {
+	return (unsigned)window_size;
+}
+
+extern int printf(const char *str, ...);
+
+int main() {
+	printf("%d\n", test());
+	return 0;
+}
+// source: 2002-12-13-MishaTest.c
+
+#include <stdio.h>
+sum(to, from, count)
+     short *to, *from;
+     short count;
+{
+  int i;
+  for (i = 0; i != count; ++i)
+    *to += *from++;
+}
+
+#define NUM 2
+int main() {
+  short Array[NUM];
+  short Sum = 0;
+  int i;
+
+  for (i = 0; i != NUM; ++i)
+    Array[i] = i;
+
+  sum(&Sum, Array, NUM);
+
+  printf("Sum is %d\n", Sum);
+  return 0;
+}
+// source: 2003-04-22-Switch.c
+
+#include <stdio.h>
+
+static int func(unsigned i) {
+  int X = 4;
+  switch (i) {
+  case 8: printf("C\n"); /* fall through. */  X = 6;
+  case 0:
+  case 3:
+  case 2: printf("A\n"); break;
+  case 1:
+  case 7: X = 7;
+  case 9: printf("B\n"); break;
+  default: printf("D\n"); X = 1;
+  }
+  return X;
+}
+
+
+int main() {
+  unsigned i;
+  for (i = 0; i < 10; ++i)
+    func(i);
+  return 0;
+}

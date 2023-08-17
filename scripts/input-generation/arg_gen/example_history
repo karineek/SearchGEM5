@@ -1,0 +1,77 @@
+int main()
+{
+    int x;
+
+    x = 4;
+    return x - 4;
+}
+REQRES
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  return x - 4;
+}
+```
+REQRES
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  int y = 0
+  return x - y;
+}
+REQRES
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  int y = atoi(argv[2]);
+  return x - y;
+}
+```
+REQRES
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  int x = atoi(argv[1]);
+  int y = 0
+  return x - y;
+}
+REQRES
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  int y = atoi(argv[2]);
+  return x - y;
+}
+```

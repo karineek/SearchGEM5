@@ -1,0 +1,108 @@
+The idea is to take a program:
+```
+int
+main()
+{
+	int x;
+
+	x = 4;
+	return x - 4;
+}
+```
+from a known source and create one C file from the file above. The file is similar to the above file but with the following twist.
+It replaces all constants in the function main, with args assignments and of course, adds any includes needed.
+Any constants in the main function are replaced with args assignments. this includes string literals, numbers, etc.
+
+So the above file becomes:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  int x = atoi(argv[1]);
+  return x - 4;
+}
+```
+
+or
+
+```
+#include <stdio.h>
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", a3, *a5);
+}
+
+int main(int argc, char *argv[]) {
+  printArgsNoRet('c', "e");
+  return 0;
+}
+```
+
+becomes:
+
+```
+#include <stdio.h>
+
+void printArgsNoRet(char a3, char* a5) {
+  printf("'%c' '%c'\n", a3, *a5);
+}
+
+int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    printf("Usage: %s <value>\n", argv[0]);
+    return 1;
+  }
+
+  printArgsNoRet(argv[1][0], argv[2]);
+  return 0;
+}
+```
+
+Don't forget to add the args to the main function if they are not there. In the case they are there, just extend
+their usage for additional assignments. i.e. if the main uses args up to x, assign constants from x+1 and on as needed.
+
+Make sure ALL constants are replaced with args assignments.
+
+Also in cases like this:
+```
+#include <stdio.h>
+
+int main() {
+    int x;
+
+    x = 50;
+    do {
+        x = x - 1;
+    } while (x);
+    return x;
+}
+```
+giving this as an answer:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    int x;
+
+    x = 50;
+    do {
+        x = x - 1;
+    } while (x);
+
+    if (argc != 2) {
+        printf("Usage: %s <value>\n", argv[0]);
+        return 1;
+    }
+
+    x = atoi(argv[1]);
+    return x;
+}
+```
+is very very bad. Please do not do it as the conversion should occur as early as possible in the program.
