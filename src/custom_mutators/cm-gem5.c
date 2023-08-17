@@ -83,7 +83,7 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 }
 
 // Read the types from file
-void readTypes(my_mutator_t *data, char* buffer) {
+void readTypes(my_mutator_t *data, char** buffer) {
     // Open the file for reading
     FILE *file = fopen(data->file_name_types, "r");
     if (file == NULL) {
@@ -93,17 +93,27 @@ void readTypes(my_mutator_t *data, char* buffer) {
     }
 
     // Allocate space
-    if ((buffer = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
+    if ((*buffer = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
         perror("afl buffer malloc failed");
         return;
     }
 
     // Read the file line by line
-    if (fgets(buffer, sizeof(buffer), file) == NULL) {
+    if (fgets(*buffer, sizeof(*buffer), file) == NULL) {
         perror("Error reading file");
         buffer = 0;
         return;
     }
+    char* tmp;
+    // Allocate space
+    if ((tmp = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
+        perror("afl buffer malloc failed");
+        return;
+    }
+    while (fgets(tmp, sizeof(tmp), file) != NULL) {
+        strcat(*buffer,tmp);
+    }
+    free(tmp);
 
     // Close the file
     fclose(file);
@@ -280,23 +290,30 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		// t.c.o - cannot be smaller
     if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
 
-    // Read tokens of data types
+    // Space for temporary manipulations
     char* types_token = 0;
     char* buf_token = 0;
-    readTypes(data, buf_token); bool invalid_tokens = (!buf_token);
+    char *saveptr1=0;
+    char *saveptr2=0;
+
+    // Read tokens of data types
+    char *token = strtok_r(data->input_args, " ", &saveptr1);
+    readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
     if (!invalid_tokens) {
-	types_token = strtok(buf_token, " ");
-        if (types_token != NULL && strcmp(types_token,"BINARY") == 0)
-	    types_token = strtok(NULL, " "); // Next type token, we don't mutate here the binary (differnt mutation)
+	types_token = strtok_r(buf_token, " ", &saveptr2);
+        if ((types_token != NULL) && (strcmp(types_token,"BINARY") == 0)) {
+	    types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (differnt mutation)
+	}
     }
 
     // Find numeric parts and mutate them using mutateNumericValue function
-    char *token = strtok(data->input_args, " ");
     bool is_many_args = !is_one_arg_call(buf_token);
     while (token != NULL) {
         // TODO: add a rand to sometimes skip mutation
     	data->input_digit[0] = '\0';
     	strcpy(data->input_digit, token);
+
+	printf(">>>> Output TOKEN: %s\n", types_token);
 
 	// TODO: Nasty mutation
 
@@ -336,9 +353,9 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
             strncat(data->out_buff, data->input_digit, len);
 
         // Next iteration:
-	token = strtok(NULL, " "); // Next token
+	token = strtok_r(NULL, " ", &saveptr1); // Next token
         if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
-        if (!invalid_tokens && types_token != NULL) types_token = strtok(NULL, " "); // Next type token
+        if (!invalid_tokens && types_token != NULL) types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
    }
    strcpy((char *)new_buf, data->out_buff);
 }
