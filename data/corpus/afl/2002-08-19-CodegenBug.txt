@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2002-08-19-CodegenBug.c 0
+MYPATH12345data/afl/2002-08-19-CodegenBug.c.o 0

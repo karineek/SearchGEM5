@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/builtin-prefetch-6.c 0 stringValue stringValue
+MYPATH12345data/afl/builtin-prefetch-6.c.o 0 stringValue stringValue

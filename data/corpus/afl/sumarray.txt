@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/sumarray.c 0
+MYPATH12345data/afl/sumarray.c.o 0

@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/pr60454.c 0
+MYPATH12345data/afl/pr60454.c.o 0

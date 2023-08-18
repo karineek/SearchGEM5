@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/globalrefs.c
+MYPATH12345data/afl/globalrefs.c

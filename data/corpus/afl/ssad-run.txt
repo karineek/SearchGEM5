@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/ssad-run.c 0
+MYPATH12345data/afl/ssad-run.c.o 0

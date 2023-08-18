@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/byval-alignment.c 0.0 0.0
+MYPATH12345data/afl/byval-alignment.c.o 0.0 0.0

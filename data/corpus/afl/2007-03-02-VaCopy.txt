@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2007-03-02-VaCopy.c stringValue
+MYPATH12345data/afl/2007-03-02-VaCopy.c.o stringValue

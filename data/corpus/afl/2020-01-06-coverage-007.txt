@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2020-01-06-coverage-007.c 0 0 0
+MYPATH12345data/afl/2020-01-06-coverage-007.c.o 0 0 0

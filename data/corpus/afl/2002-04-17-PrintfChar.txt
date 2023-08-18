@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2002-04-17-PrintfChar.c A stringValue
+MYPATH12345data/afl/2002-04-17-PrintfChar.c.o A stringValue

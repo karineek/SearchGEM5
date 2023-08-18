@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/built-in-setjmp.c stringValue 0 stringValue
+MYPATH12345data/afl/built-in-setjmp.c.o stringValue 0 stringValue

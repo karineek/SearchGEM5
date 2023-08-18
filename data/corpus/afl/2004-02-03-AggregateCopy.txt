@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2004-02-03-AggregateCopy.c 0
+MYPATH12345data/afl/2004-02-03-AggregateCopy.c.o 0

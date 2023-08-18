@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2003-07-10-SignConversions.c stringValue stringValue
+MYPATH12345data/afl/2003-07-10-SignConversions.c.o stringValue stringValue

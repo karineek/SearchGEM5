@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/memset-3.c
+MYPATH12345data/afl/memset-3.c

@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/zero-struct-1.c A A
+MYPATH12345data/afl/zero-struct-1.c.o A A

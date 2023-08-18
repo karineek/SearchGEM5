@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2009-04-16-BitfieldInitialization.c 0 0 stringValue
+MYPATH12345data/afl/2009-04-16-BitfieldInitialization.c.o 0 0 stringValue

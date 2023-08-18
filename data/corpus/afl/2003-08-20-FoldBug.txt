@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/2003-08-20-FoldBug.c 0
+MYPATH12345data/afl/2003-08-20-FoldBug.c.o 0

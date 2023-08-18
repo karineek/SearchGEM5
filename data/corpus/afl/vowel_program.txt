@@ -1,1 +1,1 @@
-/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/vowel_program.c A
+MYPATH12345data/afl/vowel_program.c.o A
