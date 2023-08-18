@@ -120,8 +120,8 @@ void readTypes(my_mutator_t *data, char** buffer) {
 }
 
 // Random int generator - either len or rate used!
-int mutator_rand(my_mutator_t *data, size_t len, int rate) {
-    if (rate == 0 && len == 0) return 0;
+int mutator_rand(my_mutator_t *data, size_t len, int rate, long filesize) {
+    if (rate == 0 && len == 0 && filesize == 0) return 0;
     if (!data) return 0;
 
 #ifdef DEBUG_CM
@@ -132,9 +132,9 @@ int mutator_rand(my_mutator_t *data, size_t len, int rate) {
 
     int num =
 #ifndef DEBUG_CM
-        (data->afl) ? rand_below(data->afl, (rate==0 ? len : rate)) :
+        (data->afl) ? rand_below(data->afl, (filesize == 0 ? (rate==0 ? len : rate) : filesize)) :
 #endif
-        rand() % (rate==0 ? len : rate); // Random location in the register
+        rand() % (filesize == 0 ? (rate==0 ? len : rate) : filesize); // Random location in the register
     return num;
 }
 
@@ -146,8 +146,8 @@ void mutateUInt8Value(char *token, my_mutator_t *data, char* format) {
 
     unsigned char num;
     if (sscanf(token, "%hhu", &num) == 1) {
-        int bit_pos = ((num != (unsigned char)CHAR_MIN) && mutator_rand(data, 0, 1000) < 50) ? (sizeof(unsigned char) * 8) - 1 // Sign flip
-                :  mutator_rand(data, (sizeof(unsigned char) * 8), 0); // Bit flip
+        unsigned int bit_pos = ((num != (unsigned char)CHAR_MIN) && mutator_rand(data, 0, 1000, 0) < 50) ? (sizeof(unsigned char) * 8) - 1 // Sign flip
+                :  mutator_rand(data, (sizeof(unsigned char) * 8), 0, 0); // Bit flip
         num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -161,8 +161,8 @@ void mutateUInt16Value(char *token, my_mutator_t *data, char* format) {
 
     unsigned short num;
     if (sscanf(token, "%hu", &num) == 1) {
-        int bit_pos = ((num != (unsigned short)SHRT_MIN) && mutator_rand(data, 0, 1000) < 10) ? (sizeof(unsigned short) * 8) - 1 // Sign flip
-                : mutator_rand(data, (sizeof(unsigned short) * 8), 0); // Bit flip
+        unsigned int bit_pos = ((num != (unsigned short)SHRT_MIN) && mutator_rand(data, 0, 1000, 0) < 10) ? (sizeof(unsigned short) * 8) - 1 // Sign flip
+                : mutator_rand(data, (sizeof(unsigned short) * 8), 0, 0); // Bit flip
         num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -176,8 +176,8 @@ void mutateUInt32Value(char *token, my_mutator_t *data, char* format) {
 
     unsigned int num;
     if (sscanf(token, "%u", &num) == 1) {
-        int bit_pos = ((num != (unsigned int)INT_MIN) && mutator_rand(data, 0, 1000) < 20) ? (sizeof(unsigned int) * 8) - 1 // Sign flip
-                : mutator_rand(data, (sizeof(unsigned int) * 8), 0); // Bit flip
+        unsigned int bit_pos = ((num != (unsigned int)INT_MIN) && mutator_rand(data, 0, 1000, 0) < 20) ? (sizeof(unsigned int) * 8) - 1 // Sign flip
+                : mutator_rand(data, (sizeof(unsigned int) * 8), 0, 0); // Bit flip
 	num ^= (1u << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -191,8 +191,8 @@ void mutateUInt64Value(char *token, my_mutator_t *data, char* format) {
 
     unsigned long num;
     if (sscanf(token, "%lu", &num) == 1) {
-        int bit_pos = ((num != (unsigned long)LONG_MIN) && mutator_rand(data, 0, 1000) < 30) ? (sizeof(unsigned long) * 8) - 1 // Sign flip
-		: mutator_rand(data, (sizeof(unsigned long) * 8), 0); // Bit flip
+        unsigned int bit_pos = ((num != (unsigned long)LONG_MIN) && mutator_rand(data, 0, 1000, 0) < 30) ? (sizeof(unsigned long) * 8) - 1 // Sign flip
+		: mutator_rand(data, (sizeof(unsigned long) * 8), 0, 0); // Bit flip
         num ^= (1ul << bit_pos); // Bit flip it
         sprintf(token, format, num); // Copy it back
     }
@@ -208,7 +208,7 @@ void mutateFloatValue(char *token, my_mutator_t *data) {
     if (sscanf(token, "%f", &num) == 1) {
 	// Flip bit
         memcpy(&int_repr, &num, sizeof(float)); // dump to uint
-        int bit_pos = mutator_rand(data, (sizeof(unsigned int) * 8), 0);
+        unsigned int bit_pos = mutator_rand(data, (sizeof(unsigned int) * 8), 0, 0);
         int_repr ^= (1u << bit_pos); // Bit flip it
         memcpy(&num, &int_repr, sizeof(float)); // back to float
         sprintf(token, "%f", num); // Copy it back
@@ -225,7 +225,7 @@ void mutateDoubleValue(char *token, my_mutator_t *data) {
     if (sscanf(token, "%lf", &num) == 1) {
         // Flip bit
         memcpy(&int_repr, &num, sizeof(double)); // dump to uint
-        int bit_pos = mutator_rand(data, (sizeof(unsigned long) * 8), 0);
+        int bit_pos = mutator_rand(data, (sizeof(unsigned long) * 8), 0, 0);
         int_repr ^= (1ul << bit_pos); // Bit flip it
         memcpy(&num, &int_repr, sizeof(double)); // back to float
         sprintf(token, "%lf", num); // Copy it back
@@ -237,8 +237,11 @@ void mutateStringValue(char *token, my_mutator_t *data) {
     if (!token) return;
     if (!data) return;
 
-    int pos = mutator_rand(data, strlen(token), 0);
+    unsigned int pos = mutator_rand(data, strlen(token), 0, 0);
     char* mutate_buf = malloc(MAX_DATA_SIZE);
+    if (!mutate_buf) return;
+
+    // Else continue with the mutation
     sprintf(mutate_buf, "%hhd", (int8_t) token[pos]); // Copy it back
     mutateUInt8Value(mutate_buf,data,"%hhd");
 
@@ -249,15 +252,19 @@ void mutateStringValue(char *token, my_mutator_t *data) {
 }
 
 // Prepare data before mutation
-void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data) {
+void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data, int is2add_new_line) {
     // Init buffers
     data->out_buff[0] = '\0';
     data->file_name_types[0] = '\0';
     data->input_args[0] = '\0';
 
     char *token = strtok((char *)new_buf, "\n");  // Split lines
+    if (!token) return; // Leter all data fields is empty so the process should terminate gracefully
+
+    // Else continue with the init
     strcpy(data->out_buff,token);                 // Keep the name of the binary
-    strncat(data->out_buff, "\n", 1);             // Add back the newline
+    if (is2add_new_line)
+        strncat(data->out_buff, "\n", 1);             // Add back the newline
     strcpy(data->file_name_types, token);         // Keep the file name
     strncat(data->file_name_types, ".types", 6);  // Add back the .types ending
 
@@ -285,7 +292,7 @@ bool is_one_arg_call(char *str) {
 // Mutate arguments for the binary in the corpus
 void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     // Init data used for mutating
-    initCurrentMutationData(new_buf, data);
+    initCurrentMutationData(new_buf, data, 1);
     if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		// All binaries gets at least one char of input
     if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		// t.c.o - cannot be smaller
     if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
@@ -315,7 +322,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 
 	// TODO: Nasty mutation
 
-        if ((is_many_args) && (mutator_rand(data, 0, 1000) < 350))
+        if ((is_many_args) && (mutator_rand(data, 0, 1000, 0) < 350))
             is_many_args = false; // Just skip one replace
         else if (invalid_tokens)
     	    mutateUInt32Value(data->input_digit, data, "%u");
@@ -338,7 +345,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         else if (strcmp(types_token,"FLOAT") == 0)
             mutateFloatValue(data->input_digit, data);
         else if (strcmp(types_token,"DOUBLE") == 0)
-            mutateDoubleValue(data->input_digit, data);
+            mutateFloatValue(data->input_digit, data);
         else if (strcmp(types_token,"STRING") == 0)
             mutateStringValue(data->input_digit, data);
 	else
@@ -356,6 +363,122 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         if (!invalid_tokens && types_token != NULL) types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
    }
    strcpy((char *)new_buf, data->out_buff);
+}
+
+// extract path
+void extractPath(const char *input, char *path) {
+    // Find the last occurrence of '/'
+    const char *lastSlash = strrchr(input, '/');
+    if (lastSlash != NULL) {
+        strncpy(path, input, lastSlash - input + 1);
+        path[lastSlash - input + 1] = '\0';
+    }
+}
+
+// Get random name:
+void rand_name(char *timestampString, size_t bufferSize) {
+    struct timespec currentTime;
+    clock_gettime(CLOCK_REALTIME, &currentTime);
+    snprintf(timestampString, bufferSize, "%ld%ld", currentTime.tv_sec, currentTime.tv_nsec);
+}
+
+// Rename file so we can muate the binary
+void generat_new_file_names(char *input, char *bin, char *type) {
+    char path[100];
+    extractPath(input, path);
+    char name[50];
+    rand_name(name, sizeof(name));
+
+    strcpy(bin, path);
+    strcat(bin, "fuzz_");
+    strcat(bin, name);
+    strcat(bin, ".c.o");
+    strcpy(type, bin);
+    strcat(type, ".types");
+}
+
+// Copy files
+int copyFile(const char *source, const char *destination) {
+    char command[250] = "cp ";
+    strcat(command, source);
+    strcat(command, " ");
+    strcat(command, destination);
+    return system(command);
+}
+
+// Mutate the binary
+void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
+    // Init data used for mutating
+    initCurrentMutationData(new_buf, data, 0);
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }          // All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; }               // t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
+
+    // Space for temporary manipulations
+    char *types_token = 0;
+    char *buf_token = 0;
+    char *saveptr1=0;
+    char *saveptr2=0;
+    char args_ret[MAX_ARGS_SIZE];
+    strcpy(args_ret,data->input_args);
+
+    // Read tokens of data types
+    char *token = strtok_r(data->input_args, " ", &saveptr1);
+    readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
+    if (invalid_tokens) return; // Cannot mutate
+
+    // Create a new binary to mutate
+    char bin_filename[100];
+    char type_filename[100];
+    generat_new_file_names(data->out_buff, bin_filename, type_filename);
+    copyFile(data->file_name_types, type_filename);
+    copyFile(data->out_buff, bin_filename);
+
+    // Crete the mutated string to give back to AFL
+    strcpy(data->out_buff, bin_filename);
+    strcat(data->out_buff, "\n");
+    strcat(data->out_buff, args_ret);
+
+    // How many to flip?
+    int n = mutator_rand(data, 0, 25, 0);
+
+    // TODO: improve efficiency
+    for (int i=0; i < n; i++) {
+        // Mutate!
+        FILE *file = fopen(bin_filename, "rb+");
+        if (file == NULL) {
+            perror("Error opening file");
+            return;
+        }
+
+        // Determine the size of the file
+        fseek(file, 0, SEEK_END);
+        long file_size = ftell(file);
+        fseek(file, 0, SEEK_SET);
+
+        // Generate random byte index and bit position
+        long byte_index = mutator_rand(data, 0, 8, file_size);
+        int bit_position = mutator_rand(data, 0, 8, 0);
+
+        // Read the byte at the chosen index
+        fseek(file, byte_index, SEEK_SET);
+        unsigned char byte;
+        fread(&byte, sizeof(byte), 1, file);
+
+        // Flip the selected bit
+        byte ^= (1u << bit_position);
+
+        // Write the modified byte back to the file
+        fseek(file, byte_index, SEEK_SET);
+        fwrite(&byte, sizeof(byte), 1, file);
+
+        printf("Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
+
+        fclose(file);
+    }
+
+    strcpy((char *)new_buf, data->out_buff);
+    return;
 }
 
 /**
@@ -655,11 +778,11 @@ int main (int argc, char *argv[]) {
 
     char *input_string = argv[1];
     printf(">>>> Input String: %s\n", input_string);
-    printf(">>>> TEST: findAndMutateArgs\n");
+    printf(">>>> TEST: mutateBinary or findAndMutateArgs\n");
     if (!data) printf(">> ERROR AFL OBJECT WAS NOT ALLOCATED\n");
     char *input = (char *)malloc(250 * sizeof(char));
     strcpy(input, input_string);
-    findAndMutateArgs((unsigned char *)input, data);
+    /*findAndMutateArgs*/mutateBinary((unsigned char *)input, data);
 
     // Print characters until the null-terminator is encountered
     printf(">>>> End of test\n>>>>>> ");
