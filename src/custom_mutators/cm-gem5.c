@@ -414,16 +414,8 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; }               // t.c.o - cannot be smaller
     if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; } // t.c.o.types - cannot be smaller
 
-    // Space for temporary manipulations
-    char *types_token = 0;
-    char *buf_token = 0;
-    char *saveptr1=0;
-    char *saveptr2=0;
-    char args_ret[MAX_ARGS_SIZE];
-    strcpy(args_ret,data->input_args);
-
     // Read tokens of data types
-    char *token = strtok_r(data->input_args, " ", &saveptr1);
+    char *buf_token = 0;
     readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
     if (invalid_tokens) return; // Cannot mutate
 
@@ -437,7 +429,7 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     // Crete the mutated string to give back to AFL
     strcpy(data->out_buff, bin_filename);
     strcat(data->out_buff, "\n");
-    strcat(data->out_buff, args_ret);
+    strcat(data->out_buff, data->input_args);
 
     // How many to flip?
     int n = mutator_rand(data, 0, 25, 0);
@@ -463,16 +455,19 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
         // Read the byte at the chosen index
         fseek(file, byte_index, SEEK_SET);
         unsigned char byte;
-        fread(&byte, sizeof(byte), 1, file);
+        size_t items_read = fread(&byte, sizeof(byte), 1, file);
+        if (items_read == 1) {
+            // Flip the selected bit
+            byte ^= (1u << bit_position);
 
-        // Flip the selected bit
-        byte ^= (1u << bit_position);
+            // Write the modified byte back to the file
+            fseek(file, byte_index, SEEK_SET);
+            fwrite(&byte, sizeof(byte), 1, file);
 
-        // Write the modified byte back to the file
-        fseek(file, byte_index, SEEK_SET);
-        fwrite(&byte, sizeof(byte), 1, file);
-
-        printf("Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
+#ifdef TEST_CM
+            printf("Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
+#endif
+        }
 
         fclose(file);
     }
@@ -518,8 +513,15 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     // Copy the original input data
     memcpy(new_buf, buf, buf_size);
 
-    // bit flip on the arguments
-    findAndMutateArgs(new_buf, data);
+    // Mutate!
+    if (mutator_rand(data, 0, 1000, 0) < 850) {
+        // bit flip on the arguments
+        findAndMutateArgs(new_buf, data);
+    } else {
+        // mutate the binary
+        mutateBinary(new_buf, data);
+    }
+    // Check if we mutated correctly
     if (!new_buf) {
         WARNF("Bad generation for buffer with mutations.");
         return 0;
