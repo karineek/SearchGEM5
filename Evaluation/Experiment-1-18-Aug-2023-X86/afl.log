@@ -1,0 +1,24 @@
+american fuzzy lop ++4.08c {default} (...nge-2023/build/X86/gem5.opt) [fast]
+┌─ process timing ────────────────────────────────────┬─ overall results ────┐
+│        run time : 0 days, 4 hrs, 40 min, 49 sec     │  cycles done : 0     │
+│   last new find : 0 days, 0 hrs, 0 min, 25 sec      │ corpus count : 493   │
+│last saved crash : 0 days, 0 hrs, 32 min, 21 sec     │saved crashes : 51    │
+│ last saved hang : 0 days, 3 hrs, 3 min, 16 sec      │  saved hangs : 1     │
+├─ cycle progress ─────────────────────┬─ map coverage┴──────────────────────┤
+│  now processing : 310.0 (62.9%)      │    map density : 57.90% / 73.41%    │
+│  runs timed out : 0 (0.00%)          │ count coverage : 2.06 bits/tuple    │
+├─ stage progress ─────────────────────┼─ findings in depth ─────────────────┤
+│  now trying : cm-gem5.so             │ favored items : 47 (9.53%)          │
+│ stage execs : 3/120 (2.50%)          │  new edges on : 56 (11.36%)         │
+│ total execs : 23.5k                  │ total crashes : 452 (51 saved)      │
+│  exec speed : 3.31/sec (zzzz...)     │  total tmouts : 2 (0 saved)         │
+├─ fuzzing strategy yields ────────────┴─────────────┬─ item geometry ───────┤
+│   bit flips : disabled (custom-mutator-only mode)  │    levels : 6         │
+│  byte flips : disabled (custom-mutator-only mode)  │   pending : 484       │
+│ arithmetics : disabled (custom-mutator-only mode)  │  pend fav : 45        │
+│  known ints : disabled (custom-mutator-only mode)  │ own finds : 431       │
+│  dictionary : n/a                                  │  imported : 0         │
+│havoc/splice : 0/0, 0/0                             │ stability : 100.00%   │
+│py/custom/rq : unused, 482/18.7k, unused, unused    ├───────────────────────┘
+│    trim/eff : 1.11%/207, disabled                  │          [cpu000: 12%]
+└─ strategy: explore ────────── state: in progress ──┘.
