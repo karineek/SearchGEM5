@@ -68,5 +68,4 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-
-This converts the program to accept a string argument from the command line and assigns it to the `buf` array.
+// //This converts the program to accept a string argument from the command line and assigns it to the `buf` array.

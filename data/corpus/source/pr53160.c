@@ -44,4 +44,4 @@ int main(int argc, char *argv[])
 }
 
 
-Please note that since there are no constants in the original program, I added a command-line argument `x` and replaced the variable `k` with it.
+//Please note that since there are no constants in the original program, I added a command-line argument `x` and replaced the variable `k` with it.

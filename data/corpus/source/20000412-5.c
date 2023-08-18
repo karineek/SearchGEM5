@@ -1,4 +1,4 @@
-c
+//c
 // Modification timestamp: 2023-08-10 16:30:55
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/OpenMP/20000412-5.c
 

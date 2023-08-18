@@ -34,4 +34,4 @@ int main(int argc, char *argv[]) {
   exit (0);
 }
 
-This code will replace `unsigned char a[2];` with `unsigned char a[2];` in order to use the command line arguments.
+//This code will replace `unsigned char a[2];` with `unsigned char a[2];` in order to use the command line arguments.

@@ -34,4 +34,4 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-In this code, I have replaced the constant `5` with `atoi(argv[1])` to assign the command-line argument to `d`.
+//In this code, I have replaced the constant `5` with `atoi(argv[1])` to assign the command-line argument to `d`.

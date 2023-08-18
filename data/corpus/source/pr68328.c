@@ -7,13 +7,15 @@
 int a, b, c = 1, d = 1, e;
 
 __attribute__ ((noinline, noclone))
-int foo(void) {
+     int foo (void)
+{
   asm volatile ("":::"memory");
-  return atoi(argv[1]);
+  return 4195552;
 }
 
 __attribute__ ((noinline, noclone))
-void bar(int x, int y) {
+     void bar (int x, int y)
+{
   asm volatile (""::"g" (x), "g" (y):"memory");
   if (y == 0)
     __builtin_abort ();

@@ -29,4 +29,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-Please note that the `argv[1]` and `argv[2]` are converted to `long double` using `atof()` function. Also, the format specifier `%Lf` is used to print the values of `g0.x` and `g0.y`.
+//Please note that the `argv[1]` and `argv[2]` are converted to `long double` using `atof()` function. Also, the format specifier `%Lf` is used to print the values of `g0.x` and `g0.y`.

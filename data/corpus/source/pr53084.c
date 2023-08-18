@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  static const char *const foo[] = {argv[1] + 1};
+  char *const foo = {argv[1] + 1};
   bar(foo[0]);
   return 0;
 }

@@ -62,14 +62,14 @@ int main(int argc, char *argv[]) {
   test6(UINT_MAX, 1);
 
   test7(ll, 0);
-  test7(LONG_LONG_MAX, 0);
-  test7(LONG_LONG_MIN, 1);
-  test7(ULONG_LONG_MAX, 1);
+  test7(LLONG_MAX, 0);
+  test7(LLONG_MIN, 1);
+  test7(ULLONG_MAX, 1);
 
   test8(ull, 0);
-  test8(LONG_LONG_MAX, 0);
-  test8(LONG_LONG_MIN, 1);
-  test8(ULONG_LONG_MAX, 1);
+  test8(LLONG_MAX, 0);
+  test8(LLONG_MIN, 1);
+  test8(ULLONG_MAX, 1);
 
   return 0;
 }
@@ -231,25 +231,25 @@ void test6(unsigned int i, int set) {
 }
 
 void test7(long long l, int set) {
-  if ((l & (LONG_LONG_MAX + 1ULL)) == 0) {
+  if ((l & (LLONG_MAX + 1ULL)) == 0) {
     if (set)
       abort();
   } else if (!set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) != 0) {
+  if ((l & (LLONG_MAX + 1ULL)) != 0) {
     if (!set)
       abort();
   } else if (set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) == (LONG_LONG_MAX + 1ULL)) {
+  if ((l & (LLONG_MAX + 1ULL)) == (LLONG_MAX + 1ULL)) {
     if (!set)
       abort();
   } else if (set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) != (LONG_LONG_MAX + 1ULL)) {
+  if ((l & (LLONG_MAX + 1ULL)) != (LLONG_MAX + 1ULL)) {
     if (set)
       abort();
   } else if (!set)
@@ -257,25 +257,25 @@ void test7(long long l, int set) {
 }
 
 void test8(unsigned long long l, int set) {
-  if ((l & (LONG_LONG_MAX + 1ULL)) == 0) {
+  if ((l & (LLONG_MAX + 1ULL)) == 0) {
     if (set)
       abort();
   } else if (!set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) != 0) {
+  if ((l & (LLONG_MAX + 1ULL)) != 0) {
     if (!set)
       abort();
   } else if (set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) == (LONG_LONG_MAX + 1ULL)) {
+  if ((l & (LLONG_MAX + 1ULL)) == (LLONG_MAX + 1ULL)) {
     if (!set)
       abort();
   } else if (set)
     abort();
 
-  if ((l & (LONG_LONG_MAX + 1ULL)) != (LONG_LONG_MAX + 1ULL)) {
+  if ((l & (LLONG_MAX + 1ULL)) != (LLONG_MAX + 1ULL)) {
     if (set)
       abort();
   } else if (!set)

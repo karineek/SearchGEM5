@@ -1,4 +1,4 @@
-c
+//c
 // Modification timestamp: 2023-08-10 16:32:23
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Benchmarks/BitBench/pstack.c
 

@@ -4,10 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* PR tree-optimization/65418 */
+
 __attribute__((noinline, noclone)) int
-foo(int x) {
-  if (x == atoi(argv[1]) || x == atoi(argv[2]) || x == atoi(argv[3]) || x == atoi(argv[4]))
-    return 1;
+foo (int x)
+{
+  if (x == -216 || x == -132 || x == -218 || x == -146)
+     return 1;
   return 0;
 }
 
@@ -28,4 +31,4 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-//Note: This code is assuming that the command-line arguments are provided as `argc` and `argv`. The usage message is printed if the number of arguments is incorrect.
+//Note: //This code is assuming that the command-line arguments are provided as `argc` and `argv`. The usage message is printed if the number of arguments is incorrect.

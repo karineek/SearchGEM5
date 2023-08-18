@@ -1,4 +1,4 @@
-c
+//c
 // Modification timestamp: 2023-08-10 16:18:25
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/ASC_Sequoia/20000314-3.c
 

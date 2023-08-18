@@ -1,6 +1,8 @@
-
 // Modification timestamp: 2023-08-10 16:19:34
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Benchmarks/Stanford/20000403-1.c
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
 extern unsigned long aa[], bb[];
 

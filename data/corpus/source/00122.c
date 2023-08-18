@@ -12,5 +12,5 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    return F(atoi(argv[1]), 1) 0;
+    return F(atoi(argv[1]), 1);
 }

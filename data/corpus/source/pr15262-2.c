@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
   struct B b;
 
   b.p = &(a.t);
-  if (foo(b, &a, &(atof(argv[1]))) == 3)
+  if (foo(b, &a, (atof(argv[1]))) == 3)
     abort();
 
   return 0;

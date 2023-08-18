@@ -40,4 +40,4 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-//Note: This assumes that the command-line arguments passed to the program are in the correct order and have the correct types. Make sure to modify the arguments as needed to match the expected types.
+//Note: //This assumes that the command-line arguments passed to the program are in the correct order and have the correct types. Make sure to modify the arguments as needed to match the expected types.

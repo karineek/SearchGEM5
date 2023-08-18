@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
   int a_offset = atoi(argv[1]);
   char p[sizeof(struct S) + 1];
   memset(p, 0, sizeof(struct S) + 1);
-  i = extract(p + a_offset, a_offset);
+  int i = extract(p + a_offset, a_offset);
 
   return 0;
 }

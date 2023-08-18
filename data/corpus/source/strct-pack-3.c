@@ -38,4 +38,4 @@ int main(int argc, char *argv[]) {
   exit(0);
 }
 
-Please make sure to provide the correct values for the command line arguments `<value> <value> <expected_result>` when running the modified program.
+//Please make sure to provide the correct values for the command line arguments `<value> <value> <expected_result>` when running the modified program.

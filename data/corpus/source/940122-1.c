@@ -1,6 +1,6 @@
 // Modification timestamp: 2023-08-14 13:40:19
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/940122-1.c
-C
+// C
 #include <stdio.h>
 #include <stdlib.h>
 

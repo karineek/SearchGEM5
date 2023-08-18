@@ -44,4 +44,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-I have added the argument `int argc, char *argv[]` to the `main` function and added the necessary error handling for incorrect argument count. Additionally, I moved the declaration of `expectedwidth` to be after the `IOGBounds` structs and assigned it the value of the first argument `atoi(argv[1])`.
+// I have added the argument `int argc, char *argv[]` to the `main` function and added the necessary error handling for incorrect argument count. Additionally, I moved the declaration of `expectedwidth` to be after the `IOGBounds` structs and assigned it the value of the first argument `atoi(argv[1])`.

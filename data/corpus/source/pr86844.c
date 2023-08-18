@@ -4,12 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__attribute__((noipa)) void foo(int *p) {
-  *p = atoi(argv[1]);
-  *((char *)p + 3) = atoi(argv[2]);
-  *((char *)p + 1) = atoi(argv[3]);
+__attribute__((noipa)) void
+foo (int *p)
+{
+  *p = 0;
+  *((char *)p + 3) = 1;
+  *((char *)p + 1) = 2;
   *((char *)p + 2) = *((char *)p + 6);
 }
+
 
 int main(int argc, char *argv[]) {
   if (argc != 4) {

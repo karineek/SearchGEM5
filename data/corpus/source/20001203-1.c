@@ -24,6 +24,6 @@ int main(int argc, char *argv[])
   char tmp2 = argv[2][0];
 
   foo(tmp1, &tmp2);
-  tmp = 1;
+  tmp2 = 1;
   exit(0);
 }

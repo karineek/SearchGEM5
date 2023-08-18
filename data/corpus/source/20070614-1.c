@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  v = atof(argv[1]) + atof(argv[2]) * I;
+  v = atof(argv[1]) + atof(argv[2]) * 1;
   baz();
   return 0;
 }

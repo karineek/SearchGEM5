@@ -53,4 +53,4 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-This modified code replaces the `__builtin_abort()` function call with a print statement to indicate an assertion failure. It also adds a command-line argument to pass the string to be printed and checked.
+//This modified code replaces the `__builtin_abort()` function call with a print statement to indicate an assertion failure. It also adds a command-line argument to pass the string to be printed and checked.

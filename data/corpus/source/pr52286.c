@@ -27,4 +27,4 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-//Note: The original code uses `__SIZEOF_INT__` to determine the size of the integer type. In the converted code, the value is replaced with `atoi(argv[1])` or `atol(argv[1])` depending on the size.
+//Note: The original code uses `__SIZEOF_INT__` to determine the size of the integer type. //In the converted code, the value is replaced with `atoi(argv[1])` or `atol(argv[1])` depending on the size.

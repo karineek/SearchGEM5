@@ -44,4 +44,4 @@ int main(int argc, char *argv[]) {
   exit (0);
 }
 
-Please make sure to input 5 additional arguments in the command line when running the program.
+//Please make sure to input 5 additional arguments in the command line when running the program.

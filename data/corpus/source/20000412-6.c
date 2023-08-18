@@ -1,6 +1,9 @@
 
 // Modification timestamp: 2023-08-10 16:31:19
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/Olden/em3d/em3d.c
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
 unsigned bug (unsigned short value, unsigned short *buffer,unsigned short *bufend);
 

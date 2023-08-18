@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   }
 
 #if (__INT_MAX__ == 2147483647) \
-    && (__LONG_LONG_MAX__ == 9223372036854775807LL)
+    && (__LLONG_MAX__ == 9223372036854775807LL)
   if (((int)(long long)(V2SI){ atoi(argv[1]), atoi(argv[2]) }) != 2)
     abort();
 #endif

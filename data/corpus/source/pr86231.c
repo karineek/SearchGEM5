@@ -10,10 +10,10 @@
 __attribute__((noipa)) int
 foo (void *p, int x)
 {
-  if (p == argv[1]) return 0;
+  if (p == ONE) return 0;
   if (!p)
-    p = x ? argv[2] : argv[1];
-  return p == argv[1] ? 0 : 1;
+    p = x ? TWO : ONE;
+  return p == ONE ? 0 : 1;
 }
 
 int v[8];

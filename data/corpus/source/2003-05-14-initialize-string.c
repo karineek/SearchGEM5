@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  char title[] = argv[1];
+  char *title = argv[1];
   printf("%s", title);
   return 0;
 }

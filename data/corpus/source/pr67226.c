@@ -12,19 +12,19 @@ struct assembly_operand
 struct assembly_operand to_input, from_input;
 
 void __attribute__ ((__noinline__, __noclone__))
-assemblez_1(int internal_number, struct assembly_operand o1)
+assemblez_1 (int internal_number, struct assembly_operand o1)
 {
   if (o1.type != from_input.type)
-    __builtin_abort();
+    __builtin_abort ();
 }
 
 void __attribute__ ((__noinline__, __noclone__))
-t0(struct assembly_operand to, struct assembly_operand from)
+t0 (struct assembly_operand to, struct assembly_operand from)
 {
-  if (to.value == atoi(argv[3]))
-    assemblez_1(32, from);
+  if (to.value == 0)
+    assemblez_1 (32, from);
   else
-    __builtin_abort();
+    __builtin_abort ();
 }
 
 int main(int argc, char *argv[])

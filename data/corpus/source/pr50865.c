@@ -33,4 +33,4 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-Please note that the program now expects 3 command-line arguments: the values for `l1`, `l2`, and `l3`.
+//Please note that the program now expects 3 command-line arguments: the values for `l1`, `l2`, and `l3`.

@@ -38,4 +38,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-Usage: ./program <ll_bitpos> <ll_bitsize> <rl_bitpos> <rl_bitsize> <expected_end_bit1> <expected_end_bit2> <expected_end_bit3> <expected_end_bit4>
+// Usage: ./program <ll_bitpos> <ll_bitsize> <rl_bitpos> <rl_bitsize> <expected_end_bit1> <expected_end_bit2> <expected_end_bit3> <expected_end_bit4>

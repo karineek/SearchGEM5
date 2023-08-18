@@ -29,4 +29,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-Please replace `<value>` and `<argc>` with the appropriate values when running the program.
+//Please replace `<value>` and `<argc>` with the appropriate values when running the program.

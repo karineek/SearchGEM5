@@ -8,7 +8,7 @@ int a = 0;
 int d = 1;
 int f = 1;
 
-int fn1(int a) {
+int fn1() {
   return a || 1 >> a;
 }
 

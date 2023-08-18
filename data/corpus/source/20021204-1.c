@@ -24,6 +24,6 @@ int main(int argc, char *argv[]) {
   char *a = argv[1];
   char *b = argv[2];
 
-  foo(z > 0 ? b - a : b - a - 1);
+  foo(z > 0 ? b - a : b - a - 1, b);
   exit(0);
 }

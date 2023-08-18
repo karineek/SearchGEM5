@@ -50,4 +50,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-Compile and run the program with command-line arguments to provide the values for `atoi(argv[X])` where `X` ranges from 1 to 8.
+// Compile and run the program with command-line arguments to provide the values for `atoi(argv[X])` where `X` ranges from 1 to 8.

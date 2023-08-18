@@ -1,4 +1,4 @@
-c
+//c
 // Modification timestamp: 2023-08-10 16:37:05
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/FreeBench/fourinarow/main.c
 

@@ -21,11 +21,11 @@ int main(int argc, char *argv[]) {
 
   if (foo(arg1, arg2) != 7)
     abort();
-  if (foo(arg3, arg4) != 0x81)
+  if (foo(arg2, arg1) != 0x81)
     abort();
-  if (foo(arg5, arg6) != 5)
+  if (foo(arg2, arg1) != 5)
     abort();
-  if (foo(arg7, arg8) != 5)
+  if (foo(arg2, arg1) != 5)
     abort();
 
   return 0;

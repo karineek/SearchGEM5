@@ -1,6 +1,6 @@
 // Modification timestamp: 2023-08-14 16:09:34
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/shiftopt-1.c
-The converted code is:
+//The converted code is:
 
 
 #include <stdio.h>

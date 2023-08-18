@@ -11,7 +11,7 @@ void g() {
 }
 
 void f() {
-  int f2 = atoi(argv[1]);
+  int f2 = 0;
 
   if (f2 == 0)
     ;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
   }
 
   f();
-  if (var != 1)
+  if (var != atoi(argv[1]))
     abort();
   exit(0);
 }

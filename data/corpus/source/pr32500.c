@@ -33,4 +33,4 @@ int main(int argc, char *argv[]) {
   abort();
 }
 
-Make sure to pass 4 arguments when executing the program.
+//Make sure to pass 4 arguments when executing the program.

@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  _Complex int rhs = atoi(argv[2]) + atoi(argv[3]) * I;
+  _Complex int rhs = atoi(argv[2]) + atoi(argv[3]) * 1;
   doo(rhs);
   return 0;
 }

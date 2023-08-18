@@ -24,4 +24,4 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-In this case, the `main` function already takes command-line arguments, so I added the argument parsing code and utilized `atoi()` to convert the argument to a `short` integer before the loop.
+//In this case, the `main` function already takes command-line arguments, so I added the argument parsing code and utilized `atoi()` to convert the argument to a `short` integer before the loop.

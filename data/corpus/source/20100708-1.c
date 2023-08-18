@@ -33,4 +33,4 @@ int main (int argc, char *argv[])
   return 0;
 }
 
-//Note: This conversion assumes that the command-line arguments supplied to the program are in the following format: `<value1> <value2> ... <value48>`.
+//Note: //This conversion assumes that the command-line arguments supplied to the program are in the following format: `<value1> <value2> ... <value48>`.

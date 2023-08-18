@@ -31,4 +31,4 @@ nonlocal:
 }
 
 
-//Note: The label `nonlocal` is replaced with a function parameter `void *nonlocal` and the `goto nonlocal;` statement is replaced with `goto *(void *)nonlocal;`. This ensures that the GP (Global Pointer) is properly restored.
+//Note: The label `nonlocal` is replaced with a function parameter `void *nonlocal` and the `goto nonlocal;` statement is replaced with `goto *(void *)nonlocal;`. //This ensures that the GP (Global Pointer) is properly restored.

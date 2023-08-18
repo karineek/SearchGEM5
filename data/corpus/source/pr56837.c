@@ -1,6 +1,6 @@
 // Modification timestamp: 2023-08-14 15:26:36
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr56837.c
-The modified code with args assignments would look like this:
+// The modified code with args assignments would look like this:
 
 
 #include <stdio.h>

@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
   }
 
   v4qi x = {atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4])};
-  v4qi y = {(v4qi) {atoi(argv[5]), atoi(argv[6]), atoi(argv[7]), atoi(argv[8])}};
+  v4qi y = {atoi(argv[5]), atoi(argv[6]), atoi(argv[7]), atoi(argv[8])};
   v4qi z = f1(x, (v4qi) {2, 2, 2, 2});
   if (__builtin_memcmp(&y, &z, sizeof(y)) != 0)
     __builtin_abort();

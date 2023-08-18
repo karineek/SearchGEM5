@@ -25,10 +25,10 @@ int main(int argc, char *argv[]) {
   int arg1 = atoi(argv[1]);
   int arg2 = atoi(argv[2]);
 
-  if (foo(arg1, arg2) != arg3) {
+  if (foo(arg1, arg2) != 5) {
     abort();
   }
   return 0;
 }
 
-Please note that the variable `arg3` is missing because it is not specified in the original code where it should come from. Please replace `arg3` with the appropriate argument value when using the generated code.
+//Please note that the variable `arg3` is missing because it is not specified in the original code where it should come from. //Please replace `arg3` with the appropriate argument value when using the generated code.

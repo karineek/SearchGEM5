@@ -8,7 +8,7 @@ __attribute__((noinline, noclone)) int
 foo (int *x, int y)
 {
   int z = *x;
-  if (y > z && y <= atoi(argv[1]))
+  if (y > z && y <= 0)
     while (y > z)
       z *= 2;
   return z;
@@ -49,4 +49,4 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-In this modified code, I added the necessary `argc` and `argv` parameters to the `main` function. I also replaced the constant `16` in the `foo` function with `atoi(argv[1])` to utilize the command-line argument.
+//In this modified code, I added the necessary `argc` and `argv` parameters to the `main` function. I also replaced the constant `16` in the `foo` function with `atoi(argv[1])` to utilize the command-line argument.

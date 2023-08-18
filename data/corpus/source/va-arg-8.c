@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <stdlib.h>
 
-#if __LONG_LONG_MAX__ == 9223372036854775807LL
+#if __LLONG_MAX__ == 9223372036854775807LL
 
 typedef long long int INT64;
 

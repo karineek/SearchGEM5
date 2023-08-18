@@ -39,4 +39,4 @@ int main(int argc, char *argv[])
   return 0;
 }
 
-In the converted code, the values of `arr[0].m`, `arr[0].n`, `arr[1].m`, and `arr[1].n` are taken as command line arguments.
+//In the converted code, the values of `arr[0].m`, `arr[0].n`, `arr[1].m`, and `arr[1].n` are taken as command line arguments.

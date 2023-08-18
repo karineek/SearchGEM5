@@ -52,4 +52,4 @@ int main(int argc, char *argv[])
 
 //Note that I've added command line arguments to the `main` function to accept the `status` and `position` values. You can run the program by providing the values as command line arguments. For example:
 
-./program 1 0
+//./program 1 0

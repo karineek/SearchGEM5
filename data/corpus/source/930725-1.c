@@ -16,7 +16,7 @@ g ()
 char *
 f ()
 {
-  return (v == 0 ? g () : argv[2]);
+  return (v == 0 ? g () : 0);
 }
 
 int main(int argc, char *argv[]) {

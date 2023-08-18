@@ -29,4 +29,4 @@ int main(int argc, char *argv[]) {
 }
 
 
-In the above code, `atof` function is used to convert the command-line arguments to floating-point values. The value specified by the first argument is used for the assignment when the condition `(i == j) && (k == l)` is true, and the value specified by the second argument is used for the assignment when the condition is false.
+//In the above code, `atof` function is used to convert the command-line arguments to floating-point values. The value specified by the first argument is used for the assignment when the condition `(i == j) && (k == l)` is true, and the value specified by the second argument is used for the assignment when the condition is false.

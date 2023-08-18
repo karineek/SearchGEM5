@@ -73,4 +73,4 @@ int main(int argc, char *argv[])
 }
 
 
-//Note: This program requires two command line arguments: `a1` and `a2`. Make sure to pass them when executing the program.
+//Note: //This program requires two command line arguments: `a1` and `a2`. Make sure to pass them when executing the program.

@@ -2,7 +2,7 @@
 // Modification timestamp: 2023-08-10 16:19:08
 // Original Source: https://github.com/llvm/llvm-test-suite
 
-#if ULONG_LONG_MAX != 18446744073709551615ull && ULONG_MAX != 18446744073709551615ull
+#if ULLONG_MAX != 18446744073709551615ull && ULONG_MAX != 18446744073709551615ull
 int main(void) { exit (0); }
 #else
 #if ULONG_MAX != 18446744073709551615ull
