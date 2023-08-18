@@ -1,2 +1,1 @@
-/home/ubuntu/experiment-2/binary/t.c.o
-0 0
+/share/Work/Repos/Gem5Testing/scripts/generate-test-files/../../data/afl/t.c 0 0
