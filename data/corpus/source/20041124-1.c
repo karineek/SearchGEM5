@@ -22,10 +22,8 @@ int main(int argc, char* argv[]) {
   }
 
   struct s return_val = foo();
-  
   if (return_val.x != gs.x) {
     abort();
   }
-  
-  exit(0);
+  exit(atoi(argv[1]));
 }

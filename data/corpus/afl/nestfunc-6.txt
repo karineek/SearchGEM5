@@ -1,0 +1,1 @@
+MYPATH12345data/nestfunc-6.c.o 0

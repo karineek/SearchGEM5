@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
   char array[3];
   void *nonlocal_label = &&nonlocal;
-  qsort(array, 3, 1, compare);
+  qsort(array, 3, atoi(argv[1]), compare);
   abort();
 
 nonlocal:

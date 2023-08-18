@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
   b.x = 0xffff;
   b.y = 0x1111;
 
-  f(2, a, 3, b);
+  f(atoi(argv[1]), a, 3, b);
   exit(0);
 }
 

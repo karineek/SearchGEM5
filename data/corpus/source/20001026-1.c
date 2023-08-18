@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
   __builtin_memset(&args, 0, sizeof(args));
   build_real_from_int_cst_1(&args);
 
-  if (args.d.r[0] == 0)
+  if (args.d.r[0] == atoi(argv[1]))
     abort();
   return 0;
 }
