@@ -2,12 +2,14 @@
 USAGE: <openai_key> <prompt_file> <source_url> <debug>
 """
 import os
-import subprocess
 import sys
 import shutil
 import time
-import re
+import regex as re
+from pycparser import c_parser, plyparser
+
 import openai
+
 
 def save_failed_input(input_program):
     """Save the input program to a file"""
@@ -20,6 +22,7 @@ def setup_folders():
     os.makedirs("output/scratch", exist_ok=True)
     os.makedirs("output/scratch/text", exist_ok=True)
     os.makedirs("output/scratch/afl", exist_ok=True)
+    os.makedirs("output/scratch/ast", exist_ok=True)
     os.makedirs("output/scratch/compilation", exist_ok=True)
     os.makedirs("output/binary", exist_ok=True)
     os.makedirs("output/input", exist_ok=True)
@@ -31,9 +34,12 @@ def setup_files():
 
 
 def prompt(text, preamble_text, example_array):
+    print(f"Prompting with {text}")
+    print(f"Example array: {example_array}")
+    print(f"Preamble text: {preamble_text}")
     return openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k",
-        temperature=0.9,  # a temperature of 0.9 seems to work best
+        model="gpt-3.5-turbo",
+        temperature=0.8,  # a temperature of 0.9 seems to work best
         messages=[
             {
                 'role': 'system', 'content': preamble_text
@@ -50,9 +56,17 @@ def extract_code(response):
     """Extract the code block from the response as well as the name associated with it"""
     content = response["choices"][0]["message"]["content"]
 
-    content = content.replace("```cpp", "")  # Incase it includes language tags
-    content = content.replace("```c", "")  # Incase it includes language tags
-    content = content.replace("```", "")  # otherwise
+    # if the first line is an include then dont process any further
+    if content.startswith("#include"):
+        return content
+
+    content = re.split(r'```(.*)\n', content)
+
+    if len(content) < 3:
+        return ""
+    content = content[2]
+
+    content = content.replace("```", "")
 
     return content
 
@@ -67,10 +81,177 @@ def compile_code(code_file, output_file):
     return output, return_code
 
 
+def run_code(code_file, inputs):
+    # run the code with the inputs and capture the output, as well as the return code
+    # we also want to run the version with no args (need to compile too)
+    # and ensure the outputs and return codes are the same
+    modified_file = os.path.join("output", "scratch", "compilation", code_file)
+    compile_code(os.path.join("output", "scratch", "text", code_file),
+                              os.path.join("output", "scratch", "compilation", code_file + "_unmodified"))
+    unmodified_file = os.path.join("output", "scratch", "compilation", code_file + "_unmodified")
+
+    # run the unmodified version with no args
+    os.system(f"./{unmodified_file} > {unmodified_file.replace('.c', 'unmodified_result.txt')} 2>&1")
+    # get the return code
+    return_code_unmodified = os.system(f"echo $?")
+
+    # run the modified version with args
+    print(f"./{modified_file} {inputs} > {modified_file.replace('.c', 'modified_result.txt')} 2>&1")
+    os.system(f"./{modified_file} {inputs} > {modified_file.replace('.c', 'modified_result.txt')} 2>&1")
+    # get the return code
+    return_code_modified = os.system(f"echo $?")
+
+    # read the outputs
+    with open(unmodified_file.replace('.c', 'unmodified_result.txt'), "r") as f:
+        unmodified_output = f.read()
+    with open(modified_file.replace('.c', 'modified_result.txt'), "r") as f:
+        modified_output = f.read()
+
+    print(f"Unmodified output: {unmodified_output}")
+    print(f"Modified output: {modified_output}")
+    print(f"Unmodified return code: {return_code_unmodified}")
+    print(f"Modified return code: {return_code_modified}")
+    return unmodified_output, modified_output, return_code_unmodified == return_code_modified
+
+
 def insert_arg_format(content, src, file_name):
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime())
 
     return f"// Modification timestamp: {timestamp}\n// Original Source: {src}/{file_name}\n{content}"
+
+
+class TestFilesGen:
+    def __init__(self, code, name, debug=False):
+        self.code = code
+        self.name = name
+        with open(os.path.join("output", "scratch", "afl", name), "r") as f:
+            self.content = f.read()
+        with open(os.path.join("output", "scratch", "text", name), "r") as f:
+            self.original_content = f.read()
+
+        self.debug = debug
+
+    def run(self):
+        print(f"Running {self.name}")
+        # Remove the comments from the original and modified files
+        original_content = re.sub(r'\/\*((.|\n)*)*\*\/', '', self.original_content)
+        modified_content = re.sub(r'\/\*((.|\n)*)*\*\/', '', self.content)
+        # also remove // comments
+        original_content = re.sub(r'\/\/.*\n', '', original_content)
+        modified_content = re.sub(r'\/\/.*\n', '', modified_content)
+
+        # remove extern directives
+        original_content = re.sub(r'extern .*\n;', '', original_content)
+        modified_content = re.sub(r'extern .*\n;', '', modified_content)
+
+        # remove import directives
+        original_content = re.sub(r'#include .*\n', '', original_content)
+        original_content = re.sub(r'#define .*\n', '', original_content)
+        original_content = re.sub(r'#undefine .*\n', '', original_content)
+        original_content = re.sub(r'#pragma once .*\n', '', original_content)
+        modified_content = re.sub(r'#include .*\n', '', modified_content)
+        modified_content = re.sub(r'#define .*\n', '', modified_content)
+        modified_content = re.sub(r'#undefine .*\n', '', modified_content)
+        modified_content = re.sub(r'#pragma once .*\n', '', modified_content)
+
+        original_content = re.sub(r'#if(def|ndef|)? .*((.|\n)*)#endif', '', original_content)
+        modified_content = re.sub(r'#if(def|ndef|)? .*((.|\n)*)#endif', '', modified_content)
+
+        try:
+            parser = c_parser.CParser()
+            original_ast = parser.parse(original_content, filename='<none>')
+            modified_ast = parser.parse(modified_content, filename='<none>')
+        except plyparser.ParseError as e:
+            print("Parse error, skipping")
+            print(e)
+            return
+        except AssertionError as e:
+            print("Assertion error, skipping")
+            print(e)
+            return
+
+
+        # save the ASTs to files
+        with open(os.path.join('output', 'scratch', 'ast', self.name + '_original_ast.txt'), 'w') as f:
+            f.write(str(original_ast))
+
+        with open(os.path.join('output', 'scratch', 'ast', self.name + '_modified_ast.txt'), 'w') as f:
+            f.write(str(modified_ast))
+
+        # run diff
+        os.system(f"diff {os.path.join('output', 'scratch', 'ast', self.name + '_original_ast.txt')} "
+                  f"{os.path.join('output', 'scratch', 'ast', self.name + '_modified_ast.txt')} > "
+                  f"{os.path.join('output', 'scratch', 'ast', self.name + '_diff.txt')}")
+
+        # read diff
+        with open(os.path.join('output', 'scratch', 'ast', self.name + '_diff.txt'), 'r') as f:
+            diff = f.read()
+
+            def parse_diff_blocks(diff_text):
+                identifier_regex = r'(?<!\d)(\d+(?:,\d+)?[acd]\d+(?:,\d+)?)(?!\d)'
+                diff_blocks = re.split(identifier_regex, diff_text)
+                # remove the identifier regex matches
+                diff_blocks = [x for x in diff_blocks if not re.match(identifier_regex, x)]
+                # remove empty strings and None
+                diff_blocks = [x for x in diff_blocks if x]
+                # strip whitespace
+                diff_blocks = [x.strip() for x in diff_blocks]
+
+                return diff_blocks
+
+            diff_blocks = parse_diff_blocks(diff)
+
+            args = []
+
+            for block in diff_blocks:
+                if "ExprList(exprs=[ArrayRef(name=ID(name='argv'" in block:
+                    # split by add or sub
+                    try:
+                        result = block.split("---\n")
+                        sub = result[0]
+                        add = result[1]
+                    except IndexError:
+                        print("Could not split block")
+                        continue
+
+                    # check if its a pair we care about (containing an array ref to argv)
+                    if "ArrayRef(name=ID(name='argv'" in add:
+                        index_regex = r"\[ArrayRef\(name=ID\(name='argv'\s*\n>\s*\),\n>\s*subscript=Constant\(type='int',\s*\n>\s*value='(\d+)'"
+                        index = re.search(index_regex, add)
+                        i = None
+                        if index:
+                            i = index.group(1)
+                        else:
+                            print("could not find index")
+
+                        # get the value and type of the constant
+                        value_regex = r"Constant\(type='(\w+)',\s*\n<\s*value='(\w+)'"
+                        value = re.search(value_regex, sub)
+                        v = None
+                        t = None
+                        if value:
+                            v = value.group(2)
+                            t = value.group(1)
+                        else:
+                            print("could not find value")
+
+                        if i and v and t:
+                            args.append((i, t, v))
+                        else:
+                            print("could not find either index or value")
+
+            with open(os.path.join("output", "binary", self.name + ".o.types"), "w") as f:
+                if args:
+                    for arg in args:
+                        f.write(arg[1] + " ")
+
+            with open(os.path.join("output", "input", self.name.replace(".c", ".txt")), "w") as f:
+                f.write(self.name + "\n")
+                if args:
+                    args.sort(key=lambda x: int(x[0]))
+
+                    for arg in args:
+                        f.write(arg[2] + " ")
 
 
 class ArgGen:
@@ -119,15 +300,16 @@ class ArgGen:
                 continue
             self.run_single(name, code)
 
-        return self.input_programs
-
     def run_single(self, name, code):
         should_try = True
         try_count = 0
         current_example = self.example
         while should_try:
+            time.sleep(1)
             try:
                 result = prompt(code, self.preamble, current_example)
+                if self.debug:
+                    print("Result: \n ", result)
             except openai.error.ServiceUnavailableError:
                 time.sleep(5)
                 try_count += 1
@@ -138,22 +320,68 @@ class ArgGen:
                 continue
 
             prog = extract_code(result)
+            if self.debug:
+                print("Program: \n", prog)
 
             # save the program
             with open(os.path.join("output", "scratch", "afl", name), "w") as f:
+                if self.debug:
+                    print("Saving to: ", os.path.join("output", "scratch", "afl", name))
                 f.write(insert_arg_format(prog, self.source_url, name))
 
             # compile the program
             output, return_code = compile_code(os.path.join("output", "scratch", "afl", name),
                                                os.path.join("output", "scratch", "compilation", name))
 
-            # if it compiles, save the program
+            if self.debug:
+                print("Compilation output: ", output)
+                print("Compilation return code: ", return_code)
+
+            # if it compiles, get the args, and try to run it
             if return_code == 0:
                 with open(os.path.join("output", "scratch", "text", name), "w") as f:
                     f.write(insert_arg_format(code, self.source_url, name))
+
+                if self.debug:
+                    print("getting args")
+
+                test_gen = TestFilesGen(code, name, self.debug)
+                test_gen.run()
+
+                if self.debug:
+                    print("running code")
+
+                if os.path.exists(os.path.join("output", "input", name.replace(".c", ".txt"))):
+                    with open(os.path.join("output", "input", name.replace(".c", ".txt")), "r") as f:
+                        input_file = f.read()
+                        input_file = input_file.split("\n")
+                        input_file = input_file[1]
+                        unmodified_output, modified_output, return_code_success = run_code(name, input_file)
+                        if not (return_code_success and unmodified_output == modified_output):
+                            print("Output does not match, trying again")
+                            print("Output: ", modified_output)
+                            print("Expected: ", unmodified_output)
+                            current_example += [{'role': 'user', 'content': code}]
+                            current_example += [{'role': 'assistant', 'content': prog}]
+                            current_example += [{'role': 'user', 'content': 'Please try again, '
+                                                                            'output does not match the expected\n' +
+                                                                            'here\'s the output yours produced: '
+                                                                            + modified_output
+                                                                            + '\nhere\'s the output we expected: '
+                                                                            +  unmodified_output}]
+                            try_count += 1
+                            if try_count > 2:       # It loves to just apologise each time messing with the parsing
+                                                    # so best to not waste too long on it
+                                print("Too many tries, skipping")
+                                should_try = False
+                                save_failed_input(name)
+                            continue
+
+                print("Success!")
                 should_try = False
                 continue
             else:
+                print("Compilation failed, trying again")
                 current_example += [{'role': 'user', 'content': code}]
                 current_example += [{'role': 'assistant', 'content': prog}]
                 current_example += [{'role': 'user', 'content': 'Please try again, compiling failed:\n' + output}]
@@ -163,203 +391,6 @@ class ArgGen:
                     should_try = False
                     save_failed_input(name)
                     continue
-
-class TestFilesGen:
-    class GPTException(Exception):
-        pass
-
-    def convert_to_valid_type(self, type_string):
-        print(f"Converting {type_string} to valid type")
-        if type_string == 'int' or type_string == 'INT' or type_string == 'int32' or type_string == 'INT32':
-            return 'INT32'
-        elif (type_string == 'uint32' or type_string == 'UINT32' or type_string == 'uint'
-              or type_string == 'UINT' or type_string == 'unsigned int' or type_string == 'UNSIGNED INT'):
-            return 'UINT32'
-        elif (type_string == 'short' or type_string == 'SHORT' or type_string == 'short int'
-              or type_string == 'SHORT INT' or type_string == 'short int' or type_string == 'SHORT INT'):
-            return 'SHORT'
-        elif (type_string == 'ushort' or type_string == 'USHORT' or type_string == 'unsigned short'
-              or type_string == 'UNSIGNED SHORT' or type_string == 'unsigned short int' or type_string == 'UNSIGNED SHORT INT'):
-            return 'USHORT'
-        elif type_string == 'double' or type_string == 'DOUBLE':
-            return 'DOUBLE'
-        elif type_string == 'float' or type_string == 'FLOAT':
-            return 'FLOAT'
-        elif type_string == 'char' or type_string == 'CHAR' or type_string == 'CHAR*' or type_string == 'CHAR*_STAR':
-            return 'CHAR'
-        elif (type_string == 'uchar' or type_string == 'UCHAR' or type_string == 'unsigned char'
-              or type_string == 'UNSIGNED CHAR'):
-            return 'UCHAR'
-        elif type_string == 'long' or type_string == 'LONG':
-            return 'LONG'
-        elif (type_string == 'ulong' or type_string == 'ULONG' or type_string == 'unsigned long'
-              or type_string == 'UNSIGNED LONG'):
-            return 'ULONG'
-        elif type_string == 'string' or type_string == 'STRING':
-            return 'STRING'
-        else:
-            raise self.GPTException(f"Invalid type string: {type_string}")
-
-    def extract_response(self, response):
-        content = response["choices"][0]["message"]["content"]
-
-        arg_types = content.split(" ")
-        arg_types = [self.convert_to_valid_type(arg_type.strip()
-                                                ) for arg_type in arg_types]
-
-        return arg_types
-
-    def __init__(self, code, name, openai_key, debug=False):
-        self.code = code
-        self.name = name
-        with open(os.path.join("output", "scratch", "afl", name), "r") as f:
-            self.content = f.read()
-
-        self.openai_key = openai_key
-        self.debug = debug
-        with open(os.path.join("test_file_gen", "preamble"), "r") as f:
-            self.preamble = f.read()
-        with open(os.path.join("test_file_gen", "example_history"), "r") as f:
-            example_contents = f.read()
-            example_contents = example_contents.split("REQRES")
-            self.example = []
-            for i in range(len(example_contents)):
-                if i % 2 == 0:
-                    self.example.append({'role': 'user', 'content': example_contents[i]})
-                else:
-                    self.example.append({'role': 'assistant', 'content': example_contents[i]})
-
-        with open(os.path.join("default_arg", "preamble"), "r") as f:
-            self.arg_preamble = f.read()
-        with open(os.path.join("default_arg", "example_history"), "r") as f:
-            example_contents = f.read()
-            example_contents = example_contents.split("REQRES")
-            self.arg_example = []
-            for i in range(len(example_contents)):
-                if i % 2 == 0:
-                    self.arg_example.append({'role': 'user', 'content': example_contents[i]})
-                else:
-                    self.arg_example.append({'role': 'assistant', 'content': example_contents[i]})
-
-    def get_number_of_arguments(self):
-        pattern = r'if \(argc != (\d+)\) {'
-        match = re.search(pattern, self.content)
-        if match:
-            return int(match.group(1)) - 1
-        else:
-            return None  # Could not find number of arguments
-
-    def get_type_of_arguments(self, arg_index):
-        lines = self.content.split('\n')
-        pattern = r'argv\[' + str(arg_index) + r'\]'
-        for line in lines:
-            match = re.search(pattern, self.content)
-            if match:
-                # Check for integer usage
-                if re.search(r'\batoi\s*\(', line):
-                    return 'INT32'
-                # Check for floating-point usage
-                elif re.search(r'\batof\s*\(', line):
-                    return 'FLOAT'
-                # Check for character usage
-                elif re.search(r'\bargv[' + str(arg_index) + r']\[\d+]\b', line):
-                    return 'CHAR'
-                # Check for long usage
-                elif re.search(r'\batol\s*\(|\batoll\s*\(', line):
-                    return 'LONG'
-                # check for string usage
-                elif re.search(r'= \bargv[' + str(arg_index) + r']\b', line):
-                    return 'STRING'
-                else:
-                    return None
-        else:
-            return None
-
-    def get_default_arg_values(self):
-        # #If reverting back to this version, remember to add type_string to the function arguments and change its call
-        # if (type_string == 'INT32' or type_string == 'LONG' or type_string == 'UINT32' or type_string == 'ULONG'
-        #         or type_string == 'SHORT' or type_string == 'USHORT' or type_string == 'UCHAR'):
-        #     return '0'
-        # elif type_string == 'FLOAT' or type_string == 'DOUBLE':
-        #     return '0.0'
-        # elif type_string == 'CHAR':
-        #     return 'A'
-        # elif type_string == 'STRING':
-        #     return 'stringValue'
-        # else:
-        #     raise Exception('Unknown type string')
-        with open(os.path.join("output", "scratch", "text", self.name), "r") as f:
-            original = f.read()
-        with open(os.path.join("output", "scratch", "afl", self.name), "r") as f:
-            afl = f.read()
-
-        result = prompt(original + afl, self.arg_preamble, self.arg_example)
-        result = result["choices"][0]["message"]["content"]
-        result = result.split(" ")
-        result = [arg.strip() for arg in result]
-
-        return result
-
-    def generate_from_gpt(self, attempts=3):
-        fail_count = 0
-        while fail_count < attempts:
-            if fail_count > 0:
-                print(f'Retrying {self.name} ({fail_count} of {attempts})')
-            try:
-                arg_types = self.extract_response(prompt(self.content, self.preamble, self.example))
-                return arg_types
-            except openai.error.ServiceUnavailableError:
-                time.sleep(5)
-            except TestFilesGen.GPTException as e:
-                fail_count += 1
-                print(f'Attempt {fail_count} failed for {self.name}: {e}')
-        save_failed_input(self.name)
-
-    def test(self, args):
-        """Run the afl compiled version with suggested arguments, if it crashes, return False"""
-        try:
-            print(f"Running {self.name} with {args}")
-            subprocess.check_call([os.path.join("output", "scratch", "compilation", self.name), *args], shell=True)
-            return True
-        except subprocess.CalledProcessError:
-
-            return False
-
-    def run(self):
-        should_try = True
-        while should_try:
-            num_args = self.get_number_of_arguments()
-            if num_args is None:
-                # This is fine, means there's no constants
-                return
-            arg_types = []
-            for i in range(num_args):
-                result = self.get_type_of_arguments(i)
-                if result is not None:
-                    arg_types.append(result)
-                else:
-                    # something went wrong, must fall back to gpt
-                    arg_types = self.generate_from_gpt()
-
-            # save the files:
-            with open(os.path.join("output", "binary", self.name + ".o.types"), "w") as f:
-                if arg_types is not None:
-                    for arg in arg_types:
-                        f.write(arg + " ")
-
-            with open(os.path.join("output", "input", self.name.replace(".c", ".txt")), "w") as f:
-                f.write(self.name + "\n")
-                # get the default values
-                args = self.get_default_arg_values()
-                for arg in args:
-                    f.write(arg + " ")
-
-            # test it, if it fails, try again
-            should_try = not self.test(args)
-
-            if should_try:
-                print(f"Test failed for {self.name}, trying again")
-
 
 
 def main():
@@ -371,7 +402,7 @@ def main():
     key = sys.argv[1]
     prompt = sys.argv[2]
     source = sys.argv[3]
-    debug = False
+    debug = True
 
     openai.api_key = key
 
@@ -379,11 +410,7 @@ def main():
     setup_files()
 
     arg_gen = ArgGen(prompt, key, source, debug)
-    input_programs = arg_gen.run()
-
-    for (name, code) in input_programs:
-        test_gen = TestFilesGen(code, name, key, debug)
-        test_gen.run()
+    arg_gen.run()
 
 
 if __name__ == "__main__":
