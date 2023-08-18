@@ -1,0 +1,23 @@
+// Modification timestamp: 2023-08-14 17:11:39
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2002-08-19-CodegenBug.c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    unsigned char *validate_array;
+
+    if (argc != 2) {
+        printf("Usage: %s <value>\n", argv[0]);
+        return 1;
+    }
+
+    validate_array = (unsigned char *)malloc(64);
+    if (validate_array == 0) {
+        printf("FAILURE!\n");
+        exit(1);
+    }
+
+    printf("SUCCESS\n");
+    return 0;
+}

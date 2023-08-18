@@ -1,0 +1,43 @@
+// Modification timestamp: 2023-08-14 14:58:28
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr36034-1.c
+
+#include <stdio.h>
+
+double x[5][10];
+double tmp[5][6];
+
+void __attribute__((noinline))
+test (void)
+{
+  int i, j;
+  for (i = 0; i < 5; ++i)
+    {
+      tmp[i][0] = x[i][0];
+      tmp[i][1] = x[i][1];
+      tmp[i][2] = x[i][2];
+      tmp[i][3] = x[i][3];
+      tmp[i][4] = x[i][4];
+      tmp[i][5] = x[i][5];
+    }
+}
+extern void abort (void);
+int main(int argc, char *argv[])
+{
+  if (argc != 51) {
+    printf("Usage: %s <value1> <value2> ... <value50>\n", argv[0]);
+    return 1;
+  }
+
+  int i, j;
+  for (i = 0; i < 5; ++i)
+    for (j = 0; j < 10; ++j)
+      x[i][j] = atof(argv[i * 10 + j + 1]);
+
+  test();
+  for (i = 0; i < 5; ++i)
+    for (j = 0; j < 6; ++j)
+      if (tmp[i][j] == -1)
+        abort ();
+  return 0;
+}
+
