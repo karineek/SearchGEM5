@@ -514,7 +514,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     memcpy(new_buf, buf, buf_size);
 
     // Mutate!
-    if (mutator_rand(data, 0, 1000, 0) < 850) {
+    if (mutator_rand(data, 0, 1000, 0) < 990) {
         // bit flip on the arguments
         findAndMutateArgs(new_buf, data);
     } else {
