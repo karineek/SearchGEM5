@@ -1,0 +1,1 @@
+./compile_n_run_1_mutation.sh /home/ubuntu/experiment-3/inputs/$1.txt /home/ubuntu/experiment-3/binary/$1.c.o /home/ubuntu/experiment-3/binary/$1.c.o.types /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt 

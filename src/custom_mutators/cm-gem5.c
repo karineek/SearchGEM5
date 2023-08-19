@@ -432,7 +432,7 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     strcat(data->out_buff, data->input_args);
 
     // How many to flip?
-    int n = mutator_rand(data, 0, 25, 0);
+    int n = mutator_rand(data, 0, 10, 0);
 
     // TODO: improve efficiency
     for (int i=0; i < n; i++) {
@@ -514,7 +514,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     memcpy(new_buf, buf, buf_size);
 
     // Mutate!
-    if (mutator_rand(data, 0, 1000, 0) < 990) {
+    if (mutator_rand(data, 0, 1000, 0) < 995) {
         // bit flip on the arguments
         findAndMutateArgs(new_buf, data);
     } else {
