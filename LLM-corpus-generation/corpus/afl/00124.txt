@@ -1,1 +1,1 @@
-MYPATH12345data/afl/00124.c.o 0 0
+MYPATH12345data/afl/00124.c.o 1 2
