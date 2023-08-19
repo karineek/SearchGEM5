@@ -9,7 +9,7 @@ struct {
 } result;
 
 int main(int argc, char *argv[]) {
-  if (argc != 2) {
+  if (argc != 8) {
     printf("Usage: %s <value>\n", argv[0]);
     return 1;
   }

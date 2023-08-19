@@ -1,1 +1,1 @@
-MYPATH12345data/afl/va-arg-14.c.o 0
+MYPATH12345data/afl/va-arg-14.c.o 1
