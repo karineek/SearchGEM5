@@ -1,6 +1,8 @@
 
 // Modification timestamp: 2023-08-10 16:17:31
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Benchmarks/Misc/20000313-1.c
+#include <stdio.h>
+#include <stdlib.h>
 
 unsigned int buggy(unsigned int *param) {
     unsigned int accu, zero = 0, borrow;

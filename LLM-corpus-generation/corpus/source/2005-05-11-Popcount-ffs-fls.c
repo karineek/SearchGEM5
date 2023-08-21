@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-14 17:17:14
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2005-05-11-Popcount-ffs-fls.c
+#include <stdlib.h>
 
 #if defined(__NetBSD__)
 #include <sys/bitops.h>

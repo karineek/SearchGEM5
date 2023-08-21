@@ -1,6 +1,7 @@
 
 // Modification timestamp: 2023-08-10 16:35:43
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/1998-07-20-Identify/20000622-1.c
+#include <stdio.h>
 
 #include <stdlib.h>
 

@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-14 14:37:51
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/memset-1.c
+#include <stdio.h>
 
 #include <string.h>
 #include <stdlib.h>

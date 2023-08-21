@@ -1,5 +1,7 @@
 // Modification timestamp: 2023-08-14 14:30:49
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/loop-2c.c
+#include <stdio.h>
+#include <stdlib.h>
 
 extern void abort(void);
 extern void exit(int);

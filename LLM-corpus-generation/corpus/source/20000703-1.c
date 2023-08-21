@@ -1,6 +1,8 @@
 
 // Modification timestamp: 2023-08-10 16:36:14
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Misc/C/20000703-1.c
+#include <stdio.h>
+#include <stdlib.h>
 
 void abort(void);
 void exit(int);

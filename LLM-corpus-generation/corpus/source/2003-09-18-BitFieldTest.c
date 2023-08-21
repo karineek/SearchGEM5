@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-14 17:16:07
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/156ba07a5c779f6b838dac832a25cf7691898288/SingleSource/UnitTests/2003-09-18-BitFieldTest.c
+#include <stdlib.h>
 
 #include <stdio.h>
 

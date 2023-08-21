@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-18 11:36:45
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-execs/00179.c
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 

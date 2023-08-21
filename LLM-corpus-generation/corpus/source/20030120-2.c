@@ -1,5 +1,7 @@
 // Modification timestamp: 2023-08-14 12:42:20
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20030120-2.c
+#include <stdio.h>
+#include <stdlib.h>
 
 extern void abort();
 

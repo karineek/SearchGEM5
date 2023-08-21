@@ -1,6 +1,7 @@
 //C
 // Modification timestamp: 2023-08-10 16:17:15
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/ASCI_Purple/20000227-1.c
+#include <stdio.h>
 
 #include <stdlib.h>
 

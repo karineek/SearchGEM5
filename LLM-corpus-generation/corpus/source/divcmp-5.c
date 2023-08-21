@@ -1,5 +1,7 @@
 // Modification timestamp: 2023-08-14 14:25:06
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/divcmp-5.c
+#include <stdio.h>
+#include <stdlib.h>
 
 extern void abort(void);
 

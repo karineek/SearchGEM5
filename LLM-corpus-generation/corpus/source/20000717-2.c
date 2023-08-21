@@ -1,6 +1,7 @@
 
 // Modification timestamp: 2023-08-10 16:39:44
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/Programs/SingleSource/UnitTests/20000717-2.c
+#include <stdio.h>
 #include <stdlib.h>
 
 static void compare(long long foo) {

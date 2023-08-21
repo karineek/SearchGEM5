@@ -1,6 +1,8 @@
 
 // Modification timestamp: 2023-08-10 16:41:56
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Benchmarks/Misc/20000801-1.c
+#include <stdio.h>
+#include <stdlib.h>
 
 extern void abort(void);
 extern void exit(int);

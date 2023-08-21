@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-18 11:32:25
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-execs/00170.c
+#include <stdlib.h>
 #include <stdio.h>
 
 enum fred

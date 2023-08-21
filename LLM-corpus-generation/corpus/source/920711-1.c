@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-14 13:28:35
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/920711-1.c
+#include <stdio.h>
 
 /* { dg-options "-fwrapv" } */
 

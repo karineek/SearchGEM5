@@ -1,6 +1,7 @@
 
 // Modification timestamp: 2023-08-10 16:41:05
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/Trimaran/20000726-1.c
+#include <stdio.h>
 
 #include <stdlib.h>
 

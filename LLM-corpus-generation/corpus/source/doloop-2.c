@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-14 14:25:55
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/doloop-2.c
+#include <stdio.h>
 
 #include <limits.h>
 #include <stdlib.h>

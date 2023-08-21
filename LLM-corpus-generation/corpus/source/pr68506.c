@@ -1,5 +1,7 @@
 // Modification timestamp: 2023-08-14 15:47:39
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/pr68506.c
+#include <stdio.h>
+#include <stdlib.h>
 
 int a, b, m, n, o, p, s, u, i;
 char c, q, y;

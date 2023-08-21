@@ -1,6 +1,7 @@
 
 // Modification timestamp: 2023-08-10 16:31:37
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Applications/oggenc/20000419-1.c
+#include <stdio.h>
 
 #include <stdlib.h>
 
