@@ -1,4 +1,3 @@
-
 // Modification timestamp: 2023-08-02 15:30:00
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/MallocBench/espresso/20000112-1.c
 
