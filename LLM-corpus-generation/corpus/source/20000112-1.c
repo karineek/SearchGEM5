@@ -3,6 +3,7 @@
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/MallocBench/espresso/20000112-1.c
 
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 static int
