@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 18:00:30
-// Original Source: https://www.programiz.com/c-programming/examples/add-numbers
+// Original Source: https://www.programiz.com/c-programming/examples/add-numbers.c
 
 #include <stdio.h>
 #include <stdlib.h>

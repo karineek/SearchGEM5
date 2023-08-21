@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:39:16
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000715-2.c
 
 extern void abort(void);
 extern void exit(int);

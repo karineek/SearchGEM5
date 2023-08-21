@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:37:59
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MallocBench/cfrac01/cfrac01.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000706-5.c
 
 extern void abort(void);
 extern void exit(int);

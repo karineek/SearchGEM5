@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 22:45:00
-// Original Source: https://www.programiz.com/c-programming/examples/vowel-consonant
+// Original Source: https://www.programiz.com/c-programming/examples/vowel-consonant.c
 
 #include <stdio.h>
 #include <stdlib.h>

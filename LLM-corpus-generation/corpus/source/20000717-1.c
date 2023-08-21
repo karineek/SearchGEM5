@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:39:32
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000717-1.c
 
 #include <stdlib.h>
 

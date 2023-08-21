@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 22:30:00
-// Original Source: https://www.programiz.com/c-programming/examples/positive-negative
+// Original Source: https://www.programiz.com/c-programming/examples/positive-negative.c
 
 #include <stdio.h>
 

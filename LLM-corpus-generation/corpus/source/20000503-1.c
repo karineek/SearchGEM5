@@ -1,6 +1,6 @@
 //c
 // Modification timestamp: 2023-08-10 16:32:23
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/SingleSource/Benchmarks/BitBench/pstack.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000503-1.c
 
 #include <stdlib.h>
 

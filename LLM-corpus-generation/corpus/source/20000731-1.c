@@ -1,6 +1,6 @@
 //c
 // Modification timestamp: 2023-08-10 16:41:22
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/817c1f7f9439fe4e2e238c3aeb1e2e8607a1819b/SingleSource/UnitTests/2001-07-31-ManyArgs.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000731-1.c
 
 #include <stdlib.h>
 

@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:33:18
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/DOE-ProxyApps-C/miniFE/miniFE.cpp
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000519-1.c
 
 #include <stdarg.h>
 #include <stdlib.h>

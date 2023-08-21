@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:31:19
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/Olden/em3d/em3d.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000412-6.c
 #include <stddef.h>
 #include <stdio.h>
 #include <string.h>

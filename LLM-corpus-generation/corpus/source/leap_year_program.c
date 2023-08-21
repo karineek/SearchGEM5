@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 23:00:00
-// Original Source: https://www.programiz.com/c-programming/examples/leap-year
+// Original Source: https://www.programiz.com/c-programming/examples/leap-year.c
 
 #include <stdio.h>
 

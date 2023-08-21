@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 19:30:00
-// Original Source: https://www.programiz.com/c-programming/examples/product-numbers
+// Original Source: https://www.programiz.com/c-programming/examples/product-numbers.c
 
 #include <stdio.h>
 #include <stdlib.h>

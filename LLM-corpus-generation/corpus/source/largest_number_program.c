@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 22:15:00
-// Original Source: https://www.programiz.com/c-programming/examples/largest-number
+// Original Source: https://www.programiz.com/c-programming/examples/largest-number.c
 
 #include <stdio.h>
 

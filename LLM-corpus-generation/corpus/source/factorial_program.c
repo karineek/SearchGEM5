@@ -1,5 +1,5 @@
 // Modification Timestamp: 2023-08-03 23:15:00
-// Original Source: https://www.programiz.com/c-programming/examples/factorial
+// Original Source: https://www.programiz.com/c-programming/examples/factorial.c
 
 #include <stdio.h>
 

@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:37:24
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/Ptrdist/yacr2/yacr2.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000706-3.c
 
 extern void abort(void);
 extern void exit(int);

@@ -1,5 +1,5 @@
 // Modification timestamp: 2023-08-04 14:35:02
-// Original Source: https://barnyard.syr.edu/quickies/hanoi.c
+// Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00181.c
 
 #include <stdio.h>
 #include <stdlib.h>

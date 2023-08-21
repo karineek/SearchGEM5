@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:19:08
-// Original Source: https://github.com/llvm/llvm-test-suite
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000402-1.c
 
 #if ULLONG_MAX != 18446744073709551615ull && ULONG_MAX != 18446744073709551615ull
 int main(void) { exit (0); }

@@ -1,6 +1,6 @@
 //c
 // Modification timestamp: 2023-08-10 16:37:05
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/FreeBench/fourinarow/main.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000706-2.c
 
 extern void abort(void);
 extern void exit(int);

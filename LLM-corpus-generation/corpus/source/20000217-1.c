@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:15:39
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/master/MultiSource/Benchmarks/tramp3d-v4/tramp3d-v4.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000217-1.c
 
 unsigned short int showbug(unsigned short int *a, unsigned short int *b)
 {

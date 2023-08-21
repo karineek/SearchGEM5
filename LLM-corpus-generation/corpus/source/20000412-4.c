@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:30:41
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/MultiSource/Benchmarks/MallocBench/gs/gs.c
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000412-4.c
 
 void f(int i, int j, int radius, int width, int N)
 {
