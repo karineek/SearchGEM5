@@ -28,4 +28,3 @@ int main(int argc, char *argv[]) {
   func_44(p_45);
   return 0;
 }
-

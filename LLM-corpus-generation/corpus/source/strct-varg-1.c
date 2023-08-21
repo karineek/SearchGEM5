@@ -48,4 +48,3 @@ int main(int argc, char *argv[])
   f(atoi(argv[1]), a, 3, b);
   exit(0);
 }
-

@@ -27,4 +27,3 @@ int main(int argc, char *argv[]) {
   printf("bad bits: %llx\n", bad_bits);
   return bad_bits != 0;
 }
-

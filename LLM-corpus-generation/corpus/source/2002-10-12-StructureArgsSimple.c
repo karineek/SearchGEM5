@@ -24,4 +24,3 @@ int main(int argc, char *argv[]) {
   print(U);
   return 0;
 }
-

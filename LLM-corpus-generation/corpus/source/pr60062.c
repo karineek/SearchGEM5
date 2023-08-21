@@ -31,4 +31,3 @@ __attribute__((optimize (0))) int main(int argc, char *argv[])
     bar("hello");
     return 0;
 }
-

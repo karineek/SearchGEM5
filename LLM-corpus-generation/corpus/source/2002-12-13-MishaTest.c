@@ -28,4 +28,3 @@ int main(int argc, char *argv[]) {
   printf("Sum is %d\n", Sum);
   return 0;
 }
-

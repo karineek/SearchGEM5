@@ -32,4 +32,3 @@ int main(int argc, char *argv[]) {
   printf("Produced: %d\n", SumArray(Array, Num));
   return 0;
 }
-

@@ -41,4 +41,3 @@ int main(int argc, char *argv[]) {
   test(atof(argv[4]), &eval);
   exit(0);
 }
-

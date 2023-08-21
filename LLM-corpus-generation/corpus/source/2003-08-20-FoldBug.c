@@ -24,4 +24,3 @@ int main(int argc, char *argv[]) {
   printf("All ok\n");
   return 0;
 }
-

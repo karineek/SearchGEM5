@@ -48,4 +48,3 @@ int main(int argc, char *argv[])
   node->child = 0;
   walk(node, 1);
 }
-

@@ -135,4 +135,3 @@ main (int argc, char *argv[])
   baz (c);
   return 0;
 }
-

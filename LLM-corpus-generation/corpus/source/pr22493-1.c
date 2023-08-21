@@ -30,4 +30,3 @@ int main(int argc, char *argv[])
   f(arg);
   exit(0);
 }
-

@@ -170,4 +170,3 @@ int main(int argc, char *argv[]) {
   foobar (&live_throughout);
   return 0;
 }
-

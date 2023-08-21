@@ -27,4 +27,3 @@ int main(int argc, char *argv[]) {
   test(A, B, C, D);
   return 0;
 }
-

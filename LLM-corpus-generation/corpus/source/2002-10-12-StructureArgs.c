@@ -23,4 +23,3 @@ int main(int argc, char *argv[]) {
     print(U, V);
     return 0;
 }
-

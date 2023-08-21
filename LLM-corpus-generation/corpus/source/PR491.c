@@ -37,4 +37,3 @@ int main(int argc, char* argv[]) {
 
   return test(1, atoi(argv[1]), argv);
 }
-

@@ -16,4 +16,3 @@ int main(int argc, char *argv[]) {
   printf("us2  = %u\n", us2);
   return 0;
 }
-

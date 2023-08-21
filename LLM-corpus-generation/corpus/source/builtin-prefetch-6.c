@@ -43,4 +43,3 @@ int main(int argc, char *argv[]) {
   prefetch_for_write();
   exit(0);
 }
-

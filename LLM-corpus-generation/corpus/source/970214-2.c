@@ -14,4 +14,3 @@ int main(int argc, char *argv[]) {
 
   exit(m(atoi(argv[1])) != L'1');
 }
-

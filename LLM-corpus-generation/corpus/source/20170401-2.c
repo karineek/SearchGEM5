@@ -34,4 +34,3 @@ int main(int argc, char *argv[]) {
 void adjust_xy(short *x, short *y) {
   *x = adjust.kx_x * *x + adjust.kx_y * *y;
 }
-

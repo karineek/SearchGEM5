@@ -37,4 +37,3 @@ int main(int argc, char *argv[]) {
     foo(s[1].b);
   return 0;
 }
-

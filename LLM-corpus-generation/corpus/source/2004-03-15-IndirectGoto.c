@@ -23,4 +23,3 @@ L4:
   printf("E\n");
   return 0;
 }
-

@@ -22,4 +22,3 @@ int main(int argc, char *argv[]) {
   ap->ap[j] = &i;
   exit (0);
 }
-

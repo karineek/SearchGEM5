@@ -34,4 +34,3 @@ int main(int argc, char *argv[]) {
   asm volatile("" : : : "memory");
   return 0;
 }
-

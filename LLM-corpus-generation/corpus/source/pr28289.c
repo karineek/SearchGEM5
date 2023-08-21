@@ -35,4 +35,3 @@ int main(int argc, char *argv[]) {
 int ok(int i) {
   exit(i);
 }
-

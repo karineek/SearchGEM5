@@ -24,4 +24,3 @@ int main(int argc, char *argv[]) {
   printf("%d %d\n", D.jump, D.call);
   return 0;
 }
-

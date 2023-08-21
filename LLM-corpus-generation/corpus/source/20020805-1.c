@@ -24,4 +24,3 @@ int main(int argc, char *argv[]) {
   check(m);
   exit(0);
 }
-

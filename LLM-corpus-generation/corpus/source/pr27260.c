@@ -37,4 +37,3 @@ int main(int argc, char *argv[]) { // Added arguments to main
     abort();
   return 0;
 }
-

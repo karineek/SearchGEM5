@@ -49,4 +49,3 @@ int main (int argc, char *argv[])
   free (agg);
   return r;
 }
-

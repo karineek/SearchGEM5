@@ -32,4 +32,3 @@ int main(int argc, char *argv[])
   testit((a + 23) & 0xfffffffc);
   exit(0);
 }
-

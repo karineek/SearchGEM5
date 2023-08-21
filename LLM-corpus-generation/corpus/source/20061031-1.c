@@ -36,4 +36,3 @@ int main(int argc, char *argv[])
     f(atoi(argv[1]));
     return 0;
 }
-

@@ -281,4 +281,3 @@ void test8(unsigned long long l, int set) {
   } else if (!set)
     abort();
 }
-

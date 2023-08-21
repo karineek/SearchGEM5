@@ -35,4 +35,3 @@ int main(int argc, char *argv[]) {
     goto lab;
   return 0;
 }
-

@@ -42,4 +42,3 @@ int main(int argc, char *argv[]) {
   foo(x, a);
   return 0;
 }
-

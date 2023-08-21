@@ -24,4 +24,3 @@ int main(int argc, char *argv[]) {
   int arg1 = atoi(argv[1]);
   return arg1 - 4;
 }
-

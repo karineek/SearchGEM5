@@ -17,4 +17,3 @@ int main(int argc, char *argv[]) {
   
   return s.x != 0;
 }
-

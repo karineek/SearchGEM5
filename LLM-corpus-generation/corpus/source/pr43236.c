@@ -35,4 +35,3 @@ int main(int argc, char *argv[]) {
   if (memcmp(A, C, 30) || memcmp(B, C, 30)) abort();
   return 0;
 }
-

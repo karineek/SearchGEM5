@@ -29,4 +29,3 @@ int main(int argc, char *argv[]) {
   printf("%d\n", target_isinf(x));
   return 0;
 }
-
