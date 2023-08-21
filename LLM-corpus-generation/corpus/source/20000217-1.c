@@ -1,6 +1,11 @@
 
 // Modification timestamp: 2023-08-10 16:15:39
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/20000217-1.c
+#include <string.h>
+#include <string.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 unsigned short int showbug(unsigned short int *a, unsigned short int *b)
 {
