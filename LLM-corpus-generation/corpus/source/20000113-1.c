@@ -2,6 +2,7 @@
 // Modification timestamp: 2023-08-10 16:14:53
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/test/Programs/single-source/20000113-1.c
 
+#include <stdio.h>
 #include <stdlib.h>
 
 struct x {
