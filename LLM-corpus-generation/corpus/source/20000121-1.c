@@ -1,6 +1,8 @@
-
 // Modification timestamp: 2023-08-10 16:15:07
 // Original Source: https://github.com/llvm/llvm-test-suite
+
+#include <stdio.h>
+#include <stdlib.h>
 
 void big(long long u) { }
 
