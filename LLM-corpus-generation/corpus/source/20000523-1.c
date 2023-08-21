@@ -1,6 +1,6 @@
 
 // Modification timestamp: 2023-08-10 16:33:47
-// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/NPB/SeqApplications/mg.C
+// Original Source: https://github.com/llvm/llvm-test-suite/blob/main/NPB/SeqApplications/mg.c
 
 #include <stdlib.h>
 
