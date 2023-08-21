@@ -1,6 +1,9 @@
 // Modification timestamp: 2023-08-04 13:57:57
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00074.c
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #if defined X
 X
 #endif

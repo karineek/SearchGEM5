@@ -2,6 +2,7 @@
 // Original Source: https://www.programiz.com/c-programming/examples/vowel-consonant
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
     if (argc != 2 || strlen(argv[1]) != 1) {

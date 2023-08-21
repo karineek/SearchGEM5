@@ -1,6 +1,9 @@
 // Modification timestamp: 2023-08-04 14:23:13
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00142.c
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #if defined(FOO)
 int a;
 #elif !defined(FOO) && defined(BAR)

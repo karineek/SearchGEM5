@@ -1,6 +1,9 @@
 // Modification timestamp: 2023-08-04 13:52:39
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00062.c
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #ifdef FOO
 	XXX
 #ifdef BAR

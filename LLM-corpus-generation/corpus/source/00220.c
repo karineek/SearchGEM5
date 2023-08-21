@@ -2,6 +2,7 @@
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00220.c
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <wchar.h>
 
 int main(int argc, char *argv[]) {

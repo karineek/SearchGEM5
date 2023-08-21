@@ -1,6 +1,7 @@
 // Modification timestamp: 2023-08-14 16:56:00
 // Original Source: https://github.com/llvm/llvm-test-suite/blob/main/SingleSource/Regression/C/gcc-c-torture/execute/va-arg-11.c
 
+#include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 

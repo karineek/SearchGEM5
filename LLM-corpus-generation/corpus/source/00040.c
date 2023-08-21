@@ -2,6 +2,7 @@
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-exec/00040.c
 
 #include <stdlib.h>
+#include <stdio.h>
 
 int N;
 int *t;

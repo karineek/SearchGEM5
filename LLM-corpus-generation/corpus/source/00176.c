@@ -1,5 +1,6 @@
 // Modification timestamp: 2023-08-18 11:35:07
 // Original Source: https://github.com/c-testsuite/c-testsuite/blob/master/tests/single-execs/00176.c
+#include <stdlib.h>
 #include <stdio.h>
 
 int array[16];

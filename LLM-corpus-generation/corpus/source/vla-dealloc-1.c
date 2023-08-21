@@ -6,6 +6,7 @@
 /* { dg-require-effective-target alloca } */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #if (__SIZEOF_INT__ <= 2)
 #define LIMIT 10000

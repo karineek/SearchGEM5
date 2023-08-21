@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
   int32_t x[66];
