@@ -1,0 +1,165 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 22 2023 17:00:30
+gem5 executing on fuzzer-03, pid 527549
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-5/output/default/crashes//id:000043,sig:06,src:000341+001367,time:164589971,execs:76582,op:cm-gem5.so,pos:0
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+LLVM: n: 10, clz(n): 28, popcount(n): 2, ctz(n): 1
+REF : n: 10, clz(n): 28, popcount(n): 2, ctz(n): 1
+  ***  
+LLVM: n: -33, clz(n): 0, popcount(n): 31, ctz(n): 0
+REF : n: -33, clz(n): 0, popcount(n): 31, ctz(n): 0
+  ***  
+LLVM: n: 96, clz(n): 25, popcount(n): 2, ctz(n): 5
+REF : n: 96, clz(n): 25, popcount(n): 2, ctz(n): 5
+  ***  
+LLVM: n: -291, clz(n): 0, popcount(n): 29, ctz(n): 0
+REF : n: -291, clz(n): 0, popcount(n): 29, ctz(n): 0
+  ***  
+LLVM: n: 870, clz(n): 22, popcount(n): 6, ctz(n): 1
+REF : n: 870, clz(n): 22, popcount(n): 6, ctz(n): 1
+  ***  
+LLVM: n: -2613, clz(n): 0, popcount(n): 27, ctz(n): 0
+REF : n: -2613, clz(n): 0, popcount(n): 27, ctz(n): 0
+  ***  
+LLVM: n: 7836, clz(n): 19, popcount(n): 8, ctz(n): 2
+REF : n: 7836, clz(n): 19, popcount(n): 8, ctz(n): 2
+  ***  
+LLVM: n: -23511, clz(n): 0, popcount(n): 22, ctz(n): 0
+REF : n: -23511, clz(n): 0, popcount(n): 22, ctz(n): 0
+  ***  
+LLVM: n: 70530, clz(n): 15, popcount(n): 6, ctz(n): 1
+REF : n: 70530, clz(n): 15, popcount(n): 6, ctz(n): 1
+  ***  
+LLVM: n: -211593, clz(n): 0, popcount(n): 24, ctz(n): 0
+REF : n: -211593, clz(n): 0, popcount(n): 24, ctz(n): 0
+  ***  
+LLVM: n: 634776, clz(n): 12, popcount(n): 11, ctz(n): 3
+REF : n: 634776, clz(n): 12, popcount(n): 11, ctz(n): 3
+  ***  
+LLVM: n: -1904331, clz(n): 0, popcount(n): 21, ctz(n): 0
+REF : n: -1904331, clz(n): 0, popcount(n): 21, ctz(n): 0
+  ***  
+LLVM: n: 5712990, clz(n): 9, popcount(n): 13, ctz(n): 1
+REF : n: 5712990, clz(n): 9, popcount(n): 13, ctz(n): 1
+  ***  
+LLVM: n: -17138973, clz(n): 0, popcount(n): 23, ctz(n): 0
+REF : n: -17138973, clz(n): 0, popcount(n): 23, ctz(n): 0
+  ***  
+LLVM: n: 51416916, clz(n): 6, popcount(n): 11, ctz(n): 2
+REF : n: 51416916, clz(n): 6, popcount(n): 11, ctz(n): 2
+  ***  
+LLVM: n: -154250751, clz(n): 0, popcount(n): 15, ctz(n): 0
+REF : n: -154250751, clz(n): 0, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -10000, clz(n): 0, popcount(n): 56, ctz(n): 4
+REF LO BITS : n: -10000, clz(n): 0, popcount(n): 56, ctz(n): 4
+  ***  
+LLVM: n: 29997, clz(n): 49, popcount(n): 9, ctz(n): 0
+REF LO BITS : n: 29997, clz(n): 49, popcount(n): 9, ctz(n): 0
+  ***  
+LLVM: n: -89994, clz(n): 0, popcount(n): 54, ctz(n): 1
+REF LO BITS : n: -89994, clz(n): 0, popcount(n): 54, ctz(n): 1
+  ***  
+LLVM: n: 269979, clz(n): 45, popcount(n): 10, ctz(n): 0
+REF LO BITS : n: 269979, clz(n): 45, popcount(n): 10, ctz(n): 0
+  ***  
+LLVM: n: -809940, clz(n): 0, popcount(n): 52, ctz(n): 2
+REF LO BITS : n: -809940, clz(n): 0, popcount(n): 52, ctz(n): 2
+  ***  
+LLVM: n: 2429817, clz(n): 42, popcount(n): 11, ctz(n): 0
+REF LO BITS : n: 2429817, clz(n): 42, popcount(n): 11, ctz(n): 0
+  ***  
+LLVM: n: -7289454, clz(n): 0, popcount(n): 49, ctz(n): 1
+REF LO BITS : n: -7289454, clz(n): 0, popcount(n): 49, ctz(n): 1
+  ***  
+LLVM: n: 21868359, clz(n): 39, popcount(n): 15, ctz(n): 0
+REF LO BITS : n: 21868359, clz(n): 39, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -65605080, clz(n): 0, popcount(n): 48, ctz(n): 3
+REF LO BITS : n: -65605080, clz(n): 0, popcount(n): 48, ctz(n): 3
+  ***  
+LLVM: n: 196815237, clz(n): 36, popcount(n): 15, ctz(n): 0
+REF LO BITS : n: 196815237, clz(n): 36, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -590445714, clz(n): 0, popcount(n): 50, ctz(n): 1
+REF LO BITS : n: -590445714, clz(n): 0, popcount(n): 50, ctz(n): 1
+  ***  
+LLVM: n: 1771337139, clz(n): 33, popcount(n): 17, ctz(n): 0
+REF LO BITS : n: 1771337139, clz(n): 33, popcount(n): 17, ctz(n): 0
+  ***  
+LLVM: n: -5314011420, clz(n): 0, popcount(n): 46, ctz(n): 2
+REF LO BITS : n: -5314011420, clz(n): 0, popcount(n): 46, ctz(n): 2
+  ***  
+LLVM: n: 15942034257, clz(n): 30, popcount(n): 16, ctz(n): 0
+REF LO BITS : n: 15942034257, clz(n): 30, popcount(n): 16, ctz(n): 0
+  ***  
+LLVM: n: -47826102774, clz(n): 0, popcount(n): 46, ctz(n): 1
+REF LO BITS : n: -47826102774, clz(n): 0, popcount(n): 46, ctz(n): 1
+  ***  
+LLVM: n: 143478308319, clz(n): 26, popcount(n): 25, ctz(n): 0
+REF LO BITS : n: 143478308319, clz(n): 26, popcount(n): 25, ctz(n): 0
+  ***  
+LLVM: n: -430434924960, clz(n): 0, popcount(n): 39, ctz(n): 5
+REF LO BITS : n: -430434924960, clz(n): 0, popcount(n): 39, ctz(n): 5
+  ***  
+LLVM: n: 1291304774877, clz(n): 23, popcount(n): 22, ctz(n): 0
+REF LO BITS : n: 1291304774877, clz(n): 23, popcount(n): 22, ctz(n): 0
+  ***  
+LLVM: n: -3873914324634, clz(n): 0, popcount(n): 42, ctz(n): 1
+REF LO BITS : n: -3873914324634, clz(n): 0, popcount(n): 42, ctz(n): 1
+  ***  
+src/arch/x86/faults.cc:166: panic: Tried to read unmapped address 0xb941015b.
+PC: (0x1414=>0x1416).(0=>1), Instr:   ADD_M_R : ldst   t1d, DS:[rax]
+Memory Usage: 237644 KBytes
+Program aborted at tick 24324884433
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x560cbad22663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x560cbad760c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f6e4b3d4420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7f6e4a50a00b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7f6e4a4e9859]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x560cb7f25f45]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2897ec9)[0x560cb9d07ec9]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f6f583)[0x560cb93df583]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55285)[0x560cb93c5285]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f5bd78)[0x560cb93cbd78]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f69890)[0x560cb93d9890]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2940e74)[0x560cb9db0e74]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f60bf1)[0x560cb93d0bf1]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f74460)[0x560cb93e4460]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x31e0234)[0x560cba650234]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x327971e)[0x560cba6e971e]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f531f4)[0x560cb93c31f4]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38e3556)[0x560cbad53556]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x395010d)[0x560cbadc010d]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3951e19)[0x560cbadc1e19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x17f771b)[0x560cb8c6771b]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x560cb7ed26b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7f6e4b68d748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x8dd8)[0x7f6e4b462f48]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f6e4b5afe4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f6e4b68d124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f6e4b459d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f6e4b461ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f6e4b5afe4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f6e4b68d124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f6e4b459d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0xea8)[0x7f6e4b45b018]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-crash.sh: line 21: 527549 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file
