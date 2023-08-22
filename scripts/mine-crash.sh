@@ -12,19 +12,24 @@ gem5_script="/home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hel
 index=0
 
 # Iterate over all .txt files in the input directory
-for txt_file in "$input_dir"/*; do
+echo "Start ...."
+for txt_file in "$inputF"/id*; do
     if [ -f "$txt_file" ]; then
         # Process each .txt file here
         echo "Processing file: $txt_file"
         # You can add your custom logic here to process the file
-        (ulimit -St 500 $gem5 $gem5_script --isa X86 --input $txt_file) > gem5.log 2>&1
+        (ulimit -St 500; $gem5 $gem5_script --isa X86 --input $txt_file) > gem5.log 2>&1
+
         if [ $? -ne 0 ]; then
  	   mkdir $outputF"/BUG-"$index
            mv gem5.log $outputF"/BUG-"$index
            cp $txt_file $outputF"/BUG-"$index
-           binFile=`head -n 1 $txt_file"
+           binFile=`head -n 1 $txt_file`
            cp $binFile $outputF"/BUG-"$index
            ((index++))
+        else
+	   echo "Test did not fail $txt_file"
         fi
     fi
 done
+echo "End..."
