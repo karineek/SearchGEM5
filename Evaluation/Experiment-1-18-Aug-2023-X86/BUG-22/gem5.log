@@ -1,0 +1,60 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 22 2023 17:05:35
+gem5 executing on fuzzer-03, pid 528138
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-2/output/default/crashes//id:000022,sig:06,src:000060+000102,time:3811051,execs:2554,op:cm-gem5.so,pos:0
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/arch/x86/faults.cc:166: panic: Tried to execute unmapped address 0xfffffffffffff070.
+PC: (0xfffffffffffff070=>0xfffffffffffff078).(0=>1), Instr:   CALL_NEAR_I : wrip   t7, t1
+Memory Usage: 229456 KBytes
+Program aborted at tick 6479756424
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x55ed74d02663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x55ed74d560c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f054fc89420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7f054edbf00b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7f054ed9e859]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x55ed71f05f45]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2897ec9)[0x55ed73ce7ec9]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f6f583)[0x55ed733bf583]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55285)[0x55ed733a5285]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f56918)[0x55ed733a6918]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2940e74)[0x55ed73d90e74]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f54c9d)[0x55ed733a4c9d]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ed733a5f19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ed733a34dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ed733a46aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ed733a5f19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ed733a34dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ed733a46aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ed733a5f19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f5857d)[0x55ed733a857d]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38e3556)[0x55ed74d33556]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x395010d)[0x55ed74da010d]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3951e19)[0x55ed74da1e19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x17f771b)[0x55ed72c4771b]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x55ed71eb26b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7f054ff42748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x8dd8)[0x7f054fd17f48]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f054fe64e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f054ff42124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f054fd0ed6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f054fd16ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f054fe64e4b]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-crash.sh: line 21: 528138 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

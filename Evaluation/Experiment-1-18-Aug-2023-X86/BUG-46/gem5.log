@@ -1,0 +1,39 @@
+gem5.opt: src/base/loader/elf_object.cc:80: virtual gem5::loader::ObjectFile* gem5::loader::ElfObjectFormat::load(gem5::loader::ImageFileDataPtr): Assertion `elf' failed.
+Program aborted at tick 0
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x55f100eb2663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x55f100f060c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7fd88b75f420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7fd88a89500b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7fd88a874859]
+/lib/x86_64-linux-gnu/libc.so.6(+0x22729)[0x7fd88a874729]
+/lib/x86_64-linux-gnu/libc.so.6(+0x33fd6)[0x7fd88a885fd6]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc475d2)[0x55f0fe2475d2]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc511b7)[0x55f0fe2511b7]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x18023b8)[0x55f0fee023b8]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x55f0fe0626b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7fd88ba18748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyObject_MakeTpCall+0xab)[0x7fd88ba18b2b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74df3)[0x7fd88b7e4df3]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fd88b7ecef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fd88b93ae4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fd88ba18124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fd88ba18dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fd88b7e4d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fd88b7ecef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fd88b93ae4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fd88ba18124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fd88ba18dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fd88b7e4d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fd88b7ecef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fd88b93ae4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fd88ba18124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fd88ba18dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fd88b7e4d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x45a3)[0x7fd88b7e9713]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fd88b93ae4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(PyEval_EvalCodeEx+0x42)[0x7fd88b93b1d2]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-crash.sh: line 21: 528336 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file
