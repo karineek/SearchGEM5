@@ -1,0 +1,5 @@
+1,2c1
+< b = 0
+< x = 0
+---
+> ./mine-crash.sh: line 21: 531591 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

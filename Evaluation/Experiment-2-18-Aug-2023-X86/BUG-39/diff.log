@@ -1,0 +1,4 @@
+1c1
+< ./mine-crash.sh: line 26: 532140 Segmentation fault      $binFile $args
+---
+> ./mine-crash.sh: line 21: 532134 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

@@ -1,0 +1,4 @@
+1c1
+< ./mine-crash.sh: line 26: /home/ubuntu/experiment-2/binary/fuzz_1692363745287874123.c.o: cannot execute binary file: Exec format error
+---
+> ./mine-crash.sh: line 21: 530961 Segmentation fault      $gem5 $gem5_script --isa X86 --input $txt_file

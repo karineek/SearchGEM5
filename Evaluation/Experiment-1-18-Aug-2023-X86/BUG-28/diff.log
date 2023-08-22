@@ -1,0 +1,4 @@
+1c1
+< ./mine-crash.sh: line 26: 531002 Illegal instruction     $binFile $args
+---
+> ./mine-crash.sh: line 21: 530995 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

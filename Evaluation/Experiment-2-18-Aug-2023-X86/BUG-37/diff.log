@@ -1,0 +1,6 @@
+1,3c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBS_2.3.4' not found (required by /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o)
+< /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `so.6' not found (required by /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o)
+< /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o: /lib/x86_64-linux-gnu/libc.so.6: weak version `c.so.6' not found (required by /home/ubuntu/experiment-5/binaries/fuzz_1692455645390745561.c.o)
+---
+> ./mine-crash.sh: line 21: 532101 Segmentation fault      $gem5 $gem5_script --isa X86 --input $txt_file

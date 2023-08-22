@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692372049960950458.c.o: /home/ubuntu/experiment-2/binary/fuzz_1692372049960950458.c.o: no version information available (required by /home/ubuntu/experiment-2/binary/fuzz_1692372049960950458.c.o)
+< ./mine-crash.sh: line 26: 531336 Segmentation fault      $binFile $args
+---
+> ./mine-crash.sh: line 21: 531330 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

@@ -1,0 +1,1 @@
+./mine-crash.sh: line 26: 531713 Segmentation fault      $binFile $args

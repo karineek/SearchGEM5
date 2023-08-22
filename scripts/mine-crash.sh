@@ -21,11 +21,18 @@ for txt_file in "$inputF"/id*; do
         (ulimit -St 500; $gem5 $gem5_script --isa X86 --input $txt_file) > gem5.log 2>&1
 
         if [ $? -ne 0 ]; then
+           binFile=`head -n 1 $txt_file`
+           args=`head -n 2 $txt_file | tail -1`
+           (ulimit -St 500; $binFile $args) > plain.log 2>&1
+           tail -1 gem5.log > tail_gem5.log
+           diff plain.log tail_gem5.log > diff.log 2>&1
+
  	   mkdir $outputF"/BUG-"$index
            mv gem5.log $outputF"/BUG-"$index
            cp $txt_file $outputF"/BUG-"$index
-           binFile=`head -n 1 $txt_file`
            cp $binFile $outputF"/BUG-"$index
+           mv plain.log $outputF"/BUG-"$index
+           mv diff.log $outputF"/BUG-"$index
            ((index++))
         else
 	   echo "Test did not fail $txt_file"

@@ -1,15 +1,15 @@
 Global frequency set at 1000000000000 ticks per second
 src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
 src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
-board.remote_gdb: Listening for connections on port 7000
+board.remote_gdb: Listening for connections on port 7001
 gem5 Simulator System.  https://www.gem5.org
 gem5 is copyrighted software; use the --copyright option for details.
 
 gem5 version 23.0.0.1--SSBSE Challeng Track
 gem5 compiled Aug 13 2023 00:24:12
-gem5 started Aug 22 2023 16:55:09
-gem5 executing on fuzzer-03, pid 526695
-command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-6/output-AUG-21/default/crashes//id:000005,sig:06,src:000106+001049,time:7580284,execs:12152,op:cm-gem5.so,pos:0
+gem5 started Aug 22 2023 17:38:34
+gem5 executing on fuzzer-03, pid 532464
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-6/output-AUG-21/default/crashes//id:000006,sig:06,src:000106+000545,time:9399493,execs:12628,op:cm-gem5.so,pos:0
 
 warn: No dot file generated. Please install pydot to generate the dot file and pdf.
 src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
@@ -17,44 +17,128 @@ src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
 src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
 src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
-src/arch/x86/faults.cc:166: panic: Tried to execute unmapped address 0x4022a0.
-PC: (0x4022a0=>0x4022a8).(0=>1), Instr:   CALL_NEAR_R : wripi   rbx, 0
-Memory Usage: 228436 KBytes
-Program aborted at tick 6602067657
+Solution of Tower of Hanoi Problem with 0 Disks
+
+Starting state:
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+
+
+Subsequent states:
+
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+A:  0  0  0  0 
+B:  0  0  0  0 
+C:  0  0  0  0 
+------------------------------------------
+src/arch/x86/faults.cc:131: panic: Unrecognized/invalid instruction executed:
+ 
+{
+	leg = 0,
+	rex = 0,
+	vex/xop = 0,
+	op = {
+		type = one byte,
+		op = 0xff,
+		},
+	modRM = 0xff,
+	sib = 0,
+	immediate = 0,
+	displacement = 0
+	dispSize = 0}
+Memory Usage: 237648 KBytes
+Program aborted at tick 23471937567
 --- BEGIN LIBC BACKTRACE ---
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x55813b4a8663]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x55813b4fc0c9]
-/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7fc88e194420]
-/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7fc88d2ca00b]
-/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7fc88d2a9859]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x5581386abf45]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2897ec9)[0x55813a48dec9]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f6f583)[0x558139b65583]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55285)[0x558139b4b285]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f56918)[0x558139b4c918]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2940e74)[0x55813a536e74]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f54c9d)[0x558139b4ac9d]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x558139b4bf19]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x558139b494dd]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x558139b4a6aa]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x558139b4bf19]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x558139b494dd]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x558139b4a6aa]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x558139b4bf19]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f5857d)[0x558139b4e57d]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38e3556)[0x55813b4d9556]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x395010d)[0x55813b54610d]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3951e19)[0x55813b547e19]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x17f771b)[0x5581393ed71b]
-/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x5581386586b9]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7fc88e44d748]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x8dd8)[0x7fc88e222f48]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fc88e36fe4b]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fc88e44d124]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fc88e219d6d]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fc88e221ef6]
-/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fc88e36fe4b]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x5614e908c663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x5614e90e00c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f8d9fcd9420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7f8d9ee0f00b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7f8d9edee859]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x5614e628ff45]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x28978fa)[0x5614e80718fa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f6f583)[0x5614e7749583]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55285)[0x5614e772f285]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x5614e772d4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38e3556)[0x5614e90bd556]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x395010d)[0x5614e912a10d]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3951e19)[0x5614e912be19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x17f771b)[0x5614e6fd171b]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x5614e623c6b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7f8d9ff92748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x8dd8)[0x7f8d9fd67f48]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f8d9feb4e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f8d9ff92124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f8d9fd5ed6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f8d9fd66ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f8d9feb4e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f8d9ff92124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f8d9fd5ed6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0xea8)[0x7f8d9fd60018]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f8d9feb4e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(PyEval_EvalCodeEx+0x42)[0x7f8d9feb51d2]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(PyEval_EvalCode+0x1f)[0x7f8d9feb55bf]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x1cfc01)[0x7f8d9feb9c01]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x25f547)[0x7f8d9ff49547]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f8d9fd5ed6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x12fd)[0x7f8d9fd6046d]
 --- END LIBC BACKTRACE ---
 For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
 
-./mine-crash.sh: line 21: 526695 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file
+./mine-crash.sh: line 21: 532464 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file
