@@ -185,7 +185,21 @@ Building gem5 with gcov:
 ```
 cd gem5-ssbse-challenge-2023
 pip install -r requirements.txt
-CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
+export GCOV_PREFIX=$TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init ## Send gcda of build to temp.
+export GCOV_PREFIX_STRIP=0
+export CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
+export CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
+export LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs'
+
+CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs' scons build/X86/gem5.opt -j 4 --no-cache
+
+# Cleaning after build
+rm -rf $TMP_GCOV_FOLDER
+unset CFLAGS
+unset CXXFLAGS
+unset LDFLAGS
+unset GCOV_PREFIX
+unset GCOV_PREFIX_STRIP
 ```
 
 
