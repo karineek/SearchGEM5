@@ -155,13 +155,14 @@ TODO
 
 You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
-mkdir experiments; cd afl
+mkdir experiments; cd experiments
 mkdir input
 mkdir binary
 
 # copy .o files into binary
 # copy .o.type files into binary
 # copy .txt files into input
+# Instrument gem5.opt with AFL (see instructions above)
 # generate .so of our custom mutator: cm-gem5.so
 ...
 
