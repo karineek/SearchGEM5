@@ -185,6 +185,8 @@ Building gem5 with gcov:
 ```
 cd gem5-ssbse-challenge-2023
 pip install -r requirements.txt
+mkdir build
+
 export GCOV_PREFIX=$TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init ## Send gcda of build to temp.
 export GCOV_PREFIX_STRIP=0
 export CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
