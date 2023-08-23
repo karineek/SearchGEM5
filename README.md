@@ -155,13 +155,19 @@ TODO
 
 You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
-mkdir afl; cd afl
+mkdir experiments; cd afl
 mkdir input
-cp *.o input/
+mkdir binary
 
+# copy .o files into binary
+# copy .o.type files into binary
+# copy .txt files into input
+# generate .so of our custom mutator: cm-gem5.so
+...
+
+# Runnin AFL
 echo core >/proc/sys/kernel/core_pattern
-
-afl-fuzz -i input -o output ../build/X86/gem5.opt ../configs/deprecated/example/se.py -c
+AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="cm-gem5.so" afl-fuzz -m 50000 -t 99000 -i input -o output -- gem5.opt hello-custom-binary-Ex.py --isa X86 --input @@
 ```
 
 # Process
