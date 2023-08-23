@@ -1,11 +1,11 @@
-# Gem5Testing
+# Gem5Testing - General Information
 Gem5 testing project.
 
 There are two projects:
 - Main: https://github.com/gem5/gem5
 - For the challenge: https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023
 
-# gem5 instrumentation
+# Testing gem5
 
 The requirements are:
 ```
