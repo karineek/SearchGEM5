@@ -186,7 +186,26 @@ Building gem5 with gcov:
 cd gem5-ssbse-challenge-2023
 pip install -r requirements.txt
 mkdir build
+```
+then you will need to edit X:
+```
+nano SConstruct
+...
+main = Environment(tools=[
+        'default', 'git', TempFileSpawn, EnvDefaults, MakeActionTool,
+        ConfigFile, AddLocalRPATH, SwitchingHeaders, TagImpliesTool, Blob
+    ])
 
+main.Tool(SCons.Tool.FindTool(['gcc', 'clang'], main))
+main.Tool(SCons.Tool.FindTool(['g++', 'clang++'], main))
+
+# ADD this line:
+main.Replace(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fpro
+file-arcs'], CCFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKF
+LAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs'])
+```
+and run this:
+```
 export GCOV_PREFIX=$TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init ## Send gcda of build to temp.
 export GCOV_PREFIX_STRIP=0
 export CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
