@@ -171,6 +171,24 @@ echo core >/proc/sys/kernel/core_pattern
 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="cm-gem5.so" afl-fuzz -m 50000 -t 99000 -i input -o output -- gem5.opt hello-custom-binary-Ex.py --isa X86 --input @@
 ```
 
+## Coverage with gcov
+We take all test cases of gem5 and measure coverage.
+
+### Base-line using gem5 Unittests
+We build gem5 with gcov:
+
+Getting gem5:
+```
+git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
+```
+Building gem5 with gcov:
+```
+cd gem5-ssbse-challenge-2023
+pip install -r requirements.txt
+CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
+```
+
+
 # Process
 
 The process contains several steps. First, we need to extract many test cases for compilers as a single big text file. We then train an LLM to do two functionalities: (i) take a code and turn it into a template and (ii) take a template and turn it into a code (with or without a specific assignment to the template's required values).
