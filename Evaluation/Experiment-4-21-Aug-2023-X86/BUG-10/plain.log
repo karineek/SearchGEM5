@@ -1,0 +1,1 @@
+./mine-crash.sh: line 26: 1387839 Illegal instruction     $binFile $args

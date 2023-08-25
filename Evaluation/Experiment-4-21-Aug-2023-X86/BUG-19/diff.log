@@ -1,0 +1,4 @@
+1c1
+< ./mine-crash.sh: line 26: /home/ubuntu/experiment-6/binary/fuzz_1692760189402818833.c.o: cannot execute binary file: Exec format error
+---
+> ./mine-crash.sh: line 21: 1387977 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

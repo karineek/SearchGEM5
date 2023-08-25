@@ -1,0 +1,40 @@
+src/base/loader/memory_image.hh:70: panic: panic condition offset + size > ifd->len() occurred: Segment outside the bounds of the image data
+Memory Usage: 167344 KBytes
+Program aborted at tick 0
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x55f8bf041663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x55f8bf0950c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7fa4b34bb420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7fa4b25f100b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7fa4b25d0859]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x55f8bc244f45]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc4415e)[0x55f8bc3d315e]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc44ae1)[0x55f8bc3d3ae1]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc46fb9)[0x55f8bc3d5fb9]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc511b7)[0x55f8bc3e01b7]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x18023b8)[0x55f8bcf913b8]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x55f8bc1f16b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7fa4b3774748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyObject_MakeTpCall+0xab)[0x7fa4b3774b2b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74df3)[0x7fa4b3540df3]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fa4b3548ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fa4b3696e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fa4b3774124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fa4b3774dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fa4b3540d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fa4b3548ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fa4b3696e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fa4b3774124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fa4b3774dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fa4b3540d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7fa4b3548ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fa4b3696e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7fa4b3774124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7fa4b3774dba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7fa4b3540d6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x45a3)[0x7fa4b3545713]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7fa4b3696e4b]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-crash.sh: line 21: 1387897 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

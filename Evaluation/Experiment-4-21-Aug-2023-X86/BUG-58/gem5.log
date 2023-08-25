@@ -1,0 +1,39 @@
+gem5 has encountered a segmentation fault!
+
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x564c3b182663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3905eb5)[0x564c3b1d5eb5]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f3283dd5420]
+/lib/x86_64-linux-gnu/libc.so.6(+0x183bf2)[0x7f328304bbf2]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc40464)[0x564c38510464]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc44883)[0x564c38514883]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc46fb9)[0x564c38516fb9]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xc511b7)[0x564c385211b7]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x18023b8)[0x564c390d23b8]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xa626b9)[0x564c383326b9]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8748)[0x7f328408e748]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyObject_MakeTpCall+0xab)[0x7f328408eb2b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74df3)[0x7f3283e5adf3]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f3283e62ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f3283fb0e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f328408e124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7f328408edba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f3283e5ad6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f3283e62ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f3283fb0e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f328408e124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7f328408edba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f3283e5ad6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x7d86)[0x7f3283e62ef6]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f3283fb0e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyFunction_Vectorcall+0x94)[0x7f328408e124]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x2a8dba)[0x7f328408edba]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(+0x74d6d)[0x7f3283e5ad6d]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalFrameDefault+0x45a3)[0x7f3283e5f713]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(_PyEval_EvalCodeWithName+0x8fb)[0x7f3283fb0e4b]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(PyEval_EvalCodeEx+0x42)[0x7f3283fb11d2]
+/lib/x86_64-linux-gnu/libpython3.8.so.1.0(PyEval_EvalCode+0x1f)[0x7f3283fb15bf]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-crash.sh: line 21: 1388606 Segmentation fault      $gem5 $gem5_script --isa X86 --input $txt_file

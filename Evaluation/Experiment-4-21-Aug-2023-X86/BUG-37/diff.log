@@ -1,0 +1,4 @@
+1c1
+< 64
+---
+> ./mine-crash.sh: line 21: 1388270 Segmentation fault      $gem5 $gem5_script --isa X86 --input $txt_file

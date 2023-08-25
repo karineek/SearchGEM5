@@ -1,0 +1,95 @@
+LLVM: n: 10, clz(n): 523657367, popcount(n): 2, ctz(n): 0
+REF : n: 10, clz(n): 28, popcount(n): 2, ctz(n): 1
+  ***  
+LLVM: n: -33, clz(n): 523657375, popcount(n): 31, ctz(n): 51
+REF : n: -33, clz(n): 0, popcount(n): 31, ctz(n): 0
+  ***  
+LLVM: n: 96, clz(n): 523657319, popcount(n): 2, ctz(n): 52
+REF : n: 96, clz(n): 25, popcount(n): 2, ctz(n): 5
+  ***  
+LLVM: n: -291, clz(n): 523657327, popcount(n): 29, ctz(n): 51
+REF : n: -291, clz(n): 0, popcount(n): 29, ctz(n): 0
+  ***  
+LLVM: n: 870, clz(n): 523657335, popcount(n): 6, ctz(n): 53
+REF : n: 870, clz(n): 22, popcount(n): 6, ctz(n): 1
+  ***  
+LLVM: n: -2613, clz(n): 523657343, popcount(n): 27, ctz(n): 52
+REF : n: -2613, clz(n): 0, popcount(n): 27, ctz(n): 0
+  ***  
+LLVM: n: 7836, clz(n): 523657287, popcount(n): 8, ctz(n): 54
+REF : n: 7836, clz(n): 19, popcount(n): 8, ctz(n): 2
+  ***  
+LLVM: n: -23511, clz(n): 523657295, popcount(n): 22, ctz(n): 53
+REF : n: -23511, clz(n): 0, popcount(n): 22, ctz(n): 0
+  ***  
+LLVM: n: 70530, clz(n): 523657303, popcount(n): 6, ctz(n): 55
+REF : n: 70530, clz(n): 15, popcount(n): 6, ctz(n): 1
+  ***  
+LLVM: n: -211593, clz(n): 523657311, popcount(n): 24, ctz(n): 54
+REF : n: -211593, clz(n): 0, popcount(n): 24, ctz(n): 0
+  ***  
+LLVM: n: 634776, clz(n): 523657255, popcount(n): 11, ctz(n): 56
+REF : n: 634776, clz(n): 12, popcount(n): 11, ctz(n): 3
+  ***  
+LLVM: n: -1904331, clz(n): 523657263, popcount(n): 21, ctz(n): 56
+REF : n: -1904331, clz(n): 0, popcount(n): 21, ctz(n): 0
+  ***  
+LLVM: n: 5712990, clz(n): 523657271, popcount(n): 13, ctz(n): 57
+REF : n: 5712990, clz(n): 9, popcount(n): 13, ctz(n): 1
+  ***  
+LLVM: n: -17138973, clz(n): 523657279, popcount(n): 23, ctz(n): 56
+REF : n: -17138973, clz(n): 0, popcount(n): 23, ctz(n): 0
+  ***  
+LLVM: n: 51416916, clz(n): 523657223, popcount(n): 11, ctz(n): 58
+REF : n: 51416916, clz(n): 6, popcount(n): 11, ctz(n): 2
+  ***  
+LLVM: n: -154250751, clz(n): 523657231, popcount(n): 15, ctz(n): 57
+REF : n: -154250751, clz(n): 0, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -10000, clz(n): 0, popcount(n): 56, ctz(n): 4
+REF LO BITS : n: -10000, clz(n): 0, popcount(n): 56, ctz(n): 4
+  ***  
+LLVM: n: 29997, clz(n): 49, popcount(n): 9, ctz(n): 0
+REF LO BITS : n: 29997, clz(n): 49, popcount(n): 9, ctz(n): 0
+  ***  
+LLVM: n: -89994, clz(n): 0, popcount(n): 54, ctz(n): 1
+REF LO BITS : n: -89994, clz(n): 0, popcount(n): 54, ctz(n): 1
+  ***  
+LLVM: n: 269979, clz(n): 45, popcount(n): 10, ctz(n): 0
+REF LO BITS : n: 269979, clz(n): 45, popcount(n): 10, ctz(n): 0
+  ***  
+LLVM: n: -809940, clz(n): 0, popcount(n): 52, ctz(n): 2
+REF LO BITS : n: -809940, clz(n): 0, popcount(n): 52, ctz(n): 2
+  ***  
+LLVM: n: 2429817, clz(n): 42, popcount(n): 11, ctz(n): 0
+REF LO BITS : n: 2429817, clz(n): 42, popcount(n): 11, ctz(n): 0
+  ***  
+LLVM: n: -7289454, clz(n): 0, popcount(n): 49, ctz(n): 1
+REF LO BITS : n: -7289454, clz(n): 0, popcount(n): 49, ctz(n): 1
+  ***  
+LLVM: n: 21868359, clz(n): 39, popcount(n): 15, ctz(n): 0
+REF LO BITS : n: 21868359, clz(n): 39, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -65605080, clz(n): 0, popcount(n): 48, ctz(n): 3
+REF LO BITS : n: -65605080, clz(n): 0, popcount(n): 48, ctz(n): 3
+  ***  
+LLVM: n: 196815237, clz(n): 36, popcount(n): 15, ctz(n): 0
+REF LO BITS : n: 196815237, clz(n): 36, popcount(n): 15, ctz(n): 0
+  ***  
+LLVM: n: -590445714, clz(n): 0, popcount(n): 50, ctz(n): 1
+REF LO BITS : n: -590445714, clz(n): 0, popcount(n): 50, ctz(n): 1
+  ***  
+LLVM: n: 1771337139, clz(n): 33, popcount(n): 17, ctz(n): 0
+REF LO BITS : n: 1771337139, clz(n): 33, popcount(n): 17, ctz(n): 0
+  ***  
+LLVM: n: -5314011420, clz(n): 0, popcount(n): 46, ctz(n): 2
+REF LO BITS : n: -5314011420, clz(n): 0, popcount(n): 46, ctz(n): 2
+  ***  
+LLVM: n: 15942034257, clz(n): 30, popcount(n): 16, ctz(n): 0
+REF LO BITS : n: 15942034257, clz(n): 30, popcount(n): 16, ctz(n): 0
+  ***  
+LLVM: n: -47826102774, clz(n): 0, popcount(n): 46, ctz(n): 1
+REF LO BITS : n: -47826102774, clz(n): 0, popcount(n): 46, ctz(n): 1
+  ***  
+LLVM: n: 143478308319, clz(n): 26, popcount(n): 25, ctz(n): 0
+REF LO BITS : n: 143478308319, clz(n): 26, popcou./mine-crash.sh: line 26: 1388548 Segmentation fault      $binFile $args
