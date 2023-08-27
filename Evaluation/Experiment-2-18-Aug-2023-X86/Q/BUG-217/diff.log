@@ -1,0 +1,5 @@
+1,2c1
+< s1   = 0
+< us2  = 0
+---
+> Exiting @ tick 11583886518 because exiting with last active thread context.

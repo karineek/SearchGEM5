@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2004-03-15-IndirectGoto.c.o
+0

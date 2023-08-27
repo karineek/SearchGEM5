@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2006-12-01-float_varg.c.o
+0.0 0.0 0.0 0.0 0.0

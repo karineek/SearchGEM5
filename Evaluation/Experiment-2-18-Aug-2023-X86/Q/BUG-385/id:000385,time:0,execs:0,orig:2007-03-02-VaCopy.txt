@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2007-03-02-VaCopy.c.o
+stringValue

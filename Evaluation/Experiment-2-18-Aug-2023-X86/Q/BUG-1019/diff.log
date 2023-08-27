@@ -1,0 +1,5 @@
+1,2c1
+< *** buffer overflow detected ***: terminated
+< ./mine-diff-testing.sh: line 25: 1448483 Aborted                 $binFile $args
+---
+> ./mine-diff-testing.sh: line 21: 1448475 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

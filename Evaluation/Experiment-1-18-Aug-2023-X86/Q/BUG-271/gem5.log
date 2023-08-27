@@ -1,0 +1,9 @@
+Exception: FileResource path specified, '/home/ubuntu/experiment-2/binary/fuzz_169236191534082311.c.o<gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 25 2023 21:50:11
+gem5 executing on fuzzer-03, pid 1407914
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-2/output/default/queue//id:000271,src:000193+000113,time:8485028,execs:5147,op:cm-gem5.so,pos:0,+cov
+

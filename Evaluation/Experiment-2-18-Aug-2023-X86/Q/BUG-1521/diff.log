@@ -1,0 +1,6 @@
+1,3c1
+< b.a = 64
+< c = 2
+< x = 2
+---
+> Exiting @ tick 11664765558 because exiting with last active thread context.

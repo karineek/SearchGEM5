@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/PR640.c.o
+0 A A

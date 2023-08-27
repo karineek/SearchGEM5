@@ -1,0 +1,8 @@
+1,5c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: no version information available (required by /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o)
+< /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: no version information available (required by /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o)
+< x = 0 (0x0)
+< test_1(x) = 0 (0x0)
+< test_2(x) = 0 (0x0)
+---
+> Exiting @ tick 11964061296 because exiting with last active thread context.

@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-2/binary/fuzz_169236365515817164.c.o: symbol lookup error: /home/ubuntu/experiment-2/binary/fuzz_169236365515817164.c.o: undefined symbol: __libc_start_iain, version GLIBC_2.2.5
+---
+> Exiting @ tick 5845897251 because exiting with last active thread context.

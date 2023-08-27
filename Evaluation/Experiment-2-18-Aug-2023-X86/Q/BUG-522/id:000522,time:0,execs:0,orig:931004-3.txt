@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/931004-3.c.o
+0 0 0 0 A

@@ -1,0 +1,2 @@
+MYPATH12345data/2002-10-12-StructureArgsSimple.c.o
+0.0 0.0

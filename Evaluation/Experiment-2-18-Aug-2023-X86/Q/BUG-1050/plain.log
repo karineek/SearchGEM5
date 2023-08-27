@@ -1,0 +1,2 @@
+*** buffer overflow detected ***: terminated
+./mine-diff-testing.sh: line 25: 1449019 Aborted                 $binFile $args

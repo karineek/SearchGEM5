@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-2/binary/fuzz_1692366359463653790.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.2.5' not found (required by /home/ubuntu/experiment-2/binary/fuzz_1692366359463653790.c.o)

@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692375031678006021.c.o: /home/ubuntu/experiment-2/binary/fuzz_1692375031678006021.c.o: no version information available (required by /home/ubuntu/experiment-2/binary/fuzz_1692375031678006021.c.o)
+< Inconsistency detected by ld.so: ../sysdeps/x86_64/dl-machine.h: 541: elf_machine_rela_relative: Assertion `ELFW(R_TYPE) (reloc->r_info) == R_X86_64_RELATIVE' failed!
+---
+> Exiting @ tick 751400181 because exiting with last active thread context.

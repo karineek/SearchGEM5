@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692454183368408105.c.o: symbol lookup error: /home/ubuntu/experiment-5/binaries/fuzz_1692454183368408105.c.o: undefined symbol: __libc_startWmain, version GLIBC_2.2.5
+---
+> Exiting @ tick 5867882244 because exiting with last active thread context.

@@ -1,0 +1,9 @@
+1,6c1
+< #include test
+< b
+< g
+< i
+< p
+< t
+---
+> Exiting @ tick 11632364991 because exiting with last active thread context.

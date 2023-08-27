@@ -1,0 +1,6 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/mem_pool.cc:120: fatal: fatal condition freePages() <= 0 occurred: Out of memory, please increase size of physical memory.
+Memory Usage: 201580 KBytes

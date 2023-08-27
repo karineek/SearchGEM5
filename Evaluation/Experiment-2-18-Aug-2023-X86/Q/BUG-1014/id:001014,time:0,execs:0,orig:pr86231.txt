@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/pr86231.c.o
+stringValue 0

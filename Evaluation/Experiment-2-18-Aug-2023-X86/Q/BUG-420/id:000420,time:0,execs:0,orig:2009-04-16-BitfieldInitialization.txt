@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2009-04-16-BitfieldInitialization.c.o
+0 0 stringValue

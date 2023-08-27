@@ -1,0 +1,23 @@
+1,20c1
+< fred
+< 0
+< fred
+< joe
+< 1
+< joe
+< fred
+< 0
+< joe
+< 1
+< fred
+< 0
+< fred
+< joe
+< 1
+< joe
+< fred
+< 0
+< joe
+< 1
+---
+> Exiting @ tick 12225741354 because exiting with last active thread context.

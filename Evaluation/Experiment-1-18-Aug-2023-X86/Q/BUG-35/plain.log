@@ -1,0 +1,129 @@
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((unsigned short)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((int)((1))) -4 -4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((unsigned int)((1))) 4 4
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((long)((1))) -8 -8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((unsigned long)((1))) 8 8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((long long)((1))) -8 -8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((unsigned long long)((1))) 8 8
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((unsigned short)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((int)((-1))) -4 -4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((unsigned int)((-1))) 4 4
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((long)((-1))) -8 -8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((unsigned long)((-1))) 8 8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((long long)((-1))) -8 -8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+((unsigned long long)((-1))) 8 8
+0 test(s) failed

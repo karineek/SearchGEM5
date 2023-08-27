@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2020-01-06-coverage-008.c.o
+0 0 0 0 0

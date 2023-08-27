@@ -1,0 +1,15 @@
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe1 in position 57: ordinal not in range(128)
+
+At:
+  /usr/lib/python3.8/encodings/ascii.py(26): decode
+  /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py(143): <module>
+  src/python/m5/main.py(629): main
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 26 2023 08:45:38
+gem5 executing on fuzzer-03, pid 1458329
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-5/output/default/queue//id:001563,src:000321+000977,time:171967551,execs:82981,op:cm-gem5.so,pos:0
+

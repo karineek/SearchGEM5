@@ -1,0 +1,19 @@
+AttributeError: 'NoneType' object has no attribute 'get_arch'
+
+At:
+  src/arch/x86/X86SeWorkload.py(38): _is_compatible_with
+  src/sim/Workload.py(116): <lambda>
+  src/sim/Workload.py(114): find_compatible
+  src/sim/Workload.py(127): init_compatible
+  src/python/gem5/components/boards/se_binary_workload.py(103): set_se_binary_workload
+  /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py(147): <module>
+  src/python/m5/main.py(629): main
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 25 2023 21:51:44
+gem5 executing on fuzzer-03, pid 1409785
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-2/output/default/queue//id:000387,src:000308+000317,time:11425383,execs:11409,op:cm-gem5.so,pos:0,+cov
+

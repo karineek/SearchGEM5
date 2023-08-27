@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/00176.c.o <array[0]> <array[1]> ... <array[15]>
+---
+> Exiting @ tick 11641899447 because exiting with last active thread context.

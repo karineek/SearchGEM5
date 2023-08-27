@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/ssad-run.c.o
+0

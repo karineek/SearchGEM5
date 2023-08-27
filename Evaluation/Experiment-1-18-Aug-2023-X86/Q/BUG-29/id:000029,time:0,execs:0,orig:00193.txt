@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-2/binary/00193.c.o.o
+0

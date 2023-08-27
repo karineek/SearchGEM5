@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/struct-cpy-1.c.o
+0

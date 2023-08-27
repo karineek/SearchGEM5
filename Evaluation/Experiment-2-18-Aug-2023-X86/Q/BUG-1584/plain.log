@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-5/binaries/fuzz_169260785962894937.c.o: symbol lookup error: /home/ubuntu/experiment-5/binaries/fuzz_169260785962894937.c.o: undefined symbol: calloc__cxa_finalize, version GLIBC_2.2.5

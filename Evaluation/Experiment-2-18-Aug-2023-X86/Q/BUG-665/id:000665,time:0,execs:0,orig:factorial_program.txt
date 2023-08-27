@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/factorial_program.c.o
+0

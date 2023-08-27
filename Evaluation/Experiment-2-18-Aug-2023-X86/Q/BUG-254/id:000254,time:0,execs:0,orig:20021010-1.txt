@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/20021010-1.c.o
+0

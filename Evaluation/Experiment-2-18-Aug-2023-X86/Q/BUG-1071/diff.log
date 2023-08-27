@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/va-arg-15.c.o <value1> <value2> ... <value18>
+---
+> Exiting @ tick 11742512400 because exiting with last active thread context.

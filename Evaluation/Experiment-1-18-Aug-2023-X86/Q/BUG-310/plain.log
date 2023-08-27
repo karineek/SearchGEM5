@@ -1,0 +1,1 @@
+./mine-diff-testing.sh: line 25: /home/ubuntu/experiment-2/binary/fuzz_1692367958683402245.c.o: cannot execute binary file: Exec format error

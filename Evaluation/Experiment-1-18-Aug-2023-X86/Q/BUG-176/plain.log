@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-2/binary/fuzz_1692361356651821083.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `' not found (required by /home/ubuntu/experiment-2/binary/fuzz_1692361356651821083.c.o)
+Inconsistency detected by ld.so: dl-version.c: 205: _dl_check_map_versions: Assertion `needed != NULL' failed!

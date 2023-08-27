@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: 1458629 CPU time limit exceeded $binFile $args
+---
+> Memory Usage: 232528 KBytes

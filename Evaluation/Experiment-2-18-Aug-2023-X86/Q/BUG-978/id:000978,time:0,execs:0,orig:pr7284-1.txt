@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/pr7284-1.c.o
+0

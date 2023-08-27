@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-5/binaries/fuzz_1692536571266809664.c.o: symbol lookup error: /home/ubuntu/experiment-5/binaries/fuzz_1692536571266809664.c.o: undefined symbol: sprtol, version GLIBC_2.2.5

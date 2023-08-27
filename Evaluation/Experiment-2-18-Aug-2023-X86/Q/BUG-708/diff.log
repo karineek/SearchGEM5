@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/nestfunc-7.c.o <base>
+---
+> Exiting @ tick 11583368037 because exiting with last active thread context.

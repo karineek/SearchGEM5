@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-2/binary/t.c.o.o
+0 0

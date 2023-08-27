@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2004-02-03-AggregateCopy.c.o
+0

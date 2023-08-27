@@ -1,0 +1,4 @@
+Starting the program with x = 0
+Going to the 'success' label with x = 0
+Going to the 'success' label from 'foo' with x = 0
+Program executed successfully with x = 0

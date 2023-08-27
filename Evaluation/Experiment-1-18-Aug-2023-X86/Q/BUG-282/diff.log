@@ -1,0 +1,4 @@
+1c1
+< Inconsistency detected by ld.so: rtld.c: 1494: dl_main: Assertion `GL(dl_rtld_map).l_libname' failed!
+---
+> Exiting @ tick 224175267 because exiting with last active thread context.

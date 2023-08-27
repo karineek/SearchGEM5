@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: /home/ubuntu/experiment-5/binaries/fuzz_1692420298747187912.c.o: Input/output error
+---
+> Memory Usage: 167160 KBytes

@@ -1,0 +1,4 @@
+1c1
+< Error: x is not -3161
+---
+> Exiting @ tick 11699134821 because exiting with last active thread context.

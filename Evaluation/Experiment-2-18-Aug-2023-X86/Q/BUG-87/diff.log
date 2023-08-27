@@ -1,0 +1,7 @@
+1,4c1
+< 0
+< 16
+< a=1234
+< qfunc()
+---
+> Exiting @ tick 11704897719 because exiting with last active thread context.

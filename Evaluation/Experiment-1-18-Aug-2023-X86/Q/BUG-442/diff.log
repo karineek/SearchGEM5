@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692372670535887050.c.o: /home/ubuntu/experiment-2/binary/fuzz_1692372670535887050.c.o: no version information available (required by /home/ubuntu/experiment-2/binary/fuzz_1692372670535887050.c.o)
+< /home/ubuntu/experiment-2/binary/fuzz_1692372670535887050.c.o: symbol lookup error: /home/ubuntu/experiment-2/binary/fuzz_1692372670535887050.c.o: undefined symbol: , version 
+---
+> Exiting @ tick 824827014 because exiting with last active thread context.

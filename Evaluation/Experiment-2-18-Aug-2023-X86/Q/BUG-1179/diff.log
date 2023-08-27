@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692413395279485797.c.o: symbol lookup error: /home/ubuntu/experiment-5/binaries/fuzz_1692413395279485797.c.o: undefined symbol: __stack_chkOfail, version GLIBC_2.4
+---
+> Exiting @ tick 6056914689 because exiting with last active thread context.

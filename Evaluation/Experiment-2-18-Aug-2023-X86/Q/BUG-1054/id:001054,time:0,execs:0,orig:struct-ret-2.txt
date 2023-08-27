@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/struct-ret-2.c.o
+0

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/00131.c.o
+0 stringValue

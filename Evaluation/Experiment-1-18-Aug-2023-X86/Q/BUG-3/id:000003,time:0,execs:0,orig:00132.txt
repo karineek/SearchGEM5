@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-2/binary/00132.c.o.o
+stringValue

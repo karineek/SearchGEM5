@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692363488199787986.c.o: error while loading shared libraries: hibc.so.6: cannot open shared object file: No such file or directory
+---
+> Exiting @ tick 977680341 because exiting with last active thread context.

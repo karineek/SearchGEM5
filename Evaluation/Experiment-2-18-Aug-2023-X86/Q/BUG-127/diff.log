@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/20000112-1.c.o <fmt>
+---
+> Exiting @ tick 11679335973 because exiting with last active thread context.

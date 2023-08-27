@@ -1,0 +1,2 @@
+MYPATH12345data/strct-varg-1.c.o
+0

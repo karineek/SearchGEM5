@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692366885398529831.c.o: error while loading shared libraries: lib#.so.6: cannot open shared object file: No such file or directory
+---
+> Exiting @ tick 1002877119 because exiting with last active thread context.

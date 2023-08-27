@@ -20,13 +20,13 @@ for txt_file in "$inputF"/id*; do
         # You can add your custom logic here to process the file
         (ulimit -St 5000 -Sf 4000 -Sm 1048576 ; $gem5 $gem5_script --isa X86 --input $txt_file) > gem5.log 2>&1
 
-        if [ $? -ne 0 ]; then
-           binFile=`head -n 1 $txt_file`
-           args=`head -n 2 $txt_file | tail -1`
-           (ulimit -St 500; $binFile $args) > plain.log 2>&1
-           tail -1 gem5.log > tail_gem5.log
-           diff plain.log tail_gem5.log > diff.log 2>&1
+        binFile=`head -n 1 $txt_file`
+        args=`head -n 2 $txt_file | tail -1`
+        (ulimit -St 500; $binFile $args) > plain.log 2>&1
+        tail -1 gem5.log > tail_gem5.log
+        diff plain.log tail_gem5.log > diff.log 2>&1
 
+        if [ $? -ne 0 ]; then
  	   mkdir $outputF"/BUG-"$index
            mv gem5.log $outputF"/BUG-"$index
            cp $txt_file $outputF"/BUG-"$index
@@ -35,7 +35,7 @@ for txt_file in "$inputF"/id*; do
            mv diff.log $outputF"/BUG-"$index
            ((index++))
         else
-	   echo "Test did not fail $txt_file"
+	   echo "Test is the same $txt_file"
         fi
     fi
 done

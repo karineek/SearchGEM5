@@ -1,0 +1,4 @@
+1c1
+< g0.x: 1.0000, g0.y: 1.0000
+---
+> Exiting @ tick 11743886025 because exiting with last active thread context.

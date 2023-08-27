@@ -1,0 +1,6 @@
+1,3c1
+< x = 33554432 (0x2000000)
+< test_1(x) = 33554432 (0x2000000)
+< test_2(x) = 33554432 (0x2000000)
+---
+> Exiting @ tick 11770376175 because exiting with last active thread context.

@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692368435279448826.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `' not found (required by /home/ubuntu/experiment-2/binary/fuzz_1692368435279448826.c.o)
+< /home/ubuntu/experiment-2/binary/fuzz_1692368435279448826.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `' not found (required by /home/ubuntu/experiment-2/binary/fuzz_1692368435279448826.c.o)
+---
+> Exiting @ tick 1188429714 because exiting with last active thread context.

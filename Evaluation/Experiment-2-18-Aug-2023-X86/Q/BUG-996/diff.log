@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/pr80153.c.o <string>
+---
+> Exiting @ tick 11648559780 because exiting with last active thread context.

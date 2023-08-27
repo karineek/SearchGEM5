@@ -1,0 +1,13 @@
+1,10c1
+< 1
+< 4
+< 9
+< 16
+< 25
+< 36
+< 49
+< 64
+< 81
+< 100
+---
+> Exiting @ tick 12021846453 because exiting with last active thread context.

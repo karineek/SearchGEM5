@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-2/binary/fuzz_1692363029735884762.c.o: symbol lookup error: /home/ubuntu/experiment-2/binary/fuzz_1692363029735884762.c.o: undefined symbol: atoi__cxa_finalize, version GLIBC_2.2.5
+---
+> Exiting @ tick 6069408849 because exiting with last active thread context.

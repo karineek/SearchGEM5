@@ -1,0 +1,2 @@
+src/base/loader/elf_object.cc:322: fatal: gem5 does not support the HURD ABI.
+Memory Usage: 167156 KBytes

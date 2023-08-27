@@ -1,0 +1,7 @@
+1,4c1
+< Starting the program with x = 0
+< Going to the 'success' label with x = 0
+< Going to the 'success' label from 'foo' with x = 0
+< Program executed successfully with x = 0
+---
+> Exiting @ tick 11812409433 because exiting with last active thread context.

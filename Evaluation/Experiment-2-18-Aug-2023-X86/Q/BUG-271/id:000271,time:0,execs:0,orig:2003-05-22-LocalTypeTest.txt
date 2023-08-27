@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2003-05-22-LocalTypeTest.c.o
+0

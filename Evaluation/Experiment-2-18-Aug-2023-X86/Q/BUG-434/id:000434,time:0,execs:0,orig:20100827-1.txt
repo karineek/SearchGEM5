@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/20100827-1.c.o
+stringValue

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/ms_struct-bitfield-init.c.o
+0 0 0 0 0 0 0 0 0

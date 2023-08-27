@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/960209-1.c.o
+A 0

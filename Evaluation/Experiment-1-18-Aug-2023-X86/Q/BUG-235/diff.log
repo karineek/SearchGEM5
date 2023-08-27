@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-2/binary/fuzz_169236434568727442.c.o: error while loading shared libraries: unexpected reloc type 0x0e
+---
+> Exiting @ tick 5877933516 because exiting with last active thread context.

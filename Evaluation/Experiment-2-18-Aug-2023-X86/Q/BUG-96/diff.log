@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/00170.c.o <a> <b> <c> <d> <e> <f> <g> <h>
+---
+> Exiting @ tick 11572442640 because exiting with last active thread context.

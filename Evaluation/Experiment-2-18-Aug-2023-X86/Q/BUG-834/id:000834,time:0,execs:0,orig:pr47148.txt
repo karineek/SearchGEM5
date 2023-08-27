@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/pr47148.c.o
+A 0 0

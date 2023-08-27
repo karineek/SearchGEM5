@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/simd-6.c.o
+0

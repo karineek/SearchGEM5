@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/va-arg-15.c.o
+stringValue 0 0.0 0 0.0 0 0.0 0 0.0 0 0.0 0 0.0 0 0.0 0 0.0 0 0.0

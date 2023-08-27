@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/zero-struct-1.c.o
+A A

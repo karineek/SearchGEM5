@@ -1,0 +1,9 @@
+1,6c1
+< 
+< printArgsNoRet with 15 arguments:
+< 	Args 1-5  : 0 0.000000 0 0.000000 0
+< 	Args 6-10 : 0 0.000000 0 0.000000 0
+< 	Args 11-14: 0 0.000000 0 0.000000 0
+< 
+---
+> Exiting @ tick 12899386035 because exiting with last active thread context.

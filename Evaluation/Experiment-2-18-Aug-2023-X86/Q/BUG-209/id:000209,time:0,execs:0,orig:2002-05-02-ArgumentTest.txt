@@ -1,0 +1,2 @@
+MYPATH12345data/2002-05-02-ArgumentTest.c.o
+0 0 A 0 0 0.0

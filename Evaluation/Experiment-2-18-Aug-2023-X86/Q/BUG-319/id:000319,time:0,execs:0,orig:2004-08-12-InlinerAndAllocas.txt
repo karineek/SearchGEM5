@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2004-08-12-InlinerAndAllocas.c.o
+0

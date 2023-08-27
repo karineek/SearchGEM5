@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/sumarray2d.c.o
+0 0

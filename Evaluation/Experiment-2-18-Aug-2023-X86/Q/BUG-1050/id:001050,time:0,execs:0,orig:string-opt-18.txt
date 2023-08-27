@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/string-opt-18.c.o
+stringValue

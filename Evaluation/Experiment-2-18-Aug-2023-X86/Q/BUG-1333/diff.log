@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692439020485297207.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `so.6' not found (required by /home/ubuntu/experiment-5/binaries/fuzz_1692439020485297207.c.o)
+< /home/ubuntu/experiment-5/binaries/fuzz_1692439020485297207.c.o: /lib/x86_64-linux-gnu/libc.so.6: weak version `c.so.6' not found (required by /home/ubuntu/experiment-5/binaries/fuzz_1692439020485297207.c.o)
+---
+> Exiting @ tick 1342803186 because exiting with last active thread context.

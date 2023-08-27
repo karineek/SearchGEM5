@@ -1,0 +1,5 @@
+/home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: no version information available (required by /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o)
+/home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o: no version information available (required by /home/ubuntu/experiment-5/binaries/fuzz_1692429728938156697.c.o)
+x = 0 (0x0)
+test_1(x) = 0 (0x0)
+test_2(x) = 0 (0x0)

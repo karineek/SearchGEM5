@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2002-04-17-PrintfChar.c.o
+A stringValue

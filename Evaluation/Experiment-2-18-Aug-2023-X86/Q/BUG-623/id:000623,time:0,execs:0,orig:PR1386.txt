@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/PR1386.c.o
+0 0 0

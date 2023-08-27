@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/pr33992.c.o
+0 0

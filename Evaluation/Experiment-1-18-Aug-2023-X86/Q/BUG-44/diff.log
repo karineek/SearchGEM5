@@ -1,0 +1,17 @@
+1,14c1
+< begin
+< timeout=2
+< timeout=1
+< timeout=2
+< timeout=1
+< timeout=2
+< timeout=1
+< timeout=2
+< timeout=1
+< timeout=2
+< timeout=1
+< timeout=2
+< timeout=1
+< end
+---
+> Exiting @ tick 12290789907 because exiting with last active thread context.

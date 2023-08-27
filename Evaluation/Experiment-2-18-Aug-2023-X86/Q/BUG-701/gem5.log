@@ -1,0 +1,59 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 26 2023 07:54:35
+gem5 executing on fuzzer-03, pid 1443083
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-5/output/default/queue//id:000701,time:0,execs:0,orig:mod-1.txt
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/faults.cc:60: panic: panic condition !FullSystem occurred: fault (Divide-Error) detected @ PC (0x110b=>0x110e).(10=>11)
+Memory Usage: 229456 KBytes
+Program aborted at tick 6618965742
+--- BEGIN LIBC BACKTRACE ---
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x38b2663)[0x55ad16adb663]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x39060c9)[0x55ad16b2f0c9]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x14420)[0x7f334c995420]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb)[0x7f334bacb00b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b)[0x7f334baaa859]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0xab5f45)[0x55ad13cdef45]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x3a09107)[0x55ad16c32107]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x2896f22)[0x55ad15abff22]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f6f583)[0x55ad15198583]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55285)[0x55ad1517e285]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f546aa)[0x55ad1517d6aa]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f55f19)[0x55ad1517ef19]
+/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt(+0x1f534dd)[0x55ad1517c4dd]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+./mine-diff-testing.sh: line 21: 1443083 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

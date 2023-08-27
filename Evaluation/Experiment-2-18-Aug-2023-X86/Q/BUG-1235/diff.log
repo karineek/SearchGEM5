@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-5/binaries/fuzz_1692427453480510521.c.o: symbol lookup error: /home/ubuntu/experiment-5/binaries/fuzz_1692427453480510521.c.o: undefined symbol: __printF_chk, version GLIBC_2.3.4
+---
+> Exiting @ tick 6181100379 because exiting with last active thread context.

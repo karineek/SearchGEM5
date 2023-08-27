@@ -1,0 +1,5 @@
+1,2c1
+< /home/ubuntu/experiment-2/binary/fuzz_169237265373425739.c.o: /home/ubuntu/experiment-2/binary/fuzz_169237265373425739.c.o: no version information available (required by /home/ubuntu/experiment-2/binary/fuzz_169237265373425739.c.o)
+< ./mine-diff-testing.sh: line 25: 1410659 Segmentation fault      $binFile $args
+---
+> Exiting @ tick 846299187 because exiting with last active thread context.

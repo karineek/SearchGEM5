@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/struct-ini-3.c.o
+0

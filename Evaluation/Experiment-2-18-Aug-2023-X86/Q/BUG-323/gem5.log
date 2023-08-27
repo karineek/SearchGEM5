@@ -1,0 +1,16 @@
+Exception: FileResource path specified, '/home/ubuntu/experiment-5/binaries/20040311-1.c', is not a file.
+
+At:
+  src/python/gem5/resources/resource.py(131): __init__
+  src/python/gem5/resources/resource.py(205): __init__
+  /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py(147): <module>
+  src/python/m5/main.py(629): main
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 25 2023 22:38:54
+gem5 executing on fuzzer-03, pid 1416918
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/experiment-5/output/default/queue//id:000323,time:0,execs:0,orig:20040311-1.txt
+

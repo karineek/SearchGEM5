@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/00166.c.o
+0 0 0 0

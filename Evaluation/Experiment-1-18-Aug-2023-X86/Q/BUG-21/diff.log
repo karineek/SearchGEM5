@@ -1,0 +1,22 @@
+1,19c1
+< hello
+< gollo
+< 1
+< 1
+< 1
+< 5
+< gollo!
+< 1
+< 1
+< 1
+< 1
+< ollo!
+< lo!
+< 1
+< grrrr!
+< grgrr!
+< 1
+< 1
+< 1
+---
+> Exiting @ tick 12757263300 because exiting with last active thread context.

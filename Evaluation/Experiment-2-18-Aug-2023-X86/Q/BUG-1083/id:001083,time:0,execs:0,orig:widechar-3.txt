@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/widechar-3.c.o
+stringValue stringValue

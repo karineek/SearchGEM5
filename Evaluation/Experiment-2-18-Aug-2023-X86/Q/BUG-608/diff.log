@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: 1429812 Segmentation fault      $binFile $args
+---
+> ./mine-diff-testing.sh: line 21: 1429805 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

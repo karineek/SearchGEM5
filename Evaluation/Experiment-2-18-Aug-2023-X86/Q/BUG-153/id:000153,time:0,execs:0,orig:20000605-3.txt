@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/20000605-3.c.o
+0 stringValue

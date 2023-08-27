@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/va-arg-21.c.o
+stringValue

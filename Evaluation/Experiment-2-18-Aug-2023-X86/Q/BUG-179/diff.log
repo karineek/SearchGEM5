@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-5/binaries/20001203-2.c.o
+---
+> Exiting @ tick 11689671960 because exiting with last active thread context.

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/2002-12-13-MishaTest.c.o
+0 stringValue stringValue

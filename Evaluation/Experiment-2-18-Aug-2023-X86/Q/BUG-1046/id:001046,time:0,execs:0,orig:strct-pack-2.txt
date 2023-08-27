@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-5/binaries/strct-pack-2.c.o
+0

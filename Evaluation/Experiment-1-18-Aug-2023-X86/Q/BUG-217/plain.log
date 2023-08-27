@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-2/binary/fuzz_1692363029735884762.c.o: symbol lookup error: /home/ubuntu/experiment-2/binary/fuzz_1692363029735884762.c.o: undefined symbol: atoi__cxa_finalize, version GLIBC_2.2.5

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-2/binary/square_program1.c.o.o
+0
