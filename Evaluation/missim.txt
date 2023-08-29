@@ -10,7 +10,9 @@ Memory inf.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-961 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-962 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1052 :: same as 98.
-	- ALSO: BUG-165, BUG-185, BUG-191, BUG-196, BUG-211, BUG-227, BUG-238, BUG-254, BUG-268, BUG-289, BUG-300, BUG-350, BUG-367, BUG-389, 
+	- ALSO: BUG-165, BUG-185, BUG-191, BUG-196, BUG-211, BUG-227, BUG-238, BUG-254, BUG-268, BUG-289, BUG-300, BUG-350, BUG-367, BUG-389, BUG-406,
+                BUG-407, BUG-485, BUG-486, BUG-496, BUG-519, BUG-560, BUG-545, BUG-568, BUG-580, BUG-582, BUG-603, BUG-631, BUG-650, BUG-679, BUG-680,
+                BUG-714, BUG-722, BUG-755, BUG-763, BUG-784, BUG-787, BUG-789, BUG-831, BUG-83, BUG-853, BUG-858, BUG-936, BUG-941, 
 - ...
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1559 :: Mutated text, Segmentation fault that ends normally including prints in gem5.
 - ...
