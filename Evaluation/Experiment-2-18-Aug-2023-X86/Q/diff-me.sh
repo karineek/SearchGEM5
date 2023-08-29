@@ -49,1537 +49,1538 @@ echo '=== BUG-104/'; grep -ve"because exiting with last active thread context" B
 echo '=== BUG-1040/'; grep -ve"because exiting with last active thread context" BUG-1040/gem5.log | tail -1| diff BUG-1040/plain.log -
 echo '=== BUG-1041/'; grep -ve"because exiting with last active thread context" BUG-1041/gem5.log | tail -0| diff BUG-1041/plain.log -
 echo '=== BUG-1042/'; grep -ve"because exiting with last active thread context" BUG-1042/gem5.log | tail -0| diff BUG-1042/plain.log -
-echo '=== BUG-1043/';  BUG-1043/gem5.log |  -1| diff BUG-1043/plain.log -
-echo '=== BUG-1044/';  BUG-1044/gem5.log |  -1| diff BUG-1044/plain.log -
-echo '=== BUG-1045/';  BUG-1045/gem5.log |  -1| diff BUG-1045/plain.log -
-echo '=== BUG-1046/';  BUG-1046/gem5.log |  -0| diff BUG-1046/plain.log -
-echo '=== BUG-1047/';  BUG-1047/gem5.log |  -1| diff BUG-1047/plain.log -
-echo '=== BUG-1048/';  BUG-1048/gem5.log |  -1| diff BUG-1048/plain.log -
-echo '=== BUG-1049/';  BUG-1049/gem5.log |  -0| diff BUG-1049/plain.log -
-echo '=== BUG-105/';  BUG-105/gem5.log |  -2| diff BUG-105/plain.log -
-echo '=== BUG-1050/';  BUG-1050/gem5.log |  -2| diff BUG-1050/plain.log -
-echo '=== BUG-1051/';  BUG-1051/gem5.log |  -1| diff BUG-1051/plain.log -
-echo '=== BUG-1052/';  BUG-1052/gem5.log |  -1| diff BUG-1052/plain.log -
-echo '=== BUG-1053/';  BUG-1053/gem5.log |  -1| diff BUG-1053/plain.log -
-echo '=== BUG-1054/';  BUG-1054/gem5.log |  -0| diff BUG-1054/plain.log -
-echo '=== BUG-1055/';  BUG-1055/gem5.log |  -0| diff BUG-1055/plain.log -
-echo '=== BUG-1056/';  BUG-1056/gem5.log |  -0| diff BUG-1056/plain.log -
-echo '=== BUG-1057/';  BUG-1057/gem5.log |  -1| diff BUG-1057/plain.log -
-echo '=== BUG-1058/';  BUG-1058/gem5.log |  -1| diff BUG-1058/plain.log -
-echo '=== BUG-1059/';  BUG-1059/gem5.log |  -2| diff BUG-1059/plain.log -
-echo '=== BUG-106/';  BUG-106/gem5.log |  -71| diff BUG-106/plain.log -
-echo '=== BUG-1060/';  BUG-1060/gem5.log |  -1| diff BUG-1060/plain.log -
-echo '=== BUG-1061/';  BUG-1061/gem5.log |  -1| diff BUG-1061/plain.log -
-echo '=== BUG-1062/';  BUG-1062/gem5.log |  -1| diff BUG-1062/plain.log -
-echo '=== BUG-1063/';  BUG-1063/gem5.log |  -0| diff BUG-1063/plain.log -
-echo '=== BUG-1064/';  BUG-1064/gem5.log |  -0| diff BUG-1064/plain.log -
-echo '=== BUG-1065/';  BUG-1065/gem5.log |  -0| diff BUG-1065/plain.log -
-echo '=== BUG-1066/';  BUG-1066/gem5.log |  -1| diff BUG-1066/plain.log -
-echo '=== BUG-1067/';  BUG-1067/gem5.log |  -1| diff BUG-1067/plain.log -
-echo '=== BUG-1068/';  BUG-1068/gem5.log |  -0| diff BUG-1068/plain.log -
-echo '=== BUG-1069/';  BUG-1069/gem5.log |  -1| diff BUG-1069/plain.log -
-echo '=== BUG-107/';  BUG-107/gem5.log |  -0| diff BUG-107/plain.log -
-echo '=== BUG-1070/';  BUG-1070/gem5.log |  -1| diff BUG-1070/plain.log -
-echo '=== BUG-1071/';  BUG-1071/gem5.log |  -1| diff BUG-1071/plain.log -
-echo '=== BUG-1072/';  BUG-1072/gem5.log |  -0| diff BUG-1072/plain.log -
-echo '=== BUG-1073/';  BUG-1073/gem5.log |  -1| diff BUG-1073/plain.log -
-echo '=== BUG-1074/';  BUG-1074/gem5.log |  -0| diff BUG-1074/plain.log -
-echo '=== BUG-1075/';  BUG-1075/gem5.log |  -1| diff BUG-1075/plain.log -
-echo '=== BUG-1076/';  BUG-1076/gem5.log |  -0| diff BUG-1076/plain.log -
-echo '=== BUG-1077/';  BUG-1077/gem5.log |  -0| diff BUG-1077/plain.log -
-echo '=== BUG-1078/';  BUG-1078/gem5.log |  -0| diff BUG-1078/plain.log -
-echo '=== BUG-1079/';  BUG-1079/gem5.log |  -1| diff BUG-1079/plain.log -
-echo '=== BUG-108/';  BUG-108/gem5.log |  -2| diff BUG-108/plain.log -
-echo '=== BUG-1080/';  BUG-1080/gem5.log |  -1| diff BUG-1080/plain.log -
-echo '=== BUG-1081/';  BUG-1081/gem5.log |  -1| diff BUG-1081/plain.log -
-echo '=== BUG-1082/';  BUG-1082/gem5.log |  -1| diff BUG-1082/plain.log -
-echo '=== BUG-1083/';  BUG-1083/gem5.log |  -1| diff BUG-1083/plain.log -
-echo '=== BUG-1084/';  BUG-1084/gem5.log |  -1| diff BUG-1084/plain.log -
-echo '=== BUG-1085/';  BUG-1085/gem5.log |  -1| diff BUG-1085/plain.log -
-echo '=== BUG-1086/';  BUG-1086/gem5.log |  -1| diff BUG-1086/plain.log -
-echo '=== BUG-1087/';  BUG-1087/gem5.log |  -1| diff BUG-1087/plain.log -
-echo '=== BUG-1088/';  BUG-1088/gem5.log |  -1| diff BUG-1088/plain.log -
-echo '=== BUG-1089/';  BUG-1089/gem5.log |  -1| diff BUG-1089/plain.log -
-echo '=== BUG-109/';  BUG-109/gem5.log |  -0| diff BUG-109/plain.log -
-echo '=== BUG-1090/';  BUG-1090/gem5.log |  -1| diff BUG-1090/plain.log -
-echo '=== BUG-1091/';  BUG-1091/gem5.log |  -1| diff BUG-1091/plain.log -
-echo '=== BUG-1092/';  BUG-1092/gem5.log |  -1| diff BUG-1092/plain.log -
-echo '=== BUG-1093/';  BUG-1093/gem5.log |  -1| diff BUG-1093/plain.log -
-echo '=== BUG-1094/';  BUG-1094/gem5.log |  -1| diff BUG-1094/plain.log -
-echo '=== BUG-1095/';  BUG-1095/gem5.log |  -1| diff BUG-1095/plain.log -
-echo '=== BUG-1096/';  BUG-1096/gem5.log |  -1| diff BUG-1096/plain.log -
-echo '=== BUG-1097/';  BUG-1097/gem5.log |  -1| diff BUG-1097/plain.log -
-echo '=== BUG-1098/';  BUG-1098/gem5.log |  -1| diff BUG-1098/plain.log -
-echo '=== BUG-1099/';  BUG-1099/gem5.log |  -1| diff BUG-1099/plain.log -
-echo '=== BUG-11/';  BUG-11/gem5.log |  -0| diff BUG-11/plain.log -
-echo '=== BUG-110/';  BUG-110/gem5.log |  -27| diff BUG-110/plain.log -
-echo '=== BUG-1100/';  BUG-1100/gem5.log |  -1| diff BUG-1100/plain.log -
-echo '=== BUG-1101/';  BUG-1101/gem5.log |  -1| diff BUG-1101/plain.log -
-echo '=== BUG-1102/';  BUG-1102/gem5.log |  -1| diff BUG-1102/plain.log -
-echo '=== BUG-1103/';  BUG-1103/gem5.log |  -1| diff BUG-1103/plain.log -
-echo '=== BUG-1104/';  BUG-1104/gem5.log |  -1| diff BUG-1104/plain.log -
-echo '=== BUG-1105/';  BUG-1105/gem5.log |  -1| diff BUG-1105/plain.log -
-echo '=== BUG-1106/';  BUG-1106/gem5.log |  -1| diff BUG-1106/plain.log -
-echo '=== BUG-1107/';  BUG-1107/gem5.log |  -1| diff BUG-1107/plain.log -
-echo '=== BUG-1108/';  BUG-1108/gem5.log |  -1| diff BUG-1108/plain.log -
-echo '=== BUG-1109/';  BUG-1109/gem5.log |  -1| diff BUG-1109/plain.log -
-echo '=== BUG-111/';  BUG-111/gem5.log |  -2| diff BUG-111/plain.log -
-echo '=== BUG-1110/';  BUG-1110/gem5.log |  -1| diff BUG-1110/plain.log -
-echo '=== BUG-1111/';  BUG-1111/gem5.log |  -1| diff BUG-1111/plain.log -
-echo '=== BUG-1112/';  BUG-1112/gem5.log |  -1| diff BUG-1112/plain.log -
-echo '=== BUG-1113/';  BUG-1113/gem5.log |  -1| diff BUG-1113/plain.log -
-echo '=== BUG-1114/';  BUG-1114/gem5.log |  -1| diff BUG-1114/plain.log -
-echo '=== BUG-1115/';  BUG-1115/gem5.log |  -1| diff BUG-1115/plain.log -
-echo '=== BUG-1116/';  BUG-1116/gem5.log |  -1| diff BUG-1116/plain.log -
-echo '=== BUG-1117/';  BUG-1117/gem5.log |  -1| diff BUG-1117/plain.log -
-echo '=== BUG-1118/';  BUG-1118/gem5.log |  -1| diff BUG-1118/plain.log -
-echo '=== BUG-1119/';  BUG-1119/gem5.log |  -1| diff BUG-1119/plain.log -
-echo '=== BUG-112/';  BUG-112/gem5.log |  -1| diff BUG-112/plain.log -
-echo '=== BUG-1120/';  BUG-1120/gem5.log |  -1| diff BUG-1120/plain.log -
-echo '=== BUG-1121/';  BUG-1121/gem5.log |  -1| diff BUG-1121/plain.log -
-echo '=== BUG-1122/';  BUG-1122/gem5.log |  -1| diff BUG-1122/plain.log -
-echo '=== BUG-1123/';  BUG-1123/gem5.log |  -1| diff BUG-1123/plain.log -
-echo '=== BUG-1124/';  BUG-1124/gem5.log |  -1| diff BUG-1124/plain.log -
-echo '=== BUG-1125/';  BUG-1125/gem5.log |  -1| diff BUG-1125/plain.log -
-echo '=== BUG-1126/';  BUG-1126/gem5.log |  -1| diff BUG-1126/plain.log -
-echo '=== BUG-1127/';  BUG-1127/gem5.log |  -1| diff BUG-1127/plain.log -
-echo '=== BUG-1128/';  BUG-1128/gem5.log |  -1| diff BUG-1128/plain.log -
-echo '=== BUG-1129/';  BUG-1129/gem5.log |  -1| diff BUG-1129/plain.log -
-echo '=== BUG-113/';  BUG-113/gem5.log |  -2| diff BUG-113/plain.log -
-echo '=== BUG-1130/';  BUG-1130/gem5.log |  -1| diff BUG-1130/plain.log -
-echo '=== BUG-1131/';  BUG-1131/gem5.log |  -1| diff BUG-1131/plain.log -
-echo '=== BUG-1132/';  BUG-1132/gem5.log |  -1| diff BUG-1132/plain.log -
-echo '=== BUG-1133/';  BUG-1133/gem5.log |  -1| diff BUG-1133/plain.log -
-echo '=== BUG-1134/';  BUG-1134/gem5.log |  -1| diff BUG-1134/plain.log -
-echo '=== BUG-1135/';  BUG-1135/gem5.log |  -1| diff BUG-1135/plain.log -
-echo '=== BUG-1136/';  BUG-1136/gem5.log |  -1| diff BUG-1136/plain.log -
-echo '=== BUG-1137/';  BUG-1137/gem5.log |  -1| diff BUG-1137/plain.log -
-echo '=== BUG-1138/';  BUG-1138/gem5.log |  -1| diff BUG-1138/plain.log -
-echo '=== BUG-1139/';  BUG-1139/gem5.log |  -1| diff BUG-1139/plain.log -
-echo '=== BUG-114/';  BUG-114/gem5.log |  -10| diff BUG-114/plain.log -
-echo '=== BUG-1140/';  BUG-1140/gem5.log |  -1| diff BUG-1140/plain.log -
-echo '=== BUG-1141/';  BUG-1141/gem5.log |  -1| diff BUG-1141/plain.log -
-echo '=== BUG-1142/';  BUG-1142/gem5.log |  -1| diff BUG-1142/plain.log -
-echo '=== BUG-1143/';  BUG-1143/gem5.log |  -1| diff BUG-1143/plain.log -
-echo '=== BUG-1144/';  BUG-1144/gem5.log |  -1| diff BUG-1144/plain.log -
-echo '=== BUG-1145/';  BUG-1145/gem5.log |  -1| diff BUG-1145/plain.log -
-echo '=== BUG-1146/';  BUG-1146/gem5.log |  -1| diff BUG-1146/plain.log -
-echo '=== BUG-1147/';  BUG-1147/gem5.log |  -1| diff BUG-1147/plain.log -
-echo '=== BUG-1148/';  BUG-1148/gem5.log |  -1| diff BUG-1148/plain.log -
-echo '=== BUG-1149/';  BUG-1149/gem5.log |  -1| diff BUG-1149/plain.log -
-echo '=== BUG-115/';  BUG-115/gem5.log |  -1| diff BUG-115/plain.log -
-echo '=== BUG-1150/';  BUG-1150/gem5.log |  -1| diff BUG-1150/plain.log -
-echo '=== BUG-1151/';  BUG-1151/gem5.log |  -1| diff BUG-1151/plain.log -
-echo '=== BUG-1152/';  BUG-1152/gem5.log |  -1| diff BUG-1152/plain.log -
-echo '=== BUG-1153/';  BUG-1153/gem5.log |  -1| diff BUG-1153/plain.log -
-echo '=== BUG-1154/';  BUG-1154/gem5.log |  -1| diff BUG-1154/plain.log -
-echo '=== BUG-1155/';  BUG-1155/gem5.log |  -1| diff BUG-1155/plain.log -
-echo '=== BUG-1156/';  BUG-1156/gem5.log |  -1| diff BUG-1156/plain.log -
-echo '=== BUG-1157/';  BUG-1157/gem5.log |  -1| diff BUG-1157/plain.log -
-echo '=== BUG-1158/';  BUG-1158/gem5.log |  -1| diff BUG-1158/plain.log -
-echo '=== BUG-1159/';  BUG-1159/gem5.log |  -1| diff BUG-1159/plain.log -
-echo '=== BUG-116/';  BUG-116/gem5.log |  -1| diff BUG-116/plain.log -
-echo '=== BUG-1160/';  BUG-1160/gem5.log |  -1| diff BUG-1160/plain.log -
-echo '=== BUG-1161/';  BUG-1161/gem5.log |  -1| diff BUG-1161/plain.log -
-echo '=== BUG-1162/';  BUG-1162/gem5.log |  -1| diff BUG-1162/plain.log -
-echo '=== BUG-1163/';  BUG-1163/gem5.log |  -0| diff BUG-1163/plain.log -
-echo '=== BUG-1164/';  BUG-1164/gem5.log |  -0| diff BUG-1164/plain.log -
-echo '=== BUG-1165/';  BUG-1165/gem5.log |  -0| diff BUG-1165/plain.log -
-echo '=== BUG-1166/';  BUG-1166/gem5.log |  -0| diff BUG-1166/plain.log -
-echo '=== BUG-1167/';  BUG-1167/gem5.log |  -0| diff BUG-1167/plain.log -
-echo '=== BUG-1168/';  BUG-1168/gem5.log |  -0| diff BUG-1168/plain.log -
-echo '=== BUG-1169/';  BUG-1169/gem5.log |  -0| diff BUG-1169/plain.log -
-echo '=== BUG-117/';  BUG-117/gem5.log |  -1| diff BUG-117/plain.log -
-echo '=== BUG-1170/';  BUG-1170/gem5.log |  -2| diff BUG-1170/plain.log -
-echo '=== BUG-1171/';  BUG-1171/gem5.log |  -2| diff BUG-1171/plain.log -
-echo '=== BUG-1172/';  BUG-1172/gem5.log |  -2| diff BUG-1172/plain.log -
-echo '=== BUG-1173/';  BUG-1173/gem5.log |  -2| diff BUG-1173/plain.log -
-echo '=== BUG-1174/';  BUG-1174/gem5.log |  -2| diff BUG-1174/plain.log -
-echo '=== BUG-1175/';  BUG-1175/gem5.log |  -2| diff BUG-1175/plain.log -
-echo '=== BUG-1176/';  BUG-1176/gem5.log |  -2| diff BUG-1176/plain.log -
-echo '=== BUG-1177/';  BUG-1177/gem5.log |  -2| diff BUG-1177/plain.log -
-echo '=== BUG-1178/';  BUG-1178/gem5.log |  -2| diff BUG-1178/plain.log -
-echo '=== BUG-1179/';  BUG-1179/gem5.log |  -1| diff BUG-1179/plain.log -
-echo '=== BUG-118/';  BUG-118/gem5.log |  -8| diff BUG-118/plain.log -
-echo '=== BUG-1180/';  BUG-1180/gem5.log |  -2| diff BUG-1180/plain.log -
-echo '=== BUG-1181/';  BUG-1181/gem5.log |  -0| diff BUG-1181/plain.log -
-echo '=== BUG-1182/';  BUG-1182/gem5.log |  -0| diff BUG-1182/plain.log -
-echo '=== BUG-1183/';  BUG-1183/gem5.log |  -0| diff BUG-1183/plain.log -
-echo '=== BUG-1184/';  BUG-1184/gem5.log |  -0| diff BUG-1184/plain.log -
-echo '=== BUG-1185/';  BUG-1185/gem5.log |  -0| diff BUG-1185/plain.log -
-echo '=== BUG-1186/';  BUG-1186/gem5.log |  -0| diff BUG-1186/plain.log -
-echo '=== BUG-1187/';  BUG-1187/gem5.log |  -0| diff BUG-1187/plain.log -
-echo '=== BUG-1188/';  BUG-1188/gem5.log |  -0| diff BUG-1188/plain.log -
-echo '=== BUG-1189/';  BUG-1189/gem5.log |  -0| diff BUG-1189/plain.log -
-echo '=== BUG-119/';  BUG-119/gem5.log |  -1| diff BUG-119/plain.log -
-echo '=== BUG-1190/';  BUG-1190/gem5.log |  -0| diff BUG-1190/plain.log -
-echo '=== BUG-1191/';  BUG-1191/gem5.log |  -0| diff BUG-1191/plain.log -
-echo '=== BUG-1192/';  BUG-1192/gem5.log |  -0| diff BUG-1192/plain.log -
-echo '=== BUG-1193/';  BUG-1193/gem5.log |  -0| diff BUG-1193/plain.log -
-echo '=== BUG-1194/';  BUG-1194/gem5.log |  -0| diff BUG-1194/plain.log -
-echo '=== BUG-1195/';  BUG-1195/gem5.log |  -0| diff BUG-1195/plain.log -
-echo '=== BUG-1196/';  BUG-1196/gem5.log |  -0| diff BUG-1196/plain.log -
-echo '=== BUG-1197/';  BUG-1197/gem5.log |  -0| diff BUG-1197/plain.log -
-echo '=== BUG-1198/';  BUG-1198/gem5.log |  -0| diff BUG-1198/plain.log -
-echo '=== BUG-1199/';  BUG-1199/gem5.log |  -0| diff BUG-1199/plain.log -
-echo '=== BUG-12/';  BUG-12/gem5.log |  -1| diff BUG-12/plain.log -
-echo '=== BUG-120/';  BUG-120/gem5.log |  -2| diff BUG-120/plain.log -
-echo '=== BUG-1200/';  BUG-1200/gem5.log |  -0| diff BUG-1200/plain.log -
-echo '=== BUG-1201/';  BUG-1201/gem5.log |  -0| diff BUG-1201/plain.log -
-echo '=== BUG-1202/';  BUG-1202/gem5.log |  -0| diff BUG-1202/plain.log -
-echo '=== BUG-1203/';  BUG-1203/gem5.log |  -0| diff BUG-1203/plain.log -
-echo '=== BUG-1204/';  BUG-1204/gem5.log |  -0| diff BUG-1204/plain.log -
-echo '=== BUG-1205/';  BUG-1205/gem5.log |  -0| diff BUG-1205/plain.log -
-echo '=== BUG-1206/';  BUG-1206/gem5.log |  -0| diff BUG-1206/plain.log -
-echo '=== BUG-1207/';  BUG-1207/gem5.log |  -0| diff BUG-1207/plain.log -
-echo '=== BUG-1208/';  BUG-1208/gem5.log |  -0| diff BUG-1208/plain.log -
-echo '=== BUG-1209/';  BUG-1209/gem5.log |  -0| diff BUG-1209/plain.log -
-echo '=== BUG-121/';  BUG-121/gem5.log |  -1| diff BUG-121/plain.log -
-echo '=== BUG-1210/';  BUG-1210/gem5.log |  -0| diff BUG-1210/plain.log -
-echo '=== BUG-1211/';  BUG-1211/gem5.log |  -1| diff BUG-1211/plain.log -
-echo '=== BUG-1212/';  BUG-1212/gem5.log |  -0| diff BUG-1212/plain.log -
-echo '=== BUG-1213/';  BUG-1213/gem5.log |  -0| diff BUG-1213/plain.log -
-echo '=== BUG-1214/';  BUG-1214/gem5.log |  -0| diff BUG-1214/plain.log -
-echo '=== BUG-1215/';  BUG-1215/gem5.log |  -1| diff BUG-1215/plain.log -
-echo '=== BUG-1216/';  BUG-1216/gem5.log |  -0| diff BUG-1216/plain.log -
-echo '=== BUG-1217/';  BUG-1217/gem5.log |  -0| diff BUG-1217/plain.log -
-echo '=== BUG-1218/';  BUG-1218/gem5.log |  -0| diff BUG-1218/plain.log -
-echo '=== BUG-1219/';  BUG-1219/gem5.log |  -0| diff BUG-1219/plain.log -
-echo '=== BUG-122/';  BUG-122/gem5.log |  -0| diff BUG-122/plain.log -
-echo '=== BUG-1220/';  BUG-1220/gem5.log |  -0| diff BUG-1220/plain.log -
-echo '=== BUG-1221/';  BUG-1221/gem5.log |  -0| diff BUG-1221/plain.log -
-echo '=== BUG-1222/';  BUG-1222/gem5.log |  -0| diff BUG-1222/plain.log -
-echo '=== BUG-1223/';  BUG-1223/gem5.log |  -0| diff BUG-1223/plain.log -
-echo '=== BUG-1224/';  BUG-1224/gem5.log |  -0| diff BUG-1224/plain.log -
-echo '=== BUG-1225/';  BUG-1225/gem5.log |  -0| diff BUG-1225/plain.log -
-echo '=== BUG-1226/';  BUG-1226/gem5.log |  -0| diff BUG-1226/plain.log -
-echo '=== BUG-1227/';  BUG-1227/gem5.log |  -0| diff BUG-1227/plain.log -
-echo '=== BUG-1228/';  BUG-1228/gem5.log |  -1| diff BUG-1228/plain.log -
-echo '=== BUG-1229/';  BUG-1229/gem5.log |  -0| diff BUG-1229/plain.log -
-echo '=== BUG-123/';  BUG-123/gem5.log |  -1| diff BUG-123/plain.log -
-echo '=== BUG-1230/';  BUG-1230/gem5.log |  -0| diff BUG-1230/plain.log -
-echo '=== BUG-1231/';  BUG-1231/gem5.log |  -0| diff BUG-1231/plain.log -
-echo '=== BUG-1232/';  BUG-1232/gem5.log |  -1| diff BUG-1232/plain.log -
-echo '=== BUG-1233/';  BUG-1233/gem5.log |  -0| diff BUG-1233/plain.log -
-echo '=== BUG-1234/';  BUG-1234/gem5.log |  -0| diff BUG-1234/plain.log -
-echo '=== BUG-1235/';  BUG-1235/gem5.log |  -1| diff BUG-1235/plain.log -
-echo '=== BUG-1236/';  BUG-1236/gem5.log |  -0| diff BUG-1236/plain.log -
-echo '=== BUG-1237/';  BUG-1237/gem5.log |  -3| diff BUG-1237/plain.log -
-echo '=== BUG-1238/';  BUG-1238/gem5.log |  -3| diff BUG-1238/plain.log -
-echo '=== BUG-1239/';  BUG-1239/gem5.log |  -3| diff BUG-1239/plain.log -
-echo '=== BUG-124/';  BUG-124/gem5.log |  -1| diff BUG-124/plain.log -
-echo '=== BUG-1240/';  BUG-1240/gem5.log |  -3| diff BUG-1240/plain.log -
-echo '=== BUG-1241/';  BUG-1241/gem5.log |  -3| diff BUG-1241/plain.log -
-echo '=== BUG-1242/';  BUG-1242/gem5.log |  -3| diff BUG-1242/plain.log -
-echo '=== BUG-1243/';  BUG-1243/gem5.log |  -3| diff BUG-1243/plain.log -
-echo '=== BUG-1244/';  BUG-1244/gem5.log |  -3| diff BUG-1244/plain.log -
-echo '=== BUG-1245/';  BUG-1245/gem5.log |  -3| diff BUG-1245/plain.log -
-echo '=== BUG-1246/';  BUG-1246/gem5.log |  -3| diff BUG-1246/plain.log -
-echo '=== BUG-1247/';  BUG-1247/gem5.log |  -3| diff BUG-1247/plain.log -
-echo '=== BUG-1248/';  BUG-1248/gem5.log |  -3| diff BUG-1248/plain.log -
-echo '=== BUG-1249/';  BUG-1249/gem5.log |  -3| diff BUG-1249/plain.log -
-echo '=== BUG-125/';  BUG-125/gem5.log |  -1| diff BUG-125/plain.log -
-echo '=== BUG-1250/';  BUG-1250/gem5.log |  -3| diff BUG-1250/plain.log -
-echo '=== BUG-1251/';  BUG-1251/gem5.log |  -5| diff BUG-1251/plain.log -
-echo '=== BUG-1252/';  BUG-1252/gem5.log |  -1| diff BUG-1252/plain.log -
-echo '=== BUG-1253/';  BUG-1253/gem5.log |  -0| diff BUG-1253/plain.log -
-echo '=== BUG-1254/';  BUG-1254/gem5.log |  -1| diff BUG-1254/plain.log -
-echo '=== BUG-1255/';  BUG-1255/gem5.log |  -1| diff BUG-1255/plain.log -
-echo '=== BUG-1256/';  BUG-1256/gem5.log |  -1| diff BUG-1256/plain.log -
-echo '=== BUG-1257/';  BUG-1257/gem5.log |  -1| diff BUG-1257/plain.log -
-echo '=== BUG-1258/';  BUG-1258/gem5.log |  -1| diff BUG-1258/plain.log -
-echo '=== BUG-1259/';  BUG-1259/gem5.log |  -1| diff BUG-1259/plain.log -
-echo '=== BUG-126/';  BUG-126/gem5.log |  -1| diff BUG-126/plain.log -
-echo '=== BUG-1260/';  BUG-1260/gem5.log |  -1| diff BUG-1260/plain.log -
-echo '=== BUG-1261/';  BUG-1261/gem5.log |  -0| diff BUG-1261/plain.log -
-echo '=== BUG-1262/';  BUG-1262/gem5.log |  -0| diff BUG-1262/plain.log -
-echo '=== BUG-1263/';  BUG-1263/gem5.log |  -0| diff BUG-1263/plain.log -
-echo '=== BUG-1264/';  BUG-1264/gem5.log |  -0| diff BUG-1264/plain.log -
-echo '=== BUG-1265/';  BUG-1265/gem5.log |  -0| diff BUG-1265/plain.log -
-echo '=== BUG-1266/';  BUG-1266/gem5.log |  -0| diff BUG-1266/plain.log -
-echo '=== BUG-1267/';  BUG-1267/gem5.log |  -0| diff BUG-1267/plain.log -
-echo '=== BUG-1268/';  BUG-1268/gem5.log |  -0| diff BUG-1268/plain.log -
-echo '=== BUG-1269/';  BUG-1269/gem5.log |  -0| diff BUG-1269/plain.log -
-echo '=== BUG-127/';  BUG-127/gem5.log |  -1| diff BUG-127/plain.log -
-echo '=== BUG-1270/';  BUG-1270/gem5.log |  -0| diff BUG-1270/plain.log -
-echo '=== BUG-1271/';  BUG-1271/gem5.log |  -0| diff BUG-1271/plain.log -
-echo '=== BUG-1272/';  BUG-1272/gem5.log |  -0| diff BUG-1272/plain.log -
-echo '=== BUG-1273/';  BUG-1273/gem5.log |  -2| diff BUG-1273/plain.log -
-echo '=== BUG-1274/';  BUG-1274/gem5.log |  -0| diff BUG-1274/plain.log -
-echo '=== BUG-1275/';  BUG-1275/gem5.log |  -1| diff BUG-1275/plain.log -
-echo '=== BUG-1276/';  BUG-1276/gem5.log |  -0| diff BUG-1276/plain.log -
-echo '=== BUG-1277/';  BUG-1277/gem5.log |  -0| diff BUG-1277/plain.log -
-echo '=== BUG-1278/';  BUG-1278/gem5.log |  -0| diff BUG-1278/plain.log -
-echo '=== BUG-1279/';  BUG-1279/gem5.log |  -0| diff BUG-1279/plain.log -
-echo '=== BUG-128/';  BUG-128/gem5.log |  -1| diff BUG-128/plain.log -
-echo '=== BUG-1280/';  BUG-1280/gem5.log |  -0| diff BUG-1280/plain.log -
-echo '=== BUG-1281/';  BUG-1281/gem5.log |  -0| diff BUG-1281/plain.log -
-echo '=== BUG-1282/';  BUG-1282/gem5.log |  -0| diff BUG-1282/plain.log -
-echo '=== BUG-1283/';  BUG-1283/gem5.log |  -0| diff BUG-1283/plain.log -
-echo '=== BUG-1284/';  BUG-1284/gem5.log |  -0| diff BUG-1284/plain.log -
-echo '=== BUG-1285/';  BUG-1285/gem5.log |  -0| diff BUG-1285/plain.log -
-echo '=== BUG-1286/';  BUG-1286/gem5.log |  -0| diff BUG-1286/plain.log -
-echo '=== BUG-1287/';  BUG-1287/gem5.log |  -0| diff BUG-1287/plain.log -
-echo '=== BUG-1288/';  BUG-1288/gem5.log |  -0| diff BUG-1288/plain.log -
-echo '=== BUG-1289/';  BUG-1289/gem5.log |  -0| diff BUG-1289/plain.log -
-echo '=== BUG-129/';  BUG-129/gem5.log |  -0| diff BUG-129/plain.log -
-echo '=== BUG-1290/';  BUG-1290/gem5.log |  -0| diff BUG-1290/plain.log -
-echo '=== BUG-1291/';  BUG-1291/gem5.log |  -0| diff BUG-1291/plain.log -
-echo '=== BUG-1292/';  BUG-1292/gem5.log |  -1| diff BUG-1292/plain.log -
-echo '=== BUG-1293/';  BUG-1293/gem5.log |  -1| diff BUG-1293/plain.log -
-echo '=== BUG-1294/';  BUG-1294/gem5.log |  -1| diff BUG-1294/plain.log -
-echo '=== BUG-1295/';  BUG-1295/gem5.log |  -1| diff BUG-1295/plain.log -
-echo '=== BUG-1296/';  BUG-1296/gem5.log |  -1| diff BUG-1296/plain.log -
-echo '=== BUG-1297/';  BUG-1297/gem5.log |  -1| diff BUG-1297/plain.log -
-echo '=== BUG-1298/';  BUG-1298/gem5.log |  -1| diff BUG-1298/plain.log -
-echo '=== BUG-1299/';  BUG-1299/gem5.log |  -1| diff BUG-1299/plain.log -
-echo '=== BUG-13/';  BUG-13/gem5.log |  -0| diff BUG-13/plain.log -
-echo '=== BUG-130/';  BUG-130/gem5.log |  -0| diff BUG-130/plain.log -
-echo '=== BUG-1300/';  BUG-1300/gem5.log |  -1| diff BUG-1300/plain.log -
-echo '=== BUG-1301/';  BUG-1301/gem5.log |  -1| diff BUG-1301/plain.log -
-echo '=== BUG-1302/';  BUG-1302/gem5.log |  -1| diff BUG-1302/plain.log -
-echo '=== BUG-1303/';  BUG-1303/gem5.log |  -1| diff BUG-1303/plain.log -
-echo '=== BUG-1304/';  BUG-1304/gem5.log |  -1| diff BUG-1304/plain.log -
-echo '=== BUG-1305/';  BUG-1305/gem5.log |  -1| diff BUG-1305/plain.log -
-echo '=== BUG-1306/';  BUG-1306/gem5.log |  -1| diff BUG-1306/plain.log -
-echo '=== BUG-1307/';  BUG-1307/gem5.log |  -1| diff BUG-1307/plain.log -
-echo '=== BUG-1308/';  BUG-1308/gem5.log |  -1| diff BUG-1308/plain.log -
-echo '=== BUG-1309/';  BUG-1309/gem5.log |  -1| diff BUG-1309/plain.log -
-echo '=== BUG-131/';  BUG-131/gem5.log |  -1| diff BUG-131/plain.log -
-echo '=== BUG-1310/';  BUG-1310/gem5.log |  -1| diff BUG-1310/plain.log -
-echo '=== BUG-1311/';  BUG-1311/gem5.log |  -0| diff BUG-1311/plain.log -
-echo '=== BUG-1312/';  BUG-1312/gem5.log |  -0| diff BUG-1312/plain.log -
-echo '=== BUG-1313/';  BUG-1313/gem5.log |  -0| diff BUG-1313/plain.log -
-echo '=== BUG-1314/';  BUG-1314/gem5.log |  -0| diff BUG-1314/plain.log -
-echo '=== BUG-1315/';  BUG-1315/gem5.log |  -0| diff BUG-1315/plain.log -
-echo '=== BUG-1316/';  BUG-1316/gem5.log |  -0| diff BUG-1316/plain.log -
-echo '=== BUG-1317/';  BUG-1317/gem5.log |  -1| diff BUG-1317/plain.log -
-echo '=== BUG-1318/';  BUG-1318/gem5.log |  -0| diff BUG-1318/plain.log -
-echo '=== BUG-1319/';  BUG-1319/gem5.log |  -0| diff BUG-1319/plain.log -
-echo '=== BUG-132/';  BUG-132/gem5.log |  -0| diff BUG-132/plain.log -
-echo '=== BUG-1320/';  BUG-1320/gem5.log |  -1| diff BUG-1320/plain.log -
-echo '=== BUG-1321/';  BUG-1321/gem5.log |  -0| diff BUG-1321/plain.log -
-echo '=== BUG-1322/';  BUG-1322/gem5.log |  -1| diff BUG-1322/plain.log -
-echo '=== BUG-1323/';  BUG-1323/gem5.log |  -1| diff BUG-1323/plain.log -
-echo '=== BUG-1324/';  BUG-1324/gem5.log |  -1| diff BUG-1324/plain.log -
-echo '=== BUG-1325/';  BUG-1325/gem5.log |  -1| diff BUG-1325/plain.log -
-echo '=== BUG-1326/';  BUG-1326/gem5.log |  -1| diff BUG-1326/plain.log -
-echo '=== BUG-1327/';  BUG-1327/gem5.log |  -1| diff BUG-1327/plain.log -
-echo '=== BUG-1328/';  BUG-1328/gem5.log |  -1| diff BUG-1328/plain.log -
-echo '=== BUG-1329/';  BUG-1329/gem5.log |  -0| diff BUG-1329/plain.log -
-echo '=== BUG-133/';  BUG-133/gem5.log |  -1| diff BUG-133/plain.log -
-echo '=== BUG-1330/';  BUG-1330/gem5.log |  -0| diff BUG-1330/plain.log -
-echo '=== BUG-1331/';  BUG-1331/gem5.log |  -2| diff BUG-1331/plain.log -
-echo '=== BUG-1332/';  BUG-1332/gem5.log |  -2| diff BUG-1332/plain.log -
-echo '=== BUG-1333/';  BUG-1333/gem5.log |  -2| diff BUG-1333/plain.log -
-echo '=== BUG-1334/';  BUG-1334/gem5.log |  -2| diff BUG-1334/plain.log -
-echo '=== BUG-1335/';  BUG-1335/gem5.log |  -0| diff BUG-1335/plain.log -
-echo '=== BUG-1336/';  BUG-1336/gem5.log |  -0| diff BUG-1336/plain.log -
-echo '=== BUG-1337/';  BUG-1337/gem5.log |  -0| diff BUG-1337/plain.log -
-echo '=== BUG-1338/';  BUG-1338/gem5.log |  -0| diff BUG-1338/plain.log -
-echo '=== BUG-1339/';  BUG-1339/gem5.log |  -0| diff BUG-1339/plain.log -
-echo '=== BUG-134/';  BUG-134/gem5.log |  -1| diff BUG-134/plain.log -
-echo '=== BUG-1340/';  BUG-1340/gem5.log |  -0| diff BUG-1340/plain.log -
-echo '=== BUG-1341/';  BUG-1341/gem5.log |  -0| diff BUG-1341/plain.log -
-echo '=== BUG-1342/';  BUG-1342/gem5.log |  -1| diff BUG-1342/plain.log -
-echo '=== BUG-1343/';  BUG-1343/gem5.log |  -0| diff BUG-1343/plain.log -
-echo '=== BUG-1344/';  BUG-1344/gem5.log |  -0| diff BUG-1344/plain.log -
-echo '=== BUG-1345/';  BUG-1345/gem5.log |  -0| diff BUG-1345/plain.log -
-echo '=== BUG-1346/';  BUG-1346/gem5.log |  -0| diff BUG-1346/plain.log -
-echo '=== BUG-1347/';  BUG-1347/gem5.log |  -0| diff BUG-1347/plain.log -
-echo '=== BUG-1348/';  BUG-1348/gem5.log |  -0| diff BUG-1348/plain.log -
-echo '=== BUG-1349/';  BUG-1349/gem5.log |  -0| diff BUG-1349/plain.log -
-echo '=== BUG-135/';  BUG-135/gem5.log |  -0| diff BUG-135/plain.log -
-echo '=== BUG-1350/';  BUG-1350/gem5.log |  -0| diff BUG-1350/plain.log -
-echo '=== BUG-1351/';  BUG-1351/gem5.log |  -0| diff BUG-1351/plain.log -
-echo '=== BUG-1352/';  BUG-1352/gem5.log |  -0| diff BUG-1352/plain.log -
-echo '=== BUG-1353/';  BUG-1353/gem5.log |  -0| diff BUG-1353/plain.log -
-echo '=== BUG-1354/';  BUG-1354/gem5.log |  -0| diff BUG-1354/plain.log -
-echo '=== BUG-1355/';  BUG-1355/gem5.log |  -0| diff BUG-1355/plain.log -
-echo '=== BUG-1356/';  BUG-1356/gem5.log |  -0| diff BUG-1356/plain.log -
-echo '=== BUG-1357/';  BUG-1357/gem5.log |  -0| diff BUG-1357/plain.log -
-echo '=== BUG-1358/';  BUG-1358/gem5.log |  -0| diff BUG-1358/plain.log -
-echo '=== BUG-1359/';  BUG-1359/gem5.log |  -0| diff BUG-1359/plain.log -
-echo '=== BUG-136/';  BUG-136/gem5.log |  -1| diff BUG-136/plain.log -
-echo '=== BUG-1360/';  BUG-1360/gem5.log |  -0| diff BUG-1360/plain.log -
-echo '=== BUG-1361/';  BUG-1361/gem5.log |  -1| diff BUG-1361/plain.log -
-echo '=== BUG-1362/';  BUG-1362/gem5.log |  -0| diff BUG-1362/plain.log -
-echo '=== BUG-1363/';  BUG-1363/gem5.log |  -0| diff BUG-1363/plain.log -
-echo '=== BUG-1364/';  BUG-1364/gem5.log |  -0| diff BUG-1364/plain.log -
-echo '=== BUG-1365/';  BUG-1365/gem5.log |  -0| diff BUG-1365/plain.log -
-echo '=== BUG-1366/';  BUG-1366/gem5.log |  -0| diff BUG-1366/plain.log -
-echo '=== BUG-1367/';  BUG-1367/gem5.log |  -0| diff BUG-1367/plain.log -
-echo '=== BUG-1368/';  BUG-1368/gem5.log |  -0| diff BUG-1368/plain.log -
-echo '=== BUG-1369/';  BUG-1369/gem5.log |  -0| diff BUG-1369/plain.log -
-echo '=== BUG-137/';  BUG-137/gem5.log |  -1| diff BUG-137/plain.log -
-echo '=== BUG-1370/';  BUG-1370/gem5.log |  -1| diff BUG-1370/plain.log -
-echo '=== BUG-1371/';  BUG-1371/gem5.log |  -1| diff BUG-1371/plain.log -
-echo '=== BUG-1372/';  BUG-1372/gem5.log |  -0| diff BUG-1372/plain.log -
-echo '=== BUG-1373/';  BUG-1373/gem5.log |  -1| diff BUG-1373/plain.log -
-echo '=== BUG-1374/';  BUG-1374/gem5.log |  -1| diff BUG-1374/plain.log -
-echo '=== BUG-1375/';  BUG-1375/gem5.log |  -1| diff BUG-1375/plain.log -
-echo '=== BUG-1376/';  BUG-1376/gem5.log |  -0| diff BUG-1376/plain.log -
-echo '=== BUG-1377/';  BUG-1377/gem5.log |  -0| diff BUG-1377/plain.log -
-echo '=== BUG-1378/';  BUG-1378/gem5.log |  -0| diff BUG-1378/plain.log -
-echo '=== BUG-1379/';  BUG-1379/gem5.log |  -0| diff BUG-1379/plain.log -
-echo '=== BUG-138/';  BUG-138/gem5.log |  -0| diff BUG-138/plain.log -
-echo '=== BUG-1380/';  BUG-1380/gem5.log |  -0| diff BUG-1380/plain.log -
-echo '=== BUG-1381/';  BUG-1381/gem5.log |  -0| diff BUG-1381/plain.log -
-echo '=== BUG-1382/';  BUG-1382/gem5.log |  -0| diff BUG-1382/plain.log -
-echo '=== BUG-1383/';  BUG-1383/gem5.log |  -0| diff BUG-1383/plain.log -
-echo '=== BUG-1384/';  BUG-1384/gem5.log |  -0| diff BUG-1384/plain.log -
-echo '=== BUG-1385/';  BUG-1385/gem5.log |  -0| diff BUG-1385/plain.log -
-echo '=== BUG-1386/';  BUG-1386/gem5.log |  -0| diff BUG-1386/plain.log -
-echo '=== BUG-1387/';  BUG-1387/gem5.log |  -0| diff BUG-1387/plain.log -
-echo '=== BUG-1388/';  BUG-1388/gem5.log |  -0| diff BUG-1388/plain.log -
-echo '=== BUG-1389/';  BUG-1389/gem5.log |  -0| diff BUG-1389/plain.log -
-echo '=== BUG-139/';  BUG-139/gem5.log |  -1| diff BUG-139/plain.log -
-echo '=== BUG-1390/';  BUG-1390/gem5.log |  -0| diff BUG-1390/plain.log -
-echo '=== BUG-1391/';  BUG-1391/gem5.log |  -0| diff BUG-1391/plain.log -
-echo '=== BUG-1392/';  BUG-1392/gem5.log |  -0| diff BUG-1392/plain.log -
-echo '=== BUG-1393/';  BUG-1393/gem5.log |  -0| diff BUG-1393/plain.log -
-echo '=== BUG-1394/';  BUG-1394/gem5.log |  -0| diff BUG-1394/plain.log -
-echo '=== BUG-1395/';  BUG-1395/gem5.log |  -0| diff BUG-1395/plain.log -
-echo '=== BUG-1396/';  BUG-1396/gem5.log |  -0| diff BUG-1396/plain.log -
-echo '=== BUG-1397/';  BUG-1397/gem5.log |  -0| diff BUG-1397/plain.log -
-echo '=== BUG-1398/';  BUG-1398/gem5.log |  -0| diff BUG-1398/plain.log -
-echo '=== BUG-1399/';  BUG-1399/gem5.log |  -0| diff BUG-1399/plain.log -
-echo '=== BUG-14/';  BUG-14/gem5.log |  -0| diff BUG-14/plain.log -
-echo '=== BUG-140/';  BUG-140/gem5.log |  -1| diff BUG-140/plain.log -
-echo '=== BUG-1400/';  BUG-1400/gem5.log |  -0| diff BUG-1400/plain.log -
-echo '=== BUG-1401/';  BUG-1401/gem5.log |  -0| diff BUG-1401/plain.log -
-echo '=== BUG-1402/';  BUG-1402/gem5.log |  -0| diff BUG-1402/plain.log -
-echo '=== BUG-1403/';  BUG-1403/gem5.log |  -0| diff BUG-1403/plain.log -
-echo '=== BUG-1404/';  BUG-1404/gem5.log |  -0| diff BUG-1404/plain.log -
-echo '=== BUG-1405/';  BUG-1405/gem5.log |  -0| diff BUG-1405/plain.log -
-echo '=== BUG-1406/';  BUG-1406/gem5.log |  -0| diff BUG-1406/plain.log -
-echo '=== BUG-1407/';  BUG-1407/gem5.log |  -0| diff BUG-1407/plain.log -
-echo '=== BUG-1408/';  BUG-1408/gem5.log |  -0| diff BUG-1408/plain.log -
-echo '=== BUG-1409/';  BUG-1409/gem5.log |  -0| diff BUG-1409/plain.log -
-echo '=== BUG-141/';  BUG-141/gem5.log |  -0| diff BUG-141/plain.log -
-echo '=== BUG-1410/';  BUG-1410/gem5.log |  -0| diff BUG-1410/plain.log -
-echo '=== BUG-1411/';  BUG-1411/gem5.log |  -0| diff BUG-1411/plain.log -
-echo '=== BUG-1412/';  BUG-1412/gem5.log |  -0| diff BUG-1412/plain.log -
-echo '=== BUG-1413/';  BUG-1413/gem5.log |  -0| diff BUG-1413/plain.log -
-echo '=== BUG-1414/';  BUG-1414/gem5.log |  -0| diff BUG-1414/plain.log -
-echo '=== BUG-1415/';  BUG-1415/gem5.log |  -0| diff BUG-1415/plain.log -
-echo '=== BUG-1416/';  BUG-1416/gem5.log |  -0| diff BUG-1416/plain.log -
-echo '=== BUG-1417/';  BUG-1417/gem5.log |  -0| diff BUG-1417/plain.log -
-echo '=== BUG-1418/';  BUG-1418/gem5.log |  -0| diff BUG-1418/plain.log -
-echo '=== BUG-1419/';  BUG-1419/gem5.log |  -0| diff BUG-1419/plain.log -
-echo '=== BUG-142/';  BUG-142/gem5.log |  -1| diff BUG-142/plain.log -
-echo '=== BUG-1420/';  BUG-1420/gem5.log |  -0| diff BUG-1420/plain.log -
-echo '=== BUG-1421/';  BUG-1421/gem5.log |  -0| diff BUG-1421/plain.log -
-echo '=== BUG-1422/';  BUG-1422/gem5.log |  -0| diff BUG-1422/plain.log -
-echo '=== BUG-1423/';  BUG-1423/gem5.log |  -0| diff BUG-1423/plain.log -
-echo '=== BUG-1424/';  BUG-1424/gem5.log |  -0| diff BUG-1424/plain.log -
-echo '=== BUG-1425/';  BUG-1425/gem5.log |  -0| diff BUG-1425/plain.log -
-echo '=== BUG-1426/';  BUG-1426/gem5.log |  -0| diff BUG-1426/plain.log -
-echo '=== BUG-1427/';  BUG-1427/gem5.log |  -0| diff BUG-1427/plain.log -
-echo '=== BUG-1428/';  BUG-1428/gem5.log |  -0| diff BUG-1428/plain.log -
-echo '=== BUG-1429/';  BUG-1429/gem5.log |  -0| diff BUG-1429/plain.log -
-echo '=== BUG-143/';  BUG-143/gem5.log |  -1| diff BUG-143/plain.log -
-echo '=== BUG-1430/';  BUG-1430/gem5.log |  -0| diff BUG-1430/plain.log -
-echo '=== BUG-1431/';  BUG-1431/gem5.log |  -0| diff BUG-1431/plain.log -
-echo '=== BUG-1432/';  BUG-1432/gem5.log |  -0| diff BUG-1432/plain.log -
-echo '=== BUG-1433/';  BUG-1433/gem5.log |  -0| diff BUG-1433/plain.log -
-echo '=== BUG-1434/';  BUG-1434/gem5.log |  -0| diff BUG-1434/plain.log -
-echo '=== BUG-1435/';  BUG-1435/gem5.log |  -0| diff BUG-1435/plain.log -
-echo '=== BUG-1436/';  BUG-1436/gem5.log |  -0| diff BUG-1436/plain.log -
-echo '=== BUG-1437/';  BUG-1437/gem5.log |  -1| diff BUG-1437/plain.log -
-echo '=== BUG-1438/';  BUG-1438/gem5.log |  -0| diff BUG-1438/plain.log -
-echo '=== BUG-1439/';  BUG-1439/gem5.log |  -1| diff BUG-1439/plain.log -
-echo '=== BUG-144/';  BUG-144/gem5.log |  -1| diff BUG-144/plain.log -
-echo '=== BUG-1440/';  BUG-1440/gem5.log |  -0| diff BUG-1440/plain.log -
-echo '=== BUG-1441/';  BUG-1441/gem5.log |  -1| diff BUG-1441/plain.log -
-echo '=== BUG-1442/';  BUG-1442/gem5.log |  -1| diff BUG-1442/plain.log -
-echo '=== BUG-1443/';  BUG-1443/gem5.log |  -1| diff BUG-1443/plain.log -
-echo '=== BUG-1444/';  BUG-1444/gem5.log |  -1| diff BUG-1444/plain.log -
-echo '=== BUG-1445/';  BUG-1445/gem5.log |  -1| diff BUG-1445/plain.log -
-echo '=== BUG-1446/';  BUG-1446/gem5.log |  -1| diff BUG-1446/plain.log -
-echo '=== BUG-1447/';  BUG-1447/gem5.log |  -0| diff BUG-1447/plain.log -
-echo '=== BUG-1448/';  BUG-1448/gem5.log |  -0| diff BUG-1448/plain.log -
-echo '=== BUG-1449/';  BUG-1449/gem5.log |  -0| diff BUG-1449/plain.log -
-echo '=== BUG-145/';  BUG-145/gem5.log |  -1| diff BUG-145/plain.log -
-echo '=== BUG-1450/';  BUG-1450/gem5.log |  -0| diff BUG-1450/plain.log -
-echo '=== BUG-1451/';  BUG-1451/gem5.log |  -0| diff BUG-1451/plain.log -
-echo '=== BUG-1452/';  BUG-1452/gem5.log |  -0| diff BUG-1452/plain.log -
-echo '=== BUG-1453/';  BUG-1453/gem5.log |  -0| diff BUG-1453/plain.log -
-echo '=== BUG-1454/';  BUG-1454/gem5.log |  -0| diff BUG-1454/plain.log -
-echo '=== BUG-1455/';  BUG-1455/gem5.log |  -0| diff BUG-1455/plain.log -
-echo '=== BUG-1456/';  BUG-1456/gem5.log |  -0| diff BUG-1456/plain.log -
-echo '=== BUG-1457/';  BUG-1457/gem5.log |  -0| diff BUG-1457/plain.log -
-echo '=== BUG-1458/';  BUG-1458/gem5.log |  -3| diff BUG-1458/plain.log -
-echo '=== BUG-1459/';  BUG-1459/gem5.log |  -3| diff BUG-1459/plain.log -
-echo '=== BUG-146/';  BUG-146/gem5.log |  -1| diff BUG-146/plain.log -
-echo '=== BUG-1460/';  BUG-1460/gem5.log |  -3| diff BUG-1460/plain.log -
-echo '=== BUG-1461/';  BUG-1461/gem5.log |  -3| diff BUG-1461/plain.log -
-echo '=== BUG-1462/';  BUG-1462/gem5.log |  -3| diff BUG-1462/plain.log -
-echo '=== BUG-1463/';  BUG-1463/gem5.log |  -3| diff BUG-1463/plain.log -
-echo '=== BUG-1464/';  BUG-1464/gem5.log |  -3| diff BUG-1464/plain.log -
-echo '=== BUG-1465/';  BUG-1465/gem5.log |  -3| diff BUG-1465/plain.log -
-echo '=== BUG-1466/';  BUG-1466/gem5.log |  -3| diff BUG-1466/plain.log -
-echo '=== BUG-1467/';  BUG-1467/gem5.log |  -3| diff BUG-1467/plain.log -
-echo '=== BUG-1468/';  BUG-1468/gem5.log |  -3| diff BUG-1468/plain.log -
-echo '=== BUG-1469/';  BUG-1469/gem5.log |  -3| diff BUG-1469/plain.log -
-echo '=== BUG-147/';  BUG-147/gem5.log |  -0| diff BUG-147/plain.log -
-echo '=== BUG-1470/';  BUG-1470/gem5.log |  -3| diff BUG-1470/plain.log -
-echo '=== BUG-1471/';  BUG-1471/gem5.log |  -3| diff BUG-1471/plain.log -
-echo '=== BUG-1472/';  BUG-1472/gem5.log |  -3| diff BUG-1472/plain.log -
-echo '=== BUG-1473/';  BUG-1473/gem5.log |  -3| diff BUG-1473/plain.log -
-echo '=== BUG-1474/';  BUG-1474/gem5.log |  -3| diff BUG-1474/plain.log -
-echo '=== BUG-1475/';  BUG-1475/gem5.log |  -3| diff BUG-1475/plain.log -
-echo '=== BUG-1476/';  BUG-1476/gem5.log |  -3| diff BUG-1476/plain.log -
-echo '=== BUG-1477/';  BUG-1477/gem5.log |  -3| diff BUG-1477/plain.log -
-echo '=== BUG-1478/';  BUG-1478/gem5.log |  -3| diff BUG-1478/plain.log -
-echo '=== BUG-1479/';  BUG-1479/gem5.log |  -3| diff BUG-1479/plain.log -
-echo '=== BUG-148/';  BUG-148/gem5.log |  -1| diff BUG-148/plain.log -
-echo '=== BUG-1480/';  BUG-1480/gem5.log |  -3| diff BUG-1480/plain.log -
-echo '=== BUG-1481/';  BUG-1481/gem5.log |  -3| diff BUG-1481/plain.log -
-echo '=== BUG-1482/';  BUG-1482/gem5.log |  -3| diff BUG-1482/plain.log -
-echo '=== BUG-1483/';  BUG-1483/gem5.log |  -3| diff BUG-1483/plain.log -
-echo '=== BUG-1484/';  BUG-1484/gem5.log |  -3| diff BUG-1484/plain.log -
-echo '=== BUG-1485/';  BUG-1485/gem5.log |  -3| diff BUG-1485/plain.log -
-echo '=== BUG-1486/';  BUG-1486/gem5.log |  -3| diff BUG-1486/plain.log -
-echo '=== BUG-1487/';  BUG-1487/gem5.log |  -3| diff BUG-1487/plain.log -
-echo '=== BUG-1488/';  BUG-1488/gem5.log |  -3| diff BUG-1488/plain.log -
-echo '=== BUG-1489/';  BUG-1489/gem5.log |  -3| diff BUG-1489/plain.log -
-echo '=== BUG-149/';  BUG-149/gem5.log |  -1| diff BUG-149/plain.log -
-echo '=== BUG-1490/';  BUG-1490/gem5.log |  -3| diff BUG-1490/plain.log -
-echo '=== BUG-1491/';  BUG-1491/gem5.log |  -3| diff BUG-1491/plain.log -
-echo '=== BUG-1492/';  BUG-1492/gem5.log |  -3| diff BUG-1492/plain.log -
-echo '=== BUG-1493/';  BUG-1493/gem5.log |  -3| diff BUG-1493/plain.log -
-echo '=== BUG-1494/';  BUG-1494/gem5.log |  -3| diff BUG-1494/plain.log -
-echo '=== BUG-1495/';  BUG-1495/gem5.log |  -3| diff BUG-1495/plain.log -
-echo '=== BUG-1496/';  BUG-1496/gem5.log |  -3| diff BUG-1496/plain.log -
-echo '=== BUG-1497/';  BUG-1497/gem5.log |  -3| diff BUG-1497/plain.log -
-echo '=== BUG-1498/';  BUG-1498/gem5.log |  -3| diff BUG-1498/plain.log -
-echo '=== BUG-1499/';  BUG-1499/gem5.log |  -3| diff BUG-1499/plain.log -
-echo '=== BUG-15/';  BUG-15/gem5.log |  -0| diff BUG-15/plain.log -
-echo '=== BUG-150/';  BUG-150/gem5.log |  -1| diff BUG-150/plain.log -
-echo '=== BUG-1500/';  BUG-1500/gem5.log |  -3| diff BUG-1500/plain.log -
-echo '=== BUG-1501/';  BUG-1501/gem5.log |  -3| diff BUG-1501/plain.log -
-echo '=== BUG-1502/';  BUG-1502/gem5.log |  -3| diff BUG-1502/plain.log -
-echo '=== BUG-1503/';  BUG-1503/gem5.log |  -3| diff BUG-1503/plain.log -
-echo '=== BUG-1504/';  BUG-1504/gem5.log |  -3| diff BUG-1504/plain.log -
-echo '=== BUG-1505/';  BUG-1505/gem5.log |  -3| diff BUG-1505/plain.log -
-echo '=== BUG-1506/';  BUG-1506/gem5.log |  -3| diff BUG-1506/plain.log -
-echo '=== BUG-1507/';  BUG-1507/gem5.log |  -3| diff BUG-1507/plain.log -
-echo '=== BUG-1508/';  BUG-1508/gem5.log |  -3| diff BUG-1508/plain.log -
-echo '=== BUG-1509/';  BUG-1509/gem5.log |  -3| diff BUG-1509/plain.log -
-echo '=== BUG-151/';  BUG-151/gem5.log |  -1| diff BUG-151/plain.log -
-echo '=== BUG-1510/';  BUG-1510/gem5.log |  -3| diff BUG-1510/plain.log -
-echo '=== BUG-1511/';  BUG-1511/gem5.log |  -3| diff BUG-1511/plain.log -
-echo '=== BUG-1512/';  BUG-1512/gem5.log |  -3| diff BUG-1512/plain.log -
-echo '=== BUG-1513/';  BUG-1513/gem5.log |  -3| diff BUG-1513/plain.log -
-echo '=== BUG-1514/';  BUG-1514/gem5.log |  -3| diff BUG-1514/plain.log -
-echo '=== BUG-1515/';  BUG-1515/gem5.log |  -3| diff BUG-1515/plain.log -
-echo '=== BUG-1516/';  BUG-1516/gem5.log |  -3| diff BUG-1516/plain.log -
-echo '=== BUG-1517/';  BUG-1517/gem5.log |  -3| diff BUG-1517/plain.log -
-echo '=== BUG-1518/';  BUG-1518/gem5.log |  -3| diff BUG-1518/plain.log -
-echo '=== BUG-1519/';  BUG-1519/gem5.log |  -3| diff BUG-1519/plain.log -
-echo '=== BUG-152/';  BUG-152/gem5.log |  -0| diff BUG-152/plain.log -
-echo '=== BUG-1520/';  BUG-1520/gem5.log |  -3| diff BUG-1520/plain.log -
-echo '=== BUG-1521/';  BUG-1521/gem5.log |  -3| diff BUG-1521/plain.log -
-echo '=== BUG-1522/';  BUG-1522/gem5.log |  -3| diff BUG-1522/plain.log -
-echo '=== BUG-1523/';  BUG-1523/gem5.log |  -3| diff BUG-1523/plain.log -
-echo '=== BUG-1524/';  BUG-1524/gem5.log |  -3| diff BUG-1524/plain.log -
-echo '=== BUG-1525/';  BUG-1525/gem5.log |  -3| diff BUG-1525/plain.log -
-echo '=== BUG-1526/';  BUG-1526/gem5.log |  -3| diff BUG-1526/plain.log -
-echo '=== BUG-1527/';  BUG-1527/gem5.log |  -3| diff BUG-1527/plain.log -
-echo '=== BUG-1528/';  BUG-1528/gem5.log |  -3| diff BUG-1528/plain.log -
-echo '=== BUG-1529/';  BUG-1529/gem5.log |  -3| diff BUG-1529/plain.log -
-echo '=== BUG-153/';  BUG-153/gem5.log |  -1| diff BUG-153/plain.log -
-echo '=== BUG-1530/';  BUG-1530/gem5.log |  -3| diff BUG-1530/plain.log -
-echo '=== BUG-1531/';  BUG-1531/gem5.log |  -3| diff BUG-1531/plain.log -
-echo '=== BUG-1532/';  BUG-1532/gem5.log |  -3| diff BUG-1532/plain.log -
-echo '=== BUG-1533/';  BUG-1533/gem5.log |  -3| diff BUG-1533/plain.log -
-echo '=== BUG-1534/';  BUG-1534/gem5.log |  -3| diff BUG-1534/plain.log -
-echo '=== BUG-1535/';  BUG-1535/gem5.log |  -3| diff BUG-1535/plain.log -
-echo '=== BUG-1536/';  BUG-1536/gem5.log |  -3| diff BUG-1536/plain.log -
-echo '=== BUG-1537/';  BUG-1537/gem5.log |  -107| diff BUG-1537/plain.log -
-echo '=== BUG-1538/';  BUG-1538/gem5.log |  -107| diff BUG-1538/plain.log -
-echo '=== BUG-1539/';  BUG-1539/gem5.log |  -107| diff BUG-1539/plain.log -
-echo '=== BUG-154/';  BUG-154/gem5.log |  -1| diff BUG-154/plain.log -
-echo '=== BUG-1540/';  BUG-1540/gem5.log |  -107| diff BUG-1540/plain.log -
-echo '=== BUG-1541/';  BUG-1541/gem5.log |  -107| diff BUG-1541/plain.log -
-echo '=== BUG-1542/';  BUG-1542/gem5.log |  -107| diff BUG-1542/plain.log -
-echo '=== BUG-1543/';  BUG-1543/gem5.log |  -107| diff BUG-1543/plain.log -
-echo '=== BUG-1544/';  BUG-1544/gem5.log |  -107| diff BUG-1544/plain.log -
-echo '=== BUG-1545/';  BUG-1545/gem5.log |  -107| diff BUG-1545/plain.log -
-echo '=== BUG-1546/';  BUG-1546/gem5.log |  -107| diff BUG-1546/plain.log -
-echo '=== BUG-1547/';  BUG-1547/gem5.log |  -107| diff BUG-1547/plain.log -
-echo '=== BUG-1548/';  BUG-1548/gem5.log |  -107| diff BUG-1548/plain.log -
-echo '=== BUG-1549/';  BUG-1549/gem5.log |  -107| diff BUG-1549/plain.log -
-echo '=== BUG-155/';  BUG-155/gem5.log |  -0| diff BUG-155/plain.log -
-echo '=== BUG-1550/';  BUG-1550/gem5.log |  -107| diff BUG-1550/plain.log -
-echo '=== BUG-1551/';  BUG-1551/gem5.log |  -107| diff BUG-1551/plain.log -
-echo '=== BUG-1552/';  BUG-1552/gem5.log |  -0| diff BUG-1552/plain.log -
-echo '=== BUG-1553/';  BUG-1553/gem5.log |  -1| diff BUG-1553/plain.log -
-echo '=== BUG-1554/';  BUG-1554/gem5.log |  -1| diff BUG-1554/plain.log -
-echo '=== BUG-1555/';  BUG-1555/gem5.log |  -1| diff BUG-1555/plain.log -
-echo '=== BUG-1556/';  BUG-1556/gem5.log |  -1| diff BUG-1556/plain.log -
-echo '=== BUG-1557/';  BUG-1557/gem5.log |  -1| diff BUG-1557/plain.log -
-echo '=== BUG-1558/';  BUG-1558/gem5.log |  -0| diff BUG-1558/plain.log -
-echo '=== BUG-1559/';  BUG-1559/gem5.log |  -1| diff BUG-1559/plain.log -
-echo '=== BUG-156/';  BUG-156/gem5.log |  -1| diff BUG-156/plain.log -
-echo '=== BUG-1560/';  BUG-1560/gem5.log |  -0| diff BUG-1560/plain.log -
-echo '=== BUG-1561/';  BUG-1561/gem5.log |  -0| diff BUG-1561/plain.log -
-echo '=== BUG-1562/';  BUG-1562/gem5.log |  -0| diff BUG-1562/plain.log -
-echo '=== BUG-1563/';  BUG-1563/gem5.log |  -1| diff BUG-1563/plain.log -
-echo '=== BUG-1564/';  BUG-1564/gem5.log |  -1| diff BUG-1564/plain.log -
-echo '=== BUG-1565/';  BUG-1565/gem5.log |  -0| diff BUG-1565/plain.log -
-echo '=== BUG-1566/';  BUG-1566/gem5.log |  -0| diff BUG-1566/plain.log -
-echo '=== BUG-1567/';  BUG-1567/gem5.log |  -27| diff BUG-1567/plain.log -
-echo '=== BUG-1568/';  BUG-1568/gem5.log |  -27| diff BUG-1568/plain.log -
-echo '=== BUG-1569/';  BUG-1569/gem5.log |  -27| diff BUG-1569/plain.log -
-echo '=== BUG-157/';  BUG-157/gem5.log |  -1| diff BUG-157/plain.log -
-echo '=== BUG-1570/';  BUG-1570/gem5.log |  -27| diff BUG-1570/plain.log -
-echo '=== BUG-1571/';  BUG-1571/gem5.log |  -27| diff BUG-1571/plain.log -
-echo '=== BUG-1572/';  BUG-1572/gem5.log |  -27| diff BUG-1572/plain.log -
-echo '=== BUG-1573/';  BUG-1573/gem5.log |  -27| diff BUG-1573/plain.log -
-echo '=== BUG-1574/';  BUG-1574/gem5.log |  -27| diff BUG-1574/plain.log -
-echo '=== BUG-1575/';  BUG-1575/gem5.log |  -27| diff BUG-1575/plain.log -
-echo '=== BUG-1576/';  BUG-1576/gem5.log |  -1| diff BUG-1576/plain.log -
-echo '=== BUG-1577/';  BUG-1577/gem5.log |  -0| diff BUG-1577/plain.log -
-echo '=== BUG-1578/';  BUG-1578/gem5.log |  -1| diff BUG-1578/plain.log -
-echo '=== BUG-1579/';  BUG-1579/gem5.log |  -0| diff BUG-1579/plain.log -
-echo '=== BUG-158/';  BUG-158/gem5.log |  -1| diff BUG-158/plain.log -
-echo '=== BUG-1580/';  BUG-1580/gem5.log |  -1| diff BUG-1580/plain.log -
-echo '=== BUG-1581/';  BUG-1581/gem5.log |  -0| diff BUG-1581/plain.log -
-echo '=== BUG-1582/';  BUG-1582/gem5.log |  -0| diff BUG-1582/plain.log -
-echo '=== BUG-1583/';  BUG-1583/gem5.log |  -0| diff BUG-1583/plain.log -
-echo '=== BUG-1584/';  BUG-1584/gem5.log |  -1| diff BUG-1584/plain.log -
-echo '=== BUG-159/';  BUG-159/gem5.log |  -1| diff BUG-159/plain.log -
-echo '=== BUG-16/';  BUG-16/gem5.log |  -0| diff BUG-16/plain.log -
-echo '=== BUG-160/';  BUG-160/gem5.log |  -1| diff BUG-160/plain.log -
-echo '=== BUG-161/';  BUG-161/gem5.log |  -1| diff BUG-161/plain.log -
-echo '=== BUG-162/';  BUG-162/gem5.log |  -1| diff BUG-162/plain.log -
-echo '=== BUG-163/';  BUG-163/gem5.log |  -1| diff BUG-163/plain.log -
-echo '=== BUG-164/';  BUG-164/gem5.log |  -1| diff BUG-164/plain.log -
-echo '=== BUG-165/';  BUG-165/gem5.log |  -1| diff BUG-165/plain.log -
-echo '=== BUG-166/';  BUG-166/gem5.log |  -0| diff BUG-166/plain.log -
-echo '=== BUG-167/';  BUG-167/gem5.log |  -1| diff BUG-167/plain.log -
-echo '=== BUG-168/';  BUG-168/gem5.log |  -0| diff BUG-168/plain.log -
-echo '=== BUG-169/';  BUG-169/gem5.log |  -1| diff BUG-169/plain.log -
-echo '=== BUG-17/';  BUG-17/gem5.log |  -0| diff BUG-17/plain.log -
-echo '=== BUG-170/';  BUG-170/gem5.log |  -1| diff BUG-170/plain.log -
-echo '=== BUG-171/';  BUG-171/gem5.log |  -1| diff BUG-171/plain.log -
-echo '=== BUG-172/';  BUG-172/gem5.log |  -1| diff BUG-172/plain.log -
-echo '=== BUG-173/';  BUG-173/gem5.log |  -1| diff BUG-173/plain.log -
-echo '=== BUG-174/';  BUG-174/gem5.log |  -1| diff BUG-174/plain.log -
-echo '=== BUG-175/';  BUG-175/gem5.log |  -1| diff BUG-175/plain.log -
-echo '=== BUG-176/';  BUG-176/gem5.log |  -1| diff BUG-176/plain.log -
-echo '=== BUG-177/';  BUG-177/gem5.log |  -0| diff BUG-177/plain.log -
-echo '=== BUG-178/';  BUG-178/gem5.log |  -0| diff BUG-178/plain.log -
-echo '=== BUG-179/';  BUG-179/gem5.log |  -1| diff BUG-179/plain.log -
-echo '=== BUG-18/';  BUG-18/gem5.log |  -0| diff BUG-18/plain.log -
-echo '=== BUG-180/';  BUG-180/gem5.log |  -0| diff BUG-180/plain.log -
-echo '=== BUG-181/';  BUG-181/gem5.log |  -1| diff BUG-181/plain.log -
-echo '=== BUG-182/';  BUG-182/gem5.log |  -0| diff BUG-182/plain.log -
-echo '=== BUG-183/';  BUG-183/gem5.log |  -1| diff BUG-183/plain.log -
-echo '=== BUG-184/';  BUG-184/gem5.log |  -0| diff BUG-184/plain.log -
-echo '=== BUG-185/';  BUG-185/gem5.log |  -1| diff BUG-185/plain.log -
-echo '=== BUG-186/';  BUG-186/gem5.log |  -0| diff BUG-186/plain.log -
-echo '=== BUG-187/';  BUG-187/gem5.log |  -0| diff BUG-187/plain.log -
-echo '=== BUG-188/';  BUG-188/gem5.log |  -0| diff BUG-188/plain.log -
-echo '=== BUG-189/';  BUG-189/gem5.log |  -0| diff BUG-189/plain.log -
-echo '=== BUG-19/';  BUG-19/gem5.log |  -0| diff BUG-19/plain.log -
-echo '=== BUG-190/';  BUG-190/gem5.log |  -1| diff BUG-190/plain.log -
-echo '=== BUG-191/';  BUG-191/gem5.log |  -1| diff BUG-191/plain.log -
-echo '=== BUG-192/';  BUG-192/gem5.log |  -1| diff BUG-192/plain.log -
-echo '=== BUG-193/';  BUG-193/gem5.log |  -0| diff BUG-193/plain.log -
-echo '=== BUG-194/';  BUG-194/gem5.log |  -1| diff BUG-194/plain.log -
-echo '=== BUG-195/';  BUG-195/gem5.log |  -1| diff BUG-195/plain.log -
-echo '=== BUG-196/';  BUG-196/gem5.log |  -1| diff BUG-196/plain.log -
-echo '=== BUG-197/';  BUG-197/gem5.log |  -0| diff BUG-197/plain.log -
-echo '=== BUG-198/';  BUG-198/gem5.log |  -1| diff BUG-198/plain.log -
-echo '=== BUG-199/';  BUG-199/gem5.log |  -1| diff BUG-199/plain.log -
-echo '=== BUG-2/';  BUG-2/gem5.log |  -0| diff BUG-2/plain.log -
-echo '=== BUG-20/';  BUG-20/gem5.log |  -0| diff BUG-20/plain.log -
-echo '=== BUG-200/';  BUG-200/gem5.log |  -0| diff BUG-200/plain.log -
-echo '=== BUG-201/';  BUG-201/gem5.log |  -0| diff BUG-201/plain.log -
-echo '=== BUG-202/';  BUG-202/gem5.log |  -1| diff BUG-202/plain.log -
-echo '=== BUG-203/';  BUG-203/gem5.log |  -1| diff BUG-203/plain.log -
-echo '=== BUG-204/';  BUG-204/gem5.log |  -1| diff BUG-204/plain.log -
-echo '=== BUG-205/';  BUG-205/gem5.log |  -1| diff BUG-205/plain.log -
-echo '=== BUG-206/';  BUG-206/gem5.log |  -0| diff BUG-206/plain.log -
-echo '=== BUG-207/';  BUG-207/gem5.log |  -0| diff BUG-207/plain.log -
-echo '=== BUG-208/';  BUG-208/gem5.log |  -1| diff BUG-208/plain.log -
-echo '=== BUG-209/';  BUG-209/gem5.log |  -1| diff BUG-209/plain.log -
-echo '=== BUG-21/';  BUG-21/gem5.log |  -1| diff BUG-21/plain.log -
-echo '=== BUG-210/';  BUG-210/gem5.log |  -15| diff BUG-210/plain.log -
-echo '=== BUG-211/';  BUG-211/gem5.log |  -1| diff BUG-211/plain.log -
-echo '=== BUG-212/';  BUG-212/gem5.log |  -1| diff BUG-212/plain.log -
-echo '=== BUG-213/';  BUG-213/gem5.log |  -2| diff BUG-213/plain.log -
-echo '=== BUG-214/';  BUG-214/gem5.log |  -2| diff BUG-214/plain.log -
-echo '=== BUG-215/';  BUG-215/gem5.log |  -6| diff BUG-215/plain.log -
-echo '=== BUG-216/';  BUG-216/gem5.log |  -1| diff BUG-216/plain.log -
-echo '=== BUG-217/';  BUG-217/gem5.log |  -2| diff BUG-217/plain.log -
-echo '=== BUG-218/';  BUG-218/gem5.log |  -1| diff BUG-218/plain.log -
-echo '=== BUG-219/';  BUG-219/gem5.log |  -1| diff BUG-219/plain.log -
-echo '=== BUG-22/';  BUG-22/gem5.log |  -0| diff BUG-22/plain.log -
-echo '=== BUG-220/';  BUG-220/gem5.log |  -1| diff BUG-220/plain.log -
-echo '=== BUG-221/';  BUG-221/gem5.log |  -1| diff BUG-221/plain.log -
-echo '=== BUG-222/';  BUG-222/gem5.log |  -1| diff BUG-222/plain.log -
-echo '=== BUG-223/';  BUG-223/gem5.log |  -1| diff BUG-223/plain.log -
-echo '=== BUG-224/';  BUG-224/gem5.log |  -1| diff BUG-224/plain.log -
-echo '=== BUG-225/';  BUG-225/gem5.log |  -1| diff BUG-225/plain.log -
-echo '=== BUG-226/';  BUG-226/gem5.log |  -0| diff BUG-226/plain.log -
-echo '=== BUG-227/';  BUG-227/gem5.log |  -1| diff BUG-227/plain.log -
-echo '=== BUG-228/';  BUG-228/gem5.log |  -1| diff BUG-228/plain.log -
-echo '=== BUG-229/';  BUG-229/gem5.log |  -0| diff BUG-229/plain.log -
-echo '=== BUG-23/';  BUG-23/gem5.log |  -0| diff BUG-23/plain.log -
-echo '=== BUG-230/';  BUG-230/gem5.log |  -1| diff BUG-230/plain.log -
-echo '=== BUG-231/';  BUG-231/gem5.log |  -1| diff BUG-231/plain.log -
-echo '=== BUG-232/';  BUG-232/gem5.log |  -0| diff BUG-232/plain.log -
-echo '=== BUG-233/';  BUG-233/gem5.log |  -1| diff BUG-233/plain.log -
-echo '=== BUG-234/';  BUG-234/gem5.log |  -1| diff BUG-234/plain.log -
-echo '=== BUG-235/';  BUG-235/gem5.log |  -0| diff BUG-235/plain.log -
-echo '=== BUG-236/';  BUG-236/gem5.log |  -1| diff BUG-236/plain.log -
-echo '=== BUG-237/';  BUG-237/gem5.log |  -0| diff BUG-237/plain.log -
-echo '=== BUG-238/';  BUG-238/gem5.log |  -1| diff BUG-238/plain.log -
-echo '=== BUG-239/';  BUG-239/gem5.log |  -1| diff BUG-239/plain.log -
-echo '=== BUG-24/';  BUG-24/gem5.log |  -0| diff BUG-24/plain.log -
-echo '=== BUG-240/';  BUG-240/gem5.log |  -1| diff BUG-240/plain.log -
-echo '=== BUG-241/';  BUG-241/gem5.log |  -1| diff BUG-241/plain.log -
-echo '=== BUG-242/';  BUG-242/gem5.log |  -1| diff BUG-242/plain.log -
-echo '=== BUG-243/';  BUG-243/gem5.log |  -1| diff BUG-243/plain.log -
-echo '=== BUG-244/';  BUG-244/gem5.log |  -0| diff BUG-244/plain.log -
-echo '=== BUG-245/';  BUG-245/gem5.log |  -1| diff BUG-245/plain.log -
-echo '=== BUG-246/';  BUG-246/gem5.log |  -1| diff BUG-246/plain.log -
-echo '=== BUG-247/';  BUG-247/gem5.log |  -1| diff BUG-247/plain.log -
-echo '=== BUG-248/';  BUG-248/gem5.log |  -1| diff BUG-248/plain.log -
-echo '=== BUG-249/';  BUG-249/gem5.log |  -1| diff BUG-249/plain.log -
-echo '=== BUG-25/';  BUG-25/gem5.log |  -0| diff BUG-25/plain.log -
-echo '=== BUG-250/';  BUG-250/gem5.log |  -0| diff BUG-250/plain.log -
-echo '=== BUG-251/';  BUG-251/gem5.log |  -1| diff BUG-251/plain.log -
-echo '=== BUG-252/';  BUG-252/gem5.log |  -1| diff BUG-252/plain.log -
-echo '=== BUG-253/';  BUG-253/gem5.log |  -1| diff BUG-253/plain.log -
-echo '=== BUG-254/';  BUG-254/gem5.log |  -1| diff BUG-254/plain.log -
-echo '=== BUG-255/';  BUG-255/gem5.log |  -1| diff BUG-255/plain.log -
-echo '=== BUG-256/';  BUG-256/gem5.log |  -1| diff BUG-256/plain.log -
-echo '=== BUG-257/';  BUG-257/gem5.log |  -0| diff BUG-257/plain.log -
-echo '=== BUG-258/';  BUG-258/gem5.log |  -0| diff BUG-258/plain.log -
-echo '=== BUG-259/';  BUG-259/gem5.log |  -1| diff BUG-259/plain.log -
-echo '=== BUG-26/';  BUG-26/gem5.log |  -0| diff BUG-26/plain.log -
-echo '=== BUG-260/';  BUG-260/gem5.log |  -1| diff BUG-260/plain.log -
-echo '=== BUG-261/';  BUG-261/gem5.log |  -1| diff BUG-261/plain.log -
-echo '=== BUG-262/';  BUG-262/gem5.log |  -1| diff BUG-262/plain.log -
-echo '=== BUG-263/';  BUG-263/gem5.log |  -1| diff BUG-263/plain.log -
-echo '=== BUG-264/';  BUG-264/gem5.log |  -0| diff BUG-264/plain.log -
-echo '=== BUG-265/';  BUG-265/gem5.log |  -6| diff BUG-265/plain.log -
-echo '=== BUG-266/';  BUG-266/gem5.log |  -0| diff BUG-266/plain.log -
-echo '=== BUG-267/';  BUG-267/gem5.log |  -0| diff BUG-267/plain.log -
-echo '=== BUG-268/';  BUG-268/gem5.log |  -1| diff BUG-268/plain.log -
-echo '=== BUG-269/';  BUG-269/gem5.log |  -1| diff BUG-269/plain.log -
-echo '=== BUG-27/';  BUG-27/gem5.log |  -0| diff BUG-27/plain.log -
-echo '=== BUG-270/';  BUG-270/gem5.log |  -1| diff BUG-270/plain.log -
-echo '=== BUG-271/';  BUG-271/gem5.log |  -1| diff BUG-271/plain.log -
-echo '=== BUG-272/';  BUG-272/gem5.log |  -4| diff BUG-272/plain.log -
-echo '=== BUG-273/';  BUG-273/gem5.log |  -1| diff BUG-273/plain.log -
-echo '=== BUG-274/';  BUG-274/gem5.log |  -4| diff BUG-274/plain.log -
-echo '=== BUG-275/';  BUG-275/gem5.log |  -4| diff BUG-275/plain.log -
-echo '=== BUG-276/';  BUG-276/gem5.log |  -1| diff BUG-276/plain.log -
-echo '=== BUG-277/';  BUG-277/gem5.log |  -1| diff BUG-277/plain.log -
-echo '=== BUG-278/';  BUG-278/gem5.log |  -1| diff BUG-278/plain.log -
-echo '=== BUG-279/';  BUG-279/gem5.log |  -1| diff BUG-279/plain.log -
-echo '=== BUG-28/';  BUG-28/gem5.log |  -0| diff BUG-28/plain.log -
-echo '=== BUG-280/';  BUG-280/gem5.log |  -1| diff BUG-280/plain.log -
-echo '=== BUG-281/';  BUG-281/gem5.log |  -1| diff BUG-281/plain.log -
-echo '=== BUG-282/';  BUG-282/gem5.log |  -1| diff BUG-282/plain.log -
-echo '=== BUG-283/';  BUG-283/gem5.log |  -1| diff BUG-283/plain.log -
-echo '=== BUG-284/';  BUG-284/gem5.log |  -1| diff BUG-284/plain.log -
-echo '=== BUG-285/';  BUG-285/gem5.log |  -1| diff BUG-285/plain.log -
-echo '=== BUG-286/';  BUG-286/gem5.log |  -1| diff BUG-286/plain.log -
-echo '=== BUG-287/';  BUG-287/gem5.log |  -1| diff BUG-287/plain.log -
-echo '=== BUG-288/';  BUG-288/gem5.log |  -0| diff BUG-288/plain.log -
-echo '=== BUG-289/';  BUG-289/gem5.log |  -1| diff BUG-289/plain.log -
-echo '=== BUG-29/';  BUG-29/gem5.log |  -0| diff BUG-29/plain.log -
-echo '=== BUG-290/';  BUG-290/gem5.log |  -0| diff BUG-290/plain.log -
-echo '=== BUG-291/';  BUG-291/gem5.log |  -0| diff BUG-291/plain.log -
-echo '=== BUG-292/';  BUG-292/gem5.log |  -0| diff BUG-292/plain.log -
-echo '=== BUG-293/';  BUG-293/gem5.log |  -0| diff BUG-293/plain.log -
-echo '=== BUG-294/';  BUG-294/gem5.log |  -1| diff BUG-294/plain.log -
-echo '=== BUG-295/';  BUG-295/gem5.log |  -0| diff BUG-295/plain.log -
-echo '=== BUG-296/';  BUG-296/gem5.log |  -1| diff BUG-296/plain.log -
-echo '=== BUG-297/';  BUG-297/gem5.log |  -0| diff BUG-297/plain.log -
-echo '=== BUG-298/';  BUG-298/gem5.log |  -0| diff BUG-298/plain.log -
-echo '=== BUG-299/';  BUG-299/gem5.log |  -1| diff BUG-299/plain.log -
-echo '=== BUG-3/';  BUG-3/gem5.log |  -0| diff BUG-3/plain.log -
-echo '=== BUG-30/';  BUG-30/gem5.log |  -1| diff BUG-30/plain.log -
-echo '=== BUG-300/';  BUG-300/gem5.log |  -1| diff BUG-300/plain.log -
-echo '=== BUG-301/';  BUG-301/gem5.log |  -0| diff BUG-301/plain.log -
-echo '=== BUG-302/';  BUG-302/gem5.log |  -0| diff BUG-302/plain.log -
-echo '=== BUG-303/';  BUG-303/gem5.log |  -0| diff BUG-303/plain.log -
-echo '=== BUG-304/';  BUG-304/gem5.log |  -1| diff BUG-304/plain.log -
-echo '=== BUG-305/';  BUG-305/gem5.log |  -0| diff BUG-305/plain.log -
-echo '=== BUG-306/';  BUG-306/gem5.log |  -0| diff BUG-306/plain.log -
-echo '=== BUG-307/';  BUG-307/gem5.log |  -1| diff BUG-307/plain.log -
-echo '=== BUG-308/';  BUG-308/gem5.log |  -0| diff BUG-308/plain.log -
-echo '=== BUG-309/';  BUG-309/gem5.log |  -1| diff BUG-309/plain.log -
-echo '=== BUG-31/';  BUG-31/gem5.log |  -0| diff BUG-31/plain.log -
-echo '=== BUG-310/';  BUG-310/gem5.log |  -1| diff BUG-310/plain.log -
-echo '=== BUG-311/';  BUG-311/gem5.log |  -1| diff BUG-311/plain.log -
-echo '=== BUG-312/';  BUG-312/gem5.log |  -1| diff BUG-312/plain.log -
-echo '=== BUG-313/';  BUG-313/gem5.log |  -1| diff BUG-313/plain.log -
-echo '=== BUG-314/';  BUG-314/gem5.log |  -0| diff BUG-314/plain.log -
-echo '=== BUG-315/';  BUG-315/gem5.log |  -1| diff BUG-315/plain.log -
-echo '=== BUG-316/';  BUG-316/gem5.log |  -3| diff BUG-316/plain.log -
-echo '=== BUG-317/';  BUG-317/gem5.log |  -1| diff BUG-317/plain.log -
-echo '=== BUG-318/';  BUG-318/gem5.log |  -11| diff BUG-318/plain.log -
-echo '=== BUG-319/';  BUG-319/gem5.log |  -1| diff BUG-319/plain.log -
-echo '=== BUG-32/';  BUG-32/gem5.log |  -0| diff BUG-32/plain.log -
-echo '=== BUG-320/';  BUG-320/gem5.log |  -1| diff BUG-320/plain.log -
-echo '=== BUG-321/';  BUG-321/gem5.log |  -1| diff BUG-321/plain.log -
-echo '=== BUG-322/';  BUG-322/gem5.log |  -1| diff BUG-322/plain.log -
-echo '=== BUG-323/';  BUG-323/gem5.log |  -1| diff BUG-323/plain.log -
-echo '=== BUG-324/';  BUG-324/gem5.log |  -1| diff BUG-324/plain.log -
-echo '=== BUG-325/';  BUG-325/gem5.log |  -1| diff BUG-325/plain.log -
-echo '=== BUG-326/';  BUG-326/gem5.log |  -1| diff BUG-326/plain.log -
-echo '=== BUG-327/';  BUG-327/gem5.log |  -1| diff BUG-327/plain.log -
-echo '=== BUG-328/';  BUG-328/gem5.log |  -1| diff BUG-328/plain.log -
-echo '=== BUG-329/';  BUG-329/gem5.log |  -1| diff BUG-329/plain.log -
-echo '=== BUG-33/';  BUG-33/gem5.log |  -1| diff BUG-33/plain.log -
-echo '=== BUG-330/';  BUG-330/gem5.log |  -0| diff BUG-330/plain.log -
-echo '=== BUG-331/';  BUG-331/gem5.log |  -1| diff BUG-331/plain.log -
-echo '=== BUG-332/';  BUG-332/gem5.log |  -1| diff BUG-332/plain.log -
-echo '=== BUG-333/';  BUG-333/gem5.log |  -1| diff BUG-333/plain.log -
-echo '=== BUG-334/';  BUG-334/gem5.log |  -1| diff BUG-334/plain.log -
-echo '=== BUG-335/';  BUG-335/gem5.log |  -0| diff BUG-335/plain.log -
-echo '=== BUG-336/';  BUG-336/gem5.log |  -1| diff BUG-336/plain.log -
-echo '=== BUG-337/';  BUG-337/gem5.log |  -0| diff BUG-337/plain.log -
-echo '=== BUG-338/';  BUG-338/gem5.log |  -1| diff BUG-338/plain.log -
-echo '=== BUG-339/';  BUG-339/gem5.log |  -1| diff BUG-339/plain.log -
-echo '=== BUG-34/';  BUG-34/gem5.log |  -1| diff BUG-34/plain.log -
-echo '=== BUG-340/';  BUG-340/gem5.log |  -1| diff BUG-340/plain.log -
-echo '=== BUG-341/';  BUG-341/gem5.log |  -107| diff BUG-341/plain.log -
-echo '=== BUG-342/';  BUG-342/gem5.log |  -16| diff BUG-342/plain.log -
-echo '=== BUG-343/';  BUG-343/gem5.log |  -0| diff BUG-343/plain.log -
-echo '=== BUG-344/';  BUG-344/gem5.log |  -1| diff BUG-344/plain.log -
-echo '=== BUG-345/';  BUG-345/gem5.log |  -1| diff BUG-345/plain.log -
-echo '=== BUG-346/';  BUG-346/gem5.log |  -1| diff BUG-346/plain.log -
-echo '=== BUG-347/';  BUG-347/gem5.log |  -0| diff BUG-347/plain.log -
-echo '=== BUG-348/';  BUG-348/gem5.log |  -0| diff BUG-348/plain.log -
-echo '=== BUG-349/';  BUG-349/gem5.log |  -1| diff BUG-349/plain.log -
-echo '=== BUG-35/';  BUG-35/gem5.log |  -0| diff BUG-35/plain.log -
-echo '=== BUG-350/';  BUG-350/gem5.log |  -1| diff BUG-350/plain.log -
-echo '=== BUG-351/';  BUG-351/gem5.log |  -1| diff BUG-351/plain.log -
-echo '=== BUG-352/';  BUG-352/gem5.log |  -1| diff BUG-352/plain.log -
-echo '=== BUG-353/';  BUG-353/gem5.log |  -1| diff BUG-353/plain.log -
-echo '=== BUG-354/';  BUG-354/gem5.log |  -0| diff BUG-354/plain.log -
-echo '=== BUG-355/';  BUG-355/gem5.log |  -0| diff BUG-355/plain.log -
-echo '=== BUG-356/';  BUG-356/gem5.log |  -0| diff BUG-356/plain.log -
-echo '=== BUG-357/';  BUG-357/gem5.log |  -0| diff BUG-357/plain.log -
-echo '=== BUG-358/';  BUG-358/gem5.log |  -0| diff BUG-358/plain.log -
-echo '=== BUG-359/';  BUG-359/gem5.log |  -1| diff BUG-359/plain.log -
-echo '=== BUG-36/';  BUG-36/gem5.log |  -0| diff BUG-36/plain.log -
-echo '=== BUG-360/';  BUG-360/gem5.log |  -1| diff BUG-360/plain.log -
-echo '=== BUG-361/';  BUG-361/gem5.log |  -0| diff BUG-361/plain.log -
-echo '=== BUG-362/';  BUG-362/gem5.log |  -1| diff BUG-362/plain.log -
-echo '=== BUG-363/';  BUG-363/gem5.log |  -1| diff BUG-363/plain.log -
-echo '=== BUG-364/';  BUG-364/gem5.log |  -1| diff BUG-364/plain.log -
-echo '=== BUG-365/';  BUG-365/gem5.log |  -1| diff BUG-365/plain.log -
-echo '=== BUG-366/';  BUG-366/gem5.log |  -0| diff BUG-366/plain.log -
-echo '=== BUG-367/';  BUG-367/gem5.log |  -1| diff BUG-367/plain.log -
-echo '=== BUG-368/';  BUG-368/gem5.log |  -0| diff BUG-368/plain.log -
-echo '=== BUG-369/';  BUG-369/gem5.log |  -14| diff BUG-369/plain.log -
-echo '=== BUG-37/';  BUG-37/gem5.log |  -0| diff BUG-37/plain.log -
-echo '=== BUG-370/';  BUG-370/gem5.log |  -1| diff BUG-370/plain.log -
-echo '=== BUG-371/';  BUG-371/gem5.log |  -16| diff BUG-371/plain.log -
-echo '=== BUG-372/';  BUG-372/gem5.log |  -1| diff BUG-372/plain.log -
-echo '=== BUG-373/';  BUG-373/gem5.log |  -1| diff BUG-373/plain.log -
-echo '=== BUG-374/';  BUG-374/gem5.log |  -154| diff BUG-374/plain.log -
-echo '=== BUG-375/';  BUG-375/gem5.log |  -0| diff BUG-375/plain.log -
-echo '=== BUG-376/';  BUG-376/gem5.log |  -0| diff BUG-376/plain.log -
-echo '=== BUG-377/';  BUG-377/gem5.log |  -0| diff BUG-377/plain.log -
-echo '=== BUG-378/';  BUG-378/gem5.log |  -0| diff BUG-378/plain.log -
-echo '=== BUG-379/';  BUG-379/gem5.log |  -1| diff BUG-379/plain.log -
-echo '=== BUG-38/';  BUG-38/gem5.log |  -0| diff BUG-38/plain.log -
-echo '=== BUG-380/';  BUG-380/gem5.log |  -0| diff BUG-380/plain.log -
-echo '=== BUG-381/';  BUG-381/gem5.log |  -0| diff BUG-381/plain.log -
-echo '=== BUG-382/';  BUG-382/gem5.log |  -1| diff BUG-382/plain.log -
-echo '=== BUG-383/';  BUG-383/gem5.log |  -0| diff BUG-383/plain.log -
-echo '=== BUG-384/';  BUG-384/gem5.log |  -2| diff BUG-384/plain.log -
-echo '=== BUG-385/';  BUG-385/gem5.log |  -1| diff BUG-385/plain.log -
-echo '=== BUG-386/';  BUG-386/gem5.log |  -1| diff BUG-386/plain.log -
-echo '=== BUG-387/';  BUG-387/gem5.log |  -0| diff BUG-387/plain.log -
-echo '=== BUG-388/';  BUG-388/gem5.log |  -0| diff BUG-388/plain.log -
-echo '=== BUG-389/';  BUG-389/gem5.log |  -1| diff BUG-389/plain.log -
-echo '=== BUG-39/';  BUG-39/gem5.log |  -1| diff BUG-39/plain.log -
-echo '=== BUG-390/';  BUG-390/gem5.log |  -0| diff BUG-390/plain.log -
-echo '=== BUG-391/';  BUG-391/gem5.log |  -1| diff BUG-391/plain.log -
-echo '=== BUG-392/';  BUG-392/gem5.log |  -1| diff BUG-392/plain.log -
-echo '=== BUG-393/';  BUG-393/gem5.log |  -0| diff BUG-393/plain.log -
-echo '=== BUG-394/';  BUG-394/gem5.log |  -1| diff BUG-394/plain.log -
-echo '=== BUG-395/';  BUG-395/gem5.log |  -1| diff BUG-395/plain.log -
-echo '=== BUG-396/';  BUG-396/gem5.log |  -0| diff BUG-396/plain.log -
-echo '=== BUG-397/';  BUG-397/gem5.log |  -1| diff BUG-397/plain.log -
-echo '=== BUG-398/';  BUG-398/gem5.log |  -1| diff BUG-398/plain.log -
-echo '=== BUG-399/';  BUG-399/gem5.log |  -0| diff BUG-399/plain.log -
-echo '=== BUG-4/';  BUG-4/gem5.log |  -0| diff BUG-4/plain.log -
-echo '=== BUG-40/';  BUG-40/gem5.log |  -0| diff BUG-40/plain.log -
-echo '=== BUG-400/';  BUG-400/gem5.log |  -0| diff BUG-400/plain.log -
-echo '=== BUG-401/';  BUG-401/gem5.log |  -1| diff BUG-401/plain.log -
-echo '=== BUG-402/';  BUG-402/gem5.log |  -1| diff BUG-402/plain.log -
-echo '=== BUG-403/';  BUG-403/gem5.log |  -0| diff BUG-403/plain.log -
-echo '=== BUG-404/';  BUG-404/gem5.log |  -1| diff BUG-404/plain.log -
-echo '=== BUG-405/';  BUG-405/gem5.log |  -1| diff BUG-405/plain.log -
-echo '=== BUG-406/';  BUG-406/gem5.log |  -1| diff BUG-406/plain.log -
-echo '=== BUG-407/';  BUG-407/gem5.log |  -1| diff BUG-407/plain.log -
-echo '=== BUG-408/';  BUG-408/gem5.log |  -1| diff BUG-408/plain.log -
-echo '=== BUG-409/';  BUG-409/gem5.log |  -0| diff BUG-409/plain.log -
-echo '=== BUG-41/';  BUG-41/gem5.log |  -0| diff BUG-41/plain.log -
-echo '=== BUG-410/';  BUG-410/gem5.log |  -1| diff BUG-410/plain.log -
-echo '=== BUG-411/';  BUG-411/gem5.log |  -1| diff BUG-411/plain.log -
-echo '=== BUG-412/';  BUG-412/gem5.log |  -1| diff BUG-412/plain.log -
-echo '=== BUG-413/';  BUG-413/gem5.log |  -0| diff BUG-413/plain.log -
-echo '=== BUG-414/';  BUG-414/gem5.log |  -0| diff BUG-414/plain.log -
-echo '=== BUG-415/';  BUG-415/gem5.log |  -1| diff BUG-415/plain.log -
-echo '=== BUG-416/';  BUG-416/gem5.log |  -0| diff BUG-416/plain.log -
-echo '=== BUG-417/';  BUG-417/gem5.log |  -0| diff BUG-417/plain.log -
-echo '=== BUG-418/';  BUG-418/gem5.log |  -1| diff BUG-418/plain.log -
-echo '=== BUG-419/';  BUG-419/gem5.log |  -1| diff BUG-419/plain.log -
-echo '=== BUG-42/';  BUG-42/gem5.log |  -0| diff BUG-42/plain.log -
-echo '=== BUG-420/';  BUG-420/gem5.log |  -1| diff BUG-420/plain.log -
-echo '=== BUG-421/';  BUG-421/gem5.log |  -0| diff BUG-421/plain.log -
-echo '=== BUG-422/';  BUG-422/gem5.log |  -0| diff BUG-422/plain.log -
-echo '=== BUG-423/';  BUG-423/gem5.log |  -0| diff BUG-423/plain.log -
-echo '=== BUG-424/';  BUG-424/gem5.log |  -0| diff BUG-424/plain.log -
-echo '=== BUG-425/';  BUG-425/gem5.log |  -0| diff BUG-425/plain.log -
-echo '=== BUG-426/';  BUG-426/gem5.log |  -1| diff BUG-426/plain.log -
-echo '=== BUG-427/';  BUG-427/gem5.log |  -1| diff BUG-427/plain.log -
-echo '=== BUG-428/';  BUG-428/gem5.log |  -0| diff BUG-428/plain.log -
-echo '=== BUG-429/';  BUG-429/gem5.log |  -0| diff BUG-429/plain.log -
-echo '=== BUG-43/';  BUG-43/gem5.log |  -0| diff BUG-43/plain.log -
-echo '=== BUG-430/';  BUG-430/gem5.log |  -0| diff BUG-430/plain.log -
-echo '=== BUG-431/';  BUG-431/gem5.log |  -1| diff BUG-431/plain.log -
-echo '=== BUG-432/';  BUG-432/gem5.log |  -1| diff BUG-432/plain.log -
-echo '=== BUG-433/';  BUG-433/gem5.log |  -1| diff BUG-433/plain.log -
-echo '=== BUG-434/';  BUG-434/gem5.log |  -1| diff BUG-434/plain.log -
-echo '=== BUG-435/';  BUG-435/gem5.log |  -1| diff BUG-435/plain.log -
-echo '=== BUG-436/';  BUG-436/gem5.log |  -1| diff BUG-436/plain.log -
-echo '=== BUG-437/';  BUG-437/gem5.log |  -0| diff BUG-437/plain.log -
-echo '=== BUG-438/';  BUG-438/gem5.log |  -1| diff BUG-438/plain.log -
-echo '=== BUG-439/';  BUG-439/gem5.log |  -1| diff BUG-439/plain.log -
-echo '=== BUG-44/';  BUG-44/gem5.log |  -0| diff BUG-44/plain.log -
-echo '=== BUG-440/';  BUG-440/gem5.log |  -0| diff BUG-440/plain.log -
-echo '=== BUG-441/';  BUG-441/gem5.log |  -0| diff BUG-441/plain.log -
-echo '=== BUG-442/';  BUG-442/gem5.log |  -1| diff BUG-442/plain.log -
-echo '=== BUG-443/';  BUG-443/gem5.log |  -0| diff BUG-443/plain.log -
-echo '=== BUG-444/';  BUG-444/gem5.log |  -0| diff BUG-444/plain.log -
-echo '=== BUG-445/';  BUG-445/gem5.log |  -1| diff BUG-445/plain.log -
-echo '=== BUG-446/';  BUG-446/gem5.log |  -0| diff BUG-446/plain.log -
-echo '=== BUG-447/';  BUG-447/gem5.log |  -0| diff BUG-447/plain.log -
-echo '=== BUG-448/';  BUG-448/gem5.log |  -0| diff BUG-448/plain.log -
-echo '=== BUG-449/';  BUG-449/gem5.log |  -1| diff BUG-449/plain.log -
-echo '=== BUG-45/';  BUG-45/gem5.log |  -0| diff BUG-45/plain.log -
-echo '=== BUG-450/';  BUG-450/gem5.log |  -0| diff BUG-450/plain.log -
-echo '=== BUG-451/';  BUG-451/gem5.log |  -1| diff BUG-451/plain.log -
-echo '=== BUG-452/';  BUG-452/gem5.log |  -0| diff BUG-452/plain.log -
-echo '=== BUG-453/';  BUG-453/gem5.log |  -0| diff BUG-453/plain.log -
-echo '=== BUG-454/';  BUG-454/gem5.log |  -1| diff BUG-454/plain.log -
-echo '=== BUG-455/';  BUG-455/gem5.log |  -0| diff BUG-455/plain.log -
-echo '=== BUG-456/';  BUG-456/gem5.log |  -0| diff BUG-456/plain.log -
-echo '=== BUG-457/';  BUG-457/gem5.log |  -1| diff BUG-457/plain.log -
-echo '=== BUG-458/';  BUG-458/gem5.log |  -1| diff BUG-458/plain.log -
-echo '=== BUG-459/';  BUG-459/gem5.log |  -0| diff BUG-459/plain.log -
-echo '=== BUG-46/';  BUG-46/gem5.log |  -0| diff BUG-46/plain.log -
-echo '=== BUG-460/';  BUG-460/gem5.log |  -2| diff BUG-460/plain.log -
-echo '=== BUG-461/';  BUG-461/gem5.log |  -1| diff BUG-461/plain.log -
-echo '=== BUG-462/';  BUG-462/gem5.log |  -2| diff BUG-462/plain.log -
-echo '=== BUG-463/';  BUG-463/gem5.log |  -6| diff BUG-463/plain.log -
-echo '=== BUG-464/';  BUG-464/gem5.log |  -1| diff BUG-464/plain.log -
-echo '=== BUG-465/';  BUG-465/gem5.log |  -3| diff BUG-465/plain.log -
-echo '=== BUG-466/';  BUG-466/gem5.log |  -4| diff BUG-466/plain.log -
-echo '=== BUG-467/';  BUG-467/gem5.log |  -5| diff BUG-467/plain.log -
-echo '=== BUG-468/';  BUG-468/gem5.log |  -6| diff BUG-468/plain.log -
-echo '=== BUG-469/';  BUG-469/gem5.log |  -10| diff BUG-469/plain.log -
-echo '=== BUG-47/';  BUG-47/gem5.log |  -0| diff BUG-47/plain.log -
-echo '=== BUG-470/';  BUG-470/gem5.log |  -1| diff BUG-470/plain.log -
-echo '=== BUG-471/';  BUG-471/gem5.log |  -0| diff BUG-471/plain.log -
-echo '=== BUG-472/';  BUG-472/gem5.log |  -1| diff BUG-472/plain.log -
-echo '=== BUG-473/';  BUG-473/gem5.log |  -1| diff BUG-473/plain.log -
-echo '=== BUG-474/';  BUG-474/gem5.log |  -1| diff BUG-474/plain.log -
-echo '=== BUG-475/';  BUG-475/gem5.log |  -0| diff BUG-475/plain.log -
-echo '=== BUG-476/';  BUG-476/gem5.log |  -0| diff BUG-476/plain.log -
-echo '=== BUG-477/';  BUG-477/gem5.log |  -1| diff BUG-477/plain.log -
-echo '=== BUG-478/';  BUG-478/gem5.log |  -0| diff BUG-478/plain.log -
-echo '=== BUG-479/';  BUG-479/gem5.log |  -1| diff BUG-479/plain.log -
-echo '=== BUG-48/';  BUG-48/gem5.log |  -0| diff BUG-48/plain.log -
-echo '=== BUG-480/';  BUG-480/gem5.log |  -1| diff BUG-480/plain.log -
-echo '=== BUG-481/';  BUG-481/gem5.log |  -0| diff BUG-481/plain.log -
-echo '=== BUG-482/';  BUG-482/gem5.log |  -1| diff BUG-482/plain.log -
-echo '=== BUG-483/';  BUG-483/gem5.log |  -1| diff BUG-483/plain.log -
-echo '=== BUG-484/';  BUG-484/gem5.log |  -0| diff BUG-484/plain.log -
-echo '=== BUG-485/';  BUG-485/gem5.log |  -1| diff BUG-485/plain.log -
-echo '=== BUG-486/';  BUG-486/gem5.log |  -1| diff BUG-486/plain.log -
-echo '=== BUG-487/';  BUG-487/gem5.log |  -0| diff BUG-487/plain.log -
-echo '=== BUG-488/';  BUG-488/gem5.log |  -0| diff BUG-488/plain.log -
-echo '=== BUG-489/';  BUG-489/gem5.log |  -1| diff BUG-489/plain.log -
-echo '=== BUG-49/';  BUG-49/gem5.log |  -0| diff BUG-49/plain.log -
-echo '=== BUG-490/';  BUG-490/gem5.log |  -0| diff BUG-490/plain.log -
-echo '=== BUG-491/';  BUG-491/gem5.log |  -0| diff BUG-491/plain.log -
-echo '=== BUG-492/';  BUG-492/gem5.log |  -0| diff BUG-492/plain.log -
-echo '=== BUG-493/';  BUG-493/gem5.log |  -0| diff BUG-493/plain.log -
-echo '=== BUG-494/';  BUG-494/gem5.log |  -0| diff BUG-494/plain.log -
-echo '=== BUG-495/';  BUG-495/gem5.log |  -0| diff BUG-495/plain.log -
-echo '=== BUG-496/';  BUG-496/gem5.log |  -1| diff BUG-496/plain.log -
-echo '=== BUG-497/';  BUG-497/gem5.log |  -1| diff BUG-497/plain.log -
-echo '=== BUG-498/';  BUG-498/gem5.log |  -1| diff BUG-498/plain.log -
-echo '=== BUG-499/';  BUG-499/gem5.log |  -1| diff BUG-499/plain.log -
-echo '=== BUG-5/';  BUG-5/gem5.log |  -0| diff BUG-5/plain.log -
-echo '=== BUG-50/';  BUG-50/gem5.log |  -0| diff BUG-50/plain.log -
-echo '=== BUG-500/';  BUG-500/gem5.log |  -1| diff BUG-500/plain.log -
-echo '=== BUG-501/';  BUG-501/gem5.log |  -0| diff BUG-501/plain.log -
-echo '=== BUG-502/';  BUG-502/gem5.log |  -0| diff BUG-502/plain.log -
-echo '=== BUG-503/';  BUG-503/gem5.log |  -1| diff BUG-503/plain.log -
-echo '=== BUG-504/';  BUG-504/gem5.log |  -1| diff BUG-504/plain.log -
-echo '=== BUG-505/';  BUG-505/gem5.log |  -1| diff BUG-505/plain.log -
-echo '=== BUG-506/';  BUG-506/gem5.log |  -1| diff BUG-506/plain.log -
-echo '=== BUG-507/';  BUG-507/gem5.log |  -1| diff BUG-507/plain.log -
-echo '=== BUG-508/';  BUG-508/gem5.log |  -0| diff BUG-508/plain.log -
-echo '=== BUG-509/';  BUG-509/gem5.log |  -1| diff BUG-509/plain.log -
-echo '=== BUG-51/';  BUG-51/gem5.log |  -1| diff BUG-51/plain.log -
-echo '=== BUG-510/';  BUG-510/gem5.log |  -1| diff BUG-510/plain.log -
-echo '=== BUG-511/';  BUG-511/gem5.log |  -1| diff BUG-511/plain.log -
-echo '=== BUG-512/';  BUG-512/gem5.log |  -1| diff BUG-512/plain.log -
-echo '=== BUG-513/';  BUG-513/gem5.log |  -1| diff BUG-513/plain.log -
-echo '=== BUG-514/';  BUG-514/gem5.log |  -1| diff BUG-514/plain.log -
-echo '=== BUG-515/';  BUG-515/gem5.log |  -1| diff BUG-515/plain.log -
-echo '=== BUG-516/';  BUG-516/gem5.log |  -1| diff BUG-516/plain.log -
-echo '=== BUG-517/';  BUG-517/gem5.log |  -0| diff BUG-517/plain.log -
-echo '=== BUG-518/';  BUG-518/gem5.log |  -1| diff BUG-518/plain.log -
-echo '=== BUG-519/';  BUG-519/gem5.log |  -1| diff BUG-519/plain.log -
-echo '=== BUG-52/';  BUG-52/gem5.log |  -0| diff BUG-52/plain.log -
-echo '=== BUG-520/';  BUG-520/gem5.log |  -1| diff BUG-520/plain.log -
-echo '=== BUG-521/';  BUG-521/gem5.log |  -1| diff BUG-521/plain.log -
-echo '=== BUG-522/';  BUG-522/gem5.log |  -1| diff BUG-522/plain.log -
-echo '=== BUG-523/';  BUG-523/gem5.log |  -1| diff BUG-523/plain.log -
-echo '=== BUG-524/';  BUG-524/gem5.log |  -1| diff BUG-524/plain.log -
-echo '=== BUG-525/';  BUG-525/gem5.log |  -1| diff BUG-525/plain.log -
-echo '=== BUG-526/';  BUG-526/gem5.log |  -0| diff BUG-526/plain.log -
-echo '=== BUG-527/';  BUG-527/gem5.log |  -0| diff BUG-527/plain.log -
-echo '=== BUG-528/';  BUG-528/gem5.log |  -1| diff BUG-528/plain.log -
-echo '=== BUG-529/';  BUG-529/gem5.log |  -1| diff BUG-529/plain.log -
-echo '=== BUG-53/';  BUG-53/gem5.log |  -0| diff BUG-53/plain.log -
-echo '=== BUG-530/';  BUG-530/gem5.log |  -1| diff BUG-530/plain.log -
-echo '=== BUG-531/';  BUG-531/gem5.log |  -1| diff BUG-531/plain.log -
-echo '=== BUG-532/';  BUG-532/gem5.log |  -0| diff BUG-532/plain.log -
-echo '=== BUG-533/';  BUG-533/gem5.log |  -1| diff BUG-533/plain.log -
-echo '=== BUG-534/';  BUG-534/gem5.log |  -1| diff BUG-534/plain.log -
-echo '=== BUG-535/';  BUG-535/gem5.log |  -0| diff BUG-535/plain.log -
-echo '=== BUG-536/';  BUG-536/gem5.log |  -1| diff BUG-536/plain.log -
-echo '=== BUG-537/';  BUG-537/gem5.log |  -1| diff BUG-537/plain.log -
-echo '=== BUG-538/';  BUG-538/gem5.log |  -1| diff BUG-538/plain.log -
-echo '=== BUG-539/';  BUG-539/gem5.log |  -1| diff BUG-539/plain.log -
-echo '=== BUG-54/';  BUG-54/gem5.log |  -0| diff BUG-54/plain.log -
-echo '=== BUG-540/';  BUG-540/gem5.log |  -1| diff BUG-540/plain.log -
-echo '=== BUG-541/';  BUG-541/gem5.log |  -1| diff BUG-541/plain.log -
-echo '=== BUG-542/';  BUG-542/gem5.log |  -1| diff BUG-542/plain.log -
-echo '=== BUG-543/';  BUG-543/gem5.log |  -1| diff BUG-543/plain.log -
-echo '=== BUG-544/';  BUG-544/gem5.log |  -1| diff BUG-544/plain.log -
-echo '=== BUG-545/';  BUG-545/gem5.log |  -1| diff BUG-545/plain.log -
-echo '=== BUG-546/';  BUG-546/gem5.log |  -0| diff BUG-546/plain.log -
-echo '=== BUG-547/';  BUG-547/gem5.log |  -0| diff BUG-547/plain.log -
-echo '=== BUG-548/';  BUG-548/gem5.log |  -1| diff BUG-548/plain.log -
-echo '=== BUG-549/';  BUG-549/gem5.log |  -0| diff BUG-549/plain.log -
-echo '=== BUG-55/';  BUG-55/gem5.log |  -0| diff BUG-55/plain.log -
-echo '=== BUG-550/';  BUG-550/gem5.log |  -0| diff BUG-550/plain.log -
-echo '=== BUG-551/';  BUG-551/gem5.log |  -1| diff BUG-551/plain.log -
-echo '=== BUG-552/';  BUG-552/gem5.log |  -1| diff BUG-552/plain.log -
-echo '=== BUG-553/';  BUG-553/gem5.log |  -1| diff BUG-553/plain.log -
-echo '=== BUG-554/';  BUG-554/gem5.log |  -1| diff BUG-554/plain.log -
-echo '=== BUG-555/';  BUG-555/gem5.log |  -1| diff BUG-555/plain.log -
-echo '=== BUG-556/';  BUG-556/gem5.log |  -0| diff BUG-556/plain.log -
-echo '=== BUG-557/';  BUG-557/gem5.log |  -0| diff BUG-557/plain.log -
-echo '=== BUG-558/';  BUG-558/gem5.log |  -0| diff BUG-558/plain.log -
-echo '=== BUG-559/';  BUG-559/gem5.log |  -1| diff BUG-559/plain.log -
-echo '=== BUG-56/';  BUG-56/gem5.log |  -0| diff BUG-56/plain.log -
-echo '=== BUG-560/';  BUG-560/gem5.log |  -1| diff BUG-560/plain.log -
-echo '=== BUG-561/';  BUG-561/gem5.log |  -1| diff BUG-561/plain.log -
-echo '=== BUG-562/';  BUG-562/gem5.log |  -0| diff BUG-562/plain.log -
-echo '=== BUG-563/';  BUG-563/gem5.log |  -0| diff BUG-563/plain.log -
-echo '=== BUG-564/';  BUG-564/gem5.log |  -1| diff BUG-564/plain.log -
-echo '=== BUG-565/';  BUG-565/gem5.log |  -1| diff BUG-565/plain.log -
-echo '=== BUG-566/';  BUG-566/gem5.log |  -0| diff BUG-566/plain.log -
-echo '=== BUG-567/';  BUG-567/gem5.log |  -1| diff BUG-567/plain.log -
-echo '=== BUG-568/';  BUG-568/gem5.log |  -1| diff BUG-568/plain.log -
-echo '=== BUG-569/';  BUG-569/gem5.log |  -1| diff BUG-569/plain.log -
-echo '=== BUG-57/';  BUG-57/gem5.log |  -0| diff BUG-57/plain.log -
-echo '=== BUG-570/';  BUG-570/gem5.log |  -0| diff BUG-570/plain.log -
-echo '=== BUG-571/';  BUG-571/gem5.log |  -0| diff BUG-571/plain.log -
-echo '=== BUG-572/';  BUG-572/gem5.log |  -0| diff BUG-572/plain.log -
-echo '=== BUG-573/';  BUG-573/gem5.log |  -0| diff BUG-573/plain.log -
-echo '=== BUG-574/';  BUG-574/gem5.log |  -0| diff BUG-574/plain.log -
-echo '=== BUG-575/';  BUG-575/gem5.log |  -1| diff BUG-575/plain.log -
-echo '=== BUG-576/';  BUG-576/gem5.log |  -0| diff BUG-576/plain.log -
-echo '=== BUG-577/';  BUG-577/gem5.log |  -1| diff BUG-577/plain.log -
-echo '=== BUG-578/';  BUG-578/gem5.log |  -0| diff BUG-578/plain.log -
-echo '=== BUG-579/';  BUG-579/gem5.log |  -0| diff BUG-579/plain.log -
-echo '=== BUG-58/';  BUG-58/gem5.log |  -0| diff BUG-58/plain.log -
-echo '=== BUG-580/';  BUG-580/gem5.log |  -1| diff BUG-580/plain.log -
-echo '=== BUG-581/';  BUG-581/gem5.log |  -1| diff BUG-581/plain.log -
-echo '=== BUG-582/';  BUG-582/gem5.log |  -1| diff BUG-582/plain.log -
-echo '=== BUG-583/';  BUG-583/gem5.log |  -1| diff BUG-583/plain.log -
-echo '=== BUG-584/';  BUG-584/gem5.log |  -0| diff BUG-584/plain.log -
-echo '=== BUG-585/';  BUG-585/gem5.log |  -1| diff BUG-585/plain.log -
-echo '=== BUG-586/';  BUG-586/gem5.log |  -1| diff BUG-586/plain.log -
-echo '=== BUG-587/';  BUG-587/gem5.log |  -0| diff BUG-587/plain.log -
-echo '=== BUG-588/';  BUG-588/gem5.log |  -0| diff BUG-588/plain.log -
-echo '=== BUG-589/';  BUG-589/gem5.log |  -1| diff BUG-589/plain.log -
-echo '=== BUG-59/';  BUG-59/gem5.log |  -0| diff BUG-59/plain.log -
-echo '=== BUG-590/';  BUG-590/gem5.log |  -1| diff BUG-590/plain.log -
-echo '=== BUG-591/';  BUG-591/gem5.log |  -1| diff BUG-591/plain.log -
-echo '=== BUG-592/';  BUG-592/gem5.log |  -0| diff BUG-592/plain.log -
-echo '=== BUG-593/';  BUG-593/gem5.log |  -1| diff BUG-593/plain.log -
-echo '=== BUG-594/';  BUG-594/gem5.log |  -1| diff BUG-594/plain.log -
-echo '=== BUG-595/';  BUG-595/gem5.log |  -0| diff BUG-595/plain.log -
-echo '=== BUG-596/';  BUG-596/gem5.log |  -0| diff BUG-596/plain.log -
-echo '=== BUG-597/';  BUG-597/gem5.log |  -1| diff BUG-597/plain.log -
-echo '=== BUG-598/';  BUG-598/gem5.log |  -1| diff BUG-598/plain.log -
-echo '=== BUG-599/';  BUG-599/gem5.log |  -1| diff BUG-599/plain.log -
-echo '=== BUG-6/';  BUG-6/gem5.log |  -0| diff BUG-6/plain.log -
-echo '=== BUG-60/';  BUG-60/gem5.log |  -0| diff BUG-60/plain.log -
-echo '=== BUG-600/';  BUG-600/gem5.log |  -1| diff BUG-600/plain.log -
-echo '=== BUG-601/';  BUG-601/gem5.log |  -0| diff BUG-601/plain.log -
-echo '=== BUG-602/';  BUG-602/gem5.log |  -1| diff BUG-602/plain.log -
-echo '=== BUG-603/';  BUG-603/gem5.log |  -1| diff BUG-603/plain.log -
-echo '=== BUG-604/';  BUG-604/gem5.log |  -1| diff BUG-604/plain.log -
-echo '=== BUG-605/';  BUG-605/gem5.log |  -0| diff BUG-605/plain.log -
-echo '=== BUG-606/';  BUG-606/gem5.log |  -0| diff BUG-606/plain.log -
-echo '=== BUG-607/';  BUG-607/gem5.log |  -0| diff BUG-607/plain.log -
-echo '=== BUG-608/';  BUG-608/gem5.log |  -1| diff BUG-608/plain.log -
-echo '=== BUG-609/';  BUG-609/gem5.log |  -1| diff BUG-609/plain.log -
-echo '=== BUG-61/';  BUG-61/gem5.log |  -0| diff BUG-61/plain.log -
-echo '=== BUG-610/';  BUG-610/gem5.log |  -0| diff BUG-610/plain.log -
-echo '=== BUG-611/';  BUG-611/gem5.log |  -1| diff BUG-611/plain.log -
-echo '=== BUG-612/';  BUG-612/gem5.log |  -1| diff BUG-612/plain.log -
-echo '=== BUG-613/';  BUG-613/gem5.log |  -0| diff BUG-613/plain.log -
-echo '=== BUG-614/';  BUG-614/gem5.log |  -1| diff BUG-614/plain.log -
-echo '=== BUG-615/';  BUG-615/gem5.log |  -1| diff BUG-615/plain.log -
-echo '=== BUG-616/';  BUG-616/gem5.log |  -0| diff BUG-616/plain.log -
-echo '=== BUG-617/';  BUG-617/gem5.log |  -0| diff BUG-617/plain.log -
-echo '=== BUG-618/';  BUG-618/gem5.log |  -1| diff BUG-618/plain.log -
-echo '=== BUG-619/';  BUG-619/gem5.log |  -1| diff BUG-619/plain.log -
-echo '=== BUG-62/';  BUG-62/gem5.log |  -1| diff BUG-62/plain.log -
-echo '=== BUG-620/';  BUG-620/gem5.log |  -1| diff BUG-620/plain.log -
-echo '=== BUG-621/';  BUG-621/gem5.log |  -2| diff BUG-621/plain.log -
-echo '=== BUG-622/';  BUG-622/gem5.log |  -2| diff BUG-622/plain.log -
-echo '=== BUG-623/';  BUG-623/gem5.log |  -1| diff BUG-623/plain.log -
-echo '=== BUG-624/';  BUG-624/gem5.log |  -0| diff BUG-624/plain.log -
-echo '=== BUG-625/';  BUG-625/gem5.log |  -1| diff BUG-625/plain.log -
-echo '=== BUG-626/';  BUG-626/gem5.log |  -1| diff BUG-626/plain.log -
-echo '=== BUG-627/';  BUG-627/gem5.log |  -8| diff BUG-627/plain.log -
-echo '=== BUG-628/';  BUG-628/gem5.log |  -0| diff BUG-628/plain.log -
-echo '=== BUG-629/';  BUG-629/gem5.log |  -1| diff BUG-629/plain.log -
-echo '=== BUG-63/';  BUG-63/gem5.log |  -0| diff BUG-63/plain.log -
-echo '=== BUG-630/';  BUG-630/gem5.log |  -1| diff BUG-630/plain.log -
-echo '=== BUG-631/';  BUG-631/gem5.log |  -1| diff BUG-631/plain.log -
-echo '=== BUG-632/';  BUG-632/gem5.log |  -1| diff BUG-632/plain.log -
-echo '=== BUG-633/';  BUG-633/gem5.log |  -1| diff BUG-633/plain.log -
-echo '=== BUG-634/';  BUG-634/gem5.log |  -1| diff BUG-634/plain.log -
-echo '=== BUG-635/';  BUG-635/gem5.log |  -1| diff BUG-635/plain.log -
-echo '=== BUG-636/';  BUG-636/gem5.log |  -0| diff BUG-636/plain.log -
-echo '=== BUG-637/';  BUG-637/gem5.log |  -0| diff BUG-637/plain.log -
-echo '=== BUG-638/';  BUG-638/gem5.log |  -1| diff BUG-638/plain.log -
-echo '=== BUG-639/';  BUG-639/gem5.log |  -1| diff BUG-639/plain.log -
-echo '=== BUG-64/';  BUG-64/gem5.log |  -0| diff BUG-64/plain.log -
-echo '=== BUG-640/';  BUG-640/gem5.log |  -0| diff BUG-640/plain.log -
-echo '=== BUG-641/';  BUG-641/gem5.log |  -0| diff BUG-641/plain.log -
-echo '=== BUG-642/';  BUG-642/gem5.log |  -0| diff BUG-642/plain.log -
-echo '=== BUG-643/';  BUG-643/gem5.log |  -1| diff BUG-643/plain.log -
-echo '=== BUG-644/';  BUG-644/gem5.log |  -1| diff BUG-644/plain.log -
-echo '=== BUG-645/';  BUG-645/gem5.log |  -6| diff BUG-645/plain.log -
-echo '=== BUG-646/';  BUG-646/gem5.log |  -1| diff BUG-646/plain.log -
-echo '=== BUG-647/';  BUG-647/gem5.log |  -0| diff BUG-647/plain.log -
-echo '=== BUG-648/';  BUG-648/gem5.log |  -3| diff BUG-648/plain.log -
-echo '=== BUG-649/';  BUG-649/gem5.log |  -1| diff BUG-649/plain.log -
-echo '=== BUG-65/';  BUG-65/gem5.log |  -0| diff BUG-65/plain.log -
-echo '=== BUG-650/';  BUG-650/gem5.log |  -1| diff BUG-650/plain.log -
-echo '=== BUG-651/';  BUG-651/gem5.log |  -0| diff BUG-651/plain.log -
-echo '=== BUG-652/';  BUG-652/gem5.log |  -1| diff BUG-652/plain.log -
-echo '=== BUG-653/';  BUG-653/gem5.log |  -1| diff BUG-653/plain.log -
-echo '=== BUG-654/';  BUG-654/gem5.log |  -0| diff BUG-654/plain.log -
-echo '=== BUG-655/';  BUG-655/gem5.log |  -1| diff BUG-655/plain.log -
-echo '=== BUG-656/';  BUG-656/gem5.log |  -1| diff BUG-656/plain.log -
-echo '=== BUG-657/';  BUG-657/gem5.log |  -0| diff BUG-657/plain.log -
-echo '=== BUG-658/';  BUG-658/gem5.log |  -1| diff BUG-658/plain.log -
-echo '=== BUG-659/';  BUG-659/gem5.log |  -0| diff BUG-659/plain.log -
-echo '=== BUG-66/';  BUG-66/gem5.log |  -0| diff BUG-66/plain.log -
-echo '=== BUG-660/';  BUG-660/gem5.log |  -1| diff BUG-660/plain.log -
-echo '=== BUG-661/';  BUG-661/gem5.log |  -0| diff BUG-661/plain.log -
-echo '=== BUG-662/';  BUG-662/gem5.log |  -0| diff BUG-662/plain.log -
-echo '=== BUG-663/';  BUG-663/gem5.log |  -0| diff BUG-663/plain.log -
-echo '=== BUG-664/';  BUG-664/gem5.log |  -0| diff BUG-664/plain.log -
-echo '=== BUG-665/';  BUG-665/gem5.log |  -0| diff BUG-665/plain.log -
-echo '=== BUG-666/';  BUG-666/gem5.log |  -1| diff BUG-666/plain.log -
-echo '=== BUG-667/';  BUG-667/gem5.log |  -4| diff BUG-667/plain.log -
-echo '=== BUG-668/';  BUG-668/gem5.log |  -1| diff BUG-668/plain.log -
-echo '=== BUG-669/';  BUG-669/gem5.log |  -10| diff BUG-669/plain.log -
-echo '=== BUG-67/';  BUG-67/gem5.log |  -1| diff BUG-67/plain.log -
-echo '=== BUG-670/';  BUG-670/gem5.log |  -1| diff BUG-670/plain.log -
-echo '=== BUG-671/';  BUG-671/gem5.log |  -1| diff BUG-671/plain.log -
-echo '=== BUG-672/';  BUG-672/gem5.log |  -0| diff BUG-672/plain.log -
-echo '=== BUG-673/';  BUG-673/gem5.log |  -0| diff BUG-673/plain.log -
-echo '=== BUG-674/';  BUG-674/gem5.log |  -0| diff BUG-674/plain.log -
-echo '=== BUG-675/';  BUG-675/gem5.log |  -0| diff BUG-675/plain.log -
-echo '=== BUG-676/';  BUG-676/gem5.log |  -0| diff BUG-676/plain.log -
-echo '=== BUG-677/';  BUG-677/gem5.log |  -1| diff BUG-677/plain.log -
-echo '=== BUG-678/';  BUG-678/gem5.log |  -0| diff BUG-678/plain.log -
-echo '=== BUG-679/';  BUG-679/gem5.log |  -1| diff BUG-679/plain.log -
-echo '=== BUG-68/';  BUG-68/gem5.log |  -1| diff BUG-68/plain.log -
-echo '=== BUG-680/';  BUG-680/gem5.log |  -1| diff BUG-680/plain.log -
-echo '=== BUG-681/';  BUG-681/gem5.log |  -1| diff BUG-681/plain.log -
-echo '=== BUG-682/';  BUG-682/gem5.log |  -1| diff BUG-682/plain.log -
-echo '=== BUG-683/';  BUG-683/gem5.log |  -0| diff BUG-683/plain.log -
-echo '=== BUG-684/';  BUG-684/gem5.log |  -1| diff BUG-684/plain.log -
-echo '=== BUG-685/';  BUG-685/gem5.log |  -0| diff BUG-685/plain.log -
-echo '=== BUG-686/';  BUG-686/gem5.log |  -1| diff BUG-686/plain.log -
-echo '=== BUG-687/';  BUG-687/gem5.log |  -1| diff BUG-687/plain.log -
-echo '=== BUG-688/';  BUG-688/gem5.log |  -1| diff BUG-688/plain.log -
-echo '=== BUG-689/';  BUG-689/gem5.log |  -0| diff BUG-689/plain.log -
-echo '=== BUG-69/';  BUG-69/gem5.log |  -0| diff BUG-69/plain.log -
-echo '=== BUG-690/';  BUG-690/gem5.log |  -1| diff BUG-690/plain.log -
-echo '=== BUG-691/';  BUG-691/gem5.log |  -0| diff BUG-691/plain.log -
-echo '=== BUG-692/';  BUG-692/gem5.log |  -1| diff BUG-692/plain.log -
-echo '=== BUG-693/';  BUG-693/gem5.log |  -0| diff BUG-693/plain.log -
-echo '=== BUG-694/';  BUG-694/gem5.log |  -0| diff BUG-694/plain.log -
-echo '=== BUG-695/';  BUG-695/gem5.log |  -1| diff BUG-695/plain.log -
-echo '=== BUG-696/';  BUG-696/gem5.log |  -1| diff BUG-696/plain.log -
-echo '=== BUG-697/';  BUG-697/gem5.log |  -0| diff BUG-697/plain.log -
-echo '=== BUG-698/';  BUG-698/gem5.log |  -0| diff BUG-698/plain.log -
-echo '=== BUG-699/';  BUG-699/gem5.log |  -0| diff BUG-699/plain.log -
-echo '=== BUG-7/';  BUG-7/gem5.log |  -0| diff BUG-7/plain.log -
-echo '=== BUG-70/';  BUG-70/gem5.log |  -0| diff BUG-70/plain.log -
-echo '=== BUG-700/';  BUG-700/gem5.log |  -1| diff BUG-700/plain.log -
-echo '=== BUG-701/';  BUG-701/gem5.log |  -1| diff BUG-701/plain.log -
-echo '=== BUG-702/';  BUG-702/gem5.log |  -1| diff BUG-702/plain.log -
-echo '=== BUG-703/';  BUG-703/gem5.log |  -0| diff BUG-703/plain.log -
-echo '=== BUG-704/';  BUG-704/gem5.log |  -1| diff BUG-704/plain.log -
-echo '=== BUG-705/';  BUG-705/gem5.log |  -1| diff BUG-705/plain.log -
-echo '=== BUG-706/';  BUG-706/gem5.log |  -1| diff BUG-706/plain.log -
-echo '=== BUG-707/';  BUG-707/gem5.log |  -1| diff BUG-707/plain.log -
-echo '=== BUG-708/';  BUG-708/gem5.log |  -1| diff BUG-708/plain.log -
-echo '=== BUG-709/';  BUG-709/gem5.log |  -1| diff BUG-709/plain.log -
-echo '=== BUG-71/';  BUG-71/gem5.log |  -0| diff BUG-71/plain.log -
-echo '=== BUG-710/';  BUG-710/gem5.log |  -0| diff BUG-710/plain.log -
-echo '=== BUG-711/';  BUG-711/gem5.log |  -0| diff BUG-711/plain.log -
-echo '=== BUG-712/';  BUG-712/gem5.log |  -0| diff BUG-712/plain.log -
-echo '=== BUG-713/';  BUG-713/gem5.log |  -0| diff BUG-713/plain.log -
-echo '=== BUG-714/';  BUG-714/gem5.log |  -1| diff BUG-714/plain.log -
-echo '=== BUG-715/';  BUG-715/gem5.log |  -0| diff BUG-715/plain.log -
-echo '=== BUG-716/';  BUG-716/gem5.log |  -0| diff BUG-716/plain.log -
-echo '=== BUG-717/';  BUG-717/gem5.log |  -0| diff BUG-717/plain.log -
-echo '=== BUG-718/';  BUG-718/gem5.log |  -0| diff BUG-718/plain.log -
-echo '=== BUG-719/';  BUG-719/gem5.log |  -0| diff BUG-719/plain.log -
-echo '=== BUG-72/';  BUG-72/gem5.log |  -1| diff BUG-72/plain.log -
-echo '=== BUG-720/';  BUG-720/gem5.log |  -0| diff BUG-720/plain.log -
-echo '=== BUG-721/';  BUG-721/gem5.log |  -1| diff BUG-721/plain.log -
-echo '=== BUG-722/';  BUG-722/gem5.log |  -1| diff BUG-722/plain.log -
-echo '=== BUG-723/';  BUG-723/gem5.log |  -0| diff BUG-723/plain.log -
-echo '=== BUG-724/';  BUG-724/gem5.log |  -1| diff BUG-724/plain.log -
-echo '=== BUG-725/';  BUG-725/gem5.log |  -0| diff BUG-725/plain.log -
-echo '=== BUG-726/';  BUG-726/gem5.log |  -0| diff BUG-726/plain.log -
-echo '=== BUG-727/';  BUG-727/gem5.log |  -1| diff BUG-727/plain.log -
-echo '=== BUG-728/';  BUG-728/gem5.log |  -1| diff BUG-728/plain.log -
-echo '=== BUG-729/';  BUG-729/gem5.log |  -1| diff BUG-729/plain.log -
-echo '=== BUG-73/';  BUG-73/gem5.log |  -0| diff BUG-73/plain.log -
-echo '=== BUG-730/';  BUG-730/gem5.log |  -0| diff BUG-730/plain.log -
-echo '=== BUG-731/';  BUG-731/gem5.log |  -1| diff BUG-731/plain.log -
-echo '=== BUG-732/';  BUG-732/gem5.log |  -0| diff BUG-732/plain.log -
-echo '=== BUG-733/';  BUG-733/gem5.log |  -0| diff BUG-733/plain.log -
-echo '=== BUG-734/';  BUG-734/gem5.log |  -0| diff BUG-734/plain.log -
-echo '=== BUG-735/';  BUG-735/gem5.log |  -1| diff BUG-735/plain.log -
-echo '=== BUG-736/';  BUG-736/gem5.log |  -1| diff BUG-736/plain.log -
-echo '=== BUG-737/';  BUG-737/gem5.log |  -0| diff BUG-737/plain.log -
-echo '=== BUG-738/';  BUG-738/gem5.log |  -1| diff BUG-738/plain.log -
-echo '=== BUG-739/';  BUG-739/gem5.log |  -1| diff BUG-739/plain.log -
-echo '=== BUG-74/';  BUG-74/gem5.log |  -0| diff BUG-74/plain.log -
-echo '=== BUG-740/';  BUG-740/gem5.log |  -1| diff BUG-740/plain.log -
-echo '=== BUG-741/';  BUG-741/gem5.log |  -0| diff BUG-741/plain.log -
-echo '=== BUG-742/';  BUG-742/gem5.log |  -1| diff BUG-742/plain.log -
-echo '=== BUG-743/';  BUG-743/gem5.log |  -1| diff BUG-743/plain.log -
-echo '=== BUG-744/';  BUG-744/gem5.log |  -0| diff BUG-744/plain.log -
-echo '=== BUG-745/';  BUG-745/gem5.log |  -1| diff BUG-745/plain.log -
-echo '=== BUG-746/';  BUG-746/gem5.log |  -1| diff BUG-746/plain.log -
-echo '=== BUG-747/';  BUG-747/gem5.log |  -1| diff BUG-747/plain.log -
-echo '=== BUG-748/';  BUG-748/gem5.log |  -1| diff BUG-748/plain.log -
-echo '=== BUG-749/';  BUG-749/gem5.log |  -0| diff BUG-749/plain.log -
-echo '=== BUG-75/';  BUG-75/gem5.log |  -0| diff BUG-75/plain.log -
-echo '=== BUG-750/';  BUG-750/gem5.log |  -1| diff BUG-750/plain.log -
-echo '=== BUG-751/';  BUG-751/gem5.log |  -1| diff BUG-751/plain.log -
-echo '=== BUG-752/';  BUG-752/gem5.log |  -1| diff BUG-752/plain.log -
-echo '=== BUG-753/';  BUG-753/gem5.log |  -1| diff BUG-753/plain.log -
-echo '=== BUG-754/';  BUG-754/gem5.log |  -0| diff BUG-754/plain.log -
-echo '=== BUG-755/';  BUG-755/gem5.log |  -1| diff BUG-755/plain.log -
-echo '=== BUG-756/';  BUG-756/gem5.log |  -0| diff BUG-756/plain.log -
-echo '=== BUG-757/';  BUG-757/gem5.log |  -0| diff BUG-757/plain.log -
-echo '=== BUG-758/';  BUG-758/gem5.log |  -1| diff BUG-758/plain.log -
-echo '=== BUG-759/';  BUG-759/gem5.log |  -1| diff BUG-759/plain.log -
-echo '=== BUG-76/';  BUG-76/gem5.log |  -0| diff BUG-76/plain.log -
-echo '=== BUG-760/';  BUG-760/gem5.log |  -1| diff BUG-760/plain.log -
-echo '=== BUG-761/';  BUG-761/gem5.log |  -1| diff BUG-761/plain.log -
-echo '=== BUG-762/';  BUG-762/gem5.log |  -1| diff BUG-762/plain.log -
-echo '=== BUG-763/';  BUG-763/gem5.log |  -1| diff BUG-763/plain.log -
-echo '=== BUG-764/';  BUG-764/gem5.log |  -1| diff BUG-764/plain.log -
-echo '=== BUG-765/';  BUG-765/gem5.log |  -1| diff BUG-765/plain.log -
-echo '=== BUG-766/';  BUG-766/gem5.log |  -1| diff BUG-766/plain.log -
-echo '=== BUG-767/';  BUG-767/gem5.log |  -1| diff BUG-767/plain.log -
-echo '=== BUG-768/';  BUG-768/gem5.log |  -0| diff BUG-768/plain.log -
-echo '=== BUG-769/';  BUG-769/gem5.log |  -1| diff BUG-769/plain.log -
-echo '=== BUG-77/';  BUG-77/gem5.log |  -0| diff BUG-77/plain.log -
-echo '=== BUG-770/';  BUG-770/gem5.log |  -1| diff BUG-770/plain.log -
-echo '=== BUG-771/';  BUG-771/gem5.log |  -0| diff BUG-771/plain.log -
-echo '=== BUG-772/';  BUG-772/gem5.log |  -0| diff BUG-772/plain.log -
-echo '=== BUG-773/';  BUG-773/gem5.log |  -1| diff BUG-773/plain.log -
-echo '=== BUG-774/';  BUG-774/gem5.log |  -1| diff BUG-774/plain.log -
-echo '=== BUG-775/';  BUG-775/gem5.log |  -1| diff BUG-775/plain.log -
-echo '=== BUG-776/';  BUG-776/gem5.log |  -1| diff BUG-776/plain.log -
-echo '=== BUG-777/';  BUG-777/gem5.log |  -1| diff BUG-777/plain.log -
-echo '=== BUG-778/';  BUG-778/gem5.log |  -0| diff BUG-778/plain.log -
-echo '=== BUG-779/';  BUG-779/gem5.log |  -0| diff BUG-779/plain.log -
-echo '=== BUG-78/';  BUG-78/gem5.log |  -0| diff BUG-78/plain.log -
-echo '=== BUG-780/';  BUG-780/gem5.log |  -0| diff BUG-780/plain.log -
-echo '=== BUG-781/';  BUG-781/gem5.log |  -1| diff BUG-781/plain.log -
-echo '=== BUG-782/';  BUG-782/gem5.log |  -0| diff BUG-782/plain.log -
-echo '=== BUG-783/';  BUG-783/gem5.log |  -0| diff BUG-783/plain.log -
-echo '=== BUG-784/';  BUG-784/gem5.log |  -1| diff BUG-784/plain.log -
-echo '=== BUG-785/';  BUG-785/gem5.log |  -1| diff BUG-785/plain.log -
-echo '=== BUG-786/';  BUG-786/gem5.log |  -1| diff BUG-786/plain.log -
-echo '=== BUG-787/';  BUG-787/gem5.log |  -1| diff BUG-787/plain.log -
-echo '=== BUG-788/';  BUG-788/gem5.log |  -1| diff BUG-788/plain.log -
-echo '=== BUG-789/';  BUG-789/gem5.log |  -1| diff BUG-789/plain.log -
-echo '=== BUG-79/';  BUG-79/gem5.log |  -0| diff BUG-79/plain.log -
-echo '=== BUG-790/';  BUG-790/gem5.log |  -0| diff BUG-790/plain.log -
-echo '=== BUG-791/';  BUG-791/gem5.log |  -0| diff BUG-791/plain.log -
-echo '=== BUG-792/';  BUG-792/gem5.log |  -0| diff BUG-792/plain.log -
-echo '=== BUG-793/';  BUG-793/gem5.log |  -1| diff BUG-793/plain.log -
-echo '=== BUG-794/';  BUG-794/gem5.log |  -1| diff BUG-794/plain.log -
-echo '=== BUG-795/';  BUG-795/gem5.log |  -0| diff BUG-795/plain.log -
-echo '=== BUG-796/';  BUG-796/gem5.log |  -0| diff BUG-796/plain.log -
-echo '=== BUG-797/';  BUG-797/gem5.log |  -0| diff BUG-797/plain.log -
-echo '=== BUG-798/';  BUG-798/gem5.log |  -0| diff BUG-798/plain.log -
-echo '=== BUG-799/';  BUG-799/gem5.log |  -0| diff BUG-799/plain.log -
-echo '=== BUG-8/';  BUG-8/gem5.log |  -0| diff BUG-8/plain.log -
-echo '=== BUG-80/';  BUG-80/gem5.log |  -0| diff BUG-80/plain.log -
-echo '=== BUG-800/';  BUG-800/gem5.log |  -1| diff BUG-800/plain.log -
-echo '=== BUG-801/';  BUG-801/gem5.log |  -1| diff BUG-801/plain.log -
-echo '=== BUG-802/';  BUG-802/gem5.log |  -0| diff BUG-802/plain.log -
-echo '=== BUG-803/';  BUG-803/gem5.log |  -0| diff BUG-803/plain.log -
-echo '=== BUG-804/';  BUG-804/gem5.log |  -1| diff BUG-804/plain.log -
-echo '=== BUG-805/';  BUG-805/gem5.log |  -0| diff BUG-805/plain.log -
-echo '=== BUG-806/';  BUG-806/gem5.log |  -0| diff BUG-806/plain.log -
-echo '=== BUG-807/';  BUG-807/gem5.log |  -0| diff BUG-807/plain.log -
-echo '=== BUG-808/';  BUG-808/gem5.log |  -0| diff BUG-808/plain.log -
-echo '=== BUG-809/';  BUG-809/gem5.log |  -0| diff BUG-809/plain.log -
-echo '=== BUG-81/';  BUG-81/gem5.log |  -0| diff BUG-81/plain.log -
-echo '=== BUG-810/';  BUG-810/gem5.log |  -1| diff BUG-810/plain.log -
-echo '=== BUG-811/';  BUG-811/gem5.log |  -0| diff BUG-811/plain.log -
-echo '=== BUG-812/';  BUG-812/gem5.log |  -0| diff BUG-812/plain.log -
-echo '=== BUG-813/';  BUG-813/gem5.log |  -0| diff BUG-813/plain.log -
-echo '=== BUG-814/';  BUG-814/gem5.log |  -1| diff BUG-814/plain.log -
-echo '=== BUG-815/';  BUG-815/gem5.log |  -0| diff BUG-815/plain.log -
-echo '=== BUG-816/';  BUG-816/gem5.log |  -1| diff BUG-816/plain.log -
-echo '=== BUG-817/';  BUG-817/gem5.log |  -0| diff BUG-817/plain.log -
-echo '=== BUG-818/';  BUG-818/gem5.log |  -1| diff BUG-818/plain.log -
-echo '=== BUG-819/';  BUG-819/gem5.log |  -0| diff BUG-819/plain.log -
-echo '=== BUG-82/';  BUG-82/gem5.log |  -0| diff BUG-82/plain.log -
-echo '=== BUG-820/';  BUG-820/gem5.log |  -0| diff BUG-820/plain.log -
-echo '=== BUG-821/';  BUG-821/gem5.log |  -0| diff BUG-821/plain.log -
-echo '=== BUG-822/';  BUG-822/gem5.log |  -1| diff BUG-822/plain.log -
-echo '=== BUG-823/';  BUG-823/gem5.log |  -0| diff BUG-823/plain.log -
-echo '=== BUG-824/';  BUG-824/gem5.log |  -1| diff BUG-824/plain.log -
-echo '=== BUG-825/';  BUG-825/gem5.log |  -0| diff BUG-825/plain.log -
-echo '=== BUG-826/';  BUG-826/gem5.log |  -1| diff BUG-826/plain.log -
-echo '=== BUG-827/';  BUG-827/gem5.log |  -1| diff BUG-827/plain.log -
-echo '=== BUG-828/';  BUG-828/gem5.log |  -1| diff BUG-828/plain.log -
-echo '=== BUG-829/';  BUG-829/gem5.log |  -0| diff BUG-829/plain.log -
-echo '=== BUG-83/';  BUG-83/gem5.log |  -1| diff BUG-83/plain.log -
-echo '=== BUG-830/';  BUG-830/gem5.log |  -1| diff BUG-830/plain.log -
-echo '=== BUG-831/';  BUG-831/gem5.log |  -1| diff BUG-831/plain.log -
-echo '=== BUG-832/';  BUG-832/gem5.log |  -1| diff BUG-832/plain.log -
-echo '=== BUG-833/';  BUG-833/gem5.log |  -1| diff BUG-833/plain.log -
-echo '=== BUG-834/';  BUG-834/gem5.log |  -1| diff BUG-834/plain.log -
-echo '=== BUG-835/';  BUG-835/gem5.log |  -0| diff BUG-835/plain.log -
-echo '=== BUG-836/';  BUG-836/gem5.log |  -1| diff BUG-836/plain.log -
-echo '=== BUG-837/';  BUG-837/gem5.log |  -0| diff BUG-837/plain.log -
-echo '=== BUG-838/';  BUG-838/gem5.log |  -1| diff BUG-838/plain.log -
-echo '=== BUG-839/';  BUG-839/gem5.log |  -0| diff BUG-839/plain.log -
-echo '=== BUG-84/';  BUG-84/gem5.log |  -0| diff BUG-84/plain.log -
-echo '=== BUG-840/';  BUG-840/gem5.log |  -1| diff BUG-840/plain.log -
-echo '=== BUG-841/';  BUG-841/gem5.log |  -1| diff BUG-841/plain.log -
-echo '=== BUG-842/';  BUG-842/gem5.log |  -1| diff BUG-842/plain.log -
-echo '=== BUG-843/';  BUG-843/gem5.log |  -1| diff BUG-843/plain.log -
-echo '=== BUG-844/';  BUG-844/gem5.log |  -0| diff BUG-844/plain.log -
-echo '=== BUG-845/';  BUG-845/gem5.log |  -1| diff BUG-845/plain.log -
-echo '=== BUG-846/';  BUG-846/gem5.log |  -1| diff BUG-846/plain.log -
-echo '=== BUG-847/';  BUG-847/gem5.log |  -0| diff BUG-847/plain.log -
-echo '=== BUG-848/';  BUG-848/gem5.log |  -1| diff BUG-848/plain.log -
-echo '=== BUG-849/';  BUG-849/gem5.log |  -0| diff BUG-849/plain.log -
-echo '=== BUG-85/';  BUG-85/gem5.log |  -10| diff BUG-85/plain.log -
-echo '=== BUG-850/';  BUG-850/gem5.log |  -0| diff BUG-850/plain.log -
-echo '=== BUG-851/';  BUG-851/gem5.log |  -1| diff BUG-851/plain.log -
-echo '=== BUG-852/';  BUG-852/gem5.log |  -1| diff BUG-852/plain.log -
-echo '=== BUG-853/';  BUG-853/gem5.log |  -1| diff BUG-853/plain.log -
-echo '=== BUG-854/';  BUG-854/gem5.log |  -1| diff BUG-854/plain.log -
-echo '=== BUG-855/';  BUG-855/gem5.log |  -0| diff BUG-855/plain.log -
-echo '=== BUG-856/';  BUG-856/gem5.log |  -1| diff BUG-856/plain.log -
-echo '=== BUG-857/';  BUG-857/gem5.log |  -1| diff BUG-857/plain.log -
-echo '=== BUG-858/';  BUG-858/gem5.log |  -1| diff BUG-858/plain.log -
-echo '=== BUG-859/';  BUG-859/gem5.log |  -1| diff BUG-859/plain.log -
-echo '=== BUG-86/';  BUG-86/gem5.log |  -8| diff BUG-86/plain.log -
-echo '=== BUG-860/';  BUG-860/gem5.log |  -0| diff BUG-860/plain.log -
-echo '=== BUG-861/';  BUG-861/gem5.log |  -0| diff BUG-861/plain.log -
-echo '=== BUG-862/';  BUG-862/gem5.log |  -0| diff BUG-862/plain.log -
-echo '=== BUG-863/';  BUG-863/gem5.log |  -0| diff BUG-863/plain.log -
-echo '=== BUG-864/';  BUG-864/gem5.log |  -1| diff BUG-864/plain.log -
-echo '=== BUG-865/';  BUG-865/gem5.log |  -1| diff BUG-865/plain.log -
-echo '=== BUG-866/';  BUG-866/gem5.log |  -0| diff BUG-866/plain.log -
-echo '=== BUG-867/';  BUG-867/gem5.log |  -1| diff BUG-867/plain.log -
-echo '=== BUG-868/';  BUG-868/gem5.log |  -1| diff BUG-868/plain.log -
-echo '=== BUG-869/';  BUG-869/gem5.log |  -0| diff BUG-869/plain.log -
-echo '=== BUG-87/';  BUG-87/gem5.log |  -4| diff BUG-87/plain.log -
-echo '=== BUG-870/';  BUG-870/gem5.log |  -1| diff BUG-870/plain.log -
-echo '=== BUG-871/';  BUG-871/gem5.log |  -1| diff BUG-871/plain.log -
-echo '=== BUG-872/';  BUG-872/gem5.log |  -1| diff BUG-872/plain.log -
-echo '=== BUG-873/';  BUG-873/gem5.log |  -1| diff BUG-873/plain.log -
-echo '=== BUG-874/';  BUG-874/gem5.log |  -0| diff BUG-874/plain.log -
-echo '=== BUG-875/';  BUG-875/gem5.log |  -1| diff BUG-875/plain.log -
-echo '=== BUG-876/';  BUG-876/gem5.log |  -0| diff BUG-876/plain.log -
-echo '=== BUG-877/';  BUG-877/gem5.log |  -1| diff BUG-877/plain.log -
-echo '=== BUG-878/';  BUG-878/gem5.log |  -0| diff BUG-878/plain.log -
-echo '=== BUG-879/';  BUG-879/gem5.log |  -1| diff BUG-879/plain.log -
-echo '=== BUG-88/';  BUG-88/gem5.log |  -12| diff BUG-88/plain.log -
-echo '=== BUG-880/';  BUG-880/gem5.log |  -0| diff BUG-880/plain.log -
-echo '=== BUG-881/';  BUG-881/gem5.log |  -1| diff BUG-881/plain.log -
-echo '=== BUG-882/';  BUG-882/gem5.log |  -1| diff BUG-882/plain.log -
-echo '=== BUG-883/';  BUG-883/gem5.log |  -1| diff BUG-883/plain.log -
-echo '=== BUG-884/';  BUG-884/gem5.log |  -0| diff BUG-884/plain.log -
-echo '=== BUG-885/';  BUG-885/gem5.log |  -0| diff BUG-885/plain.log -
-echo '=== BUG-886/';  BUG-886/gem5.log |  -1| diff BUG-886/plain.log -
-echo '=== BUG-887/';  BUG-887/gem5.log |  -0| diff BUG-887/plain.log -
-echo '=== BUG-888/';  BUG-888/gem5.log |  -1| diff BUG-888/plain.log -
-echo '=== BUG-889/';  BUG-889/gem5.log |  -1| diff BUG-889/plain.log -
-echo '=== BUG-89/';  BUG-89/gem5.log |  -11| diff BUG-89/plain.log -
-echo '=== BUG-890/';  BUG-890/gem5.log |  -1| diff BUG-890/plain.log -
-echo '=== BUG-891/';  BUG-891/gem5.log |  -1| diff BUG-891/plain.log -
-echo '=== BUG-892/';  BUG-892/gem5.log |  -0| diff BUG-892/plain.log -
-echo '=== BUG-893/';  BUG-893/gem5.log |  -1| diff BUG-893/plain.log -
-echo '=== BUG-894/';  BUG-894/gem5.log |  -0| diff BUG-894/plain.log -
-echo '=== BUG-895/';  BUG-895/gem5.log |  -0| diff BUG-895/plain.log -
-echo '=== BUG-896/';  BUG-896/gem5.log |  -0| diff BUG-896/plain.log -
-echo '=== BUG-897/';  BUG-897/gem5.log |  -0| diff BUG-897/plain.log -
-echo '=== BUG-898/';  BUG-898/gem5.log |  -0| diff BUG-898/plain.log -
-echo '=== BUG-899/';  BUG-899/gem5.log |  -0| diff BUG-899/plain.log -
-echo '=== BUG-9/';  BUG-9/gem5.log |  -3| diff BUG-9/plain.log -
-echo '=== BUG-90/';  BUG-90/gem5.log |  -8| diff BUG-90/plain.log -
-echo '=== BUG-900/';  BUG-900/gem5.log |  -0| diff BUG-900/plain.log -
-echo '=== BUG-901/';  BUG-901/gem5.log |  -0| diff BUG-901/plain.log -
-echo '=== BUG-902/';  BUG-902/gem5.log |  -1| diff BUG-902/plain.log -
-echo '=== BUG-903/';  BUG-903/gem5.log |  -1| diff BUG-903/plain.log -
-echo '=== BUG-904/';  BUG-904/gem5.log |  -0| diff BUG-904/plain.log -
-echo '=== BUG-905/';  BUG-905/gem5.log |  -0| diff BUG-905/plain.log -
-echo '=== BUG-906/';  BUG-906/gem5.log |  -1| diff BUG-906/plain.log -
-echo '=== BUG-907/';  BUG-907/gem5.log |  -1| diff BUG-907/plain.log -
-echo '=== BUG-908/';  BUG-908/gem5.log |  -0| diff BUG-908/plain.log -
-echo '=== BUG-909/';  BUG-909/gem5.log |  -0| diff BUG-909/plain.log -
-echo '=== BUG-91/';  BUG-91/gem5.log |  -1| diff BUG-91/plain.log -
-echo '=== BUG-910/';  BUG-910/gem5.log |  -1| diff BUG-910/plain.log -
-echo '=== BUG-911/';  BUG-911/gem5.log |  -0| diff BUG-911/plain.log -
-echo '=== BUG-912/';  BUG-912/gem5.log |  -0| diff BUG-912/plain.log -
-echo '=== BUG-913/';  BUG-913/gem5.log |  -0| diff BUG-913/plain.log -
-echo '=== BUG-914/';  BUG-914/gem5.log |  -0| diff BUG-914/plain.log -
-echo '=== BUG-915/';  BUG-915/gem5.log |  -1| diff BUG-915/plain.log -
-echo '=== BUG-916/';  BUG-916/gem5.log |  -1| diff BUG-916/plain.log -
-echo '=== BUG-917/';  BUG-917/gem5.log |  -0| diff BUG-917/plain.log -
-echo '=== BUG-918/';  BUG-918/gem5.log |  -0| diff BUG-918/plain.log -
-echo '=== BUG-919/';  BUG-919/gem5.log |  -0| diff BUG-919/plain.log -
-echo '=== BUG-92/';  BUG-92/gem5.log |  -2| diff BUG-92/plain.log -
-echo '=== BUG-920/';  BUG-920/gem5.log |  -0| diff BUG-920/plain.log -
-echo '=== BUG-921/';  BUG-921/gem5.log |  -1| diff BUG-921/plain.log -
-echo '=== BUG-922/';  BUG-922/gem5.log |  -1| diff BUG-922/plain.log -
-echo '=== BUG-923/';  BUG-923/gem5.log |  -0| diff BUG-923/plain.log -
-echo '=== BUG-924/';  BUG-924/gem5.log |  -0| diff BUG-924/plain.log -
-echo '=== BUG-925/';  BUG-925/gem5.log |  -0| diff BUG-925/plain.log -
-echo '=== BUG-926/';  BUG-926/gem5.log |  -0| diff BUG-926/plain.log -
-echo '=== BUG-927/';  BUG-927/gem5.log |  -0| diff BUG-927/plain.log -
-echo '=== BUG-928/';  BUG-928/gem5.log |  -0| diff BUG-928/plain.log -
-echo '=== BUG-929/';  BUG-929/gem5.log |  -0| diff BUG-929/plain.log -
-echo '=== BUG-93/';  BUG-93/gem5.log |  -4| diff BUG-93/plain.log -
-echo '=== BUG-930/';  BUG-930/gem5.log |  -1| diff BUG-930/plain.log -
-echo '=== BUG-931/';  BUG-931/gem5.log |  -2| diff BUG-931/plain.log -
-echo '=== BUG-932/';  BUG-932/gem5.log |  -1| diff BUG-932/plain.log -
-echo '=== BUG-933/';  BUG-933/gem5.log |  -0| diff BUG-933/plain.log -
-echo '=== BUG-934/';  BUG-934/gem5.log |  -0| diff BUG-934/plain.log -
-echo '=== BUG-935/';  BUG-935/gem5.log |  -0| diff BUG-935/plain.log -
-echo '=== BUG-936/';  BUG-936/gem5.log |  -1| diff BUG-936/plain.log -
-echo '=== BUG-937/';  BUG-937/gem5.log |  -1| diff BUG-937/plain.log -
-echo '=== BUG-938/';  BUG-938/gem5.log |  -0| diff BUG-938/plain.log -
-echo '=== BUG-939/';  BUG-939/gem5.log |  -1| diff BUG-939/plain.log -
-echo '=== BUG-94/';  BUG-94/gem5.log |  -2| diff BUG-94/plain.log -
-echo '=== BUG-940/';  BUG-940/gem5.log |  -1| diff BUG-940/plain.log -
-echo '=== BUG-941/';  BUG-941/gem5.log |  -1| diff BUG-941/plain.log -
-echo '=== BUG-942/';  BUG-942/gem5.log |  -0| diff BUG-942/plain.log -
-echo '=== BUG-943/';  BUG-943/gem5.log |  -0| diff BUG-943/plain.log -
-echo '=== BUG-944/';  BUG-944/gem5.log |  -0| diff BUG-944/plain.log -
-echo '=== BUG-945/';  BUG-945/gem5.log |  -1| diff BUG-945/plain.log -
-echo '=== BUG-946/';  BUG-946/gem5.log |  -1| diff BUG-946/plain.log -
-echo '=== BUG-947/';  BUG-947/gem5.log |  -0| diff BUG-947/plain.log -
-echo '=== BUG-948/';  BUG-948/gem5.log |  -0| diff BUG-948/plain.log -
-echo '=== BUG-949/';  BUG-949/gem5.log |  -1| diff BUG-949/plain.log -
-echo '=== BUG-95/';  BUG-95/gem5.log |  -0| diff BUG-95/plain.log -
-echo '=== BUG-950/';  BUG-950/gem5.log |  -1| diff BUG-950/plain.log -
-echo '=== BUG-951/';  BUG-951/gem5.log |  -0| diff BUG-951/plain.log -
-echo '=== BUG-952/';  BUG-952/gem5.log |  -0| diff BUG-952/plain.log -
-echo '=== BUG-953/';  BUG-953/gem5.log |  -0| diff BUG-953/plain.log -
-echo '=== BUG-954/';  BUG-954/gem5.log |  -0| diff BUG-954/plain.log -
-echo '=== BUG-955/';  BUG-955/gem5.log |  -1| diff BUG-955/plain.log -
-echo '=== BUG-956/';  BUG-956/gem5.log |  -1| diff BUG-956/plain.log -
-echo '=== BUG-957/';  BUG-957/gem5.log |  -1| diff BUG-957/plain.log -
-echo '=== BUG-958/';  BUG-958/gem5.log |  -1| diff BUG-958/plain.log -
-echo '=== BUG-959/';  BUG-959/gem5.log |  -0| diff BUG-959/plain.log -
-echo '=== BUG-96/';  BUG-96/gem5.log |  -1| diff BUG-96/plain.log -
-echo '=== BUG-960/';  BUG-960/gem5.log |  -0| diff BUG-960/plain.log -
-echo '=== BUG-961/';  BUG-961/gem5.log |  -1| diff BUG-961/plain.log -
-echo '=== BUG-962/';  BUG-962/gem5.log |  -1| diff BUG-962/plain.log -
-echo '=== BUG-963/';  BUG-963/gem5.log |  -0| diff BUG-963/plain.log -
-echo '=== BUG-964/';  BUG-964/gem5.log |  -1| diff BUG-964/plain.log -
-echo '=== BUG-965/';  BUG-965/gem5.log |  -1| diff BUG-965/plain.log -
-echo '=== BUG-966/';  BUG-966/gem5.log |  -0| diff BUG-966/plain.log -
-echo '=== BUG-967/';  BUG-967/gem5.log |  -0| diff BUG-967/plain.log -
-echo '=== BUG-968/';  BUG-968/gem5.log |  -0| diff BUG-968/plain.log -
-echo '=== BUG-969/';  BUG-969/gem5.log |  -0| diff BUG-969/plain.log -
-echo '=== BUG-97/';  BUG-97/gem5.log |  -3| diff BUG-97/plain.log -
-echo '=== BUG-970/';  BUG-970/gem5.log |  -1| diff BUG-970/plain.log -
-echo '=== BUG-971/';  BUG-971/gem5.log |  -1| diff BUG-971/plain.log -
-echo '=== BUG-972/';  BUG-972/gem5.log |  -1| diff BUG-972/plain.log -
-echo '=== BUG-973/';  BUG-973/gem5.log |  -0| diff BUG-973/plain.log -
-echo '=== BUG-974/';  BUG-974/gem5.log |  -0| diff BUG-974/plain.log -
-echo '=== BUG-975/';  BUG-975/gem5.log |  -1| diff BUG-975/plain.log -
-echo '=== BUG-976/';  BUG-976/gem5.log |  -0| diff BUG-976/plain.log -
-echo '=== BUG-977/';  BUG-977/gem5.log |  -0| diff BUG-977/plain.log -
-echo '=== BUG-978/';  BUG-978/gem5.log |  -1| diff BUG-978/plain.log -
-echo '=== BUG-979/';  BUG-979/gem5.log |  -0| diff BUG-979/plain.log -
-echo '=== BUG-98/';  BUG-98/gem5.log |  -1| diff BUG-98/plain.log -
-echo '=== BUG-980/';  BUG-980/gem5.log |  -1| diff BUG-980/plain.log -
-echo '=== BUG-981/';  BUG-981/gem5.log |  -1| diff BUG-981/plain.log -
-echo '=== BUG-982/';  BUG-982/gem5.log |  -0| diff BUG-982/plain.log -
-echo '=== BUG-983/';  BUG-983/gem5.log |  -0| diff BUG-983/plain.log -
-echo '=== BUG-984/';  BUG-984/gem5.log |  -1| diff BUG-984/plain.log -
-echo '=== BUG-985/';  BUG-985/gem5.log |  -0| diff BUG-985/plain.log -
-echo '=== BUG-986/';  BUG-986/gem5.log |  -1| diff BUG-986/plain.log -
-echo '=== BUG-987/';  BUG-987/gem5.log |  -1| diff BUG-987/plain.log -
-echo '=== BUG-988/';  BUG-988/gem5.log |  -0| diff BUG-988/plain.log -
-echo '=== BUG-989/';  BUG-989/gem5.log |  -4| diff BUG-989/plain.log -
-echo '=== BUG-99/';  BUG-99/gem5.log |  -7| diff BUG-99/plain.log -
-echo '=== BUG-990/';  BUG-990/gem5.log |  -0| diff BUG-990/plain.log -
-echo '=== BUG-991/';  BUG-991/gem5.log |  -0| diff BUG-991/plain.log -
-echo '=== BUG-992/';  BUG-992/gem5.log |  -0| diff BUG-992/plain.log -
-echo '=== BUG-993/';  BUG-993/gem5.log |  -1| diff BUG-993/plain.log -
-echo '=== BUG-994/';  BUG-994/gem5.log |  -0| diff BUG-994/plain.log -
-echo '=== BUG-995/';  BUG-995/gem5.log |  -0| diff BUG-995/plain.log -
-echo '=== BUG-996/';  BUG-996/gem5.log |  -1| diff BUG-996/plain.log -
-echo '=== BUG-997/';  BUG-997/gem5.log |  -0| diff BUG-997/plain.log -
-echo '=== BUG-998/';  BUG-998/gem5.log |  -0| diff BUG-998/plain.log -
-echo '=== BUG-999/';  BUG-999/gem5.log |  -1| diff BUG-999/plain.log -
+echo '=== BUG-1043/'; grep -ve"because exiting with last active thread context" BUG-1043/gem5.log | tail -1| diff BUG-1043/plain.log -
+echo '=== BUG-1044/'; grep -ve"because exiting with last active thread context" BUG-1044/gem5.log | tail -1| diff BUG-1044/plain.log -
+echo '=== BUG-1045/'; grep -ve"because exiting with last active thread context" BUG-1045/gem5.log | tail -1| diff BUG-1045/plain.log -
+echo '=== BUG-1046/'; grep -ve"because exiting with last active thread context" BUG-1046/gem5.log | tail -0| diff BUG-1046/plain.log -
+echo '=== BUG-1047/'; grep -ve"because exiting with last active thread context" BUG-1047/gem5.log | tail -1| diff BUG-1047/plain.log -
+echo '=== BUG-1048/'; grep -ve"because exiting with last active thread context" BUG-1048/gem5.log | tail -1| diff BUG-1048/plain.log -
+echo '=== BUG-1049/'; grep -ve"because exiting with last active thread context" BUG-1049/gem5.log | tail -0| diff BUG-1049/plain.log -
+echo '=== BUG-105/'; grep -ve"because exiting with last active thread context" BUG-105/gem5.log | tail -2| diff BUG-105/plain.log -
+echo '=== BUG-1050/'; grep -ve"because exiting with last active thread context" BUG-1050/gem5.log | tail -2| diff BUG-1050/plain.log -
+echo '=== BUG-1051/'; grep -ve"because exiting with last active thread context" BUG-1051/gem5.log | tail -1| diff BUG-1051/plain.log -
+echo '=== BUG-1052/'; grep -ve"because exiting with last active thread context" BUG-1052/gem5.log | tail -1| diff BUG-1052/plain.log -
+echo '=== BUG-1053/'; grep -ve"because exiting with last active thread context" BUG-1053/gem5.log | tail -1| diff BUG-1053/plain.log -
+echo '=== BUG-1054/'; grep -ve"because exiting with last active thread context" BUG-1054/gem5.log | tail -0| diff BUG-1054/plain.log -
+echo '=== BUG-1055/'; grep -ve"because exiting with last active thread context" BUG-1055/gem5.log | tail -0| diff BUG-1055/plain.log -
+echo '=== BUG-1056/'; grep -ve"because exiting with last active thread context" BUG-1056/gem5.log | tail -0| diff BUG-1056/plain.log -
+echo '=== BUG-1057/'; grep -ve"because exiting with last active thread context" BUG-1057/gem5.log | tail -1| diff BUG-1057/plain.log -
+echo '=== BUG-1058/'; grep -ve"because exiting with last active thread context" BUG-1058/gem5.log | tail -1| diff BUG-1058/plain.log -
+echo '=== BUG-1059/'; grep -ve"because exiting with last active thread context" BUG-1059/gem5.log | tail -2| diff BUG-1059/plain.log -
+echo '=== BUG-106/'; grep -ve"because exiting with last active thread context" BUG-106/gem5.log | tail -71| diff BUG-106/plain.log -
+echo '=== BUG-1060/'; grep -ve"because exiting with last active thread context" BUG-1060/gem5.log | tail -1| diff BUG-1060/plain.log -
+echo '=== BUG-1061/'; grep -ve"because exiting with last active thread context" BUG-1061/gem5.log | tail -1| diff BUG-1061/plain.log -
+echo '=== BUG-1062/'; grep -ve"because exiting with last active thread context" BUG-1062/gem5.log | tail -1| diff BUG-1062/plain.log -
+echo '=== BUG-1063/'; grep -ve"because exiting with last active thread context" BUG-1063/gem5.log | tail -0| diff BUG-1063/plain.log -
+echo '=== BUG-1064/'; grep -ve"because exiting with last active thread context" BUG-1064/gem5.log | tail -0| diff BUG-1064/plain.log -
+echo '=== BUG-1065/'; grep -ve"because exiting with last active thread context" BUG-1065/gem5.log | tail -0| diff BUG-1065/plain.log -
+echo '=== BUG-1066/'; grep -ve"because exiting with last active thread context" BUG-1066/gem5.log | tail -1| diff BUG-1066/plain.log -
+echo '=== BUG-1067/'; grep -ve"because exiting with last active thread context" BUG-1067/gem5.log | tail -1| diff BUG-1067/plain.log -
+echo '=== BUG-1068/'; grep -ve"because exiting with last active thread context" BUG-1068/gem5.log | tail -0| diff BUG-1068/plain.log -
+echo '=== BUG-1069/'; grep -ve"because exiting with last active thread context" BUG-1069/gem5.log | tail -1| diff BUG-1069/plain.log -
+echo '=== BUG-107/'; grep -ve"because exiting with last active thread context" BUG-107/gem5.log | tail -0| diff BUG-107/plain.log -
+echo '=== BUG-1070/'; grep -ve"because exiting with last active thread context" BUG-1070/gem5.log | tail -1| diff BUG-1070/plain.log -
+echo '=== BUG-1071/'; grep -ve"because exiting with last active thread context" BUG-1071/gem5.log | tail -1| diff BUG-1071/plain.log -
+echo '=== BUG-1072/'; grep -ve"because exiting with last active thread context" BUG-1072/gem5.log | tail -0| diff BUG-1072/plain.log -
+echo '=== BUG-1073/'; grep -ve"because exiting with last active thread context" BUG-1073/gem5.log | tail -1| diff BUG-1073/plain.log -
+echo '=== BUG-1074/'; grep -ve"because exiting with last active thread context" BUG-1074/gem5.log | tail -0| diff BUG-1074/plain.log -
+echo '=== BUG-1075/'; grep -ve"because exiting with last active thread context" BUG-1075/gem5.log | tail -1| diff BUG-1075/plain.log -
+echo '=== BUG-1076/'; grep -ve"because exiting with last active thread context" BUG-1076/gem5.log | tail -0| diff BUG-1076/plain.log -
+echo '=== BUG-1077/'; grep -ve"because exiting with last active thread context" BUG-1077/gem5.log | tail -0| diff BUG-1077/plain.log -
+echo '=== BUG-1078/'; grep -ve"because exiting with last active thread context" BUG-1078/gem5.log | tail -0| diff BUG-1078/plain.log -
+echo '=== BUG-1079/'; grep -ve"because exiting with last active thread context" BUG-1079/gem5.log | tail -1| diff BUG-1079/plain.log -
+echo '=== BUG-108/'; grep -ve"because exiting with last active thread context" BUG-108/gem5.log | tail -2| diff BUG-108/plain.log -
+echo '=== BUG-1080/'; grep -ve"because exiting with last active thread context" BUG-1080/gem5.log | tail -1| diff BUG-1080/plain.log -
+echo '=== BUG-1081/'; grep -ve"because exiting with last active thread context" BUG-1081/gem5.log | tail -1| diff BUG-1081/plain.log -
+echo '=== BUG-1082/'; grep -ve"because exiting with last active thread context" BUG-1082/gem5.log | tail -1| diff BUG-1082/plain.log -
+echo '=== BUG-1083/'; grep -ve"because exiting with last active thread context" BUG-1083/gem5.log | tail -1| diff BUG-1083/plain.log -
+echo '=== BUG-1084/'; grep -ve"because exiting with last active thread context" BUG-1084/gem5.log | tail -1| diff BUG-1084/plain.log -
+echo '=== BUG-1085/'; grep -ve"because exiting with last active thread context" BUG-1085/gem5.log | tail -1| diff BUG-1085/plain.log -
+echo '=== BUG-1086/'; grep -ve"because exiting with last active thread context" BUG-1086/gem5.log | tail -1| diff BUG-1086/plain.log -
+echo '=== BUG-1087/'; grep -ve"because exiting with last active thread context" BUG-1087/gem5.log | tail -1| diff BUG-1087/plain.log -
+echo '=== BUG-1088/'; grep -ve"because exiting with last active thread context" BUG-1088/gem5.log | tail -1| diff BUG-1088/plain.log -
+echo '=== BUG-1089/'; grep -ve"because exiting with last active thread context" BUG-1089/gem5.log | tail -1| diff BUG-1089/plain.log -
+echo '=== BUG-109/'; grep -ve"because exiting with last active thread context" BUG-109/gem5.log | tail -0| diff BUG-109/plain.log -
+echo '=== BUG-1090/'; grep -ve"because exiting with last active thread context" BUG-1090/gem5.log | tail -1| diff BUG-1090/plain.log -
+echo '=== BUG-1091/'; grep -ve"because exiting with last active thread context" BUG-1091/gem5.log | tail -1| diff BUG-1091/plain.log -
+echo '=== BUG-1092/'; grep -ve"because exiting with last active thread context" BUG-1092/gem5.log | tail -1| diff BUG-1092/plain.log -
+echo '=== BUG-1093/'; grep -ve"because exiting with last active thread context" BUG-1093/gem5.log | tail -1| diff BUG-1093/plain.log -
+echo '=== BUG-1094/'; grep -ve"because exiting with last active thread context" BUG-1094/gem5.log | tail -1| diff BUG-1094/plain.log -
+echo '=== BUG-1095/'; grep -ve"because exiting with last active thread context" BUG-1095/gem5.log | tail -1| diff BUG-1095/plain.log -
+echo '=== BUG-1096/'; grep -ve"because exiting with last active thread context" BUG-1096/gem5.log | tail -1| diff BUG-1096/plain.log -
+echo '=== BUG-1097/'; grep -ve"because exiting with last active thread context" BUG-1097/gem5.log | tail -1| diff BUG-1097/plain.log -
+echo '=== BUG-1098/'; grep -ve"because exiting with last active thread context" BUG-1098/gem5.log | tail -1| diff BUG-1098/plain.log -
+echo '=== BUG-1099/'; grep -ve"because exiting with last active thread context" BUG-1099/gem5.log | tail -1| diff BUG-1099/plain.log -
+echo '=== BUG-11/'; grep -ve"because exiting with last active thread context" BUG-11/gem5.log | tail -0| diff BUG-11/plain.log -
+echo '=== BUG-110/'; grep -ve"because exiting with last active thread context" BUG-110/gem5.log | tail -27| diff BUG-110/plain.log -
+echo '=== BUG-1100/'; grep -ve"because exiting with last active thread context" BUG-1100/gem5.log | tail -1| diff BUG-1100/plain.log -
+echo '=== BUG-1101/'; grep -ve"because exiting with last active thread context" BUG-1101/gem5.log | tail -1| diff BUG-1101/plain.log -
+echo '=== BUG-1102/'; grep -ve"because exiting with last active thread context" BUG-1102/gem5.log | tail -1| diff BUG-1102/plain.log -
+echo '=== BUG-1103/'; grep -ve"because exiting with last active thread context" BUG-1103/gem5.log | tail -1| diff BUG-1103/plain.log -
+echo '=== BUG-1104/'; grep -ve"because exiting with last active thread context" BUG-1104/gem5.log | tail -1| diff BUG-1104/plain.log -
+echo '=== BUG-1105/'; grep -ve"because exiting with last active thread context" BUG-1105/gem5.log | tail -1| diff BUG-1105/plain.log -
+echo '=== BUG-1106/'; grep -ve"because exiting with last active thread context" BUG-1106/gem5.log | tail -1| diff BUG-1106/plain.log -
+echo '=== BUG-1107/'; grep -ve"because exiting with last active thread context" BUG-1107/gem5.log | tail -1| diff BUG-1107/plain.log -
+echo '=== BUG-1108/'; grep -ve"because exiting with last active thread context" BUG-1108/gem5.log | tail -1| diff BUG-1108/plain.log -
+echo '=== BUG-1109/'; grep -ve"because exiting with last active thread context" BUG-1109/gem5.log | tail -1| diff BUG-1109/plain.log -
+echo '=== BUG-111/'; grep -ve"because exiting with last active thread context" BUG-111/gem5.log | tail -2| diff BUG-111/plain.log -
+echo '=== BUG-1110/'; grep -ve"because exiting with last active thread context" BUG-1110/gem5.log | tail -1| diff BUG-1110/plain.log -
+echo '=== BUG-1111/'; grep -ve"because exiting with last active thread context" BUG-1111/gem5.log | tail -1| diff BUG-1111/plain.log -
+echo '=== BUG-1112/'; grep -ve"because exiting with last active thread context" BUG-1112/gem5.log | tail -1| diff BUG-1112/plain.log -
+echo '=== BUG-1113/'; grep -ve"because exiting with last active thread context" BUG-1113/gem5.log | tail -1| diff BUG-1113/plain.log -
+echo '=== BUG-1114/'; grep -ve"because exiting with last active thread context" BUG-1114/gem5.log | tail -1| diff BUG-1114/plain.log -
+echo '=== BUG-1115/'; grep -ve"because exiting with last active thread context" BUG-1115/gem5.log | tail -1| diff BUG-1115/plain.log -
+echo '=== BUG-1116/'; grep -ve"because exiting with last active thread context" BUG-1116/gem5.log | tail -1| diff BUG-1116/plain.log -
+echo '=== BUG-1117/'; grep -ve"because exiting with last active thread context" BUG-1117/gem5.log | tail -1| diff BUG-1117/plain.log -
+echo '=== BUG-1118/'; grep -ve"because exiting with last active thread context" BUG-1118/gem5.log | tail -1| diff BUG-1118/plain.log -
+echo '=== BUG-1119/'; grep -ve"because exiting with last active thread context" BUG-1119/gem5.log | tail -1| diff BUG-1119/plain.log -
+echo '=== BUG-112/'; grep -ve"because exiting with last active thread context" BUG-112/gem5.log | tail -1| diff BUG-112/plain.log -
+echo '=== BUG-1120/'; grep -ve"because exiting with last active thread context" BUG-1120/gem5.log | tail -1| diff BUG-1120/plain.log -
+echo '=== BUG-1121/'; grep -ve"because exiting with last active thread context" BUG-1121/gem5.log | tail -1| diff BUG-1121/plain.log -
+echo '=== BUG-1122/'; grep -ve"because exiting with last active thread context" BUG-1122/gem5.log | tail -1| diff BUG-1122/plain.log -
+echo '=== BUG-1123/'; grep -ve"because exiting with last active thread context" BUG-1123/gem5.log | tail -1| diff BUG-1123/plain.log -
+echo '=== BUG-1124/'; grep -ve"because exiting with last active thread context" BUG-1124/gem5.log | tail -1| diff BUG-1124/plain.log -
+echo '=== BUG-1125/'; grep -ve"because exiting with last active thread context" BUG-1125/gem5.log | tail -1| diff BUG-1125/plain.log -
+echo '=== BUG-1126/'; grep -ve"because exiting with last active thread context" BUG-1126/gem5.log | tail -1| diff BUG-1126/plain.log -
+echo '=== BUG-1127/'; grep -ve"because exiting with last active thread context" BUG-1127/gem5.log | tail -1| diff BUG-1127/plain.log -
+echo '=== BUG-1128/'; grep -ve"because exiting with last active thread context" BUG-1128/gem5.log | tail -1| diff BUG-1128/plain.log -
+echo '=== BUG-1129/'; grep -ve"because exiting with last active thread context" BUG-1129/gem5.log | tail -1| diff BUG-1129/plain.log -
+echo '=== BUG-113/'; grep -ve"because exiting with last active thread context" BUG-113/gem5.log | tail -2| diff BUG-113/plain.log -
+echo '=== BUG-1130/'; grep -ve"because exiting with last active thread context" BUG-1130/gem5.log | tail -1| diff BUG-1130/plain.log -
+echo '=== BUG-1131/'; grep -ve"because exiting with last active thread context" BUG-1131/gem5.log | tail -1| diff BUG-1131/plain.log -
+echo '=== BUG-1132/'; grep -ve"because exiting with last active thread context" BUG-1132/gem5.log | tail -1| diff BUG-1132/plain.log -
+echo '=== BUG-1133/'; grep -ve"because exiting with last active thread context" BUG-1133/gem5.log | tail -1| diff BUG-1133/plain.log -
+echo '=== BUG-1134/'; grep -ve"because exiting with last active thread context" BUG-1134/gem5.log | tail -1| diff BUG-1134/plain.log -
+echo '=== BUG-1135/'; grep -ve"because exiting with last active thread context" BUG-1135/gem5.log | tail -1| diff BUG-1135/plain.log -
+echo '=== BUG-1136/'; grep -ve"because exiting with last active thread context" BUG-1136/gem5.log | tail -1| diff BUG-1136/plain.log -
+echo '=== BUG-1137/'; grep -ve"because exiting with last active thread context" BUG-1137/gem5.log | tail -1| diff BUG-1137/plain.log -
+echo '=== BUG-1138/'; grep -ve"because exiting with last active thread context" BUG-1138/gem5.log | tail -1| diff BUG-1138/plain.log -
+echo '=== BUG-1139/'; grep -ve"because exiting with last active thread context" BUG-1139/gem5.log | tail -1| diff BUG-1139/plain.log -
+echo '=== BUG-114/'; grep -ve"because exiting with last active thread context" BUG-114/gem5.log | tail -10| diff BUG-114/plain.log -
+echo '=== BUG-1140/'; grep -ve"because exiting with last active thread context" BUG-1140/gem5.log | tail -1| diff BUG-1140/plain.log -
+echo '=== BUG-1141/'; grep -ve"because exiting with last active thread context" BUG-1141/gem5.log | tail -1| diff BUG-1141/plain.log -
+echo '=== BUG-1142/'; grep -ve"because exiting with last active thread context" BUG-1142/gem5.log | tail -1| diff BUG-1142/plain.log -
+echo '=== BUG-1143/'; grep -ve"because exiting with last active thread context" BUG-1143/gem5.log | tail -1| diff BUG-1143/plain.log -
+echo '=== BUG-1144/'; grep -ve"because exiting with last active thread context" BUG-1144/gem5.log | tail -1| diff BUG-1144/plain.log -
+echo '=== BUG-1145/'; grep -ve"because exiting with last active thread context" BUG-1145/gem5.log | tail -1| diff BUG-1145/plain.log -
+echo '=== BUG-1146/'; grep -ve"because exiting with last active thread context" BUG-1146/gem5.log | tail -1| diff BUG-1146/plain.log -
+echo '=== BUG-1147/'; grep -ve"because exiting with last active thread context" BUG-1147/gem5.log | tail -1| diff BUG-1147/plain.log -
+echo '=== BUG-1148/'; grep -ve"because exiting with last active thread context" BUG-1148/gem5.log | tail -1| diff BUG-1148/plain.log -
+echo '=== BUG-1149/'; grep -ve"because exiting with last active thread context" BUG-1149/gem5.log | tail -1| diff BUG-1149/plain.log -
+echo '=== BUG-115/'; grep -ve"because exiting with last active thread context" BUG-115/gem5.log | tail -1| diff BUG-115/plain.log -
+echo '=== BUG-1150/'; grep -ve"because exiting with last active thread context" BUG-1150/gem5.log | tail -1| diff BUG-1150/plain.log -
+echo '=== BUG-1151/'; grep -ve"because exiting with last active thread context" BUG-1151/gem5.log | tail -1| diff BUG-1151/plain.log -
+echo '=== BUG-1152/'; grep -ve"because exiting with last active thread context" BUG-1152/gem5.log | tail -1| diff BUG-1152/plain.log -
+echo '=== BUG-1153/'; grep -ve"because exiting with last active thread context" BUG-1153/gem5.log | tail -1| diff BUG-1153/plain.log -
+echo '=== BUG-1154/'; grep -ve"because exiting with last active thread context" BUG-1154/gem5.log | tail -1| diff BUG-1154/plain.log -
+echo '=== BUG-1155/'; grep -ve"because exiting with last active thread context" BUG-1155/gem5.log | tail -1| diff BUG-1155/plain.log -
+echo '=== BUG-1156/'; grep -ve"because exiting with last active thread context" BUG-1156/gem5.log | tail -1| diff BUG-1156/plain.log -
+echo '=== BUG-1157/'; grep -ve"because exiting with last active thread context" BUG-1157/gem5.log | tail -1| diff BUG-1157/plain.log -
+echo '=== BUG-1158/'; grep -ve"because exiting with last active thread context" BUG-1158/gem5.log | tail -1| diff BUG-1158/plain.log -
+echo '=== BUG-1159/'; grep -ve"because exiting with last active thread context" BUG-1159/gem5.log | tail -1| diff BUG-1159/plain.log -
+echo '=== BUG-116/'; grep -ve"because exiting with last active thread context" BUG-116/gem5.log | tail -1| diff BUG-116/plain.log -
+echo '=== BUG-1160/'; grep -ve"because exiting with last active thread context" BUG-1160/gem5.log | tail -1| diff BUG-1160/plain.log -
+echo '=== BUG-1161/'; grep -ve"because exiting with last active thread context" BUG-1161/gem5.log | tail -1| diff BUG-1161/plain.log -
+echo '=== BUG-1162/'; grep -ve"because exiting with last active thread context" BUG-1162/gem5.log | tail -1| diff BUG-1162/plain.log -
+echo '=== BUG-1163/'; grep -ve"because exiting with last active thread context" BUG-1163/gem5.log | tail -0| diff BUG-1163/plain.log -
+echo '=== BUG-1164/'; grep -ve"because exiting with last active thread context" BUG-1164/gem5.log | tail -0| diff BUG-1164/plain.log -
+echo '=== BUG-1165/'; grep -ve"because exiting with last active thread context" BUG-1165/gem5.log | tail -0| diff BUG-1165/plain.log -
+echo '=== BUG-1166/'; grep -ve"because exiting with last active thread context" BUG-1166/gem5.log | tail -0| diff BUG-1166/plain.log -
+echo '=== BUG-1167/'; grep -ve"because exiting with last active thread context" BUG-1167/gem5.log | tail -0| diff BUG-1167/plain.log -
+echo '=== BUG-1168/'; grep -ve"because exiting with last active thread context" BUG-1168/gem5.log | tail -0| diff BUG-1168/plain.log -
+echo '=== BUG-1169/'; grep -ve"because exiting with last active thread context" BUG-1169/gem5.log | tail -0| diff BUG-1169/plain.log -
+echo '=== BUG-117/'; grep -ve"because exiting with last active thread context" BUG-117/gem5.log | tail -1| diff BUG-117/plain.log -
+echo '=== BUG-1170/'; grep -ve"because exiting with last active thread context" BUG-1170/gem5.log | tail -2| diff BUG-1170/plain.log -
+echo '=== BUG-1171/'; grep -ve"because exiting with last active thread context" BUG-1171/gem5.log | tail -2| diff BUG-1171/plain.log -
+echo '=== BUG-1172/'; grep -ve"because exiting with last active thread context" BUG-1172/gem5.log | tail -2| diff BUG-1172/plain.log -
+echo '=== BUG-1173/'; grep -ve"because exiting with last active thread context" BUG-1173/gem5.log | tail -2| diff BUG-1173/plain.log -
+echo '=== BUG-1174/'; grep -ve"because exiting with last active thread context" BUG-1174/gem5.log | tail -2| diff BUG-1174/plain.log -
+echo '=== BUG-1175/'; grep -ve"because exiting with last active thread context" BUG-1175/gem5.log | tail -2| diff BUG-1175/plain.log -
+echo '=== BUG-1176/'; grep -ve"because exiting with last active thread context" BUG-1176/gem5.log | tail -2| diff BUG-1176/plain.log -
+echo '=== BUG-1177/'; grep -ve"because exiting with last active thread context" BUG-1177/gem5.log | tail -2| diff BUG-1177/plain.log -
+echo '=== BUG-1178/'; grep -ve"because exiting with last active thread context" BUG-1178/gem5.log | tail -2| diff BUG-1178/plain.log -
+echo '=== BUG-1179/'; grep -ve"because exiting with last active thread context" BUG-1179/gem5.log | tail -1| diff BUG-1179/plain.log -
+echo '=== BUG-118/'; grep -ve"because exiting with last active thread context" BUG-118/gem5.log | tail -8| diff BUG-118/plain.log -
+echo '=== BUG-1180/'; grep -ve"because exiting with last active thread context" BUG-1180/gem5.log | tail -2| diff BUG-1180/plain.log -
+echo '=== BUG-1181/'; grep -ve"because exiting with last active thread context" BUG-1181/gem5.log | tail -0| diff BUG-1181/plain.log -
+echo '=== BUG-1182/'; grep -ve"because exiting with last active thread context" BUG-1182/gem5.log | tail -0| diff BUG-1182/plain.log -
+echo '=== BUG-1183/'; grep -ve"because exiting with last active thread context" BUG-1183/gem5.log | tail -0| diff BUG-1183/plain.log -
+echo '=== BUG-1184/'; grep -ve"because exiting with last active thread context" BUG-1184/gem5.log | tail -0| diff BUG-1184/plain.log -
+echo '=== BUG-1185/'; grep -ve"because exiting with last active thread context" BUG-1185/gem5.log | tail -0| diff BUG-1185/plain.log -
+echo '=== BUG-1186/'; grep -ve"because exiting with last active thread context" BUG-1186/gem5.log | tail -0| diff BUG-1186/plain.log -
+echo '=== BUG-1187/'; grep -ve"because exiting with last active thread context" BUG-1187/gem5.log | tail -0| diff BUG-1187/plain.log -
+echo '=== BUG-1188/'; grep -ve"because exiting with last active thread context" BUG-1188/gem5.log | tail -0| diff BUG-1188/plain.log -
+echo '=== BUG-1189/'; grep -ve"because exiting with last active thread context" BUG-1189/gem5.log | tail -0| diff BUG-1189/plain.log -
+echo '=== BUG-119/'; grep -ve"because exiting with last active thread context" BUG-119/gem5.log | tail -1| diff BUG-119/plain.log -
+echo '=== BUG-1190/'; grep -ve"because exiting with last active thread context" BUG-1190/gem5.log | tail -0| diff BUG-1190/plain.log -
+echo '=== BUG-1191/'; grep -ve"because exiting with last active thread context" BUG-1191/gem5.log | tail -0| diff BUG-1191/plain.log -
+echo '=== BUG-1192/'; grep -ve"because exiting with last active thread context" BUG-1192/gem5.log | tail -0| diff BUG-1192/plain.log -
+echo '=== BUG-1193/'; grep -ve"because exiting with last active thread context" BUG-1193/gem5.log | tail -0| diff BUG-1193/plain.log -
+echo '=== BUG-1194/'; grep -ve"because exiting with last active thread context" BUG-1194/gem5.log | tail -0| diff BUG-1194/plain.log -
+echo '=== BUG-1195/'; grep -ve"because exiting with last active thread context" BUG-1195/gem5.log | tail -0| diff BUG-1195/plain.log -
+echo '=== BUG-1196/'; grep -ve"because exiting with last active thread context" BUG-1196/gem5.log | tail -0| diff BUG-1196/plain.log -
+echo '=== BUG-1197/'; grep -ve"because exiting with last active thread context" BUG-1197/gem5.log | tail -0| diff BUG-1197/plain.log -
+echo '=== BUG-1198/'; grep -ve"because exiting with last active thread context" BUG-1198/gem5.log | tail -0| diff BUG-1198/plain.log -
+echo '=== BUG-1199/'; grep -ve"because exiting with last active thread context" BUG-1199/gem5.log | tail -0| diff BUG-1199/plain.log -
+echo '=== BUG-12/'; grep -ve"because exiting with last active thread context" BUG-12/gem5.log | tail -1| diff BUG-12/plain.log -
+echo '=== BUG-120/'; grep -ve"because exiting with last active thread context" BUG-120/gem5.log | tail -2| diff BUG-120/plain.log -
+echo '=== BUG-1200/'; grep -ve"because exiting with last active thread context" BUG-1200/gem5.log | tail -0| diff BUG-1200/plain.log -
+echo '=== BUG-1201/'; grep -ve"because exiting with last active thread context" BUG-1201/gem5.log | tail -0| diff BUG-1201/plain.log -
+echo '=== BUG-1202/'; grep -ve"because exiting with last active thread context" BUG-1202/gem5.log | tail -0| diff BUG-1202/plain.log -
+echo '=== BUG-1203/'; grep -ve"because exiting with last active thread context" BUG-1203/gem5.log | tail -0| diff BUG-1203/plain.log -
+echo '=== BUG-1204/'; grep -ve"because exiting with last active thread context" BUG-1204/gem5.log | tail -0| diff BUG-1204/plain.log -
+echo '=== BUG-1205/'; grep -ve"because exiting with last active thread context" BUG-1205/gem5.log | tail -0| diff BUG-1205/plain.log -
+echo '=== BUG-1206/'; grep -ve"because exiting with last active thread context" BUG-1206/gem5.log | tail -0| diff BUG-1206/plain.log -
+echo '=== BUG-1207/'; grep -ve"because exiting with last active thread context" BUG-1207/gem5.log | tail -0| diff BUG-1207/plain.log -
+echo '=== BUG-1208/'; grep -ve"because exiting with last active thread context" BUG-1208/gem5.log | tail -0| diff BUG-1208/plain.log -
+echo '=== BUG-1209/'; grep -ve"because exiting with last active thread context" BUG-1209/gem5.log | tail -0| diff BUG-1209/plain.log -
+echo '=== BUG-121/'; grep -ve"because exiting with last active thread context" BUG-121/gem5.log | tail -1| diff BUG-121/plain.log -
+echo '=== BUG-1210/'; grep -ve"because exiting with last active thread context" BUG-1210/gem5.log | tail -0| diff BUG-1210/plain.log -
+echo '=== BUG-1211/'; grep -ve"because exiting with last active thread context" BUG-1211/gem5.log | tail -1| diff BUG-1211/plain.log -
+echo '=== BUG-1212/'; grep -ve"because exiting with last active thread context" BUG-1212/gem5.log | tail -0| diff BUG-1212/plain.log -
+echo '=== BUG-1213/'; grep -ve"because exiting with last active thread context" BUG-1213/gem5.log | tail -0| diff BUG-1213/plain.log -
+echo '=== BUG-1214/'; grep -ve"because exiting with last active thread context" BUG-1214/gem5.log | tail -0| diff BUG-1214/plain.log -
+echo '=== BUG-1215/'; grep -ve"because exiting with last active thread context" BUG-1215/gem5.log | tail -1| diff BUG-1215/plain.log -
+echo '=== BUG-1216/'; grep -ve"because exiting with last active thread context" BUG-1216/gem5.log | tail -0| diff BUG-1216/plain.log -
+echo '=== BUG-1217/'; grep -ve"because exiting with last active thread context" BUG-1217/gem5.log | tail -0| diff BUG-1217/plain.log -
+echo '=== BUG-1218/'; grep -ve"because exiting with last active thread context" BUG-1218/gem5.log | tail -0| diff BUG-1218/plain.log -
+echo '=== BUG-1219/'; grep -ve"because exiting with last active thread context" BUG-1219/gem5.log | tail -0| diff BUG-1219/plain.log -
+echo '=== BUG-122/'; grep -ve"because exiting with last active thread context" BUG-122/gem5.log | tail -0| diff BUG-122/plain.log -
+echo '=== BUG-1220/'; grep -ve"because exiting with last active thread context" BUG-1220/gem5.log | tail -0| diff BUG-1220/plain.log -
+echo '=== BUG-1221/'; grep -ve"because exiting with last active thread context" BUG-1221/gem5.log | tail -0| diff BUG-1221/plain.log -
+echo '=== BUG-1222/'; grep -ve"because exiting with last active thread context" BUG-1222/gem5.log | tail -0| diff BUG-1222/plain.log -
+echo '=== BUG-1223/'; grep -ve"because exiting with last active thread context" BUG-1223/gem5.log | tail -0| diff BUG-1223/plain.log -
+echo '=== BUG-1224/'; grep -ve"because exiting with last active thread context" BUG-1224/gem5.log | tail -0| diff BUG-1224/plain.log -
+echo '=== BUG-1225/'; grep -ve"because exiting with last active thread context" BUG-1225/gem5.log | tail -0| diff BUG-1225/plain.log -
+echo '=== BUG-1226/'; grep -ve"because exiting with last active thread context" BUG-1226/gem5.log | tail -0| diff BUG-1226/plain.log -
+echo '=== BUG-1227/'; grep -ve"because exiting with last active thread context" BUG-1227/gem5.log | tail -0| diff BUG-1227/plain.log -
+echo '=== BUG-1228/'; grep -ve"because exiting with last active thread context" BUG-1228/gem5.log | tail -1| diff BUG-1228/plain.log -
+echo '=== BUG-1229/'; grep -ve"because exiting with last active thread context" BUG-1229/gem5.log | tail -0| diff BUG-1229/plain.log -
+echo '=== BUG-123/'; grep -ve"because exiting with last active thread context" BUG-123/gem5.log | tail -1| diff BUG-123/plain.log -
+echo '=== BUG-1230/'; grep -ve"because exiting with last active thread context" BUG-1230/gem5.log | tail -0| diff BUG-1230/plain.log -
+echo '=== BUG-1231/'; grep -ve"because exiting with last active thread context" BUG-1231/gem5.log | tail -0| diff BUG-1231/plain.log -
+echo '=== BUG-1232/'; grep -ve"because exiting with last active thread context" BUG-1232/gem5.log | tail -1| diff BUG-1232/plain.log -
+echo '=== BUG-1233/'; grep -ve"because exiting with last active thread context" BUG-1233/gem5.log | tail -0| diff BUG-1233/plain.log -
+echo '=== BUG-1234/'; grep -ve"because exiting with last active thread context" BUG-1234/gem5.log | tail -0| diff BUG-1234/plain.log -
+echo '=== BUG-1235/'; grep -ve"because exiting with last active thread context" BUG-1235/gem5.log | tail -1| diff BUG-1235/plain.log -
+echo '=== BUG-1236/'; grep -ve"because exiting with last active thread context" BUG-1236/gem5.log | tail -0| diff BUG-1236/plain.log -
+echo '=== BUG-1237/'; grep -ve"because exiting with last active thread context" BUG-1237/gem5.log | tail -3| diff BUG-1237/plain.log -
+echo '=== BUG-1238/'; grep -ve"because exiting with last active thread context" BUG-1238/gem5.log | tail -3| diff BUG-1238/plain.log -
+echo '=== BUG-1239/'; grep -ve"because exiting with last active thread context" BUG-1239/gem5.log | tail -3| diff BUG-1239/plain.log -
+echo '=== BUG-124/'; grep -ve"because exiting with last active thread context" BUG-124/gem5.log | tail -1| diff BUG-124/plain.log -
+echo '=== BUG-1240/'; grep -ve"because exiting with last active thread context" BUG-1240/gem5.log | tail -3| diff BUG-1240/plain.log -
+echo '=== BUG-1241/'; grep -ve"because exiting with last active thread context" BUG-1241/gem5.log | tail -3| diff BUG-1241/plain.log -
+echo '=== BUG-1242/'; grep -ve"because exiting with last active thread context" BUG-1242/gem5.log | tail -3| diff BUG-1242/plain.log -
+echo '=== BUG-1243/'; grep -ve"because exiting with last active thread context" BUG-1243/gem5.log | tail -3| diff BUG-1243/plain.log -
+echo '=== BUG-1244/'; grep -ve"because exiting with last active thread context" BUG-1244/gem5.log | tail -3| diff BUG-1244/plain.log -
+echo '=== BUG-1245/'; grep -ve"because exiting with last active thread context" BUG-1245/gem5.log | tail -3| diff BUG-1245/plain.log -
+echo '=== BUG-1246/'; grep -ve"because exiting with last active thread context" BUG-1246/gem5.log | tail -3| diff BUG-1246/plain.log -
+echo '=== BUG-1247/'; grep -ve"because exiting with last active thread context" BUG-1247/gem5.log | tail -3| diff BUG-1247/plain.log -
+echo '=== BUG-1248/'; grep -ve"because exiting with last active thread context" BUG-1248/gem5.log | tail -3| diff BUG-1248/plain.log -
+echo '=== BUG-1249/'; grep -ve"because exiting with last active thread context" BUG-1249/gem5.log | tail -3| diff BUG-1249/plain.log -
+echo '=== BUG-125/'; grep -ve"because exiting with last active thread context" BUG-125/gem5.log | tail -1| diff BUG-125/plain.log -
+echo '=== BUG-1250/'; grep -ve"because exiting with last active thread context" BUG-1250/gem5.log | tail -3| diff BUG-1250/plain.log -
+echo '=== BUG-1251/'; grep -ve"because exiting with last active thread context" BUG-1251/gem5.log | tail -5| diff BUG-1251/plain.log -
+echo '=== BUG-1252/'; grep -ve"because exiting with last active thread context" BUG-1252/gem5.log | tail -1| diff BUG-1252/plain.log -
+echo '=== BUG-1253/'; grep -ve"because exiting with last active thread context" BUG-1253/gem5.log | tail -0| diff BUG-1253/plain.log -
+echo '=== BUG-1254/'; grep -ve"because exiting with last active thread context" BUG-1254/gem5.log | tail -1| diff BUG-1254/plain.log -
+echo '=== BUG-1255/'; grep -ve"because exiting with last active thread context" BUG-1255/gem5.log | tail -1| diff BUG-1255/plain.log -
+echo '=== BUG-1256/'; grep -ve"because exiting with last active thread context" BUG-1256/gem5.log | tail -1| diff BUG-1256/plain.log -
+echo '=== BUG-1257/'; grep -ve"because exiting with last active thread context" BUG-1257/gem5.log | tail -1| diff BUG-1257/plain.log -
+echo '=== BUG-1258/'; grep -ve"because exiting with last active thread context" BUG-1258/gem5.log | tail -1| diff BUG-1258/plain.log -
+echo '=== BUG-1259/'; grep -ve"because exiting with last active thread context" BUG-1259/gem5.log | tail -1| diff BUG-1259/plain.log -
+echo '=== BUG-126/'; grep -ve"because exiting with last active thread context" BUG-126/gem5.log | tail -1| diff BUG-126/plain.log -
+echo '=== BUG-1260/'; grep -ve"because exiting with last active thread context" BUG-1260/gem5.log | tail -1| diff BUG-1260/plain.log -
+echo '=== BUG-1261/'; grep -ve"because exiting with last active thread context" BUG-1261/gem5.log | tail -0| diff BUG-1261/plain.log -
+echo '=== BUG-1262/'; grep -ve"because exiting with last active thread context" BUG-1262/gem5.log | tail -0| diff BUG-1262/plain.log -
+echo '=== BUG-1263/'; grep -ve"because exiting with last active thread context" BUG-1263/gem5.log | tail -0| diff BUG-1263/plain.log -
+echo '=== BUG-1264/'; grep -ve"because exiting with last active thread context" BUG-1264/gem5.log | tail -0| diff BUG-1264/plain.log -
+echo '=== BUG-1265/'; grep -ve"because exiting with last active thread context" BUG-1265/gem5.log | tail -0| diff BUG-1265/plain.log -
+echo '=== BUG-1266/'; grep -ve"because exiting with last active thread context" BUG-1266/gem5.log | tail -0| diff BUG-1266/plain.log -
+echo '=== BUG-1267/'; grep -ve"because exiting with last active thread context" BUG-1267/gem5.log | tail -0| diff BUG-1267/plain.log -
+echo '=== BUG-1268/'; grep -ve"because exiting with last active thread context" BUG-1268/gem5.log | tail -0| diff BUG-1268/plain.log -
+echo '=== BUG-1269/'; grep -ve"because exiting with last active thread context" BUG-1269/gem5.log | tail -0| diff BUG-1269/plain.log -
+echo '=== BUG-127/'; grep -ve"because exiting with last active thread context" BUG-127/gem5.log | tail -1| diff BUG-127/plain.log -
+echo '=== BUG-1270/'; grep -ve"because exiting with last active thread context" BUG-1270/gem5.log | tail -0| diff BUG-1270/plain.log -
+echo '=== BUG-1271/'; grep -ve"because exiting with last active thread context" BUG-1271/gem5.log | tail -0| diff BUG-1271/plain.log -
+echo '=== BUG-1272/'; grep -ve"because exiting with last active thread context" BUG-1272/gem5.log | tail -0| diff BUG-1272/plain.log -
+echo '=== BUG-1273/'; grep -ve"because exiting with last active thread context" BUG-1273/gem5.log | tail -2| diff BUG-1273/plain.log -
+echo '=== BUG-1274/'; grep -ve"because exiting with last active thread context" BUG-1274/gem5.log | tail -0| diff BUG-1274/plain.log -
+echo '=== BUG-1275/'; grep -ve"because exiting with last active thread context" BUG-1275/gem5.log | tail -1| diff BUG-1275/plain.log -
+echo '=== BUG-1276/'; grep -ve"because exiting with last active thread context" BUG-1276/gem5.log | tail -0| diff BUG-1276/plain.log -
+echo '=== BUG-1277/'; grep -ve"because exiting with last active thread context" BUG-1277/gem5.log | tail -0| diff BUG-1277/plain.log -
+echo '=== BUG-1278/'; grep -ve"because exiting with last active thread context" BUG-1278/gem5.log | tail -0| diff BUG-1278/plain.log -
+echo '=== BUG-1279/'; grep -ve"because exiting with last active thread context" BUG-1279/gem5.log | tail -0| diff BUG-1279/plain.log -
+echo '=== BUG-128/'; grep -ve"because exiting with last active thread context" BUG-128/gem5.log | tail -1| diff BUG-128/plain.log -
+echo '=== BUG-1280/'; grep -ve"because exiting with last active thread context" BUG-1280/gem5.log | tail -0| diff BUG-1280/plain.log -
+echo '=== BUG-1281/'; grep -ve"because exiting with last active thread context" BUG-1281/gem5.log | tail -0| diff BUG-1281/plain.log -
+echo '=== BUG-1282/'; grep -ve"because exiting with last active thread context" BUG-1282/gem5.log | tail -0| diff BUG-1282/plain.log -
+echo '=== BUG-1283/'; grep -ve"because exiting with last active thread context" BUG-1283/gem5.log | tail -0| diff BUG-1283/plain.log -
+echo '=== BUG-1284/'; grep -ve"because exiting with last active thread context" BUG-1284/gem5.log | tail -0| diff BUG-1284/plain.log -
+echo '=== BUG-1285/'; grep -ve"because exiting with last active thread context" BUG-1285/gem5.log | tail -0| diff BUG-1285/plain.log -
+echo '=== BUG-1286/'; grep -ve"because exiting with last active thread context" BUG-1286/gem5.log | tail -0| diff BUG-1286/plain.log -
+echo '=== BUG-1287/'; grep -ve"because exiting with last active thread context" BUG-1287/gem5.log | tail -0| diff BUG-1287/plain.log -
+echo '=== BUG-1288/'; grep -ve"because exiting with last active thread context" BUG-1288/gem5.log | tail -0| diff BUG-1288/plain.log -
+echo '=== BUG-1289/'; grep -ve"because exiting with last active thread context" BUG-1289/gem5.log | tail -0| diff BUG-1289/plain.log -
+echo '=== BUG-129/'; grep -ve"because exiting with last active thread context" BUG-129/gem5.log | tail -0| diff BUG-129/plain.log -
+echo '=== BUG-1290/'; grep -ve"because exiting with last active thread context" BUG-1290/gem5.log | tail -0| diff BUG-1290/plain.log -
+echo '=== BUG-1291/'; grep -ve"because exiting with last active thread context" BUG-1291/gem5.log | tail -0| diff BUG-1291/plain.log -
+echo '=== BUG-1292/'; grep -ve"because exiting with last active thread context" BUG-1292/gem5.log | tail -1| diff BUG-1292/plain.log -
+echo '=== BUG-1293/'; grep -ve"because exiting with last active thread context" BUG-1293/gem5.log | tail -1| diff BUG-1293/plain.log -
+echo '=== BUG-1294/'; grep -ve"because exiting with last active thread context" BUG-1294/gem5.log | tail -1| diff BUG-1294/plain.log -
+echo '=== BUG-1295/'; grep -ve"because exiting with last active thread context" BUG-1295/gem5.log | tail -1| diff BUG-1295/plain.log -
+echo '=== BUG-1296/'; grep -ve"because exiting with last active thread context" BUG-1296/gem5.log | tail -1| diff BUG-1296/plain.log -
+echo '=== BUG-1297/'; grep -ve"because exiting with last active thread context" BUG-1297/gem5.log | tail -1| diff BUG-1297/plain.log -
+echo '=== BUG-1298/'; grep -ve"because exiting with last active thread context" BUG-1298/gem5.log | tail -1| diff BUG-1298/plain.log -
+echo '=== BUG-1299/'; grep -ve"because exiting with last active thread context" BUG-1299/gem5.log | tail -1| diff BUG-1299/plain.log -
+echo '=== BUG-13/'; grep -ve"because exiting with last active thread context" BUG-13/gem5.log | tail -0| diff BUG-13/plain.log -
+echo '=== BUG-130/'; grep -ve"because exiting with last active thread context" BUG-130/gem5.log | tail -0| diff BUG-130/plain.log -
+echo '=== BUG-1300/'; grep -ve"because exiting with last active thread context" BUG-1300/gem5.log | tail -1| diff BUG-1300/plain.log -
+echo '=== BUG-1301/'; grep -ve"because exiting with last active thread context" BUG-1301/gem5.log | tail -1| diff BUG-1301/plain.log -
+echo '=== BUG-1302/'; grep -ve"because exiting with last active thread context" BUG-1302/gem5.log | tail -1| diff BUG-1302/plain.log -
+echo '=== BUG-1303/'; grep -ve"because exiting with last active thread context" BUG-1303/gem5.log | tail -1| diff BUG-1303/plain.log -
+echo '=== BUG-1304/'; grep -ve"because exiting with last active thread context" BUG-1304/gem5.log | tail -1| diff BUG-1304/plain.log -
+echo '=== BUG-1305/'; grep -ve"because exiting with last active thread context" BUG-1305/gem5.log | tail -1| diff BUG-1305/plain.log -
+echo '=== BUG-1306/'; grep -ve"because exiting with last active thread context" BUG-1306/gem5.log | tail -1| diff BUG-1306/plain.log -
+echo '=== BUG-1307/'; grep -ve"because exiting with last active thread context" BUG-1307/gem5.log | tail -1| diff BUG-1307/plain.log -
+echo '=== BUG-1308/'; grep -ve"because exiting with last active thread context" BUG-1308/gem5.log | tail -1| diff BUG-1308/plain.log -
+echo '=== BUG-1309/'; grep -ve"because exiting with last active thread context" BUG-1309/gem5.log | tail -1| diff BUG-1309/plain.log -
+echo '=== BUG-131/'; grep -ve"because exiting with last active thread context" BUG-131/gem5.log | tail -1| diff BUG-131/plain.log -
+echo '=== BUG-1310/'; grep -ve"because exiting with last active thread context" BUG-1310/gem5.log | tail -1| diff BUG-1310/plain.log -
+echo '=== BUG-1311/'; grep -ve"because exiting with last active thread context" BUG-1311/gem5.log | tail -0| diff BUG-1311/plain.log -
+echo '=== BUG-1312/'; grep -ve"because exiting with last active thread context" BUG-1312/gem5.log | tail -0| diff BUG-1312/plain.log -
+echo '=== BUG-1313/'; grep -ve"because exiting with last active thread context" BUG-1313/gem5.log | tail -0| diff BUG-1313/plain.log -
+echo '=== BUG-1314/'; grep -ve"because exiting with last active thread context" BUG-1314/gem5.log | tail -0| diff BUG-1314/plain.log -
+echo '=== BUG-1315/'; grep -ve"because exiting with last active thread context" BUG-1315/gem5.log | tail -0| diff BUG-1315/plain.log -
+echo '=== BUG-1316/'; grep -ve"because exiting with last active thread context" BUG-1316/gem5.log | tail -0| diff BUG-1316/plain.log -
+echo '=== BUG-1317/'; grep -ve"because exiting with last active thread context" BUG-1317/gem5.log | tail -1| diff BUG-1317/plain.log -
+echo '=== BUG-1318/'; grep -ve"because exiting with last active thread context" BUG-1318/gem5.log | tail -0| diff BUG-1318/plain.log -
+echo '=== BUG-1319/'; grep -ve"because exiting with last active thread context" BUG-1319/gem5.log | tail -0| diff BUG-1319/plain.log -
+echo '=== BUG-132/'; grep -ve"because exiting with last active thread context" BUG-132/gem5.log | tail -0| diff BUG-132/plain.log -
+echo '=== BUG-1320/'; grep -ve"because exiting with last active thread context" BUG-1320/gem5.log | tail -1| diff BUG-1320/plain.log -
+echo '=== BUG-1321/'; grep -ve"because exiting with last active thread context" BUG-1321/gem5.log | tail -0| diff BUG-1321/plain.log -
+echo '=== BUG-1322/'; grep -ve"because exiting with last active thread context" BUG-1322/gem5.log | tail -1| diff BUG-1322/plain.log -
+echo '=== BUG-1323/'; grep -ve"because exiting with last active thread context" BUG-1323/gem5.log | tail -1| diff BUG-1323/plain.log -
+echo '=== BUG-1324/'; grep -ve"because exiting with last active thread context" BUG-1324/gem5.log | tail -1| diff BUG-1324/plain.log -
+echo '=== BUG-1325/'; grep -ve"because exiting with last active thread context" BUG-1325/gem5.log | tail -1| diff BUG-1325/plain.log -
+echo '=== BUG-1326/'; grep -ve"because exiting with last active thread context" BUG-1326/gem5.log | tail -1| diff BUG-1326/plain.log -
+echo '=== BUG-1327/'; grep -ve"because exiting with last active thread context" BUG-1327/gem5.log | tail -1| diff BUG-1327/plain.log -
+echo '=== BUG-1328/'; grep -ve"because exiting with last active thread context" BUG-1328/gem5.log | tail -1| diff BUG-1328/plain.log -
+echo '=== BUG-1329/'; grep -ve"because exiting with last active thread context" BUG-1329/gem5.log | tail -0| diff BUG-1329/plain.log -
+echo '=== BUG-133/'; grep -ve"because exiting with last active thread context" BUG-133/gem5.log | tail -1| diff BUG-133/plain.log -
+echo '=== BUG-1330/'; grep -ve"because exiting with last active thread context" BUG-1330/gem5.log | tail -0| diff BUG-1330/plain.log -
+echo '=== BUG-1331/'; grep -ve"because exiting with last active thread context" BUG-1331/gem5.log | tail -2| diff BUG-1331/plain.log -
+echo '=== BUG-1332/'; grep -ve"because exiting with last active thread context" BUG-1332/gem5.log | tail -2| diff BUG-1332/plain.log -
+echo '=== BUG-1333/'; grep -ve"because exiting with last active thread context" BUG-1333/gem5.log | tail -2| diff BUG-1333/plain.log -
+echo '=== BUG-1334/'; grep -ve"because exiting with last active thread context" BUG-1334/gem5.log | tail -2| diff BUG-1334/plain.log -
+echo '=== BUG-1335/'; grep -ve"because exiting with last active thread context" BUG-1335/gem5.log | tail -0| diff BUG-1335/plain.log -
+echo '=== BUG-1336/'; grep -ve"because exiting with last active thread context" BUG-1336/gem5.log | tail -0| diff BUG-1336/plain.log -
+echo '=== BUG-1337/'; grep -ve"because exiting with last active thread context" BUG-1337/gem5.log | tail -0| diff BUG-1337/plain.log -
+echo '=== BUG-1338/'; grep -ve"because exiting with last active thread context" BUG-1338/gem5.log | tail -0| diff BUG-1338/plain.log -
+echo '=== BUG-1339/'; grep -ve"because exiting with last active thread context" BUG-1339/gem5.log | tail -0| diff BUG-1339/plain.log -
+echo '=== BUG-134/'; grep -ve"because exiting with last active thread context" BUG-134/gem5.log | tail -1| diff BUG-134/plain.log -
+echo '=== BUG-1340/'; grep -ve"because exiting with last active thread context" BUG-1340/gem5.log | tail -0| diff BUG-1340/plain.log -
+echo '=== BUG-1341/'; grep -ve"because exiting with last active thread context" BUG-1341/gem5.log | tail -0| diff BUG-1341/plain.log -
+echo '=== BUG-1342/'; grep -ve"because exiting with last active thread context" BUG-1342/gem5.log | tail -1| diff BUG-1342/plain.log -
+echo '=== BUG-1343/'; grep -ve"because exiting with last active thread context" BUG-1343/gem5.log | tail -0| diff BUG-1343/plain.log -
+echo '=== BUG-1344/'; grep -ve"because exiting with last active thread context" BUG-1344/gem5.log | tail -0| diff BUG-1344/plain.log -
+echo '=== BUG-1345/'; grep -ve"because exiting with last active thread context" BUG-1345/gem5.log | tail -0| diff BUG-1345/plain.log -
+echo '=== BUG-1346/'; grep -ve"because exiting with last active thread context" BUG-1346/gem5.log | tail -0| diff BUG-1346/plain.log -
+echo '=== BUG-1347/'; grep -ve"because exiting with last active thread context" BUG-1347/gem5.log | tail -0| diff BUG-1347/plain.log -
+echo '=== BUG-1348/'; grep -ve"because exiting with last active thread context" BUG-1348/gem5.log | tail -0| diff BUG-1348/plain.log -
+echo '=== BUG-1349/'; grep -ve"because exiting with last active thread context" BUG-1349/gem5.log | tail -0| diff BUG-1349/plain.log -
+echo '=== BUG-135/'; grep -ve"because exiting with last active thread context" BUG-135/gem5.log | tail -0| diff BUG-135/plain.log -
+echo '=== BUG-1350/'; grep -ve"because exiting with last active thread context" BUG-1350/gem5.log | tail -0| diff BUG-1350/plain.log -
+echo '=== BUG-1351/'; grep -ve"because exiting with last active thread context" BUG-1351/gem5.log | tail -0| diff BUG-1351/plain.log -
+echo '=== BUG-1352/'; grep -ve"because exiting with last active thread context" BUG-1352/gem5.log | tail -0| diff BUG-1352/plain.log -
+echo '=== BUG-1353/'; grep -ve"because exiting with last active thread context" BUG-1353/gem5.log | tail -0| diff BUG-1353/plain.log -
+echo '=== BUG-1354/'; grep -ve"because exiting with last active thread context" BUG-1354/gem5.log | tail -0| diff BUG-1354/plain.log -
+echo '=== BUG-1355/'; grep -ve"because exiting with last active thread context" BUG-1355/gem5.log | tail -0| diff BUG-1355/plain.log -
+echo '=== BUG-1356/'; grep -ve"because exiting with last active thread context" BUG-1356/gem5.log | tail -0| diff BUG-1356/plain.log -
+echo '=== BUG-1357/'; grep -ve"because exiting with last active thread context" BUG-1357/gem5.log | tail -0| diff BUG-1357/plain.log -
+echo '=== BUG-1358/'; grep -ve"because exiting with last active thread context" BUG-1358/gem5.log | tail -0| diff BUG-1358/plain.log -
+echo '=== BUG-1359/'; grep -ve"because exiting with last active thread context" BUG-1359/gem5.log | tail -0| diff BUG-1359/plain.log -
+echo '=== BUG-136/'; grep -ve"because exiting with last active thread context" BUG-136/gem5.log | tail -1| diff BUG-136/plain.log -
+echo '=== BUG-1360/'; grep -ve"because exiting with last active thread context" BUG-1360/gem5.log | tail -0| diff BUG-1360/plain.log -
+echo '=== BUG-1361/'; grep -ve"because exiting with last active thread context" BUG-1361/gem5.log | tail -1| diff BUG-1361/plain.log -
+echo '=== BUG-1362/'; grep -ve"because exiting with last active thread context" BUG-1362/gem5.log | tail -0| diff BUG-1362/plain.log -
+echo '=== BUG-1363/'; grep -ve"because exiting with last active thread context" BUG-1363/gem5.log | tail -0| diff BUG-1363/plain.log -
+echo '=== BUG-1364/'; grep -ve"because exiting with last active thread context" BUG-1364/gem5.log | tail -0| diff BUG-1364/plain.log -
+echo '=== BUG-1365/'; grep -ve"because exiting with last active thread context" BUG-1365/gem5.log | tail -0| diff BUG-1365/plain.log -
+echo '=== BUG-1366/'; grep -ve"because exiting with last active thread context" BUG-1366/gem5.log | tail -0| diff BUG-1366/plain.log -
+echo '=== BUG-1367/'; grep -ve"because exiting with last active thread context" BUG-1367/gem5.log | tail -0| diff BUG-1367/plain.log -
+echo '=== BUG-1368/'; grep -ve"because exiting with last active thread context" BUG-1368/gem5.log | tail -0| diff BUG-1368/plain.log -
+echo '=== BUG-1369/'; grep -ve"because exiting with last active thread context" BUG-1369/gem5.log | tail -0| diff BUG-1369/plain.log -
+echo '=== BUG-137/'; grep -ve"because exiting with last active thread context" BUG-137/gem5.log | tail -1| diff BUG-137/plain.log -
+echo '=== BUG-1370/'; grep -ve"because exiting with last active thread context" BUG-1370/gem5.log | tail -1| diff BUG-1370/plain.log -
+echo '=== BUG-1371/'; grep -ve"because exiting with last active thread context" BUG-1371/gem5.log | tail -1| diff BUG-1371/plain.log -
+echo '=== BUG-1372/'; grep -ve"because exiting with last active thread context" BUG-1372/gem5.log | tail -0| diff BUG-1372/plain.log -
+echo '=== BUG-1373/'; grep -ve"because exiting with last active thread context" BUG-1373/gem5.log | tail -1| diff BUG-1373/plain.log -
+echo '=== BUG-1374/'; grep -ve"because exiting with last active thread context" BUG-1374/gem5.log | tail -1| diff BUG-1374/plain.log -
+echo '=== BUG-1375/'; grep -ve"because exiting with last active thread context" BUG-1375/gem5.log | tail -1| diff BUG-1375/plain.log -
+echo '=== BUG-1376/'; grep -ve"because exiting with last active thread context" BUG-1376/gem5.log | tail -0| diff BUG-1376/plain.log -
+echo '=== BUG-1377/'; grep -ve"because exiting with last active thread context" BUG-1377/gem5.log | tail -0| diff BUG-1377/plain.log -
+echo '=== BUG-1378/'; grep -ve"because exiting with last active thread context" BUG-1378/gem5.log | tail -0| diff BUG-1378/plain.log -
+echo '=== BUG-1379/'; grep -ve"because exiting with last active thread context" BUG-1379/gem5.log | tail -0| diff BUG-1379/plain.log -
+echo '=== BUG-138/'; grep -ve"because exiting with last active thread context" BUG-138/gem5.log | tail -0| diff BUG-138/plain.log -
+echo '=== BUG-1380/'; grep -ve"because exiting with last active thread context" BUG-1380/gem5.log | tail -0| diff BUG-1380/plain.log -
+echo '=== BUG-1381/'; grep -ve"because exiting with last active thread context" BUG-1381/gem5.log | tail -0| diff BUG-1381/plain.log -
+echo '=== BUG-1382/'; grep -ve"because exiting with last active thread context" BUG-1382/gem5.log | tail -0| diff BUG-1382/plain.log -
+echo '=== BUG-1383/'; grep -ve"because exiting with last active thread context" BUG-1383/gem5.log | tail -0| diff BUG-1383/plain.log -
+echo '=== BUG-1384/'; grep -ve"because exiting with last active thread context" BUG-1384/gem5.log | tail -0| diff BUG-1384/plain.log -
+echo '=== BUG-1385/'; grep -ve"because exiting with last active thread context" BUG-1385/gem5.log | tail -0| diff BUG-1385/plain.log -
+echo '=== BUG-1386/'; grep -ve"because exiting with last active thread context" BUG-1386/gem5.log | tail -0| diff BUG-1386/plain.log -
+echo '=== BUG-1387/'; grep -ve"because exiting with last active thread context" BUG-1387/gem5.log | tail -0| diff BUG-1387/plain.log -
+echo '=== BUG-1388/'; grep -ve"because exiting with last active thread context" BUG-1388/gem5.log | tail -0| diff BUG-1388/plain.log -
+echo '=== BUG-1389/'; grep -ve"because exiting with last active thread context" BUG-1389/gem5.log | tail -0| diff BUG-1389/plain.log -
+echo '=== BUG-139/'; grep -ve"because exiting with last active thread context" BUG-139/gem5.log | tail -1| diff BUG-139/plain.log -
+echo '=== BUG-1390/'; grep -ve"because exiting with last active thread context" BUG-1390/gem5.log | tail -0| diff BUG-1390/plain.log -
+echo '=== BUG-1391/'; grep -ve"because exiting with last active thread context" BUG-1391/gem5.log | tail -0| diff BUG-1391/plain.log -
+echo '=== BUG-1392/'; grep -ve"because exiting with last active thread context" BUG-1392/gem5.log | tail -0| diff BUG-1392/plain.log -
+echo '=== BUG-1393/'; grep -ve"because exiting with last active thread context" BUG-1393/gem5.log | tail -0| diff BUG-1393/plain.log -
+echo '=== BUG-1394/'; grep -ve"because exiting with last active thread context" BUG-1394/gem5.log | tail -0| diff BUG-1394/plain.log -
+echo '=== BUG-1395/'; grep -ve"because exiting with last active thread context" BUG-1395/gem5.log | tail -0| diff BUG-1395/plain.log -
+echo '=== BUG-1396/'; grep -ve"because exiting with last active thread context" BUG-1396/gem5.log | tail -0| diff BUG-1396/plain.log -
+echo '=== BUG-1397/'; grep -ve"because exiting with last active thread context" BUG-1397/gem5.log | tail -0| diff BUG-1397/plain.log -
+echo '=== BUG-1398/'; grep -ve"because exiting with last active thread context" BUG-1398/gem5.log | tail -0| diff BUG-1398/plain.log -
+echo '=== BUG-1399/'; grep -ve"because exiting with last active thread context" BUG-1399/gem5.log | tail -0| diff BUG-1399/plain.log -
+echo '=== BUG-14/'; grep -ve"because exiting with last active thread context" BUG-14/gem5.log | tail -0| diff BUG-14/plain.log -
+echo '=== BUG-140/'; grep -ve"because exiting with last active thread context" BUG-140/gem5.log | tail -1| diff BUG-140/plain.log -
+echo '=== BUG-1400/'; grep -ve"because exiting with last active thread context" BUG-1400/gem5.log | tail -0| diff BUG-1400/plain.log -
+echo '=== BUG-1401/'; grep -ve"because exiting with last active thread context" BUG-1401/gem5.log | tail -0| diff BUG-1401/plain.log -
+echo '=== BUG-1402/'; grep -ve"because exiting with last active thread context" BUG-1402/gem5.log | tail -0| diff BUG-1402/plain.log -
+echo '=== BUG-1403/'; grep -ve"because exiting with last active thread context" BUG-1403/gem5.log | tail -0| diff BUG-1403/plain.log -
+echo '=== BUG-1404/'; grep -ve"because exiting with last active thread context" BUG-1404/gem5.log | tail -0| diff BUG-1404/plain.log -
+echo '=== BUG-1405/'; grep -ve"because exiting with last active thread context" BUG-1405/gem5.log | tail -0| diff BUG-1405/plain.log -
+echo '=== BUG-1406/'; grep -ve"because exiting with last active thread context" BUG-1406/gem5.log | tail -0| diff BUG-1406/plain.log -
+echo '=== BUG-1407/'; grep -ve"because exiting with last active thread context" BUG-1407/gem5.log | tail -0| diff BUG-1407/plain.log -
+echo '=== BUG-1408/'; grep -ve"because exiting with last active thread context" BUG-1408/gem5.log | tail -0| diff BUG-1408/plain.log -
+echo '=== BUG-1409/'; grep -ve"because exiting with last active thread context" BUG-1409/gem5.log | tail -0| diff BUG-1409/plain.log -
+echo '=== BUG-141/'; grep -ve"because exiting with last active thread context" BUG-141/gem5.log | tail -0| diff BUG-141/plain.log -
+echo '=== BUG-1410/'; grep -ve"because exiting with last active thread context" BUG-1410/gem5.log | tail -0| diff BUG-1410/plain.log -
+echo '=== BUG-1411/'; grep -ve"because exiting with last active thread context" BUG-1411/gem5.log | tail -0| diff BUG-1411/plain.log -
+echo '=== BUG-1412/'; grep -ve"because exiting with last active thread context" BUG-1412/gem5.log | tail -0| diff BUG-1412/plain.log -
+echo '=== BUG-1413/'; grep -ve"because exiting with last active thread context" BUG-1413/gem5.log | tail -0| diff BUG-1413/plain.log -
+echo '=== BUG-1414/'; grep -ve"because exiting with last active thread context" BUG-1414/gem5.log | tail -0| diff BUG-1414/plain.log -
+echo '=== BUG-1415/'; grep -ve"because exiting with last active thread context" BUG-1415/gem5.log | tail -0| diff BUG-1415/plain.log -
+echo '=== BUG-1416/'; grep -ve"because exiting with last active thread context" BUG-1416/gem5.log | tail -0| diff BUG-1416/plain.log -
+echo '=== BUG-1417/'; grep -ve"because exiting with last active thread context" BUG-1417/gem5.log | tail -0| diff BUG-1417/plain.log -
+echo '=== BUG-1418/'; grep -ve"because exiting with last active thread context" BUG-1418/gem5.log | tail -0| diff BUG-1418/plain.log -
+echo '=== BUG-1419/'; grep -ve"because exiting with last active thread context" BUG-1419/gem5.log | tail -0| diff BUG-1419/plain.log -
+echo '=== BUG-142/'; grep -ve"because exiting with last active thread context" BUG-142/gem5.log | tail -1| diff BUG-142/plain.log -
+echo '=== BUG-1420/'; grep -ve"because exiting with last active thread context" BUG-1420/gem5.log | tail -0| diff BUG-1420/plain.log -
+echo '=== BUG-1421/'; grep -ve"because exiting with last active thread context" BUG-1421/gem5.log | tail -0| diff BUG-1421/plain.log -
+echo '=== BUG-1422/'; grep -ve"because exiting with last active thread context" BUG-1422/gem5.log | tail -0| diff BUG-1422/plain.log -
+echo '=== BUG-1423/'; grep -ve"because exiting with last active thread context" BUG-1423/gem5.log | tail -0| diff BUG-1423/plain.log -
+echo '=== BUG-1424/'; grep -ve"because exiting with last active thread context" BUG-1424/gem5.log | tail -0| diff BUG-1424/plain.log -
+echo '=== BUG-1425/'; grep -ve"because exiting with last active thread context" BUG-1425/gem5.log | tail -0| diff BUG-1425/plain.log -
+echo '=== BUG-1426/'; grep -ve"because exiting with last active thread context" BUG-1426/gem5.log | tail -0| diff BUG-1426/plain.log -
+echo '=== BUG-1427/'; grep -ve"because exiting with last active thread context" BUG-1427/gem5.log | tail -0| diff BUG-1427/plain.log -
+echo '=== BUG-1428/'; grep -ve"because exiting with last active thread context" BUG-1428/gem5.log | tail -0| diff BUG-1428/plain.log -
+echo '=== BUG-1429/'; grep -ve"because exiting with last active thread context" BUG-1429/gem5.log | tail -0| diff BUG-1429/plain.log -
+echo '=== BUG-143/'; grep -ve"because exiting with last active thread context" BUG-143/gem5.log | tail -1| diff BUG-143/plain.log -
+echo '=== BUG-1430/'; grep -ve"because exiting with last active thread context" BUG-1430/gem5.log | tail -0| diff BUG-1430/plain.log -
+echo '=== BUG-1431/'; grep -ve"because exiting with last active thread context" BUG-1431/gem5.log | tail -0| diff BUG-1431/plain.log -
+echo '=== BUG-1432/'; grep -ve"because exiting with last active thread context" BUG-1432/gem5.log | tail -0| diff BUG-1432/plain.log -
+echo '=== BUG-1433/'; grep -ve"because exiting with last active thread context" BUG-1433/gem5.log | tail -0| diff BUG-1433/plain.log -
+echo '=== BUG-1434/'; grep -ve"because exiting with last active thread context" BUG-1434/gem5.log | tail -0| diff BUG-1434/plain.log -
+echo '=== BUG-1435/'; grep -ve"because exiting with last active thread context" BUG-1435/gem5.log | tail -0| diff BUG-1435/plain.log -
+echo '=== BUG-1436/'; grep -ve"because exiting with last active thread context" BUG-1436/gem5.log | tail -0| diff BUG-1436/plain.log -
+echo '=== BUG-1437/'; grep -ve"because exiting with last active thread context" BUG-1437/gem5.log | tail -1| diff BUG-1437/plain.log -
+echo '=== BUG-1438/'; grep -ve"because exiting with last active thread context" BUG-1438/gem5.log | tail -0| diff BUG-1438/plain.log -
+echo '=== BUG-1439/'; grep -ve"because exiting with last active thread context" BUG-1439/gem5.log | tail -1| diff BUG-1439/plain.log -
+echo '=== BUG-144/'; grep -ve"because exiting with last active thread context" BUG-144/gem5.log | tail -1| diff BUG-144/plain.log -
+echo '=== BUG-1440/'; grep -ve"because exiting with last active thread context" BUG-1440/gem5.log | tail -0| diff BUG-1440/plain.log -
+echo '=== BUG-1441/'; grep -ve"because exiting with last active thread context" BUG-1441/gem5.log | tail -1| diff BUG-1441/plain.log -
+echo '=== BUG-1442/'; grep -ve"because exiting with last active thread context" BUG-1442/gem5.log | tail -1| diff BUG-1442/plain.log -
+echo '=== BUG-1443/'; grep -ve"because exiting with last active thread context" BUG-1443/gem5.log | tail -1| diff BUG-1443/plain.log -
+echo '=== BUG-1444/'; grep -ve"because exiting with last active thread context" BUG-1444/gem5.log | tail -1| diff BUG-1444/plain.log -
+echo '=== BUG-1445/'; grep -ve"because exiting with last active thread context" BUG-1445/gem5.log | tail -1| diff BUG-1445/plain.log -
+echo '=== BUG-1446/'; grep -ve"because exiting with last active thread context" BUG-1446/gem5.log | tail -1| diff BUG-1446/plain.log -
+echo '=== BUG-1447/'; grep -ve"because exiting with last active thread context" BUG-1447/gem5.log | tail -0| diff BUG-1447/plain.log -
+echo '=== BUG-1448/'; grep -ve"because exiting with last active thread context" BUG-1448/gem5.log | tail -0| diff BUG-1448/plain.log -
+echo '=== BUG-1449/'; grep -ve"because exiting with last active thread context" BUG-1449/gem5.log | tail -0| diff BUG-1449/plain.log -
+echo '=== BUG-145/'; grep -ve"because exiting with last active thread context" BUG-145/gem5.log | tail -1| diff BUG-145/plain.log -
+echo '=== BUG-1450/'; grep -ve"because exiting with last active thread context" BUG-1450/gem5.log | tail -0| diff BUG-1450/plain.log -
+echo '=== BUG-1451/'; grep -ve"because exiting with last active thread context" BUG-1451/gem5.log | tail -0| diff BUG-1451/plain.log -
+echo '=== BUG-1452/'; grep -ve"because exiting with last active thread context" BUG-1452/gem5.log | tail -0| diff BUG-1452/plain.log -
+echo '=== BUG-1453/'; grep -ve"because exiting with last active thread context" BUG-1453/gem5.log | tail -0| diff BUG-1453/plain.log -
+echo '=== BUG-1454/'; grep -ve"because exiting with last active thread context" BUG-1454/gem5.log | tail -0| diff BUG-1454/plain.log -
+echo '=== BUG-1455/'; grep -ve"because exiting with last active thread context" BUG-1455/gem5.log | tail -0| diff BUG-1455/plain.log -
+echo '=== BUG-1456/'; grep -ve"because exiting with last active thread context" BUG-1456/gem5.log | tail -0| diff BUG-1456/plain.log -
+echo '=== BUG-1457/'; grep -ve"because exiting with last active thread context" BUG-1457/gem5.log | tail -0| diff BUG-1457/plain.log -
+echo '=== BUG-1458/'; grep -ve"because exiting with last active thread context" BUG-1458/gem5.log | tail -3| diff BUG-1458/plain.log -
+echo '=== BUG-1459/'; grep -ve"because exiting with last active thread context" BUG-1459/gem5.log | tail -3| diff BUG-1459/plain.log -
+echo '=== BUG-146/'; grep -ve"because exiting with last active thread context" BUG-146/gem5.log | tail -1| diff BUG-146/plain.log -
+echo '=== BUG-1460/'; grep -ve"because exiting with last active thread context" BUG-1460/gem5.log | tail -3| diff BUG-1460/plain.log -
+echo '=== BUG-1461/'; grep -ve"because exiting with last active thread context" BUG-1461/gem5.log | tail -3| diff BUG-1461/plain.log -
+echo '=== BUG-1462/'; grep -ve"because exiting with last active thread context" BUG-1462/gem5.log | tail -3| diff BUG-1462/plain.log -
+echo '=== BUG-1463/'; grep -ve"because exiting with last active thread context" BUG-1463/gem5.log | tail -3| diff BUG-1463/plain.log -
+echo '=== BUG-1464/'; grep -ve"because exiting with last active thread context" BUG-1464/gem5.log | tail -3| diff BUG-1464/plain.log -
+echo '=== BUG-1465/'; grep -ve"because exiting with last active thread context" BUG-1465/gem5.log | tail -3| diff BUG-1465/plain.log -
+echo '=== BUG-1466/'; grep -ve"because exiting with last active thread context" BUG-1466/gem5.log | tail -3| diff BUG-1466/plain.log -
+echo '=== BUG-1467/'; grep -ve"because exiting with last active thread context" BUG-1467/gem5.log | tail -3| diff BUG-1467/plain.log -
+echo '=== BUG-1468/'; grep -ve"because exiting with last active thread context" BUG-1468/gem5.log | tail -3| diff BUG-1468/plain.log -
+echo '=== BUG-1469/'; grep -ve"because exiting with last active thread context" BUG-1469/gem5.log | tail -3| diff BUG-1469/plain.log -
+echo '=== BUG-147/'; grep -ve"because exiting with last active thread context" BUG-147/gem5.log | tail -0| diff BUG-147/plain.log -
+echo '=== BUG-1470/'; grep -ve"because exiting with last active thread context" BUG-1470/gem5.log | tail -3| diff BUG-1470/plain.log -
+echo '=== BUG-1471/'; grep -ve"because exiting with last active thread context" BUG-1471/gem5.log | tail -3| diff BUG-1471/plain.log -
+echo '=== BUG-1472/'; grep -ve"because exiting with last active thread context" BUG-1472/gem5.log | tail -3| diff BUG-1472/plain.log -
+echo '=== BUG-1473/'; grep -ve"because exiting with last active thread context" BUG-1473/gem5.log | tail -3| diff BUG-1473/plain.log -
+echo '=== BUG-1474/'; grep -ve"because exiting with last active thread context" BUG-1474/gem5.log | tail -3| diff BUG-1474/plain.log -
+echo '=== BUG-1475/'; grep -ve"because exiting with last active thread context" BUG-1475/gem5.log | tail -3| diff BUG-1475/plain.log -
+echo '=== BUG-1476/'; grep -ve"because exiting with last active thread context" BUG-1476/gem5.log | tail -3| diff BUG-1476/plain.log -
+echo '=== BUG-1477/'; grep -ve"because exiting with last active thread context" BUG-1477/gem5.log | tail -3| diff BUG-1477/plain.log -
+echo '=== BUG-1478/'; grep -ve"because exiting with last active thread context" BUG-1478/gem5.log | tail -3| diff BUG-1478/plain.log -
+echo '=== BUG-1479/'; grep -ve"because exiting with last active thread context" BUG-1479/gem5.log | tail -3| diff BUG-1479/plain.log -
+echo '=== BUG-148/'; grep -ve"because exiting with last active thread context" BUG-148/gem5.log | tail -1| diff BUG-148/plain.log -
+echo '=== BUG-1480/'; grep -ve"because exiting with last active thread context" BUG-1480/gem5.log | tail -3| diff BUG-1480/plain.log -
+echo '=== BUG-1481/'; grep -ve"because exiting with last active thread context" BUG-1481/gem5.log | tail -3| diff BUG-1481/plain.log -
+echo '=== BUG-1482/'; grep -ve"because exiting with last active thread context" BUG-1482/gem5.log | tail -3| diff BUG-1482/plain.log -
+echo '=== BUG-1483/'; grep -ve"because exiting with last active thread context" BUG-1483/gem5.log | tail -3| diff BUG-1483/plain.log -
+echo '=== BUG-1484/'; grep -ve"because exiting with last active thread context" BUG-1484/gem5.log | tail -3| diff BUG-1484/plain.log -
+echo '=== BUG-1485/'; grep -ve"because exiting with last active thread context" BUG-1485/gem5.log | tail -3| diff BUG-1485/plain.log -
+echo '=== BUG-1486/'; grep -ve"because exiting with last active thread context" BUG-1486/gem5.log | tail -3| diff BUG-1486/plain.log -
+echo '=== BUG-1487/'; grep -ve"because exiting with last active thread context" BUG-1487/gem5.log | tail -3| diff BUG-1487/plain.log -
+echo '=== BUG-1488/'; grep -ve"because exiting with last active thread context" BUG-1488/gem5.log | tail -3| diff BUG-1488/plain.log -
+echo '=== BUG-1489/'; grep -ve"because exiting with last active thread context" BUG-1489/gem5.log | tail -3| diff BUG-1489/plain.log -
+echo '=== BUG-149/'; grep -ve"because exiting with last active thread context" BUG-149/gem5.log | tail -1| diff BUG-149/plain.log -
+echo '=== BUG-1490/'; grep -ve"because exiting with last active thread context" BUG-1490/gem5.log | tail -3| diff BUG-1490/plain.log -
+echo '=== BUG-1491/'; grep -ve"because exiting with last active thread context" BUG-1491/gem5.log | tail -3| diff BUG-1491/plain.log -
+echo '=== BUG-1492/'; grep -ve"because exiting with last active thread context" BUG-1492/gem5.log | tail -3| diff BUG-1492/plain.log -
+echo '=== BUG-1493/'; grep -ve"because exiting with last active thread context" BUG-1493/gem5.log | tail -3| diff BUG-1493/plain.log -
+echo '=== BUG-1494/'; grep -ve"because exiting with last active thread context" BUG-1494/gem5.log | tail -3| diff BUG-1494/plain.log -
+echo '=== BUG-1495/'; grep -ve"because exiting with last active thread context" BUG-1495/gem5.log | tail -3| diff BUG-1495/plain.log -
+echo '=== BUG-1496/'; grep -ve"because exiting with last active thread context" BUG-1496/gem5.log | tail -3| diff BUG-1496/plain.log -
+echo '=== BUG-1497/'; grep -ve"because exiting with last active thread context" BUG-1497/gem5.log | tail -3| diff BUG-1497/plain.log -
+echo '=== BUG-1498/'; grep -ve"because exiting with last active thread context" BUG-1498/gem5.log | tail -3| diff BUG-1498/plain.log -
+echo '=== BUG-1499/'; grep -ve"because exiting with last active thread context" BUG-1499/gem5.log | tail -3| diff BUG-1499/plain.log -
+echo '=== BUG-15/'; grep -ve"because exiting with last active thread context" BUG-15/gem5.log | tail -0| diff BUG-15/plain.log -
+echo '=== BUG-150/'; grep -ve"because exiting with last active thread context" BUG-150/gem5.log | tail -1| diff BUG-150/plain.log -
+echo '=== BUG-1500/'; grep -ve"because exiting with last active thread context" BUG-1500/gem5.log | tail -3| diff BUG-1500/plain.log -
+echo '=== BUG-1501/'; grep -ve"because exiting with last active thread context" BUG-1501/gem5.log | tail -3| diff BUG-1501/plain.log -
+echo '=== BUG-1502/'; grep -ve"because exiting with last active thread context" BUG-1502/gem5.log | tail -3| diff BUG-1502/plain.log -
+echo '=== BUG-1503/'; grep -ve"because exiting with last active thread context" BUG-1503/gem5.log | tail -3| diff BUG-1503/plain.log -
+echo '=== BUG-1504/'; grep -ve"because exiting with last active thread context" BUG-1504/gem5.log | tail -3| diff BUG-1504/plain.log -
+echo '=== BUG-1505/'; grep -ve"because exiting with last active thread context" BUG-1505/gem5.log | tail -3| diff BUG-1505/plain.log -
+echo '=== BUG-1506/'; grep -ve"because exiting with last active thread context" BUG-1506/gem5.log | tail -3| diff BUG-1506/plain.log -
+echo '=== BUG-1507/'; grep -ve"because exiting with last active thread context" BUG-1507/gem5.log | tail -3| diff BUG-1507/plain.log -
+echo '=== BUG-1508/'; grep -ve"because exiting with last active thread context" BUG-1508/gem5.log | tail -3| diff BUG-1508/plain.log -
+echo '=== BUG-1509/'; grep -ve"because exiting with last active thread context" BUG-1509/gem5.log | tail -3| diff BUG-1509/plain.log -
+echo '=== BUG-151/'; grep -ve"because exiting with last active thread context" BUG-151/gem5.log | tail -1| diff BUG-151/plain.log -
+echo '=== BUG-1510/'; grep -ve"because exiting with last active thread context" BUG-1510/gem5.log | tail -3| diff BUG-1510/plain.log -
+echo '=== BUG-1511/'; grep -ve"because exiting with last active thread context" BUG-1511/gem5.log | tail -3| diff BUG-1511/plain.log -
+echo '=== BUG-1512/'; grep -ve"because exiting with last active thread context" BUG-1512/gem5.log | tail -3| diff BUG-1512/plain.log -
+echo '=== BUG-1513/'; grep -ve"because exiting with last active thread context" BUG-1513/gem5.log | tail -3| diff BUG-1513/plain.log -
+echo '=== BUG-1514/'; grep -ve"because exiting with last active thread context" BUG-1514/gem5.log | tail -3| diff BUG-1514/plain.log -
+echo '=== BUG-1515/'; grep -ve"because exiting with last active thread context" BUG-1515/gem5.log | tail -3| diff BUG-1515/plain.log -
+echo '=== BUG-1516/'; grep -ve"because exiting with last active thread context" BUG-1516/gem5.log | tail -3| diff BUG-1516/plain.log -
+echo '=== BUG-1517/'; grep -ve"because exiting with last active thread context" BUG-1517/gem5.log | tail -3| diff BUG-1517/plain.log -
+echo '=== BUG-1518/'; grep -ve"because exiting with last active thread context" BUG-1518/gem5.log | tail -3| diff BUG-1518/plain.log -
+echo '=== BUG-1519/'; grep -ve"because exiting with last active thread context" BUG-1519/gem5.log | tail -3| diff BUG-1519/plain.log -
+echo '=== BUG-152/'; grep -ve"because exiting with last active thread context" BUG-152/gem5.log | tail -0| diff BUG-152/plain.log -
+echo '=== BUG-1520/'; grep -ve"because exiting with last active thread context" BUG-1520/gem5.log | tail -3| diff BUG-1520/plain.log -
+echo '=== BUG-1521/'; grep -ve"because exiting with last active thread context" BUG-1521/gem5.log | tail -3| diff BUG-1521/plain.log -
+echo '=== BUG-1522/'; grep -ve"because exiting with last active thread context" BUG-1522/gem5.log | tail -3| diff BUG-1522/plain.log -
+echo '=== BUG-1523/'; grep -ve"because exiting with last active thread context" BUG-1523/gem5.log | tail -3| diff BUG-1523/plain.log -
+echo '=== BUG-1524/'; grep -ve"because exiting with last active thread context" BUG-1524/gem5.log | tail -3| diff BUG-1524/plain.log -
+echo '=== BUG-1525/'; grep -ve"because exiting with last active thread context" BUG-1525/gem5.log | tail -3| diff BUG-1525/plain.log -
+echo '=== BUG-1526/'; grep -ve"because exiting with last active thread context" BUG-1526/gem5.log | tail -3| diff BUG-1526/plain.log -
+echo '=== BUG-1527/'; grep -ve"because exiting with last active thread context" BUG-1527/gem5.log | tail -3| diff BUG-1527/plain.log -
+echo '=== BUG-1528/'; grep -ve"because exiting with last active thread context" BUG-1528/gem5.log | tail -3| diff BUG-1528/plain.log -
+echo '=== BUG-1529/'; grep -ve"because exiting with last active thread context" BUG-1529/gem5.log | tail -3| diff BUG-1529/plain.log -
+echo '=== BUG-153/'; grep -ve"because exiting with last active thread context" BUG-153/gem5.log | tail -1| diff BUG-153/plain.log -
+echo '=== BUG-1530/'; grep -ve"because exiting with last active thread context" BUG-1530/gem5.log | tail -3| diff BUG-1530/plain.log -
+echo '=== BUG-1531/'; grep -ve"because exiting with last active thread context" BUG-1531/gem5.log | tail -3| diff BUG-1531/plain.log -
+echo '=== BUG-1532/'; grep -ve"because exiting with last active thread context" BUG-1532/gem5.log | tail -3| diff BUG-1532/plain.log -
+echo '=== BUG-1533/'; grep -ve"because exiting with last active thread context" BUG-1533/gem5.log | tail -3| diff BUG-1533/plain.log -
+echo '=== BUG-1534/'; grep -ve"because exiting with last active thread context" BUG-1534/gem5.log | tail -3| diff BUG-1534/plain.log -
+echo '=== BUG-1535/'; grep -ve"because exiting with last active thread context" BUG-1535/gem5.log | tail -3| diff BUG-1535/plain.log -
+echo '=== BUG-1536/'; grep -ve"because exiting with last active thread context" BUG-1536/gem5.log | tail -3| diff BUG-1536/plain.log -
+echo '=== BUG-1537/'; grep -ve"because exiting with last active thread context" BUG-1537/gem5.log | tail -107| diff BUG-1537/plain.log -
+echo '=== BUG-1538/'; grep -ve"because exiting with last active thread context" BUG-1538/gem5.log | tail -107| diff BUG-1538/plain.log -
+echo '=== BUG-1539/'; grep -ve"because exiting with last active thread context" BUG-1539/gem5.log | tail -107| diff BUG-1539/plain.log -
+echo '=== BUG-154/'; grep -ve"because exiting with last active thread context" BUG-154/gem5.log | tail -1| diff BUG-154/plain.log -
+echo '=== BUG-1540/'; grep -ve"because exiting with last active thread context" BUG-1540/gem5.log | tail -107| diff BUG-1540/plain.log -
+echo '=== BUG-1541/'; grep -ve"because exiting with last active thread context" BUG-1541/gem5.log | tail -107| diff BUG-1541/plain.log -
+echo '=== BUG-1542/'; grep -ve"because exiting with last active thread context" BUG-1542/gem5.log | tail -107| diff BUG-1542/plain.log -
+echo '=== BUG-1543/'; grep -ve"because exiting with last active thread context" BUG-1543/gem5.log | tail -107| diff BUG-1543/plain.log -
+echo '=== BUG-1544/'; grep -ve"because exiting with last active thread context" BUG-1544/gem5.log | tail -107| diff BUG-1544/plain.log -
+echo '=== BUG-1545/'; grep -ve"because exiting with last active thread context" BUG-1545/gem5.log | tail -107| diff BUG-1545/plain.log -
+echo '=== BUG-1546/'; grep -ve"because exiting with last active thread context" BUG-1546/gem5.log | tail -107| diff BUG-1546/plain.log -
+echo '=== BUG-1547/'; grep -ve"because exiting with last active thread context" BUG-1547/gem5.log | tail -107| diff BUG-1547/plain.log -
+echo '=== BUG-1548/'; grep -ve"because exiting with last active thread context" BUG-1548/gem5.log | tail -107| diff BUG-1548/plain.log -
+echo '=== BUG-1549/'; grep -ve"because exiting with last active thread context" BUG-1549/gem5.log | tail -107| diff BUG-1549/plain.log -
+echo '=== BUG-155/'; grep -ve"because exiting with last active thread context" BUG-155/gem5.log | tail -0| diff BUG-155/plain.log -
+echo '=== BUG-1550/'; grep -ve"because exiting with last active thread context" BUG-1550/gem5.log | tail -107| diff BUG-1550/plain.log -
+echo '=== BUG-1551/'; grep -ve"because exiting with last active thread context" BUG-1551/gem5.log | tail -107| diff BUG-1551/plain.log -
+echo '=== BUG-1552/'; grep -ve"because exiting with last active thread context" BUG-1552/gem5.log | tail -0| diff BUG-1552/plain.log -
+echo '=== BUG-1553/'; grep -ve"because exiting with last active thread context" BUG-1553/gem5.log | tail -1| diff BUG-1553/plain.log -
+echo '=== BUG-1554/'; grep -ve"because exiting with last active thread context" BUG-1554/gem5.log | tail -1| diff BUG-1554/plain.log -
+echo '=== BUG-1555/'; grep -ve"because exiting with last active thread context" BUG-1555/gem5.log | tail -1| diff BUG-1555/plain.log -
+echo '=== BUG-1556/'; grep -ve"because exiting with last active thread context" BUG-1556/gem5.log | tail -1| diff BUG-1556/plain.log -
+echo '=== BUG-1557/'; grep -ve"because exiting with last active thread context" BUG-1557/gem5.log | tail -1| diff BUG-1557/plain.log -
+echo '=== BUG-1558/'; grep -ve"because exiting with last active thread context" BUG-1558/gem5.log | tail -0| diff BUG-1558/plain.log -
+echo '=== BUG-1559/'; grep -ve"because exiting with last active thread context" BUG-1559/gem5.log | tail -1| diff BUG-1559/plain.log -
+echo '=== BUG-156/'; grep -ve"because exiting with last active thread context" BUG-156/gem5.log | tail -1| diff BUG-156/plain.log -
+echo '=== BUG-1560/'; grep -ve"because exiting with last active thread context" BUG-1560/gem5.log | tail -0| diff BUG-1560/plain.log -
+echo '=== BUG-1561/'; grep -ve"because exiting with last active thread context" BUG-1561/gem5.log | tail -0| diff BUG-1561/plain.log -
+echo '=== BUG-1562/'; grep -ve"because exiting with last active thread context" BUG-1562/gem5.log | tail -0| diff BUG-1562/plain.log -
+echo '=== BUG-1563/'; grep -ve"because exiting with last active thread context" BUG-1563/gem5.log | tail -1| diff BUG-1563/plain.log -
+echo '=== BUG-1564/'; grep -ve"because exiting with last active thread context" BUG-1564/gem5.log | tail -1| diff BUG-1564/plain.log -
+echo '=== BUG-1565/'; grep -ve"because exiting with last active thread context" BUG-1565/gem5.log | tail -0| diff BUG-1565/plain.log -
+echo '=== BUG-1566/'; grep -ve"because exiting with last active thread context" BUG-1566/gem5.log | tail -0| diff BUG-1566/plain.log -
+echo '=== BUG-1567/'; grep -ve"because exiting with last active thread context" BUG-1567/gem5.log | tail -27| diff BUG-1567/plain.log -
+echo '=== BUG-1568/'; grep -ve"because exiting with last active thread context" BUG-1568/gem5.log | tail -27| diff BUG-1568/plain.log -
+echo '=== BUG-1569/'; grep -ve"because exiting with last active thread context" BUG-1569/gem5.log | tail -27| diff BUG-1569/plain.log -
+echo '=== BUG-157/'; grep -ve"because exiting with last active thread context" BUG-157/gem5.log | tail -1| diff BUG-157/plain.log -
+echo '=== BUG-1570/'; grep -ve"because exiting with last active thread context" BUG-1570/gem5.log | tail -27| diff BUG-1570/plain.log -
+echo '=== BUG-1571/'; grep -ve"because exiting with last active thread context" BUG-1571/gem5.log | tail -27| diff BUG-1571/plain.log -
+echo '=== BUG-1572/'; grep -ve"because exiting with last active thread context" BUG-1572/gem5.log | tail -27| diff BUG-1572/plain.log -
+echo '=== BUG-1573/'; grep -ve"because exiting with last active thread context" BUG-1573/gem5.log | tail -27| diff BUG-1573/plain.log -
+echo '=== BUG-1574/'; grep -ve"because exiting with last active thread context" BUG-1574/gem5.log | tail -27| diff BUG-1574/plain.log -
+echo '=== BUG-1575/'; grep -ve"because exiting with last active thread context" BUG-1575/gem5.log | tail -27| diff BUG-1575/plain.log -
+echo '=== BUG-1576/'; grep -ve"because exiting with last active thread context" BUG-1576/gem5.log | tail -1| diff BUG-1576/plain.log -
+echo '=== BUG-1577/'; grep -ve"because exiting with last active thread context" BUG-1577/gem5.log | tail -0| diff BUG-1577/plain.log -
+echo '=== BUG-1578/'; grep -ve"because exiting with last active thread context" BUG-1578/gem5.log | tail -1| diff BUG-1578/plain.log -
+echo '=== BUG-1579/'; grep -ve"because exiting with last active thread context" BUG-1579/gem5.log | tail -0| diff BUG-1579/plain.log -
+echo '=== BUG-158/'; grep -ve"because exiting with last active thread context" BUG-158/gem5.log | tail -1| diff BUG-158/plain.log -
+echo '=== BUG-1580/'; grep -ve"because exiting with last active thread context" BUG-1580/gem5.log | tail -1| diff BUG-1580/plain.log -
+echo '=== BUG-1581/'; grep -ve"because exiting with last active thread context" BUG-1581/gem5.log | tail -0| diff BUG-1581/plain.log -
+echo '=== BUG-1582/'; grep -ve"because exiting with last active thread context" BUG-1582/gem5.log | tail -0| diff BUG-1582/plain.log -
+echo '=== BUG-1583/'; grep -ve"because exiting with last active thread context" BUG-1583/gem5.log | tail -0| diff BUG-1583/plain.log -
+echo '=== BUG-1584/'; grep -ve"because exiting with last active thread context" BUG-1584/gem5.log | tail -1| diff BUG-1584/plain.log -
+echo '=== BUG-159/'; grep -ve"because exiting with last active thread context" BUG-159/gem5.log | tail -1| diff BUG-159/plain.log -
+echo '=== BUG-16/'; grep -ve"because exiting with last active thread context" BUG-16/gem5.log | tail -0| diff BUG-16/plain.log -
+echo '=== BUG-160/'; grep -ve"because exiting with last active thread context" BUG-160/gem5.log | tail -1| diff BUG-160/plain.log -
+echo '=== BUG-161/'; grep -ve"because exiting with last active thread context" BUG-161/gem5.log | tail -1| diff BUG-161/plain.log -
+echo '=== BUG-162/'; grep -ve"because exiting with last active thread context" BUG-162/gem5.log | tail -1| diff BUG-162/plain.log -
+echo '=== BUG-163/'; grep -ve"because exiting with last active thread context" BUG-163/gem5.log | tail -1| diff BUG-163/plain.log -
+echo '=== BUG-164/'; grep -ve"because exiting with last active thread context" BUG-164/gem5.log | tail -1| diff BUG-164/plain.log -
+echo '=== BUG-165/'; grep -ve"because exiting with last active thread context" BUG-165/gem5.log | tail -1| diff BUG-165/plain.log -
+echo '=== BUG-166/'; grep -ve"because exiting with last active thread context" BUG-166/gem5.log | tail -0| diff BUG-166/plain.log -
+echo '=== BUG-167/'; grep -ve"because exiting with last active thread context" BUG-167/gem5.log | tail -1| diff BUG-167/plain.log -
+echo '=== BUG-168/'; grep -ve"because exiting with last active thread context" BUG-168/gem5.log | tail -0| diff BUG-168/plain.log -
+echo '=== BUG-169/'; grep -ve"because exiting with last active thread context" BUG-169/gem5.log | tail -1| diff BUG-169/plain.log -
+echo '=== BUG-17/'; grep -ve"because exiting with last active thread context" BUG-17/gem5.log | tail -0| diff BUG-17/plain.log -
+echo '=== BUG-170/'; grep -ve"because exiting with last active thread context" BUG-170/gem5.log | tail -1| diff BUG-170/plain.log -
+echo '=== BUG-171/'; grep -ve"because exiting with last active thread context" BUG-171/gem5.log | tail -1| diff BUG-171/plain.log -
+echo '=== BUG-172/'; grep -ve"because exiting with last active thread context" BUG-172/gem5.log | tail -1| diff BUG-172/plain.log -
+echo '=== BUG-173/'; grep -ve"because exiting with last active thread context" BUG-173/gem5.log | tail -1| diff BUG-173/plain.log -
+echo '=== BUG-174/'; grep -ve"because exiting with last active thread context" BUG-174/gem5.log | tail -1| diff BUG-174/plain.log -
+echo '=== BUG-175/'; grep -ve"because exiting with last active thread context" BUG-175/gem5.log | tail -1| diff BUG-175/plain.log -
+echo '=== BUG-176/'; grep -ve"because exiting with last active thread context" BUG-176/gem5.log | tail -1| diff BUG-176/plain.log -
+echo '=== BUG-177/'; grep -ve"because exiting with last active thread context" BUG-177/gem5.log | tail -0| diff BUG-177/plain.log -
+echo '=== BUG-178/'; grep -ve"because exiting with last active thread context" BUG-178/gem5.log | tail -0| diff BUG-178/plain.log -
+echo '=== BUG-179/'; grep -ve"because exiting with last active thread context" BUG-179/gem5.log | tail -1| diff BUG-179/plain.log -
+echo '=== BUG-18/'; grep -ve"because exiting with last active thread context" BUG-18/gem5.log | tail -0| diff BUG-18/plain.log -
+echo '=== BUG-180/'; grep -ve"because exiting with last active thread context" BUG-180/gem5.log | tail -0| diff BUG-180/plain.log -
+echo '=== BUG-181/'; grep -ve"because exiting with last active thread context" BUG-181/gem5.log | tail -1| diff BUG-181/plain.log -
+echo '=== BUG-182/'; grep -ve"because exiting with last active thread context" BUG-182/gem5.log | tail -0| diff BUG-182/plain.log -
+echo '=== BUG-183/'; grep -ve"because exiting with last active thread context" BUG-183/gem5.log | tail -1| diff BUG-183/plain.log -
+echo '=== BUG-184/'; grep -ve"because exiting with last active thread context" BUG-184/gem5.log | tail -0| diff BUG-184/plain.log -
+echo '=== BUG-185/'; grep -ve"because exiting with last active thread context" BUG-185/gem5.log | tail -1| diff BUG-185/plain.log -
+echo '=== BUG-186/'; grep -ve"because exiting with last active thread context" BUG-186/gem5.log | tail -0| diff BUG-186/plain.log -
+echo '=== BUG-187/'; grep -ve"because exiting with last active thread context" BUG-187/gem5.log | tail -0| diff BUG-187/plain.log -
+echo '=== BUG-188/'; grep -ve"because exiting with last active thread context" BUG-188/gem5.log | tail -0| diff BUG-188/plain.log -
+echo '=== BUG-189/'; grep -ve"because exiting with last active thread context" BUG-189/gem5.log | tail -0| diff BUG-189/plain.log -
+echo '=== BUG-19/'; grep -ve"because exiting with last active thread context" BUG-19/gem5.log | tail -0| diff BUG-19/plain.log -
+echo '=== BUG-190/'; grep -ve"because exiting with last active thread context" BUG-190/gem5.log | tail -1| diff BUG-190/plain.log -
+echo '=== BUG-191/'; grep -ve"because exiting with last active thread context" BUG-191/gem5.log | tail -1| diff BUG-191/plain.log -
+echo '=== BUG-192/'; grep -ve"because exiting with last active thread context" BUG-192/gem5.log | tail -1| diff BUG-192/plain.log -
+echo '=== BUG-193/'; grep -ve"because exiting with last active thread context" BUG-193/gem5.log | tail -0| diff BUG-193/plain.log -
+echo '=== BUG-194/'; grep -ve"because exiting with last active thread context" BUG-194/gem5.log | tail -1| diff BUG-194/plain.log -
+echo '=== BUG-195/'; grep -ve"because exiting with last active thread context" BUG-195/gem5.log | tail -1| diff BUG-195/plain.log -
+echo '=== BUG-196/'; grep -ve"because exiting with last active thread context" BUG-196/gem5.log | tail -1| diff BUG-196/plain.log -
+echo '=== BUG-197/'; grep -ve"because exiting with last active thread context" BUG-197/gem5.log | tail -0| diff BUG-197/plain.log -
+echo '=== BUG-198/'; grep -ve"because exiting with last active thread context" BUG-198/gem5.log | tail -1| diff BUG-198/plain.log -
+echo '=== BUG-199/'; grep -ve"because exiting with last active thread context" BUG-199/gem5.log | tail -1| diff BUG-199/plain.log -
+echo '=== BUG-2/'; grep -ve"because exiting with last active thread context" BUG-2/gem5.log | tail -0| diff BUG-2/plain.log -
+echo '=== BUG-20/'; grep -ve"because exiting with last active thread context" BUG-20/gem5.log | tail -0| diff BUG-20/plain.log -
+echo '=== BUG-200/'; grep -ve"because exiting with last active thread context" BUG-200/gem5.log | tail -0| diff BUG-200/plain.log -
+echo '=== BUG-201/'; grep -ve"because exiting with last active thread context" BUG-201/gem5.log | tail -0| diff BUG-201/plain.log -
+echo '=== BUG-202/'; grep -ve"because exiting with last active thread context" BUG-202/gem5.log | tail -1| diff BUG-202/plain.log -
+echo '=== BUG-203/'; grep -ve"because exiting with last active thread context" BUG-203/gem5.log | tail -1| diff BUG-203/plain.log -
+echo '=== BUG-204/'; grep -ve"because exiting with last active thread context" BUG-204/gem5.log | tail -1| diff BUG-204/plain.log -
+echo '=== BUG-205/'; grep -ve"because exiting with last active thread context" BUG-205/gem5.log | tail -1| diff BUG-205/plain.log -
+echo '=== BUG-206/'; grep -ve"because exiting with last active thread context" BUG-206/gem5.log | tail -0| diff BUG-206/plain.log -
+echo '=== BUG-207/'; grep -ve"because exiting with last active thread context" BUG-207/gem5.log | tail -0| diff BUG-207/plain.log -
+echo '=== BUG-208/'; grep -ve"because exiting with last active thread context" BUG-208/gem5.log | tail -1| diff BUG-208/plain.log -
+echo '=== BUG-209/'; grep -ve"because exiting with last active thread context" BUG-209/gem5.log | tail -1| diff BUG-209/plain.log -
+echo '=== BUG-21/'; grep -ve"because exiting with last active thread context" BUG-21/gem5.log | tail -1| diff BUG-21/plain.log -
+echo '=== BUG-210/'; grep -ve"because exiting with last active thread context" BUG-210/gem5.log | tail -15| diff BUG-210/plain.log -
+echo '=== BUG-211/'; grep -ve"because exiting with last active thread context" BUG-211/gem5.log | tail -1| diff BUG-211/plain.log -
+echo '=== BUG-212/'; grep -ve"because exiting with last active thread context" BUG-212/gem5.log | tail -1| diff BUG-212/plain.log -
+echo '=== BUG-213/'; grep -ve"because exiting with last active thread context" BUG-213/gem5.log | tail -2| diff BUG-213/plain.log -
+echo '=== BUG-214/'; grep -ve"because exiting with last active thread context" BUG-214/gem5.log | tail -2| diff BUG-214/plain.log -
+echo '=== BUG-215/'; grep -ve"because exiting with last active thread context" BUG-215/gem5.log | tail -6| diff BUG-215/plain.log -
+echo '=== BUG-216/'; grep -ve"because exiting with last active thread context" BUG-216/gem5.log | tail -1| diff BUG-216/plain.log -
+echo '=== BUG-217/'; grep -ve"because exiting with last active thread context" BUG-217/gem5.log | tail -2| diff BUG-217/plain.log -
+echo '=== BUG-218/'; grep -ve"because exiting with last active thread context" BUG-218/gem5.log | tail -1| diff BUG-218/plain.log -
+echo '=== BUG-219/'; grep -ve"because exiting with last active thread context" BUG-219/gem5.log | tail -1| diff BUG-219/plain.log -
+echo '=== BUG-22/'; grep -ve"because exiting with last active thread context" BUG-22/gem5.log | tail -0| diff BUG-22/plain.log -
+echo '=== BUG-220/'; grep -ve"because exiting with last active thread context" BUG-220/gem5.log | tail -1| diff BUG-220/plain.log -
+echo '=== BUG-221/'; grep -ve"because exiting with last active thread context" BUG-221/gem5.log | tail -1| diff BUG-221/plain.log -
+echo '=== BUG-222/'; grep -ve"because exiting with last active thread context" BUG-222/gem5.log | tail -1| diff BUG-222/plain.log -
+echo '=== BUG-223/'; grep -ve"because exiting with last active thread context" BUG-223/gem5.log | tail -1| diff BUG-223/plain.log -
+echo '=== BUG-224/'; grep -ve"because exiting with last active thread context" BUG-224/gem5.log | tail -1| diff BUG-224/plain.log -
+echo '=== BUG-225/'; grep -ve"because exiting with last active thread context" BUG-225/gem5.log | tail -1| diff BUG-225/plain.log -
+echo '=== BUG-226/'; grep -ve"because exiting with last active thread context" BUG-226/gem5.log | tail -0| diff BUG-226/plain.log -
+echo '=== BUG-227/'; grep -ve"because exiting with last active thread context" BUG-227/gem5.log | tail -1| diff BUG-227/plain.log -
+echo '=== BUG-228/'; grep -ve"because exiting with last active thread context" BUG-228/gem5.log | tail -1| diff BUG-228/plain.log -
+echo '=== BUG-229/'; grep -ve"because exiting with last active thread context" BUG-229/gem5.log | tail -0| diff BUG-229/plain.log -
+echo '=== BUG-23/'; grep -ve"because exiting with last active thread context" BUG-23/gem5.log | tail -0| diff BUG-23/plain.log -
+echo '=== BUG-230/'; grep -ve"because exiting with last active thread context" BUG-230/gem5.log | tail -1| diff BUG-230/plain.log -
+echo '=== BUG-231/'; grep -ve"because exiting with last active thread context" BUG-231/gem5.log | tail -1| diff BUG-231/plain.log -
+echo '=== BUG-232/'; grep -ve"because exiting with last active thread context" BUG-232/gem5.log | tail -0| diff BUG-232/plain.log -
+echo '=== BUG-233/'; grep -ve"because exiting with last active thread context" BUG-233/gem5.log | tail -1| diff BUG-233/plain.log -
+echo '=== BUG-234/'; grep -ve"because exiting with last active thread context" BUG-234/gem5.log | tail -1| diff BUG-234/plain.log -
+echo '=== BUG-235/'; grep -ve"because exiting with last active thread context" BUG-235/gem5.log | tail -0| diff BUG-235/plain.log -
+echo '=== BUG-236/'; grep -ve"because exiting with last active thread context" BUG-236/gem5.log | tail -1| diff BUG-236/plain.log -
+echo '=== BUG-237/'; grep -ve"because exiting with last active thread context" BUG-237/gem5.log | tail -0| diff BUG-237/plain.log -
+echo '=== BUG-238/'; grep -ve"because exiting with last active thread context" BUG-238/gem5.log | tail -1| diff BUG-238/plain.log -
+echo '=== BUG-239/'; grep -ve"because exiting with last active thread context" BUG-239/gem5.log | tail -1| diff BUG-239/plain.log -
+echo '=== BUG-24/'; grep -ve"because exiting with last active thread context" BUG-24/gem5.log | tail -0| diff BUG-24/plain.log -
+echo '=== BUG-240/'; grep -ve"because exiting with last active thread context" BUG-240/gem5.log | tail -1| diff BUG-240/plain.log -
+echo '=== BUG-241/'; grep -ve"because exiting with last active thread context" BUG-241/gem5.log | tail -1| diff BUG-241/plain.log -
+echo '=== BUG-242/'; grep -ve"because exiting with last active thread context" BUG-242/gem5.log | tail -1| diff BUG-242/plain.log -
+echo '=== BUG-243/'; grep -ve"because exiting with last active thread context" BUG-243/gem5.log | tail -1| diff BUG-243/plain.log -
+echo '=== BUG-244/'; grep -ve"because exiting with last active thread context" BUG-244/gem5.log | tail -0| diff BUG-244/plain.log -
+echo '=== BUG-245/'; grep -ve"because exiting with last active thread context" BUG-245/gem5.log | tail -1| diff BUG-245/plain.log -
+echo '=== BUG-246/'; grep -ve"because exiting with last active thread context" BUG-246/gem5.log | tail -1| diff BUG-246/plain.log -
+echo '=== BUG-247/'; grep -ve"because exiting with last active thread context" BUG-247/gem5.log | tail -1| diff BUG-247/plain.log -
+echo '=== BUG-248/'; grep -ve"because exiting with last active thread context" BUG-248/gem5.log | tail -1| diff BUG-248/plain.log -
+echo '=== BUG-249/'; grep -ve"because exiting with last active thread context" BUG-249/gem5.log | tail -1| diff BUG-249/plain.log -
+echo '=== BUG-25/'; grep -ve"because exiting with last active thread context" BUG-25/gem5.log | tail -0| diff BUG-25/plain.log -
+echo '=== BUG-250/'; grep -ve"because exiting with last active thread context" BUG-250/gem5.log | tail -0| diff BUG-250/plain.log -
+echo '=== BUG-251/'; grep -ve"because exiting with last active thread context" BUG-251/gem5.log | tail -1| diff BUG-251/plain.log -
+echo '=== BUG-252/'; grep -ve"because exiting with last active thread context" BUG-252/gem5.log | tail -1| diff BUG-252/plain.log -
+echo '=== BUG-253/'; grep -ve"because exiting with last active thread context" BUG-253/gem5.log | tail -1| diff BUG-253/plain.log -
+echo '=== BUG-254/'; grep -ve"because exiting with last active thread context" BUG-254/gem5.log | tail -1| diff BUG-254/plain.log -
+echo '=== BUG-255/'; grep -ve"because exiting with last active thread context" BUG-255/gem5.log | tail -1| diff BUG-255/plain.log -
+echo '=== BUG-256/'; grep -ve"because exiting with last active thread context" BUG-256/gem5.log | tail -1| diff BUG-256/plain.log -
+echo '=== BUG-257/'; grep -ve"because exiting with last active thread context" BUG-257/gem5.log | tail -0| diff BUG-257/plain.log -
+echo '=== BUG-258/'; grep -ve"because exiting with last active thread context" BUG-258/gem5.log | tail -0| diff BUG-258/plain.log -
+echo '=== BUG-259/'; grep -ve"because exiting with last active thread context" BUG-259/gem5.log | tail -1| diff BUG-259/plain.log -
+echo '=== BUG-26/'; grep -ve"because exiting with last active thread context" BUG-26/gem5.log | tail -0| diff BUG-26/plain.log -
+echo '=== BUG-260/'; grep -ve"because exiting with last active thread context" BUG-260/gem5.log | tail -1| diff BUG-260/plain.log -
+echo '=== BUG-261/'; grep -ve"because exiting with last active thread context" BUG-261/gem5.log | tail -1| diff BUG-261/plain.log -
+echo '=== BUG-262/'; grep -ve"because exiting with last active thread context" BUG-262/gem5.log | tail -1| diff BUG-262/plain.log -
+echo '=== BUG-263/'; grep -ve"because exiting with last active thread context" BUG-263/gem5.log | tail -1| diff BUG-263/plain.log -
+echo '=== BUG-264/'; grep -ve"because exiting with last active thread context" BUG-264/gem5.log | tail -0| diff BUG-264/plain.log -
+echo '=== BUG-265/'; grep -ve"because exiting with last active thread context" BUG-265/gem5.log | tail -6| diff BUG-265/plain.log -
+echo '=== BUG-266/'; grep -ve"because exiting with last active thread context" BUG-266/gem5.log | tail -0| diff BUG-266/plain.log -
+echo '=== BUG-267/'; grep -ve"because exiting with last active thread context" BUG-267/gem5.log | tail -0| diff BUG-267/plain.log -
+echo '=== BUG-268/'; grep -ve"because exiting with last active thread context" BUG-268/gem5.log | tail -1| diff BUG-268/plain.log -
+echo '=== BUG-269/'; grep -ve"because exiting with last active thread context" BUG-269/gem5.log | tail -1| diff BUG-269/plain.log -
+echo '=== BUG-27/'; grep -ve"because exiting with last active thread context" BUG-27/gem5.log | tail -0| diff BUG-27/plain.log -
+echo '=== BUG-270/'; grep -ve"because exiting with last active thread context" BUG-270/gem5.log | tail -1| diff BUG-270/plain.log -
+echo '=== BUG-271/'; grep -ve"because exiting with last active thread context" BUG-271/gem5.log | tail -1| diff BUG-271/plain.log -
+echo '=== BUG-272/'; grep -ve"because exiting with last active thread context" BUG-272/gem5.log | tail -4| diff BUG-272/plain.log -
+echo '=== BUG-273/'; grep -ve"because exiting with last active thread context" BUG-273/gem5.log | tail -1| diff BUG-273/plain.log -
+echo '=== BUG-274/'; grep -ve"because exiting with last active thread context" BUG-274/gem5.log | tail -4| diff BUG-274/plain.log -
+echo '=== BUG-275/'; grep -ve"because exiting with last active thread context" BUG-275/gem5.log | tail -4| diff BUG-275/plain.log -
+echo '=== BUG-276/'; grep -ve"because exiting with last active thread context" BUG-276/gem5.log | tail -1| diff BUG-276/plain.log -
+echo '=== BUG-277/'; grep -ve"because exiting with last active thread context" BUG-277/gem5.log | tail -1| diff BUG-277/plain.log -
+echo '=== BUG-278/'; grep -ve"because exiting with last active thread context" BUG-278/gem5.log | tail -1| diff BUG-278/plain.log -
+echo '=== BUG-279/'; grep -ve"because exiting with last active thread context" BUG-279/gem5.log | tail -1| diff BUG-279/plain.log -
+echo '=== BUG-28/'; grep -ve"because exiting with last active thread context" BUG-28/gem5.log | tail -0| diff BUG-28/plain.log -
+echo '=== BUG-280/'; grep -ve"because exiting with last active thread context" BUG-280/gem5.log | tail -1| diff BUG-280/plain.log -
+echo '=== BUG-281/'; grep -ve"because exiting with last active thread context" BUG-281/gem5.log | tail -1| diff BUG-281/plain.log -
+echo '=== BUG-282/'; grep -ve"because exiting with last active thread context" BUG-282/gem5.log | tail -1| diff BUG-282/plain.log -
+echo '=== BUG-283/'; grep -ve"because exiting with last active thread context" BUG-283/gem5.log | tail -1| diff BUG-283/plain.log -
+echo '=== BUG-284/'; grep -ve"because exiting with last active thread context" BUG-284/gem5.log | tail -1| diff BUG-284/plain.log -
+echo '=== BUG-285/'; grep -ve"because exiting with last active thread context" BUG-285/gem5.log | tail -1| diff BUG-285/plain.log -
+echo '=== BUG-286/'; grep -ve"because exiting with last active thread context" BUG-286/gem5.log | tail -1| diff BUG-286/plain.log -
+echo '=== BUG-287/'; grep -ve"because exiting with last active thread context" BUG-287/gem5.log | tail -1| diff BUG-287/plain.log -
+echo '=== BUG-288/'; grep -ve"because exiting with last active thread context" BUG-288/gem5.log | tail -0| diff BUG-288/plain.log -
+echo '=== BUG-289/'; grep -ve"because exiting with last active thread context" BUG-289/gem5.log | tail -1| diff BUG-289/plain.log -
+echo '=== BUG-29/'; grep -ve"because exiting with last active thread context" BUG-29/gem5.log | tail -0| diff BUG-29/plain.log -
+echo '=== BUG-290/'; grep -ve"because exiting with last active thread context" BUG-290/gem5.log | tail -0| diff BUG-290/plain.log -
+echo '=== BUG-291/'; grep -ve"because exiting with last active thread context" BUG-291/gem5.log | tail -0| diff BUG-291/plain.log -
+echo '=== BUG-292/'; grep -ve"because exiting with last active thread context" BUG-292/gem5.log | tail -0| diff BUG-292/plain.log -
+echo '=== BUG-293/'; grep -ve"because exiting with last active thread context" BUG-293/gem5.log | tail -0| diff BUG-293/plain.log -
+echo '=== BUG-294/'; grep -ve"because exiting with last active thread context" BUG-294/gem5.log | tail -1| diff BUG-294/plain.log -
+echo '=== BUG-295/'; grep -ve"because exiting with last active thread context" BUG-295/gem5.log | tail -0| diff BUG-295/plain.log -
+echo '=== BUG-296/'; grep -ve"because exiting with last active thread context" BUG-296/gem5.log | tail -1| diff BUG-296/plain.log -
+echo '=== BUG-297/'; grep -ve"because exiting with last active thread context" BUG-297/gem5.log | tail -0| diff BUG-297/plain.log -
+echo '=== BUG-298/'; grep -ve"because exiting with last active thread context" BUG-298/gem5.log | tail -0| diff BUG-298/plain.log -
+echo '=== BUG-299/'; grep -ve"because exiting with last active thread context" BUG-299/gem5.log | tail -1| diff BUG-299/plain.log -
+echo '=== BUG-3/'; grep -ve"because exiting with last active thread context" BUG-3/gem5.log | tail -0| diff BUG-3/plain.log -
+echo '=== BUG-30/'; grep -ve"because exiting with last active thread context" BUG-30/gem5.log | tail -1| diff BUG-30/plain.log -
+echo '=== BUG-300/'; grep -ve"because exiting with last active thread context" BUG-300/gem5.log | tail -1| diff BUG-300/plain.log -
+echo '=== BUG-301/'; grep -ve"because exiting with last active thread context" BUG-301/gem5.log | tail -0| diff BUG-301/plain.log -
+echo '=== BUG-302/'; grep -ve"because exiting with last active thread context" BUG-302/gem5.log | tail -0| diff BUG-302/plain.log -
+echo '=== BUG-303/'; grep -ve"because exiting with last active thread context" BUG-303/gem5.log | tail -0| diff BUG-303/plain.log -
+echo '=== BUG-304/'; grep -ve"because exiting with last active thread context" BUG-304/gem5.log | tail -1| diff BUG-304/plain.log -
+echo '=== BUG-305/'; grep -ve"because exiting with last active thread context" BUG-305/gem5.log | tail -0| diff BUG-305/plain.log -
+echo '=== BUG-306/'; grep -ve"because exiting with last active thread context" BUG-306/gem5.log | tail -0| diff BUG-306/plain.log -
+echo '=== BUG-307/'; grep -ve"because exiting with last active thread context" BUG-307/gem5.log | tail -1| diff BUG-307/plain.log -
+echo '=== BUG-308/'; grep -ve"because exiting with last active thread context" BUG-308/gem5.log | tail -0| diff BUG-308/plain.log -
+echo '=== BUG-309/'; grep -ve"because exiting with last active thread context" BUG-309/gem5.log | tail -1| diff BUG-309/plain.log -
+echo '=== BUG-31/'; grep -ve"because exiting with last active thread context" BUG-31/gem5.log | tail -0| diff BUG-31/plain.log -
+echo '=== BUG-310/'; grep -ve"because exiting with last active thread context" BUG-310/gem5.log | tail -1| diff BUG-310/plain.log -
+echo '=== BUG-311/'; grep -ve"because exiting with last active thread context" BUG-311/gem5.log | tail -1| diff BUG-311/plain.log -
+echo '=== BUG-312/'; grep -ve"because exiting with last active thread context" BUG-312/gem5.log | tail -1| diff BUG-312/plain.log -
+echo '=== BUG-313/'; grep -ve"because exiting with last active thread context" BUG-313/gem5.log | tail -1| diff BUG-313/plain.log -
+echo '=== BUG-314/'; grep -ve"because exiting with last active thread context" BUG-314/gem5.log | tail -0| diff BUG-314/plain.log -
+echo '=== BUG-315/'; grep -ve"because exiting with last active thread context" BUG-315/gem5.log | tail -1| diff BUG-315/plain.log -
+echo '=== BUG-316/'; grep -ve"because exiting with last active thread context" BUG-316/gem5.log | tail -3| diff BUG-316/plain.log -
+echo '=== BUG-317/'; grep -ve"because exiting with last active thread context" BUG-317/gem5.log | tail -1| diff BUG-317/plain.log -
+echo '=== BUG-318/'; grep -ve"because exiting with last active thread context" BUG-318/gem5.log | tail -11| diff BUG-318/plain.log -
+echo '=== BUG-319/'; grep -ve"because exiting with last active thread context" BUG-319/gem5.log | tail -1| diff BUG-319/plain.log -
+echo '=== BUG-32/'; grep -ve"because exiting with last active thread context" BUG-32/gem5.log | tail -0| diff BUG-32/plain.log -
+echo '=== BUG-320/'; grep -ve"because exiting with last active thread context" BUG-320/gem5.log | tail -1| diff BUG-320/plain.log -
+echo '=== BUG-321/'; grep -ve"because exiting with last active thread context" BUG-321/gem5.log | tail -1| diff BUG-321/plain.log -
+echo '=== BUG-322/'; grep -ve"because exiting with last active thread context" BUG-322/gem5.log | tail -1| diff BUG-322/plain.log -
+echo '=== BUG-323/'; grep -ve"because exiting with last active thread context" BUG-323/gem5.log | tail -1| diff BUG-323/plain.log -
+echo '=== BUG-324/'; grep -ve"because exiting with last active thread context" BUG-324/gem5.log | tail -1| diff BUG-324/plain.log -
+echo '=== BUG-325/'; grep -ve"because exiting with last active thread context" BUG-325/gem5.log | tail -1| diff BUG-325/plain.log -
+echo '=== BUG-326/'; grep -ve"because exiting with last active thread context" BUG-326/gem5.log | tail -1| diff BUG-326/plain.log -
+echo '=== BUG-327/'; grep -ve"because exiting with last active thread context" BUG-327/gem5.log | tail -1| diff BUG-327/plain.log -
+echo '=== BUG-328/'; grep -ve"because exiting with last active thread context" BUG-328/gem5.log | tail -1| diff BUG-328/plain.log -
+echo '=== BUG-329/'; grep -ve"because exiting with last active thread context" BUG-329/gem5.log | tail -1| diff BUG-329/plain.log -
+echo '=== BUG-33/'; grep -ve"because exiting with last active thread context" BUG-33/gem5.log | tail -1| diff BUG-33/plain.log -
+echo '=== BUG-330/'; grep -ve"because exiting with last active thread context" BUG-330/gem5.log | tail -0| diff BUG-330/plain.log -
+echo '=== BUG-331/'; grep -ve"because exiting with last active thread context" BUG-331/gem5.log | tail -1| diff BUG-331/plain.log -
+echo '=== BUG-332/'; grep -ve"because exiting with last active thread context" BUG-332/gem5.log | tail -1| diff BUG-332/plain.log -
+echo '=== BUG-333/'; grep -ve"because exiting with last active thread context" BUG-333/gem5.log | tail -1| diff BUG-333/plain.log -
+echo '=== BUG-334/'; grep -ve"because exiting with last active thread context" BUG-334/gem5.log | tail -1| diff BUG-334/plain.log -
+echo '=== BUG-335/'; grep -ve"because exiting with last active thread context" BUG-335/gem5.log | tail -0| diff BUG-335/plain.log -
+echo '=== BUG-336/'; grep -ve"because exiting with last active thread context" BUG-336/gem5.log | tail -1| diff BUG-336/plain.log -
+echo '=== BUG-337/'; grep -ve"because exiting with last active thread context" BUG-337/gem5.log | tail -0| diff BUG-337/plain.log -
+echo '=== BUG-338/'; grep -ve"because exiting with last active thread context" BUG-338/gem5.log | tail -1| diff BUG-338/plain.log -
+echo '=== BUG-339/'; grep -ve"because exiting with last active thread context" BUG-339/gem5.log | tail -1| diff BUG-339/plain.log -
+echo '=== BUG-34/'; grep -ve"because exiting with last active thread context" BUG-34/gem5.log | tail -1| diff BUG-34/plain.log -
+echo '=== BUG-340/'; grep -ve"because exiting with last active thread context" BUG-340/gem5.log | tail -1| diff BUG-340/plain.log -
+echo '=== BUG-341/'; grep -ve"because exiting with last active thread context" BUG-341/gem5.log | tail -107| diff BUG-341/plain.log -
+echo '=== BUG-342/'; grep -ve"because exiting with last active thread context" BUG-342/gem5.log | tail -16| diff BUG-342/plain.log -
+echo '=== BUG-343/'; grep -ve"because exiting with last active thread context" BUG-343/gem5.log | tail -0| diff BUG-343/plain.log -
+echo '=== BUG-344/'; grep -ve"because exiting with last active thread context" BUG-344/gem5.log | tail -1| diff BUG-344/plain.log -
+echo '=== BUG-345/'; grep -ve"because exiting with last active thread context" BUG-345/gem5.log | tail -1| diff BUG-345/plain.log -
+echo '=== BUG-346/'; grep -ve"because exiting with last active thread context" BUG-346/gem5.log | tail -1| diff BUG-346/plain.log -
+echo '=== BUG-347/'; grep -ve"because exiting with last active thread context" BUG-347/gem5.log | tail -0| diff BUG-347/plain.log -
+echo '=== BUG-348/'; grep -ve"because exiting with last active thread context" BUG-348/gem5.log | tail -0| diff BUG-348/plain.log -
+echo '=== BUG-349/'; grep -ve"because exiting with last active thread context" BUG-349/gem5.log | tail -1| diff BUG-349/plain.log -
+echo '=== BUG-35/'; grep -ve"because exiting with last active thread context" BUG-35/gem5.log | tail -0| diff BUG-35/plain.log -
+echo '=== BUG-350/'; grep -ve"because exiting with last active thread context" BUG-350/gem5.log | tail -1| diff BUG-350/plain.log -
+echo '=== BUG-351/'; grep -ve"because exiting with last active thread context" BUG-351/gem5.log | tail -1| diff BUG-351/plain.log -
+echo '=== BUG-352/'; grep -ve"because exiting with last active thread context" BUG-352/gem5.log | tail -1| diff BUG-352/plain.log -
+echo '=== BUG-353/'; grep -ve"because exiting with last active thread context" BUG-353/gem5.log | tail -1| diff BUG-353/plain.log -
+echo '=== BUG-354/'; grep -ve"because exiting with last active thread context" BUG-354/gem5.log | tail -0| diff BUG-354/plain.log -
+echo '=== BUG-355/'; grep -ve"because exiting with last active thread context" BUG-355/gem5.log | tail -0| diff BUG-355/plain.log -
+echo '=== BUG-356/'; grep -ve"because exiting with last active thread context" BUG-356/gem5.log | tail -0| diff BUG-356/plain.log -
+echo '=== BUG-357/'; grep -ve"because exiting with last active thread context" BUG-357/gem5.log | tail -0| diff BUG-357/plain.log -
+echo '=== BUG-358/'; grep -ve"because exiting with last active thread context" BUG-358/gem5.log | tail -0| diff BUG-358/plain.log -
+echo '=== BUG-359/'; grep -ve"because exiting with last active thread context" BUG-359/gem5.log | tail -1| diff BUG-359/plain.log -
+echo '=== BUG-36/'; grep -ve"because exiting with last active thread context" BUG-36/gem5.log | tail -0| diff BUG-36/plain.log -
+echo '=== BUG-360/'; grep -ve"because exiting with last active thread context" BUG-360/gem5.log | tail -1| diff BUG-360/plain.log -
+echo '=== BUG-361/'; grep -ve"because exiting with last active thread context" BUG-361/gem5.log | tail -0| diff BUG-361/plain.log -
+echo '=== BUG-362/'; grep -ve"because exiting with last active thread context" BUG-362/gem5.log | tail -1| diff BUG-362/plain.log -
+echo '=== BUG-363/'; grep -ve"because exiting with last active thread context" BUG-363/gem5.log | tail -1| diff BUG-363/plain.log -
+echo '=== BUG-364/'; grep -ve"because exiting with last active thread context" BUG-364/gem5.log | tail -1| diff BUG-364/plain.log -
+echo '=== BUG-365/'; grep -ve"because exiting with last active thread context" BUG-365/gem5.log | tail -1| diff BUG-365/plain.log -
+echo '=== BUG-366/'; grep -ve"because exiting with last active thread context" BUG-366/gem5.log | tail -0| diff BUG-366/plain.log -
+echo '=== BUG-367/'; grep -ve"because exiting with last active thread context" BUG-367/gem5.log | tail -1| diff BUG-367/plain.log -
+echo '=== BUG-368/'; grep -ve"because exiting with last active thread context" BUG-368/gem5.log | tail -0| diff BUG-368/plain.log -
+echo '=== BUG-369/'; grep -ve"because exiting with last active thread context" BUG-369/gem5.log | tail -14| diff BUG-369/plain.log -
+echo '=== BUG-37/'; grep -ve"because exiting with last active thread context" BUG-37/gem5.log | tail -0| diff BUG-37/plain.log -
+echo '=== BUG-370/'; grep -ve"because exiting with last active thread context" BUG-370/gem5.log | tail -1| diff BUG-370/plain.log -
+echo '=== BUG-371/'; grep -ve"because exiting with last active thread context" BUG-371/gem5.log | tail -16| diff BUG-371/plain.log -
+echo '=== BUG-372/'; grep -ve"because exiting with last active thread context" BUG-372/gem5.log | tail -1| diff BUG-372/plain.log -
+echo '=== BUG-373/'; grep -ve"because exiting with last active thread context" BUG-373/gem5.log | tail -1| diff BUG-373/plain.log -
+echo '=== BUG-374/'; grep -ve"because exiting with last active thread context" BUG-374/gem5.log | tail -154| diff BUG-374/plain.log -
+echo '=== BUG-375/'; grep -ve"because exiting with last active thread context" BUG-375/gem5.log | tail -0| diff BUG-375/plain.log -
+echo '=== BUG-376/'; grep -ve"because exiting with last active thread context" BUG-376/gem5.log | tail -0| diff BUG-376/plain.log -
+echo '=== BUG-377/'; grep -ve"because exiting with last active thread context" BUG-377/gem5.log | tail -0| diff BUG-377/plain.log -
+echo '=== BUG-378/'; grep -ve"because exiting with last active thread context" BUG-378/gem5.log | tail -0| diff BUG-378/plain.log -
+echo '=== BUG-379/'; grep -ve"because exiting with last active thread context" BUG-379/gem5.log | tail -1| diff BUG-379/plain.log -
+echo '=== BUG-38/'; grep -ve"because exiting with last active thread context" BUG-38/gem5.log | tail -0| diff BUG-38/plain.log -
+echo '=== BUG-380/'; grep -ve"because exiting with last active thread context" BUG-380/gem5.log | tail -0| diff BUG-380/plain.log -
+echo '=== BUG-381/'; grep -ve"because exiting with last active thread context" BUG-381/gem5.log | tail -0| diff BUG-381/plain.log -
+echo '=== BUG-382/'; grep -ve"because exiting with last active thread context" BUG-382/gem5.log | tail -1| diff BUG-382/plain.log -
+echo '=== BUG-383/'; grep -ve"because exiting with last active thread context" BUG-383/gem5.log | tail -0| diff BUG-383/plain.log -
+echo '=== BUG-384/'; grep -ve"because exiting with last active thread context" BUG-384/gem5.log | tail -2| diff BUG-384/plain.log -
+echo '=== BUG-385/'; grep -ve"because exiting with last active thread context" BUG-385/gem5.log | tail -1| diff BUG-385/plain.log -
+echo '=== BUG-386/'; grep -ve"because exiting with last active thread context" BUG-386/gem5.log | tail -1| diff BUG-386/plain.log -
+echo '=== BUG-387/'; grep -ve"because exiting with last active thread context" BUG-387/gem5.log | tail -0| diff BUG-387/plain.log -
+echo '=== BUG-388/'; grep -ve"because exiting with last active thread context" BUG-388/gem5.log | tail -0| diff BUG-388/plain.log -
+echo '=== BUG-389/'; grep -ve"because exiting with last active thread context" BUG-389/gem5.log | tail -1| diff BUG-389/plain.log -
+echo '=== BUG-39/'; grep -ve"because exiting with last active thread context" BUG-39/gem5.log | tail -1| diff BUG-39/plain.log -
+echo '=== BUG-390/'; grep -ve"because exiting with last active thread context" BUG-390/gem5.log | tail -0| diff BUG-390/plain.log -
+echo '=== BUG-391/'; grep -ve"because exiting with last active thread context" BUG-391/gem5.log | tail -1| diff BUG-391/plain.log -
+echo '=== BUG-392/'; grep -ve"because exiting with last active thread context" BUG-392/gem5.log | tail -1| diff BUG-392/plain.log -
+echo '=== BUG-393/'; grep -ve"because exiting with last active thread context" BUG-393/gem5.log | tail -0| diff BUG-393/plain.log -
+echo '=== BUG-394/'; grep -ve"because exiting with last active thread context" BUG-394/gem5.log | tail -1| diff BUG-394/plain.log -
+echo '=== BUG-395/'; grep -ve"because exiting with last active thread context" BUG-395/gem5.log | tail -1| diff BUG-395/plain.log -
+echo '=== BUG-396/'; grep -ve"because exiting with last active thread context" BUG-396/gem5.log | tail -0| diff BUG-396/plain.log -
+echo '=== BUG-397/'; grep -ve"because exiting with last active thread context" BUG-397/gem5.log | tail -1| diff BUG-397/plain.log -
+echo '=== BUG-398/'; grep -ve"because exiting with last active thread context" BUG-398/gem5.log | tail -1| diff BUG-398/plain.log -
+echo '=== BUG-399/'; grep -ve"because exiting with last active thread context" BUG-399/gem5.log | tail -0| diff BUG-399/plain.log -
+echo '=== BUG-4/'; grep -ve"because exiting with last active thread context" BUG-4/gem5.log | tail -0| diff BUG-4/plain.log -
+echo '=== BUG-40/'; grep -ve"because exiting with last active thread context" BUG-40/gem5.log | tail -0| diff BUG-40/plain.log -
+echo '=== BUG-400/'; grep -ve"because exiting with last active thread context" BUG-400/gem5.log | tail -0| diff BUG-400/plain.log -
+echo '=== BUG-401/'; grep -ve"because exiting with last active thread context" BUG-401/gem5.log | tail -1| diff BUG-401/plain.log -
+echo '=== BUG-402/'; grep -ve"because exiting with last active thread context" BUG-402/gem5.log | tail -1| diff BUG-402/plain.log -
+echo '=== BUG-403/'; grep -ve"because exiting with last active thread context" BUG-403/gem5.log | tail -0| diff BUG-403/plain.log -
+echo '=== BUG-404/'; grep -ve"because exiting with last active thread context" BUG-404/gem5.log | tail -1| diff BUG-404/plain.log -
+echo '=== BUG-405/'; grep -ve"because exiting with last active thread context" BUG-405/gem5.log | tail -1| diff BUG-405/plain.log -
+echo '=== BUG-406/'; grep -ve"because exiting with last active thread context" BUG-406/gem5.log | tail -1| diff BUG-406/plain.log -
+echo '=== BUG-407/'; grep -ve"because exiting with last active thread context" BUG-407/gem5.log | tail -1| diff BUG-407/plain.log -
+echo '=== BUG-408/'; grep -ve"because exiting with last active thread context" BUG-408/gem5.log | tail -1| diff BUG-408/plain.log -
+echo '=== BUG-409/'; grep -ve"because exiting with last active thread context" BUG-409/gem5.log | tail -0| diff BUG-409/plain.log -
+echo '=== BUG-41/'; grep -ve"because exiting with last active thread context" BUG-41/gem5.log | tail -0| diff BUG-41/plain.log -
+echo '=== BUG-410/'; grep -ve"because exiting with last active thread context" BUG-410/gem5.log | tail -1| diff BUG-410/plain.log -
+echo '=== BUG-411/'; grep -ve"because exiting with last active thread context" BUG-411/gem5.log | tail -1| diff BUG-411/plain.log -
+echo '=== BUG-412/'; grep -ve"because exiting with last active thread context" BUG-412/gem5.log | tail -1| diff BUG-412/plain.log -
+echo '=== BUG-413/'; grep -ve"because exiting with last active thread context" BUG-413/gem5.log | tail -0| diff BUG-413/plain.log -
+echo '=== BUG-414/'; grep -ve"because exiting with last active thread context" BUG-414/gem5.log | tail -0| diff BUG-414/plain.log -
+echo '=== BUG-415/'; grep -ve"because exiting with last active thread context" BUG-415/gem5.log | tail -1| diff BUG-415/plain.log -
+echo '=== BUG-416/'; grep -ve"because exiting with last active thread context" BUG-416/gem5.log | tail -0| diff BUG-416/plain.log -
+echo '=== BUG-417/'; grep -ve"because exiting with last active thread context" BUG-417/gem5.log | tail -0| diff BUG-417/plain.log -
+echo '=== BUG-418/'; grep -ve"because exiting with last active thread context" BUG-418/gem5.log | tail -1| diff BUG-418/plain.log -
+echo '=== BUG-419/'; grep -ve"because exiting with last active thread context" BUG-419/gem5.log | tail -1| diff BUG-419/plain.log -
+echo '=== BUG-42/'; grep -ve"because exiting with last active thread context" BUG-42/gem5.log | tail -0| diff BUG-42/plain.log -
+echo '=== BUG-420/'; grep -ve"because exiting with last active thread context" BUG-420/gem5.log | tail -1| diff BUG-420/plain.log -
+echo '=== BUG-421/'; grep -ve"because exiting with last active thread context" BUG-421/gem5.log | tail -0| diff BUG-421/plain.log -
+echo '=== BUG-422/'; grep -ve"because exiting with last active thread context" BUG-422/gem5.log | tail -0| diff BUG-422/plain.log -
+echo '=== BUG-423/'; grep -ve"because exiting with last active thread context" BUG-423/gem5.log | tail -0| diff BUG-423/plain.log -
+echo '=== BUG-424/'; grep -ve"because exiting with last active thread context" BUG-424/gem5.log | tail -0| diff BUG-424/plain.log -
+echo '=== BUG-425/'; grep -ve"because exiting with last active thread context" BUG-425/gem5.log | tail -0| diff BUG-425/plain.log -
+echo '=== BUG-426/'; grep -ve"because exiting with last active thread context" BUG-426/gem5.log | tail -1| diff BUG-426/plain.log -
+echo '=== BUG-427/'; grep -ve"because exiting with last active thread context" BUG-427/gem5.log | tail -1| diff BUG-427/plain.log -
+echo '=== BUG-428/'; grep -ve"because exiting with last active thread context" BUG-428/gem5.log | tail -0| diff BUG-428/plain.log -
+echo '=== BUG-429/'; grep -ve"because exiting with last active thread context" BUG-429/gem5.log | tail -0| diff BUG-429/plain.log -
+echo '=== BUG-43/'; grep -ve"because exiting with last active thread context" BUG-43/gem5.log | tail -0| diff BUG-43/plain.log -
+echo '=== BUG-430/'; grep -ve"because exiting with last active thread context" BUG-430/gem5.log | tail -0| diff BUG-430/plain.log -
+echo '=== BUG-431/'; grep -ve"because exiting with last active thread context" BUG-431/gem5.log | tail -1| diff BUG-431/plain.log -
+echo '=== BUG-432/'; grep -ve"because exiting with last active thread context" BUG-432/gem5.log | tail -1| diff BUG-432/plain.log -
+echo '=== BUG-433/'; grep -ve"because exiting with last active thread context" BUG-433/gem5.log | tail -1| diff BUG-433/plain.log -
+echo '=== BUG-434/'; grep -ve"because exiting with last active thread context" BUG-434/gem5.log | tail -1| diff BUG-434/plain.log -
+echo '=== BUG-435/'; grep -ve"because exiting with last active thread context" BUG-435/gem5.log | tail -1| diff BUG-435/plain.log -
+echo '=== BUG-436/'; grep -ve"because exiting with last active thread context" BUG-436/gem5.log | tail -1| diff BUG-436/plain.log -
+echo '=== BUG-437/'; grep -ve"because exiting with last active thread context" BUG-437/gem5.log | tail -0| diff BUG-437/plain.log -
+echo '=== BUG-438/'; grep -ve"because exiting with last active thread context" BUG-438/gem5.log | tail -1| diff BUG-438/plain.log -
+echo '=== BUG-439/'; grep -ve"because exiting with last active thread context" BUG-439/gem5.log | tail -1| diff BUG-439/plain.log -
+echo '=== BUG-44/'; grep -ve"because exiting with last active thread context" BUG-44/gem5.log | tail -0| diff BUG-44/plain.log -
+echo '=== BUG-440/'; grep -ve"because exiting with last active thread context" BUG-440/gem5.log | tail -0| diff BUG-440/plain.log -
+echo '=== BUG-441/'; grep -ve"because exiting with last active thread context" BUG-441/gem5.log | tail -0| diff BUG-441/plain.log -
+echo '=== BUG-442/'; grep -ve"because exiting with last active thread context" BUG-442/gem5.log | tail -1| diff BUG-442/plain.log -
+echo '=== BUG-443/'; grep -ve"because exiting with last active thread context" BUG-443/gem5.log | tail -0| diff BUG-443/plain.log -
+echo '=== BUG-444/'; grep -ve"because exiting with last active thread context" BUG-444/gem5.log | tail -0| diff BUG-444/plain.log -
+echo '=== BUG-445/'; grep -ve"because exiting with last active thread context" BUG-445/gem5.log | tail -1| diff BUG-445/plain.log -
+echo '=== BUG-446/'; grep -ve"because exiting with last active thread context" BUG-446/gem5.log | tail -0| diff BUG-446/plain.log -
+echo '=== BUG-447/'; grep -ve"because exiting with last active thread context" BUG-447/gem5.log | tail -0| diff BUG-447/plain.log -
+echo '=== BUG-448/'; grep -ve"because exiting with last active thread context" BUG-448/gem5.log | tail -0| diff BUG-448/plain.log -
+echo '=== BUG-449/'; grep -ve"because exiting with last active thread context" BUG-449/gem5.log | tail -1| diff BUG-449/plain.log -
+echo '=== BUG-45/'; grep -ve"because exiting with last active thread context" BUG-45/gem5.log | tail -0| diff BUG-45/plain.log -
+echo '=== BUG-450/'; grep -ve"because exiting with last active thread context" BUG-450/gem5.log | tail -0| diff BUG-450/plain.log -
+echo '=== BUG-451/'; grep -ve"because exiting with last active thread context" BUG-451/gem5.log | tail -1| diff BUG-451/plain.log -
+echo '=== BUG-452/'; grep -ve"because exiting with last active thread context" BUG-452/gem5.log | tail -0| diff BUG-452/plain.log -
+echo '=== BUG-453/'; grep -ve"because exiting with last active thread context" BUG-453/gem5.log | tail -0| diff BUG-453/plain.log -
+echo '=== BUG-454/'; grep -ve"because exiting with last active thread context" BUG-454/gem5.log | tail -1| diff BUG-454/plain.log -
+echo '=== BUG-455/'; grep -ve"because exiting with last active thread context" BUG-455/gem5.log | tail -0| diff BUG-455/plain.log -
+echo '=== BUG-456/'; grep -ve"because exiting with last active thread context" BUG-456/gem5.log | tail -0| diff BUG-456/plain.log -
+echo '=== BUG-457/'; grep -ve"because exiting with last active thread context" BUG-457/gem5.log | tail -1| diff BUG-457/plain.log -
+echo '=== BUG-458/'; grep -ve"because exiting with last active thread context" BUG-458/gem5.log | tail -1| diff BUG-458/plain.log -
+echo '=== BUG-459/'; grep -ve"because exiting with last active thread context" BUG-459/gem5.log | tail -0| diff BUG-459/plain.log -
+echo '=== BUG-46/'; grep -ve"because exiting with last active thread context" BUG-46/gem5.log | tail -0| diff BUG-46/plain.log -
+echo '=== BUG-460/'; grep -ve"because exiting with last active thread context" BUG-460/gem5.log | tail -2| diff BUG-460/plain.log -
+echo '=== BUG-461/'; grep -ve"because exiting with last active thread context" BUG-461/gem5.log | tail -1| diff BUG-461/plain.log -
+echo '=== BUG-462/'; grep -ve"because exiting with last active thread context" BUG-462/gem5.log | tail -2| diff BUG-462/plain.log -
+echo '=== BUG-463/'; grep -ve"because exiting with last active thread context" BUG-463/gem5.log | tail -6| diff BUG-463/plain.log -
+echo '=== BUG-464/'; grep -ve"because exiting with last active thread context" BUG-464/gem5.log | tail -1| diff BUG-464/plain.log -
+echo '=== BUG-465/'; grep -ve"because exiting with last active thread context" BUG-465/gem5.log | tail -3| diff BUG-465/plain.log -
+echo '=== BUG-466/'; grep -ve"because exiting with last active thread context" BUG-466/gem5.log | tail -4| diff BUG-466/plain.log -
+echo '=== BUG-467/'; grep -ve"because exiting with last active thread context" BUG-467/gem5.log | tail -5| diff BUG-467/plain.log -
+echo '=== BUG-468/'; grep -ve"because exiting with last active thread context" BUG-468/gem5.log | tail -6| diff BUG-468/plain.log -
+echo '=== BUG-469/'; grep -ve"because exiting with last active thread context" BUG-469/gem5.log | tail -10| diff BUG-469/plain.log -
+echo '=== BUG-47/'; grep -ve"because exiting with last active thread context" BUG-47/gem5.log | tail -0| diff BUG-47/plain.log -
+echo '=== BUG-470/'; grep -ve"because exiting with last active thread context" BUG-470/gem5.log | tail -1| diff BUG-470/plain.log -
+echo '=== BUG-471/'; grep -ve"because exiting with last active thread context" BUG-471/gem5.log | tail -0| diff BUG-471/plain.log -
+echo '=== BUG-472/'; grep -ve"because exiting with last active thread context" BUG-472/gem5.log | tail -1| diff BUG-472/plain.log -
+echo '=== BUG-473/'; grep -ve"because exiting with last active thread context" BUG-473/gem5.log | tail -1| diff BUG-473/plain.log -
+echo '=== BUG-474/'; grep -ve"because exiting with last active thread context" BUG-474/gem5.log | tail -1| diff BUG-474/plain.log -
+echo '=== BUG-475/'; grep -ve"because exiting with last active thread context" BUG-475/gem5.log | tail -0| diff BUG-475/plain.log -
+echo '=== BUG-476/'; grep -ve"because exiting with last active thread context" BUG-476/gem5.log | tail -0| diff BUG-476/plain.log -
+echo '=== BUG-477/'; grep -ve"because exiting with last active thread context" BUG-477/gem5.log | tail -1| diff BUG-477/plain.log -
+echo '=== BUG-478/'; grep -ve"because exiting with last active thread context" BUG-478/gem5.log | tail -0| diff BUG-478/plain.log -
+echo '=== BUG-479/'; grep -ve"because exiting with last active thread context" BUG-479/gem5.log | tail -1| diff BUG-479/plain.log -
+echo '=== BUG-48/'; grep -ve"because exiting with last active thread context" BUG-48/gem5.log | tail -0| diff BUG-48/plain.log -
+echo '=== BUG-480/'; grep -ve"because exiting with last active thread context" BUG-480/gem5.log | tail -1| diff BUG-480/plain.log -
+echo '=== BUG-481/'; grep -ve"because exiting with last active thread context" BUG-481/gem5.log | tail -0| diff BUG-481/plain.log -
+echo '=== BUG-482/'; grep -ve"because exiting with last active thread context" BUG-482/gem5.log | tail -1| diff BUG-482/plain.log -
+echo '=== BUG-483/'; grep -ve"because exiting with last active thread context" BUG-483/gem5.log | tail -1| diff BUG-483/plain.log -
+echo '=== BUG-484/'; grep -ve"because exiting with last active thread context" BUG-484/gem5.log | tail -0| diff BUG-484/plain.log -
+echo '=== BUG-485/'; grep -ve"because exiting with last active thread context" BUG-485/gem5.log | tail -1| diff BUG-485/plain.log -
+echo '=== BUG-486/'; grep -ve"because exiting with last active thread context" BUG-486/gem5.log | tail -1| diff BUG-486/plain.log -
+echo '=== BUG-487/'; grep -ve"because exiting with last active thread context" BUG-487/gem5.log | tail -0| diff BUG-487/plain.log -
+echo '=== BUG-488/'; grep -ve"because exiting with last active thread context" BUG-488/gem5.log | tail -0| diff BUG-488/plain.log -
+echo '=== BUG-489/'; grep -ve"because exiting with last active thread context" BUG-489/gem5.log | tail -1| diff BUG-489/plain.log -
+echo '=== BUG-49/'; grep -ve"because exiting with last active thread context" BUG-49/gem5.log | tail -0| diff BUG-49/plain.log -
+echo '=== BUG-490/'; grep -ve"because exiting with last active thread context" BUG-490/gem5.log | tail -0| diff BUG-490/plain.log -
+echo '=== BUG-491/'; grep -ve"because exiting with last active thread context" BUG-491/gem5.log | tail -0| diff BUG-491/plain.log -
+echo '=== BUG-492/'; grep -ve"because exiting with last active thread context" BUG-492/gem5.log | tail -0| diff BUG-492/plain.log -
+echo '=== BUG-493/'; grep -ve"because exiting with last active thread context" BUG-493/gem5.log | tail -0| diff BUG-493/plain.log -
+echo '=== BUG-494/'; grep -ve"because exiting with last active thread context" BUG-494/gem5.log | tail -0| diff BUG-494/plain.log -
+echo '=== BUG-495/'; grep -ve"because exiting with last active thread context" BUG-495/gem5.log | tail -0| diff BUG-495/plain.log -
+echo '=== BUG-496/'; grep -ve"because exiting with last active thread context" BUG-496/gem5.log | tail -1| diff BUG-496/plain.log -
+echo '=== BUG-497/'; grep -ve"because exiting with last active thread context" BUG-497/gem5.log | tail -1| diff BUG-497/plain.log -
+echo '=== BUG-498/'; grep -ve"because exiting with last active thread context" BUG-498/gem5.log | tail -1| diff BUG-498/plain.log -
+echo '=== BUG-499/'; grep -ve"because exiting with last active thread context" BUG-499/gem5.log | tail -1| diff BUG-499/plain.log -
+echo '=== BUG-5/'; grep -ve"because exiting with last active thread context" BUG-5/gem5.log | tail -0| diff BUG-5/plain.log -
+echo '=== BUG-50/'; grep -ve"because exiting with last active thread context" BUG-50/gem5.log | tail -0| diff BUG-50/plain.log -
+echo '=== BUG-500/'; grep -ve"because exiting with last active thread context" BUG-500/gem5.log | tail -1| diff BUG-500/plain.log -
+echo '=== BUG-501/'; grep -ve"because exiting with last active thread context" BUG-501/gem5.log | tail -0| diff BUG-501/plain.log -
+echo '=== BUG-502/'; grep -ve"because exiting with last active thread context" BUG-502/gem5.log | tail -0| diff BUG-502/plain.log -
+echo '=== BUG-503/'; grep -ve"because exiting with last active thread context" BUG-503/gem5.log | tail -1| diff BUG-503/plain.log -
+echo '=== BUG-504/'; grep -ve"because exiting with last active thread context" BUG-504/gem5.log | tail -1| diff BUG-504/plain.log -
+echo '=== BUG-505/'; grep -ve"because exiting with last active thread context" BUG-505/gem5.log | tail -1| diff BUG-505/plain.log -
+echo '=== BUG-506/'; grep -ve"because exiting with last active thread context" BUG-506/gem5.log | tail -1| diff BUG-506/plain.log -
+echo '=== BUG-507/'; grep -ve"because exiting with last active thread context" BUG-507/gem5.log | tail -1| diff BUG-507/plain.log -
+echo '=== BUG-508/'; grep -ve"because exiting with last active thread context" BUG-508/gem5.log | tail -0| diff BUG-508/plain.log -
+echo '=== BUG-509/'; grep -ve"because exiting with last active thread context" BUG-509/gem5.log | tail -1| diff BUG-509/plain.log -
+echo '=== BUG-51/'; grep -ve"because exiting with last active thread context" BUG-51/gem5.log | tail -1| diff BUG-51/plain.log -
+echo '=== BUG-510/'; grep -ve"because exiting with last active thread context" BUG-510/gem5.log | tail -1| diff BUG-510/plain.log -
+echo '=== BUG-511/'; grep -ve"because exiting with last active thread context" BUG-511/gem5.log | tail -1| diff BUG-511/plain.log -
+echo '=== BUG-512/'; grep -ve"because exiting with last active thread context" BUG-512/gem5.log | tail -1| diff BUG-512/plain.log -
+echo '=== BUG-513/'; grep -ve"because exiting with last active thread context" BUG-513/gem5.log | tail -1| diff BUG-513/plain.log -
+echo '=== BUG-514/'; grep -ve"because exiting with last active thread context" BUG-514/gem5.log | tail -1| diff BUG-514/plain.log -
+echo '=== BUG-515/'; grep -ve"because exiting with last active thread context" BUG-515/gem5.log | tail -1| diff BUG-515/plain.log -
+echo '=== BUG-516/'; grep -ve"because exiting with last active thread context" BUG-516/gem5.log | tail -1| diff BUG-516/plain.log -
+echo '=== BUG-517/'; grep -ve"because exiting with last active thread context" BUG-517/gem5.log | tail -0| diff BUG-517/plain.log -
+echo '=== BUG-518/'; grep -ve"because exiting with last active thread context" BUG-518/gem5.log | tail -1| diff BUG-518/plain.log -
+echo '=== BUG-519/'; grep -ve"because exiting with last active thread context" BUG-519/gem5.log | tail -1| diff BUG-519/plain.log -
+echo '=== BUG-52/'; grep -ve"because exiting with last active thread context" BUG-52/gem5.log | tail -0| diff BUG-52/plain.log -
+echo '=== BUG-520/'; grep -ve"because exiting with last active thread context" BUG-520/gem5.log | tail -1| diff BUG-520/plain.log -
+echo '=== BUG-521/'; grep -ve"because exiting with last active thread context" BUG-521/gem5.log | tail -1| diff BUG-521/plain.log -
+echo '=== BUG-522/'; grep -ve"because exiting with last active thread context" BUG-522/gem5.log | tail -1| diff BUG-522/plain.log -
+echo '=== BUG-523/'; grep -ve"because exiting with last active thread context" BUG-523/gem5.log | tail -1| diff BUG-523/plain.log -
+echo '=== BUG-524/'; grep -ve"because exiting with last active thread context" BUG-524/gem5.log | tail -1| diff BUG-524/plain.log -
+echo '=== BUG-525/'; grep -ve"because exiting with last active thread context" BUG-525/gem5.log | tail -1| diff BUG-525/plain.log -
+echo '=== BUG-526/'; grep -ve"because exiting with last active thread context" BUG-526/gem5.log | tail -0| diff BUG-526/plain.log -
+echo '=== BUG-527/'; grep -ve"because exiting with last active thread context" BUG-527/gem5.log | tail -0| diff BUG-527/plain.log -
+echo '=== BUG-528/'; grep -ve"because exiting with last active thread context" BUG-528/gem5.log | tail -1| diff BUG-528/plain.log -
+echo '=== BUG-529/'; grep -ve"because exiting with last active thread context" BUG-529/gem5.log | tail -1| diff BUG-529/plain.log -
+echo '=== BUG-53/'; grep -ve"because exiting with last active thread context" BUG-53/gem5.log | tail -0| diff BUG-53/plain.log -
+echo '=== BUG-530/'; grep -ve"because exiting with last active thread context" BUG-530/gem5.log | tail -1| diff BUG-530/plain.log -
+echo '=== BUG-531/'; grep -ve"because exiting with last active thread context" BUG-531/gem5.log | tail -1| diff BUG-531/plain.log -
+echo '=== BUG-532/'; grep -ve"because exiting with last active thread context" BUG-532/gem5.log | tail -0| diff BUG-532/plain.log -
+echo '=== BUG-533/'; grep -ve"because exiting with last active thread context" BUG-533/gem5.log | tail -1| diff BUG-533/plain.log -
+echo '=== BUG-534/'; grep -ve"because exiting with last active thread context" BUG-534/gem5.log | tail -1| diff BUG-534/plain.log -
+echo '=== BUG-535/'; grep -ve"because exiting with last active thread context" BUG-535/gem5.log | tail -0| diff BUG-535/plain.log -
+echo '=== BUG-536/'; grep -ve"because exiting with last active thread context" BUG-536/gem5.log | tail -1| diff BUG-536/plain.log -
+echo '=== BUG-537/'; grep -ve"because exiting with last active thread context" BUG-537/gem5.log | tail -1| diff BUG-537/plain.log -
+echo '=== BUG-538/'; grep -ve"because exiting with last active thread context" BUG-538/gem5.log | tail -1| diff BUG-538/plain.log -
+echo '=== BUG-539/'; grep -ve"because exiting with last active thread context" BUG-539/gem5.log | tail -1| diff BUG-539/plain.log -
+echo '=== BUG-54/'; grep -ve"because exiting with last active thread context" BUG-54/gem5.log | tail -0| diff BUG-54/plain.log -
+echo '=== BUG-540/'; grep -ve"because exiting with last active thread context" BUG-540/gem5.log | tail -1| diff BUG-540/plain.log -
+echo '=== BUG-541/'; grep -ve"because exiting with last active thread context" BUG-541/gem5.log | tail -1| diff BUG-541/plain.log -
+echo '=== BUG-542/'; grep -ve"because exiting with last active thread context" BUG-542/gem5.log | tail -1| diff BUG-542/plain.log -
+echo '=== BUG-543/'; grep -ve"because exiting with last active thread context" BUG-543/gem5.log | tail -1| diff BUG-543/plain.log -
+echo '=== BUG-544/'; grep -ve"because exiting with last active thread context" BUG-544/gem5.log | tail -1| diff BUG-544/plain.log -
+echo '=== BUG-545/'; grep -ve"because exiting with last active thread context" BUG-545/gem5.log | tail -1| diff BUG-545/plain.log -
+echo '=== BUG-546/'; grep -ve"because exiting with last active thread context" BUG-546/gem5.log | tail -0| diff BUG-546/plain.log -
+echo '=== BUG-547/'; grep -ve"because exiting with last active thread context" BUG-547/gem5.log | tail -0| diff BUG-547/plain.log -
+echo '=== BUG-548/'; grep -ve"because exiting with last active thread context" BUG-548/gem5.log | tail -1| diff BUG-548/plain.log -
+echo '=== BUG-549/'; grep -ve"because exiting with last active thread context" BUG-549/gem5.log | tail -0| diff BUG-549/plain.log -
+echo '=== BUG-55/'; grep -ve"because exiting with last active thread context" BUG-55/gem5.log | tail -0| diff BUG-55/plain.log -
+echo '=== BUG-550/'; grep -ve"because exiting with last active thread context" BUG-550/gem5.log | tail -0| diff BUG-550/plain.log -
+echo '=== BUG-551/'; grep -ve"because exiting with last active thread context" BUG-551/gem5.log | tail -1| diff BUG-551/plain.log -
+echo '=== BUG-552/'; grep -ve"because exiting with last active thread context" BUG-552/gem5.log | tail -1| diff BUG-552/plain.log -
+echo '=== BUG-553/'; grep -ve"because exiting with last active thread context" BUG-553/gem5.log | tail -1| diff BUG-553/plain.log -
+echo '=== BUG-554/'; grep -ve"because exiting with last active thread context" BUG-554/gem5.log | tail -1| diff BUG-554/plain.log -
+echo '=== BUG-555/'; grep -ve"because exiting with last active thread context" BUG-555/gem5.log | tail -1| diff BUG-555/plain.log -
+echo '=== BUG-556/'; grep -ve"because exiting with last active thread context" BUG-556/gem5.log | tail -0| diff BUG-556/plain.log -
+echo '=== BUG-557/'; grep -ve"because exiting with last active thread context" BUG-557/gem5.log | tail -0| diff BUG-557/plain.log -
+echo '=== BUG-558/'; grep -ve"because exiting with last active thread context" BUG-558/gem5.log | tail -0| diff BUG-558/plain.log -
+echo '=== BUG-559/'; grep -ve"because exiting with last active thread context" BUG-559/gem5.log | tail -1| diff BUG-559/plain.log -
+echo '=== BUG-56/'; grep -ve"because exiting with last active thread context" BUG-56/gem5.log | tail -0| diff BUG-56/plain.log -
+echo '=== BUG-560/'; grep -ve"because exiting with last active thread context" BUG-560/gem5.log | tail -1| diff BUG-560/plain.log -
+echo '=== BUG-561/'; grep -ve"because exiting with last active thread context" BUG-561/gem5.log | tail -1| diff BUG-561/plain.log -
+echo '=== BUG-562/'; grep -ve"because exiting with last active thread context" BUG-562/gem5.log | tail -0| diff BUG-562/plain.log -
+echo '=== BUG-563/'; grep -ve"because exiting with last active thread context" BUG-563/gem5.log | tail -0| diff BUG-563/plain.log -
+echo '=== BUG-564/'; grep -ve"because exiting with last active thread context" BUG-564/gem5.log | tail -1| diff BUG-564/plain.log -
+echo '=== BUG-565/'; grep -ve"because exiting with last active thread context" BUG-565/gem5.log | tail -1| diff BUG-565/plain.log -
+echo '=== BUG-566/'; grep -ve"because exiting with last active thread context" BUG-566/gem5.log | tail -0| diff BUG-566/plain.log -
+echo '=== BUG-567/'; grep -ve"because exiting with last active thread context" BUG-567/gem5.log | tail -1| diff BUG-567/plain.log -
+echo '=== BUG-568/'; grep -ve"because exiting with last active thread context" BUG-568/gem5.log | tail -1| diff BUG-568/plain.log -
+echo '=== BUG-569/'; grep -ve"because exiting with last active thread context" BUG-569/gem5.log | tail -1| diff BUG-569/plain.log -
+echo '=== BUG-57/'; grep -ve"because exiting with last active thread context" BUG-57/gem5.log | tail -0| diff BUG-57/plain.log -
+echo '=== BUG-570/'; grep -ve"because exiting with last active thread context" BUG-570/gem5.log | tail -0| diff BUG-570/plain.log -
+echo '=== BUG-571/'; grep -ve"because exiting with last active thread context" BUG-571/gem5.log | tail -0| diff BUG-571/plain.log -
+echo '=== BUG-572/'; grep -ve"because exiting with last active thread context" BUG-572/gem5.log | tail -0| diff BUG-572/plain.log -
+echo '=== BUG-573/'; grep -ve"because exiting with last active thread context" BUG-573/gem5.log | tail -0| diff BUG-573/plain.log -
+echo '=== BUG-574/'; grep -ve"because exiting with last active thread context" BUG-574/gem5.log | tail -0| diff BUG-574/plain.log -
+echo '=== BUG-575/'; grep -ve"because exiting with last active thread context" BUG-575/gem5.log | tail -1| diff BUG-575/plain.log -
+echo '=== BUG-576/'; grep -ve"because exiting with last active thread context" BUG-576/gem5.log | tail -0| diff BUG-576/plain.log -
+echo '=== BUG-577/'; grep -ve"because exiting with last active thread context" BUG-577/gem5.log | tail -1| diff BUG-577/plain.log -
+echo '=== BUG-578/'; grep -ve"because exiting with last active thread context" BUG-578/gem5.log | tail -0| diff BUG-578/plain.log -
+echo '=== BUG-579/'; grep -ve"because exiting with last active thread context" BUG-579/gem5.log | tail -0| diff BUG-579/plain.log -
+echo '=== BUG-58/'; grep -ve"because exiting with last active thread context" BUG-58/gem5.log | tail -0| diff BUG-58/plain.log -
+echo '=== BUG-580/'; grep -ve"because exiting with last active thread context" BUG-580/gem5.log | tail -1| diff BUG-580/plain.log -
+echo '=== BUG-581/'; grep -ve"because exiting with last active thread context" BUG-581/gem5.log | tail -1| diff BUG-581/plain.log -
+echo '=== BUG-582/'; grep -ve"because exiting with last active thread context" BUG-582/gem5.log | tail -1| diff BUG-582/plain.log -
+echo '=== BUG-583/'; grep -ve"because exiting with last active thread context" BUG-583/gem5.log | tail -1| diff BUG-583/plain.log -
+echo '=== BUG-584/'; grep -ve"because exiting with last active thread context" BUG-584/gem5.log | tail -0| diff BUG-584/plain.log -
+echo '=== BUG-585/'; grep -ve"because exiting with last active thread context" BUG-585/gem5.log | tail -1| diff BUG-585/plain.log -
+echo '=== BUG-586/'; grep -ve"because exiting with last active thread context" BUG-586/gem5.log | tail -1| diff BUG-586/plain.log -
+echo '=== BUG-587/'; grep -ve"because exiting with last active thread context" BUG-587/gem5.log | tail -0| diff BUG-587/plain.log -
+echo '=== BUG-588/'; grep -ve"because exiting with last active thread context" BUG-588/gem5.log | tail -0| diff BUG-588/plain.log -
+echo '=== BUG-589/'; grep -ve"because exiting with last active thread context" BUG-589/gem5.log | tail -1| diff BUG-589/plain.log -
+echo '=== BUG-59/'; grep -ve"because exiting with last active thread context" BUG-59/gem5.log | tail -0| diff BUG-59/plain.log -
+echo '=== BUG-590/'; grep -ve"because exiting with last active thread context" BUG-590/gem5.log | tail -1| diff BUG-590/plain.log -
+echo '=== BUG-591/'; grep -ve"because exiting with last active thread context" BUG-591/gem5.log | tail -1| diff BUG-591/plain.log -
+echo '=== BUG-592/'; grep -ve"because exiting with last active thread context" BUG-592/gem5.log | tail -0| diff BUG-592/plain.log -
+echo '=== BUG-593/'; grep -ve"because exiting with last active thread context" BUG-593/gem5.log | tail -1| diff BUG-593/plain.log -
+echo '=== BUG-594/'; grep -ve"because exiting with last active thread context" BUG-594/gem5.log | tail -1| diff BUG-594/plain.log -
+echo '=== BUG-595/'; grep -ve"because exiting with last active thread context" BUG-595/gem5.log | tail -0| diff BUG-595/plain.log -
+echo '=== BUG-596/'; grep -ve"because exiting with last active thread context" BUG-596/gem5.log | tail -0| diff BUG-596/plain.log -
+echo '=== BUG-597/'; grep -ve"because exiting with last active thread context" BUG-597/gem5.log | tail -1| diff BUG-597/plain.log -
+echo '=== BUG-598/'; grep -ve"because exiting with last active thread context" BUG-598/gem5.log | tail -1| diff BUG-598/plain.log -
+echo '=== BUG-599/'; grep -ve"because exiting with last active thread context" BUG-599/gem5.log | tail -1| diff BUG-599/plain.log -
+echo '=== BUG-6/'; grep -ve"because exiting with last active thread context" BUG-6/gem5.log | tail -0| diff BUG-6/plain.log -
+echo '=== BUG-60/'; grep -ve"because exiting with last active thread context" BUG-60/gem5.log | tail -0| diff BUG-60/plain.log -
+echo '=== BUG-600/'; grep -ve"because exiting with last active thread context" BUG-600/gem5.log | tail -1| diff BUG-600/plain.log -
+echo '=== BUG-601/'; grep -ve"because exiting with last active thread context" BUG-601/gem5.log | tail -0| diff BUG-601/plain.log -
+echo '=== BUG-602/'; grep -ve"because exiting with last active thread context" BUG-602/gem5.log | tail -1| diff BUG-602/plain.log -
+echo '=== BUG-603/'; grep -ve"because exiting with last active thread context" BUG-603/gem5.log | tail -1| diff BUG-603/plain.log -
+echo '=== BUG-604/'; grep -ve"because exiting with last active thread context" BUG-604/gem5.log | tail -1| diff BUG-604/plain.log -
+echo '=== BUG-605/'; grep -ve"because exiting with last active thread context" BUG-605/gem5.log | tail -0| diff BUG-605/plain.log -
+echo '=== BUG-606/'; grep -ve"because exiting with last active thread context" BUG-606/gem5.log | tail -0| diff BUG-606/plain.log -
+echo '=== BUG-607/'; grep -ve"because exiting with last active thread context" BUG-607/gem5.log | tail -0| diff BUG-607/plain.log -
+echo '=== BUG-608/'; grep -ve"because exiting with last active thread context" BUG-608/gem5.log | tail -1| diff BUG-608/plain.log -
+echo '=== BUG-609/'; grep -ve"because exiting with last active thread context" BUG-609/gem5.log | tail -1| diff BUG-609/plain.log -
+echo '=== BUG-61/'; grep -ve"because exiting with last active thread context" BUG-61/gem5.log | tail -0| diff BUG-61/plain.log -
+echo '=== BUG-610/'; grep -ve"because exiting with last active thread context" BUG-610/gem5.log | tail -0| diff BUG-610/plain.log -
+echo '=== BUG-611/'; grep -ve"because exiting with last active thread context" BUG-611/gem5.log | tail -1| diff BUG-611/plain.log -
+echo '=== BUG-612/'; grep -ve"because exiting with last active thread context" BUG-612/gem5.log | tail -1| diff BUG-612/plain.log -
+echo '=== BUG-613/'; grep -ve"because exiting with last active thread context" BUG-613/gem5.log | tail -0| diff BUG-613/plain.log -
+echo '=== BUG-614/'; grep -ve"because exiting with last active thread context" BUG-614/gem5.log | tail -1| diff BUG-614/plain.log -
+echo '=== BUG-615/'; grep -ve"because exiting with last active thread context" BUG-615/gem5.log | tail -1| diff BUG-615/plain.log -
+echo '=== BUG-616/'; grep -ve"because exiting with last active thread context" BUG-616/gem5.log | tail -0| diff BUG-616/plain.log -
+echo '=== BUG-617/'; grep -ve"because exiting with last active thread context" BUG-617/gem5.log | tail -0| diff BUG-617/plain.log -
+echo '=== BUG-618/'; grep -ve"because exiting with last active thread context" BUG-618/gem5.log | tail -1| diff BUG-618/plain.log -
+echo '=== BUG-619/'; grep -ve"because exiting with last active thread context" BUG-619/gem5.log | tail -1| diff BUG-619/plain.log -
+echo '=== BUG-62/'; grep -ve"because exiting with last active thread context" BUG-62/gem5.log | tail -1| diff BUG-62/plain.log -
+echo '=== BUG-620/'; grep -ve"because exiting with last active thread context" BUG-620/gem5.log | tail -1| diff BUG-620/plain.log -
+echo '=== BUG-621/'; grep -ve"because exiting with last active thread context" BUG-621/gem5.log | tail -2| diff BUG-621/plain.log -
+echo '=== BUG-622/'; grep -ve"because exiting with last active thread context" BUG-622/gem5.log | tail -2| diff BUG-622/plain.log -
+echo '=== BUG-623/'; grep -ve"because exiting with last active thread context" BUG-623/gem5.log | tail -1| diff BUG-623/plain.log -
+echo '=== BUG-624/'; grep -ve"because exiting with last active thread context" BUG-624/gem5.log | tail -0| diff BUG-624/plain.log -
+echo '=== BUG-625/'; grep -ve"because exiting with last active thread context" BUG-625/gem5.log | tail -1| diff BUG-625/plain.log -
+echo '=== BUG-626/'; grep -ve"because exiting with last active thread context" BUG-626/gem5.log | tail -1| diff BUG-626/plain.log -
+echo '=== BUG-627/'; grep -ve"because exiting with last active thread context" BUG-627/gem5.log | tail -8| diff BUG-627/plain.log -
+echo '=== BUG-628/'; grep -ve"because exiting with last active thread context" BUG-628/gem5.log | tail -0| diff BUG-628/plain.log -
+echo '=== BUG-629/'; grep -ve"because exiting with last active thread context" BUG-629/gem5.log | tail -1| diff BUG-629/plain.log -
+echo '=== BUG-63/'; grep -ve"because exiting with last active thread context" BUG-63/gem5.log | tail -0| diff BUG-63/plain.log -
+echo '=== BUG-630/'; grep -ve"because exiting with last active thread context" BUG-630/gem5.log | tail -1| diff BUG-630/plain.log -
+echo '=== BUG-631/'; grep -ve"because exiting with last active thread context" BUG-631/gem5.log | tail -1| diff BUG-631/plain.log -
+echo '=== BUG-632/'; grep -ve"because exiting with last active thread context" BUG-632/gem5.log | tail -1| diff BUG-632/plain.log -
+echo '=== BUG-633/'; grep -ve"because exiting with last active thread context" BUG-633/gem5.log | tail -1| diff BUG-633/plain.log -
+echo '=== BUG-634/'; grep -ve"because exiting with last active thread context" BUG-634/gem5.log | tail -1| diff BUG-634/plain.log -
+echo '=== BUG-635/'; grep -ve"because exiting with last active thread context" BUG-635/gem5.log | tail -1| diff BUG-635/plain.log -
+echo '=== BUG-636/'; grep -ve"because exiting with last active thread context" BUG-636/gem5.log | tail -0| diff BUG-636/plain.log -
+echo '=== BUG-637/'; grep -ve"because exiting with last active thread context" BUG-637/gem5.log | tail -0| diff BUG-637/plain.log -
+echo '=== BUG-638/'; grep -ve"because exiting with last active thread context" BUG-638/gem5.log | tail -1| diff BUG-638/plain.log -
+echo '=== BUG-639/'; grep -ve"because exiting with last active thread context" BUG-639/gem5.log | tail -1| diff BUG-639/plain.log -
+echo '=== BUG-64/'; grep -ve"because exiting with last active thread context" BUG-64/gem5.log | tail -0| diff BUG-64/plain.log -
+echo '=== BUG-640/'; grep -ve"because exiting with last active thread context" BUG-640/gem5.log | tail -0| diff BUG-640/plain.log -
+echo '=== BUG-641/'; grep -ve"because exiting with last active thread context" BUG-641/gem5.log | tail -0| diff BUG-641/plain.log -
+echo '=== BUG-642/'; grep -ve"because exiting with last active thread context" BUG-642/gem5.log | tail -0| diff BUG-642/plain.log -
+echo '=== BUG-643/'; grep -ve"because exiting with last active thread context" BUG-643/gem5.log | tail -1| diff BUG-643/plain.log -
+echo '=== BUG-644/'; grep -ve"because exiting with last active thread context" BUG-644/gem5.log | tail -1| diff BUG-644/plain.log -
+echo '=== BUG-645/'; grep -ve"because exiting with last active thread context" BUG-645/gem5.log | tail -6| diff BUG-645/plain.log -
+echo '=== BUG-646/'; grep -ve"because exiting with last active thread context" BUG-646/gem5.log | tail -1| diff BUG-646/plain.log -
+echo '=== BUG-647/'; grep -ve"because exiting with last active thread context" BUG-647/gem5.log | tail -0| diff BUG-647/plain.log -
+echo '=== BUG-648/'; grep -ve"because exiting with last active thread context" BUG-648/gem5.log | tail -3| diff BUG-648/plain.log -
+echo '=== BUG-649/'; grep -ve"because exiting with last active thread context" BUG-649/gem5.log | tail -1| diff BUG-649/plain.log -
+echo '=== BUG-65/'; grep -ve"because exiting with last active thread context" BUG-65/gem5.log | tail -0| diff BUG-65/plain.log -
+echo '=== BUG-650/'; grep -ve"because exiting with last active thread context" BUG-650/gem5.log | tail -1| diff BUG-650/plain.log -
+echo '=== BUG-651/'; grep -ve"because exiting with last active thread context" BUG-651/gem5.log | tail -0| diff BUG-651/plain.log -
+echo '=== BUG-652/'; grep -ve"because exiting with last active thread context" BUG-652/gem5.log | tail -1| diff BUG-652/plain.log -
+echo '=== BUG-653/'; grep -ve"because exiting with last active thread context" BUG-653/gem5.log | tail -1| diff BUG-653/plain.log -
+echo '=== BUG-654/'; grep -ve"because exiting with last active thread context" BUG-654/gem5.log | tail -0| diff BUG-654/plain.log -
+echo '=== BUG-655/'; grep -ve"because exiting with last active thread context" BUG-655/gem5.log | tail -1| diff BUG-655/plain.log -
+echo '=== BUG-656/'; grep -ve"because exiting with last active thread context" BUG-656/gem5.log | tail -1| diff BUG-656/plain.log -
+echo '=== BUG-657/'; grep -ve"because exiting with last active thread context" BUG-657/gem5.log | tail -0| diff BUG-657/plain.log -
+echo '=== BUG-658/'; grep -ve"because exiting with last active thread context" BUG-658/gem5.log | tail -1| diff BUG-658/plain.log -
+echo '=== BUG-659/'; grep -ve"because exiting with last active thread context" BUG-659/gem5.log | tail -0| diff BUG-659/plain.log -
+echo '=== BUG-66/'; grep -ve"because exiting with last active thread context" BUG-66/gem5.log | tail -0| diff BUG-66/plain.log -
+echo '=== BUG-660/'; grep -ve"because exiting with last active thread context" BUG-660/gem5.log | tail -1| diff BUG-660/plain.log -
+echo '=== BUG-661/'; grep -ve"because exiting with last active thread context" BUG-661/gem5.log | tail -0| diff BUG-661/plain.log -
+echo '=== BUG-662/'; grep -ve"because exiting with last active thread context" BUG-662/gem5.log | tail -0| diff BUG-662/plain.log -
+echo '=== BUG-663/'; grep -ve"because exiting with last active thread context" BUG-663/gem5.log | tail -0| diff BUG-663/plain.log -
+echo '=== BUG-664/'; grep -ve"because exiting with last active thread context" BUG-664/gem5.log | tail -0| diff BUG-664/plain.log -
+echo '=== BUG-665/'; grep -ve"because exiting with last active thread context" BUG-665/gem5.log | tail -0| diff BUG-665/plain.log -
+echo '=== BUG-666/'; grep -ve"because exiting with last active thread context" BUG-666/gem5.log | tail -1| diff BUG-666/plain.log -
+echo '=== BUG-667/'; grep -ve"because exiting with last active thread context" BUG-667/gem5.log | tail -4| diff BUG-667/plain.log -
+echo '=== BUG-668/'; grep -ve"because exiting with last active thread context" BUG-668/gem5.log | tail -1| diff BUG-668/plain.log -
+echo '=== BUG-669/'; grep -ve"because exiting with last active thread context" BUG-669/gem5.log | tail -10| diff BUG-669/plain.log -
+echo '=== BUG-67/'; grep -ve"because exiting with last active thread context" BUG-67/gem5.log | tail -1| diff BUG-67/plain.log -
+echo '=== BUG-670/'; grep -ve"because exiting with last active thread context" BUG-670/gem5.log | tail -1| diff BUG-670/plain.log -
+echo '=== BUG-671/'; grep -ve"because exiting with last active thread context" BUG-671/gem5.log | tail -1| diff BUG-671/plain.log -
+echo '=== BUG-672/'; grep -ve"because exiting with last active thread context" BUG-672/gem5.log | tail -0| diff BUG-672/plain.log -
+echo '=== BUG-673/'; grep -ve"because exiting with last active thread context" BUG-673/gem5.log | tail -0| diff BUG-673/plain.log -
+echo '=== BUG-674/'; grep -ve"because exiting with last active thread context" BUG-674/gem5.log | tail -0| diff BUG-674/plain.log -
+echo '=== BUG-675/'; grep -ve"because exiting with last active thread context" BUG-675/gem5.log | tail -0| diff BUG-675/plain.log -
+echo '=== BUG-676/'; grep -ve"because exiting with last active thread context" BUG-676/gem5.log | tail -0| diff BUG-676/plain.log -
+echo '=== BUG-677/'; grep -ve"because exiting with last active thread context" BUG-677/gem5.log | tail -1| diff BUG-677/plain.log -
+echo '=== BUG-678/'; grep -ve"because exiting with last active thread context" BUG-678/gem5.log | tail -0| diff BUG-678/plain.log -
+echo '=== BUG-679/'; grep -ve"because exiting with last active thread context" BUG-679/gem5.log | tail -1| diff BUG-679/plain.log -
+echo '=== BUG-68/'; grep -ve"because exiting with last active thread context" BUG-68/gem5.log | tail -1| diff BUG-68/plain.log -
+echo '=== BUG-680/'; grep -ve"because exiting with last active thread context" BUG-680/gem5.log | tail -1| diff BUG-680/plain.log -
+echo '=== BUG-681/'; grep -ve"because exiting with last active thread context" BUG-681/gem5.log | tail -1| diff BUG-681/plain.log -
+echo '=== BUG-682/'; grep -ve"because exiting with last active thread context" BUG-682/gem5.log | tail -1| diff BUG-682/plain.log -
+echo '=== BUG-683/'; grep -ve"because exiting with last active thread context" BUG-683/gem5.log | tail -0| diff BUG-683/plain.log -
+echo '=== BUG-684/'; grep -ve"because exiting with last active thread context" BUG-684/gem5.log | tail -1| diff BUG-684/plain.log -
+echo '=== BUG-685/'; grep -ve"because exiting with last active thread context" BUG-685/gem5.log | tail -0| diff BUG-685/plain.log -
+echo '=== BUG-686/'; grep -ve"because exiting with last active thread context" BUG-686/gem5.log | tail -1| diff BUG-686/plain.log -
+echo '=== BUG-687/'; grep -ve"because exiting with last active thread context" BUG-687/gem5.log | tail -1| diff BUG-687/plain.log -
+echo '=== BUG-688/'; grep -ve"because exiting with last active thread context" BUG-688/gem5.log | tail -1| diff BUG-688/plain.log -
+echo '=== BUG-689/'; grep -ve"because exiting with last active thread context" BUG-689/gem5.log | tail -0| diff BUG-689/plain.log -
+echo '=== BUG-69/'; grep -ve"because exiting with last active thread context" BUG-69/gem5.log | tail -0| diff BUG-69/plain.log -
+echo '=== BUG-690/'; grep -ve"because exiting with last active thread context" BUG-690/gem5.log | tail -1| diff BUG-690/plain.log -
+echo '=== BUG-691/'; grep -ve"because exiting with last active thread context" BUG-691/gem5.log | tail -0| diff BUG-691/plain.log -
+echo '=== BUG-692/'; grep -ve"because exiting with last active thread context" BUG-692/gem5.log | tail -1| diff BUG-692/plain.log -
+echo '=== BUG-693/'; grep -ve"because exiting with last active thread context" BUG-693/gem5.log | tail -0| diff BUG-693/plain.log -
+echo '=== BUG-694/'; grep -ve"because exiting with last active thread context" BUG-694/gem5.log | tail -0| diff BUG-694/plain.log -
+echo '=== BUG-695/'; grep -ve"because exiting with last active thread context" BUG-695/gem5.log | tail -1| diff BUG-695/plain.log -
+echo '=== BUG-696/'; grep -ve"because exiting with last active thread context" BUG-696/gem5.log | tail -1| diff BUG-696/plain.log -
+echo '=== BUG-697/'; grep -ve"because exiting with last active thread context" BUG-697/gem5.log | tail -0| diff BUG-697/plain.log -
+echo '=== BUG-698/'; grep -ve"because exiting with last active thread context" BUG-698/gem5.log | tail -0| diff BUG-698/plain.log -
+echo '=== BUG-699/'; grep -ve"because exiting with last active thread context" BUG-699/gem5.log | tail -0| diff BUG-699/plain.log -
+echo '=== BUG-7/'; grep -ve"because exiting with last active thread context" BUG-7/gem5.log | tail -0| diff BUG-7/plain.log -
+echo '=== BUG-70/'; grep -ve"because exiting with last active thread context" BUG-70/gem5.log | tail -0| diff BUG-70/plain.log -
+echo '=== BUG-700/'; grep -ve"because exiting with last active thread context" BUG-700/gem5.log | tail -1| diff BUG-700/plain.log -
+echo '=== BUG-701/'; grep -ve"because exiting with last active thread context" BUG-701/gem5.log | tail -1| diff BUG-701/plain.log -
+echo '=== BUG-702/'; grep -ve"because exiting with last active thread context" BUG-702/gem5.log | tail -1| diff BUG-702/plain.log -
+echo '=== BUG-703/'; grep -ve"because exiting with last active thread context" BUG-703/gem5.log | tail -0| diff BUG-703/plain.log -
+echo '=== BUG-704/'; grep -ve"because exiting with last active thread context" BUG-704/gem5.log | tail -1| diff BUG-704/plain.log -
+echo '=== BUG-705/'; grep -ve"because exiting with last active thread context" BUG-705/gem5.log | tail -1| diff BUG-705/plain.log -
+echo '=== BUG-706/'; grep -ve"because exiting with last active thread context" BUG-706/gem5.log | tail -1| diff BUG-706/plain.log -
+echo '=== BUG-707/'; grep -ve"because exiting with last active thread context" BUG-707/gem5.log | tail -1| diff BUG-707/plain.log -
+echo '=== BUG-708/'; grep -ve"because exiting with last active thread context" BUG-708/gem5.log | tail -1| diff BUG-708/plain.log -
+echo '=== BUG-709/'; grep -ve"because exiting with last active thread context" BUG-709/gem5.log | tail -1| diff BUG-709/plain.log -
+echo '=== BUG-71/'; grep -ve"because exiting with last active thread context" BUG-71/gem5.log | tail -0| diff BUG-71/plain.log -
+echo '=== BUG-710/'; grep -ve"because exiting with last active thread context" BUG-710/gem5.log | tail -0| diff BUG-710/plain.log -
+echo '=== BUG-711/'; grep -ve"because exiting with last active thread context" BUG-711/gem5.log | tail -0| diff BUG-711/plain.log -
+echo '=== BUG-712/'; grep -ve"because exiting with last active thread context" BUG-712/gem5.log | tail -0| diff BUG-712/plain.log -
+echo '=== BUG-713/'; grep -ve"because exiting with last active thread context" BUG-713/gem5.log | tail -0| diff BUG-713/plain.log -
+echo '=== BUG-714/'; grep -ve"because exiting with last active thread context" BUG-714/gem5.log | tail -1| diff BUG-714/plain.log -
+echo '=== BUG-715/'; grep -ve"because exiting with last active thread context" BUG-715/gem5.log | tail -0| diff BUG-715/plain.log -
+echo '=== BUG-716/'; grep -ve"because exiting with last active thread context" BUG-716/gem5.log | tail -0| diff BUG-716/plain.log -
+echo '=== BUG-717/'; grep -ve"because exiting with last active thread context" BUG-717/gem5.log | tail -0| diff BUG-717/plain.log -
+echo '=== BUG-718/'; grep -ve"because exiting with last active thread context" BUG-718/gem5.log | tail -0| diff BUG-718/plain.log -
+echo '=== BUG-719/'; grep -ve"because exiting with last active thread context" BUG-719/gem5.log | tail -0| diff BUG-719/plain.log -
+echo '=== BUG-72/'; grep -ve"because exiting with last active thread context" BUG-72/gem5.log | tail -1| diff BUG-72/plain.log -
+echo '=== BUG-720/'; grep -ve"because exiting with last active thread context" BUG-720/gem5.log | tail -0| diff BUG-720/plain.log -
+echo '=== BUG-721/'; grep -ve"because exiting with last active thread context" BUG-721/gem5.log | tail -1| diff BUG-721/plain.log -
+echo '=== BUG-722/'; grep -ve"because exiting with last active thread context" BUG-722/gem5.log | tail -1| diff BUG-722/plain.log -
+echo '=== BUG-723/'; grep -ve"because exiting with last active thread context" BUG-723/gem5.log | tail -0| diff BUG-723/plain.log -
+echo '=== BUG-724/'; grep -ve"because exiting with last active thread context" BUG-724/gem5.log | tail -1| diff BUG-724/plain.log -
+echo '=== BUG-725/'; grep -ve"because exiting with last active thread context" BUG-725/gem5.log | tail -0| diff BUG-725/plain.log -
+echo '=== BUG-726/'; grep -ve"because exiting with last active thread context" BUG-726/gem5.log | tail -0| diff BUG-726/plain.log -
+echo '=== BUG-727/'; grep -ve"because exiting with last active thread context" BUG-727/gem5.log | tail -1| diff BUG-727/plain.log -
+echo '=== BUG-728/'; grep -ve"because exiting with last active thread context" BUG-728/gem5.log | tail -1| diff BUG-728/plain.log -
+echo '=== BUG-729/'; grep -ve"because exiting with last active thread context" BUG-729/gem5.log | tail -1| diff BUG-729/plain.log -
+echo '=== BUG-73/'; grep -ve"because exiting with last active thread context" BUG-73/gem5.log | tail -0| diff BUG-73/plain.log -
+echo '=== BUG-730/'; grep -ve"because exiting with last active thread context" BUG-730/gem5.log | tail -0| diff BUG-730/plain.log -
+echo '=== BUG-731/'; grep -ve"because exiting with last active thread context" BUG-731/gem5.log | tail -1| diff BUG-731/plain.log -
+echo '=== BUG-732/'; grep -ve"because exiting with last active thread context" BUG-732/gem5.log | tail -0| diff BUG-732/plain.log -
+echo '=== BUG-733/'; grep -ve"because exiting with last active thread context" BUG-733/gem5.log | tail -0| diff BUG-733/plain.log -
+echo '=== BUG-734/'; grep -ve"because exiting with last active thread context" BUG-734/gem5.log | tail -0| diff BUG-734/plain.log -
+echo '=== BUG-735/'; grep -ve"because exiting with last active thread context" BUG-735/gem5.log | tail -1| diff BUG-735/plain.log -
+echo '=== BUG-736/'; grep -ve"because exiting with last active thread context" BUG-736/gem5.log | tail -1| diff BUG-736/plain.log -
+echo '=== BUG-737/'; grep -ve"because exiting with last active thread context" BUG-737/gem5.log | tail -0| diff BUG-737/plain.log -
+echo '=== BUG-738/'; grep -ve"because exiting with last active thread context" BUG-738/gem5.log | tail -1| diff BUG-738/plain.log -
+echo '=== BUG-739/'; grep -ve"because exiting with last active thread context" BUG-739/gem5.log | tail -1| diff BUG-739/plain.log -
+echo '=== BUG-74/'; grep -ve"because exiting with last active thread context" BUG-74/gem5.log | tail -0| diff BUG-74/plain.log -
+echo '=== BUG-740/'; grep -ve"because exiting with last active thread context" BUG-740/gem5.log | tail -1| diff BUG-740/plain.log -
+echo '=== BUG-741/'; grep -ve"because exiting with last active thread context" BUG-741/gem5.log | tail -0| diff BUG-741/plain.log -
+echo '=== BUG-742/'; grep -ve"because exiting with last active thread context" BUG-742/gem5.log | tail -1| diff BUG-742/plain.log -
+echo '=== BUG-743/'; grep -ve"because exiting with last active thread context" BUG-743/gem5.log | tail -1| diff BUG-743/plain.log -
+echo '=== BUG-744/'; grep -ve"because exiting with last active thread context" BUG-744/gem5.log | tail -0| diff BUG-744/plain.log -
+echo '=== BUG-745/'; grep -ve"because exiting with last active thread context" BUG-745/gem5.log | tail -1| diff BUG-745/plain.log -
+echo '=== BUG-746/'; grep -ve"because exiting with last active thread context" BUG-746/gem5.log | tail -1| diff BUG-746/plain.log -
+echo '=== BUG-747/'; grep -ve"because exiting with last active thread context" BUG-747/gem5.log | tail -1| diff BUG-747/plain.log -
+echo '=== BUG-748/'; grep -ve"because exiting with last active thread context" BUG-748/gem5.log | tail -1| diff BUG-748/plain.log -
+echo '=== BUG-749/'; grep -ve"because exiting with last active thread context" BUG-749/gem5.log | tail -0| diff BUG-749/plain.log -
+echo '=== BUG-75/'; grep -ve"because exiting with last active thread context" BUG-75/gem5.log | tail -0| diff BUG-75/plain.log -
+echo '=== BUG-750/'; grep -ve"because exiting with last active thread context" BUG-750/gem5.log | tail -1| diff BUG-750/plain.log -
+echo '=== BUG-751/'; grep -ve"because exiting with last active thread context" BUG-751/gem5.log | tail -1| diff BUG-751/plain.log -
+echo '=== BUG-752/'; grep -ve"because exiting with last active thread context" BUG-752/gem5.log | tail -1| diff BUG-752/plain.log -
+echo '=== BUG-753/'; grep -ve"because exiting with last active thread context" BUG-753/gem5.log | tail -1| diff BUG-753/plain.log -
+echo '=== BUG-754/'; grep -ve"because exiting with last active thread context" BUG-754/gem5.log | tail -0| diff BUG-754/plain.log -
+echo '=== BUG-755/'; grep -ve"because exiting with last active thread context" BUG-755/gem5.log | tail -1| diff BUG-755/plain.log -
+echo '=== BUG-756/'; grep -ve"because exiting with last active thread context" BUG-756/gem5.log | tail -0| diff BUG-756/plain.log -
+echo '=== BUG-757/'; grep -ve"because exiting with last active thread context" BUG-757/gem5.log | tail -0| diff BUG-757/plain.log -
+echo '=== BUG-758/'; grep -ve"because exiting with last active thread context" BUG-758/gem5.log | tail -1| diff BUG-758/plain.log -
+echo '=== BUG-759/'; grep -ve"because exiting with last active thread context" BUG-759/gem5.log | tail -1| diff BUG-759/plain.log -
+echo '=== BUG-76/'; grep -ve"because exiting with last active thread context" BUG-76/gem5.log | tail -0| diff BUG-76/plain.log -
+echo '=== BUG-760/'; grep -ve"because exiting with last active thread context" BUG-760/gem5.log | tail -1| diff BUG-760/plain.log -
+echo '=== BUG-761/'; grep -ve"because exiting with last active thread context" BUG-761/gem5.log | tail -1| diff BUG-761/plain.log -
+echo '=== BUG-762/'; grep -ve"because exiting with last active thread context" BUG-762/gem5.log | tail -1| diff BUG-762/plain.log -
+echo '=== BUG-763/'; grep -ve"because exiting with last active thread context" BUG-763/gem5.log | tail -1| diff BUG-763/plain.log -
+echo '=== BUG-764/'; grep -ve"because exiting with last active thread context" BUG-764/gem5.log | tail -1| diff BUG-764/plain.log -
+echo '=== BUG-765/'; grep -ve"because exiting with last active thread context" BUG-765/gem5.log | tail -1| diff BUG-765/plain.log -
+echo '=== BUG-766/'; grep -ve"because exiting with last active thread context" BUG-766/gem5.log | tail -1| diff BUG-766/plain.log -
+echo '=== BUG-767/'; grep -ve"because exiting with last active thread context" BUG-767/gem5.log | tail -1| diff BUG-767/plain.log -
+echo '=== BUG-768/'; grep -ve"because exiting with last active thread context" BUG-768/gem5.log | tail -0| diff BUG-768/plain.log -
+echo '=== BUG-769/'; grep -ve"because exiting with last active thread context" BUG-769/gem5.log | tail -1| diff BUG-769/plain.log -
+echo '=== BUG-77/'; grep -ve"because exiting with last active thread context" BUG-77/gem5.log | tail -0| diff BUG-77/plain.log -
+echo '=== BUG-770/'; grep -ve"because exiting with last active thread context" BUG-770/gem5.log | tail -1| diff BUG-770/plain.log -
+echo '=== BUG-771/'; grep -ve"because exiting with last active thread context" BUG-771/gem5.log | tail -0| diff BUG-771/plain.log -
+echo '=== BUG-772/'; grep -ve"because exiting with last active thread context" BUG-772/gem5.log | tail -0| diff BUG-772/plain.log -
+echo '=== BUG-773/'; grep -ve"because exiting with last active thread context" BUG-773/gem5.log | tail -1| diff BUG-773/plain.log -
+echo '=== BUG-774/'; grep -ve"because exiting with last active thread context" BUG-774/gem5.log | tail -1| diff BUG-774/plain.log -
+echo '=== BUG-775/'; grep -ve"because exiting with last active thread context" BUG-775/gem5.log | tail -1| diff BUG-775/plain.log -
+echo '=== BUG-776/'; grep -ve"because exiting with last active thread context" BUG-776/gem5.log | tail -1| diff BUG-776/plain.log -
+echo '=== BUG-777/'; grep -ve"because exiting with last active thread context" BUG-777/gem5.log | tail -1| diff BUG-777/plain.log -
+echo '=== BUG-778/'; grep -ve"because exiting with last active thread context" BUG-778/gem5.log | tail -0| diff BUG-778/plain.log -
+echo '=== BUG-779/'; grep -ve"because exiting with last active thread context" BUG-779/gem5.log | tail -0| diff BUG-779/plain.log -
+echo '=== BUG-78/'; grep -ve"because exiting with last active thread context" BUG-78/gem5.log | tail -0| diff BUG-78/plain.log -
+echo '=== BUG-780/'; grep -ve"because exiting with last active thread context" BUG-780/gem5.log | tail -0| diff BUG-780/plain.log -
+echo '=== BUG-781/'; grep -ve"because exiting with last active thread context" BUG-781/gem5.log | tail -1| diff BUG-781/plain.log -
+echo '=== BUG-782/'; grep -ve"because exiting with last active thread context" BUG-782/gem5.log | tail -0| diff BUG-782/plain.log -
+echo '=== BUG-783/'; grep -ve"because exiting with last active thread context" BUG-783/gem5.log | tail -0| diff BUG-783/plain.log -
+echo '=== BUG-784/'; grep -ve"because exiting with last active thread context" BUG-784/gem5.log | tail -1| diff BUG-784/plain.log -
+echo '=== BUG-785/'; grep -ve"because exiting with last active thread context" BUG-785/gem5.log | tail -1| diff BUG-785/plain.log -
+echo '=== BUG-786/'; grep -ve"because exiting with last active thread context" BUG-786/gem5.log | tail -1| diff BUG-786/plain.log -
+echo '=== BUG-787/'; grep -ve"because exiting with last active thread context" BUG-787/gem5.log | tail -1| diff BUG-787/plain.log -
+echo '=== BUG-788/'; grep -ve"because exiting with last active thread context" BUG-788/gem5.log | tail -1| diff BUG-788/plain.log -
+echo '=== BUG-789/'; grep -ve"because exiting with last active thread context" BUG-789/gem5.log | tail -1| diff BUG-789/plain.log -
+echo '=== BUG-79/'; grep -ve"because exiting with last active thread context" BUG-79/gem5.log | tail -0| diff BUG-79/plain.log -
+echo '=== BUG-790/'; grep -ve"because exiting with last active thread context" BUG-790/gem5.log | tail -0| diff BUG-790/plain.log -
+echo '=== BUG-791/'; grep -ve"because exiting with last active thread context" BUG-791/gem5.log | tail -0| diff BUG-791/plain.log -
+echo '=== BUG-792/'; grep -ve"because exiting with last active thread context" BUG-792/gem5.log | tail -0| diff BUG-792/plain.log -
+echo '=== BUG-793/'; grep -ve"because exiting with last active thread context" BUG-793/gem5.log | tail -1| diff BUG-793/plain.log -
+echo '=== BUG-794/'; grep -ve"because exiting with last active thread context" BUG-794/gem5.log | tail -1| diff BUG-794/plain.log -
+echo '=== BUG-795/'; grep -ve"because exiting with last active thread context" BUG-795/gem5.log | tail -0| diff BUG-795/plain.log -
+echo '=== BUG-796/'; grep -ve"because exiting with last active thread context" BUG-796/gem5.log | tail -0| diff BUG-796/plain.log -
+echo '=== BUG-797/'; grep -ve"because exiting with last active thread context" BUG-797/gem5.log | tail -0| diff BUG-797/plain.log -
+echo '=== BUG-798/'; grep -ve"because exiting with last active thread context" BUG-798/gem5.log | tail -0| diff BUG-798/plain.log -
+echo '=== BUG-799/'; grep -ve"because exiting with last active thread context" BUG-799/gem5.log | tail -0| diff BUG-799/plain.log -
+echo '=== BUG-8/'; grep -ve"because exiting with last active thread context" BUG-8/gem5.log | tail -0| diff BUG-8/plain.log -
+echo '=== BUG-80/'; grep -ve"because exiting with last active thread context" BUG-80/gem5.log | tail -0| diff BUG-80/plain.log -
+echo '=== BUG-800/'; grep -ve"because exiting with last active thread context" BUG-800/gem5.log | tail -1| diff BUG-800/plain.log -
+echo '=== BUG-801/'; grep -ve"because exiting with last active thread context" BUG-801/gem5.log | tail -1| diff BUG-801/plain.log -
+echo '=== BUG-802/'; grep -ve"because exiting with last active thread context" BUG-802/gem5.log | tail -0| diff BUG-802/plain.log -
+echo '=== BUG-803/'; grep -ve"because exiting with last active thread context" BUG-803/gem5.log | tail -0| diff BUG-803/plain.log -
+echo '=== BUG-804/'; grep -ve"because exiting with last active thread context" BUG-804/gem5.log | tail -1| diff BUG-804/plain.log -
+echo '=== BUG-805/'; grep -ve"because exiting with last active thread context" BUG-805/gem5.log | tail -0| diff BUG-805/plain.log -
+echo '=== BUG-806/'; grep -ve"because exiting with last active thread context" BUG-806/gem5.log | tail -0| diff BUG-806/plain.log -
+echo '=== BUG-807/'; grep -ve"because exiting with last active thread context" BUG-807/gem5.log | tail -0| diff BUG-807/plain.log -
+echo '=== BUG-808/'; grep -ve"because exiting with last active thread context" BUG-808/gem5.log | tail -0| diff BUG-808/plain.log -
+echo '=== BUG-809/'; grep -ve"because exiting with last active thread context" BUG-809/gem5.log | tail -0| diff BUG-809/plain.log -
+echo '=== BUG-81/'; grep -ve"because exiting with last active thread context" BUG-81/gem5.log | tail -0| diff BUG-81/plain.log -
+echo '=== BUG-810/'; grep -ve"because exiting with last active thread context" BUG-810/gem5.log | tail -1| diff BUG-810/plain.log -
+echo '=== BUG-811/'; grep -ve"because exiting with last active thread context" BUG-811/gem5.log | tail -0| diff BUG-811/plain.log -
+echo '=== BUG-812/'; grep -ve"because exiting with last active thread context" BUG-812/gem5.log | tail -0| diff BUG-812/plain.log -
+echo '=== BUG-813/'; grep -ve"because exiting with last active thread context" BUG-813/gem5.log | tail -0| diff BUG-813/plain.log -
+echo '=== BUG-814/'; grep -ve"because exiting with last active thread context" BUG-814/gem5.log | tail -1| diff BUG-814/plain.log -
+echo '=== BUG-815/'; grep -ve"because exiting with last active thread context" BUG-815/gem5.log | tail -0| diff BUG-815/plain.log -
+echo '=== BUG-816/'; grep -ve"because exiting with last active thread context" BUG-816/gem5.log | tail -1| diff BUG-816/plain.log -
+echo '=== BUG-817/'; grep -ve"because exiting with last active thread context" BUG-817/gem5.log | tail -0| diff BUG-817/plain.log -
+echo '=== BUG-818/'; grep -ve"because exiting with last active thread context" BUG-818/gem5.log | tail -1| diff BUG-818/plain.log -
+echo '=== BUG-819/'; grep -ve"because exiting with last active thread context" BUG-819/gem5.log | tail -0| diff BUG-819/plain.log -
+echo '=== BUG-82/'; grep -ve"because exiting with last active thread context" BUG-82/gem5.log | tail -0| diff BUG-82/plain.log -
+echo '=== BUG-820/'; grep -ve"because exiting with last active thread context" BUG-820/gem5.log | tail -0| diff BUG-820/plain.log -
+echo '=== BUG-821/'; grep -ve"because exiting with last active thread context" BUG-821/gem5.log | tail -0| diff BUG-821/plain.log -
+echo '=== BUG-822/'; grep -ve"because exiting with last active thread context" BUG-822/gem5.log | tail -1| diff BUG-822/plain.log -
+echo '=== BUG-823/'; grep -ve"because exiting with last active thread context" BUG-823/gem5.log | tail -0| diff BUG-823/plain.log -
+echo '=== BUG-824/'; grep -ve"because exiting with last active thread context" BUG-824/gem5.log | tail -1| diff BUG-824/plain.log -
+echo '=== BUG-825/'; grep -ve"because exiting with last active thread context" BUG-825/gem5.log | tail -0| diff BUG-825/plain.log -
+echo '=== BUG-826/'; grep -ve"because exiting with last active thread context" BUG-826/gem5.log | tail -1| diff BUG-826/plain.log -
+echo '=== BUG-827/'; grep -ve"because exiting with last active thread context" BUG-827/gem5.log | tail -1| diff BUG-827/plain.log -
+echo '=== BUG-828/'; grep -ve"because exiting with last active thread context" BUG-828/gem5.log | tail -1| diff BUG-828/plain.log -
+echo '=== BUG-829/'; grep -ve"because exiting with last active thread context" BUG-829/gem5.log | tail -0| diff BUG-829/plain.log -
+echo '=== BUG-83/'; grep -ve"because exiting with last active thread context" BUG-83/gem5.log | tail -1| diff BUG-83/plain.log -
+echo '=== BUG-830/'; grep -ve"because exiting with last active thread context" BUG-830/gem5.log | tail -1| diff BUG-830/plain.log -
+echo '=== BUG-831/'; grep -ve"because exiting with last active thread context" BUG-831/gem5.log | tail -1| diff BUG-831/plain.log -
+echo '=== BUG-832/'; grep -ve"because exiting with last active thread context" BUG-832/gem5.log | tail -1| diff BUG-832/plain.log -
+echo '=== BUG-833/'; grep -ve"because exiting with last active thread context" BUG-833/gem5.log | tail -1| diff BUG-833/plain.log -
+echo '=== BUG-834/'; grep -ve"because exiting with last active thread context" BUG-834/gem5.log | tail -1| diff BUG-834/plain.log -
+echo '=== BUG-835/'; grep -ve"because exiting with last active thread context" BUG-835/gem5.log | tail -0| diff BUG-835/plain.log -
+echo '=== BUG-836/'; grep -ve"because exiting with last active thread context" BUG-836/gem5.log | tail -1| diff BUG-836/plain.log -
+echo '=== BUG-837/'; grep -ve"because exiting with last active thread context" BUG-837/gem5.log | tail -0| diff BUG-837/plain.log -
+echo '=== BUG-838/'; grep -ve"because exiting with last active thread context" BUG-838/gem5.log | tail -1| diff BUG-838/plain.log -
+echo '=== BUG-839/'; grep -ve"because exiting with last active thread context" BUG-839/gem5.log | tail -0| diff BUG-839/plain.log -
+echo '=== BUG-84/'; grep -ve"because exiting with last active thread context" BUG-84/gem5.log | tail -0| diff BUG-84/plain.log -
+echo '=== BUG-840/'; grep -ve"because exiting with last active thread context" BUG-840/gem5.log | tail -1| diff BUG-840/plain.log -
+echo '=== BUG-841/'; grep -ve"because exiting with last active thread context" BUG-841/gem5.log | tail -1| diff BUG-841/plain.log -
+echo '=== BUG-842/'; grep -ve"because exiting with last active thread context" BUG-842/gem5.log | tail -1| diff BUG-842/plain.log -
+echo '=== BUG-843/'; grep -ve"because exiting with last active thread context" BUG-843/gem5.log | tail -1| diff BUG-843/plain.log -
+echo '=== BUG-844/'; grep -ve"because exiting with last active thread context" BUG-844/gem5.log | tail -0| diff BUG-844/plain.log -
+echo '=== BUG-845/'; grep -ve"because exiting with last active thread context" BUG-845/gem5.log | tail -1| diff BUG-845/plain.log -
+echo '=== BUG-846/'; grep -ve"because exiting with last active thread context" BUG-846/gem5.log | tail -1| diff BUG-846/plain.log -
+echo '=== BUG-847/'; grep -ve"because exiting with last active thread context" BUG-847/gem5.log | tail -0| diff BUG-847/plain.log -
+echo '=== BUG-848/'; grep -ve"because exiting with last active thread context" BUG-848/gem5.log | tail -1| diff BUG-848/plain.log -
+echo '=== BUG-849/'; grep -ve"because exiting with last active thread context" BUG-849/gem5.log | tail -0| diff BUG-849/plain.log -
+echo '=== BUG-85/'; grep -ve"because exiting with last active thread context" BUG-85/gem5.log | tail -10| diff BUG-85/plain.log -
+echo '=== BUG-850/'; grep -ve"because exiting with last active thread context" BUG-850/gem5.log | tail -0| diff BUG-850/plain.log -
+echo '=== BUG-851/'; grep -ve"because exiting with last active thread context" BUG-851/gem5.log | tail -1| diff BUG-851/plain.log -
+echo '=== BUG-852/'; grep -ve"because exiting with last active thread context" BUG-852/gem5.log | tail -1| diff BUG-852/plain.log -
+echo '=== BUG-853/'; grep -ve"because exiting with last active thread context" BUG-853/gem5.log | tail -1| diff BUG-853/plain.log -
+echo '=== BUG-854/'; grep -ve"because exiting with last active thread context" BUG-854/gem5.log | tail -1| diff BUG-854/plain.log -
+echo '=== BUG-855/'; grep -ve"because exiting with last active thread context" BUG-855/gem5.log | tail -0| diff BUG-855/plain.log -
+echo '=== BUG-856/'; grep -ve"because exiting with last active thread context" BUG-856/gem5.log | tail -1| diff BUG-856/plain.log -
+echo '=== BUG-857/'; grep -ve"because exiting with last active thread context" BUG-857/gem5.log | tail -1| diff BUG-857/plain.log -
+echo '=== BUG-858/'; grep -ve"because exiting with last active thread context" BUG-858/gem5.log | tail -1| diff BUG-858/plain.log -
+echo '=== BUG-859/'; grep -ve"because exiting with last active thread context" BUG-859/gem5.log | tail -1| diff BUG-859/plain.log -
+echo '=== BUG-86/'; grep -ve"because exiting with last active thread context" BUG-86/gem5.log | tail -8| diff BUG-86/plain.log -
+echo '=== BUG-860/'; grep -ve"because exiting with last active thread context" BUG-860/gem5.log | tail -0| diff BUG-860/plain.log -
+echo '=== BUG-861/'; grep -ve"because exiting with last active thread context" BUG-861/gem5.log | tail -0| diff BUG-861/plain.log -
+echo '=== BUG-862/'; grep -ve"because exiting with last active thread context" BUG-862/gem5.log | tail -0| diff BUG-862/plain.log -
+echo '=== BUG-863/'; grep -ve"because exiting with last active thread context" BUG-863/gem5.log | tail -0| diff BUG-863/plain.log -
+echo '=== BUG-864/'; grep -ve"because exiting with last active thread context" BUG-864/gem5.log | tail -1| diff BUG-864/plain.log -
+echo '=== BUG-865/'; grep -ve"because exiting with last active thread context" BUG-865/gem5.log | tail -1| diff BUG-865/plain.log -
+echo '=== BUG-866/'; grep -ve"because exiting with last active thread context" BUG-866/gem5.log | tail -0| diff BUG-866/plain.log -
+echo '=== BUG-867/'; grep -ve"because exiting with last active thread context" BUG-867/gem5.log | tail -1| diff BUG-867/plain.log -
+echo '=== BUG-868/'; grep -ve"because exiting with last active thread context" BUG-868/gem5.log | tail -1| diff BUG-868/plain.log -
+echo '=== BUG-869/'; grep -ve"because exiting with last active thread context" BUG-869/gem5.log | tail -0| diff BUG-869/plain.log -
+echo '=== BUG-87/'; grep -ve"because exiting with last active thread context" BUG-87/gem5.log | tail -4| diff BUG-87/plain.log -
+echo '=== BUG-870/'; grep -ve"because exiting with last active thread context" BUG-870/gem5.log | tail -1| diff BUG-870/plain.log -
+echo '=== BUG-871/'; grep -ve"because exiting with last active thread context" BUG-871/gem5.log | tail -1| diff BUG-871/plain.log -
+echo '=== BUG-872/'; grep -ve"because exiting with last active thread context" BUG-872/gem5.log | tail -1| diff BUG-872/plain.log -
+echo '=== BUG-873/'; grep -ve"because exiting with last active thread context" BUG-873/gem5.log | tail -1| diff BUG-873/plain.log -
+echo '=== BUG-874/'; grep -ve"because exiting with last active thread context" BUG-874/gem5.log | tail -0| diff BUG-874/plain.log -
+echo '=== BUG-875/'; grep -ve"because exiting with last active thread context" BUG-875/gem5.log | tail -1| diff BUG-875/plain.log -
+echo '=== BUG-876/'; grep -ve"because exiting with last active thread context" BUG-876/gem5.log | tail -0| diff BUG-876/plain.log -
+echo '=== BUG-877/'; grep -ve"because exiting with last active thread context" BUG-877/gem5.log | tail -1| diff BUG-877/plain.log -
+echo '=== BUG-878/'; grep -ve"because exiting with last active thread context" BUG-878/gem5.log | tail -0| diff BUG-878/plain.log -
+echo '=== BUG-879/'; grep -ve"because exiting with last active thread context" BUG-879/gem5.log | tail -1| diff BUG-879/plain.log -
+echo '=== BUG-88/'; grep -ve"because exiting with last active thread context" BUG-88/gem5.log | tail -12| diff BUG-88/plain.log -
+echo '=== BUG-880/'; grep -ve"because exiting with last active thread context" BUG-880/gem5.log | tail -0| diff BUG-880/plain.log -
+echo '=== BUG-881/'; grep -ve"because exiting with last active thread context" BUG-881/gem5.log | tail -1| diff BUG-881/plain.log -
+echo '=== BUG-882/'; grep -ve"because exiting with last active thread context" BUG-882/gem5.log | tail -1| diff BUG-882/plain.log -
+echo '=== BUG-883/'; grep -ve"because exiting with last active thread context" BUG-883/gem5.log | tail -1| diff BUG-883/plain.log -
+echo '=== BUG-884/'; grep -ve"because exiting with last active thread context" BUG-884/gem5.log | tail -0| diff BUG-884/plain.log -
+echo '=== BUG-885/'; grep -ve"because exiting with last active thread context" BUG-885/gem5.log | tail -0| diff BUG-885/plain.log -
+echo '=== BUG-886/'; grep -ve"because exiting with last active thread context" BUG-886/gem5.log | tail -1| diff BUG-886/plain.log -
+echo '=== BUG-887/'; grep -ve"because exiting with last active thread context" BUG-887/gem5.log | tail -0| diff BUG-887/plain.log -
+echo '=== BUG-888/'; grep -ve"because exiting with last active thread context" BUG-888/gem5.log | tail -1| diff BUG-888/plain.log -
+echo '=== BUG-889/'; grep -ve"because exiting with last active thread context" BUG-889/gem5.log | tail -1| diff BUG-889/plain.log -
+
+echo '=== BUG-89/'; grep -ve"because exiting with last active thread context" BUG-89/gem5.log | tail -11| diff BUG-89/plain.log -
+echo '=== BUG-890/'; grep -ve"because exiting with last active thread context" BUG-890/gem5.log | tail -1| diff BUG-890/plain.log -
+echo '=== BUG-891/'; grep -ve"because exiting with last active thread context" BUG-891/gem5.log | tail -1| diff BUG-891/plain.log -
+echo '=== BUG-892/'; grep -ve"because exiting with last active thread context" BUG-892/gem5.log | tail -0| diff BUG-892/plain.log -
+echo '=== BUG-893/'; grep -ve"because exiting with last active thread context" BUG-893/gem5.log | tail -1| diff BUG-893/plain.log -
+echo '=== BUG-894/'; grep -ve"because exiting with last active thread context" BUG-894/gem5.log | tail -0| diff BUG-894/plain.log -
+echo '=== BUG-895/'; grep -ve"because exiting with last active thread context" BUG-895/gem5.log | tail -0| diff BUG-895/plain.log -
+echo '=== BUG-896/'; grep -ve"because exiting with last active thread context" BUG-896/gem5.log | tail -0| diff BUG-896/plain.log -
+echo '=== BUG-897/'; grep -ve"because exiting with last active thread context" BUG-897/gem5.log | tail -0| diff BUG-897/plain.log -
+echo '=== BUG-898/'; grep -ve"because exiting with last active thread context" BUG-898/gem5.log | tail -0| diff BUG-898/plain.log -
+echo '=== BUG-899/'; grep -ve"because exiting with last active thread context" BUG-899/gem5.log | tail -0| diff BUG-899/plain.log -
+echo '=== BUG-9/'; grep -ve"because exiting with last active thread context" BUG-9/gem5.log | tail -3| diff BUG-9/plain.log -
+echo '=== BUG-90/'; grep -ve"because exiting with last active thread context" BUG-90/gem5.log | tail -8| diff BUG-90/plain.log -
+echo '=== BUG-900/'; grep -ve"because exiting with last active thread context" BUG-900/gem5.log | tail -0| diff BUG-900/plain.log -
+echo '=== BUG-901/'; grep -ve"because exiting with last active thread context" BUG-901/gem5.log | tail -0| diff BUG-901/plain.log -
+echo '=== BUG-902/'; grep -ve"because exiting with last active thread context" BUG-902/gem5.log | tail -1| diff BUG-902/plain.log -
+echo '=== BUG-903/'; grep -ve"because exiting with last active thread context" BUG-903/gem5.log | tail -1| diff BUG-903/plain.log -
+echo '=== BUG-904/'; grep -ve"because exiting with last active thread context" BUG-904/gem5.log | tail -0| diff BUG-904/plain.log -
+echo '=== BUG-905/'; grep -ve"because exiting with last active thread context" BUG-905/gem5.log | tail -0| diff BUG-905/plain.log -
+echo '=== BUG-906/'; grep -ve"because exiting with last active thread context" BUG-906/gem5.log | tail -1| diff BUG-906/plain.log -
+echo '=== BUG-907/'; grep -ve"because exiting with last active thread context" BUG-907/gem5.log | tail -1| diff BUG-907/plain.log -
+echo '=== BUG-908/'; grep -ve"because exiting with last active thread context" BUG-908/gem5.log | tail -0| diff BUG-908/plain.log -
+echo '=== BUG-909/'; grep -ve"because exiting with last active thread context" BUG-909/gem5.log | tail -0| diff BUG-909/plain.log -
+echo '=== BUG-91/'; grep -ve"because exiting with last active thread context" BUG-91/gem5.log | tail -1| diff BUG-91/plain.log -
+echo '=== BUG-910/'; grep -ve"because exiting with last active thread context" BUG-910/gem5.log | tail -1| diff BUG-910/plain.log -
+echo '=== BUG-911/'; grep -ve"because exiting with last active thread context" BUG-911/gem5.log | tail -0| diff BUG-911/plain.log -
+echo '=== BUG-912/'; grep -ve"because exiting with last active thread context" BUG-912/gem5.log | tail -0| diff BUG-912/plain.log -
+echo '=== BUG-913/'; grep -ve"because exiting with last active thread context" BUG-913/gem5.log | tail -0| diff BUG-913/plain.log -
+echo '=== BUG-914/'; grep -ve"because exiting with last active thread context" BUG-914/gem5.log | tail -0| diff BUG-914/plain.log -
+echo '=== BUG-915/'; grep -ve"because exiting with last active thread context" BUG-915/gem5.log | tail -1| diff BUG-915/plain.log -
+echo '=== BUG-916/'; grep -ve"because exiting with last active thread context" BUG-916/gem5.log | tail -1| diff BUG-916/plain.log -
+echo '=== BUG-917/'; grep -ve"because exiting with last active thread context" BUG-917/gem5.log | tail -0| diff BUG-917/plain.log -
+echo '=== BUG-918/'; grep -ve"because exiting with last active thread context" BUG-918/gem5.log | tail -0| diff BUG-918/plain.log -
+echo '=== BUG-919/'; grep -ve"because exiting with last active thread context" BUG-919/gem5.log | tail -0| diff BUG-919/plain.log -
+echo '=== BUG-92/'; grep -ve"because exiting with last active thread context" BUG-92/gem5.log | tail -2| diff BUG-92/plain.log -
+echo '=== BUG-920/'; grep -ve"because exiting with last active thread context" BUG-920/gem5.log | tail -0| diff BUG-920/plain.log -
+echo '=== BUG-921/'; grep -ve"because exiting with last active thread context" BUG-921/gem5.log | tail -1| diff BUG-921/plain.log -
+echo '=== BUG-922/'; grep -ve"because exiting with last active thread context" BUG-922/gem5.log | tail -1| diff BUG-922/plain.log -
+echo '=== BUG-923/'; grep -ve"because exiting with last active thread context" BUG-923/gem5.log | tail -0| diff BUG-923/plain.log -
+echo '=== BUG-924/'; grep -ve"because exiting with last active thread context" BUG-924/gem5.log | tail -0| diff BUG-924/plain.log -
+echo '=== BUG-925/'; grep -ve"because exiting with last active thread context" BUG-925/gem5.log | tail -0| diff BUG-925/plain.log -
+echo '=== BUG-926/'; grep -ve"because exiting with last active thread context" BUG-926/gem5.log | tail -0| diff BUG-926/plain.log -
+echo '=== BUG-927/'; grep -ve"because exiting with last active thread context" BUG-927/gem5.log | tail -0| diff BUG-927/plain.log -
+echo '=== BUG-928/'; grep -ve"because exiting with last active thread context" BUG-928/gem5.log | tail -0| diff BUG-928/plain.log -
+echo '=== BUG-929/'; grep -ve"because exiting with last active thread context" BUG-929/gem5.log | tail -0| diff BUG-929/plain.log -
+echo '=== BUG-93/'; grep -ve"because exiting with last active thread context" BUG-93/gem5.log | tail -4| diff BUG-93/plain.log -
+echo '=== BUG-930/'; grep -ve"because exiting with last active thread context" BUG-930/gem5.log | tail -1| diff BUG-930/plain.log -
+echo '=== BUG-931/'; grep -ve"because exiting with last active thread context" BUG-931/gem5.log | tail -2| diff BUG-931/plain.log -
+echo '=== BUG-932/'; grep -ve"because exiting with last active thread context" BUG-932/gem5.log | tail -1| diff BUG-932/plain.log -
+echo '=== BUG-933/'; grep -ve"because exiting with last active thread context" BUG-933/gem5.log | tail -0| diff BUG-933/plain.log -
+echo '=== BUG-934/'; grep -ve"because exiting with last active thread context" BUG-934/gem5.log | tail -0| diff BUG-934/plain.log -
+echo '=== BUG-935/'; grep -ve"because exiting with last active thread context" BUG-935/gem5.log | tail -0| diff BUG-935/plain.log -
+echo '=== BUG-936/'; grep -ve"because exiting with last active thread context" BUG-936/gem5.log | tail -1| diff BUG-936/plain.log -
+echo '=== BUG-937/'; grep -ve"because exiting with last active thread context" BUG-937/gem5.log | tail -1| diff BUG-937/plain.log -
+echo '=== BUG-938/'; grep -ve"because exiting with last active thread context" BUG-938/gem5.log | tail -0| diff BUG-938/plain.log -
+echo '=== BUG-939/'; grep -ve"because exiting with last active thread context" BUG-939/gem5.log | tail -1| diff BUG-939/plain.log -
+echo '=== BUG-94/'; grep -ve"because exiting with last active thread context" BUG-94/gem5.log | tail -2| diff BUG-94/plain.log -
+echo '=== BUG-940/'; grep -ve"because exiting with last active thread context" BUG-940/gem5.log | tail -1| diff BUG-940/plain.log -
+echo '=== BUG-941/'; grep -ve"because exiting with last active thread context" BUG-941/gem5.log | tail -1| diff BUG-941/plain.log -
+echo '=== BUG-942/'; grep -ve"because exiting with last active thread context" BUG-942/gem5.log | tail -0| diff BUG-942/plain.log -
+echo '=== BUG-943/'; grep -ve"because exiting with last active thread context" BUG-943/gem5.log | tail -0| diff BUG-943/plain.log -
+echo '=== BUG-944/'; grep -ve"because exiting with last active thread context" BUG-944/gem5.log | tail -0| diff BUG-944/plain.log -
+echo '=== BUG-945/'; grep -ve"because exiting with last active thread context" BUG-945/gem5.log | tail -1| diff BUG-945/plain.log -
+echo '=== BUG-946/'; grep -ve"because exiting with last active thread context" BUG-946/gem5.log | tail -1| diff BUG-946/plain.log -
+echo '=== BUG-947/'; grep -ve"because exiting with last active thread context" BUG-947/gem5.log | tail -0| diff BUG-947/plain.log -
+echo '=== BUG-948/'; grep -ve"because exiting with last active thread context" BUG-948/gem5.log | tail -0| diff BUG-948/plain.log -
+echo '=== BUG-949/'; grep -ve"because exiting with last active thread context" BUG-949/gem5.log | tail -1| diff BUG-949/plain.log -
+echo '=== BUG-95/'; grep -ve"because exiting with last active thread context" BUG-95/gem5.log | tail -0| diff BUG-95/plain.log -
+echo '=== BUG-950/'; grep -ve"because exiting with last active thread context" BUG-950/gem5.log | tail -1| diff BUG-950/plain.log -
+echo '=== BUG-951/'; grep -ve"because exiting with last active thread context" BUG-951/gem5.log | tail -0| diff BUG-951/plain.log -
+echo '=== BUG-952/'; grep -ve"because exiting with last active thread context" BUG-952/gem5.log | tail -0| diff BUG-952/plain.log -
+echo '=== BUG-953/'; grep -ve"because exiting with last active thread context" BUG-953/gem5.log | tail -0| diff BUG-953/plain.log -
+echo '=== BUG-954/'; grep -ve"because exiting with last active thread context" BUG-954/gem5.log | tail -0| diff BUG-954/plain.log -
+echo '=== BUG-955/'; grep -ve"because exiting with last active thread context" BUG-955/gem5.log | tail -1| diff BUG-955/plain.log -
+echo '=== BUG-956/'; grep -ve"because exiting with last active thread context" BUG-956/gem5.log | tail -1| diff BUG-956/plain.log -
+echo '=== BUG-957/'; grep -ve"because exiting with last active thread context" BUG-957/gem5.log | tail -1| diff BUG-957/plain.log -
+echo '=== BUG-958/'; grep -ve"because exiting with last active thread context" BUG-958/gem5.log | tail -1| diff BUG-958/plain.log -
+echo '=== BUG-959/'; grep -ve"because exiting with last active thread context" BUG-959/gem5.log | tail -0| diff BUG-959/plain.log -
+echo '=== BUG-96/'; grep -ve"because exiting with last active thread context" BUG-96/gem5.log | tail -1| diff BUG-96/plain.log -
+echo '=== BUG-960/'; grep -ve"because exiting with last active thread context" BUG-960/gem5.log | tail -0| diff BUG-960/plain.log -
+echo '=== BUG-961/'; grep -ve"because exiting with last active thread context" BUG-961/gem5.log | tail -1| diff BUG-961/plain.log -
+echo '=== BUG-962/'; grep -ve"because exiting with last active thread context" BUG-962/gem5.log | tail -1| diff BUG-962/plain.log -
+echo '=== BUG-963/'; grep -ve"because exiting with last active thread context" BUG-963/gem5.log | tail -0| diff BUG-963/plain.log -
+echo '=== BUG-964/'; grep -ve"because exiting with last active thread context" BUG-964/gem5.log | tail -1| diff BUG-964/plain.log -
+echo '=== BUG-965/'; grep -ve"because exiting with last active thread context" BUG-965/gem5.log | tail -1| diff BUG-965/plain.log -
+echo '=== BUG-966/'; grep -ve"because exiting with last active thread context" BUG-966/gem5.log | tail -0| diff BUG-966/plain.log -
+echo '=== BUG-967/'; grep -ve"because exiting with last active thread context" BUG-967/gem5.log | tail -0| diff BUG-967/plain.log -
+echo '=== BUG-968/'; grep -ve"because exiting with last active thread context" BUG-968/gem5.log | tail -0| diff BUG-968/plain.log -
+echo '=== BUG-969/'; grep -ve"because exiting with last active thread context" BUG-969/gem5.log | tail -0| diff BUG-969/plain.log -
+echo '=== BUG-97/'; grep -ve"because exiting with last active thread context" BUG-97/gem5.log | tail -3| diff BUG-97/plain.log -
+echo '=== BUG-970/'; grep -ve"because exiting with last active thread context" BUG-970/gem5.log | tail -1| diff BUG-970/plain.log -
+echo '=== BUG-971/'; grep -ve"because exiting with last active thread context" BUG-971/gem5.log | tail -1| diff BUG-971/plain.log -
+echo '=== BUG-972/'; grep -ve"because exiting with last active thread context" BUG-972/gem5.log | tail -1| diff BUG-972/plain.log -
+echo '=== BUG-973/'; grep -ve"because exiting with last active thread context" BUG-973/gem5.log | tail -0| diff BUG-973/plain.log -
+echo '=== BUG-974/'; grep -ve"because exiting with last active thread context" BUG-974/gem5.log | tail -0| diff BUG-974/plain.log -
+echo '=== BUG-975/'; grep -ve"because exiting with last active thread context" BUG-975/gem5.log | tail -1| diff BUG-975/plain.log -
+echo '=== BUG-976/'; grep -ve"because exiting with last active thread context" BUG-976/gem5.log | tail -0| diff BUG-976/plain.log -
+echo '=== BUG-977/'; grep -ve"because exiting with last active thread context" BUG-977/gem5.log | tail -0| diff BUG-977/plain.log -
+echo '=== BUG-978/'; grep -ve"because exiting with last active thread context" BUG-978/gem5.log | tail -1| diff BUG-978/plain.log -
+echo '=== BUG-979/'; grep -ve"because exiting with last active thread context" BUG-979/gem5.log | tail -0| diff BUG-979/plain.log -
+echo '=== BUG-98/'; grep -ve"because exiting with last active thread context" BUG-98/gem5.log | tail -1| diff BUG-98/plain.log -
+echo '=== BUG-980/'; grep -ve"because exiting with last active thread context" BUG-980/gem5.log | tail -1| diff BUG-980/plain.log -
+echo '=== BUG-981/'; grep -ve"because exiting with last active thread context" BUG-981/gem5.log | tail -1| diff BUG-981/plain.log -
+echo '=== BUG-982/'; grep -ve"because exiting with last active thread context" BUG-982/gem5.log | tail -0| diff BUG-982/plain.log -
+echo '=== BUG-983/'; grep -ve"because exiting with last active thread context" BUG-983/gem5.log | tail -0| diff BUG-983/plain.log -
+echo '=== BUG-984/'; grep -ve"because exiting with last active thread context" BUG-984/gem5.log | tail -1| diff BUG-984/plain.log -
+echo '=== BUG-985/'; grep -ve"because exiting with last active thread context" BUG-985/gem5.log | tail -0| diff BUG-985/plain.log -
+echo '=== BUG-986/'; grep -ve"because exiting with last active thread context" BUG-986/gem5.log | tail -1| diff BUG-986/plain.log -
+echo '=== BUG-987/'; grep -ve"because exiting with last active thread context" BUG-987/gem5.log | tail -1| diff BUG-987/plain.log -
+echo '=== BUG-988/'; grep -ve"because exiting with last active thread context" BUG-988/gem5.log | tail -0| diff BUG-988/plain.log -
+echo '=== BUG-989/'; grep -ve"because exiting with last active thread context" BUG-989/gem5.log | tail -4| diff BUG-989/plain.log -
+echo '=== BUG-99/'; grep -ve"because exiting with last active thread context" BUG-99/gem5.log | tail -7| diff BUG-99/plain.log -
+echo '=== BUG-990/'; grep -ve"because exiting with last active thread context" BUG-990/gem5.log | tail -0| diff BUG-990/plain.log -
+echo '=== BUG-991/'; grep -ve"because exiting with last active thread context" BUG-991/gem5.log | tail -0| diff BUG-991/plain.log -
+echo '=== BUG-992/'; grep -ve"because exiting with last active thread context" BUG-992/gem5.log | tail -0| diff BUG-992/plain.log -
+echo '=== BUG-993/'; grep -ve"because exiting with last active thread context" BUG-993/gem5.log | tail -1| diff BUG-993/plain.log -
+echo '=== BUG-994/'; grep -ve"because exiting with last active thread context" BUG-994/gem5.log | tail -0| diff BUG-994/plain.log -
+echo '=== BUG-995/'; grep -ve"because exiting with last active thread context" BUG-995/gem5.log | tail -0| diff BUG-995/plain.log -
+echo '=== BUG-996/'; grep -ve"because exiting with last active thread context" BUG-996/gem5.log | tail -1| diff BUG-996/plain.log -
+echo '=== BUG-997/'; grep -ve"because exiting with last active thread context" BUG-997/gem5.log | tail -0| diff BUG-997/plain.log -
+echo '=== BUG-998/'; grep -ve"because exiting with last active thread context" BUG-998/gem5.log | tail -0| diff BUG-998/plain.log -
+echo '=== BUG-999/'; grep -ve"because exiting with last active thread context" BUG-999/gem5.log | tail -1| diff BUG-999/plain.log -
