@@ -1,0 +1,1 @@
+Value of C is random in X86 and fixed in simulation.

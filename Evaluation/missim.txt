@@ -8,3 +8,9 @@ Memory inf.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1047 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-961 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-962 :: same as 98.
+- Experiment-2-18-Aug-2023-X86/Q/BUG-1052 :: same as 98.
+- Experiment-2-18-Aug-2023-X86/Q/BUG-1559 :: same as 98.
+- ...
+- Experiment-2-18-Aug-2023-X86/Q/BUG-1534 :: mis-simulation entry 15, Variable’s value is random in X86 but fixed in simulation.
+- Experiment-2-18-Aug-2023-X86/Q/BUG-1563 :: crash entry 16, X86 terminates normally but simulation failed to parse input arguments (UnicodeDecodeError)
+

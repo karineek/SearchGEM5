@@ -1,0 +1,2 @@
+Simulation cannot parse: stringV?lue 1 when expecting 0 0 or so.
+On X86 with these arguments the program ended normally.
