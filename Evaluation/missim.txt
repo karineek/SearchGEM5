@@ -2,6 +2,7 @@ Memory inf.
 - Experiment-1-18-Aug-2023-X86/Q/BUG-155 :: error while loading shared libraries: cannot apply additional memory protection after relocation: Cannot allocate memory
 - Experiment-1-18-Aug-2023-X86/Q/BUG-100 :: Segmentation fault
 - Experiment-2-18-Aug-2023-X86/Q/BUG-98 :: LLM-generated, Segmentation fault that ends normally including prints in gem5
+- Experiment-2-18-Aug-2023-X86/Q/BUG-165 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-975 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1021 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1035 :: same as 98.
@@ -9,7 +10,8 @@ Memory inf.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-961 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-962 :: same as 98.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1052 :: same as 98.
-- Experiment-2-18-Aug-2023-X86/Q/BUG-1559 :: same as 98.
+- ...
+- Experiment-2-18-Aug-2023-X86/Q/BUG-1559 :: Mutated text, Segmentation fault that ends normally including prints in gem5.
 - ...
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1576 :: Mutated binary, Segmentation fault that ends normally including prints in gem5.
 - ...
