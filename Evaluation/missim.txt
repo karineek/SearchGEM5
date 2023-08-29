@@ -1,5 +1,7 @@
 Memory inf.
 - Experiment-1-18-Aug-2023-X86/Q/BUG-155 :: error while loading shared libraries: cannot apply additional memory protection after relocation: Cannot allocate memory
+
+==== SAME BUG ====
 - Experiment-1-18-Aug-2023-X86/Q/BUG-100 :: Segmentation fault
 - Experiment-2-18-Aug-2023-X86/Q/BUG-98 :: LLM-generated, Segmentation fault that ends normally including prints in gem5
 - Experiment-2-18-Aug-2023-X86/Q/BUG-165 :: same as 98.
@@ -14,9 +16,13 @@ Memory inf.
                 BUG-407, BUG-485, BUG-486, BUG-496, BUG-519, BUG-560, BUG-545, BUG-568, BUG-580, BUG-582, BUG-603, BUG-631, BUG-650, BUG-679, BUG-680,
                 BUG-714, BUG-722, BUG-755, BUG-763, BUG-784, BUG-787, BUG-789, BUG-831, BUG-83, BUG-853, BUG-858, BUG-936, BUG-941, 
 - ...
+====== END OF SAME BUG =====
+....
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1559 :: Mutated text, Segmentation fault that ends normally including prints in gem5.
 - ...
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1576 :: Mutated binary, Segmentation fault that ends normally including prints in gem5.
+====== END OF ALMOST THE SAME BUG =====
+
 - ...
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1534 :: mis-simulation entry 15, Variable’s value is random in X86 but fixed in simulation.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1563 :: crash entry 16, X86 terminates normally but simulation failed to parse input arguments (UnicodeDecodeError)
