@@ -1,0 +1,11 @@
+1,8c1
+< a = 0
+< bolshevic.a = 12
+< bolshevic.b = 34
+< bolshevic.c = 56
+< tsar->a = 12
+< tsar->b = 34
+< tsar->c = 56
+< bolshevic.b = 34
+---
+> Exiting @ tick 11955179853 because exiting with last active thread context.

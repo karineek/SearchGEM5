@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2003-10-12-GlobalVarInitializers.c.o
+0.0

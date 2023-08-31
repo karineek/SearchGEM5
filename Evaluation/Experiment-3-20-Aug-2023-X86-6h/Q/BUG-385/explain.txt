@@ -1,0 +1,4 @@
+When in simulation the following line is printed:
+string ~����
+While when in X86, this is what is produced:
+string �̍}�

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/00040.c.o
+0

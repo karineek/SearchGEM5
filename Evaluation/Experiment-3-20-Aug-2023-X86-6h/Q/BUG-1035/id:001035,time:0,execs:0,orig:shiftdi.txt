@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/shiftdi.c.o
+0

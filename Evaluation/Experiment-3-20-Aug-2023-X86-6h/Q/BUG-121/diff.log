@@ -1,0 +1,4 @@
+1c1
+< long long constant test ok.
+---
+> Exiting @ tick 11675465847 because exiting with last active thread context.

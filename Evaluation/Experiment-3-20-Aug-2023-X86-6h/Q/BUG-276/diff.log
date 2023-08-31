@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/2003-08-05-CastFPToUint.c.o <value>
+---
+> Exiting @ tick 11566218204 because exiting with last active thread context.

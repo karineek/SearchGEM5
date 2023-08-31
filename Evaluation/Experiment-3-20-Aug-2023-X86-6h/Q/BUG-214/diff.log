@@ -1,0 +1,5 @@
+1,2c1
+< Bitwise Not: -1 -1 -1 -1
+< Boolean Not: 1 1 1 1 1 1
+---
+> Exiting @ tick 11875698414 because exiting with last active thread context.

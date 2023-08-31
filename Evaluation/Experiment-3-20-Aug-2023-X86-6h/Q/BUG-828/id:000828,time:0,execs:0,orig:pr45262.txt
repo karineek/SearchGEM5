@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr45262.c.o
+1

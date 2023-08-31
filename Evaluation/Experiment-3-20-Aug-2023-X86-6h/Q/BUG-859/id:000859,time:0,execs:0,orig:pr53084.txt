@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr53084.c.o
+stringValue stringValue

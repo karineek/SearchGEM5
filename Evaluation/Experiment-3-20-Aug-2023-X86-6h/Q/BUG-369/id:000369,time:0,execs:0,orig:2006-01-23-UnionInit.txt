@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2006-01-23-UnionInit.c.o
+0

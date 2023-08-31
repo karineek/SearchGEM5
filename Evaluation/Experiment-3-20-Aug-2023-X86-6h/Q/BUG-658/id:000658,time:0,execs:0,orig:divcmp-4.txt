@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/divcmp-4.c.o
+0

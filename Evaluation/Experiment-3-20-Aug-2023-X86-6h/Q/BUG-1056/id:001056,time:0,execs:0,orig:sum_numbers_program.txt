@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/sum_numbers_program.c.o
+0 0

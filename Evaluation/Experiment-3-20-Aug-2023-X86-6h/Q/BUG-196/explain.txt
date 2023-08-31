@@ -1,0 +1,1 @@
+In simulation segmentation fault is ignored, while when running on X86 a segmentation fault is raised when attempting to access an argument outside the range of arguments provided

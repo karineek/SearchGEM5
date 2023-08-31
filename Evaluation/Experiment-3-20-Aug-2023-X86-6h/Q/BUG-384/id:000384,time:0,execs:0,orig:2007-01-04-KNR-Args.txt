@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2007-01-04-KNR-Args.c.o
+0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0

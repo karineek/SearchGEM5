@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/vrp-7.c.o
+-1

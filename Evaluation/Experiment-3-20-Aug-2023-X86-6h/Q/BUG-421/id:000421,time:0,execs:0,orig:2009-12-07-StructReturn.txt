@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2009-12-07-StructReturn.c.o
+0

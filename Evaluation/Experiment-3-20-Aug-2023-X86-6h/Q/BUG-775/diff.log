@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/pr36034-2.c.o <value1> <value2> ... <value50>
+---
+> Exiting @ tick 11645898111 because exiting with last active thread context.

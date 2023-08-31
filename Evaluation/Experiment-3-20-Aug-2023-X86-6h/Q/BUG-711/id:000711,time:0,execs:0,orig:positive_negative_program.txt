@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/positive_negative_program.c.o
+0

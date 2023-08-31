@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/inst-check.c.o
+0

@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/20010915-1.c.o <arg1> <arg2> <arg3> <arg4> <arg5>
+---
+> Exiting @ tick 11702118168 because exiting with last active thread context.

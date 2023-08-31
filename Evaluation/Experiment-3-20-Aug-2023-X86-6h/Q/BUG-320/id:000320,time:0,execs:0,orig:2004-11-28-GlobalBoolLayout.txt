@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2004-11-28-GlobalBoolLayout.c.o
+0

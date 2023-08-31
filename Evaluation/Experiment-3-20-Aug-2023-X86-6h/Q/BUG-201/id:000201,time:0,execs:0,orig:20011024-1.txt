@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/20011024-1.c.o
+stringValue stringValue stringValue

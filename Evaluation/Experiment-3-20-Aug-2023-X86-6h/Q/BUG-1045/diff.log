@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/strcpy-2.c.o <value>
+---
+> Exiting @ tick 11648050623 because exiting with last active thread context.

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/align-3.c.o
+0

@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr64242.c.o
+0 stringValue

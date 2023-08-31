@@ -1,0 +1,1 @@
+On X86 the string value is printed and the program exits, while in gem5, no string value is printed before exiting the program

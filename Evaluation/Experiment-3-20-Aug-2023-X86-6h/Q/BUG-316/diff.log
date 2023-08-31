@@ -1,0 +1,6 @@
+1,3c1
+< -0.000000 -0.000000
+< 0.000000 0.000000
+< negzero = -0.000000  poszero = 0.000000
+---
+> Exiting @ tick 12361482144 because exiting with last active thread context.

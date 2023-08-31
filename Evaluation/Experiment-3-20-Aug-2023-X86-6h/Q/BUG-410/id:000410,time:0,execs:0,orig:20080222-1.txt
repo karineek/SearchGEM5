@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/20080222-1.c.o
+A A

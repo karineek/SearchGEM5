@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: 2696150 Segmentation fault      $binFile $args
+---
+> Exiting @ tick 11774137743 because exiting with last active thread context.

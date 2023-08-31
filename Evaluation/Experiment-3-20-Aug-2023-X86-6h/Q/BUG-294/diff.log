@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: 2700494 Aborted                 $binFile $args
+---
+> ./mine-diff-testing.sh: line 21: 2700483 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file

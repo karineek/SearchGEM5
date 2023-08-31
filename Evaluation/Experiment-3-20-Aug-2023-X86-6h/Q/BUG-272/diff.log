@@ -1,0 +1,7 @@
+1,4c1
+< 0x7b op 4:
+<   ashr: 0x7
+<   lshr: 0x7
+<   shl: 0x7b0
+---
+> Exiting @ tick 11834567586 because exiting with last active thread context.

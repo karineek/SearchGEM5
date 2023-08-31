@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/simd-5.c.o <q1_0> <q1_1> <q2_0> <q2_1> <q3_0> <q3_1> <q4_0> <q4_1>
+---
+> Exiting @ tick 11639869812 because exiting with last active thread context.

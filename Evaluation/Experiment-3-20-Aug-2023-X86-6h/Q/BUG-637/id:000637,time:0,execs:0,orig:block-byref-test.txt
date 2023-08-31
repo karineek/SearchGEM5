@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/block-byref-test.c.o
+0

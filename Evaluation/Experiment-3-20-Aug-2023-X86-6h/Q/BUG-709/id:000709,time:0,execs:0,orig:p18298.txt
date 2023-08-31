@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/p18298.c.o
+stringValue 0

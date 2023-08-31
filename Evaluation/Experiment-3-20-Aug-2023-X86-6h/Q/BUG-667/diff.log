@@ -1,0 +1,7 @@
+1,4c1
+< printArg: 0x0p+0
+< printArg: 0x1p+0
+< printArg: -0x1p-8
+< printArg: 0x1p+1
+---
+> Exiting @ tick 11660710284 because exiting with last active thread context.

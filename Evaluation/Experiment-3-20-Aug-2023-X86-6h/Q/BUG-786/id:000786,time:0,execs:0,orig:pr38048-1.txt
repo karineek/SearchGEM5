@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr38048-1.c.o
+0

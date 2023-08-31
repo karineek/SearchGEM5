@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-6/binary/fuzz_169267254027256782.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_169267254027256782.c.o: undefined symbol: put3, version GLIBC_2.2.5
+---
+> Exiting @ tick 6110029521 because exiting with last active thread context.

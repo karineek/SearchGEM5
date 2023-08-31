@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/subtract_numbers_program1.c.o
+0 0

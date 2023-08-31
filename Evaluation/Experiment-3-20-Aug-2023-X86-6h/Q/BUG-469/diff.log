@@ -1,0 +1,13 @@
+1,10c1
+< b = 0
+< c = 0
+< d = 0
+< x = 5
+< e = 0
+< y = 0
+< z = 0
+< v = 0
+< f = 0
+< w = 0
+---
+> Exiting @ tick 12234682071 because exiting with last active thread context.

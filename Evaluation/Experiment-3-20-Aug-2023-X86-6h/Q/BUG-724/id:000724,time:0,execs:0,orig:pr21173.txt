@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr21173.c.o
+A stringValue

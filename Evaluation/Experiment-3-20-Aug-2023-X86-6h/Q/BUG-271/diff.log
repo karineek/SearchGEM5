@@ -1,0 +1,4 @@
+1c1
+< Result is -1
+---
+> Exiting @ tick 11538872577 because exiting with last active thread context.

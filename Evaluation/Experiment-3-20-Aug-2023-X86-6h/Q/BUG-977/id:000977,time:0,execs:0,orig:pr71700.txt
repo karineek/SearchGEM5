@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr71700.c.o
+0

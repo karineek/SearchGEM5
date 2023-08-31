@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/pr28651.c.o
+0

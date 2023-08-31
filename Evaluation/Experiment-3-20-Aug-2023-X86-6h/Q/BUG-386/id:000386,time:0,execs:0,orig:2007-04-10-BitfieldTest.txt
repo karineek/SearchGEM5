@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2007-04-10-BitfieldTest.c.o
+stringValue

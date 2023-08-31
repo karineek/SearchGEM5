@@ -1,0 +1,4 @@
+1c1
+< Usage: /home/ubuntu/experiment-6/binary/zero-struct-1.c.o <value>
+---
+> Exiting @ tick 11587676724 because exiting with last active thread context.

@@ -1,0 +1,7 @@
+1,4c1
+< 115 115 --> unsigned: us = 115, us2 = 115
+< 115 115 -->   signed:  s = 115,  s2 = 115
+< 115 115 --> unsigned: uc = 115, uc2 = 115
+< 115 115 -->   signed: sc = 115, sc2 = 115
+---
+> Exiting @ tick 12058977285 because exiting with last active thread context.

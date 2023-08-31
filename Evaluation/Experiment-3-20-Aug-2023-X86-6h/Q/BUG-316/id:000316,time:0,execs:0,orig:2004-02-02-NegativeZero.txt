@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2004-02-02-NegativeZero.c.o
+0.0

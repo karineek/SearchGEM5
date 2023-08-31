@@ -1,0 +1,1 @@
+./mine-diff-testing.sh: line 25: 2717845 Segmentation fault      $binFile $args

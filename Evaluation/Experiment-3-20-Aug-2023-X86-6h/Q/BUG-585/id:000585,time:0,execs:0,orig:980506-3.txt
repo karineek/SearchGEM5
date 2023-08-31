@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/980506-3.c.o
+stringValue 0

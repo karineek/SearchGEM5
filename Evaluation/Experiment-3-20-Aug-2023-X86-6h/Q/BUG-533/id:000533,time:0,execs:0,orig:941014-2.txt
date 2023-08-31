@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/941014-2.c.o
+0 0

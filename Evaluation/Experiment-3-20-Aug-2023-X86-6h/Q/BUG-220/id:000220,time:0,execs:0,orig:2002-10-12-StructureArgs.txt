@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2002-10-12-StructureArgs.c.o
+0.0 0.0 0.0 0.0

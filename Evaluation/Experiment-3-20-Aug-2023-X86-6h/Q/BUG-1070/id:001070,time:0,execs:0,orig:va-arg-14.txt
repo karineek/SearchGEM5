@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/va-arg-14.c.o
+1

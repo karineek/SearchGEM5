@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2010-05-24-BitfieldTest.c.o
+0

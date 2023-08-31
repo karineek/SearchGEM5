@@ -1,0 +1,1 @@
+When run on X86, only one argument is provided when the program expects two, so a segmentation fault occurs when we try to access the second argument. Gem5 ignores the segmentation fault occuring when accessing the second argument and prints normally.

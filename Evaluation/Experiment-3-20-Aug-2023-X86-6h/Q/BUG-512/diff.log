@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: /home/ubuntu/experiment-6/binary/930628-1.c: No such file or directory
+---
+> 

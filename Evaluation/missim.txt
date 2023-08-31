@@ -27,3 +27,14 @@ Memory inf.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1534 :: mis-simulation entry 15, Variable’s value is random in X86 but fixed in simulation.
 - Experiment-2-18-Aug-2023-X86/Q/BUG-1563 :: crash entry 16, X86 terminates normally but simulation failed to parse input arguments (UnicodeDecodeError)
 
+- ...
+- Experiment-3-20-Aug-2023-X86-6h/Q/BUG-68 :: Segmentation fault due to unexpected argument use runs normally in simulation
+- Experiment-3-20-Aug-2023-X86-6h/Q/BUG-83 :: Segmentation fault due to unexpected argument use runs normally in simulation
+- Experiment-3-20-Aug-2023-X86-6h/Q/BUG-98 :: Segmentation fault as above, prints normally
+	- ALSO: BUG-196, BUG-211, BUG-226, BUG-227, BUG-238, BUG-254, BUG-268, BUG-286, BUG-289, BUG-300, BUG-389, BUG-406, BUG-407, BUG-485, BUG-486, BUG-496, BUG-519, BUG-545, BUG-560, BUG-568, BUG-580, BUG-582, BUG-603, BUG-631, BUG-650, BUG-677, BUG-714, BUG-722, BUG-755, BUG-763, BUG-784, BUG-787, BUG-789, BUG-831, BUG-853, BUG-858, BUG-936, BUG-941, BUG-961, BUG-962
+
+- ...
+- Experiment-3-20-Aug-2023-X86-6h/Q/BUG-267 :: Failed to print string value in simulation
+
+- ...
+- Experiment-3-20-Aug-2023-X86-6h/Q/BUG-385 :: Prints different values when in simulation and X86

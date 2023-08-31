@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/bf-pack-1.c.o
+0

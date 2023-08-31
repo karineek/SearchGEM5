@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/2003-10-29-ScalarReplBug.c.o
+0

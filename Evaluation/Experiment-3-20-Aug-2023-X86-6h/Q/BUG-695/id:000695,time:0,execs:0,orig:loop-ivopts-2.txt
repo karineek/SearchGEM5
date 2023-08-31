@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/loop-ivopts-2.c.o
+0

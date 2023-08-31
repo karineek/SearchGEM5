@@ -1,0 +1,2 @@
+/home/ubuntu/experiment-6/binary/loop-2b.c.o
+0
