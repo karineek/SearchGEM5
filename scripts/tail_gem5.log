@@ -1,1 +1,1 @@
-./mine-crash.sh: line 21: 1388686 Aborted                 $gem5 $gem5_script --isa X86 --input $txt_file
+Exiting @ tick 87250258404 because exiting with last active thread context.

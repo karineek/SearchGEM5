@@ -44,9 +44,9 @@ for testcaseFile in $testcaseDir/*.txt ; do
 	echo "Coveraeg for: $testcaseFile"
 	(ulimit -St 500; $SUTexec $gem5_script --isa X86 --input $testcaseFile) > basic_output.txt 2>&1
 done
-for testcaseFile in $testcaseDir/id* ; do
-        echo "Coveraeg for: $testcaseFile"
-        (ulimit -St 500; $SUTexec $gem5_script --isa X86 --input $testcaseFile) > basic_output.txt 2>&1
+for testcaseFileA in $testcaseDir/id* ; do
+        echo "Coveraeg for: $testcaseFileA: (ulimit -St 500; $SUTexec $gem5_script --isa X86 --input $testcaseFileA)"
+        (ulimit -St 500; $SUTexec $gem5_script --isa X86 --input $testcaseFileA) > basic_output.txt 2>&1
 done
 unset GCOV_PREFIX
 

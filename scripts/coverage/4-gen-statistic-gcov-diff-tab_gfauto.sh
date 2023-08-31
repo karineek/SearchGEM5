@@ -36,8 +36,10 @@ while IFS= read -r -u 4 file_name ; do
 		test=__test_x.txt
 		cat $file_name | sed 's:^        :      0 :1' | sed -n 's/\(^......[0-9]*[0-9] \).*$/\1/p' | cat -n > $tmp
 		cat -n $file_name > $test
-		./41-inner-LH_file.sh $fn $tmp $output_func_hit >> $output_table_file 
+		./41-inner-LH_file.sh $fn $tmp $output_func_hit >> $output_table_file
 		rm -f $tmp $test
+        else
+		echo "Skip $file_name"
 	fi
 done 4<list_gcov.txt
 echo " >> End extracting data for $linecount files."
@@ -49,4 +51,4 @@ resT=`sed '1d' $output_table_file | cut -d',' -f3 | awk '{ sum += $1 } END { pri
 echo "#line 1 HIT ............. ==> "$resT
 
 # cleaning
-rm list_gcov.txt
+#rm list_gcov.txt
