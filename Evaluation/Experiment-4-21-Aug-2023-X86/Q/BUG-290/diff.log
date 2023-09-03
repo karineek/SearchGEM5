@@ -1,0 +1,4 @@
+1c1
+< Inconsistency detected by ld.so: get-dynamic-info.h: 123: elf_get_dynamic_info: Assertion `info[DT_PLTREL]->d_un.d_val == DT_RELA' failed!
+---
+> Exiting @ tick 262374030 because exiting with last active thread context.

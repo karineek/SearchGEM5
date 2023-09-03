@@ -1,0 +1,15 @@
+1,12c1
+< char: 1
+< char:  
+< char: 
+< int: 53
+< int: 2097152
+< int: -2147483648
+< float: 51.000000
+< float: 4096.000000
+< float: 65536.000000
+< 97 97
+< 97 97
+< 97.000000 97.000000
+---
+> Exiting @ tick 13417291278 because exiting with last active thread context.

@@ -1,0 +1,7 @@
+1,4c1
+< /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: no version information available (required by /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o)
+< /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: no version information available (required by /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o)
+< /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: no version information available (required by /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o)
+< /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692845805596804654.c.o: undefined symbol: , version 
+---
+> Exiting @ tick 1083688560 because exiting with last active thread context.

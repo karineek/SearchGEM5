@@ -1,0 +1,4 @@
+1c1
+< Error: Expected result is 65537
+---
+> Exiting @ tick 11627297397 because exiting with last active thread context.

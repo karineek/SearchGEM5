@@ -1,0 +1,7 @@
+1,4c1
+< getShort():	0 0 0 0 0 0
+< getShort():	8 8 -8 4096 -32768 1073741824
+< getUnknown():	8 8 -8 4096 -32768 -28664 1073741824
+< 1073684496
+---
+> Exiting @ tick 12344140170 because exiting with last active thread context.

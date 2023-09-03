@@ -1,0 +1,4 @@
+1c1
+< ./mine-diff-testing.sh: line 25: 3007905 Segmentation fault      $binFile $args
+---
+> Memory Usage: 232524 KBytes

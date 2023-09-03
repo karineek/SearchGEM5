@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-6/binary/fuzz_1692745957109779659.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692745957109779659.c.o: undefined symbol: _ITM_deregisterTMCloneTable
+---
+> Exiting @ tick 5820122052 because exiting with last active thread context.

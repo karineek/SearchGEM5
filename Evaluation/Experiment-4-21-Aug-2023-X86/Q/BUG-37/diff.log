@@ -1,0 +1,5 @@
+1c1
+< Product = 4.00
+\ No newline at end of file
+---
+> Product = 4.00Exiting @ tick 11652471864 because exiting with last active thread context.

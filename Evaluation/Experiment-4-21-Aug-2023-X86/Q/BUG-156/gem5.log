@@ -1,0 +1,17 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7001
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 31 2023 23:30:30
+gem5 executing on fuzzer-03, pid 2992519
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/Gem5Testing/Evaluation/Experiment-4-21-Aug-2023-X86/TEMP//id:001242,src:001231+000344,time:41290392,execs:35516,op:cm-gem5.so,pos:0
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+Inconsistency detected by ld.so: get-dynamic-info.h: 123: elf_get_dynamic_info: Assertion `info[DT_PLTREL]->d_un.d_val == DT_RELA' failed!
+Exiting @ tick 260911161 because exiting with last active thread context.

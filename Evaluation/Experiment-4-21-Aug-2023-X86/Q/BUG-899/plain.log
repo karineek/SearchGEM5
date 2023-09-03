@@ -1,0 +1,1 @@
+Inconsistency detected by ld.so: dl-version.c: 205: _dl_check_map_versions: Assertion `needed != NULL' failed!

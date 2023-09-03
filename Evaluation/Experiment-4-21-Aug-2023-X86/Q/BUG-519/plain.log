@@ -1,0 +1,1 @@
+Inconsistency detected by ld.so: dl-lookup.c: 972: _dl_setup_hash: Assertion `(bitmask_nwords & (bitmask_nwords - 1)) == 0' failed!

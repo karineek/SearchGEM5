@@ -1,0 +1,36 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7001
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Aug 31 2023 23:41:33
+gem5 executing on fuzzer-03, pid 2997951
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/Gem5Testing/Evaluation/Experiment-4-21-Aug-2023-X86/TEMP//id:001551,src:000371+000587,time:116151770,execs:87991,op:cm-gem5.so,pos:0
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+10 12339 0 10
+4294967263 4294954982 8388607 479
+96 12377 0 96
+4294967005 4294954724 33554429 93
+870 13151 0 870
+4294964683 4294952434 134217646 11
+7836 11941 30 156
+4294943785 4294939664 536867973 1
+70530 74683 4 4994
+4294755703 4294767950 32766 50551
+634776 630689 39673 8
+4293062965 4293050636 131013 28981
+5712990 5708903 5579 94
+4277828323 4277816026 522195 6883
+51416916 51429229 784 36692
+4140716545 4140720696 2021834 513
+Exiting @ tick 14043572703 because exiting with last active thread context.

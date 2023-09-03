@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-6/binary/fuzz_1692890038358622971.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_r.3.4' not found (required by /home/ubuntu/experiment-6/binary/fuzz_1692890038358622971.c.o)
+---
+> Exiting @ tick 1206228564 because exiting with last active thread context.

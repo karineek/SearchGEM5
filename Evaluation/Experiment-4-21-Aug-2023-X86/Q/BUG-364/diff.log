@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-6/binary/fuzz_1692818657826666447.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692818657826666447.c.o: undefined symbol: intf_chk, version GLIBC_2.3.4
+---
+> Exiting @ tick 6070226031 because exiting with last active thread context.

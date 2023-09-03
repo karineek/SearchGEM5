@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-6/binary/fuzz_1693025263651472459.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `.6' not found (required by /home/ubuntu/experiment-6/binary/fuzz_1693025263651472459.c.o)

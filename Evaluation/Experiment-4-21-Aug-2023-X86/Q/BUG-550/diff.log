@@ -1,0 +1,2 @@
+0a1
+> ./mine-diff-testing.sh: line 21: 3000449 CPU time limit exceeded $gem5 $gem5_script --isa X86 --input $txt_file

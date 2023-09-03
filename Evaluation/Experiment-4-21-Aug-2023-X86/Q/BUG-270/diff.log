@@ -1,0 +1,5 @@
+1,2c1
+< a is false
+< b is false
+---
+> Exiting @ tick 11642222790 because exiting with last active thread context.

@@ -1,0 +1,18 @@
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.0.0.1--SSBSE Challeng Track
+gem5 compiled Aug 13 2023 00:24:12
+gem5 started Sep  1 2023 00:10:03
+gem5 executing on fuzzer-03, pid 3007044
+command line: /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input /home/ubuntu/Gem5Testing/Evaluation/Experiment-4-21-Aug-2023-X86/TEMP//id:001849,src:001603+001580,time:293676226,execs:127330,op:cm-gem5.so,pos:0
+
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+/home/ubuntu/experiment-6/binary/fuzz_1693024574458812470.c.o: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2..5' not found (required by /home/ubuntu/experiment-6/binary/fuzz_1693024574458812470.c.o)
+Exiting @ tick 1212793326 because exiting with last active thread context.

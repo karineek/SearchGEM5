@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-6/binary/fuzz_1692907322361650789.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692907322361650789.c.o: undefined symbol: __libcﬂstart_main, version GLIBC_2.2.5

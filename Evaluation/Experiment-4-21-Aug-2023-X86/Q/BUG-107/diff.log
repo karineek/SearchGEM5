@@ -1,0 +1,5 @@
+1c1
+< Division Result = -nan
+\ No newline at end of file
+---
+> Division Result = -nanExiting @ tick 11617583787 because exiting with last active thread context.

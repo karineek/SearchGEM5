@@ -1,0 +1,4 @@
+1c1
+< /home/ubuntu/experiment-6/binary/fuzz_1692824401617576758.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692824401617576758.c.o: undefined symbol: exkt, version GLIBC_2.2.5
+---
+> Exiting @ tick 6202423035 because exiting with last active thread context.

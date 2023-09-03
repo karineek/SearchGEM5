@@ -1,0 +1,1 @@
+/home/ubuntu/experiment-6/binary/fuzz_1692818657826666447.c.o: symbol lookup error: /home/ubuntu/experiment-6/binary/fuzz_1692818657826666447.c.o: undefined symbol: intf_chk, version GLIBC_2.3.4

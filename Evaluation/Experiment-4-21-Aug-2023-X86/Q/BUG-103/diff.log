@@ -1,0 +1,4 @@
+1c1
+< Inconsistency detected by ld.so: ../sysdeps/x86_64/dl-machine.h: 541: elf_machine_rela_relative: Assertion `ELFW(R_TYPE) (reloc->r_info) == R_X86_64_RELATIVE' failed!
+---
+> Exiting @ tick 5759766135 because exiting with last active thread context.
