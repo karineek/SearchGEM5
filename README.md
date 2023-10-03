@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt install build-essential git m4 scons zlib1g zlib1g-dev \
     libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
     python3-dev libboost-all-dev pkg-config
-sudo apt install libpng-dev libpng++-dev libhdf5-dev 
+sudo apt install libpng-dev libpng++-dev libhdf5-dev
 ```
 These requirements can differ from one OS to another, see the full requirements [here](https://www.gem5.org/documentation/general_docs/building).
 
@@ -68,8 +68,8 @@ And so on.
 
 To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
 ```
-cp script/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
-cp script/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
+cp src/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
+cp src/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
 ```
 Then install AFL++ for GCC so you can use GCC-based instrumentation of AFL for gem5. Some steps to reproduce it if your system default is GCC-11 and llvm-13:
 ```
