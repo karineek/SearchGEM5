@@ -1,4 +1,4 @@
-# Gem5Testing - General Information
+# SearchGem5 - General Information
 Gem5 testing project.
 
 There are two projects:
