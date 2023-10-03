@@ -13,10 +13,11 @@ There are two projects:
 @inproceedings{EvenMendoza2023Gem5,
   title={SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models},
   author={Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke},
-  booktitle={SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models},
+  booktitle={Lecture Notes in Computer Science}
   year={2023},
   publisher={15th Symposium on Search Based Software Engineering (SSBSE)}
 }
+```
 ```
 
 # Testing gem5
