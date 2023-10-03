@@ -5,6 +5,20 @@ There are two projects:
 - Main: https://github.com/gem5/gem5
 - For the challenge: https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023
 
+# Citation
+
+*Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke (2023). SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. Symposium on Search Based Software Engineering (SSBSE).*
+
+```
+@inproceedings{EvenMendoza2023Gem5,
+  title={SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models},
+  author={Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke},
+  booktitle={SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models},
+  year={2023},
+  publisher={15th Symposium on Search Based Software Engineering (SSBSE)}
+}
+```
+
 # Testing gem5
 
 The requirements are:
