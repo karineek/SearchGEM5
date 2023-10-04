@@ -18,7 +18,6 @@ There are two projects:
   publisher={15th Symposium on Search Based Software Engineering (SSBSE)}
 }
 ```
-```
 
 # Testing gem5
 
