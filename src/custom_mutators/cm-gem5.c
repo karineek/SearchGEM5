@@ -642,7 +642,7 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
         // Check if we flipped the type
         if (strcmp(types_token,new_type_token) == 0) {
             // take it if !is_many_args otherwise consider it with some probablity
-            if (mutator_rand(data, 0, 1000, 0) < PROBABILITY_TYPE_FLIP) {
+            if ((!is_many_args) || (mutator_rand(data, 0, 1000, 0) < PROBABILITY_TYPE_FLIP)) {
                 // Replace to the mutated token
                 strcat(type_newbuff, new_type_token);
 
