@@ -34,6 +34,7 @@
 #define UTILS_H
 
 #include <stddef.h>
+#include <stdbool.h>
 
 // Extract path from input
 void extractPath(const char *input, char *path);

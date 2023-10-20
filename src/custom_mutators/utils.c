@@ -34,7 +34,7 @@
 
 #include <time.h>   // For struct timespec and clock_gettime
 #include <string.h> // For strchr, strrchr, strncpy, and strcat
-#include <stdlib.h> // For system(command) call 
+#include <stdlib.h> // For system(command) call
 #include <stdio.h>  // File ops.
 
 /* ============================================= */
@@ -93,7 +93,7 @@ bool writeStringToFile(const char *data, const char *fileName) {
     
     if (file == NULL) {
         printf("Error opening file for writing.\n");
-        return;
+        return 0;
     }
     
     // Write the data to the file

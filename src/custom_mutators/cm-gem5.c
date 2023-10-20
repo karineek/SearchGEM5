@@ -634,7 +634,7 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
     buf_token = 0;
     while (types_token != NULL) {   // Format: BINARY STRING STRING
         // Rand a new type:
-        char* new_type_token = generateRandomTypeToken();
+        const char* new_type_token = generateRandomTypeToken();
 
         // Prepare to add the next token
         strcat(type_newbuff, " ");
@@ -650,23 +650,24 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
                 is_type_flipped = true;
             } else {
                 // Keep the original token
-                strcat(type_newbuff, types_token);   
+                strcat(type_newbuff, types_token);
             }
         } else {
             // Keep the original token
-            strcat(type_newbuff, types_token); 
+            strcat(type_newbuff, types_token);
         }
 
         types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
     }
 
     // If flipped - then copy to a new set of mutated test case
-    if (is_type_flipped) { 
+    if (is_type_flipped) {
         // Create a new binary to mutate
         char bin_filename[100];
         char type_filename[100];
+
         generat_new_file_names(data->out_buff, bin_filename, type_filename);
-        writeStringToFile(type_newbuff,type_filename);
+        if (writeStringToFile(type_newbuff,type_filename){
         copyFile(data->out_buff, bin_filename);
 
         // Crete the mutated string to give back to AFL
@@ -676,9 +677,13 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 
         // Copy the new mutated string to give to AFL
         strcpy((char *)new_buf, data->out_buff);
-    } else { 
+	} else {
+	// failed to generate a new type file - exit
+	new_buf=0;
+	}
+    } else {
         // If no mutation - exit with buffer null.
-        new_buf=0; 
+        new_buf=0;
     }
 
     return;
