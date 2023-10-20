@@ -667,20 +667,20 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
         char type_filename[100];
 
         generat_new_file_names(data->out_buff, bin_filename, type_filename);
-        if (writeStringToFile(type_newbuff,type_filename){
-        copyFile(data->out_buff, bin_filename);
+        if (writeStringToFile(type_newbuff,type_filename)) {
+            copyFile(data->out_buff, bin_filename);
 
-        // Crete the mutated string to give back to AFL
-        strcpy(data->out_buff, bin_filename);
-        strcat(data->out_buff, "\n");
-        strcat(data->out_buff, data->input_args);
+            // Crete the mutated string to give back to AFL
+            strcpy(data->out_buff, bin_filename);
+            strcat(data->out_buff, "\n");
+            strcat(data->out_buff, data->input_args);
 
-        // Copy the new mutated string to give to AFL
-        strcpy((char *)new_buf, data->out_buff);
-	} else {
-	// failed to generate a new type file - exit
-	new_buf=0;
-	}
+            // Copy the new mutated string to give to AFL
+            strcpy((char *)new_buf, data->out_buff);
+	    } else {
+	        // failed to generate a new type file - exit
+	        new_buf=0;
+	    }
     } else {
         // If no mutation - exit with buffer null.
         new_buf=0;
