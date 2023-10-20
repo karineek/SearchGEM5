@@ -97,6 +97,21 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
   data->afl = afl;
 
+// Info. regarding the build
+#ifdef MUTATOR_ARGS
+    printf("MUTATOR_ARGS");
+#else
+#   ifdef MUTATOR_BIN
+    printf("MUTATOR_BIN");
+#   else
+#       ifdef MUTATOR_TYPE
+            printf("MUTATOR_TYPE");
+#       else
+            printf("ALL-MUTATORS");
+#       endif // MUTATOR_TYPE
+#   endif // MUTATOR_BIN
+#endif // MUTATOR_ARGS
+
   return data;
 
 }
