@@ -21,6 +21,8 @@ There are two projects:
 
 # Testing gem5
 
+Zenodo artifact record: https://zenodo.org/records/8316685.
+
 The requirements are:
 ```
 sudo apt-get update
