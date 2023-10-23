@@ -349,7 +349,7 @@ void mutateFloatValue(char *token, my_mutator_t *data) {
     float num;
     unsigned int int_repr;
     if (sscanf(token, "%f", &num) == 1) {
-	    // Flip bit
+	// Flip bit
         memcpy(&int_repr, &num, sizeof(float)); // dump to uint
         unsigned int bit_pos = mutator_rand(data, (sizeof(unsigned int) * 8), 0, 0);
         int_repr ^= (1u << bit_pos); // Bit flip it
@@ -477,10 +477,10 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     char *token = strtok_r(data->input_args, " ", &saveptr1);
     readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
     if (!invalid_tokens) {
-	    types_token = strtok_r(buf_token, " ", &saveptr2);
+	types_token = strtok_r(buf_token, " ", &saveptr2);
         if ((types_token != NULL) && (strcmp(types_token,"BINARY") == 0)) {
-	        types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (differnt mutation)
-	    }
+	    types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (differnt mutation)
+	}
     }
 
     // Find numeric parts and mutate them using mutateNumericValue function
@@ -496,7 +496,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
             is_many_args = false; // Just skip one replace
         else if (invalid_tokens)
     	    mutateUInt32Value(data->input_digit, data, "%u");
-	    else {
+	else {
             // In this for specific identified data types
             if (strcmp(types_token,"UINT32") == 0)
                 mutateUInt32Value(data->input_digit, data, "%u");
@@ -531,7 +531,7 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
             strcat(data->out_buff, data->input_digit);
 
         // Next iteration:
-	    token = strtok_r(NULL, " ", &saveptr1); // Next token
+	token = strtok_r(NULL, " ", &saveptr1); // Next token
         if (token != NULL) strncat(data->out_buff, " ", 1); // add back the space
         if (!invalid_tokens && types_token != NULL) types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
    }
@@ -629,11 +629,11 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
     // Read tokens of data types
     readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
     if (!invalid_tokens) {
-	    types_token = strtok_r(buf_token, " ", &saveptr2);
+	types_token = strtok_r(buf_token, " ", &saveptr2);
         if ((types_token != NULL) && (strcmp(types_token,"BINARY") == 0)) {
-	        types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (differnt mutation)
+	    types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (different mutation)
             strcpy(type_newbuff, "BINARY"); 
-	    } else {
+	} else {
             // Exit - we don't have enough information to continue this mutation
             new_buf=0; return; 
         }
