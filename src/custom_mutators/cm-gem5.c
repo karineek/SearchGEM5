@@ -680,6 +680,7 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
         char type_filename[100];
 
         generat_new_file_names(data->out_buff, bin_filename, type_filename);
+	// instead of copying type <copyFile(data->file_name_types, type_filename);>, do this if:
         if (writeStringToFile(type_newbuff,type_filename)) {
             copyFile(data->out_buff, bin_filename);
 
