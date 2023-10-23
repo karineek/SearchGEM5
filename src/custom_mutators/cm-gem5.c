@@ -113,7 +113,6 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 #endif // MUTATOR_ARGS
 
   return data;
-
 }
 
 /**
@@ -166,7 +165,6 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     // Copy the original input data
     memcpy(new_buf, buf, buf_size);
-
 
 
     // KEM: here we can define 3 mutators: combine one, args mutator and binary mutator.
@@ -692,14 +690,13 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 
             // Copy the new mutated string to give to AFL
             strcpy((char *)new_buf, data->out_buff);
-	    } else {
-	        // failed to generate a new type file - exit
-	        new_buf=0;
-	    }
+	} else {
+	    // failed to generate a new type file - exit
+	    new_buf=0;
+	}
     } else {
         // If no mutation - exit with buffer null.
         new_buf=0;
     }
-
     return;
 }
