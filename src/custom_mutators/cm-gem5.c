@@ -121,13 +121,36 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
  * @param data The data ptr from afl_custom_init
  */
 void afl_custom_deinit(my_mutator_t *data) {
-  data->afl = 0;
-  free(data->out_buff);
-  free(data->file_name_types);
-  free(data->input_args);
-  free(data->input_digit);
-  free(data);
+  // Check if data is not nullptr
+  if (data != nullptr) {
+    // Free out buffer if it is not nullptr
+    if (data->out_buff != nullptr) {
+      free(data->out_buff);
+    }
+
+    // Free data->file_name_types if it is not nullptr
+    if (data->file_name_types != nullptr) {
+      free(data->file_name_types);
+    }
+
+    // Free data->input_args if it is not nullptr
+    if (data->input_args != nullptr) {
+      free(data->input_args);
+    }
+
+    // Free data->input_digit if it is not nullptr
+    if (data->input_digit != nullptr) {
+      free(data->input_digit);
+    }
+
+    // Reset afl variable if needed
+    data->afl = 0;
+
+    // Free the main structure (data)
+    free(data);
+  }
 }
+
 
 /**
  * Perform custom mutations on a given input
