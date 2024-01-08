@@ -1,6 +1,10 @@
 # AFL Custom mutators for fuzzing gem5
 
-The mutators are in cm file.
+The mutators are in cm-gem5.c file. 
+
+To build the three mutators supported (as shared):
+```
+```
 
 We currently override:
 
