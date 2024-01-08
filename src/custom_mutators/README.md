@@ -4,6 +4,7 @@ The mutators are in cm-gem5.c file.
 
 To build the three mutators supported (as shared):
 ```
+./compile_share.sh
 ```
 
 We currently override:
