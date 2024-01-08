@@ -122,7 +122,9 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
  */
 void afl_custom_deinit(my_mutator_t *data) {
   // Check if data is not nullptr
-  if (data != nullptr) {
+  if (!data) {
+	  return; // nothing to do here
+  } else {
     // Free out buffer if it is not nullptr
     if (data->out_buff != nullptr) {
       free(data->out_buff);
