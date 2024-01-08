@@ -126,22 +126,22 @@ void afl_custom_deinit(my_mutator_t *data) {
 	  return; // nothing to do here
   } else {
     // Free out buffer if it is not nullptr
-    if (data->out_buff != nullptr) {
+    if (data->out_buff != NULL) {
       free(data->out_buff);
     }
 
     // Free data->file_name_types if it is not nullptr
-    if (data->file_name_types != nullptr) {
+    if (data->file_name_types != NULL) {
       free(data->file_name_types);
     }
 
     // Free data->input_args if it is not nullptr
-    if (data->input_args != nullptr) {
+    if (data->input_args != NULL) {
       free(data->input_args);
     }
 
     // Free data->input_digit if it is not nullptr
-    if (data->input_digit != nullptr) {
+    if (data->input_digit != NULL) {
       free(data->input_digit);
     }
 
