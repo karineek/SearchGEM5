@@ -8,7 +8,7 @@ To build the three mutators supported (as shared):
 ```
 This will build ARGS, TYPE and BINARY mutators.
 
-We currently override: afl_custom_init, afl_custom_fuzz
+We currently override: afl_custom_init, afl_custom_fuzz and afl_custom_deinit.
 
 The current version of AFL++ we use, allows us to override also:
 ```
