@@ -6,6 +6,7 @@ To build the three mutators supported (as shared):
 ```
 ./compile_share.sh
 ```
+This will build ARGS, TYPE and BINARY mutators.
 
 We currently override:
 
