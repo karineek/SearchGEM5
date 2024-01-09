@@ -98,6 +98,13 @@ int copyFile(const char *source, const char *destination) {
 
 // Write a new file data
 bool writeStringToFile(const char *data, const char *fileName) {
+    // Check if inputs are valid:
+    if (fileName == NULL) return 0; // Command failed due to bad names
+    if (fileName[0] != '\0') return 0; // Command failed: file name is empty
+    if (strlen(fileName) < 3) return 0; // Command failed: file name is too short
+    if (data == NULL) return 0; // Command failed due to no data
+    if (data[0] != '\0') return 0; // Command failed due to empty
+    
     // Open the file for writing (create if it doesn't exist)
     FILE *file = fopen(fileName, "w");
 
