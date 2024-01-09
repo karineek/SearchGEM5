@@ -79,10 +79,20 @@ void generat_new_file_names(char *input, char *bin, char *type) {
 
 // Copy files
 int copyFile(const char *source, const char *destination) {
+    // Check that both are not null
+    if (source == NULL) return -1; // Command failed due to bad names
+    if (destination == NULL) return -1; // Command failed due to bad names
+    if (source[0] != '\0') return -1; // Command failed: file name is empty
+    if (destination[0] != '\0') return -1; // Command failed: file name is empty
+    if (strlen(source) < 3) return -1; // Command failed: file name is too short
+    if (strlen(destination) < 3) return -1; // Command failed: file name is too short
+
     char command[250] = "cp ";
     strcat(command, source);
     strcat(command, " ");
     strcat(command, destination);
+
+    //printf("%s", command);
     return system(command);
 }
 
@@ -90,12 +100,12 @@ int copyFile(const char *source, const char *destination) {
 bool writeStringToFile(const char *data, const char *fileName) {
     // Open the file for writing (create if it doesn't exist)
     FILE *file = fopen(fileName, "w");
-    
+
     if (file == NULL) {
         printf("Error opening file for writing.\n");
         return 0;
     }
-    
+
     // Write the data to the file
     size_t dataLength = strlen(data);
     size_t itemsWritten = fwrite(data, 1, dataLength, file);

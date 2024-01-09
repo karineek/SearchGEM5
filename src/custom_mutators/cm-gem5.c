@@ -580,6 +580,11 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     char bin_filename[100];
     char type_filename[100];
     generat_new_file_names(data->out_buff, bin_filename, type_filename);
+    // Check we have fegit file names:
+    if ((strlen(bin_filename) <= 2) ||
+        (strlen(type_filename) <= 2)) return; // cannot mutate if do not have valid file name
+
+    // Only if okay copy the data
     copyFile(data->file_name_types, type_filename);
     copyFile(data->out_buff, bin_filename);
 
@@ -657,10 +662,10 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 	types_token = strtok_r(buf_token, " ", &saveptr2);
         if ((types_token != NULL) && (strcmp(types_token,"BINARY") == 0)) {
 	    types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (different mutation)
-            strcpy(type_newbuff, "BINARY"); 
+            strcpy(type_newbuff, "BINARY");
 	} else {
             // Exit - we don't have enough information to continue this mutation
-            new_buf=0; return; 
+            new_buf=0; return;
         }
     } else {
         // Exit - we don't have enough information to continue this mutation
@@ -705,9 +710,16 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
         char type_filename[100];
 
         generat_new_file_names(data->out_buff, bin_filename, type_filename);
+	// Check we have fegit file names:
+	if ((strlen(bin_filename) > 2) &&
+            (strlen(type_filename) > 2) &&
 	// instead of copying type <copyFile(data->file_name_types, type_filename);>, do this if:
-        if (writeStringToFile(type_newbuff,type_filename)) {
-            copyFile(data->out_buff, bin_filename);
+            (writeStringToFile(type_newbuff,type_filename))
+           ) {
+	    //////// END OF CHECKS ////////////
+
+	    // Create new file after type mutated
+	    copyFile(data->out_buff, bin_filename);
 
             // Crete the mutated string to give back to AFL
             strcpy(data->out_buff, bin_filename);
