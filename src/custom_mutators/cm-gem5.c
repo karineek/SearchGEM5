@@ -71,27 +71,27 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
   my_mutator_t *data = calloc(1, sizeof(my_mutator_t));
   if (!data) {
-    perror("afl_custom_init alloc");
+    perror(">>-1 afl_custom_init alloc");
     return NULL;
   }
 
   if ((data->out_buff = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
-    perror("afl_custom_init malloc");
+    perror(">>-2 afl_custom_init malloc");
     return NULL;
   }
 
   if ((data->file_name_types = (char *)malloc(MAX_FILE_NAME_SIZE)) == NULL) {
-    perror("afl_custom_init malloc");
+    perror(">>-3 afl_custom_init malloc");
     return NULL;
   }
 
   if ((data->input_args = (char *)malloc(MAX_ARGS_SIZE)) == NULL) {
-    perror("afl_custom_init malloc");
+    perror(">>-4 afl_custom_init malloc");
     return NULL;
   }
 
   if ((data->input_digit = (char *)malloc(MAX_DATA_SIZE)) == NULL) {
-    perror("afl_custom_init malloc");
+    perror(">>-5 afl_custom_init malloc");
     return NULL;
   }
 
@@ -99,15 +99,15 @@ my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed) {
 
 // Info. regarding the build
 #ifdef MUTATOR_ARGS
-    printf("MUTATOR_ARGS");
+    printf(">> =MUTATOR_ARGS");
 #else
 #   ifdef MUTATOR_BIN
-    printf("MUTATOR_BIN");
+    printf(">> =MUTATOR_BIN");
 #   else
 #       ifdef MUTATOR_TYPE
-            printf("MUTATOR_TYPE");
+            printf(">> =MUTATOR_TYPE");
 #       else
-            printf("ALL-MUTATORS");
+            printf(">> =ALL-MUTATORS");
 #       endif // MUTATOR_TYPE
 #   endif // MUTATOR_BIN
 #endif // MUTATOR_ARGS
@@ -177,14 +177,14 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     size_t new_size = MAX_CMDLINE_SIZE <= max_size ? MAX_CMDLINE_SIZE : max_size;
     if (new_size < buf_size) {
-        WARNF("Max size of register is: %zu, %zu", new_size, buf_size);
+        WARNF(">>-6 Max size of register is: %zu, %zu", new_size, buf_size);
         return 0; // We cannot work with this
     }
 
     // Allocate a new buffer for the edits
     uint8_t *new_buf = malloc(new_size);
     if (!new_buf) {
-        WARNF("Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
+        WARNF(">>-7 Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
         return 0;
     }
 
@@ -212,22 +212,31 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
                 // mutate the binary
                 mutateBinary(new_buf, data);
             }
-            // Check if we mutated correctly
-            if (!new_buf) {
-                WARNF("Bad generation for buffer with mutations.");
-                return 0;
-            }
 #       endif // MUTATOR_TYPE
 #   endif // MUTATOR_BIN
 #endif // MUTATOR_ARGS
 
+    // Check if we mutated correctly
+    if (!new_buf) {
+        WARNF(">>-8-A Bad generation for buffer with mutations.");
+        return 0;
+    }
 
+    // Check new_buf before declaring the mutation is okay
+    if (countLines(new_buf) < 2) {
+        WARNF(">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
+	return 0;
+    } // Else continue with the mutations
+
+    // Print the buffer
+    writeToLogFile("afl_log.log", "New buffer is this===>");
+    writeToLogFile("afl_log.log", new_buf);
 
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
     uint8_t *new_new_buf = malloc(actual_size);
     if ((!new_buf) || (!new_new_buf)) {
-        WARNF("Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
+        WARNF(">>-9 Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
         return 0;
     }
     //printf("Size: %zu", actual_size);
@@ -255,27 +264,27 @@ void readTypes(my_mutator_t *data, char** buffer) {
     // Open the file for reading
     FILE *file = fopen(data->file_name_types, "r");
     if (file == NULL) {
-        perror("Error opening file");
+        perror(">>-10 Error opening file");
         buffer = 0;
         return;
     }
 
     // Allocate space
     if ((*buffer = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
-        perror("afl buffer malloc failed");
+        perror(">>-11 afl buffer malloc failed");
         return;
     }
 
     // Read the file line by line
     if (fgets(*buffer, sizeof(*buffer), file) == NULL) {
-        perror("Error reading file");
+        perror(">>-12 Error reading file");
         buffer = 0;
         return;
     }
     char* tmp;
     // Allocate space
     if ((tmp = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
-        perror("afl buffer malloc failed");
+        perror(">>-13 afl buffer malloc failed");
         return;
     }
     while (fgets(tmp, sizeof(tmp), file) != NULL) {
@@ -585,8 +594,14 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
         (strlen(type_filename) <= 2)) return; // cannot mutate if do not have valid file name
 
     // Only if okay copy the data
-    copyFile(data->file_name_types, type_filename);
-    copyFile(data->out_buff, bin_filename);
+    if (copyFile(data->file_name_types, type_filename)) {
+	print_error(">> 14-A Error copying type file", type_filename);
+        return;
+    }
+    if (copyFile(data->out_buff, bin_filename)) {
+	print_error(">> 14-B Error copying binary file", bin_filename);
+	return;
+    }
 
     // Crete the mutated string to give back to AFL
     strcpy(data->out_buff, bin_filename);
@@ -601,7 +616,7 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
         // Mutate!
         FILE *file = fopen(bin_filename, "rb+");
         if (file == NULL) {
-            perror("Error opening file");
+            print_error(">>-14 Error opening file", bin_filename);
             return;
         }
 
@@ -627,7 +642,7 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
             fwrite(&byte, sizeof(byte), 1, file);
 
 #ifdef TEST_CM
-            printf("Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
+            printf(">>-15 Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
 #endif
         }
 
@@ -643,9 +658,9 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
 void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 1);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		        // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		            // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; }    // t.c.o.types - cannot be smaller
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		  // All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		  // t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; }  // t.c.o.types - cannot be smaller
 
     // Flag - if any type flipped?
     bool is_type_flipped = false;
@@ -719,15 +734,19 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 	    //////// END OF CHECKS ////////////
 
 	    // Create new file after type mutated
-	    copyFile(data->out_buff, bin_filename);
+	    if (copyFile(data->out_buff, bin_filename)) {
+		print_error(">> 17 Failed to copy binary file", bin_filename);
+	        new_buf=0;
+	    } else {
 
-            // Crete the mutated string to give back to AFL
-            strcpy(data->out_buff, bin_filename);
-            strcat(data->out_buff, "\n");
-            strcat(data->out_buff, data->input_args);
+                // Crete the mutated string to give back to AFL
+                strcpy(data->out_buff, bin_filename);
+                strcat(data->out_buff, "\n");
+                strcat(data->out_buff, data->input_args);
 
-            // Copy the new mutated string to give to AFL
-            strcpy((char *)new_buf, data->out_buff);
+                // Copy the new mutated string to give to AFL
+                strcpy((char *)new_buf, data->out_buff);
+	    }
 	} else {
 	    // failed to generate a new type file - exit
 	    new_buf=0;

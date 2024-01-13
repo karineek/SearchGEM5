@@ -45,10 +45,19 @@ void rand_name(char *timestampString, size_t bufferSize);
 // Generate new file names for binary and type
 void generat_new_file_names(char *input, char *bin, char *type);
 
+// Writes to logger instead into perror or stdout
+bool writeToLogFile(const char *logFile, const char *msg);
+
 // Copy files from source to destination
 int copyFile(const char *source, const char *destination);
 
-// Write file data 
+// Write file data
 bool writeStringToFile(const char *data, const char *fileName);
+
+// Print error message to screen
+void print_error(const char *msg, const char *data);
+
+// Count the number of lines in a buffer to check no bad mutations written
+int countLines(const char *str);
 
 #endif // UTILS_H

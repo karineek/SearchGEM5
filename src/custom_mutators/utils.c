@@ -77,13 +77,33 @@ void generat_new_file_names(char *input, char *bin, char *type) {
     strcat(type, ".types");
 }
 
+// Writes to logger
+bool writeToLogFile(const char *logFile, const char *msg) {
+    FILE *file = fopen(logFile, "a");
+    if (file == NULL) {
+        perror("Error opening log file");
+        return false;
+    }
+
+    // Write the message to the log file
+    fprintf(file, "%s\n", msg);
+
+    // Close the file
+    fclose(file);
+
+    return true;
+}
+
 // Copy files
 int copyFile(const char *source, const char *destination) {
+    writeToLogFile("afl_log.log", "====== Try ro write file");
     // Check that both are not null
     if (source == NULL) return -1; // Command failed due to bad names
+    writeToLogFile("afl_log.log", source);
     if (destination == NULL) return -1; // Command failed due to bad names
-    if (source[0] != '\0') return -1; // Command failed: file name is empty
-    if (destination[0] != '\0') return -1; // Command failed: file name is empty
+    writeToLogFile("afl_log.log", destination);
+    if (source[0] == '\0') return -1; // Command failed: file name is empty
+    if (destination[0] == '\0') return -1; // Command failed: file name is empty
     if (strlen(source) < 3) return -1; // Command failed: file name is too short
     if (strlen(destination) < 3) return -1; // Command failed: file name is too short
 
@@ -93,6 +113,7 @@ int copyFile(const char *source, const char *destination) {
     strcat(command, destination);
 
     //printf("%s", command);
+    writeToLogFile("afl_log.log", command);
     return system(command);
 }
 
@@ -100,26 +121,59 @@ int copyFile(const char *source, const char *destination) {
 bool writeStringToFile(const char *data, const char *fileName) {
     // Check if inputs are valid:
     if (fileName == NULL) return 0; // Command failed due to bad names
-    if (fileName[0] != '\0') return 0; // Command failed: file name is empty
+    if (fileName[0] == '\0') return 0; // Command failed: file name is empty
     if (strlen(fileName) < 3) return 0; // Command failed: file name is too short
     if (data == NULL) return 0; // Command failed due to no data
-    if (data[0] != '\0') return 0; // Command failed due to empty
-    
+    if (data[0] == '\0') return 0; // Command failed due to empty
+
     // Open the file for writing (create if it doesn't exist)
     FILE *file = fopen(fileName, "w");
-
     if (file == NULL) {
-        printf("Error opening file for writing.\n");
+        print_error(">>-16 Error opening file for writing", fileName);
         return 0;
     }
 
     // Write the data to the file
     size_t dataLength = strlen(data);
     size_t itemsWritten = fwrite(data, 1, dataLength, file);
-    
+
     // Close the file
     fclose(file);
 
     // Return if succ
     return !(itemsWritten < dataLength);
 }
+
+// Print error message via perror with additinal information
+void print_error(const char *msg, const char *data) {
+    if ((msg == NULL) || (data == NULL)) {
+	if (msg != NULL) {
+	     perror(msg);
+        } else if (data != NULL) {
+    	     perror(data);
+	} else {
+	     perror(">>-17 Unkown error, both msg and data information are misisng");
+        }
+    } else { // We have both
+	char error_message[300];  // Adjust the size as needed
+        sprintf(error_message, "%s (%s)", msg, data);
+	perror(error_message);
+    }
+}
+
+// Count the number of lines in a buffer to check no bad mutations written
+int countLines(const char *str) {
+    if (str == NULL) return 0;
+
+    int lineCount = 0;
+    int ch=0;
+
+    while (*(str+1) != '\0') {
+        if (*str == '\n') {
+            lineCount++;
+        }
+        ch++;
+    }
+    return lineCount;
+}
+
