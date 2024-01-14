@@ -85,7 +85,7 @@ void mutateFloatValue   (char *token, my_mutator_t *data);
 void mutateDoubleValue  (char *token, my_mutator_t *data);
 void mutateStringValue  (char *token, my_mutator_t *data);
 
-void readTypes(my_mutator_t *data, char** buffer);
+bool readTypes(my_mutator_t *data, char** buffer);
 int  mutator_rand(my_mutator_t *data, size_t len, int rate, long filesize);
 void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data, int is2add_new_line);
 bool is_one_arg_call(char *str);

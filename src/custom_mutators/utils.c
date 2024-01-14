@@ -112,8 +112,10 @@ int copyFile(const char *source, const char *destination) {
     strcat(command, " ");
     strcat(command, destination);
 
-    //printf("%s", command);
+#ifndef DEBUG_CM
     writeToLogFile("afl_log.log", command);
+#endif
+
     return system(command);
 }
 
@@ -129,7 +131,9 @@ bool writeStringToFile(const char *data, const char *fileName) {
     // Open the file for writing (create if it doesn't exist)
     FILE *file = fopen(fileName, "w");
     if (file == NULL) {
+#ifndef DEBUG_CM
         print_error(">>-16 Error opening file for writing", fileName);
+#endif
         return 0;
     }
 
@@ -166,14 +170,12 @@ int countLines(const char *str) {
     if (str == NULL) return 0;
 
     int lineCount = 0;
-    int ch=0;
+    size_t length = strlen(str);
 
-    while (*(str+1) != '\0') {
-        if (*str == '\n') {
+    for (size_t i = 0; i < length; ++i) {
+        if (str[i] == '\n') {
             lineCount++;
         }
-        ch++;
     }
-    return lineCount;
+    return lineCount+1;
 }
-
