@@ -72,14 +72,14 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 void afl_custom_deinit(my_mutator_t *data);
 
 // Mutator - Main function
-void findAndMutateArgs  (uint8_t *new_buf, my_mutator_t *data); 
-void mutateBinary       (uint8_t *new_buf, my_mutator_t *data);
-void mutateTypeData     (uint8_t *new_buf, my_mutator_t *data);
+bool findAndMutateArgs  (uint8_t *new_buf, my_mutator_t *data);
+bool mutateBinary       (uint8_t *new_buf, my_mutator_t *data);
+bool mutateTypeData     (uint8_t *new_buf, my_mutator_t *data);
 
 // Mutator functions - helpers
 void mutateUInt8Value   (char *token, my_mutator_t *data, char* format);
 void mutateUInt16Value  (char *token, my_mutator_t *data, char* format);
-void mutateUInt32Value  (char *token, my_mutator_t *data, char* format); 
+void mutateUInt32Value  (char *token, my_mutator_t *data, char* format);
 void mutateUInt64Value  (char *token, my_mutator_t *data, char* format);
 void mutateFloatValue   (char *token, my_mutator_t *data);
 void mutateDoubleValue  (char *token, my_mutator_t *data);

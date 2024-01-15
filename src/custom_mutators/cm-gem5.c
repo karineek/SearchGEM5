@@ -199,30 +199,31 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
 
     // KEM: here we can define 3 mutators: combine one, args mutator and binary mutator.
+    bool mutations_rc = 0; // RC if mutations succ.
 #ifdef MUTATOR_ARGS
     // bit flip on the arguments
-    findAndMutateArgs(new_buf, data);
+    mutations_rc = findAndMutateArgs(new_buf, data);
 #else
 #   ifdef MUTATOR_BIN
     // mutate the binary
-    mutateBinary(new_buf, data);
+    mutations_rc = mutateBinary(new_buf, data);
 #   else
 #       ifdef MUTATOR_TYPE
-            mutateTypeData(new_buf, data);
+            mutations_rc = mutateTypeData(new_buf, data);
 #       else
             // Mutate!
             if (mutator_rand(data, 0, 1000, 0) < 995) {
                 // bit flip on the arguments
-                findAndMutateArgs(new_buf, data);
+                mutations_rc = findAndMutateArgs(new_buf, data);
             } else {
                 // mutate the binary
-                mutateBinary(new_buf, data);
+                mutations_rc = mutateBinary(new_buf, data);
             }
 #       endif // MUTATOR_TYPE
 #   endif // MUTATOR_BIN
 #endif // MUTATOR_ARGS
 
-    // Check if we mutated correctly
+    // Check if no buff returned
     if (!new_buf) {
         WARNF(">>-8-A Bad generation for buffer with mutations.");
         return 0;
@@ -234,23 +235,23 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     writeToLogFile("afl_log.log",(const char *)  new_buf);
 #endif
 
-    // Check new_buf before declaring the mutation is okay
-    if (countLines((const char *) new_buf) < 2) {
+    // Check if mutation succ. and Check new_buf before declaring the mutation is okay
+    if ((!mutations_rc) || (countLines((const char *) new_buf) < 2)) {
         WARNF(">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
 #ifdef TEST_CM
         writeToLogFile("afl_log.log", ">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
 #endif
+        free(new_buf);
 	return 0;
     } // Else continue with the mutations
 
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
     uint8_t *new_new_buf = malloc(actual_size);
-    if ((!new_buf) || (!new_new_buf)) {
+    if ((!new_new_buf)) {
         WARNF(">>-9 Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
         return 0;
     }
-    //printf("Size: %zu", actual_size);
     memcpy(new_new_buf, new_buf, actual_size);
 
     // Set it as output buff
@@ -506,16 +507,16 @@ const char* generateRandomTypeToken() {
 /* ============================================= */
 
 // Mutate arguments for the binary in the corpus: the input data
-void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
+bool findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 #ifdef TEST_CM
     writeToLogFile("afl_log.log", "=============== ARGS: try new loop ===>");
 #endif
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 1);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		        // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		            // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; }    // t.c.o.types - cannot be smaller
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }		   // All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; } 		   // t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }    // t.c.o.types - cannot be smaller
 
     // Space for temporary manipulations
     char* types_token = 0;
@@ -530,8 +531,8 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 	types_token = strtok_r(buf_token, " ", &saveptr2);
         if ((types_token != NULL) && (strcmp(types_token,"BINARY") == 0)) {
 	    types_token = strtok_r(NULL, " ", &saveptr2); // Next type token, we don't mutate here the binary (differnt mutation)
-	}
-    }
+	} else { return 0; }
+    } else { return 0;}
 
     // Find numeric parts and mutate them using mutateNumericValue function
     bool is_many_args = !is_one_arg_call(buf_token);
@@ -586,24 +587,25 @@ void findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         if (!invalid_tokens && types_token != NULL) types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
    }
    strcpy((char *)new_buf, data->out_buff);
+   return 1;
 }// End of findAndMutateArgs
 
 // Mutate the binary
-void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
+bool mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
 #ifdef TEST_CM
     writeToLogFile("afl_log.log", "=============== BIN: try new loop ===>");
 #endif
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 0);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }              // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; }                   // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; }    // t.c.o.types - cannot be smaller
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }              // All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; }                   // t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }    // t.c.o.types - cannot be smaller
 
     // Read tokens of data types
     char *buf_token = 0;
     readTypes(data, &buf_token); bool invalid_tokens = (buf_token == 0);
-    if (invalid_tokens) return; // Cannot mutate
+    if (invalid_tokens) return 0; // Cannot mutate
 
     // Create a new binary to mutate
     char bin_filename[100];
@@ -611,16 +613,16 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     generat_new_file_names(data->out_buff, bin_filename, type_filename);
     // Check we have fegit file names:
     if ((strlen(bin_filename) <= 2) ||
-        (strlen(type_filename) <= 2)) return; // cannot mutate if do not have valid file name
+        (strlen(type_filename) <= 2)) return 0; // cannot mutate if do not have valid file name
 
     // Only if okay copy the data
     if (copyFile(data->file_name_types, type_filename)) {
 	print_error(">> 14-A Error copying type file", type_filename);
-        return;
+        return 0;
     }
     if (copyFile(data->out_buff, bin_filename)) {
 	print_error(">> 14-B Error copying binary file", bin_filename);
-	return;
+	return 0;
     }
 
     // Crete the mutated string to give back to AFL
@@ -637,7 +639,7 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
         FILE *file = fopen(bin_filename, "rb+");
         if (file == NULL) {
             print_error(">>-14 Error opening file", bin_filename);
-            new_buf=0; return;
+            return 0;
         }
 
         // Determine the size of the file
@@ -670,20 +672,21 @@ void mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
     }
 
     strcpy((char *)new_buf, data->out_buff);
+    return 1;
 } // End of mutateBinary
 
 
 // Mutate the type data
-void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
+bool mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 #ifdef TEST_CM
     writeToLogFile("afl_log.log", "=============== TYPE: try new loop ===>");
 #endif
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 1);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { new_buf=0; return; }		  // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { new_buf=0; return; } 		  // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { new_buf=0; return; }  // t.c.o.types - cannot be smaller
+    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }		 // All binaries gets at least one char of input
+    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; } 		 // t.c.o - cannot be smaller
+    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }  // t.c.o.types - cannot be smaller
 
     // Flag - if any type flipped?
     bool is_type_flipped = false;
@@ -704,11 +707,11 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
                 strcpy(type_newbuff, "BINARY");
 	    } else {
                 // Exit - we don't have enough information to continue this mutation
-                new_buf=0; return;
+                return 0;
             }
         } else {
             // Exit - we don't have enough information to continue this mutation
-            new_buf=0; return;
+            return 0;
         }
         is_many_args = !is_one_arg_call(buf_token);    // Check if a single parameter call
         buf_token = 0;
@@ -761,7 +764,7 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 	    // Create new file after type mutated
 	    if (copyFile(data->out_buff, bin_filename)) {
 		print_error(">> 17 Failed to copy binary file", bin_filename);
-	        new_buf=0; return;
+	        return 0;
 	    } else {
 
                 // Crete the mutated string to give back to AFL
@@ -772,13 +775,14 @@ void mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 	} else {
 	    // failed to generate a new type file - exit
             print_error(">> 18 Failed to copy type file", type_filename);
-	    new_buf=0; return;
+	    return 0;
 	}
     } else {
         // If no mutation - exit with buffer null.
-        new_buf=0; return;
+        return 0;
     }
 
     // Copy the new mutated string to give to AFL
     strcpy((char *)new_buf, data->out_buff);
+    return 1;
 }
