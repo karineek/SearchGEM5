@@ -47,6 +47,8 @@
 
 // extract path
 void extractPath(const char *input, char *path) {
+    if (!input) return; // check we got input
+
     // Find the last occurrence of '/'
     const char *lastSlash = strrchr(input, '/');
     if (lastSlash != NULL) {
@@ -64,11 +66,17 @@ void rand_name(char *timestampString, size_t bufferSize) {
 
 // Rename file so we can muate the binary
 void generat_new_file_names(char *input, char *bin, char *type) {
+    if (!input) return; // check we got input
+
     char path[100];
     extractPath(input, path);
+    if (strlen(path) < 5) return; // Probably not a valid path - too short
+
+    // Generate random number for unique name
     char name[50];
     rand_name(name, sizeof(name));
 
+    // Copy the name
     strcpy(bin, path);
     strcat(bin, "fuzz_");
     strcat(bin, name);
@@ -78,7 +86,11 @@ void generat_new_file_names(char *input, char *bin, char *type) {
 }
 
 // Writes to logger
+#ifdef TEST_CM
 bool writeToLogFile(const char *logFile, const char *msg) {
+    if (!logFile) return false; // Check we have a  file name
+
+    // try to open logFile
     FILE *file = fopen(logFile, "a");
     if (file == NULL) {
         perror("Error opening log file");
@@ -93,15 +105,17 @@ bool writeToLogFile(const char *logFile, const char *msg) {
 
     return true;
 }
+#endif
 
 // Copy files
 int copyFile(const char *source, const char *destination) {
-    writeToLogFile("afl_log.log", "====== Try ro write file");
+#ifdef TEST_CM
+    writeToLogFile("afl_log.log", "====== Try to write file");
+#endif
+
     // Check that both are not null
     if (source == NULL) return -1; // Command failed due to bad names
-    writeToLogFile("afl_log.log", source);
     if (destination == NULL) return -1; // Command failed due to bad names
-    writeToLogFile("afl_log.log", destination);
     if (source[0] == '\0') return -1; // Command failed: file name is empty
     if (destination[0] == '\0') return -1; // Command failed: file name is empty
     if (strlen(source) < 3) return -1; // Command failed: file name is too short
@@ -112,7 +126,7 @@ int copyFile(const char *source, const char *destination) {
     strcat(command, " ");
     strcat(command, destination);
 
-#ifndef DEBUG_CM
+#ifdef TEST_CM
     writeToLogFile("afl_log.log", command);
 #endif
 
@@ -131,21 +145,27 @@ bool writeStringToFile(const char *data, const char *fileName) {
     // Open the file for writing (create if it doesn't exist)
     FILE *file = fopen(fileName, "w");
     if (file == NULL) {
-#ifndef DEBUG_CM
-        print_error(">>-16 Error opening file for writing", fileName);
+#ifdef TEST_CM
+        print_error(">>-16-A Error opening file for writing", fileName);
 #endif
         return 0;
     }
 
     // Write the data to the file
-    size_t dataLength = strlen(data);
-    size_t itemsWritten = fwrite(data, 1, dataLength, file);
+    int charsWritten = fprintf(file, "%s\n", data);
 
     // Close the file
     fclose(file);
 
     // Return if succ
-    return !(itemsWritten < dataLength);
+    if ((charsWritten < 0) || (charsWritten != strlen(data))) {
+#ifdef TEST_CM
+        print_error(">>-16-B Error writing to file", fileName);
+#endif
+        return 0;
+    } else {
+    	return 1;
+    }
 }
 
 // Print error message via perror with additinal information

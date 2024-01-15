@@ -46,7 +46,9 @@ void rand_name(char *timestampString, size_t bufferSize);
 void generat_new_file_names(char *input, char *bin, char *type);
 
 // Writes to logger instead into perror or stdout
+#ifdef TEST_CM
 bool writeToLogFile(const char *logFile, const char *msg);
+#endif
 
 // Copy files from source to destination
 int copyFile(const char *source, const char *destination);
