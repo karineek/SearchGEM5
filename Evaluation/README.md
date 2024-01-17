@@ -11,3 +11,9 @@ cd gem5/
 pip install -r requirements.txt
 
 ```
+
+2. Try to reproduce the bug with the latest version.
+   - If the bug still exists in the most recent version, consider reporting it.
+
+3. Add the bug to SSBSE-gem5-bugs.xlsx with any detail you can extract:
+   - Date, inputs, object, mutations carried, logs, etc.
