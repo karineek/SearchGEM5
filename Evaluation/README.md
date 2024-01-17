@@ -1,6 +1,6 @@
 # Reporting Bugs
 
-During the evaluation we found bugs such as mis-simuation, hang of the simuation and crashes.
+During the evaluation, we found bugs such as mis-simulation, hang of the simulation and crashes.
 
 To report these you have to take the following steps.
 
