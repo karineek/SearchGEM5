@@ -99,9 +99,38 @@ g0.x: 3.0000, g0.y: 3.0000
 The output is: "g0.x: 3.0000, g0.y: 3.0000". So, this is the original bug: wrong result during simulation.
 
 
-   - Next, I will try to reproduce the bug with the new version of gem5.
-     
+   - Next, I will try to reproduce the bug with the new version of gem5. I will run the same command but with the new gem5 version:
+```
+/home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input byval-alignment_test1.txt 
+``` 
+and will get:
+```
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Jan 17 2024 12:20:35
+gem5 started Jan 17 2024 12:59:55
+gem5 executing on fuzzer-03, pid 973626
+command line: /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input byval-alignment_test1.txt
+
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+g0.x: 3.0000, g0.y: 3.0000
+Exiting @ tick 11785715487 because exiting with last active thread context.
+``` 
+But here the output is correct: "g0.x: 3.0000, g0.y: 3.0000", therefore we do not report this bug.
+   - If the bug disappears, we can mark it down and consider contributing it as a test case.
    - If the bug still exists in the most recent version, consider reporting it.
+
 
 ## 3. Add the bug to SSBSE-gem5-bugs.xlsx with any detail you can extract:
    - Date, inputs, object, mutations carried, logs, etc.
