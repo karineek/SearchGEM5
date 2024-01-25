@@ -3,6 +3,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import java.util.Random;
 import java.net.URISyntaxException;
+import java.util.regex.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
 import io.github.amithkoujalgi.ollama4j.core.models.OllamaResult;
@@ -142,7 +146,26 @@ class ProgramGenerator {
     	"C Program to Write a Sentence to a File",
     	"C Program to Read the First Line From a File",
     	"C Program to Display its own Source Code as Output",
-    	"C Program to Print Pyramids and Patterns"
+    	"C Program to Print Pyramids and Patterns",
+	"Short circuit and operator precedence",
+	"using scalars with short-circuiting or",
+	"Order of evaluation between logical and assignment operators",
+	"a function call",
+	"input include several arguments",
+	"Checking dictionary key existence and boolean condition",
+	"Short Circuit Evaluation",
+	"Something cool!",
+	"Anything popular in C",
+	"recursion",
+	"short circuiting operations",
+	"conditions of short circuit",
+	"use a value without computing it twice",
+	"Ternary operator",
+	"Ternary operator use with short circuiting operations",
+	"Character sets",
+	"Character display semantics",
+	"limits of integers",
+	"Types"
 	};
 
     public String getRandomCompilerOpt() {
@@ -197,6 +220,95 @@ class ProgramGenerator {
         return "";
     }
 
+    public String getCode(String input, String cCodeRegex) {
+	String lines[] = input.split("\\r?\\n");
+	if (1 > lines.length) return "";
+
+        // Pattern and Matcher for C code
+        Pattern cPattern = Pattern.compile(cCodeRegex, Pattern.DOTALL);
+
+	try {
+	    // Get the block
+            int i = 0;
+	    Matcher cMatcher = cPattern.matcher(lines[0]);
+	    // Print C code blocks
+            while (!cMatcher.find()) {
+	        i++;
+	        if (i > lines.length) return "";
+	        cMatcher = cPattern.matcher(lines[i]);
+            }
+	    // Yeah! we found it!
+	    // Jump to the start (we do not need the first i matched
+	    i++;
+
+	    // Pattern and Matcher for end of Code code
+	    if (i > lines.length) return "";
+	    String cCodeRegexEnd = "```*";
+            Pattern cPatternEnd = Pattern.compile(cCodeRegexEnd, Pattern.DOTALL);
+	    Matcher cMatcherEnd = cPatternEnd.matcher(lines[i]);
+	    String program = "";
+	    while (!cMatcherEnd.find()) {
+	        program += lines[i] + "\n";
+	        i++;
+	        if (i > lines.length) return "";
+	        cMatcherEnd = cPatternEnd.matcher(lines[i]);
+	    }
+	    return program;
+	} catch (ArrayIndexOutOfBoundsException e) {
+	    return "";
+	}
+    }
+
+    public String getParams(String input) {
+	// Define regular expressions for BASH code blocks
+	String bashCodeRegex = "\\$.*?(?:\\n|$)";
+	// Pattern and Matcher for BASH code
+        Pattern bashPattern = Pattern.compile(bashCodeRegex);
+        Matcher bashMatcher = bashPattern.matcher(input);
+        // Print BASH code blocks
+        while (bashMatcher.find()) {
+            String bashBlock=(bashMatcher.group().trim());
+	    if (!bashBlock.contains("gcc") && !bashBlock.contains("clang")) {
+		return bashBlock;
+	    }
+        }
+	return "0";
+    }
+
+    public static int getMaxArgvNumber(String input) {
+        Pattern pattern = Pattern.compile("argv\\[(\\d+)]");
+        Matcher matcher = pattern.matcher(input);
+
+        int maxArgvNumber = -1;
+
+        while (matcher.find()) {
+            int argvNumber = Integer.parseInt(matcher.group(1));
+            maxArgvNumber = Math.max(maxArgvNumber, argvNumber);
+        }
+
+        return maxArgvNumber;
+    }
+
+    public static String generateFilename(String prefix) {
+        long timestamp = System.nanoTime();
+        return prefix + "timestamp_" + timestamp + ".c";
+    }
+
+    public boolean writeFile(String filename, String content) {
+	// Writing content to the specified file
+        try {
+            // Using java.nio.file to write to the file
+            byte[] contentBytes = content.getBytes("UTF-8");
+            Files.write(Path.of(filename), contentBytes, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+
+            System.out.println("Content successfully written to the file: " + filename);
+        } catch (IOException e) {
+            System.err.println("Error writing to the file: " + e.getMessage());
+	    return false;
+        }
+	return true;
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello, Starting Generating Programs!");
 
@@ -223,15 +335,36 @@ class ProgramGenerator {
         	String promptString = "Prompt: " + randomCompilerOpt + ", " + randomCompilerParts + ", " + randomPL;
 
 		// program
-		String prompt = "Give me a program in C with all includes. Code only please. Input taken via argv only. Please return code and example of input in the format ``` ``` and input:." +
+		String prompt = "Give me a program in C with all includes. Code only and short answer. Input taken via argv only. Please return program (in C) and example of input (BASH). " +
 			"The program will focus on the following: the code triggers " + randomCompilerOpt + " optimization, and covers this part of the compiler " +
-			randomCompilerParts + ", and excersise this idea of syntax of C: " + randomPL;
+			randomCompilerParts + ", and excersise this idea of syntax of C: " + randomPL + ".";
 
 		// PROMPT
-		System.out.println(compilerStrings.askModel(ollamaAPI, modelType, prompt));
+		String res = compilerStrings.askModel(ollamaAPI, modelType, prompt);
+		System.out.println(res);
 
+		// Program
+		System.out.println("======================= Program: =======================");
+		String program = compilerStrings.getCode(res, "```C*");
+		System.out.println(program);
 		// Input
+		System.out.println("======================= Input: =======================");
+		String callLine = compilerStrings.getCode(res, "```bash*");
+		System.out.println(callLine);
 		// Type
+		System.out.println("======================= Type: =======================");
+		int maxArgs = compilerStrings.getMaxArgvNumber(res);
+                System.out.println(maxArgs);
+
+		if ((maxArgs < 1) || callLine.isEmpty() || program.isEmpty()) {
+		    System.out.println(">>> Bad program. Skip this test input.");
+		} else {
+		    System.out.println(">>> Good program. Writing test input.");
+		    String testName = compilerStrings.generateFilename("test_input_");
+		    if (compilerStrings.writeFile(testName, program)) {
+			System.out.println(">>>>>> Continue generating the test input");
+		    }
+		}
     	}
     }
 }
