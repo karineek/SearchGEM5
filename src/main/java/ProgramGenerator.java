@@ -455,7 +455,50 @@ class ProgramGenerator {
 	"atan2 type-generic macro",
 	"atan2f function",
 	"atan2l function",
-	"atanf function"
+	"atanf function",
+	"atanh function",
+	"atanh type-generic macro",
+	"atanhf function",
+	"atanhl function",
+	"atanl function",
+	"atexit function",
+	"atof function",
+	"atoi function",
+	"atol function",
+	"atoll function",
+	"atomic lock-free macros",
+	"atomic operations",
+	"atomic types",
+	"ATOMIC_ identifier prefix",
+	"atomic_ identifier prefix I",
+	"atomic_bool type",
+	"ATOMIC_BOOL_LOCK_FREE macro",
+	"atomic_char type",
+	"atomic_char16_t type",
+	"ATOMIC_CHAR16_T_LOCK_FREE macro",
+	"atomic_char32_t type",
+	"ATOMIC_CHAR32_T_LOCK_FREE macro",
+	"ATOMIC_CHAR_LOCK_FREE macro",
+	"atomic_compare_exchange_strong function",
+	"atomic_compare_exchange_strong_explicit function",
+	"atomic_compare_exchange_weak function",
+	"atomic_compare_exchange_weak_explicit function",
+	"atomic_exchange function",
+	"atomic_exchange_explicit function",
+	"atomic_fetch_ function",
+	"atomic_flag type",
+	"atomic_flag_clear function",
+	"atomic_flag_clear_explicit function",
+	"ATOMIC_FLAG_INIT macro",
+	"atomic_flag_test_and_set function",
+	"atomic_flag_test_and_set_explicit function",
+	"atomic_init function",
+	"atomic_int type",
+	"atomic_int_fast16_t type",
+	"atomic_int_fast32_t type",
+	"atomic_int_fast64_t type",
+	"atomic_int_fast8_t type",
+	"atomic_int_least16_t type"
     };
 
 
@@ -627,14 +670,20 @@ class ProgramGenerator {
             return "BASH";
         } else if (inputText.contains("Bash")) {
             return "Bash";
+	} else if (inputText.contains("shell")) {
+	    return "shell";
+        } else if (inputText.contains("Shell")) {
+            return "Shell";
+	} else if (inputText.contains("SHELL")) {
+            return "SHELL";
         } else {
             // Default case: return the original text
-            return inputText;
+            return "";
         }
     }
 
     private static String determineType(String input) {
-	if (input.isEmpty()) return "string";
+	if (input.isEmpty()) return "STRING";
 
 	// Check if it ends with "f," "l," or "u"
         if (input.endsWith("f")) {
@@ -711,24 +760,27 @@ class ProgramGenerator {
     }
 
     public static String getArgumentsTypes(String argsValue, int argsSize) {
-    	String returnTypesList = "";
+    	String returnTypesList = "BINARY";
     	int currentListSize = 0;
 
+	// Guess the type
 	if (!argsValue.isEmpty()) {
 		String[] args = argsValue.split(" ");
     		for (String arg : args) {
         		String type = determineType(arg);
-        		returnTypesList += type + " ";
+        		returnTypesList += " " + type;
         		currentListSize++;
     		}
 	}
 
     	// Fill remaining slots with INT32 if needed
     	for (int i = currentListSize + 1; i <= argsSize; i++) {
-        	returnTypesList += "INT32 ";
+        	returnTypesList += " INT32";
+		argsValue += (i==0) ? "0" : " 0";
     	}
 
-    	return returnTypesList.trim(); // Trim to remove trailing space
+	// Trim to remove leading space
+	return returnTypesList.trim();
     }
 
 
@@ -748,7 +800,15 @@ class ProgramGenerator {
 
 	ProgramGenerator compilerStrings = new ProgramGenerator();
 
-    	for (int i = 0; i < 1000; i++) {
+	// Let LLM know what we want:
+	String promtStart = "Generate a concise C file without unnecessary includes, but with output. The C file should be a standard program, but with a twist:"
+		+" it replaces all constants in the main function with argument assignments, adds required includes, and includes comments indicating the date and time.";
+    	promtStart += "Example ```C\n#include <stdio.h>\n#include <stdlib.h>\nint main(int argc, char *argv[]) {\n"
+		+ "  if (argc != 2) {\n    printf(''Usage: %s <value>\n'', argv[0]);\n    return 1;\n  }\n  int x = atoi(argv[1]);\n"
+		+ "  return x - 4;\n}```\nDo you think you can do that?";
+	compilerStrings.askModel(ollamaAPI, modelType, promtStart); // If not crash continue.
+
+	for (int i = 0; i < 1000; i++) {
         	// Get a random entry from each array
        		String randomCompilerOpt = compilerStrings.getRandomCompilerOpt();
         	String randomCompilerParts = compilerStrings.getRandomCompilerParts();
@@ -757,9 +817,11 @@ class ProgramGenerator {
         	// Combine the random entries into a prompt string
         	String promptString = "Prompt: " + randomCompilerOpt + ", " + randomCompilerParts + ", " + randomPL;
 
+		// Example: This is a code-generation task. Give me a program in C with all includes. Code only and short answer. Input is taken via argv only. Please return a program (C program) and an example of input (BASH).
+		// The C program will be with code triggering Memory Optimizations optimization, covers this part of the compiler Handles code generation, and exercises this idea in C: acquire operation.
 		// program
-		String prompt = "Give me a program in C with all includes. Code only and short answer. Input taken via argv only. Please return program (in C) and example of input (BASH). " +
-			"The C program will with code triggers " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
+		String prompt = "Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and example of input (BASH). " +
+			"The C program will be with code triggering " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
 			randomCompilerParts + ", and excersises this idea in C: " + randomPL + ".";
 
 		// PROMPT
@@ -768,7 +830,8 @@ class ProgramGenerator {
 
 		// Program
 		System.out.println("======================= Program: =======================");
-		String program = compilerStrings.getCode(res, "```C*");
+		String CString = (res.contains("```c*") ? "```c*": "```C*");
+		String program = compilerStrings.getCode(res, CString);
 		System.out.println(program);
 		// Input
 		System.out.println("======================= Input: ======================="); // Solve problem with "./" in second bash tags
@@ -784,17 +847,25 @@ class ProgramGenerator {
 			}
 		}
 		String lines[] = inputCleaned.split("\\r?\\n");
-		String callLine = compilerStrings.stringLeft(lines[0]," ",1);
+		String inputFirstLine = (lines.length == 0 ? inputCleaned : lines[0]);   // If not empty, but parsing failed, try to take the original results
+		String callLine = (inputFirstLine.isEmpty() ? "0" : // If empty, we failed getting input.
+					compilerStrings.stringLeft(inputFirstLine," ",0));
+		// Remove leading space
+        	callLine = callLine.trim();
+        	while (callLine.length() > 0 && callLine.charAt(0) == ' ') {
+                	callLine = callLine.substring(1);
+        	}
 		System.out.println(callLine);
 		// Type
 		System.out.println("======================= Type: =======================");
 		int maxArgs = compilerStrings.getMaxArgvNumber(program);
                 System.out.println(maxArgs);
 		String argsType = "";
-		if (program.contains("argv[i]") || program.contains("argv[j]") || (maxArgs >=1)) {
+		if (program.contains("argv[i]") || program.contains("argv[j]") || (maxArgs > 0)) {
 			// set argsType
 			argsType = compilerStrings.getArgumentsTypes(callLine, maxArgs);
 		}
+		System.out.println(callLine + ":" + argsType);
 
 
 		// Type string generatee
@@ -811,10 +882,10 @@ class ProgramGenerator {
 						// Write type
 						if (compilerStrings.writeFile(testName + ".type", argsType)) {
 			    				System.out.println(">>>>>> Generate the test input " + testName);
-						}
-					}
-				}
-		    	}
+						} else System.out.println("File Write Failed: Type");
+					} else System.out.println("File Write Failed: Fuzz data");
+				} else System.out.println("File Write Failed: Binary");
+		    	} else System.out.println("File Write Failed: program");
 		}
 		System.out.println("===========================================================================");
 	}
