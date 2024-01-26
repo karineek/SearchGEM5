@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
@@ -248,7 +249,7 @@ class ProgramGenerator {
 	    Matcher cMatcherEnd = cPatternEnd.matcher(lines[i]);
 	    String program = "";
 	    while (!cMatcherEnd.find()) {
-	        program += lines[i] + "\n";
+	        program += "\n" + lines[i];
 	        i++;
 	        if (i > lines.length) return "";
 	        cMatcherEnd = cPatternEnd.matcher(lines[i]);
@@ -276,6 +277,8 @@ class ProgramGenerator {
     }
 
     public static int getMaxArgvNumber(String input) {
+	if (input.isEmpty())  return -1;
+
         Pattern pattern = Pattern.compile("argv\\[(\\d+)]");
         Matcher matcher = pattern.matcher(input);
 
@@ -290,8 +293,7 @@ class ProgramGenerator {
     }
 
     public static String generateFilename(String prefix) {
-        long timestamp = System.nanoTime();
-        return prefix + "timestamp_" + timestamp + ".c";
+        return prefix + System.nanoTime() + ".c";
     }
 
     public boolean writeFile(String filename, String content) {
@@ -300,14 +302,147 @@ class ProgramGenerator {
             // Using java.nio.file to write to the file
             byte[] contentBytes = content.getBytes("UTF-8");
             Files.write(Path.of(filename), contentBytes, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
-
-            System.out.println("Content successfully written to the file: " + filename);
         } catch (IOException e) {
             System.err.println("Error writing to the file: " + e.getMessage());
 	    return false;
         }
 	return true;
     }
+
+    // input_test_bit_binary : inpupt_test_bit
+    public boolean generateBinary(String filename) {
+	try {
+            String[] compilationCommand = {"gcc", "-O3", filename, "-o", filename + ".o"};
+	    ProcessBuilder processBuilder = new ProcessBuilder(compilationCommand);
+ 	    processBuilder.redirectErrorStream(true);
+	    Process process = processBuilder.start();
+	    return (0 == process.waitFor());
+	} catch (IOException | InterruptedException e) {
+	    e.printStackTrace();
+	    return false;
+	}
+    }
+
+    // Util
+    public static String stringLeft(String input, String substring, int offset) {
+        // Find the index of "./" in the input string
+        int index = input.indexOf(substring);
+        // If "./" is found, extract the substring after it
+	return ((index != -1) && (index + offset < input.length())) ?
+        	input.substring(index + offset) : "";
+    }
+
+    public static String formatText(String inputText) {
+        if (inputText.contains("bash")) {
+            return "bash";
+        } else if (inputText.contains("BASH")) {
+            return "BASH";
+        } else if (inputText.contains("Bash")) {
+            return "Bash";
+        } else {
+            // Default case: return the original text
+            return inputText;
+        }
+    }
+
+    private static String determineType(String input) {
+	if (input.isEmpty()) return "string";
+
+	// Check if it ends with "f," "l," or "u"
+        if (input.endsWith("f")) {
+            // Remove the suffix and check if it can be parsed as a float
+            String withoutSuffix = input.substring(0, input.length() - 1);
+            try {
+                Float.parseFloat(withoutSuffix);
+                return "FLOAT";
+            } catch (NumberFormatException eFloat) {
+                return "STRING";
+            }
+        }
+
+        // Check if it ends with "f," "l," or "u"
+        if (input.endsWith("ll") || input.endsWith("LL")) {
+            // Remove the suffix and check if it can be parsed as a float
+            String withoutSuffix = input.substring(0, input.length() - 2);
+            try {
+                Long.parseLong(withoutSuffix);
+                return "LONG";
+            } catch (NumberFormatException eLong) {
+                return "STRING";
+            }
+        }
+
+        // Check if it ends with "f," "l," or "u"
+        if (input.endsWith("ul") || input.endsWith("UL")) {
+            // Remove the suffix and check if it can be parsed as a float
+            String withoutSuffix = input.substring(0, input.length() - 2);
+            try {
+                return (Long.parseLong(withoutSuffix) >= 0) ? "ULONG" : "STRING";
+            } catch (NumberFormatException eLong) {
+                return "STRING";
+            }
+        }
+
+        // Check if it ends with "f," "l," or "u"
+        if (input.endsWith("l") || input.endsWith("L")) {
+            // Remove the suffix and check if it can be parsed as a float
+            String withoutSuffix = input.substring(0, input.length() - 1);
+            try {
+                Long.parseLong(withoutSuffix);
+                return "LONG";
+            } catch (NumberFormatException eLong) {
+                return "STRING";
+            }
+        }
+
+        // Check if it ends with "f," "l," or "u"
+        if (input.endsWith("u") || input.endsWith("U")) {
+            // Remove the suffix and check if it can be parsed as a float
+            String withoutSuffix = input.substring(0, input.length() - 1);
+            try {
+                return (Long.parseLong(withoutSuffix) >= 0) ? "UINT32" : "STRING";
+            } catch (NumberFormatException eLong) {
+                return "STRING";
+            }
+        }
+
+        try {
+            // Attempt to parse as Integer
+            Integer.parseInt(input);
+            return "INT32";
+        } catch (NumberFormatException eInt) {
+            // Not an Integer, check if it's a Double
+            try {
+                Double.parseDouble(input);
+                return "DOUBLE";
+            } catch (NumberFormatException eDouble) {
+                // Not a Double mst be String
+                return "STRING";
+            }
+        }
+    }
+
+    public static String getArgumentsTypes(String argsValue, int argsSize) {
+    	String returnTypesList = "";
+    	int currentListSize = 0;
+
+	if (!argsValue.isEmpty()) {
+		String[] args = argsValue.split(" ");
+    		for (String arg : args) {
+        		String type = determineType(arg);
+        		returnTypesList += type + " ";
+        		currentListSize++;
+    		}
+	}
+
+    	// Fill remaining slots with INT32 if needed
+    	for (int i = currentListSize + 1; i <= argsSize; i++) {
+        	returnTypesList += "INT32 ";
+    	}
+
+    	return returnTypesList.trim(); // Trim to remove trailing space
+    }
+
 
     public static void main(String[] args) {
         System.out.println("Hello, Starting Generating Programs!");
@@ -348,23 +483,47 @@ class ProgramGenerator {
 		String program = compilerStrings.getCode(res, "```C*");
 		System.out.println(program);
 		// Input
-		System.out.println("======================= Input: =======================");
-		String callLine = compilerStrings.getCode(res, "```bash*");
+		System.out.println("======================= Input: ======================="); // Solve problem with "./" in second bash tags
+		String bashForm = compilerStrings.formatText(res);
+		String inputCleaned = compilerStrings.stringLeft(compilerStrings.getCode(res, "```" + bashForm + "*"),"./",2);
+		if (inputCleaned.isEmpty()) {
+			inputCleaned = compilerStrings.getCode(res, "```" + bashForm + "\n./*");
+		}
+		System.out.println(inputCleaned);
+		String lines[] = inputCleaned.split("\\r?\\n");
+		String callLine = compilerStrings.stringLeft(lines[0]," ",1);
 		System.out.println(callLine);
 		// Type
 		System.out.println("======================= Type: =======================");
-		int maxArgs = compilerStrings.getMaxArgvNumber(res);
+		int maxArgs = compilerStrings.getMaxArgvNumber(program);
                 System.out.println(maxArgs);
-
-		if ((maxArgs < 1) || callLine.isEmpty() || program.isEmpty()) {
-		    System.out.println(">>> Bad program. Skip this test input.");
-		} else {
-		    System.out.println(">>> Good program. Writing test input.");
-		    String testName = compilerStrings.generateFilename("test_input_");
-		    if (compilerStrings.writeFile(testName, program)) {
-			System.out.println(">>>>>> Continue generating the test input");
-		    }
+		String argsType = "";
+		if (program.contains("argv[i]") || program.contains("argv[j]") || (maxArgs >=1)) {
+			// set argsType
+			argsType = compilerStrings.getArgumentsTypes(callLine, maxArgs);
 		}
-    	}
+
+
+		// Type string generatee
+		if (argsType.isEmpty() || callLine.isEmpty() || program.isEmpty()) {
+		    	System.out.println(">>> Bad program. Skip this test input.");
+			// Check if the case of argv[i and then get it from input size
+		} else {
+		    	System.out.println(">>> Good program. Writing test input.");
+		    	String testName = compilerStrings.generateFilename("test_input_");
+		    	if (compilerStrings.writeFile(testName, program)) {
+				if (compilerStrings.generateBinary(testName)) {
+					String testArgs = testName + ".o\n" + callLine;
+					if (compilerStrings.writeFile(testName + ".txt", testArgs)) {
+						// Write type
+						if (compilerStrings.writeFile(testName + ".type", argsType)) {
+			    				System.out.println(">>>>>> Generate the test input " + testName);
+						}
+					}
+				}
+		    	}
+		}
+		System.out.println("===========================================================================");
+	}
     }
 }
