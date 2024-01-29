@@ -138,6 +138,16 @@ Then you will need to install Maven:
 sudo apt update
 sudo apt install maven
 ```
+Then run:
+```
+mvn clean package
+```
+Check which .xml to use from the script folder (and copy to the main folder) depending on the JAVA version you have.
+
+Then you can run the generator (for example):
+```
+java -jar target/program-generator-1.0-SNAPSHOT.jar 
+```
 
 ## AFL Instrumentation of gem5
 
