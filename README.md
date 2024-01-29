@@ -21,7 +21,7 @@ There are two projects:
 
 # Testing gem5
 
-Zenodo artifact record: https://zenodo.org/records/8316685.
+Zenodo artifact record: https://zenodo.org/records/8316685 (SSBSE 2023 Artifact).
 
 The requirements are:
 ```
@@ -114,9 +114,26 @@ You can find all the models here: https://ollama.ai/library.
 
 ### Hagging face model and other external models
 We use a Hagging face model. To get this, you will need to run the following commands:
-
+```
+mkdir MODELS/
+cd MODELS/
+wget https://huggingface.co/TheBloke/deepseek-coder-6.7B-instruct-GGUF/resolve/main/deepseek-coder-6.7b-instruct.Q5_K_M.gguf
+cd ..
+```
+We then need to create a model3 file similar to the above.
 
 *** Please check [here](LLM-corpus-generation/README.md) for more explanations about the LLM in SearchGem5.
+
+### Installing the LLM-based test input generator for gem5
+
+To install this you will need [JAVA] (https://www.oracle.com/java/technologies/downloads/). 
+
+We tested with Java-21 and Java-17. For example:
+```
+wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+sudo dpkg -i jdk-17_linux-x64_bin.deb
+```
+
 
 ## AFL Instrumentation of gem5
 
