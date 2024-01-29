@@ -80,6 +80,44 @@ build/X86/gem5.opt configs/deprecated/example/se.py -c t.o -o "5 5"
 ```
 And so on.
 
+## LLM Code-Generation tool for gem5
+
+We use ollama API for JAVA (ollama4j) to query test inputs to construct our corpus.
+
+### OLLAMA API
+
+You can download any hugging face model or use ollama ready to use models.
+https://ollama.ai and https://hub.docker.com/r/ollama/ollama.
+
+Install ollama:
+```
+curl https://ollama.ai/install.sh | sh
+```
+
+Check the the version of ollama:
+```
+ollama --version
+```
+
+### ollama models
+To pull ready-to-user from ollama DB:
+```
+nano model2
+[copy then this text into the file]
+FROM phind-codellama:latest
+PARAMETER num_gpu 0
+[save and exit]
+
+ollama create ollama_phi_no-gpu -f model2
+```
+You can find all the models here: https://ollama.ai/library.
+
+### Hagging face model and other external models
+We use a Hagging face model. To get this, you will need to run the following commands:
+
+
+*** Please check [here](LLM-corpus-generation/README.md) for more explanations about the LLM in SearchGem5.
+
 ## AFL Instrumentation of gem5
 
 To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
