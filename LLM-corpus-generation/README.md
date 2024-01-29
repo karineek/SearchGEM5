@@ -33,11 +33,11 @@ ollama create ollama_phi_no-gpu -f model2
 ```
 You can find all the models here: https://ollama.ai/library.
 
-To run and use the model in interactive way:
+To run and use the model in an interactive way:
 ```
 ollama run ollama_phi_no-gpu:latest
 ```
-or as a query to use inside other program:
+or as a query to use inside other programs:
 ```
 ollama run ollama_phi_no-gpu:latest "Give me a short C program only. The code gets to numbers and return the sum of these"
 ```
