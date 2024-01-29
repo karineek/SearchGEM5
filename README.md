@@ -133,7 +133,11 @@ We tested with Java-21 and Java-17. For example:
 wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
 sudo dpkg -i jdk-17_linux-x64_bin.deb
 ```
-
+Then you will need to install Maven:
+```
+sudo apt update
+sudo apt install maven
+```
 
 ## AFL Instrumentation of gem5
 
