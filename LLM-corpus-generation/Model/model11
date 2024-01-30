@@ -1,0 +1,2 @@
+FROM wizardcoder:latest
+PARAMETER num_gpu 0
