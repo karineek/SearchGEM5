@@ -238,6 +238,13 @@ TODO
 
 ## Fuzzing with AFL
 
+First, you will need to compiler the custom mutators:
+```
+cd src/
+cd custom_mutators/
+./compile_share.sh
+```
+
 You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
 mkdir experiments; cd experiments
