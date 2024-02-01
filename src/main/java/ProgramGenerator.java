@@ -795,7 +795,9 @@ class ProgramGenerator {
         System.out.println("Is Ollama server alive: " + isOllamaServerReachable);
 
 	// Model type: https://github.com/amithkoujalgi/ollama4j/blob/816bbd9bbf5550bacdfeef7252bfcdf53c8697a5/src/main/java/io/github/amithkoujalgi/ollama4j/core/types/OllamaModelType.java#L10
-        String modelType = OllamaModelType.MAGICODER;
+        //String modelType = OllamaModelType.MAGICODER;
+	String modelType = OllamaModelType.PHI;
+	//String modelType = OllamaModelType.DEEPSEEK_CODER;
 
 	ProgramGenerator compilerStrings = new ProgramGenerator();
 
