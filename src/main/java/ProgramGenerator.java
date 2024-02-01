@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.Random;
 import java.net.URISyntaxException;
@@ -808,7 +809,9 @@ class ProgramGenerator {
                 + "  return x - 4;\n}```\nDo you think you can do that?";
         compilerStrings.askModel(ollamaAPI, modelType, promtStart); // If not crash continue.
 
-        for (int i = 0; i < 1000; i++) {
+        long startTime = System.nanoTime();
+
+        while (true) {
             // Get a random entry from each array
             String randomCompilerOpt = compilerStrings.getRandomCompilerOpt();
             String randomCompilerParts = compilerStrings.getRandomCompilerParts();
@@ -888,6 +891,14 @@ class ProgramGenerator {
                 } else System.out.println("File Write Failed: program");
             }
             System.out.println("===========================================================================");
+
+            long time = System.nanoTime() - startTime;
+            long hours = TimeUnit.NANOSECONDS.toHours(time);
+
+            if (hours > 25) {
+				System.out.println("System has been running for more" + hours + " hours. Exiting...");
+				break;
+			}
         }
     }
 }
