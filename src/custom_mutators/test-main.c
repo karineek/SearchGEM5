@@ -10,7 +10,7 @@
  * - AFL++: https://github.com/AFLplusplus/AFLplusplus
  *
  *
- * @copyright (C) 2023, Aidan Dakhama, Karine Even-Mendoza, William B. Langdon, 
+ * @copyright (C) 2023,2024 Aidan Dakhama, Karine Even-Mendoza, William B. Langdon, 
  *                      Hector D. Menendez, Justyna Petke.
  *                King's College London and UCL University College London.
  *
