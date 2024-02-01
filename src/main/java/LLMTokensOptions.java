@@ -1,10 +1,9 @@
 /**
- * @file cm-gem5.c
+ * @file LLMTokensOptions.java
  *
- * @brief The file is a set of AFL++ mutators for gem5 binary test cases used
- *        in SearchGem5. The project is AFL++-basd. Please include AFL++ 
- *        headers and download the recent version before running this code.
- *        You need to use -I/path/to/AFLplusplus/include -I.
+ * @brief This class contains a list of all indices of the C standard and a 
+ *        mapping of C optimisations and LLVM compiler parts. It can return
+ *        random set of tokens.
  *
  * For more details on the AFL++ API used in this project, please refer to:
  * - AFL++: https://github.com/AFLplusplus/AFLplusplus
