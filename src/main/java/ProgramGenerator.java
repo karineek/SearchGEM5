@@ -3,6 +3,7 @@ package searchgem5.gen.llm;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.Random;
 import java.net.URISyntaxException;
@@ -254,9 +255,16 @@ class ProgramGenerator {
 
 
     public static void main(String[] args) {
+	/// Start of the program ///
+	long startTime = System.nanoTime();
+	long maxDurationInMillis = 25 * 60 * 60 * 1000; // Convert hours to milliseconds
+	long endTime = startTime + maxDurationInMillis; // Just to make it easier to read
         System.out.println("Hello, Starting Generating Programs!");
 
-        // Uoload model
+
+	/// Actual program ///
+
+        // Upload model
         String host = "http://localhost:11434/";
         OllamaAPI ollamaAPI = new OllamaAPI(host);
         ollamaAPI.setRequestTimeoutSeconds(100);
@@ -282,7 +290,9 @@ class ProgramGenerator {
                 + "  return x - 4;\n}```\nDo you think you can do that?";
         compilerStrings.askModel(ollamaAPI, modelType, promtStart); // If not crash continue.
 
-        for (int i = 0; i < 1000; i++) {
+        long startTime = System.nanoTime();
+
+        while (true) {
             // Get a random entry from each array
             String randomCompilerOpt = llmIndexedTokens.getRandomCompilerOpt();
             String randomCompilerParts = llmIndexedTokens.getRandomCompilerParts();
@@ -341,12 +351,17 @@ class ProgramGenerator {
             }
             System.out.println(callLine + ":" + argsType);
 
+            // Check if we need to stop - but before writing the test - to be fair.
+            if (System.currentTimeMillis() > endTime) {
+		System.out.println("System has been running for more" + hours + " hours. Exiting...");
+		break;
+	    }
 
-            // Type string generatee
-	    if (writer.writeTest(program, callLine, argsType)) {
+	    // Try write the generated tests
+            if (writer.writeTest(program, callLine, argsType)) {
                 System.out.println(">>>>>> Generate the test input okay. <<<<<<");
                 System.out.println("===========================================================================");
-	    }
+            }
         }
     }
 }
