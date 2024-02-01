@@ -290,8 +290,7 @@ class ProgramGenerator {
                 + "  return x - 4;\n}```\nDo you think you can do that?";
         compilerStrings.askModel(ollamaAPI, modelType, promtStart); // If not crash continue.
 
-        long startTime = System.nanoTime();
-
+	// Start test input generation
         while (true) {
             // Get a random entry from each array
             String randomCompilerOpt = llmIndexedTokens.getRandomCompilerOpt();
@@ -353,7 +352,7 @@ class ProgramGenerator {
 
             // Check if we need to stop - but before writing the test - to be fair.
             if (System.currentTimeMillis() > endTime) {
-		System.out.println("System has been running for more" + hours + " hours. Exiting...");
+		System.out.println("System has been running for more 25 hours. Exiting...");
 		break;
 	    }
 
