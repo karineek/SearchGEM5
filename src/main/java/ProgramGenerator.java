@@ -19,6 +19,7 @@ import io.github.amithkoujalgi.ollama4j.core.utils.OptionsBuilder;
 import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
 
 import searchgem5.gen.llm.LLMTokensOptions;
+import searchgem5.gen.llm.TestInputWriter;
 
 class ProgramGenerator {
     private static final Random random = new Random();
@@ -120,37 +121,6 @@ class ProgramGenerator {
         }
 
         return maxArgvNumber;
-    }
-
-    public static String generateFilename(String prefix) {
-        return prefix + System.nanoTime() + ".c";
-    }
-
-    public boolean writeFile(String filename, String content) {
-        // Writing content to the specified file
-        try {
-            // Using java.nio.file to write to the file
-            byte[] contentBytes = content.getBytes(StandardCharsets.UTF_8);
-            Files.write(Path.of(filename), contentBytes, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
-        } catch (IOException e) {
-            System.err.println("Error writing to the file: " + e.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-    // input_test_bit_binary : inpupt_test_bit
-    public boolean generateBinary(String filename) {
-        try {
-            String[] compilationCommand = {"gcc", "-O3", filename, "-o", filename + ".o"};
-            ProcessBuilder processBuilder = new ProcessBuilder(compilationCommand);
-            processBuilder.redirectErrorStream(true);
-            Process process = processBuilder.start();
-            return (0 == process.waitFor());
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-            return false;
-        }
     }
 
     // Util
@@ -296,12 +266,13 @@ class ProgramGenerator {
 
 
 	// Model type: https://github.com/amithkoujalgi/ollama4j/blob/816bbd9bbf5550bacdfeef7252bfcdf53c8697a5/src/main/java/io/github/amithkoujalgi/ollama4j/core/types/OllamaModelType.java#L10
-        //String modelType = OllamaModelType.MAGICODER;
-	String modelType = OllamaModelType.PHI;
+        String modelType = OllamaModelType.MAGICODER;
+	//String modelType = OllamaModelType.PHI;
 	//String modelType = OllamaModelType.DEEPSEEK_CODER;
 
         ProgramGenerator compilerStrings = new ProgramGenerator();
 	LLMTokensOptions llmIndexedTokens = new LLMTokensOptions();
+	TestInputWriter writer = new TestInputWriter();
 
         // Let LLM know what we want:
         String promtStart = "Generate a concise C file without unnecessary includes, but with output. The C file should be a standard program, but with a twist:"
@@ -323,7 +294,7 @@ class ProgramGenerator {
             // Example: This is a code-generation task. Give me a program in C with all includes. Code only and short answer. Input is taken via argv only. Please return a program (C program) and an example of input (BASH).
             // The C program will be with code triggering Memory Optimizations optimization, covers this part of the compiler Handles code generation, and exercises this idea in C: acquire operation.
             // program
-            String prompt = "Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and example of input (BASH). " +
+            String prompt = "Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and a concrete example of an input (BASH). " +
                     "The C program will be with code triggering " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
                     randomCompilerParts + ", and excersises this idea in C: " + randomPL + ".";
 
@@ -372,25 +343,10 @@ class ProgramGenerator {
 
 
             // Type string generatee
-            if (argsType.isEmpty() || callLine.isEmpty() || program.isEmpty()) {
-                System.out.println(">>> Bad program. Skip this test input.");
-                // Check if the case of argv[i and then get it from input size
-            } else {
-                // GOOD Program - Write the files
-                String testName = generateFilename("test_input_");
-                if (compilerStrings.writeFile(testName, program)) {
-                    if (compilerStrings.generateBinary(testName)) {
-                        String testArgs = testName + ".o\n" + callLine;
-                        if (compilerStrings.writeFile(testName + ".txt", testArgs)) {
-                            // Write type
-                            if (compilerStrings.writeFile(testName + ".type", argsType)) {
-                                System.out.println(">>>>>> Generate the test input " + testName);
-                            } else System.out.println("File Write Failed: Type");
-                        } else System.out.println("File Write Failed: Fuzz data");
-                    } else System.out.println("File Write Failed: Binary");
-                } else System.out.println("File Write Failed: program");
-            }
-            System.out.println("===========================================================================");
+	    if (writer.writeTest(program, callLine, argsType)) {
+                System.out.println(">>>>>> Generate the test input okay. <<<<<<");
+                System.out.println("===========================================================================");
+	    }
         }
     }
 }
