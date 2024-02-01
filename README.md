@@ -30,6 +30,7 @@ sudo apt install build-essential git m4 scons zlib1g zlib1g-dev \
     libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
     python3-dev libboost-all-dev pkg-config
 sudo apt install libpng-dev libpng++-dev libhdf5-dev
+sudo apt install python3-pip
 ```
 These requirements can differ from one OS to another, see the full requirements [here](https://www.gem5.org/documentation/general_docs/building).
 
@@ -237,6 +238,13 @@ To partially instrument gem5 with AFL:
 TODO
 
 ## Fuzzing with AFL
+
+First, you will need to compiler the custom mutators:
+```
+cd src/
+cd custom_mutators/
+./compile_share.sh
+```
 
 You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
