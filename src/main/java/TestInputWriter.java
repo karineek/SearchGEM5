@@ -35,12 +35,26 @@ import java.nio.file.StandardOpenOption;
 import java.nio.charset.StandardCharsets;
 
 class TestInputWriter {
+    // Static field for generating random values
     private static final Random random = new Random();
 
+    /**
+     * Generates a unique filename based on the given prefix and hashcode based 
+     * on the current system nano time.
+     * @param prefix The prefix to be used in the filename to recognise the system
+     *               generating it.
+     * @return A unique filename.
+     */	
     private static String generateFilename(String prefix) {
         return prefix + System.nanoTime() + ".c";
     }
 
+    /**
+     * Writes the provided content to the specified file using java.nio.file.
+     * @param filename The name of the file to write content to.
+     * @param content The content to be written to the file.
+     * @return true if the write operation is successful, false otherwise.
+     */	
     private boolean writeFile(String filename, String content) {
         // Writing content to the specified file
         try {
@@ -54,6 +68,12 @@ class TestInputWriter {
         return true;
     }
 
+    /**
+     * Compiles with GCC the C code from the specified file into an executable binary.
+     * @param filename The name of the C code file to be compiled.
+     * @param objName The name of the output binary file.
+     * @return true if the compilation is successful, false otherwise.
+     */	
     // input_test_bit_binary : inpupt_test_bit
     private boolean generateBinary(String filename, String objName) {
         try {
@@ -68,6 +88,14 @@ class TestInputWriter {
         }
     }
 
+    /**
+     * Writes the test input files for gem5 testing, including C program file, executable binary,
+     * input test file, and type file.
+     * @param program The C code of the program to be tested.
+     * @param callLine The command line arguments for the program.
+     * @param argsType The type of arguments expected by the program.
+     * @return true if the test input files are successfully created, false otherwise.
+     */
     public boolean writeTest(String program, String callLine, String argsType) {
 	// If missing data - exit.
       	if (argsType.isEmpty() || callLine.isEmpty() || program.isEmpty()) {
