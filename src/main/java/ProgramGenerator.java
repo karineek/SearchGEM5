@@ -43,7 +43,9 @@ import searchgem5.gen.llm.TestInputWriter;
 import searchgem5.gen.llm.Parser;
 
 class ProgramGenerator {
-    public void loadModel(OllamaAPI ollamaAPI, String modelType, String prompt) {
+
+    // If the model is not there, we can pull it automatically!
+    public void loadModel(OllamaAPI ollamaAPI, String modelType) {
         try {
             // code that might throw OllamaBaseException
             ollamaAPI.pullModel(modelType);
@@ -83,6 +85,33 @@ class ProgramGenerator {
 
 	/// Actual program ///
 
+
+        // Check if the correct number of command-line arguments is provided
+        if (args.length != 2) {
+            System.out.println("Usage: java Main <modelType> <isToPullModel>");
+            System.exit(1); // Exit with an error code
+        }
+
+
+        // Model type: https://github.com/amithkoujalgi/ollama4j/blob/816bbd9bbf5550bacdfeef7252bfcdf53c8697a5/src/main/java/io/github/amithkoujalgi/ollama4j/core/types/OllamaModelType.java#L10
+        boolean isToPullModel = Boolean.parseBoolean(args[1]);
+	String modelType = args[0];
+        if (isToPullModel) {
+	    // Must be a valid model type
+            try {
+                // Use reflection to check if the constant exists in OllamaModelType
+                OllamaModelType.class.getField(modelType.toUpperCase());
+            } catch (NoSuchFieldException | SecurityException e) {
+		System.out.println("Failed to create test input files because model is not ollama valid.");
+                System.exit(1); // Exit with an error code
+            }
+	}
+
+	//OllamaModelType.MAGICODER;
+        //String modelType = OllamaModelType.PHI;
+        //String modelType = OllamaModelType.DEEPSEEK_CODER
+
+
         // Upload model
         String host = "http://localhost:11434/";
         OllamaAPI ollamaAPI = new OllamaAPI(host);
@@ -91,16 +120,15 @@ class ProgramGenerator {
         boolean isOllamaServerReachable = ollamaAPI.ping();
         System.out.println("Is Ollama server alive: " + isOllamaServerReachable);
 
-
-	// Model type: https://github.com/amithkoujalgi/ollama4j/blob/816bbd9bbf5550bacdfeef7252bfcdf53c8697a5/src/main/java/io/github/amithkoujalgi/ollama4j/core/types/OllamaModelType.java#L10
-        String modelType = OllamaModelType.MAGICODER;
-	//String modelType = OllamaModelType.PHI;
-	//String modelType = OllamaModelType.DEEPSEEK_CODER;
-
+	// Set all objects we need
         ProgramGenerator compilerStrings = new ProgramGenerator();
 	LLMTokensOptions llmIndexedTokens = new LLMTokensOptions();
 	TestInputWriter writer = new TestInputWriter();
 	Parser parser = new Parser();
+
+	// If from Ollama DB - can pull it
+	if (isToPullModel)
+	    compilerStrings.loadModel(ollamaAPI, modelType);
 
         // Let LLM know what we want:
         String promtStart = "Generate a concise C file without unnecessary includes, but with output. The C file should be a standard program, but with a twist:"
@@ -125,7 +153,7 @@ class ProgramGenerator {
             // program
             String prompt = "Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and a concrete example of an input (BASH). " +
                     "The C program will be with code triggering " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
-                    randomCompilerParts + ", and excersises this idea in C: " + randomPL + ".";
+                    randomCompilerParts + ", and excersises this idea in C: " + randomPL + ". To recup the code contains these: " + randomCompilerOpt + " and " + randomCompilerParts + " and " + randomPL;
 
             // PROMPT
             String res = compilerStrings.askModel(ollamaAPI, modelType, prompt);
