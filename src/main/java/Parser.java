@@ -1,13 +1,8 @@
 /**
- * @file cm-gem5.c
+ * @file Parser.java
  *
- * @brief The file is a set of AFL++ mutators for gem5 binary test cases used
- *        in SearchGem5. The project is AFL++-basd. Please include AFL++ 
- *        headers and download the recent version before running this code.
- *        You need to use -I/path/to/AFLplusplus/include -I.
- *
- * For more details on the AFL++ API used in this project, please refer to:
- * - AFL++: https://github.com/AFLplusplus/AFLplusplus
+ * @brief Parser for the output (answer) from LLM model into 3 files: C program,
+ *	input example, and type file describing each of data type of the input.
  *
  *
  * @copyright (C) 2023,2024 Aidan Dakhama, Karine Even-Mendoza, William B. Langdon, 
