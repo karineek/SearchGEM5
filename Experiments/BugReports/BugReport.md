@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 ```
-We then flipped several bits during fuzzing **TODO HECTOR ADD THE CODE YOU GOT**
+We then flipped several bits during fuzzing **TODO HECTOR ADD THE CODE YOU GOT after lifting**
 ```
 ```
 
@@ -101,7 +101,6 @@ fuzz_1692558568787306293.c.o
 0 0 0
 ** save **
 ```
-**TODO - KEM add input**
 
 4. Execute the simulation with hello-custom-binary-Ex.py script
 ```
