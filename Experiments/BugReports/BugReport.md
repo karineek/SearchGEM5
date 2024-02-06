@@ -34,7 +34,8 @@ Say that the compilation is done here: /home/ubuntu/gem5-17012024/gem5/build/X86
 
 2. Create a binary file:
 ```
-clang-16 -O3 program.c -o program.c.o.clang
+gcc-11 -O3 2020-01-06-coverage-006.c -o 2020-01-06-coverage-006.c.o.gcc
+
 ```
 The original program is (2020-01-06-coverage-006.c):
 ```
