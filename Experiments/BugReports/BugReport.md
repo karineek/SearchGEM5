@@ -46,7 +46,7 @@ We then flipped several bits during fuzzing **TODO HECTOR ADD THE CODE YOU GOT**
 3. Create an input file **test.txt** with the following data:
 ```
 program.c.o.clang
-0.0 0.0 0.0
+0 0 0
 ```
 **TODO - KEM add input**
 
