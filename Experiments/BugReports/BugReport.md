@@ -150,7 +150,7 @@ x = 0
 ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ 
 ```
 
-However, with the modifications during fuzzing of the binary, it masks the errors (due to invalid access to memory)
+However, with the modifications during fuzzing of the binary, it masks the errors (and thus, the invalid memory access cannot be detected via simulation only).
 ```
 ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt ../../../../hello-custom-binary-Ex.py --isa X86 --input test-fuzzed.txt 
 gem5 Simulator System.  https://www.gem5.org
