@@ -35,7 +35,6 @@ Say that the compilation is done here: /home/ubuntu/gem5-17012024/gem5/build/X86
 2. Create a binary file:
 ```
 gcc-11 -O3 2020-01-06-coverage-006.c -o 2020-01-06-coverage-006.c.o.gcc
-
 ```
 The original program is (2020-01-06-coverage-006.c):
 ```
@@ -89,10 +88,17 @@ We then flipped several bits during fuzzing **TODO HECTOR ADD THE CODE YOU GOT**
 ```
 ```
 
-3. Create an input file **test.txt** with the following data:
+3. Create two input files **test*.txt** with the following data:
 ```
-program.c.o.clang
+nano test-orig.txt
+2020-01-06-coverage-006.c.o.gcc
 0 0 0
+** save **
+
+nano test-fuzzed.txt
+fuzz_1692558568787306293.c.o
+0 0 0
+** save **
 ```
 **TODO - KEM add input**
 
