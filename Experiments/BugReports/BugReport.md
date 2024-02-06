@@ -10,7 +10,8 @@ A program generated with binary fuzzing led to a different behaviour between nat
 State which version of gem5 this bug was found in. If on the develop branch state the Commit revision ID you are working.
 
 I tested with two versions:
- - gem5 version 23.0.0.1--SSBSE Challeng Track and 
+ - gem5 version 23.0.0.1--SSBSE Challeng Track;
+ - gem5 version 23.1.0.0, commit: commit bae34876780dfb2bc22b9151bfda1d39ee80cfb1; and
  - gem5 version 23.1.0.0, commit: commit **TODO HECTOR ADD YOUR VERSION**
 Both got the same behaviour. X68 machine, arc during simulation also X86.
 
@@ -115,11 +116,71 @@ with Python 3.8.10.
 If applicable, add the terminal output here. If long, only include the relevant lines.
 Please put the terminal output in code blocks. I.e.:
 
-Running it without and then with gem5
-**TODO: need to add output**
-
+Running it without and then with gem5 of the original (not fuzzed file) works well:
 ```shell
-#Terminal output here#
+ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt ../../../../hello-custom-binary-Ex.py --isa X86 --input test-orig.txt 
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Jan 17 2024 12:20:35
+gem5 started Feb  6 2024 13:20:07
+gem5 executing on fuzzer-03, pid 44076
+command line: /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt ../../../../hello-custom-binary-Ex.py --isa X86 --input test-orig.txt
+
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+b.a = 0
+c = 0
+x = 0
+Exiting @ tick 11670352965 because exiting with last active thread context.
+
+ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ ./a.out 0 0 0
+b.a = 0
+c = 0
+x = 0
+ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ 
+```
+
+However, with the modifications during fuzzing of the binary, it masks the errors (due to invalid access to memory)
+```
+ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt ../../../../hello-custom-binary-Ex.py --isa X86 --input test-fuzzed.txt 
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Jan 17 2024 12:20:35
+gem5 started Feb  6 2024 13:21:40
+gem5 executing on fuzzer-03, pid 44102
+command line: /home/ubuntu/gem5-17012024/gem5/build/X86/gem5.opt ../../../../hello-custom-binary-Ex.py --isa X86 --input test-fuzzed.txt
+
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (32 Mbytes)
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+b.a = 0
+c = 0
+x = 0
+Exiting @ tick 11672214435 because exiting with last active thread context.
+
+ubuntu@fuzzer-03:~/Gem5Testing/Evaluation/Experiment-2-18-Aug-2023-X86/Q/BUG-1534$ ./fuzz_1692558568787306293.c.o 0 0 0
+b.a = 0
+c = 21860
+x = 0
 ```
 
 **Expected behavior**
