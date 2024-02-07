@@ -115,9 +115,14 @@ class GPTProgramGenerator:
             return
 
     def run(self):
+        start = time()
+
+        time_to_run = 60 * 60 * 25  # 25 hours
         while True:
             self.generate_program()
-            break
+            if time() - start > time_to_run:
+                print(f"Time limit reached ({time() - start} seconds)")
+                break
 
 
 if __name__ == "__main__":
