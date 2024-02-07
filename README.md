@@ -147,7 +147,7 @@ Check which .xml to use from the script folder (and copy to the main folder) dep
 
 Then you can run the generator (for example):
 ```
-java -jar target/program-generator-1.0-SNAPSHOT.jar 
+java -jar target/program-generator-2.0.jar <model-name> <Pull-model?true-or-false-flag>
 ```
 
 ## AFL Instrumentation of gem5
