@@ -94,7 +94,7 @@ class ProgramGenerator {
         }
 
         // Check if the parameter is within the valid range
-        if (parameter < 0 || parameter > 4) {
+        if (parameter < 0 || parameter > 2) {
             System.out.println("Invalid parameter. Please provide a value between 1 and 4 (inclusive).");
             System.exit(1);
         }
@@ -118,25 +118,22 @@ class ProgramGenerator {
                     	"The C program will be with code triggering " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
                     	randomCompilerParts + ", and excersises this idea in C: " + randomPL + ". To recup the code contains these: " + randomCompilerOpt + " and " + randomCompilerParts + " and " + randomPL;
 		System.out.println(prompt);
-	} else if (parameter == 2) {
+	} else {
 	    String res = args[1];
 
             // Program
             String program = parser.getCProgram(res);
-            System.out.println(program);
-	} else if (parameter == 3) {
-            String res = args[1];
 
             // Input
             String callLine = parser.getArgsInput(res);
-            System.out.println(callLine);
-	 } else if (parameter == 4) {
- 	    String res = args[1];
 
             // Type
-	    String callLine = parser.getArgsInput(res);
             String argsType = parser.getTypes(res, callLine);
-            System.out.println(argsType);
+
+	    // Print all
+	    System.out.println(argsType);
+	    System.out.println(callLine);
+	    System.out.println(program);
 	}
     }
 }
