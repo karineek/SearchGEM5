@@ -77,7 +77,7 @@ class QueryGenerator {
 
     public static void main(String[] args) {
 
-    	if (args.length > 2) {
+    	if (args.length > 3) {
             System.out.println("Please provide a single parameter (0, 1, or 2).");
             // Optionally, you can exit the program here if the number of parameters is incorrect
             System.exit(1);
@@ -86,7 +86,7 @@ class QueryGenerator {
 	// Parse the parameter as an integer
         int parameter;
         try {
-            parameter = Integer.parseInt(args[0]);
+            parameter = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
             System.out.println("Invalid parameter. Please provide a valid integer (0, 1, or 2).");
             System.exit(1);
@@ -123,7 +123,7 @@ class QueryGenerator {
                     	randomCompilerParts + ", and excersises this idea in C: " + randomPL + ". To recup the code contains these: " + randomCompilerOpt + " and " + randomCompilerParts + " and " + randomPL;
 		System.out.println(prompt);
 	} else {
-	    String res = args[1];
+	    String res = args[2];
 	    if (res.isEmpty()) {
 		System.out.println("Invalid parameter. Please provide a result text from LLM model.");
             	System.exit(1);
