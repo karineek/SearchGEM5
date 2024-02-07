@@ -77,7 +77,7 @@ class QueryGenerator {
 
     public static void main(String[] args) {
 
-    	if (args.length != 1) {
+    	if (args.length > 2) {
             System.out.println("Please provide a single parameter (0, 1, or 2).");
             // Optionally, you can exit the program here if the number of parameters is incorrect
             System.exit(1);
