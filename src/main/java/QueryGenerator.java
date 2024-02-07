@@ -42,7 +42,7 @@ import searchgem5.gen.llm.LLMTokensOptions;
 import searchgem5.gen.llm.TestInputWriter;
 import searchgem5.gen.llm.Parser;
 
-class ProgramGenerator {
+class QueryGenerator {
 
     // If the model is not there, we can pull it automatically!
     public void loadModel(OllamaAPI ollamaAPI, String modelType) {
@@ -78,7 +78,7 @@ class ProgramGenerator {
     public static void main(String[] args) {
 
     	if (args.length != 1) {
-            System.out.println("Please provide a single parameter (1, 2, 3, or 4).");
+            System.out.println("Please provide a single parameter (0, 1, or 2).");
             // Optionally, you can exit the program here if the number of parameters is incorrect
             System.exit(1);
         }
@@ -88,14 +88,14 @@ class ProgramGenerator {
         try {
             parameter = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid parameter. Please provide a valid integer (1, 2, 3, or 4).");
+            System.out.println("Invalid parameter. Please provide a valid integer (0, 1, or 2).");
             System.exit(1);
             return; // Unreachable, but included for clarity
         }
 
         // Check if the parameter is within the valid range
         if (parameter < 0 || parameter > 2) {
-            System.out.println("Invalid parameter. Please provide a value between 1 and 4 (inclusive).");
+            System.out.println("Invalid parameter. Please provide a value between 0 and 2 (inclusive).");
             System.exit(1);
         }
 
@@ -108,6 +108,10 @@ class ProgramGenerator {
                 	+ "  return x - 4;\n}```\nDo you think you can do that?";
        		System.out.println(promtStart);
 	} else if (parameter == 1) {
+		// Set all objects we need
+        	//ProgramGenerator compilerStrings = new ProgramGenerator();
+        	LLMTokensOptions llmIndexedTokens = new LLMTokensOptions();
+
             	// Get a random entry from each array
             	String randomCompilerOpt = llmIndexedTokens.getRandomCompilerOpt();
             	String randomCompilerParts = llmIndexedTokens.getRandomCompilerParts();
@@ -120,6 +124,13 @@ class ProgramGenerator {
 		System.out.println(prompt);
 	} else {
 	    String res = args[1];
+	    if (res.isEmpty()) {
+		System.out.println("Invalid parameter. Please provide a result text from LLM model.");
+            	System.exit(1);
+            }
+
+	    // Create a parser
+	    Parser parser = new Parser();
 
             // Program
             String program = parser.getCProgram(res);
