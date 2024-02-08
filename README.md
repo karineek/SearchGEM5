@@ -372,6 +372,32 @@ echo core >/proc/sys/kernel/core_pattern
 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="cm-gem5.so" afl-fuzz -m 50000 -t 99000 -i input -o output -- gem5.opt hello-custom-binary-Ex.py --isa X86 --input @@
 ```
 
+We compare two versions of our custom mutators in this work. Old version:
+```
+cd .. 
+git clone git@github.com:karineek/SearchGEM5.git
+cd SearchGEM5
+git checkout ssbse2023challenge
+
+cd src/
+cd custom_mutators/
+./compile_share.sh
+
+** Then copy the sets of inputs and binary, and run: **
+
+date > afl_log.txt; AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="<Full-path>/cm-gem5.so" nohup /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 99000 -i input -o output -- <Full-path>/gem5.opt <Full-path>/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@ >> afl_log.txt 2>&1 &
+```
+and new version:
+```
+cd ../../ASEGem5/src/custom_mutators/
+./compile_share.sh
+
+** Then copy the sets of inputs and binary, and run: **
+
+ubuntu@fuzzer-03:~/experiment-6$ more run-afl-new.sh
+date > afl_log.txt; AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_LIBRARY="<Full-path>/cm-gem5.so;<Full-path>/cm-gem5-bin.so;/home/ubuntu/Gem5Testing/src/custom_mutators/cm-gem5-types.so" nohup /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 99000 -i input -o output -- <Full-path>/gem5.opt <Full-path>/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@ >> afl_log.txt 2>&1 &
+```
+
 ## Coverage with gcov
 We take all test cases of gem5 and measure coverage.
 
