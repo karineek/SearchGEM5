@@ -154,7 +154,95 @@ Troubleshooting with ollama. Ollama can hang or give timeouts too frequently. In
 ```
 sudo systemctl restart ollama.service
 ```
-## Pre-fuzzing Setup
+
+## AFL Instrumentation of gem5
+
+To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
+```
+cp src/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
+cp src/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
+```
+Then install AFL++ for GCC so you can use GCC-based instrumentation of AFL for gem5. Some steps to reproduce it if your system default is GCC-11 and llvm-13:
+```
+sudo rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
+sudo rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++ /usr/bin/cc
+sudo ln -s /usr/bin/cpp-11 /usr/bin/cpp
+sudo ln -s /usr/bin/gcc-11 /usr/bin/gcc
+sudo ln -s /usr/bin/gcc-11 /usr/bin/cc
+sudo ln -s /usr/bin/g++-11 /usr/bin/g++
+sudo ln -s /usr/bin/g++-11 /usr/bin/c++
+sudo ln -s /usr/bin/gcov-11 /usr/bin/gcov
+
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 13
+sudo ln -s /usr/bin/llvm-config-13 /usr/bin/llvm-config
+
+git clone https://github.com/AFLplusplus/AFLplusplus.git
+cd AFLplusplus
+make all
+sudo make install 
+```
+Note: install should be to /usr/bin and not to /usr/local/bin.
+
+Need then to run with different CC and CCX flags:
+```
+CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
+```
+ending like this:
+```
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2714 locations (non-hardened mode, inline, ratio 100%).
+ [     CXX] X86/python/m5/info.py.cc -> .o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 4610 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
+ [     CXX] src/base/date.cc -> X86/base/date.o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[!] WARNING: No instrumentation targets found.
+ [    LINK]  -> X86/gem5.opt
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+scons: done building targets.
+```
+
+Example of how to use it. Create main.c:
+```
+$ more main.c
+#include <stdio.h>
+int main ()
+{
+  int x = 5;int y = 5;
+  printf("In the main proc. %d,%d",x,y);
+  return x+y;
+}
+```
+Then run gem5 plain (from gem5-ssbse-challenge-2023 folder):
+```
+build/X86/gem5.opt configs/deprecated/example/se.py -c main.o
+```
+Results:
+```
+...
+**** REAL SIMULATION ****
+src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+In the main proc. 5,5Exiting @ tick 176345000 because exiting with last active thread context
+Simulated exit code not 0! Exit code is 10
+```
+
+To partially instrument gem5 with AFL:
+TODO
+
+### Pre-fuzzing Setup - Troubleshooting
 We need to install gcc-11:
 ```
 sudo apt-get -y install gcc-11 g++-11 cpp-11
@@ -257,93 +345,6 @@ diff --git a/unicorn_mode/unicornafl b/unicorn_mode/unicornafl
 -Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572
 +Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572-dirty
 ```
-
-## AFL Instrumentation of gem5
-
-To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
-```
-cp src/gem5-afl/SConstruct gem5-ssbse-challenge-2023/
-cp src/gem5-afl/SConscript gem5-ssbse-challenge-2023/src/
-```
-Then install AFL++ for GCC so you can use GCC-based instrumentation of AFL for gem5. Some steps to reproduce it if your system default is GCC-11 and llvm-13:
-```
-sudo rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
-sudo rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++ /usr/bin/cc
-sudo ln -s /usr/bin/cpp-11 /usr/bin/cpp
-sudo ln -s /usr/bin/gcc-11 /usr/bin/gcc
-sudo ln -s /usr/bin/gcc-11 /usr/bin/cc
-sudo ln -s /usr/bin/g++-11 /usr/bin/g++
-sudo ln -s /usr/bin/g++-11 /usr/bin/c++
-sudo ln -s /usr/bin/gcov-11 /usr/bin/gcov
-
-wget https://apt.llvm.org/llvm.sh
-chmod +x llvm.sh
-sudo ./llvm.sh 13
-sudo ln -s /usr/bin/llvm-config-13 /usr/bin/llvm-config
-
-git clone https://github.com/AFLplusplus/AFLplusplus.git
-cd AFLplusplus
-make all
-sudo make install 
-```
-Note: install should be to /usr/bin and not to /usr/local/bin.
-
-Need then to run with different CC and CCX flags:
-```
-CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
-```
-ending like this:
-```
-[*] Inline instrumentation at ratio of 100% in non-hardened mode.
-[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
-[+] Instrumented 2714 locations (non-hardened mode, inline, ratio 100%).
- [     CXX] X86/python/m5/info.py.cc -> .o
-afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
-afl-gcc-pass ++4.08c by <oliva@adacore.com>
-[*] Inline instrumentation at ratio of 100% in non-hardened mode.
-[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
-[+] Instrumented 4610 locations (non-hardened mode, inline, ratio 100%).
-[+] Instrumented 2327 locations (non-hardened mode, inline, ratio 100%).
- [     CXX] src/base/date.cc -> X86/base/date.o
-afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
-afl-gcc-pass ++4.08c by <oliva@adacore.com>
-[*] Inline instrumentation at ratio of 100% in non-hardened mode.
-[!] WARNING: No instrumentation targets found.
- [    LINK]  -> X86/gem5.opt
-afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
-scons: done building targets.
-```
-
-Example of how to use it. Create main.c:
-```
-$ more main.c
-#include <stdio.h>
-int main ()
-{
-  int x = 5;int y = 5;
-  printf("In the main proc. %d,%d",x,y);
-  return x+y;
-}
-```
-Then run gem5 plain (from gem5-ssbse-challenge-2023 folder):
-```
-build/X86/gem5.opt configs/deprecated/example/se.py -c main.o
-```
-Results:
-```
-...
-**** REAL SIMULATION ****
-src/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
-src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
-src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
-src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
-In the main proc. 5,5Exiting @ tick 176345000 because exiting with last active thread context
-Simulated exit code not 0! Exit code is 10
-```
-
-To partially instrument gem5 with AFL:
-TODO
 
 ## Fuzzing with AFL
 
