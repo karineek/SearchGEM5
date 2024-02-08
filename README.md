@@ -150,6 +150,11 @@ Then you can run the generator (for example):
 java -jar target/program-generator-2.0.jar <model-name> <Pull-model?true-or-false-flag>
 ```
 
+Troubleshooting with ollama. Ollama can hang or give timeouts too frequently. In such case, try to re-run the service:
+```
+sudo systemctl restart ollama.service
+```
+
 ## AFL Instrumentation of gem5
 
 To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
