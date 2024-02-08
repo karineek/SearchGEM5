@@ -159,6 +159,7 @@ We need to install gcc-11:
 ```
 sudo apt-get -y install gcc-11 g++-11 cpp-11
 ```
+
 We need to build AFL++ from source (v4.08c release, git commit f596a297c4de6a5e1a6fb9fbb3b4e18124a24f58):
 ```
 # Set env.
@@ -216,6 +217,45 @@ git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd AFLplusplus
 AFL_USE_ASAN=0 make
 sudo make install
+```
+
+We apply some edits (but not sure which one is needed for each version of AFL++):
+```
+git diff
+diff --git a/qemu_mode/qemuafl b/qemu_mode/qemuafl
+--- a/qemu_mode/qemuafl
++++ b/qemu_mode/qemuafl
+@@ -1 +1 @@
+-Subproject commit a1321713c7502c152dd7527555e0f8a800d55225
++Subproject commit a1321713c7502c152dd7527555e0f8a800d55225-dirty
+diff --git a/src/afl-fuzz-init.c b/src/afl-fuzz-init.c
+index 5a530821..0bef8400 100644
+--- a/src/afl-fuzz-init.c
++++ b/src/afl-fuzz-init.c
+@@ -881,7 +881,7 @@ void perform_dry_run(afl_state_t *afl) {
+     q = afl->queue_buf[idx];
+     if (unlikely(!q || q->disabled)) { continue; }
+ 
+-    u8  res;
++    u8  res = 0;
+     s32 fd;
+ 
+     if (unlikely(!q->len)) {
+@@ -919,6 +919,8 @@ void perform_dry_run(afl_state_t *afl) {
+ 
+     }
+ 
++    SAYF("Results of dry-run %d", res);
++
+     switch (res) {
+ 
+       case FSRV_RUN_OK:
+diff --git a/unicorn_mode/unicornafl b/unicorn_mode/unicornafl
+--- a/unicorn_mode/unicornafl
++++ b/unicorn_mode/unicornafl
+@@ -1 +1 @@
+-Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572
++Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572-dirty
 ```
 
 ## AFL Instrumentation of gem5
