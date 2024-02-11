@@ -61,3 +61,11 @@ cd gpt3.5-old/
 cd input/
 sed -i "s:/home/ubuntu/sets/gpt3.5-old/sort/data:/home/ubuntu/experiment-7/gpt3.5-old/binary:g" *.txt
 ```
+
+## Fuzzing
+
+To fuzz with AFL++ using any of the input sets (generated via LLM):
+TODO
+
+To fuzz with the mutators from SSBSE2023 version:
+TODO
