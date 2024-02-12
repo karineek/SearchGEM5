@@ -72,4 +72,6 @@ To fuzz with AFL++ using any of the input sets (generated via LLM):
 TODO
 
 To fuzz with the mutators from SSBSE2023 version:
-TODO
+```
+ AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_SKIP_BIN_CHECK=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="/home/ubuntu/ASEGem5/src/custom_mutators/cm-gem5.so" /home/ubuntu/AFLplusplus/afl-fuzz  -m 50000 -t 99000 -i /home/ubuntu/experiment-7/gpt3.5-old/input/ -o output12 /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py  --isa X86 --input @@
+```
