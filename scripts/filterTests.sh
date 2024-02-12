@@ -1,48 +1,39 @@
 #!/bin/bash
 tests_in=$1
 tests_out=$2
+bin=$3
+script=$4
+# For example:
+# ./filterTests_SSBSE2023.sh /home/ubuntu/sets/gpt3.5-old/sort/data/ /home/ubuntu/sets/gpt3.5-old/sort/data_out/ /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
 
-test_cases_folder=$tests_out/tests  # write all tests here
-test_source=$tests_out/source # Write source of tests here
-test_data=$tests_out/binary # Write data of tests here
-# Create the test_cases folder if it doesn't exist
-
+test_cases_folder=$tests_out/input/  # write all tests here
+test_data=$tests_out/binary/ # Write data of tests here
 mkdir -p "$test_cases_folder"
-mkdir -p "$test_source"
 mkdir -p "$test_data"
 
-for file in "$tests_in"/*.c.txt; do
+i=0
+j=0
+for file in "$tests_in"/*.txt; do
     if [ -f "$file" ]; then
-        exec_command=$(head -1 "$file")
-        inputs=$(tail -1 "$file")
+	echo "=================================================================================="
+        exec_command_o=$(head -1 "$file")
 
         # Prepend test_in folder to file name
-        exec_command="$tests_in/$exec_command"
+	exec_command="(ulimit -St 50; $bin $script --isa X86 --input $file > /dev/null 2>&1); echo \$?"
+	echo "$exec_command" > run.sh
+	chmod 777 run.sh
+	exit_status=`./run.sh`
+        if [ "$exit_status" -eq 0 ]; then
+                cp $file $test_cases_folder
+		cp $exec_command_o $test_data
 
-        file_name="${file%.*}"
-        file_name="${file_name%.*}"
-
-        if [ -x "$exec_command" ]; then
-            echo "Running: $exec_command with inputs: $inputs"
-            IFS=' ' read -r -a input_array <<< "$inputs"
-            "$exec_command" "${input_array[@]}"
-            exit_status=$?
-
-            if [ "$exit_status" -eq 0 ]; then
-                echo "Command successful. Copying $file to $test_cases_folder"
-                cp "$file" "$test_cases_folder"
-
-                echo "Copying ${file_name}.c.type to $test_cases_folder"
-                cp "${file_name}.c.type" "$test_cases_folder"
-
-                echo "Copying ${file_name}.c to $test_source"
-                cp "${file_name}.c" "$test_source"
-            else
-                echo "Error: Command exited with status $exit_status"
-            fi
-
+		type_filename="${exec_command_o%.c.o}.c.type"
+		cp $type_filename $test_data
+		i=$((i+1))
         else
-            echo "Error: $exec_command either not found or doesn't have execute permissions. Skipping."
+		echo " >>> FAILED $file"
+            	j=$((j+1))
         fi
     fi
 done
+echo "Done. Failed $j. Succ $i"
