@@ -51,6 +51,10 @@ Run this script to filter test inputs crashing gem5 even before fuzzing fuzzing.
 ```
  ./../scripts/filterTests.sh <raw-data> <output> gem5.opt hello-custom-binary-Ex.py
 ```
+For example:
+```
+./../scripts/filterTests.sh /home/ubuntu/sets/gpt3.5-new/results/ /home/ubuntu/sets/gpt3.5-new/gpt3.5-new/  /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/ubuntu/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
+```
 
 ## Prepare to Fuzz
 
