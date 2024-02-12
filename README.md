@@ -150,6 +150,11 @@ Then you can run the generator (for example):
 java -jar target/program-generator-2.0.jar <model-name> <Pull-model?true-or-false-flag>
 ```
 
+Troubleshooting with ollama. Ollama can hang or give timeouts too frequently. In such case, try to re-run the service:
+```
+sudo systemctl restart ollama.service
+```
+
 ## AFL Instrumentation of gem5
 
 To fully instrument gem5 with AFL, copy first the scons scripts that allow afl compilation into gem5-ssbse-challenge-2023:
@@ -237,6 +242,110 @@ Simulated exit code not 0! Exit code is 10
 To partially instrument gem5 with AFL:
 TODO
 
+### Pre-fuzzing Setup - Troubleshooting
+We need to install gcc-11:
+```
+sudo apt-get -y install gcc-11 g++-11 cpp-11
+```
+
+We need to build AFL++ from source (v4.08c release, git commit f596a297c4de6a5e1a6fb9fbb3b4e18124a24f58):
+```
+# Set env.
+AFL_USE_ASAN=0
+
+## Set gcov
+sudo apt-get install gcc-11
+sudo rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
+sudo rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++
+sudo ln -s /usr/bin/cpp-11 /usr/bin/cpp
+sudo ln -s /usr/bin/gcc-11 /usr/bin/gcc
+sudo ln -s /usr/bin/g++-11 /usr/bin/g++
+sudo ln -s /usr/bin/g++-11 /usr/bin/c++
+sudo ln -s /usr/bin/gcov-11 /usr/bin/gcov
+
+# For Cmake
+sudo apt-get install libssl-dev
+
+# Install pre-requirements
+sudo apt-get install automake
+sudo apt-get install python3-dev
+python3 -m venv env/python
+source env/python/bin/activate
+pip3 install --upgrade pip
+pip3 install wheel
+
+sudo apt remove clang-10 clang-11 clang-9 clang-12
+sudo rm -rf  /usr/bin/llvm-config
+sudo apt autoremove
+
+sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+sudo chmod 777 llvm.sh
+sudo ./llvm.sh 13
+sudo apt-get install -y lld-13 llvm-13-dev clang-13
+sudo apt-get install -y lld llvm llvm-dev clang
+sudo apt-get install -y build-essential python3-dev automake cmake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools cargo libgtk-3-dev
+sudo apt-get install -y ninja-build cmake
+sudo apt-get install -y wget git make cmake llvm gdb coreutils
+sudo apt-get install gcc-11-plugin-dev
+sudo apt autoremove
+
+# Update default clang to 13
+sudo update-alternatives --remove-all clang 
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --slave /usr/bin/clang++ clag++ /usr/bin/clang++-13
+sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-13 1300
+
+# Remove olf AFL
+rm -rf AFLplusplus
+
+# Install AFL
+LLVM_CONFIG=/usr/bin/llvm-config-13
+#git clone https://github.com/google/AFL.git
+#cd AFL
+git clone https://github.com/AFLplusplus/AFLplusplus.git
+cd AFLplusplus
+AFL_USE_ASAN=0 make
+sudo make install
+```
+
+We apply some edits (but not sure which one is needed for each version of AFL++):
+```
+git diff
+diff --git a/qemu_mode/qemuafl b/qemu_mode/qemuafl
+--- a/qemu_mode/qemuafl
++++ b/qemu_mode/qemuafl
+@@ -1 +1 @@
+-Subproject commit a1321713c7502c152dd7527555e0f8a800d55225
++Subproject commit a1321713c7502c152dd7527555e0f8a800d55225-dirty
+diff --git a/src/afl-fuzz-init.c b/src/afl-fuzz-init.c
+index 5a530821..0bef8400 100644
+--- a/src/afl-fuzz-init.c
++++ b/src/afl-fuzz-init.c
+@@ -881,7 +881,7 @@ void perform_dry_run(afl_state_t *afl) {
+     q = afl->queue_buf[idx];
+     if (unlikely(!q || q->disabled)) { continue; }
+ 
+-    u8  res;
++    u8  res = 0;
+     s32 fd;
+ 
+     if (unlikely(!q->len)) {
+@@ -919,6 +919,8 @@ void perform_dry_run(afl_state_t *afl) {
+ 
+     }
+ 
++    SAYF("Results of dry-run %d", res);
++
+     switch (res) {
+ 
+       case FSRV_RUN_OK:
+diff --git a/unicorn_mode/unicornafl b/unicorn_mode/unicornafl
+--- a/unicorn_mode/unicornafl
++++ b/unicorn_mode/unicornafl
+@@ -1 +1 @@
+-Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572
++Subproject commit f2cede37a75bbd4a9b9438f0277727b5d4620572-dirty
+```
+
 ## Fuzzing with AFL
 
 First, you will need to compiler the custom mutators:
@@ -262,6 +371,32 @@ mkdir binary
 # Runnin AFL
 echo core >/proc/sys/kernel/core_pattern
 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="cm-gem5.so" afl-fuzz -m 50000 -t 99000 -i input -o output -- gem5.opt hello-custom-binary-Ex.py --isa X86 --input @@
+```
+
+We compare two versions of our custom mutators in this work. Old version:
+```
+cd .. 
+git clone git@github.com:karineek/SearchGEM5.git
+cd SearchGEM5
+git checkout ssbse2023challenge
+
+cd src/
+cd custom_mutators/
+./compile_share.sh
+
+** Then copy the sets of inputs and binary, and run: **
+
+date > afl_log_2023.txt; AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="<Full-path>/cm-gem5.so" nohup /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 99000 -i input -o output -- <Full-path>/gem5.opt <Full-path>/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@ >> afl_log_2023.txt 2>&1 &
+```
+and new version:
+```
+cd ../../ASEGem5/src/custom_mutators/
+./compile_share.sh
+
+** Then copy the sets of inputs and binary, and run: **
+
+ubuntu@fuzzer-03:~/experiment-6$ more run-afl-new.sh
+date > afl_log_2024.txt; AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_LIBRARY="<Full-path>/cm-gem5.so;<Full-path>/cm-gem5-bin.so;/home/ubuntu/Gem5Testing/src/custom_mutators/cm-gem5-types.so" nohup /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 99000 -i input -o output -- <Full-path>/gem5.opt <Full-path>/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@ >> afl_log_2024.txt 2>&1 &
 ```
 
 ## Coverage with gcov

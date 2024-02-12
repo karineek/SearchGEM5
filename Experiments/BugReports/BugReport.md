@@ -1,10 +1,8 @@
 **Describe the bug**
 A clear and concise description of what the bug is.
 
-A program generated with binary fuzzing led to a different behaviour between native X86 and gem5 X86 simulation.
-
-**TODO**
-
+A program generated with binary fuzzing led to a different behaviour between native X86 and gem5 X86 simulation. 
+In such a way that the simulator failed to replicate the problematic behaviour observed in the native environment.
 
 **Affects version**
 State which version of gem5 this bug was found in. If on the develop branch state the Commit revision ID you are working.
