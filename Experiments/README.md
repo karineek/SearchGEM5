@@ -63,6 +63,10 @@ sed -i "s:/home/ubuntu/sets/gpt3.5-old/sort/data:/home/ubuntu/experiment-7/gpt3.
 ```
 
 ## Fuzzing
+First make sure the system is not due to reboot:
+```
+sudo shutdown -c
+```
 
 To fuzz with AFL++ using any of the input sets (generated via LLM):
 TODO
