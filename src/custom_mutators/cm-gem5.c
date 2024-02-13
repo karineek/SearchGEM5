@@ -230,9 +230,22 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     }
 
 #ifdef TEST_CM
+    // Log the time
+    static char timeString[30]; // Adjust the size according to your needs
+    time_t currentTime;
+    struct tm *localTime;
+
+    // Get current time
+    time(&currentTime);
+    localTime = localtime(&currentTime);
+
+    // Format time as a string
+    strftime(timeString, sizeof(timeString), "%Y-%m-%d %H:%M:%S", localTime);
+    writeToLogFile("afl_log.log",(const char *) timeString);
+
     // Print the buffer
-    writeToLogFile("afl_log.log", "New buffer is this===>");
-    writeToLogFile("afl_log.log",(const char *)  new_buf);
+    writeToLogFile("afl_log.log", "New buffer is this ===>");
+    writeToLogFile("afl_log.log",(const char *) new_buf);
 #endif
 
     // Check if mutation succ. and Check new_buf before declaring the mutation is okay
