@@ -28,6 +28,7 @@ sudo ln -s /usr/bin/llvm-config-13 /usr/bin/llvm-config
 
 git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd AFLplusplus
+git checkout f596a297c4de6a5e1a6fb9fbb3b4e18124a24f58
 
 make all
 sudo make install 
