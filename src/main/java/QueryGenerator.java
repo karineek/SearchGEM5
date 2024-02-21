@@ -118,9 +118,11 @@ class QueryGenerator {
             	String randomPL = llmIndexedTokens.getRandomPL();
 
             	// program
-            	String prompt = "Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and a concrete example of an input (BASH). " +
-                    	"The C program will be with code triggering " + randomCompilerOpt + " optimizatios, covers this part of the compiler " +
-                    	randomCompilerParts + ", and excersises this idea in C: " + randomPL + ". To recup the code contains these: " + randomCompilerOpt + " and " + randomCompilerParts + " and " + randomPL;
+            	String prompt = 
+			"Coding task: give me a program in C with all includes. Input is taken via argv only. Please return a program (C program) and a concrete example of an input (BASH). " 
+			+ "The C program will be with code triggering " + randomCompilerOpt + " optimizations, covers this part of the compiler "
+                    	+ randomCompilerParts + ", and exercises this idea in C: " + randomPL + ". To recap the code contains these: " + randomCompilerOpt 
+			+ " and " + randomCompilerParts + " and " + randomPL;
 		System.out.println(prompt);
 	} else {
 	    String res = args[2];
