@@ -4,6 +4,57 @@
 
 TODO
 
+## Preparing folders to be AFL-READY
+
+After generating the data, we need to prepare the test inputs to be ready to fuzz. 
+
+We set a visible folder for AFL++ (aka input) but the binary folder will be managed directly by our custom mutators.
+
+To prepare the data we did this per generated set (You do not have to repeat it):
+  - First, we copied the generated set as is to raw.
+  - Then we ran these:
+```
+cd raw
+for prog in *.c; do gcc -O3 "$prog" -o "$prog.o"; done
+cd ..
+mkdir binary input
+cp raw/*.type binary/
+cp raw/*.o binary/
+cp raw/*.txt input/
+
+cd input
+rename "s/.c.txt/.txt/" *.txt
+sed -i 's:test_input_:/home/ubuntu/experiment-7/TinyLlama/binary/test_input_:g' *.txt
+cd ..
+ls -l input/*.txt | wc -l
+cp -r input split
+cd split
+for i in `seq 1 10`; do mkdir -p "folder$i"; find . -type f -maxdepth 1 | head -n 25 | xargs -i mv "{}" "folder$i"; done
+mv *.txt folder10
+ls -l folder1 | wc -l
+ls -l folder2 | wc -l
+ls -l folder3 | wc -l
+ls -l folder4 | wc -l
+ls -l folder5 | wc -l
+ls -l folder6 | wc -l
+ls -l folder7 | wc -l
+ls -l folder8 | wc -l
+ls -l folder9 | wc -l
+ls -l folder10 | wc -l
+cd .. ; cd ..
+```
+
+After all, We tar them (to save space):
+```
+tar -czvf  AFL-READY-CodeBooga.tar.gz  CodeBooga 
+tar -czvf  AFL-READY-Llama.tar.gz Llama
+tar -czvf  AFL-READY-Magicoder.tar.gz Magicoder 
+tar -czvf  AFL-READY-Phi.tar.gz Phi 
+tar -czvf  AFL-READY-TinyLlama.tar.gz TinyLlama
+tar -czvf  AFL-READY-gpt3.5.tar.gz gpt3.5-new
+tar -czvf  AFL-READY-gpt3.5-ssbse-2023.tar.gz gpt3.5-old
+```
+
 ## Filtering Non-crashing Tests
 
 We test per test if it crashes AFL++, and discard it if so. Otherwise, AFL++ will request to do so:
