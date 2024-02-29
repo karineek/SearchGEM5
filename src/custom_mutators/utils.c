@@ -37,6 +37,11 @@
 #include <stdlib.h> // For system(command) call
 #include <stdio.h>  // File ops.
 
+// Include for testing output before sending to AFL++
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
 /* ============================================= */
 /* ============================================= */
 /* ============================================= */
@@ -199,3 +204,78 @@ int countLines(const char *str) {
     }
     return lineCount+1;
 }
+
+// Test if the test should go into AFL++ - seg fault crashes AFL++
+int isTestInputValid(const char *input) {
+    char inputCopy[250];  // Adjust the size as needed
+    strcpy(inputCopy, input);
+
+    char* binaryPath = strtok(inputCopy, "\n");   // first string
+    char* argument = strtok(NULL, "\n");  // second string
+
+#ifdef TEST_CM
+    writeToLogFile("afl_log.log", "==== IN CHECK OF VALID TEST ====");
+    writeToLogFile("afl_log.log", input);
+    if (!binaryPath || !argument) {
+	return 0; // Invalid input
+    }
+    writeToLogFile("afl_log.log", binaryPath);
+    writeToLogFile("afl_log.log", argument);
+#else
+    if (!binaryPath || !argument) {
+        return 0; // Invalid input
+    }
+#endif
+
+    // Start the test
+    pid_t childPid = fork();
+    if (childPid == -1) {
+        return 0; // failed - cannot test
+    }
+
+    if (childPid == 0) {
+	bool failed = (freopen("/dev/null", "w", stdout) == NULL) ||
+		   (freopen("/dev/null", "w", stderr) == NULL);
+
+        // Child process
+        execlp(binaryPath, binaryPath, argument, NULL);
+        return !failed;
+    } else {
+        // Parent process
+        int status;
+        waitpid(childPid, &status, 0);
+
+        if (WIFSIGNALED(status)) {
+            // Check if the signal is either SIGSEGV (segmentation fault)
+            return !(WTERMSIG(status) == SIGSEGV);
+        }
+        return 1; // If never got error, return 1
+    }
+}
+
+/*
+int main() {
+    const char *binaryPath1 = "/home/ubuntu/experiment-7/gpt3.5-old/binary/ssad-run.c.o\n0";
+    const char *binaryPath2 = "/home/ubuntu/experiment-7/gpt3.5-old/binary/ssad-run.c.o\n65536";
+
+    int result = isTestInputValid(binaryPath1);
+    if (result == 1) {
+        printf("Binary exited normally.\n");
+    } else if (result == 1) {
+        printf("Binary terminated by segmentation fault.\n");
+    } else {
+        printf("Unknown exit status.\n");
+    }
+
+    result = isTestInputValid(binaryPath2);
+    if (result == 1) {
+        printf("Binary exited normally.\n");
+    } else if (result == 0) {
+        printf("Binary terminated by segmentation fault.\n");
+    } else {
+        printf("Unknown exit status.\n");
+    }
+
+    return 0;
+}
+*/

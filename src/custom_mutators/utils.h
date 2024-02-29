@@ -62,4 +62,7 @@ void print_error(const char *msg, const char *data);
 // Count the number of lines in a buffer to check no bad mutations written
 int countLines(const char *str);
 
+// Test Before Sending to AFL++
+int isTestInputValid(const char *input);
+
 #endif // UTILS_H
