@@ -154,6 +154,10 @@ Troubleshooting with ollama. Ollama can hang or give timeouts too frequently. In
 ```
 sudo systemctl restart ollama.service
 ```
+If this is not helping, try re-run the install script:
+```
+curl -fsSL https://ollama.com/install.sh | sh
+```
 
 ## AFL Instrumentation of gem5
 
