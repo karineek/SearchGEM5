@@ -359,7 +359,7 @@ cd custom_mutators/
 ./compile_share.sh
 ```
 
-You will need to create an input directory of C binaries (as templates of C programs). Then to run AFL:
+You must create an input directory of C binaries (as templates of C programs). Then to run AFL:
 ```
 mkdir experiments; cd experiments
 mkdir input
@@ -401,6 +401,10 @@ cd ../../ASEGem5/src/custom_mutators/
 
 ubuntu@fuzzer-03:~/experiment-6$ more run-afl-new.sh
 date > afl_log_2024.txt; AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_CUSTOM_MUTATOR_LIBRARY="<Full-path>/cm-gem5.so;<Full-path>/cm-gem5-bin.so;/home/ubuntu/Gem5Testing/src/custom_mutators/cm-gem5-types.so" nohup /home/ubuntu/AFLplusplus/afl-fuzz -m 50000 -t 99000 -i input -o output -- <Full-path>/gem5.opt <Full-path>/ssbse-challenge-examples/hello-custom-binary-Ex.py --isa X86 --input @@ >> afl_log_2024.txt 2>&1 &
+```
+Other useful flags are:
+```
+AFL_SHUFFLE_QUEUE=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_IGNORE_PROBLEMS=1 AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_FAST_CAL=1
 ```
 
 ## Coverage with gcov
