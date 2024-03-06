@@ -38,6 +38,14 @@
 //#define MUTATOR_BIN 1             // Mutator - binary file mutation only
 //#define MUTATOR_ARGS 1            // Mutator - Arg mutation only
 //#define MUTATOR_TYPE 1            // Mutator - Type of args mutation only
+
+//#define USE_CUSTOM_FUZZ_COUNT 1   // Override custom count fuzz function
+//#define COUNTER_ALL 1             // for the value the function return counter fuzz - for the general custom mutator
+//#define COUNTER_BIN 1             // Same as above but for binary mutator
+//#define COUNTER_ARGS 1            // Same as above but for argument mutator
+//#define COUNTER_TYPE 1            // Same as above but for type mutator
+//#define SAVE_ALL 0                // Save all fuzzed corpus
+
 #define PROBABILITY_ARGS_FLIP 350   // Out of 1000
 #define PROBABILITY_TYPE_FLIP 300   // Out of 1000
 
@@ -159,6 +167,24 @@ void afl_custom_deinit(my_mutator_t *data) {
   }
 }
 
+#ifdef USE_CUSTOM_FUZZ_COUNT
+// This function has various effects adding dependency on test input randominsation
+unsigned int afl_custom_fuzz_count(void *data, const unsigned char *buf, size_t buf_size) {
+#ifdef MUTATOR_ARGS
+    return COUNTER_ARGS;
+#else
+#   ifdef MUTATOR_BIN
+        return COUNTER_BIN;
+#   else
+#       ifdef MUTATOR_TYPE
+            return COUNTER_TYPE;
+#       else
+            return COUNTER_ALL;
+#       endif // MUTATOR_TYPE
+#   endif // MUTATOR_BIN
+#endif // MUTATOR_ARGS
+}
+#endif
 
 /**
  * Perform custom mutations on a given input
@@ -283,6 +309,15 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     // Clear the old data
     free(new_buf);
+
+#ifdef SAVE_ALL
+    // Write the test before exit
+    char* test_input =  generat_new_test_input_name((const char *) new_buf);
+    if (!writeStringToFile((const char *) new_buf, test_input)) {
+ 	// failed to generate a new type file - exit
+        print_error(">>-9B Failed to copy test input file", test_input);
+    }
+#endif
 
     return actual_size;
 }

@@ -43,7 +43,10 @@ void extractPath(const char *input, char *path);
 void rand_name(char *timestampString, size_t bufferSize);
 
 // Generate new file names for binary and type
-void generat_new_file_names(char *input, char *bin, char *type);
+void generat_new_file_names(const char *input, char *bin, char *type);
+
+// Generate a new file name for writing all test input (mode)
+char* generat_new_test_input_name(const char *input);
 
 // Writes to logger instead into perror or stdout
 #ifdef TEST_CM

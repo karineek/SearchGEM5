@@ -70,7 +70,7 @@ void rand_name(char *timestampString, size_t bufferSize) {
 }
 
 // Rename file so we can muate the binary
-void generat_new_file_names(char *input, char *bin, char *type) {
+void generat_new_file_names(const char *input, char *bin, char *type) {
     if (!input) return; // check we got input
 
     char path[100];
@@ -88,6 +88,26 @@ void generat_new_file_names(char *input, char *bin, char *type) {
     strcat(bin, ".c.o");
     strcpy(type, bin);
     strcat(type, ".types");
+}
+
+// Generate a new file name to current test input
+char* generat_new_test_input_name(const char *input) {
+    if (!input) return 0; // check we got input
+
+    char test[100];
+    extractPath(input, test);
+    if (strlen(test) < 5) return 0; // Probably not a valid path - too short
+
+    // Generate random number for unique name
+    char name[50];
+    rand_name(name, sizeof(name));
+
+    strcat(test, "fuzz_");
+    strcat(test, name);
+    strcat(test, ".txt");
+
+    char *result = strdup(test); // Allocate memory and copy the string
+    return result;
 }
 
 // Writes to logger
@@ -211,7 +231,7 @@ int isTestInputValid(const char *input) {
     strcpy(inputCopy, input);
 
     char* binaryPath = strtok(inputCopy, "\n");   // first string
-    char* argument = strtok(NULL, "\n");  // second string
+    char* argument = strtok(NULL, "\n");  	  // second string
 
 #ifdef TEST_CM
     writeToLogFile("afl_log.log", "==== IN CHECK OF VALID TEST ====");
