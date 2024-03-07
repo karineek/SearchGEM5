@@ -285,15 +285,16 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     } // Else continue with the mutations
 
 
+// This is too conservative - even after adding timeout handling, as it will miss many legit errors
     // Check if the test case ends with seg-fault and if so, return 0
-    if (!isTestInputValid((const char *) new_buf)) {
-#ifdef TEST_CM
-       writeToLogFile("afl_log.log", ">>-8-C Bad generation. Corrupted test input.");
-       writeToLogFile("afl_log.log",(const char *) new_buf);
-#endif
-       free(new_buf);
-       return 0;
-    }
+//    if (!isTestInputValid((const char *) new_buf)) {
+//#ifdef TEST_CM
+//       writeToLogFile("afl_log.log", ">>-8-C Bad generation. Corrupted test input.");
+//       writeToLogFile("afl_log.log",(const char *) new_buf);
+//#endif
+//       free(new_buf);
+//       return 0;
+//    }
 
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
