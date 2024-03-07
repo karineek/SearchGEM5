@@ -68,4 +68,6 @@ int countLines(const char *str);
 // Test Before Sending to AFL++
 int isTestInputValid(const char *input);
 
+// Save all test inputs
+void writeTestInputExternal(const char *data);
 #endif // UTILS_H

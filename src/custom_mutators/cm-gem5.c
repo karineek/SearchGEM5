@@ -278,10 +278,10 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 
     // Check if mutation succ. and Check new_buf before declaring the mutation is okay
     if ((mutations_rc==0) || (countLines((const char *) new_buf) < 2)) {
-#ifdef TEST_CM
+//#ifdef TEST_CM
         WARNF(">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
         writeToLogFile("afl_log.log", ">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
-#endif
+//#endif
         free(new_buf);
 	return 0;
     } // Else continue with the mutations
@@ -298,6 +298,11 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 //       return 0;
 //    }
 
+#ifdef SAVE_ALL
+    // Write the test before exit
+    writeTestInputExternal((const char *) new_buf);
+#endif
+
     // Shrink the buffer till \0
     size_t actual_size = strlen(data->out_buff) + 1; // Add 1 for the null-terminator
     uint8_t *new_new_buf = malloc(actual_size);
@@ -306,22 +311,13 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
         return 0;
     }
     memcpy(new_new_buf, new_buf, actual_size);
+    // Clear the old data
+    free(new_buf);
 
     // Set it as output buff
     *out_buf = new_new_buf;
 
-    // Clear the old data
-    free(new_buf);
-
-#ifdef SAVE_ALL
-    // Write the test before exit
-    char* test_input =  generat_new_test_input_name((const char *) new_buf);
-    if (!writeStringToFile((const char *) new_buf, test_input)) {
- 	// failed to generate a new type file - exit
-        print_error(">>-9B Failed to copy test input file", test_input);
-    }
-#endif
-
+    // Return mutated
     return actual_size;
 }
 
@@ -583,8 +579,8 @@ bool findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
     // Space for temporary manipulations
     char* types_token = 0;
     char* buf_token = 0;
-    char *saveptr1=0;
-    char *saveptr2=0;
+    char *saveptr1=0; // Data
+    char *saveptr2=0; // Type
 
     // Read tokens of data types
     char *token = strtok_r(data->input_args, " ", &saveptr1);

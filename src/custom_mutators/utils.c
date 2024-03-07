@@ -54,11 +54,28 @@
 void extractPath(const char *input, char *path) {
     if (!input) return; // check we got input
 
-    // Find the last occurrence of '/'
-    const char *lastSlash = strrchr(input, '/');
-    if (lastSlash != NULL) {
-        strncpy(path, input, lastSlash - input + 1);
-        path[lastSlash - input + 1] = '\0';
+    // Iterate through the characters in the input to get the first line
+    for (size_t i = 0; input[i] != '\0'; ++i) {
+        // Check for the delimiter
+        if (input[i] == '\n') {
+            path[i] = (char) '\0';
+            break; // Stop copying if the delimiter is found
+        }
+
+	// Copy the character to the path buffer
+        path[i] = (char) input[i];
+    }
+
+    // Get current size and chop back till /
+    size_t inputLength = strlen(path);
+
+    // Chop back
+    for (size_t i = inputLength; i > 0; --i) {
+        // Check for the delimiter
+        if (path[i-1] == '/') {
+            path[i] = (char) '\0';
+            break; // Stop copying if the delimiter is found
+        }
     }
 }
 
@@ -73,12 +90,12 @@ void rand_name(char *timestampString, size_t bufferSize) {
 void generat_new_file_names(const char *input, char *bin, char *type) {
     if (!input) return; // check we got input
 
-    char path[100];
+    char path[100] = "";
     extractPath(input, path);
     if (strlen(path) < 5) return; // Probably not a valid path - too short
 
     // Generate random number for unique name
-    char name[50];
+    char name[50] = "";
     rand_name(name, sizeof(name));
 
     // Copy the name
@@ -94,12 +111,12 @@ void generat_new_file_names(const char *input, char *bin, char *type) {
 char* generat_new_test_input_name(const char *input) {
     if (!input) return 0; // check we got input
 
-    char test[100];
+    char test[100] = "";
     extractPath(input, test);
     if (strlen(test) < 5) return 0; // Probably not a valid path - too short
 
     // Generate random number for unique name
-    char name[50];
+    char name[50] = "";
     rand_name(name, sizeof(name));
 
     strcat(test, "fuzz_");
@@ -107,6 +124,11 @@ char* generat_new_test_input_name(const char *input) {
     strcat(test, ".txt");
 
     char *result = strdup(test); // Allocate memory and copy the string
+    if (result == NULL) {
+        // Handle memory allocation failure
+        perror("Memory allocation error");
+        return 0;
+    }
     return result;
 }
 
@@ -183,7 +205,7 @@ bool writeStringToFile(const char *data, const char *fileName) {
     fclose(file);
 
     // Return if succ
-    if ((charsWritten < 0) || (charsWritten != strlen(data))) {
+    if ((charsWritten < 0) || (charsWritten < strlen(data))) {
 #ifdef TEST_CM
         print_error(">>-16-B Error writing to file", fileName);
 #endif
@@ -273,10 +295,52 @@ int isTestInputValid(const char *input) {
     }
 }
 
+// Save all test inputs
+void writeTestInputExternal(const char *data) {
+    if (!data) return;
+    char* test_input = generat_new_test_input_name((const char *) data);
+    if (test_input == NULL) {
+        printf("Data \n %s", data);
+        perror(">>-9BX Failed to write test input file, test input file name is empty");
+    } else if (writeStringToFile((const char *) data, test_input) == 0) {
+        // failed to generate a new type file - exit
+#ifdef TEST_CM
+        print_error(">>-9BY Failed to write test input file", test_input);
+#else
+        perror(">>-9BZ Failed to write test input file");
+#endif
+    }
+}
+
 /*
 int main() {
     const char *binaryPath1 = "/home/ubuntu/experiment-7/gpt3.5-old/binary/ssad-run.c.o\n0";
-    const char *binaryPath2 = "/home/ubuntu/experiment-7/gpt3.5-old/binary/ssad-run.c.o\n65536";
+    const char *binaryPath2 = "/home/ubuntu/experiment-7/TinyLlama/binary/test_input_575791586264823.c.o\ninput.txtxecsWdone : -2147483579";
+
+    printf("Path 1 %s\n", generat_new_test_input_name(binaryPath1));
+    printf("Path 2 %s\n", generat_new_test_input_name(binaryPath2));
+
+
+    const char *binaryPath3 =  "/home/ubuntu/experiment-7/TinyLlama/binary/fuzz_1709806133845917739.c.o\ninput.txtxecs^done : 1048701";
+    char* test_input =  generat_new_test_input_name((const char *) binaryPath3);
+    printf("Path 3 %s\n", test_input);
+    if (!test_input) {
+	perror(">>-9BA Failed to write test input file, test input file name is empty");
+    } else if (writeStringToFile((const char *) binaryPath3, test_input) == 0) {
+        // failed to generate a new type file - exit
+#ifdef TEST_CM
+        print_error(">>-9BB Failed to write test input file", test_input);
+#else
+	perror(">>-9BC Failed to write test input file");
+	printf("Path 3 %s\n", test_input);
+#endif
+    }
+
+    writeTestInputExternal(binaryPath3);
+
+    printf("Original 1 %s\n",binaryPath1);
+    printf("Original 2 %s\n",binaryPath2);
+    printf("Original 3 %s\n",binaryPath3);
 
     int result = isTestInputValid(binaryPath1);
     if (result == 1) {
