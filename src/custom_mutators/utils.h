@@ -70,4 +70,8 @@ int isTestInputValid(const char *input);
 
 // Save all test inputs
 void writeTestInputExternal(const char *data);
+
+// Plain test of number of spaces in two strings - adj1 and adj2 are counters to be added
+bool haveSameNumberOfSpaces(const char *str1, const char *str2, int adj1, int adj2);
+
 #endif // UTILS_H

@@ -312,6 +312,33 @@ void writeTestInputExternal(const char *data) {
     }
 }
 
+// Most plain way to test it - to avoid seg-faults!
+bool haveSameNumberOfSpaces(const char *str1, const char *str2, int adj1, int adj2) {
+    // Handle cases where one or both strings are NULL
+    if (str1 == NULL || str2 == NULL) {
+        return false;
+    }
+
+    int count1 = 0, count2 = 0;
+
+    // Count spaces in the first string
+    for (int i = 0; str1[i] != '\0'; ++i) {
+        if (str1[i] == ' ') {
+            count1++;
+        }
+    }
+
+    // Count spaces in the second string
+    for (int i = 0; str2[i] != '\0'; ++i) {
+        if (str2[i] == ' ') {
+            count2++;
+        }
+    }
+
+    // Return true if both strings have the same number of spaces
+    return (count1+adj1) == (count2+adj2);
+}
+
 /*
 int main() {
     const char *binaryPath1 = "/home/ubuntu/experiment-7/gpt3.5-old/binary/ssad-run.c.o\n0";
