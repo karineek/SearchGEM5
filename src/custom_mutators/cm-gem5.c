@@ -207,9 +207,16 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
                        size_t add_buf_size,  // add_buf can be NULL
                        size_t max_size) {
 
+    // Check if broken input
+    size_t actual_in_buf_size = strlen((const char *) buf);
+    if ((buf_size < 11) || (actual_in_buf_size < 11)) {
+	WARNF(">>-6A Odd size of register is: %zu, %zu", actual_in_buf_size, buf_size);
+        return 0; // We cannot work with this
+    }
+    // Check if we have space
     size_t new_size = MAX_CMDLINE_SIZE <= max_size ? MAX_CMDLINE_SIZE : max_size;
     if (new_size < buf_size) {
-        WARNF(">>-6 Max size of register is: %zu, %zu", new_size, buf_size);
+        WARNF(">>-6B Max size of register is: %zu, %zu", new_size, buf_size);
         return 0; // We cannot work with this
     }
 
@@ -547,8 +554,8 @@ const char* generateRandomTypeToken() {
     int randomValue = rand() % 11;
 
     // Define the possible type tokens
-    const char* typeTokens[] = {"UINT32", "INT32", 
-                "ULONG", "LONG", "USHORT", "SHORT", 
+    const char* typeTokens[] = {"UINT32", "INT32",
+                "ULONG", "LONG", "USHORT", "SHORT",
                 "UCHAR", "CHAR", "FLOAT", "DOUBLE",
                 "STRING"};
 
@@ -573,9 +580,18 @@ bool findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 1);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }		   // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; } 		   // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }    // t.c.o.types - cannot be smaller
+    if (((!data->input_args) || (strlen(data->input_args) == 0))                    	// All binaries gets at least one char of input
+       || (!data->out_buff) || (strlen(data->out_buff) < 5)                         	// t.c.o - cannot be smaller
+       || (!data->file_name_types) || (strlen(data->file_name_types) < 11)) {      	// t.c.o.types - cannot be smaller
+
+        // Write something to avoid memory corruption
+        if (data->input_args && strlen(data->input_args) > 0) {
+            strcat(data->out_buff, data->input_args);
+        } else {
+            strcat(data->out_buff, "0");
+        }
+        return 0; // Failed init, exit.
+    }
 
     // Space for temporary manipulations
     char* types_token = 0;
@@ -702,9 +718,18 @@ bool mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 0);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }              // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; }                   // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }    // t.c.o.types - cannot be smaller
+    if (  (!data->input_args)      || (strlen(data->input_args) == 0)                   // All binaries gets at least one char of input
+       || (!data->out_buff)        || (strlen(data->out_buff) < 5)                      // t.c.o - cannot be smaller
+       || (!data->file_name_types) || (strlen(data->file_name_types) < 11) ) {          // t.c.o.types - cannot be smaller
+	// Write something to avoid memory corruption
+	strcat(data->out_buff, "\n");
+        if (data->input_args && strlen(data->input_args) > 0) {
+    	    strcat(data->out_buff, data->input_args);
+        } else {
+	    strcat(data->out_buff, "0");
+	}
+        return 0; // Failed init, exit.
+    }
 
     // Read tokens of data types
     char *buf_token = 0;
@@ -789,9 +814,18 @@ bool mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 
     // Init data used for mutating
     initCurrentMutationData(new_buf, data, 0);
-    if ((!data->input_args) || (strlen(data->input_args) == 0)) { return 0; }		 // All binaries gets at least one char of input
-    if ((!data->out_buff) || (strlen(data->out_buff) < 5)) { return 0; } 		 // t.c.o - cannot be smaller
-    if ((!data->file_name_types) || (strlen(data->file_name_types) < 11)) { return 0; }  // t.c.o.types - cannot be smaller
+    if (  (!data->input_args)      || (strlen(data->input_args) == 0)                   // All binaries gets at least one char of input
+       || (!data->out_buff)        || (strlen(data->out_buff) < 5)                      // t.c.o - cannot be smaller
+       || (!data->file_name_types) || (strlen(data->file_name_types) < 11) ) {          // t.c.o.types - cannot be smaller 
+        // Write something to avoid memory corruption
+        strcat(data->out_buff, "\n");
+        if (data->input_args && strlen(data->input_args) > 0) {
+            strcat(data->out_buff, data->input_args);
+        } else {
+            strcat(data->out_buff, "0");
+        }
+        return 0; // Failed init, exit.
+    }
 
     // Flag - if any type flipped?
     bool is_type_flipped = false;
