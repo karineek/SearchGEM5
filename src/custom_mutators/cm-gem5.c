@@ -767,9 +767,9 @@ bool mutateBinary(uint8_t *new_buf, my_mutator_t *data) {
             fseek(file, byte_index, SEEK_SET);
             fwrite(&byte, sizeof(byte), 1, file);
 
-#ifdef TEST_CM
-            printf(">>-15 Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
-#endif
+//#ifdef TEST_CM
+//            printf(">>-15 Bit at byte %ld, position %d flipped.\n", byte_index, bit_position);
+//#endif
         }
 
         fclose(file);
@@ -923,13 +923,10 @@ bool mutateTypeData(uint8_t *new_buf, my_mutator_t *data) {
 #ifdef TEST_CM
     	writeToLogFile("afl_log.log", "No flips");
 #endif
-        // If no mutation - exit with buffer null.
-        return 0;
+        // Nothing changed, just avoid memeory issues.
+	strcat(data->out_buff, "\n");
+        strcat(data->out_buff, data->input_args);
     }
-
-#ifdef TEST_CM
-    writeToLogFile("afl_log.log", "Return mutated types");
-#endif
 
     // Copy the new mutated string to give to AFL
     strcpy((char *)new_buf, data->out_buff);
