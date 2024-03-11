@@ -47,6 +47,7 @@ run_experiment_k() {
     done
 }
 
+######################### MAIN #########################
 # Assuming run_me.sh is in the current directory
 script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 
@@ -56,10 +57,11 @@ input=/home/ubuntu/TinyLlama-test/input
 output=/home/ubuntu/TinyLlama-test/output
 
 
-# Total 7200 hours
+# Total 1800 hours
+
 
 # Run a configuration script in a loop 30 times
-run_experiment_k(2) # No need to save but requires counters
-run_experiment_k(6) # No need to save but requires counters
+run_experiment_k(2) # No need to save but it requires counters
+run_experiment_k(6) # No need to save but it requires counters
 
 echo "Script execution completed."
