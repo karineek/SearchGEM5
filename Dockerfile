@@ -57,7 +57,10 @@ RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --
 RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-13 1300
 
 RUN mkdir /home/debian/ASEGem5
-COPY . /home/debian/ASEGem5/
+RUN mkdir /home/debian/ASEGem5/src
+RUN mkdir /home/debian/ASEGem5/Experiments
+COPY ./src /home/debian/ASEGem5/src
+COPY ./Experiments /home/debian/ASEGem5/Experiments
 WORKDIR /home/debian/ASEGem5
 ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 WORKDIR /home/debian
