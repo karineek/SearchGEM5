@@ -37,14 +37,17 @@ for ((k = 1; k <= 8; k++)); do
 
         # Run the script in a loop 30 times
         for ((i = 1; i <= 30; i++)); do
+
             # Redirect the output to repeat_$i.txt and kill after 60 minutes
-            $script_cong_k $cm_folders_j $afl $input $output"_"$k"_setting_"$j"_repeat_"$i 0 > "repeat_script_"$k"_setting_"$j"_repeat_"$i".txt" &
+	    output_folder=$output"_"$k"_setting_"$j"_repeat_"$i
+            logger="repeat_script_"$k"_setting_"$j"_repeat_"$i".txt"
+            $script_cong_k $cm_folders_j $afl $input $output_folder 0 > $logger &
 
 	    # Capture the process ID of the background process
     	    script_pid=$!
 
     	    # Sleep for 60 minutes
-    	    sleep 1 # 3600
+    	    sleep 2 # 3600
 
     	    # Kill the script after 60 minutes
      	    kill_script $script_pid
