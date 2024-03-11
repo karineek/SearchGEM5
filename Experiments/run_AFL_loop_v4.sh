@@ -23,5 +23,4 @@ else
 AFL_CUSTOM_MUTATOR_LIBRARY="$cm_path/cm-gem5c-save.so" \
 $afl -m 50000 -t 99000 -i $input -o $output -- /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt \
 /home/ubuntu/ASEGem5/hello-custom-binary-Ex.py --isa X86 --input @@
-
 fi
