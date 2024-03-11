@@ -61,7 +61,7 @@ output=/home/ubuntu/TinyLlama-test/output
 
 
 # Run a configuration script in a loop 30 times
-run_experiment_k(2) # No need to save but it requires counters
-run_experiment_k(6) # No need to save but it requires counters
+run_experiment_k 2 # No need to save but it requires counters
+run_experiment_k 6 # No need to save but it requires counters
 
 echo "Script execution completed."
