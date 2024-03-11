@@ -97,7 +97,10 @@ RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
 RUN ./compile_experiments.sh
 RUN ./compile_share.sh 1 1 1
 
+# Prepare the experiments scripts
+RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
+# TODO amend this: /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py
 
 ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
