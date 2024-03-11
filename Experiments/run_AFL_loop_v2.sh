@@ -13,7 +13,7 @@ if [ $# -le 4 ]; then
     exit 1
 fi
 
-resume=" "
+resume="AFL_AUTORESUME=0 "
 if [ "$resume" -eq 1 ]; then
     resume="AFL_AUTORESUME=1 "
 fi
