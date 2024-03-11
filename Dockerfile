@@ -91,7 +91,8 @@ RUN ./build/X86/gem5.opt -C
 # Prepare for fuzzing - we will need ASEGem5 at some point
 WORKDIR /home/debian/ASEGem5/src/custom_mutators
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
-RUN ./compile_share.sh
+RUN ./compile_experiments.sh
+RUN ./compile_share.sh 1 1 1
 
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
 
