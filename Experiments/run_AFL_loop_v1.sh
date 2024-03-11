@@ -7,7 +7,6 @@ input=$3     # E.G. /home/ubuntu/TinyLlama-test/input
 output=$4    # E.G. /home/ubuntu/TinyLlama-test/output
 resume=$5    # 0 - new run, 1 - resume
 
-
 # Check if an argument is provided
 if [ $# -le 4 ]; then
     echo "Please provide custom mutator path, afl path, input and output folders, and a value (0 or 1) as a command-line argument."
