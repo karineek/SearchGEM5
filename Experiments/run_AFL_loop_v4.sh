@@ -13,10 +13,9 @@ if [ $# -le 4 ]; then
     exit 1
 fi
 
+resume=""
 if [ "$resume" -eq 1 ]; then
     resume="AFL_AUTORESUME=1 "
-else
-    resume=""
 fi
 
 AFL_SHUFFLE_QUEUE=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_FAST_CAL=1 AFL_IGNORE_PROBLEMS=1 $resume AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 \
