@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Function to kill script and its child processes
 kill_script() {
     local parent_pid=$1
@@ -16,22 +17,13 @@ kill_script() {
     pkill -KILL -P $parent_pid
 }
 
-# Assuming run_me.sh is in the current directory
-script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
+# Run a single experiment
+run_experiment_k() {
+    k=$1 # Which version to run
 
-afl=/home/ubuntu/AFLplusplus/afl-fuzz
-main=/home/ubuntu/TinyLlama-test/
-input=/home/ubuntu/TinyLlama-test/input
-output=/home/ubuntu/TinyLlama-test/output
+    script_cong_k=$script$k.sh # 1,5 options
 
-
-# Total 7200 hours
-
-# Run a configureation script in a loop 30 times
-for ((k = 1; k <= 8; k++)); do
-    script_cong_k=$script$k.sh # 1-8 options
-
-    # For each settings out of the 30.
+    # For each setting out of the 30.
     for ((j = 1; j <= 30; j++)); do
         cm_folders_j=CM_EXP_$j
 
@@ -53,6 +45,21 @@ for ((k = 1; k <= 8; k++)); do
      	    kill_script $script_pid
         done
     done
-done
+}
+
+# Assuming run_me.sh is in the current directory
+script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
+
+afl=/home/ubuntu/AFLplusplus/afl-fuzz
+main=/home/ubuntu/TinyLlama-test/
+input=/home/ubuntu/TinyLlama-test/input
+output=/home/ubuntu/TinyLlama-test/output
+
+
+# Total 7200 hours
+
+# Run a configuration script in a loop 30 times
+run_experiment_k(2) # No need to save but requires counters
+run_experiment_k(6) # No need to save but requires counters
 
 echo "Script execution completed."
