@@ -14,7 +14,6 @@ if [ $# -le 4 ]; then
 fi
 
 if [ "$resume" -eq 1 ]; then
-    resumeAFL="AFL_AUTORESUME=1 "
     AFL_SHUFFLE_QUEUE=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_DUMB_FORKSRV=1 AFL_FAST_CAL=1 AFL_IGNORE_PROBLEMS=1 AFL_AUTORESUME=1 AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 \
 AFL_CUSTOM_MUTATOR_LIBRARY="$cm_path/cm-gem5c.so" \
 $afl -m 50000 -t 99000 -i $input -o $output -- /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt \
@@ -24,5 +23,4 @@ else
 AFL_CUSTOM_MUTATOR_LIBRARY="$cm_path/cm-gem5c.so" \
 $afl -m 50000 -t 99000 -i $input -o $output -- /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt \
 /home/ubuntu/ASEGem5/hello-custom-binary-Ex.py --isa X86 --input @@
-
 fi
