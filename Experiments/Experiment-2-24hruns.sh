@@ -26,11 +26,11 @@ input=$main/input
 output=$main/output
 
 
-# Total 7200 hours
+# Total 1920 hours
 
 j=$settings_no # We use only the winning settings
 
-# Run a configureation script in a loop 30 times
+# Run a configuration script in a loop 30 times
 for ((k = 1; k <= 8; k++)); do
     script_cong_k=$script$k.sh # 1-8 options
     cm_folders_j=CM_EXP_$j
