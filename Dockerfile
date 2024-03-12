@@ -108,9 +108,14 @@ ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
 CMD [ "echo", "Default argument from CMD instruction" ]
 
-#Run the filtering process
+#Pre-fuzzing process
 WORKDIR /home/debian/experiment
-#/home/debian/ASEGem5/scripts/filterTests.sh /home/debian/experiment/input/ /home/debian/experiment/output/  /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py
+RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
+RUN unzip LLM_test_inputs.zip
+WORKDIR /home/debian/experiment/LLM_test_inputs
 
+# TODO - add the cmin set wget
+
+#/home/debian/ASEGem5/scripts/filterTests.sh /home/debian/experiment/input/ /home/debian/experiment/output/  /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py
 #Run AFL 
 #AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_MAP_SIZE=1200000 AFL_SKIP_BIN_CHECK=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY="/home/debian/ASEGem5/src/custom_mutators/cm-gem5.so" timeout 24h /home/debian/AFLplusplus/afl-fuzz  -m 50000 -t 99000 -i /home/debian/experiment/output/input/ -o /home/debian/experiment/outputFuzzing /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py  --isa X86 --input @@
