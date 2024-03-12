@@ -52,9 +52,9 @@ run_experiment_k() {
 script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
-main=/home/ubuntu/TinyLlama-test/
-input=/home/ubuntu/TinyLlama-test/input
-output=/home/ubuntu/TinyLlama-test/output
+main=$1 # Where is the fuzzing data folder ?
+input=$main/input
+output=$main/output
 
 
 # Total 1800 hours

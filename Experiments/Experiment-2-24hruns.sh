@@ -34,6 +34,7 @@ j=$settings_no # We use only the winning settings
 for ((k = 1; k <= 8; k++)); do
     script_cong_k=$script$k.sh # 1-8 options
     cm_folders_j=CM_EXP_$j
+    echo "Using settings: $cm_folders_j"
 
     # Run the script in a loop 30 times
     for ((i = 1; i <= 10; i++)); do
