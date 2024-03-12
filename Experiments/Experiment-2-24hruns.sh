@@ -45,7 +45,7 @@ for ((k = 1; k <= 8; k++)); do
         script_pid=$!
 
         # Sleep for 24 hours
-        sleep 1 # 86400
+        sleep 86400
 
         # Kill the script after 60 minutes
         kill_script $script_pid
