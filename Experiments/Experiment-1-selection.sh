@@ -39,7 +39,7 @@ run_experiment_k() {
     	    script_pid=$!
 
     	    # Sleep for 60 minutes
-    	    sleep 2 # 3600
+    	    sleep 3600
 
     	    # Kill the script after 60 minutes
      	    kill_script $script_pid
