@@ -58,6 +58,8 @@ output=$main/output
 
 
 # Total 1800 hours
+# 	900 for script 2
+# 	900 for script6
 
 
 # Run a configuration script in a loop 30 times
