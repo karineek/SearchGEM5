@@ -60,7 +60,6 @@ RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/src
 RUN mkdir /home/debian/ASEGem5/Experiments
 COPY ./src /home/debian/ASEGem5/src
-COPY ./Experiments /home/debian/ASEGem5/Experiments
 WORKDIR /home/debian/ASEGem5
 ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 WORKDIR /home/debian
@@ -97,22 +96,27 @@ RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
 RUN ./compile_experiments.sh
 RUN ./compile_share.sh 1 1 1
 
+
+RUN apt-get -y install zip
+#Pre-fuzzing process
+WORKDIR /home/debian/experiment
+RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
+RUN unzip LLM_test_inputs.zip
+WORKDIR /home/debian/experiment/LLM_test_inputs
+
 # Prepare the experiment scripts
+COPY ./Experiments /home/debian/ASEGem5/Experiments
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-2-24hruns.sh
 RUN sed -i "s\/home/ubuntu/ASEGem5\/home/debian/ASEGem5\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN sed -i "s\/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt\/home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
 
+
 ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
 CMD [ "echo", "Default argument from CMD instruction" ]
 
-#Pre-fuzzing process
-WORKDIR /home/debian/experiment
-RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
-RUN unzip LLM_test_inputs.zip
-WORKDIR /home/debian/experiment/LLM_test_inputs
 
 # TODO - add the cmin set wget
 
