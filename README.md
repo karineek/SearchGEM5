@@ -19,7 +19,17 @@ There are two projects:
 }
 ```
 
-# Testing gem5
+# Testing gem5 - Docker
+
+We prepared a docker image to run all our experiments.
+
+To build the docker image:
+```
+docker build -t dockerfile .
+```
+TODO.
+
+# Testing gem5 - Details
 
 Zenodo artifact record: https://zenodo.org/records/8316685 (SSBSE 2023 Artifact).
 
