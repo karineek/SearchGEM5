@@ -26,7 +26,11 @@ input=$main/input
 output=$main/output
 
 
-# Total 1920 hours
+# Total 1920 hours - per LLM set
+# j - configuration
+# k - is the script version 1-8
+# i - repetition
+# main - LLM set
 
 j=$settings_no # We use only the winning settings
 
