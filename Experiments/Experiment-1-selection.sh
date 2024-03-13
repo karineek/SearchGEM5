@@ -52,14 +52,14 @@ run_experiment_k() {
 script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
-main=$1 # Where is the fuzzing data folder ?
+main=$1 # Where is the fuzzing data folder?
 input=$main/input
 output=$main/output
 
 
 # Total 1800 hours
 # 	900 for script 2
-# 	900 for script6
+# 	900 for script 6
 
 
 # Run a configuration script in a loop 30 times
