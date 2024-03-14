@@ -102,7 +102,41 @@ RUN apt-get -y install zip
 WORKDIR /home/debian/experiment
 RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
 RUN unzip LLM_test_inputs.zip
-WORKDIR /home/debian/experiment/LLM_test_inputs
+WORKDIR /home/debian/experiment/
+RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
+
+# Model Phi
+WORKDIR /home/debian/experiment/Phi
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# Model CodeBooga
+WORKDIR /home/debian/experiment/CodeBooga  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done 
+
+# Model Llama
+WORKDIR /home/debian/experiment/Llama  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# Model Magicoder
+WORKDIR /home/debian/experiment/Magicoder
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# Model TinyLlama
+WORKDIR /home/debian/experiment/TinyLlama
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# Model gpt3.5-new
+WORKDIR /home/debian/experiment/gpt3.5-new  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# Model gpt3.5-old
+WORKDIR /home/debian/experiment/gpt3.5-old
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+
+# TODO - add the cmin set wget
+# TODO add commands for cmin sets too
+
+WORKDIR /home/debian/experiment
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
@@ -112,13 +146,9 @@ RUN sed -i "s\/home/ubuntu/ASEGem5\/home/debian/ASEGem5\g" /home/debian/ASEGem5/
 RUN sed -i "s\/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt\/home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
 
-
 ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
 CMD [ "echo", "Default argument from CMD instruction" ]
-
-
-# TODO - add the cmin set wget
 
 #/home/debian/ASEGem5/scripts/filterTests.sh /home/debian/experiment/input/ /home/debian/experiment/output/  /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py
 #Run AFL 
