@@ -148,7 +148,6 @@ RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
 
 RUN echo "Before fuzzing run this :<echo core >/proc/sys/kernel/core_pattern>"
 
-USER debian
 WORKDIR /home/debian/ASEGem5/Experiments
 ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
