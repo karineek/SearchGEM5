@@ -62,6 +62,7 @@ typedef struct my_mutator {
 #define MAX_FILE_NAME_SIZE (100)
 #define MAX_ARGS_SIZE (140)
 #define MAX_DATA_SIZE (45)
+#define AFL_CUSTOM_MUTATOR_FAILED { *out_buf = NULL; return 0; } // We cannot work with this
 
 // AFL++ Interface functions
 my_mutator_t *afl_custom_init(afl_state_t *afl, unsigned int seed);
