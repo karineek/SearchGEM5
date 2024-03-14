@@ -26,3 +26,6 @@ AFL_SKIP_BIN_CHECK=1 AFL_MAP_SIZE=1200000 AFL_CUSTOM_MUTATOR_LIBRARY="$cm_path/c
 $afl -m 50000 -t 99000 -i $input -o $output -- /home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt \
 /home/ubuntu/ASEGem5/hello-custom-binary-Ex.py --isa X86 --input @@
 fi
+echo "==End Fuzzing round, script 4=="
+date
+echo "cm_path=$1; afl=$2; input=$3; output=$4; resume=$5;"
