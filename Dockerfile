@@ -146,6 +146,10 @@ RUN sed -i "s\/home/ubuntu/ASEGem5\/home/debian/ASEGem5\g" /home/debian/ASEGem5/
 RUN sed -i "s\/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt\/home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
 
+RUN echo "Before fuzzing run this :<echo core >/proc/sys/kernel/core_pattern>"
+
+USER debian
+WORKDIR /home/debian/ASEGem5/Experiments
 ENTRYPOINT [ "/home/debian/ASEGem5/Experiments/runningScript.sh" ]
 
 CMD [ "echo", "Default argument from CMD instruction" ]

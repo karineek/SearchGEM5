@@ -18,9 +18,11 @@ else
 	else
 		i=$5
 		./Experiment-2-24hruns.sh /home/debian/experiment/$model $j $k $i
-	if
+	fi
 ## Run AFL
-#AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_MAP_SIZE=1200000 AFL_SKIP_BIN_CHECK=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY='/home/debian/ASEGem5/src/custom_mutators/cm-gem5.so' timeout 24h /home/debian/AFLplusplus/afl-fuzz  -m 50000 -t 99000 -i /home/debian/experiment/output/input/ -o /home/debian/experiment/outputFuzzing_$1 /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt /home/debian/ASEGem5/hello-custom-binary-Ex.py  --isa X86 --input @@
+#AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1 AFL_MAP_SIZE=1200000 AFL_SKIP_BIN_CHECK=1 AFL_CUSTOM_MUTATOR_ONLY=1 AFL_CUSTOM_MUTATOR_LIBRARY='/home/debian/ASEGem5/src/custom_mutators/cm-gem5.so' timeout 24h /home/debian/AFLplusplus/afl-fuzz  -m 50000 -t 99000 -i /home/debian/experiment/output/input/ -o /home/debian/experiment/outputFuzzing_$1 /home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt 
+# /home/debian/ASEGem5/hello-custom-binary-Ex.py  --isa X86 --input @@
+
 fi
 
 # Full models list
