@@ -211,22 +211,21 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     size_t actual_in_buf_size = strlen((const char *) buf);
     if ((buf_size < 11) || (actual_in_buf_size < 11)) {
 	WARNF(">>-6A Odd size of register is: %zu, %zu", actual_in_buf_size, buf_size);
-        return 0; // We cannot work with this
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
     // Check if we have space
     size_t new_size = MAX_CMDLINE_SIZE <= max_size ? MAX_CMDLINE_SIZE : max_size;
     if (new_size < buf_size) {
         WARNF(">>-6B Max size of register is: %zu, %zu", new_size, buf_size);
-        return 0; // We cannot work with this
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
 
     // Allocate a new buffer for the edits
     uint8_t *new_buf = malloc(new_size);
     if (!new_buf) {
         WARNF(">>-7 Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
-        return 0;
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
-
     // Copy the original input data
     memcpy(new_buf, buf, buf_size);
 
@@ -261,7 +260,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 #ifdef TEST_CM
         WARNF(">>-8-A Bad generation for buffer with mutations.");
 #endif
-        return 0;
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
 
 #ifdef TEST_CM
@@ -290,20 +289,8 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
         writeToLogFile("afl_log.log", ">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
 #endif
         free(new_buf);
-	return 0;
+	AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     } // Else continue with the mutations
-
-
-// This is too conservative - even after adding timeout handling, as it will miss many legit errors
-    // Check if the test case ends with seg-fault and if so, return 0
-//    if (!isTestInputValid((const char *) new_buf)) {
-//#ifdef TEST_CM
-//       writeToLogFile("afl_log.log", ">>-8-C Bad generation. Corrupted test input.");
-//       writeToLogFile("afl_log.log",(const char *) new_buf);
-//#endif
-//       free(new_buf);
-//       return 0;
-//    }
 
 #ifdef SAVE_ALL
     // Write the test before exit
@@ -315,7 +302,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     uint8_t *new_new_buf = malloc(actual_size);
     if ((!new_new_buf)) {
         WARNF(">>-9 Bad re-allocation for buffer for mutations. Could not allocate %zu size buffer.", actual_size);
-        return 0;
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
     memcpy(new_new_buf, new_buf, actual_size);
     // Clear the old data
