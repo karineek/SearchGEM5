@@ -14,13 +14,13 @@ elif [ "$1" = "exp" ]; then
 	# j - configuration of counters 1-30 (Experiment 1 does selection, Experiment 2 uses only the winner
 	# i - repeatition number
 	# model - name of the folder of the data (e.g. Phi or TinyLlama)
-	model=$2
-	k=$3
-	j=$4
-	if [ "$1" -eq 1 ]; then
+	model=$3
+	k=$4
+	j=$5
+	if [ "$2" -eq 1 ]; then
 		./Experiment-1-selection.sh /home/debian/experiment/$model $k $j
 	else
-		i=$5
+		i=$6
 		./Experiment-2-24hruns.sh /home/debian/experiment/$model $j $k $i
 	fi
 
