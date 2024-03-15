@@ -113,37 +113,37 @@ RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.t
 # Model Phi
 WORKDIR /home/debian/experiment/Phi
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model CodeBooga
 WORKDIR /home/debian/experiment/CodeBooga  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done 
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model Llama
 WORKDIR /home/debian/experiment/Llama  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model Magicoder
 WORKDIR /home/debian/experiment/Magicoder
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model TinyLlama
 WORKDIR /home/debian/experiment/TinyLlama
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model gpt3.5-new
 WORKDIR /home/debian/experiment/gpt3.5-new  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # Model gpt3.5-old
 WORKDIR /home/debian/experiment/gpt3.5-old
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
-RUN rm  binary/fuzz_*
+RUN rm  binary/fuzz_* || true
 
 # TODO - add the cmin set wget
 # TODO add commands for cmin sets too
