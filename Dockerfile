@@ -99,10 +99,16 @@ RUN ./compile_share.sh 1 1 1
 
 RUN apt-get -y install zip
 #Pre-fuzzing process
+WORKDIR /home/debian
+RUN mkdir outputs
+RUN mkdir inputs
+COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
+
 WORKDIR /home/debian/experiment
 RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
 RUN unzip LLM_test_inputs.zip
 WORKDIR /home/debian/experiment/LLM_test_inputs
+
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
