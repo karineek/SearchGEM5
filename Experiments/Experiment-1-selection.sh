@@ -34,7 +34,8 @@ run_experiment_k() {
         # Redirect the output to repeat_$i.txt and kill after 60 minutes
 	output_folder=$output"_"$k"_setting_"$j"_repeat_"$i
         logger="repeat_script_"$k"_setting_"$j"_repeat_"$i".txt"
-        $script_cong_k $cm_folders_j $afl $input $output_folder 0 > $logger &
+        $script_cong_k $cm_folders_j $afl $input $output_folder 0 > /dev/null 2>&1 &
+	# Getting out of hands with counters.
 
 	# Capture the process ID of the background process
     	script_pid=$!
