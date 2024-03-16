@@ -115,6 +115,7 @@ WORKDIR /home/debian/experiment/Phi
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model Phi cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r Phi Phi-cmin
 RUN rm -rf Phi-cmin/input
 RUN mv Phi-cmin/cmin Phi-cmin/input
@@ -124,6 +125,7 @@ WORKDIR /home/debian/experiment/CodeBooga
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done 
 RUN rm  binary/fuzz_* || true
 # Model CodeBooga cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r CodeBooga CodeBooga-cmin
 RUN rm -rf CodeBooga-cmin/input
 RUN mv CodeBooga-cmin/cmin CodeBooga-cmin/input
@@ -133,6 +135,7 @@ WORKDIR /home/debian/experiment/Llama
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model Llama cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r Llama Llama-cmin
 RUN rm -rf Llama-cmin/input
 RUN mv Llama-cmin/cmin Llama-cmin/input
@@ -142,6 +145,7 @@ WORKDIR /home/debian/experiment/Magicoder
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model Magicoder cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r Magicoder Magicoder-cmin
 RUN rm -rf Magicoder-cmin/input
 RUN mv Magicoder-cmin/cmin Magicoder-cmin/input
@@ -152,6 +156,7 @@ WORKDIR /home/debian/experiment/TinyLlama
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model TinyLlama cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r TinyLlama TinyLlama-cmin
 RUN rm -rf TinyLlama-cmin/input
 RUN mv TinyLlama-cmin/cmin TinyLlama-cmin/input
@@ -161,6 +166,7 @@ WORKDIR /home/debian/experiment/gpt3.5-new
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model gpt3.5-new cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r gpt3.5-new gpt3.5-new-cmin
 RUN rm -rf gpt3.5-new-cmin/input
 RUN mv gpt3.5-new-cmin/cmin gpt3.5-new-cmin/input
@@ -170,15 +176,13 @@ WORKDIR /home/debian/experiment/gpt3.5-old
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
 # Model gpt3.5-old cmin
+WORKDIR /home/debian/experiment/
 RUN cp -r gpt3.5-old gpt3.5-old-cmin
 RUN rm -rf gpt3.5-old-cmin/input
 RUN mv gpt3.5-old-cmin/cmin gpt3.5-old-cmin/input
 
-# TODO - add the cmin set wget
-# TODO add commands for cmin sets too
-
+# Return to main experiment folder
 WORKDIR /home/debian/experiment
-
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
