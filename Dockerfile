@@ -1,9 +1,11 @@
 FROM debian:12
 
+# Create User
 USER root
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN useradd -ms /bin/bash debian
 
+# Install Env.
 RUN apt-get -y update
 RUN apt install -y build-essential git m4 scons zlib1g zlib1g-dev \
     libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
@@ -23,10 +25,8 @@ RUN pip3 install --upgrade pip --break-system-packages
 RUN pip3 install wheel --break-system-packages
 
 USER root
-#RUN apt-get remove clang-10 clang-11 clang-9 clang-12
 RUN rm -rf /usr/bin/llvm-config
 RUN apt -y autoremove
-
 # Getting AFL++
 RUN apt-get -y install gcc-11 g++-11 cpp-11 wget lsb-release gnupg software-properties-common
 RUN rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
@@ -52,10 +52,10 @@ RUN apt-get install -y gcc-11-plugin-dev
 RUN apt -y autoremove
 
 # Update default clang to 13
-#RUN update-alternatives --remove-all clang 
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --slave /usr/bin/clang++ clag++ /usr/bin/clang++-13
 RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-13 1300
 
+# Preparing Scripts to test gem5
 RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/src
 RUN mkdir /home/debian/ASEGem5/Experiments
@@ -93,8 +93,6 @@ RUN ./build/X86/gem5.opt -C
 RUN apt-get -y install zip
 #Pre-fuzzing process
 WORKDIR /home/debian
-RUN mkdir outputs
-RUN mkdir inputs
 COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
 
 WORKDIR /home/debian/experiment
@@ -102,6 +100,7 @@ RUN wget "https://zenodo.org/records/10823334/files/LLM_test_inputs.zip" # Get t
 RUN unzip LLM_test_inputs.zip
 WORKDIR /home/debian/experiment/
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
+RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */cmin/*.txt
 
 # Model Phi
 WORKDIR /home/debian/experiment/Phi
@@ -142,7 +141,6 @@ WORKDIR /home/debian/experiment/
 RUN cp -r Magicoder Magicoder-cmin
 RUN rm -rf Magicoder-cmin/input
 RUN mv Magicoder-cmin/cmin Magicoder-cmin/input
-
 
 # Model TinyLlama
 WORKDIR /home/debian/experiment/TinyLlama
