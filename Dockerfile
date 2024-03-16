@@ -90,13 +90,6 @@ RUN pip install -r requirements.txt --break-system-packages
 RUN CC=afl-cc CXX=afl-c++ scons build/X86/gem5.opt -j 4 --no-cache
 RUN ./build/X86/gem5.opt -C
 
-# Prepare for fuzzing - we will need ASEGem5 at some point
-WORKDIR /home/debian/ASEGem5/src/custom_mutators
-RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
-RUN ./compile_experiments.sh
-RUN ./compile_share.sh 1 1 1
-
-
 RUN apt-get -y install zip
 #Pre-fuzzing process
 WORKDIR /home/debian
@@ -186,6 +179,12 @@ WORKDIR /home/debian/experiment
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
+
+# Prepare for fuzzing - we will need ASEGem5 at some point
+WORKDIR /home/debian/ASEGem5/src/custom_mutators
+RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
+RUN ./compile_experiments.sh
+RUN ./compile_share.sh 1 1 1
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-2-24hruns.sh
 RUN sed -i "s\/home/ubuntu/ASEGem5\/home/debian/ASEGem5\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
