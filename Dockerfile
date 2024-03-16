@@ -105,7 +105,7 @@ RUN mkdir inputs
 COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
 
 WORKDIR /home/debian/experiment
-RUN wget "https://zenodo.org/records/10798374/files/LLM_test_inputs.zip" # Get the data
+RUN wget "https://zenodo.org/records/10823334/files/LLM_test_inputs.zip" # Get the data
 RUN unzip LLM_test_inputs.zip
 WORKDIR /home/debian/experiment/
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
