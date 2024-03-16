@@ -114,36 +114,65 @@ RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.t
 WORKDIR /home/debian/experiment/Phi
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model Phi cmin
+RUN cp -r Phi Phi-cmin
+RUN rm -rf Phi-cmin/input
+RUN mv Phi-cmin/cmin Phi-cmin/input
 
 # Model CodeBooga
 WORKDIR /home/debian/experiment/CodeBooga  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done 
 RUN rm  binary/fuzz_* || true
+# Model CodeBooga cmin
+RUN cp -r CodeBooga CodeBooga-cmin
+RUN rm -rf CodeBooga-cmin/input
+RUN mv CodeBooga-cmin/cmin CodeBooga-cmin/input
 
 # Model Llama
 WORKDIR /home/debian/experiment/Llama  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model Llama cmin
+RUN cp -r Llama Llama-cmin
+RUN rm -rf Llama-cmin/input
+RUN mv Llama-cmin/cmin Llama-cmin/input
 
 # Model Magicoder
 WORKDIR /home/debian/experiment/Magicoder
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model Magicoder cmin
+RUN cp -r Magicoder Magicoder-cmin
+RUN rm -rf Magicoder-cmin/input
+RUN mv Magicoder-cmin/cmin Magicoder-cmin/input
+
 
 # Model TinyLlama
 WORKDIR /home/debian/experiment/TinyLlama
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model TinyLlama cmin
+RUN cp -r TinyLlama TinyLlama-cmin
+RUN rm -rf TinyLlama-cmin/input
+RUN mv TinyLlama-cmin/cmin TinyLlama-cmin/input
 
 # Model gpt3.5-new
 WORKDIR /home/debian/experiment/gpt3.5-new  
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model gpt3.5-new cmin
+RUN cp -r gpt3.5-new gpt3.5-new-cmin
+RUN rm -rf gpt3.5-new-cmin/input
+RUN mv gpt3.5-new-cmin/cmin gpt3.5-new-cmin/input
 
 # Model gpt3.5-old
 WORKDIR /home/debian/experiment/gpt3.5-old
 RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
 RUN rm  binary/fuzz_* || true
+# Model gpt3.5-old cmin
+RUN cp -r gpt3.5-old gpt3.5-old-cmin
+RUN rm -rf gpt3.5-old-cmin/input
+RUN mv gpt3.5-old-cmin/cmin gpt3.5-old-cmin/input
 
 # TODO - add the cmin set wget
 # TODO add commands for cmin sets too
