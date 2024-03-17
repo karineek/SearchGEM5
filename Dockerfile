@@ -30,7 +30,6 @@ RUN apt -y autoremove
 # Getting AFL++
 RUN apt-get -y install gcc-11 g++-11 cpp-11 wget lsb-release gnupg software-properties-common
 RUN rm /usr/bin/cpp /usr/bin/gcc /usr/bin/g++  /usr/bin/gcov  /usr/bin/c++
-#RUN rm /usr/local/bin/cpp /usr/local/bin/gcc /usr/local/bin/g++ /usr/local/bin/gcov  /usr/local/bin/c++
 RUN rm /usr/bin/cc
 RUN ln -s /usr/bin/cpp-11 /usr/bin/cpp
 RUN ln -s /usr/bin/gcc-11 /usr/bin/gcc
@@ -177,11 +176,11 @@ WORKDIR /home/debian/experiment
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
-COPY ./src  /home/debian/ASEGem5/src/custom_mutators
+COPY ./src /home/debian/ASEGem5/src/custom_mutators
 
 # Prepare for fuzzing - we will need ASEGem5 at some point
 WORKDIR /home/debian/ASEGem5/src/custom_mutators
-RUN sed "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
+RUN sed -i "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/custom_mutators/compile_share_test.sh
 RUN sed -i "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
 RUN head /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
 RUN /home/debian/ASEGem5/src/custom_mutators/compile_experiments.sh
