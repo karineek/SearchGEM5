@@ -181,7 +181,8 @@ COPY ./src  /home/debian/ASEGem5/src/custom_mutators
 
 # Prepare for fuzzing - we will need ASEGem5 at some point
 WORKDIR /home/debian/ASEGem5/src/custom_mutators
-RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" ./compile_share.sh
+RUN sed "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" ./compile_share.sh
+RUN sed -i "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" ./compile_share.sh
 RUN ./compile_experiments.sh
 RUN ./compile_share.sh 1 1 1
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
