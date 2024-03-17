@@ -183,6 +183,7 @@ COPY ./src  /home/debian/ASEGem5/src/custom_mutators
 WORKDIR /home/debian/ASEGem5/src/custom_mutators
 RUN sed "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
 RUN sed -i "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
+RUN head /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
 RUN /home/debian/ASEGem5/src/custom_mutators/compile_experiments.sh
 RUN /home/debian/ASEGem5/src/custom_mutators/compile_share.sh 1 1 1
 RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
