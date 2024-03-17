@@ -177,6 +177,7 @@ WORKDIR /home/debian/experiment
 
 # Prepare the experiment scripts
 COPY ./Experiments /home/debian/ASEGem5/Experiments
+COPY ./src  /home/debian/ASEGem5/src/custom_mutators
 
 # Prepare for fuzzing - we will need ASEGem5 at some point
 WORKDIR /home/debian/ASEGem5/src/custom_mutators
