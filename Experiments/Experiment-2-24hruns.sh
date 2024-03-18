@@ -20,10 +20,11 @@ kill_script() {
 script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
-main=$1 	# Which LLM data now?
-settings_no=$2 	# The winner of Experiment 1: 1-30 value.
-script_k=$3  	# 8,1,5,6,7, and if time allows 2,3,4.
-repeat_i=$4 	# Which repeat i=1-30, but we do now 1-10
+ASE=$1
+main=$2 	# Which LLM data now?
+settings_no=$3 	# The winner of Experiment 1: 1-30 value.
+script_k=$4  	# 8,1,5,6,7, and if time allows 2,3,4.
+repeat_i=$5 	# Which repeat i=1-30, but we do now 1-10
 
 # Total 1920 hours - per LLM set
 # j - configuration
@@ -40,7 +41,7 @@ i=$repeat_i		# i
 # Run a configuration script in a loop 30 times
 #for ((k = 1; k <= 8; k++)); do
     script_cong_k=$script$k.sh # 1-8 options
-    cm_folders_j=CM_EXP_$j
+    cm_folders_j=$ASE/CM_EXP_$j
     echo "Using settings: $cm_folders_j"
 
     # Run the script in a loop 30 times
