@@ -19,10 +19,10 @@ elif [ "$1" = "exp" ]; then
 	j=$5
 	output=$6
 	if [ "$2" -eq 1 ]; then
-		./Experiment-1-selection.sh /home/debian/experiment/$model $k $j $output
+		./Experiment-1-selection.sh /home/debian/ASEGem5/scripts/ /home/debian/experiment/$model $k $j $output
 	else
 		i=$7
-		./Experiment-2-24hruns.sh /home/debian/experiment/$model $j $k $i $output
+		./Experiment-2-24hruns.sh /home/debian/ASEGem5/scripts/ /home/debian/experiment/$model $j $k $i $output
 	fi
 
 else
