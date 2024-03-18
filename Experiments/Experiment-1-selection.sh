@@ -26,7 +26,7 @@ run_experiment_k() {
 
     # For each setting out of the 30.
     # Seq. runs from: for ((j = 1; j <= 30; j++)); do
-    cm_folders_j=CM_EXP_$j
+    cm_folders_j=$ASE/CM_EXP_$j
 
     # Run the script in a loop 30 times
     for ((i = 1; i <= 30; i++)); do
@@ -53,12 +53,13 @@ run_experiment_k() {
 script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
-main=$1 # Where is the fuzzing data folder?
+ASE=$1
+main=$2 # Where is the fuzzing data folder?
 input=$main/input
 #output=$main/output
-script_k=$2  # 2 or 6
-CM_ver_j=$3  # 1 to 30
-output=$4
+script_k=$3  # 2 or 6
+CM_ver_j=$4  # 1 to 30
+output=$5
 # Total 1800 hours
 # 	900 for script 2
 # 	900 for script 6
