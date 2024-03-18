@@ -56,10 +56,10 @@ afl=/home/ubuntu/AFLplusplus/afl-fuzz
 ASE=$1
 main=$2 # Where is the fuzzing data folder?
 input=$main/input
-#output=$main/output
+output=$main/output
 script_k=$3  # 2 or 6
 CM_ver_j=$4  # 1 to 30
-output=$5
+outputALL=$5
 # Total 1800 hours
 # 	900 for script 2
 # 	900 for script 6
@@ -67,5 +67,9 @@ output=$5
 
 # Run a configuration script in a loop 30 times
 run_experiment_k $script_k $CM_ver_j # No need to save but it requires counters
+
+# Copying All data
+cp -r $main $outputALL
+cp repeat_script_* $outputALL/
 
 echo "Script execution completed."
