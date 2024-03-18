@@ -25,6 +25,7 @@ main=$2 	# Which LLM data now?
 settings_no=$3 	# The winner of Experiment 1: 1-30 value.
 script_k=$4  	# 8,1,5,6,7, and if time allows 2,3,4.
 repeat_i=$5 	# Which repeat i=1-30, but we do now 1-10
+outputALL=$6    # Output shared out
 
 # Total 1920 hours - per LLM set
 # j - configuration
@@ -59,3 +60,7 @@ i=$repeat_i		# i
         kill_script $script_pid
     #done
 #done
+
+# Copying All data
+cp -r $main $outputALL
+cp repeat_script_* $outputALL/
