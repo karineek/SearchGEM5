@@ -55,10 +55,10 @@ script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
 main=$1 # Where is the fuzzing data folder?
 input=$main/input
-output=$main/output
+#output=$main/output
 script_k=$2  # 2 or 6
 CM_ver_j=$3  # 1 to 30
-
+output=$4
 # Total 1800 hours
 # 	900 for script 2
 # 	900 for script 6
