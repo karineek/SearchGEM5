@@ -29,12 +29,12 @@ docker build -t dockerfile .
 ```
 To start the docker for experiment 1:
 ```
-docker run -dt 66b05a88d0f4 exp 1 TinyLlama 2 1 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 1 ./output-1
 ...
-docker run -dt 66b05a88d0f4 exp 1 TinyLlama 2 30 ./output-1
-docker run -dt 66b05a88d0f4 exp 1 TinyLlama 6 1 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 30 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 6 1 ./output-1
 ...
-docker run -dt 66b05a88d0f4 exp 1 TinyLlama 6 30 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 6 30 ./output-1
 ```
 
 # Testing gem5 - Details
