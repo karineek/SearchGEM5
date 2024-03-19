@@ -27,7 +27,15 @@ To build the docker image:
 ```
 docker build -t dockerfile .
 ```
-TODO.
+To start the docker for experiment 1:
+```
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 1 ./output-1
+...
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 30 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 6 1 ./output-1
+...
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 6 30 ./output-1
+```
 
 # Testing gem5 - Details
 
