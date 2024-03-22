@@ -42,6 +42,37 @@ docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 6 30 ./output-1
 ```
 Each instance will take 30 hours. There are 60 instances in this experiment.
 
+To start the docker for experiment 2:
+```
+mkdir output-2-TinyLlama;
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 1 8 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 1 8 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 2 8 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 2 8 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 3 8 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 3 8 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 4 8 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 4 8 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 5 25 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 5 25 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 6 25 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 6 25 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 7 25 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 7 8 10 ./output-2-TinyLlama
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 8 25 1 ./output-2-TinyLlama
+...
+docker run -dt 5e19292c5b77 exp 2 TinyLlama 8 25 10 ./output-2-TinyLlama
+```
+Each instance will take 24 hours. There are 80 instances in this experiment per input corpus.
+We have 14 input corpora and so 1120 days of runs.
+
 # Testing gem5 - Details
 
 Zenodo artifact record: https://zenodo.org/records/8316685 (SSBSE 2023 Artifact).
