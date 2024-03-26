@@ -37,8 +37,8 @@ run_experiment_k() {
         logger="repeat_script_"$k"_setting_"$j"_repeat_"$i".txt"
 
         echo "${ASE}$script_cong_k $cm_folders_j $afl $input $output_folder 0 2>&1 &"
-	${ASE}$script_cong_k $cm_folders_j $afl $input $output_folder 0 2>&1 &
-#        ${ASE}$script_cong_k $cm_folders_j $afl $input $output_folder 0 > $logger 2>&1 &
+#	${ASE}$script_cong_k $cm_folders_j $afl $input $output_folder 0 2>&1 &
+        ${ASE}$script_cong_k $cm_folders_j $afl $input $output_folder 0 > $logger 2>&1 &
 	# Getting out of hand with counters: /dev/null 2>&1
 
 	# Capture the process ID of the background process
