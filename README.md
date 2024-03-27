@@ -29,7 +29,7 @@ docker build -t dockerfile .
 ```
 To start the docker for experiment 1:
 ```
-docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 1 ./output-1
+docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 1 ./output-1 --cpuset-cpus=0
 ...
 docker run -dt 66b05a88d0f4 exp 1 TinyLlama-cmin 2 15 ./output-1
 ...
