@@ -2,7 +2,7 @@
 
 # Input value
 i=$1 # days 1 to 30
-container=$2 # container hash
+container=$2 # docker image hash
 
 # Array of data values
 data=("CodeBooga" "Llama" "Magicoder" "Phi" "TinyLlama" "gpt3.5-new" "gpt3.5-old")
