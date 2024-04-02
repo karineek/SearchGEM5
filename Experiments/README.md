@@ -139,13 +139,11 @@ We parsed the data:
 grep "max_depth " */*/*/*/default/fuzzer_stats | cut -d'/' -f1,4,6 > max_depth.log
 grep "corpus_count " */*/*/*/default/fuzzer_stats | cut -d'/' -f1,4,6 > corpus_count.log
 grep "edges_found " */*/*/*/default/fuzzer_stats | cut -d'/' -f1,4,6 > edges_found.log
-grep "fuzzer_stats " */*/*/*/default/fuzzer_stats | cut -d'/' -f1,4,6 > fuzzer_stats.log
 grep "run_time " */*/*/*/default/fuzzer_stats | cut -d'/' -f1,4,6 > run_time.log
 
 sed 's:outputsExp1_part: :g' max_depth.log | sed 's:_3/output_:\t:g' | sed 's:_setting_:\t:g' | sed 's:_repeat_:\t:g' | sed 's,/fuzzer_stats:max_depth,\t,g' | sed 's,:, ,g' | sed 's/ //g' > max_depth.tsv
 sed 's:outputsExp1_part: :g' corpus_count.log | sed 's:_3/output_:\t:g' | sed 's:_setting_:\t:g' | sed 's:_repeat_:\t:g' | sed 's,/fuzzer_stats:corpus_count,\t,g' | sed 's,:, ,g' | sed 's/ //g' > corpus_count.tsv
 sed 's:outputsExp1_part: :g' edges_found.log | sed 's:_3/output_:\t:g' | sed 's:_setting_:\t:g' | sed 's:_repeat_:\t:g' | sed 's,/fuzzer_stats:edges_found,\t,g' | sed 's,:, ,g' | sed 's/ //g' > edges_found.tsv
-sed 's:outputsExp1_part: :g' fuzzer_stats.log | sed 's:_3/output_:\t:g' | sed 's:_setting_:\t:g' | sed 's:_repeat_:\t:g' | sed 's,/fuzzer_stats:fuzzer_stats,\t,g' | sed 's,:, ,g' | sed 's/ //g' > fuzzer_stats.tsv
 sed 's:outputsExp1_part: :g' run_time.log | sed 's:_3/output_:\t:g' | sed 's:_setting_:\t:g' | sed 's:_repeat_:\t:g' | sed 's,/fuzzer_stats:run_time,\t,g' | sed 's,:, ,g' | sed 's/ //g' > run_time.tsv
 ```
 (which might be a bit different depending on how you ran experiment 1.)
