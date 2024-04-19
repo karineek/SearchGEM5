@@ -50,6 +50,7 @@ i=$repeat_i		# i
     # Redirect the output to repeat_$i.txt and kill after 60 minutes
     output_folder=$output"_"$k"_setting_"$j"_repeat_"$i
     echo "output_folder=$output_folder"
+    echo "Run Command: ${ASE}${script_cong_k} $cm_folders_j $afl $input $output_folder 0"
     ${ASE}${script_cong_k} $cm_folders_j $afl $input $output_folder 0 > "repeat_script_"$k"_setting_"$j"_repeat_"$i".txt" &
 
         # Capture the process ID of the background process
