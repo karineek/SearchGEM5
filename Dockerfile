@@ -95,7 +95,7 @@ WORKDIR /home/debian
 COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
 
 WORKDIR /home/debian/experiment
-RUN wget "https://zenodo.org/records/10998516/files/LLM_test_inputs-4FuzzExp2.zip" # Get the data
+RUN wget "https://zenodo.org/records/10999115/files/LLM_test_inputs-4FuzzExp2.zip" # Get the data
 RUN unzip LLM_test_inputs-4FuzzExp2.zip
 WORKDIR /home/debian/experiment/
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
