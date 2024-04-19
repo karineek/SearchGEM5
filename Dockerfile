@@ -99,7 +99,6 @@ RUN wget "https://zenodo.org/records/10998516/files/LLM_test_inputs-4FuzzExp2.zi
 RUN unzip LLM_test_inputs-4FuzzExp2.zip
 WORKDIR /home/debian/experiment/
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
-RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */cmin/*.txt
 
 # Model Phi
 WORKDIR /home/debian/experiment/Phi
