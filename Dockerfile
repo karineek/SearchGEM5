@@ -191,8 +191,8 @@ RUN sed -i "s:/home/ubuntu/AFLplusplus:$AFL_HOME:g" /home/debian/ASEGem5/src/cus
 RUN head /home/debian/ASEGem5/src/custom_mutators/compile_share.sh
 RUN /home/debian/ASEGem5/src/custom_mutators/compile_experiments.sh
 RUN /home/debian/ASEGem5/src/custom_mutators/compile_share.sh 1 1 1
-RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
-RUN sed -i "s\/home/ubuntu/AFLplusplus\/$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-2-24hruns.sh
+RUN sed -i "s\/home/ubuntu/AFLplusplus\$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-1-selection.sh
+RUN sed -i "s\/home/ubuntu/AFLplusplus\$AFL_HOME\g" /home/debian/ASEGem5/Experiments/Experiment-2-24hruns.sh
 RUN sed -i "s\/home/ubuntu/ASEGem5\/home/debian/ASEGem5\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN sed -i "s\/home/ubuntu/gem5-ssbse-challenge-2023/build/X86/gem5.opt\/home/debian/ASEGem5/gem5-ssbse-challenge-2023/build/X86/gem5.opt\g" /home/debian/ASEGem5/Experiments/run_AFL_loop_v*.sh
 RUN chmod +x /home/debian/ASEGem5/Experiments/runningScript.sh
