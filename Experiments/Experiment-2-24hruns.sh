@@ -39,6 +39,9 @@ j=$settings_no 		# j (We use only the winning settings)
 k=$script_k		# k
 i=$repeat_i		# i
 
+echo "Params: ASE=$1, main=$2, settings_no=$3, script_k=$4, repeat_i=$5, outputALL=$6" 
+echo "j=$j, k=$k, i=$i"
+
 # Run a configuration script in a loop 30 times
 #for ((k = 1; k <= 8; k++)); do
     script_cong_k=$script$k.sh # 1-8 options
