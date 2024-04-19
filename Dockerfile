@@ -110,6 +110,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r Phi Phi-cmin
 RUN rm -rf Phi-cmin/input
 RUN mv Phi-cmin/cmin Phi-cmin/input
+WORKDIR /home/debian/experiment/Phi-cmin/input
+RUN sed -i 's\/Phi/\/Phi-cmin/\g' *txt
 
 # Model CodeBooga
 WORKDIR /home/debian/experiment/CodeBooga  
@@ -120,6 +122,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r CodeBooga CodeBooga-cmin
 RUN rm -rf CodeBooga-cmin/input
 RUN mv CodeBooga-cmin/cmin CodeBooga-cmin/input
+WORKDIR /home/debian/experiment/CodeBooga-cmin/input
+RUN sed -i 's\/CodeBooga/\/CodeBooga-cmin/\g' *txt
 
 # Model Llama
 WORKDIR /home/debian/experiment/Llama  
@@ -130,6 +134,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r Llama Llama-cmin
 RUN rm -rf Llama-cmin/input
 RUN mv Llama-cmin/cmin Llama-cmin/input
+WORKDIR /home/debian/experiment/Llama-cmin/input
+RUN sed -i 's\/Llama/\/Llama-cmin/\g' *txt
 
 # Model Magicoder
 WORKDIR /home/debian/experiment/Magicoder
@@ -140,6 +146,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r Magicoder Magicoder-cmin
 RUN rm -rf Magicoder-cmin/input
 RUN mv Magicoder-cmin/cmin Magicoder-cmin/input
+WORKDIR /home/debian/experiment/Magicoder-cmin/input
+RUN sed -i 's\/Magicoder/\/Magicoder-cmin/\g' *txt
 
 # Model TinyLlama
 WORKDIR /home/debian/experiment/TinyLlama
@@ -150,6 +158,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r TinyLlama TinyLlama-cmin
 RUN rm -rf TinyLlama-cmin/input
 RUN mv TinyLlama-cmin/cmin TinyLlama-cmin/input
+WORKDIR /home/debian/experiment/TinyLlama-cmin/input
+RUN sed -i 's\/TinyLlama/\/TinyLlama-cmin/\g' *txt
 
 # Model gpt3.5-new
 WORKDIR /home/debian/experiment/gpt3.5-new  
@@ -160,6 +170,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r gpt3.5-new gpt3.5-new-cmin
 RUN rm -rf gpt3.5-new-cmin/input
 RUN mv gpt3.5-new-cmin/cmin gpt3.5-new-cmin/input
+WORKDIR /home/debian/experiment/gpt3.5-new-cmin/input
+RUN sed -i 's\/gpt3.5-new/\/gpt3.5-new-cmin/\g' *txt
 
 # Model gpt3.5-old
 WORKDIR /home/debian/experiment/gpt3.5-old
@@ -170,6 +182,8 @@ WORKDIR /home/debian/experiment/
 RUN cp -r gpt3.5-old gpt3.5-old-cmin
 RUN rm -rf gpt3.5-old-cmin/input
 RUN mv gpt3.5-old-cmin/cmin gpt3.5-old-cmin/input
+WORKDIR /home/debian/experiment/gpt3.5-old-cmin/input
+RUN sed -i 's\/gpt3.5-old/\/gpt3.5-old-cmin/\g' *txt
 
 # Return to main experiment folder
 WORKDIR /home/debian/experiment

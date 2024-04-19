@@ -29,7 +29,8 @@ run_experiment_k() {
     cm_folders_j=${ASE}CM_EXP_$j
     echo $cm_folders_j
     # Run the script in a loop 30 times
-    for ((i = 1; i <= 30; i++)); do
+    for ((i = 1; i <= 10; i++)); do
+#	for ((i = 1; i <= 30; i++)); do
 
         # Redirect the output to repeat_$i.txt and kill after 60 minutes
 	output_folder=$output"_"$k"_setting_"$j"_repeat_"$i

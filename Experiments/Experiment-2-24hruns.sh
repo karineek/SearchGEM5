@@ -17,7 +17,7 @@ kill_script() {
 }
 
 # Assuming run_me.sh is in the current directory
-script="./run_AFL_loop_v" #run_AFL_loop_v1.sh
+script="run_AFL_loop_v" #run_AFL_loop_v1.sh
 
 afl=/home/ubuntu/AFLplusplus/afl-fuzz
 ASE=$1
@@ -42,13 +42,15 @@ i=$repeat_i		# i
 # Run a configuration script in a loop 30 times
 #for ((k = 1; k <= 8; k++)); do
     script_cong_k=$script$k.sh # 1-8 options
-    cm_folders_j=$ASE/CM_EXP_$j
+    cm_folders_j=${ASE}CM_EXP_$j
     echo "Using settings: $cm_folders_j"
 
     # Run the script in a loop 30 times
     #for ((i = 1; i <= 10; i++)); do
-        # Redirect the output to repeat_$i.txt and kill after 60 minutes
-        $script_cong_k $cm_folders_j $afl $input $output"_"$k"_setting_"$j"_repeat_"$i 0 > "repeat_script_"$k"_setting_"$j"_repeat_"$i".txt" &
+    # Redirect the output to repeat_$i.txt and kill after 60 minutes
+    output_folder=$output"_"$k"_setting_"$j"_repeat_"$i
+    echo "output_folder=$output_folder"
+    ${ASE}${script_cong_k} $cm_folders_j $afl $input $output_folder 0 > "repeat_script_"$k"_setting_"$j"_repeat_"$i".txt" &
 
         # Capture the process ID of the background process
         script_pid=$!
