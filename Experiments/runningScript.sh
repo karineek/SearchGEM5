@@ -17,14 +17,14 @@ elif [ "$1" = "exp" ]; then
 	model=$3
 	k=$4
 	j=$5
-	output=$6
 	if [ "$2" -eq 1 ]; then
+ 		output=$6
 		./Experiment-1-selection.sh /home/debian/ASEGem5/Experiments/ /home/debian/experiment/$model $k $j $output
 	else
-		i=$7
-		./Experiment-2-24hruns.sh /home/debian/ASEGem5/Experiments/ /home/debian/experiment/$model $j $k $i $output
+ 		i=$6
+   		output=$7
+		./Experiment-2-24hruns.sh /home/debian/ASEGem5/Experiments/ "/home/debian/experiment/$model" $j $k $i $output
 	fi
-
 else
     ## Run AFL
     bash
