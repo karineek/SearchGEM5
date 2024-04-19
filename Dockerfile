@@ -95,8 +95,8 @@ WORKDIR /home/debian
 COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
 
 WORKDIR /home/debian/experiment
-RUN wget "https://zenodo.org/records/10823334/files/LLM_test_inputs.zip" # Get the data
-RUN unzip LLM_test_inputs.zip
+RUN wget "https://zenodo.org/records/10998516/files/LLM_test_inputs-4FuzzExp2.zip" # Get the data
+RUN unzip LLM_test_inputs-4FuzzExp2.zip
 WORKDIR /home/debian/experiment/
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
 RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */cmin/*.txt
@@ -107,9 +107,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model Phi cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r Phi Phi-cmin
-RUN rm -rf Phi-cmin/input
-RUN mv Phi-cmin/cmin Phi-cmin/input
+RUN cp -r Phi/binary Phi-cmin/binary
 WORKDIR /home/debian/experiment/Phi-cmin/input
 RUN sed -i 's\/Phi/\/Phi-cmin/\g' *txt
 
@@ -119,9 +117,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model CodeBooga cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r CodeBooga CodeBooga-cmin
-RUN rm -rf CodeBooga-cmin/input
-RUN mv CodeBooga-cmin/cmin CodeBooga-cmin/input
+RUN cp -r CodeBooga/binary CodeBooga-cmin/binary
 WORKDIR /home/debian/experiment/CodeBooga-cmin/input
 RUN sed -i 's\/CodeBooga/\/CodeBooga-cmin/\g' *txt
 
@@ -131,9 +127,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model Llama cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r Llama Llama-cmin
-RUN rm -rf Llama-cmin/input
-RUN mv Llama-cmin/cmin Llama-cmin/input
+RUN cp -r Llama/binary Llama-cmin/binary
 WORKDIR /home/debian/experiment/Llama-cmin/input
 RUN sed -i 's\/Llama/\/Llama-cmin/\g' *txt
 
@@ -143,9 +137,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model Magicoder cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r Magicoder Magicoder-cmin
-RUN rm -rf Magicoder-cmin/input
-RUN mv Magicoder-cmin/cmin Magicoder-cmin/input
+RUN cp -r Magicoder/binary Magicoder-cmin/binary
 WORKDIR /home/debian/experiment/Magicoder-cmin/input
 RUN sed -i 's\/Magicoder/\/Magicoder-cmin/\g' *txt
 
@@ -155,9 +147,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model TinyLlama cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r TinyLlama TinyLlama-cmin
-RUN rm -rf TinyLlama-cmin/input
-RUN mv TinyLlama-cmin/cmin TinyLlama-cmin/input
+RUN cp -r TinyLlama/binary TinyLlama-cmin/binary
 WORKDIR /home/debian/experiment/TinyLlama-cmin/input
 RUN sed -i 's\/TinyLlama/\/TinyLlama-cmin/\g' *txt
 
@@ -167,9 +157,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model gpt3.5-new cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r gpt3.5-new gpt3.5-new-cmin
-RUN rm -rf gpt3.5-new-cmin/input
-RUN mv gpt3.5-new-cmin/cmin gpt3.5-new-cmin/input
+RUN cp -r gpt3.5-new/binary gpt3.5-new-cmin/binary
 WORKDIR /home/debian/experiment/gpt3.5-new-cmin/input
 RUN sed -i 's\/gpt3.5-new/\/gpt3.5-new-cmin/\g' *txt
 
@@ -179,9 +167,7 @@ RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ |
 RUN rm  binary/fuzz_* || true
 # Model gpt3.5-old cmin
 WORKDIR /home/debian/experiment/
-RUN cp -r gpt3.5-old gpt3.5-old-cmin
-RUN rm -rf gpt3.5-old-cmin/input
-RUN mv gpt3.5-old-cmin/cmin gpt3.5-old-cmin/input
+RUN cp -r gpt3.5-old/binary gpt3.5-old-cmin/binary
 WORKDIR /home/debian/experiment/gpt3.5-old-cmin/input
 RUN sed -i 's\/gpt3.5-old/\/gpt3.5-old-cmin/\g' *txt
 
