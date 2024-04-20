@@ -15,18 +15,18 @@ fi
 # Loop through data array
 for curr_data in "${data[@]}"; do
     # Without '-cmin'
-    # for j in {1,5,6,7,8}; do
-    #     outputCur=${output}/output-2-${curr_data}-${j}
-    # 	if [ ! -d "$outputCur" ]; then
-    #         mkdir $outputCur
-    # 	fi
-    #     outputEx=${outputCur}/${i}/
-    # 	if [ ! -d "$outputEx" ]; then
-    # 	    mkdir $outputEx
-    # 	fi
-    #     echo "sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i"
-    #     sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i	&
-    # done
+    for j in {1,5,6,7,8}; do
+        outputCur=${output}/output-2-${curr_data}-${j}
+    	if [ ! -d "$outputCur" ]; then
+            mkdir $outputCur
+    	fi
+        outputEx=${outputCur}/${i}/
+    	if [ ! -d "$outputEx" ]; then
+    	    mkdir $outputEx
+    	fi
+        echo "sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i"
+        sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i	&
+    done
 
     # With '-cmin'
     for j in {1,5,6,7,8}; do
@@ -43,18 +43,18 @@ for curr_data in "${data[@]}"; do
         sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $model $j 27 /home/debian/output $i	&
     done
 
-	q=$(($i+1))
-    for j in {1,5,6,7,8}; do
-        model=${curr_data}-cmin
-	outputCur=${output}/output-2-${model}-${j}
-	if [ ! -d "$outputCur" ]; then	
-           mkdir $outputCur
-	fi
-        outputEx=${outputCur}/${q}/
-	if [ ! -d "$outputEx" ]; then
-	    mkdir $outputEx
-	fi
-	echo "sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i"
-        sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $model $j 27 /home/debian/output ${q}	&
-    done
+    # 	q=$(($i+1))
+    # for j in {1,5,6,7,8}; do
+    #     model=${curr_data}-cmin
+    # 	outputCur=${output}/output-2-${model}-${j}
+    # 	if [ ! -d "$outputCur" ]; then	
+    #        mkdir $outputCur
+    # 	fi
+    #     outputEx=${outputCur}/${q}/
+    # 	if [ ! -d "$outputEx" ]; then
+    # 	    mkdir $outputEx
+    # 	fi
+    # 	echo "sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $curr_data $j 27 /home/debian/output $i"
+    #     sudo docker run -it -v ${outputEx}:/home/debian/output/:Z aserepo exp 2 $model $j 27 /home/debian/output ${q}	&
+    # done
 done
