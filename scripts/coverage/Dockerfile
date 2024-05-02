@@ -53,17 +53,19 @@ RUN apt -y autoremove
 # Update default clang to 13
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-13
 RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-13 1300
+ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 
 # Preparing Scripts to test gem5
+USER debian
 RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/scripts
 RUN mkdir /home/debian/ASEGem5/scripts/coverage
 COPY ./* /home/debian/ASEGem5/scripts/coverage/
-ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 WORKDIR /home/debian
 
 # Getting & Building gem5
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 WORKDIR /home/debian/gem5-ssbse-challenge-2023
-RUN pip install -r requirements.txt --break-system-packages
+RUN pip3 install --upgrade pip --break-system-packages
+RUN pip3 install wheel --break-system-packages
 RUN mkdir build
