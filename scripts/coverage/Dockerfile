@@ -51,7 +51,7 @@ RUN apt-get install -y gcc-11-plugin-dev
 RUN apt -y autoremove
 
 # Update default clang to 13
-RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --slave /usr/bin/clang++ clag++ /usr/bin/clang++-13
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-13 1300 --slave /usr/bin/clang++ clang++ /usr/bin/clang++-13
 RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm-config-13 1300
 
 # Preparing Scripts to test gem5
