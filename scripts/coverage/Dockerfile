@@ -69,3 +69,20 @@ WORKDIR /home/debian/gem5-ssbse-challenge-2023
 RUN pip3 install --upgrade pip --break-system-packages
 RUN pip3 install wheel --break-system-packages
 RUN mkdir build
+
+# updating some files
+RUN cp /home/debian/ASEGem5/scripts/coverage/SConstruct .
+RUN cp /home/debian/ASEGem5/scripts/coverage/SConscript src/
+
+# Build with Coverage
+RUN mkdir /home/debian/gem5-ssbse-challenge-2023/TMP_GCOV_FOLDER
+ENV GCOV_PREFIX=TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init ## Send gcda of build to temp.
+ENV GCOV_PREFIX_STRIP=0
+ENV CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
+ENV CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
+ENV LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs'
+
+RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs' scons -Q -c build/X86/gem5.opt -j 4 --no-cache
+
+# Cleaning after build
+rm -rf TMP_GCOV_FOLDER
