@@ -66,3 +66,7 @@ WORKDIR /home/debian
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 WORKDIR /home/debian/ASEGem5/gem5-ssbse-challenge-2023
 
+# Building gem5
+cd gem5-ssbse-challenge-2023
+pip install -r requirements.txt
+mkdir build
