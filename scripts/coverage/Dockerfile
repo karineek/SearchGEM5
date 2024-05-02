@@ -62,11 +62,8 @@ COPY ./scripts/coverage/ /home/debian/ASEGem5/scripts/coverage/
 ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 WORKDIR /home/debian
 
-# Getting gem5
+# Getting & Building gem5
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 WORKDIR /home/debian/ASEGem5/gem5-ssbse-challenge-2023
-
-# Building gem5
-cd gem5-ssbse-challenge-2023
-pip install -r requirements.txt
-mkdir build
+RUN pip install -r requirements.txt
+RUN mkdir build
