@@ -76,7 +76,8 @@ RUN cp /home/debian/ASEGem5/scripts/coverage/SConscript src/
 
 # Build with Coverage
 RUN mkdir /home/debian/gem5-ssbse-challenge-2023/TMP_GCOV_FOLDER
-ENV GCOV_PREFIX=TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init ## Send gcda of build to temp.
+# Send gcda of build to temp.
+ENV GCOV_PREFIX=TMP_GCOV_FOLDER/coverage_gcda_files/application_run-init 
 ENV GCOV_PREFIX_STRIP=0
 ENV CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
 ENV CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
