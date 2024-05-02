@@ -23,7 +23,6 @@ RUN python3 -m venv /home/debian/env/python
 RUN source /home/debian/env/python/bin/activate
 RUN pip3 install --upgrade pip --break-system-packages
 RUN pip3 install wheel --break-system-packages
-RUN pip install -r requirements.txt --break-system-packages
 
 USER root
 RUN rm -rf /usr/bin/llvm-config
@@ -67,8 +66,7 @@ WORKDIR /home/debian
 # Getting & Building gem5
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
 WORKDIR /home/debian/gem5-ssbse-challenge-2023
-RUN pip3 install --upgrade pip --break-system-packages
-RUN pip3 install wheel --break-system-packages
+RUN pip install -r requirements.txt --break-system-packages
 RUN mkdir build
 
 # updating some files
