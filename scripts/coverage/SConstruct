@@ -1,4 +1,4 @@
-#C -*- mode:python -*-
+# -*- mode:python -*-
 
 # Copyright (c) 2013, 2015-2020, 2023 ARM Limited
 # All rights reserved.
@@ -194,9 +194,7 @@ main = Environment(tools=[
 
 main.Tool(SCons.Tool.FindTool(['gcc', 'clang'], main))
 main.Tool(SCons.Tool.FindTool(['g++', 'clang++'], main))
-
-# ADD this line:
-main.Replace(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], CCFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKFLAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs'])
+main.Append(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'], CCFLAGS = ['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKFLAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs', '-lgcov'])
 
 Export('main')
 
@@ -372,20 +370,19 @@ def config_embedded_python(env):
                   "2. SCons is using a wrong C compiler. This can happen if "
                   "CC has the wrong value.\n"
                   f"CC = {env['CC']}")
-        #py_version = conf.CheckPythonLib()
-        #if not py_version:
-        #ß    error("Can't find a working Python installation")
+        py_version = conf.CheckPythonLib()
+        if not py_version:
+            error("Can't find a working Python installation")
 
     # Found a working Python installation. Check if it meets minimum
     # requirements.
-    #ver_string = '.'.join(map(str, py_version))
-    #py_version[0] = 3
-    #if py_version[0] < 3 or (py_version[0] == 3 and py_version[1] < 6):
-    #    error('Embedded python library 3.6 or newer required, found '
-    #          f'{ver_string}.')
-    #elif py_version[0] > 3:
-    #    warning('Embedded python library too new. '
-    #            f'Python 3 expected, found {ver_string}.')
+    ver_string = '.'.join(map(str, py_version))
+    if py_version[0] < 3 or (py_version[0] == 3 and py_version[1] < 6):
+        error('Embedded python library 3.6 or newer required, found '
+              f'{ver_string}.')
+    elif py_version[0] > 3:
+        warning('Embedded python library too new. '
+                f'Python 3 expected, found {ver_string}.')
 
 
 ########################################################################
@@ -405,9 +402,13 @@ for variant_path in variant_paths:
 
     env.SConsignFile(os.path.join(gem5_build, 'sconsign'))
 
+    # Try to force coverage
+    env.Append(CFLAGS=['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
+    env.Append(CXXFLAGS=['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
+    env.Append(LINKFLAGS=['--coverage', '-lgcov', '-ftest-coverage', '-fprofile-arcs'])
+
     # Set up default C++ compiler flags
-    if True:
-    #env['GCC'] or env['CLANG']:
+    if env['GCC'] or env['CLANG']:
         # As gcc and clang share many flags, do the common parts here
         env.Append(CCFLAGS=['-pipe'])
         env.Append(CCFLAGS=['-fno-strict-aliasing'])
@@ -467,8 +468,7 @@ for variant_path in variant_paths:
               "above you will need to ease fix SConstruct and ",
               "src/SConscript to support that compiler.")))
 
-    if True:
-    #env['GCC']:
+    if env['GCC']:
         if compareVersions(env['CXXVERSION'], "7") < 0:
             error('gcc version 7 or newer required.\n'
                   'Installed version:', env['CXXVERSION'])
@@ -561,8 +561,7 @@ for variant_path in variant_paths:
         print()
     if sanitizers:
         sanitizers = ','.join(sanitizers)
-        if True:
-        #env['GCC'] or env['CLANG']:
+        if env['GCC'] or env['CLANG']:
             env.Append(CCFLAGS=['-fsanitize=%s' % sanitizers,
                                  '-fno-omit-frame-pointer'],
                         LINKFLAGS=['-fsanitize=%s' % sanitizers,
@@ -821,5 +820,9 @@ Build variables for {dir}:
     # one for each variant build (debug, opt, etc.)
     SConscript('src/SConscript', variant_dir=variant_path, exports=exports,
                duplicate=GetOption('duplicate_sources'))
+
+print("CFLAGS:", env['CFLAGS'])
+print("CXXFLAGS:", env['CXXFLAGS'])
+print("LINKFLAGS:", env['LINKFLAGS'])
 
 atexit.register(summarize_warnings)

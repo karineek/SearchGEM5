@@ -662,8 +662,7 @@ envs['fast'].Append(CPPDEFINES=['NDEBUG', 'TRACING_ON=0'])
 # individual files are decoupled from those used at link time
 # (i.e. you can compile with -O3 and perform LTO with -O0), so we need
 # to also update the linker flags based on the target.
-if True:
-#env['GCC']:
+if env['GCC']:
     if sys.platform == 'sunos5':
         envs['debug'].Append(CCFLAGS=['-gstabs+'])
     else:
