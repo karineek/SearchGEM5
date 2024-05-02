@@ -195,6 +195,9 @@ main = Environment(tools=[
 main.Tool(SCons.Tool.FindTool(['gcc', 'clang'], main))
 main.Tool(SCons.Tool.FindTool(['g++', 'clang++'], main))
 
+# ADD this line:
+main.Replace(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], CCFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKFLAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs'])
+
 Export('main')
 
 from gem5_scons.util import get_termcap
