@@ -58,7 +58,7 @@ RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm
 RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/scripts
 RUN mkdir /home/debian/ASEGem5/scripts/coverage
-COPY ./scripts/coverage/ /home/debian/ASEGem5/scripts/coverage/
+COPY ./* /home/debian/ASEGem5/scripts/coverage/
 ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 WORKDIR /home/debian
 
