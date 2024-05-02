@@ -82,7 +82,7 @@ ENV CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
 ENV CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs'
 ENV LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs'
 
-RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs' scons -Q -c build/X86/gem5.opt -j 4 --no-cache
+RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' CXXFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' LDFLAGS='-lgcov --coverage -ftest-coverage -fprofile-arcs' scons -Q build/X86/gem5.opt -j 4 --no-cache
 
 # Cleaning after build
 RUN rm -rf TMP_GCOV_FOLDER
