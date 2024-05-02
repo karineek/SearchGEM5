@@ -23,6 +23,7 @@ RUN python3 -m venv /home/debian/env/python
 RUN source /home/debian/env/python/bin/activate
 RUN pip3 install --upgrade pip --break-system-packages
 RUN pip3 install wheel --break-system-packages
+RUN pip install -r requirements.txt --break-system-packages
 
 USER root
 RUN rm -rf /usr/bin/llvm-config
