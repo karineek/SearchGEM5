@@ -64,7 +64,9 @@ COPY ./* /home/debian/ASEGem5/scripts/coverage/
 WORKDIR /home/debian
 
 # Getting & Building gem5
-RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git
+RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git \
+    && cd gem5-ssbse-challenge-2023 \
+    && git checkout 65edbe0
 WORKDIR /home/debian/gem5-ssbse-challenge-2023
 RUN pip install -r requirements.txt --break-system-packages
 RUN mkdir build
