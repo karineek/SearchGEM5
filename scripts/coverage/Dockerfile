@@ -86,3 +86,6 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 
 # Cleaning after build
 RUN rm -rf TMP_GCOV_FOLDER
+
+# Start setting up the env for experiments
+RUN mkdir /home/debian/experiment/
