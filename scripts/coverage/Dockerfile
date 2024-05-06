@@ -63,6 +63,16 @@ RUN mkdir /home/debian/ASEGem5/scripts/coverage
 COPY ./* /home/debian/ASEGem5/scripts/coverage/
 WORKDIR /home/debian
 
+# Install gfauto for Python3.11
+RUN git clone https://github.com/google/graphicsfuzz.git \
+    && cd graphicsfuzz \
+    && git checkout aa32d4c
+WORKDIR graphicsfuzz/gfauto/
+# EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
+RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
+RUN rm Pipfile.lock
+RUN ./dev_shell.sh.template
+
 # Getting & Building gem5
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git \
     && cd gem5-ssbse-challenge-2023 \
@@ -74,16 +84,6 @@ RUN mkdir build
 # updating some files
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConstruct .
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConscript src/
-
-# Install gfauto for Python3.11
-RUN git clone https://github.com/google/graphicsfuzz.git \
-    && cd graphicsfuzz \
-    && git checkout aa32d4c
-WORKDIR graphicsfuzz/gfauto/
-# EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
-RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
-RUN rm Pipfile.lock
-RUN ./dev_shell.sh.template
 
 # Build with Coverage
 RUN mkdir /home/debian/gem5-ssbse-challenge-2023/TMP_GCOV_FOLDER
