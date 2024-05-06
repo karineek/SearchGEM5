@@ -75,6 +75,16 @@ RUN mkdir build
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConstruct .
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConscript src/
 
+# Install gfauto for Python3.11
+RUN git clone https://github.com/google/graphicsfuzz.git \
+    && cd graphicsfuzz \
+    && git checkout aa32d4c
+WORKDIR graphicsfuzz/gfauto/
+# EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
+RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
+RUN rm Pipfile.lock
+RUN ./dev_shell.sh.template
+
 # Build with Coverage
 RUN mkdir /home/debian/gem5-ssbse-challenge-2023/TMP_GCOV_FOLDER
 # Send gcda of build to temp.
@@ -88,14 +98,6 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 
 # Cleaning after build
 RUN rm -rf TMP_GCOV_FOLDER
-
-# Install gfauto for Python3.11
-RUN git clone https://github.com/google/graphicsfuzz.git
-WORKDIR graphicsfuzz/gfauto/
-# EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
-RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
-RUN rm Pipfile.lock
-RUN ./dev_shell.sh.template
 
 # Start setting up the env for experiments - connect the input
 RUN mkdir /home/debian/experiment/
