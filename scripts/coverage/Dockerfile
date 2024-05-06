@@ -86,7 +86,7 @@ RUN test -f ./dev_shell.sh.template
 RUN export PIPENV_PYTHON="$(which python3.11)"
 
 # Upgrade/install pip and pipenv
-RUN python3 -m pip install --upgrade --user 'pip>=19.2.3' 'pipenv>=2018.11.26'
+RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv>=2018.11.26'
 
 # Place virtual environment at gfauto/.venv
 ENV PIPENV_VENV_IN_PROJECT=1
