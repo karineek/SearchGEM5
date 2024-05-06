@@ -84,7 +84,7 @@ RUN test -f ./Pipfile
 RUN test -f ./dev_shell.sh.template
 
 # Set PIPENV_PYTHON
-RUN export PIPENV_PYTHON="$(which python3)"
+ENV PIPENV_PYTHON="$(which python3)"
 RUN echo $PIPENV_PYTHON
 
 # Upgrade/install pip and pipenv
