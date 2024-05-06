@@ -96,7 +96,6 @@ RUN rm -rf TMP_GCOV_FOLDER
 RUN mkdir /home/debian/experiment/
 # rm input to input-afl. cp queue to input;  cp binary/*.txt to input
 
-# call the script
-start point
-
+# call the script - start point
 # TODO - edit the script to have the right constants
+# CMD [./get-cov-afl.sh i j k]
