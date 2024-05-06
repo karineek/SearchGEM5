@@ -83,12 +83,8 @@ RUN set -x \
 RUN test -f ./Pipfile
 RUN test -f ./dev_shell.sh.template
 
-# Set PIPENV_PYTHON
-#ENV PIPENV_PYTHON="$(which python3)"
-ENV PIPENV_PYTHON=/usr/bin/python3
-
 # Upgrade/install pip and pipenv
-RUN python3 -m pip install --upgrade --user 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
+RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
 
 # Place virtual environment at gfauto/.venv
 ENV PIPENV_VENV_IN_PROJECT=1
