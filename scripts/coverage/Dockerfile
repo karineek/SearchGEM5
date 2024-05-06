@@ -84,6 +84,9 @@ RUN test -f ./Pipfile
 RUN test -f ./dev_shell.sh.template
 
 # Upgrade/install pip and pipenv
+ENV PATH="/home/debian/.local/bin:${PATH}"
+# Print the value of PATH during the build process
+RUN echo "PATH: $PATH"
 RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
 
 # Place virtual environment at gfauto/.venv
@@ -98,10 +101,12 @@ RUN python3 -m pipenv install --dev
 
 
 # Getting & Building gem5
+WORKDIR /home/debian
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git \
     && cd gem5-ssbse-challenge-2023 \
     && git checkout 65edbe0
 WORKDIR /home/debian/gem5-ssbse-challenge-2023
+RUN ls -l
 RUN pip install -r requirements.txt --break-system-packages
 RUN mkdir build
 
