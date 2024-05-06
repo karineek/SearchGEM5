@@ -129,6 +129,7 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 RUN rm -rf TMP_GCOV_FOLDER
 
 # Start setting up the env for experiments - connect the input
+COPY /home/debian/ASEGem5/scripts/coverage/hello-custom-binary-Ex.py /home/debian/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
 RUN mkdir /home/debian/experiment/
 WORKDIR /home/debian/experiment
 
