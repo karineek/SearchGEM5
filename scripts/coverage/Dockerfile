@@ -89,5 +89,14 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 # Cleaning after build
 RUN rm -rf TMP_GCOV_FOLDER
 
-# Start setting up the env for experiments
+# Install gfaupo
+# TODO
+
+# Start setting up the env for experiments - connect the input
 RUN mkdir /home/debian/experiment/
+# rm input to input-afl. cp queue to input;  cp binary/*.txt to input
+
+# call the script
+start point
+
+# TODO - edit the script to have the right constants
