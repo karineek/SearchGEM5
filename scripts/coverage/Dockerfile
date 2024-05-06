@@ -135,7 +135,7 @@ WORKDIR /home/debian/experiment
 # Building a base-line coverage
 # docker cp d75081e47091:/home/debian/experiment/Phi .
 # docker cp Phi db155f87d931:/home/debian/experiment/
-#
+# debian@db155f87d931:~/ASEGem5/scripts/coverage$ ./1-wrapper-get-coverage.sh /home/debian/ /home/debian/experiment/Phi/input/ 0 5 /home/debian/graphicsfuzz/gfauto/ func-gem5-llm-phi.csv lines-gem5-llm-phi.csv report-gem5-llm-phi.csv
 # rm input to input-afl. cp queue to input;  cp binary/*.txt to input
 
 # call the script - start point
