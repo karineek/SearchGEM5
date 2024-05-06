@@ -11,7 +11,7 @@ RUN apt install -y build-essential git m4 scons zlib1g zlib1g-dev \
     libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev \
     python3-dev libboost-all-dev pkg-config libssl-dev
 RUN apt install -y libpng-dev libpng++-dev libhdf5-dev
-RUN apt install -y python3-pip python3-venv python3-pipenv
+RUN apt install -y python3-pip python3-venv
 
 # Install pre-requirements
 RUN apt-get install -y automake
