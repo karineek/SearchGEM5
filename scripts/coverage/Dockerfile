@@ -69,7 +69,7 @@ RUN git clone https://github.com/google/graphicsfuzz.git \
     && git checkout aa32d4c
 WORKDIR graphicsfuzz/gfauto/
 # EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
-RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
+RUN sed -i "s:PYTHON-python3.6:PYTHON-python3.11:g" dev_shell.sh.template
 RUN rm Pipfile.lock
 RUN ./dev_shell.sh.template
 
