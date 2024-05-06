@@ -130,6 +130,12 @@ RUN rm -rf TMP_GCOV_FOLDER
 
 # Start setting up the env for experiments - connect the input
 RUN mkdir /home/debian/experiment/
+WORKDIR /home/debian/experiment
+
+# Building a base-line coverage
+# docker cp d75081e47091:/home/debian/experiment/Phi .
+# docker cp Phi db155f87d931:/home/debian/experiment/
+#
 # rm input to input-afl. cp queue to input;  cp binary/*.txt to input
 
 # call the script - start point
