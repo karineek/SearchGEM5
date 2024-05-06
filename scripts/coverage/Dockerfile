@@ -93,7 +93,7 @@ RUN rm -rf TMP_GCOV_FOLDER
 RUN git clone https://github.com/google/graphicsfuzz.git
 WORKDIR graphicsfuzz/gfauto/
 # EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
-RUN sed -i "s:PYTHON-python3.6:PYTHON-python3.11:g" dev_shell.sh.template
+RUN sed -i "s:PYTHON-python3.6:PYTHON-python3:g" dev_shell.sh.template
 RUN rm Pipfile.lock
 RUN ./dev_shell.sh.template
 
