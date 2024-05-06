@@ -92,8 +92,8 @@ RUN rm -rf TMP_GCOV_FOLDER
 # Install gfauto for Python3.11
 RUN git clone https://github.com/google/graphicsfuzz.git
 WORKDIR graphicsfuzz/gfauto/
-vi dev_shell.sh.template
 # EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
+RUN sed -i "s:PYTHON-python3.6:PYTHON-python3.11:g" dev_shell.sh.template
 RUN rm Pipfile.lock
 RUN ./dev_shell.sh.template
 
