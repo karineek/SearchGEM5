@@ -71,6 +71,7 @@ WORKDIR graphicsfuzz/gfauto/
 # EDIT TO YOUR LOCAL VERSION of Python3: PYTHON=${PYTHON-python3.6}
 RUN sed -i "s:PYTHON-python3.6:PYTHON-python3.11:g" dev_shell.sh.template
 RUN rm Pipfile.lock
+
 # RUN ./dev_shell.sh.template
 # Set shell options
 # Set shell options
@@ -86,7 +87,7 @@ RUN test -f ./dev_shell.sh.template
 RUN export PIPENV_PYTHON="$(which python3.11)"
 
 # Upgrade/install pip and pipenv
-RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
+RUN python3 -m pip install --upgrade --user 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
 
 # Place virtual environment at gfauto/.venv
 ENV PIPENV_VENV_IN_PROJECT=1
@@ -96,6 +97,8 @@ ENV PIPENV_IGNORE_PIPFILE=1
 
 # Install project dependencies using pipenv
 RUN python3 -m pipenv install --dev
+# END of script
+
 
 # Getting & Building gem5
 RUN git clone https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023.git \
