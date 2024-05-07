@@ -61,6 +61,8 @@ RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/scripts
 RUN mkdir /home/debian/ASEGem5/scripts/coverage
 COPY ./* /home/debian/ASEGem5/scripts/coverage/
+RUN ls -l /home/debian/ASEGem5/scripts/coverage/
+RUN sed -i "s:ubuntu:debian:g" /home/debian/ASEGem5/scripts/coverage/3-compute-coverage_DIR_gfauto.sh
 WORKDIR /home/debian
 
 # Install gfauto for Python3.11
@@ -129,8 +131,15 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 RUN rm -rf TMP_GCOV_FOLDER
 
 # Start setting up the env for experiments - connect the input
-COPY /home/debian/ASEGem5/scripts/coverage/hello-custom-binary-Ex.py /home/debian/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
+USER debian
+WORKDIR /home/debian/ASEGem5/scripts/coverage
+COPY hello-custom-binary-Ex.py /home/debian/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
 RUN mkdir /home/debian/experiment/
+
+USER root
+RUN chown -R debian:debian /home/debian/
+
+USER debian
 WORKDIR /home/debian/experiment
 
 # Building a base-line coverage
