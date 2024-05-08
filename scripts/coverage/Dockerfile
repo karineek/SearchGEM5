@@ -139,10 +139,14 @@ RUN mkdir /home/debian/experiment/
 USER root
 RUN chown -R debian:debian /home/debian/
 
+# How to copy data?
+# TODO
+
 USER debian
 WORKDIR /home/debian/ASEGem5/scripts/coverage
-# How to copy data?
+ENTRYPOINT [ "/home/debian/ASEGem5/scripts/coverage/runningScript.sh" ]
 
+# NOTES:
 # Building a base-line coverage
 # docker cp d75081e47091:/home/debian/experiment/Phi .
 # docker cp Phi db155f87d931:/home/debian/experiment/
