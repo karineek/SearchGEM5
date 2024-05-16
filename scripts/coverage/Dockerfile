@@ -56,7 +56,7 @@ RUN update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llvm
 ENV LLVM_CONFIG=/usr/bin/llvm-config-13
 
 # Preparing Scripts to test gem5
-USER debian
+#USER debian
 RUN mkdir /home/debian/ASEGem5
 RUN mkdir /home/debian/ASEGem5/scripts
 RUN mkdir /home/debian/ASEGem5/scripts/coverage
@@ -98,7 +98,7 @@ ENV PIPENV_VENV_IN_PROJECT=1
 ENV PIPENV_IGNORE_PIPFILE=1
 
 # Install project dependencies using pipenv
-RUN python3 -m pipenv install --dev
+#RUN python3 -m pipenv install --dev
 # END of script
 
 
@@ -131,7 +131,7 @@ RUN CC=gcc-11 CXX=g++-11 CFLAGS='-g --coverage -ftest-coverage -fprofile-arcs' C
 RUN rm -rf TMP_GCOV_FOLDER
 
 # Start setting up the env for experiments - connect the input
-USER debian
+#USER debian
 WORKDIR /home/debian/ASEGem5/scripts/coverage
 COPY hello-custom-binary-Ex.py /home/debian/gem5-ssbse-challenge-2023/ssbse-challenge-examples/hello-custom-binary-Ex.py
 RUN mkdir /home/debian/experiment/
@@ -142,7 +142,9 @@ RUN chown -R debian:debian /home/debian/
 # How to copy data?
 # TODO
 
-USER debian
+USER root
+RUN chmod +x /home/debian/ASEGem5/scripts/coverage/runningScript.sh
+
 WORKDIR /home/debian/ASEGem5/scripts/coverage
 ENTRYPOINT [ "/home/debian/ASEGem5/scripts/coverage/runningScript.sh" ]
 
