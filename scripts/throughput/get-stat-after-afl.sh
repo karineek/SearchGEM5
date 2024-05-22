@@ -27,7 +27,8 @@ traverse_folders() {
         f=`find . -type f | wc -l`
         cd ../..
         statsAFL=`grep "Test case count :" repeat_script*.txt | cut -d':' -f2`
-        echo "Exec path | $execLocation | $b | $a | $f |$statsAFL"
+        statsAFLready=`echo $statsAFL | sed 's:favored,:|:g' | sed 's:variable,:|:g' | sed 's:ignored,:|:g' | sed 's:total:|:g'`
+        echo "Exec path | $execLocation | $b | $a | $f |$statsAFLready"
         cd $currLocation
         return
     fi
@@ -45,3 +46,18 @@ traverse_folders() {
 # Get the location from the command line argument
 location="$1"
 currLocation=`pwd`
+
+# Check if the location argument is provided
+if [ -z "$location" ]; then
+    echo "Usage: $0 <location>"
+    exit 1
+fi
+
+# Check if the provided location is a directory
+if [ ! -d "$location" ]; then
+    echo "Error: '$location' is not a directory"
+    exit 1
+fi
+
+# Start traversing from the provided location with depth 1
+traverse_folders "$location" 1
