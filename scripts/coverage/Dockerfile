@@ -89,7 +89,7 @@ RUN test -f ./dev_shell.sh.template
 ENV PATH="/home/debian/.local/bin:${PATH}"
 # Print the value of PATH during the build process
 RUN echo "PATH: $PATH"
-RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv>=2018.11.26' --break-system-packages
+RUN python3 -m pip install --upgrade 'pip>=19.2.3' 'pipenv==2022.8.5' --break-system-packages
 
 # Place virtual environment at gfauto/.venv
 ENV PIPENV_VENV_IN_PROJECT=1
@@ -98,7 +98,8 @@ ENV PIPENV_VENV_IN_PROJECT=1
 ENV PIPENV_IGNORE_PIPFILE=1
 
 # Install project dependencies using pipenv
-#RUN python3 -m pipenv install --dev
+RUN pipenv lock --clear
+RUN python3 -m pipenv install --dev
 # END of script
 
 

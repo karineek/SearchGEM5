@@ -44,3 +44,5 @@ cov_func=$working_folder/coverage_processed/x-$itr/cov.out/
 echo "Get statistics for lines"
 cov_line=$working_folder/coverage_processed/x-line-$itr/cov.out/
 ./4-gen-statistic-gcov-diff-tab_gfauto.sh "$cov_line" $output_table_file_line >> $output_report
+
+cp $output_table_file_func $output_table_file_line $output_report $working_folder/coverage_processed/
