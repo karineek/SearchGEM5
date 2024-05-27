@@ -9,7 +9,7 @@ home=/home/debian
 gfauto=$home/graphicsfuzz/gfauto/
 
 if [ "$op" = "init" ]; then
-	exp=$home/experiment/input/
+	exp=$home/experiment/$model/input/
 	./1-wrapper-get-coverage.sh $home $exp 0 5 $gfauto func-gem5-llm-$model.csv lines-gem5-llm-$model.csv report-gem5-llm-$model.csv
 elif [ "$1" = "cont" ]; then
 	exp=$home/experiment/output-uniq/

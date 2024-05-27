@@ -113,6 +113,103 @@ RUN ls -l
 RUN pip install -r requirements.txt --break-system-packages
 RUN mkdir build
 
+## Adding the inputs for the init experiment
+
+RUN apt-get -y install zip
+#Pre-fuzzing process
+WORKDIR /home/debian
+COPY ./hello-custom-binary-Ex.py /home/debian/ASEGem5/
+
+WORKDIR /home/debian/experiment
+RUN wget "https://zenodo.org/records/10999115/files/LLM_test_inputs-4FuzzExp2.zip" # Get the data
+RUN unzip LLM_test_inputs-4FuzzExp2.zip
+WORKDIR /home/debian/experiment/
+RUN sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
+
+# Model Phi
+WORKDIR /home/debian/experiment/Phi
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model Phi cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf Phi-cmin/binary
+RUN cp -r Phi/binary Phi-cmin/binary
+WORKDIR /home/debian/experiment/Phi-cmin/input
+RUN sed -i 's\/Phi/\/Phi-cmin/\g' *txt
+
+# Model CodeBooga
+WORKDIR /home/debian/experiment/CodeBooga  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done 
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model CodeBooga cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf CodeBooga-cmin/binary
+RUN cp -r CodeBooga/binary CodeBooga-cmin/binary
+WORKDIR /home/debian/experiment/CodeBooga-cmin/input
+RUN sed -i 's\/CodeBooga/\/CodeBooga-cmin/\g' *txt
+
+# Model Llama
+WORKDIR /home/debian/experiment/Llama  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model Llama cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf Llama-cmin/binary
+RUN cp -r Llama/binary Llama-cmin/binary
+WORKDIR /home/debian/experiment/Llama-cmin/input
+RUN sed -i 's\/Llama/\/Llama-cmin/\g' *txt
+
+# Model Magicoder
+WORKDIR /home/debian/experiment/Magicoder
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model Magicoder cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf Magicoder-cmin/binary
+RUN cp -r Magicoder/binary Magicoder-cmin/binary
+WORKDIR /home/debian/experiment/Magicoder-cmin/input
+RUN sed -i 's\/Magicoder/\/Magicoder-cmin/\g' *txt
+
+# Model TinyLlama
+WORKDIR /home/debian/experiment/TinyLlama
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model TinyLlama cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf TinyLlama-cmin/binary
+RUN cp -r TinyLlama/binary TinyLlama-cmin/binary
+WORKDIR /home/debian/experiment/TinyLlama-cmin/input
+RUN sed -i 's\/TinyLlama/\/TinyLlama-cmin/\g' *txt
+
+# Model gpt3.5-new
+WORKDIR /home/debian/experiment/gpt3.5-new  
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model gpt3.5-new cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf gpt3.5-new-cmin/binary
+RUN cp -r gpt3.5-new/binary gpt3.5-new-cmin/binary
+WORKDIR /home/debian/experiment/gpt3.5-new-cmin/input
+RUN sed -i 's\/gpt3.5-new/\/gpt3.5-new-cmin/\g' *txt
+
+# Model gpt3.5-old
+WORKDIR /home/debian/experiment/gpt3.5-old
+RUN for prog in raw/*.c; do gcc -O3 "$prog" -o "$prog.o" && mv $prog.o binary/ || true; done
+RUN rm  binary/fuzz_* || true
+RUN rm  .DS_Store || true
+# Model gpt3.5-old cmin
+WORKDIR /home/debian/experiment/
+RUN rm -rf gpt3.5-old-cmin/binary
+RUN cp -r gpt3.5-old/binary gpt3.5-old-cmin/binary
+WORKDIR /home/debian/experiment/gpt3.5-old-cmin/input
+RUN sed -i 's\/gpt3.5-old/\/gpt3.5-old-cmin/\g' *txt
+
 # updating some files
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConstruct .
 RUN cp /home/debian/ASEGem5/scripts/coverage/SConscript src/
