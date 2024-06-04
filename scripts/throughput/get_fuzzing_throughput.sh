@@ -2,7 +2,7 @@
 
 # Loop over all subfolders at the specified depth
 current=`pwd`
-for folder in */*/*/*/*/input_*; do
+for folder in */*/*/*/*/input_fuzz*; do
     # List files with detailed information
     cd "$folder"
     rate=`ls -l id* | wc -l`
