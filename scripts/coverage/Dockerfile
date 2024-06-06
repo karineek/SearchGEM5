@@ -132,8 +132,7 @@ RUN mkdir /home/debian/experiment/
 
 USER root
 RUN chown -R debian:debian /home/debian/
-
-USER debian
+RUN chmod +x /home/debian/ASEGem5/scripts/coverage/runningScript.sh
 WORKDIR /home/debian/ASEGem5/scripts/coverage
 ENTRYPOINT [ "/home/debian/ASEGem5/scripts/coverage/runningScript.sh" ]
 
