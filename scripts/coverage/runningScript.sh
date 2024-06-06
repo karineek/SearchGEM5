@@ -26,6 +26,7 @@ elif [ "$1" = "cont" ]; then
         cp /mnt/shared/$model-gcov-0.tar.gz $home
         current=`pwd`
         cd $home
+        rm -rf coverage_gcda_files coverage_processed
         tar -xf $model-gcov-0.tar.gz
         cd $current
 	./1-wrapper-get-coverage-cont.sh $home $exp 1 5 $gfauto func-gem5-afl-$model.csv lines-gem5-afl-$model.csv report-gem5-afl-$model.csv
