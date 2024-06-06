@@ -10,6 +10,7 @@ gfauto=$home/graphicsfuzz/gfauto/
 data=$home/experiment/$model/
 
 # docker run -it -v /home/ubuntu/phi-cmin/part-1/output-2-Phi-cmin-1/10/Phi-cmin/:/mnt/shared eab7d0167a93
+rm -rf $home/coverage_gcda_files $home/coverage_processed
 if [ "$op" = "init" ]; then
 	exp=$data/input/
         mkdir -p $data
@@ -26,7 +27,6 @@ elif [ "$1" = "cont" ]; then
         cp /mnt/shared/$model-gcov-0.tar.gz $home
         current=`pwd`
         cd $home
-        rm -rf coverage_gcda_files coverage_processed
         tar -xf $model-gcov-0.tar.gz
         cd $current
 	./1-wrapper-get-coverage-cont.sh $home $exp 1 5 $gfauto func-gem5-afl-$model.csv lines-gem5-afl-$model.csv report-gem5-afl-$model.csv
