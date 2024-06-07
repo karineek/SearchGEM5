@@ -60,4 +60,6 @@ fi
 # - gpt3.5-new-cmin
 # - gpt3.5-old-cmin
 
-# - run Init run: docker run -dt -v /home/ubuntu/phi-cmin/part-1/output-2-Phi-cmin-1/10/Phi-cmin/:/mnt/shared dockerfile init Phi-cmin 10
+# - run Init run: docker run -dt -v /home/ubuntu/phi-cmin/part-1/output-2-Phi-cmin-1/10/Phi-cmin/:/mnt/shared dockerfile init Phi-cmin 0 => this needs to be run only once per LLM
+# - Need to copy $model-gcov-0.tar.gz to each new $mnt ==> think how to solve it.
+# - run Cont run: docker run -dt -v /home/ubuntu/phi-cmin/part-1/output-2-Phi-cmin-1/10/Phi-cmin/:/mnt/shared dockerfile cont Phi-cmin 10
