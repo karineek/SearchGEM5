@@ -20,7 +20,7 @@ if [ "$op" = "init" ]; then
         cp -r $mnt/binary $data
 
         # Run the coverage
-	./1-wrapper-get-coverage.sh $home $exp 0 5 $gfauto func-gem5-llm-$model.csv lines-gem5-llm-$model.csv report-gem5-llm-$model.csv > report-gem5-llm-$model.log
+	./1-wrapper-get-coverage.sh $home $exp 1 $gfauto func-gem5-llm-$model.csv lines-gem5-llm-$model.csv report-gem5-llm-$model.csv > report-gem5-llm-$model.log
 
         # Save the data for next run + statistics
         tar -czvf $model-gcov-0.tar.gz $home/coverage_gcda_files $home/coverage_processed *.csv *.log > llm_coverage_output_tar.txt 2>&1
@@ -36,14 +36,12 @@ elif [ "$1" = "cont" ]; then
 
         # Pull the data from the init run, to continue the coverage from there
         mnt2=/mnt/shared2/ # Needed only for cont. ; It will take $model-gcov-0.tar.gz to use here.
-        cp $mnt2/$model-gcov-0.tar.gz $home
-        current=`pwd`
-        cd $home
+        cp $mnt2/$model-gcov-0.tar.gz .
         tar -xf $model-gcov-0.tar.gz
-        cd $current
+        mv home/debian/coverage_* $home
 
         # Run the coverage
-	./1-wrapper-get-coverage-cont.sh $home $exp 1 5 $gfauto func-gem5-afl-$copy-$model.csv lines-gem5-afl-$copy-$model.csv report-gem5-afl-$copy-$model.csv > report-gem5-afl-$copy-$model.log
+	./1-wrapper-get-coverage-cont.sh $home $exp 2 $gfauto func-gem5-afl-$copy-$model.csv lines-gem5-afl-$copy-$model.csv report-gem5-afl-$copy-$model.csv > report-gem5-afl-$copy-$model.log
 
         # Save the data for statistics
         tar -czvf $model-gcov-afl-$copy.tar.gz $home/coverage_gcda_files $home/coverage_processed *.csv *.log > afl_coverage_output_tar.txt 2>&1
