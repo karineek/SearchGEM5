@@ -10,26 +10,29 @@ traverse_folders() {
 
     # Terminate recursion if depth exceeds 3
     if [ "$depth" -gt 3 ]; then
-        cd $current_folder
-        execLocation=`pwd`
-        mkdir input_fuzzed
+	cd $current_folder
+	execLocation=`pwd`
+	mkdir input_fuzzed
         cp input/*.txt input_fuzzed/
         sleep 120
-        cp binary/*.txt input_fuzzed/
+        # cp binary/*.txt input_fuzzed/
+        for file in binary/*.txt; do
+    	    cp "$file" input_fuzzed/
+	done
         cp output_*/default/queue/id* input_fuzzed/
         cp output_*/default/crashes/id* input_fuzzed/
         cp output_*/default/hangs/id* input_fuzzed/
         cd input_fuzzed/
-        b=`find . -type f | wc -l`
-        fdupes -dN . > command_output.txt 2>&1
-        a=`find . -type f | wc -l`
-        rm test_input_*
-        f=`find . -type f | wc -l`
-        cd ../..
-        statsAFL=`grep "Test case count :" repeat_script*.txt | cut -d':' -f2`
-        statsAFLready=`echo $statsAFL | sed 's:favored,:|:g' | sed 's:variable,:|:g' | sed 's:ignored,:|:g' | sed 's:total:|:g'`
-        echo "Exec path | $execLocation | $b | $a | $f |$statsAFLready"
-        cd $currLocation
+	b=`find . -type f | wc -l`
+	fdupes -dN . > ../command_output.txt 2>&1
+	a=`find . -type f | wc -l`
+	rm test_input_*
+	f=`find . -type f | wc -l`
+	cd ../..
+        statsAFL=`grep "Test case count :" repeat_script*.txt | cut -d':' -f2 | sed 's/\x1B\[[0-9;]*m//g'`
+	statsAFLready=`echo $statsAFL | sed 's:favored,:|:g' | sed 's:variable,:|:g' | sed 's:ignored,:|:g' | sed 's:total:|:g'`
+	echo "Exec path | $execLocation | $b | $a | $f |$statsAFLready"
+	cd $currLocation
         return
     fi
 
