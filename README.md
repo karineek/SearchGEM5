@@ -5,7 +5,7 @@ There are two projects:
 - Main: https://github.com/gem5/gem5
 - For the challenge: https://github.com/BobbyRBruce/gem5-ssbse-challenge-2023
 
-# Citation
+## Citation
 
 *Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke (2023). SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. Symposium on Search Based Software Engineering (SSBSE).*
 
@@ -16,6 +16,42 @@ There are two projects:
   booktitle={Lecture Notes in Computer Science}
   year={2023},
   publisher={15th Symposium on Search Based Software Engineering (SSBSE)}
+}
+```
+
+## Zenodo records:
+
+*Aidan, D., Even Mendoza, K., Langdon, W. B., Hector, M., & Justyna, P. (2024). Artifact of Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators (ASE-Journal-V2). Zenodo. https://doi.org/10.5281/zenodo.13450472*
+
+```
+@misc{aidan_2024_13450472,
+  author       = {Aidan, Dakhama and
+                  Even Mendoza, Karine and
+                  Langdon, W.B. and
+                  Hector, Menendez and
+                  Justyna, Petke},
+  title        = {{Artifact of Enhancing Search-Based Testing with 
+                   LLMs for Finding Bugs in System Simulators}},
+  month        = aug,
+  year         = 2024,
+  publisher    = {Zenodo},
+  version      = {ASE-Journal-V2},
+  doi          = {10.5281/zenodo.13450472},
+  url          = {https://doi.org/10.5281/zenodo.13450472}
+}
+```
+
+*Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, & Justyna Petke. (2023, September 1). Artifact of SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. https://doi.org/10.5281/zenodo.8316685*
+```
+@proceedings{aidan_dakhama_2023_8316685,
+  title        = {{Artifact of SearchGEM5: Towards Reliable gem5 with 
+                   Search Based Software Testing and Large Language
+                   Models}},
+  year         = 2023,
+  publisher    = {Zenodo},
+  month        = sep,
+  doi          = {10.5281/zenodo.8316685},
+  url          = {https://doi.org/10.5281/zenodo.8316685}
 }
 ```
 
