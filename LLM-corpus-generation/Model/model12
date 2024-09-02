@@ -1,0 +1,2 @@
+FROM tinyllama:latest
+PARAMETER num_gpu 0

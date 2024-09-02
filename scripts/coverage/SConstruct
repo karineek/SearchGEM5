@@ -194,7 +194,7 @@ main = Environment(tools=[
 
 main.Tool(SCons.Tool.FindTool(['gcc', 'clang'], main))
 main.Tool(SCons.Tool.FindTool(['g++', 'clang++'], main))
-main.Replace(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], CCFLAGS = ['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKFLAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs', '-lgcov'])
+main.Append(LIBS = ['gcov'], CXXFLAGS = ['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'], CCFLAGS = ['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'], LINKFLAGS = ['--coverage', '-ftest-coverage', '-fprofile-arcs', '-lgcov'])
 
 Export('main')
 
@@ -403,8 +403,8 @@ for variant_path in variant_paths:
     env.SConsignFile(os.path.join(gem5_build, 'sconsign'))
 
     # Try to force coverage
-    env.Append(CFLAGS=['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
-    env.Append(CXXFLAGS=['-g', '-O0', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
+    env.Append(CFLAGS=['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
+    env.Append(CXXFLAGS=['-g', '-O1', '--coverage', '-ftest-coverage', '-fprofile-arcs'])
     env.Append(LINKFLAGS=['--coverage', '-lgcov', '-ftest-coverage', '-fprofile-arcs'])
 
     # Set up default C++ compiler flags

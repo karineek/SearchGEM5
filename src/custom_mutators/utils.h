@@ -43,7 +43,10 @@ void extractPath(const char *input, char *path);
 void rand_name(char *timestampString, size_t bufferSize);
 
 // Generate new file names for binary and type
-void generat_new_file_names(char *input, char *bin, char *type);
+void generat_new_file_names(const char *input, char *bin, char *type);
+
+// Generate a new file name for writing all test input (mode)
+char* generat_new_test_input_name(const char *input);
 
 // Writes to logger instead into perror or stdout
 #ifdef TEST_CM
@@ -61,5 +64,14 @@ void print_error(const char *msg, const char *data);
 
 // Count the number of lines in a buffer to check no bad mutations written
 int countLines(const char *str);
+
+// Test Before Sending to AFL++
+int isTestInputValid(const char *input);
+
+// Save all test inputs
+void writeTestInputExternal(const char *data);
+
+// Plain test of number of spaces in two strings - adj1 and adj2 are counters to be added
+bool haveSameNumberOfSpaces(const char *str1, const char *str2, int adj1, int adj2);
 
 #endif // UTILS_H
