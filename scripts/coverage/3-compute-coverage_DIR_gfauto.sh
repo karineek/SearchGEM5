@@ -5,12 +5,11 @@
 ################################################
 base=$1			# /home/user42
 testcaseDir=$2		# where is basic.c
-process_number=$3	# 5
-itr=$4			# 0
-gfauto=$5		# gfauto location, e.g., /home/user42/git/graphicsfuzz/gfauto
-compiler=$6		# gcc or llvm?
-old_version=$7		# 1 - yes, 0 - no
-# $base $testcaseDir $process_number $itr $gfauto $compiler $gfauto_old_version
+itr=$3			# 0
+gfauto=$4		# gfauto location, e.g., /home/user42/git/graphicsfuzz/gfauto
+compiler=$5		# gcc or llvm?
+old_version=$6		# 1 - yes, 0 - no
+# $base $testcaseDi  $itr $gfauto $compiler $gfauto_old_version
 
 ## Required parameters
 working_folder=$base

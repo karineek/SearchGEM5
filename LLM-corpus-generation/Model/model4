@@ -1,0 +1,2 @@
+FROM ./MODELS/codellama-7b.Q5_K_S.gguf
+PARAMETER num_gpu 0
