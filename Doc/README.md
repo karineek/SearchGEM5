@@ -15,4 +15,6 @@ Reported bugs for gem5 via the reporting bug system. Other bugs discussed via pr
 
 - SIGABRT does not trigger its signal handler and skips outputs on ARM [#1544](https://github.com/gem5/gem5/issues/1544) (Won't Fix)
 - Missing Locale support within gem5 simulator on ARM [#1547](https://github.com/gem5/gem5/issues/1547)
-- Panic Page table fault error in ARM when accessing invalid address in the simulated program [#1527](https://github.com/gem5/gem5/issues/1527) 
+- Panic Page table fault error in ARM when accessing invalid address in the simulated program [#1527](https://github.com/gem5/gem5/issues/1527)
+
+For the ARM bugs, these (1-3) were discovered using the [Cloudlab platform](https://www.cloudlab.us) using [m400 machines](https://docs.cloudlab.us/hardware.html). We thank them for the help and infrastructure.
