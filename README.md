@@ -294,6 +294,30 @@ afl-gcc-pass ++4.08c by <oliva@adacore.com>
 afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
 scons: done building targets.
 ```
+with ARM, use this thing plus be aware of linker issues:
+```
+CC=/home/kevenmen/AFLplusplus/afl-cc CXX=/home/kevenmen/AFLplusplus/afl-c++ LINK=/home/kevenmen/AFLplusplus/afl-c++ scons build/ARM/gem5.opt -j 4
+```
+Again, it should indicate the build of gem5.opt:
+```
+...
+ [     CXX] ARM/python/m5/info.py.cc -> .o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[+] Instrumented 3381 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 1492 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2344 locations (non-hardened mode, inline, ratio 100%).
+[+] Instrumented 2344 locations (non-hardened mode, inline, ratio 100%).
+ [     CXX] src/base/date.cc -> ARM/base/date.o
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+afl-gcc-pass ++4.08c by <oliva@adacore.com>
+[*] Inline instrumentation at ratio of 100% in non-hardened mode.
+[!] WARNING: No instrumentation targets found.
+ [    LINK]  -> ARM/gem5.opt
+afl-cc++4.08c by Michal Zalewski, Laszlo Szekeres, Marc Heuse - mode: GCC_PLUGIN-DEFAULT
+scons: done building targets.
+```
 
 Example of how to use it. Create main.c:
 ```
