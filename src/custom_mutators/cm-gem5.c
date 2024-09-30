@@ -223,12 +223,16 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
     // Allocate a new buffer for the edits
     uint8_t *new_buf = malloc(new_size);
     if (!new_buf) {
-        WARNF(">>-7 Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
+        WARNF(">>-7A Bad allocation for buffer for mutations. Could not allocate %zu size buffer.", new_size);
         AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
     }
     // Copy the original input data
     memcpy(new_buf, buf, buf_size);
 
+    if (!data) {
+	WARNF(">>-7B Bad allocation for data strucuture coming from AFL++");
+        AFL_CUSTOM_MUTATOR_FAILED; // We cannot work with this
+    }
 
     // KEM: here we can define 3 mutators: combine one, args mutator and binary mutator.
     bool mutations_rc = 0; // RC if mutations succ.
