@@ -53,6 +53,7 @@
 // extract path
 void extractPath(const char *input, char *path) {
     if (!input) return; // check we got input
+    if (!path) return; // check we got where to put our output
 
     // Iterate through the characters in the input to get the first line
     for (size_t i = 0; input[i] != '\0'; ++i) {
@@ -89,12 +90,14 @@ void rand_name(char *timestampString, size_t bufferSize) {
 // Rename file so we can muate the binary
 void generat_new_file_names(const char *input, char *bin, char *type) {
     if (!input) return; // check we got input
-
+    if (!bin) return; // check we have space for output
+    if (!type) return; // check we have space for output
+	
     char path[100] = "";
     extractPath(input, path);
     if (strlen(path) < 5) return; // Probably not a valid path - too short
 
-    // Generate random number for unique name
+    // Generate random number for a unique name
     char name[50] = "";
     rand_name(name, sizeof(name));
 
@@ -136,6 +139,7 @@ char* generat_new_test_input_name(const char *input) {
 #ifdef TEST_CM
 bool writeToLogFile(const char *logFile, const char *msg) {
     if (!logFile) return false; // Check we have a  file name
+    if (!msg) return false; // nothing to print 
 
     // try to open logFile
     FILE *file = fopen(logFile, "a");
@@ -249,6 +253,8 @@ int countLines(const char *str) {
 
 // Test if the test should go into AFL++ - seg fault crashes AFL++
 int isTestInputValid(const char *input) {
+    if (!input) return 0; // Invalid input
+	
     char inputCopy[250];  // Adjust the size as needed
     strcpy(inputCopy, input);
 
