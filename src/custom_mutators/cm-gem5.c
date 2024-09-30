@@ -506,9 +506,9 @@ void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data, int is2add_ne
     // Else continue with the init
     strcpy(data->out_buff,token);                   // Keep the name of the binary
     if (is2add_new_line)
-        strncat(data->out_buff, "\n", 1);           // Add back the newline
+        strncat(data->out_buff, "\n", 2);           // Add back the newline
     strcpy(data->file_name_types, token);           // Keep the file name
-    strncat(data->file_name_types, ".types", 6);    // Add back the .types ending
+    strncat(data->file_name_types, ".types", 7);    // Add back the .types ending
 
     // Add the args lines again
     token = strtok(NULL, "\n");
