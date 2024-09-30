@@ -685,7 +685,7 @@ bool findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
         // Next iteration:
 	token = strtok_r(NULL, " ", &saveptr1); // Next token
         if (token != NULL) {
-		strncat(data->out_buff, " ", 1); // add back the space
+		strncat(data->out_buff, " ", 2); // add back the space
         	if (!invalid_tokens && types_token != NULL)
 			types_token = strtok_r(NULL, " ", &saveptr2); // Next type token
 	} else {
