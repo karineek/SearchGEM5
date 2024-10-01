@@ -344,18 +344,30 @@ bool readTypes(my_mutator_t *data, char** buffer) {
     }
 
     // Read the file line by line
-    if (fgets(*buffer, sizeof(*buffer), file) == NULL) {
+    if (fgets(*buffer, MAX_CMDLINE_SIZE, file) == NULL) {
         perror(">>-12 Error reading file");
         buffer = 0;
         return false;
     }
+	
     char* tmp;
     // Allocate space
     if ((tmp = (char *)malloc(MAX_CMDLINE_SIZE)) == NULL) {
         perror(">>-13 afl buffer malloc failed");
+	tmp=0;   
+	free(*buffer);    
         return false;
     }
-    while (fgets(tmp, sizeof(tmp), file) != NULL) {
+    size_t curr_size = strlen(*buffer); 	
+    while (fgets(tmp, MAX_CMDLINE_SIZE, file) != NULL) {
+        curr_size += strlen(tmp);
+	if (curr_size >= MAX_CMDLINE_SIZE) {
+	    perror(">>-14 afl buffer is corrupted");
+	    free(tmp);	
+	    free(*buffer);	
+            return false;
+	}
+	// Else it is safe to copy    
         strcat(*buffer,tmp);
     }
     free(tmp);
