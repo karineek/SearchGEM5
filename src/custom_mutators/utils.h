@@ -2,7 +2,7 @@
  * @file utils.h
  *
  * @brief The file is a set of AFL++ mutators for gem5 binary test cases used
- *        in SearchGem5. The project is AFL++-basd. Please include AFL++ 
+ *        in SearchGem5. The project is AFL++-based. Please include AFL++ 
  *        headers and download the recent version before running this code.
  *        You need to use -I/path/to/AFLplusplus/include -I.
  *
@@ -14,7 +14,7 @@
  *                      Hector D. Menendez, Justyna Petke.
  *                King's College London and UCL University College London.
  *
- * This C file is part of SearchGem5 Project.
+ * This C file is part of the SearchGem5 Project.
  *
  * SearchGem5 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -62,8 +62,8 @@ bool writeStringToFile(const char *data, const char *fileName);
 // Print error message to screen
 void print_error(const char *msg, const char *data);
 
-// Count the number of lines in a buffer to check no bad mutations written
-int countLines(const char *str);
+// Count the number of lines in a buffer to check no bad mutations are written
+int countLines(const char *str, int _maxsize);
 
 // Test Before Sending to AFL++
 int isTestInputValid(const char *input);
