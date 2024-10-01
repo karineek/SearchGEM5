@@ -287,7 +287,7 @@ size_t afl_custom_fuzz(my_mutator_t *data, uint8_t *buf, size_t buf_size,
 #endif
 
     // Check if mutation succ. and Check new_buf before declaring the mutation is okay
-    if ((mutations_rc==0) || (countLines((const char *) new_buf) < 2)) {
+    if ((mutations_rc==0) || (countLines((const char *) new_buf,new_size) < 2)) {
 #ifdef TEST_CM
         WARNF(">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
         writeToLogFile("afl_log.log", ">>-8-B Bad generation for buffer with mutations. Memory corrupted.");
