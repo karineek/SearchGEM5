@@ -576,7 +576,9 @@ bool findAndMutateArgs(uint8_t *new_buf, my_mutator_t *data) {
        || (!data->file_name_types) || (strlen(data->file_name_types) < 11)) {      	// t.c.o.types - cannot be smaller
 
         // Write something to avoid memory corruption
-        if (data->input_args && strlen(data->input_args) > 0) {
+	if ((strlen(data->out_buff) + strlen(data->input_args)) >= (MAX_CMDLINE_SIZE-1)) {
+	    strcat(data->out_buff, "0"); // If we are already here, it is likely the memory is corrupted.
+	} else if (data->input_args && strlen(data->input_args) > 0) {	
             strcat(data->out_buff, data->input_args);
         } else {
             strcat(data->out_buff, "0");
