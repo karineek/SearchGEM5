@@ -541,6 +541,7 @@ void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data, int is2add_ne
 // Check if the args are only 1.
 bool is_one_arg_call(char *str) {
     if (!str) return true; // empty string means no tokens - true
+    if (strlen(str) == 0) return true; // empty string means no tokens - true
 
     const char *pos = str;
     int count = 0;
