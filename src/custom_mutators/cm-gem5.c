@@ -519,6 +519,11 @@ void initCurrentMutationData(uint8_t *new_buf, my_mutator_t *data, int is2add_ne
     char *token = strtok((char *)new_buf, "\n");    // Split lines
     if (!token) return; // Leter all data fields is empty so the process should terminate gracefully
 
+    size_t token_len = strlen(token);	 
+    if ((token_len + strlen(data->out_buff) + 2) >= MAX_CMDLINE_SIZE) return;
+    if ((token_len + strlen(data->file_name_types) + 7) >= MAX_FILE_NAME_SIZE) return;
+    if ((token_len + strlen(data->input_args) + 1) >= MAX_ARGS_SIZE) return;	
+
     // Else continue with the init
     strcpy(data->out_buff,token);                   // Keep the name of the binary
     if (is2add_new_line)
