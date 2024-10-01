@@ -237,13 +237,13 @@ void print_error(const char *msg, const char *data) {
 }
 
 // Count the number of lines in a buffer to check no bad mutations written
-int countLines(const char *str) {
+int countLines(const char *str, int _maxsize) {
     if (str == NULL) return 0;
 
     int lineCount = 0;
     size_t length = strlen(str);
 
-    for (size_t i = 0; i < length; ++i) {
+    for (size_t i = 0; ((i < length) && (i < _maxsize)) ; ++i) {
         if (str[i] == '\n') {
             lineCount++;
         }
