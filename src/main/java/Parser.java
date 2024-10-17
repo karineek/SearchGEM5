@@ -9,7 +9,7 @@
  *                      Hector D. Menendez, Justyna Petke.
  *                King's College London and UCL University College London.
  *
- * This C file is part of SearchGem5 Project.
+ * This JAVA file is part of SearchGem5 Project.
  *
  * SearchGem5 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
