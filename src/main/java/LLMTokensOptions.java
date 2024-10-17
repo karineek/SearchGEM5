@@ -5,15 +5,12 @@
  *        mapping of C optimisations and LLVM compiler parts. It can return
  *        random set of tokens.
  *
- * For more details on the AFL++ API used in this project, please refer to:
- * - AFL++: https://github.com/AFLplusplus/AFLplusplus
- *
  *
  * @copyright (C) 2023,2024 Aidan Dakhama, Karine Even-Mendoza, William B. Langdon, 
  *                      Hector D. Menendez, Justyna Petke.
  *                King's College London and UCL University College London.
  *
- * This C file is part of SearchGem5 Project.
+ * This JAVA file is part of SearchGem5 Project.
  *
  * SearchGem5 is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
