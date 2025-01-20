@@ -19,6 +19,32 @@ There are two projects:
 }
 ```
 
+*Karine Even-Mendoza and  Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce (2025). Search+LLM-based Testing for ARM Simulators. 2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP).*
+
+```
+@inproceedings (Even-Mendoza:2025:ICSE-SEIP,
+  author = {Karine Even-Mendoza and  Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce},
+  title = {{Search+LLM-based} Testing for {ARM} Simulators},
+  booktitle = {2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)},
+  year = {2025},
+  editor = {},
+  volume = {},
+  number = {},
+  series = {},
+  pages = {},
+  address = {Ottawa, Canada},
+  publisher_address = {},
+  month = {April 27-May 3},
+  organisation = {},
+  publisher = {},
+  note = {https://conf.researchr.org/track/icse-2025/icse-2025-software-engineering-in-practice#Accepted-Papers},
+  ISBN13 = {},
+  url = {https://solar.cs.ucl.ac.uk/pdf/ICSE_SEIP_2025___SearchSYS_and_ARM.pdf},
+  code_url = {https://zenodo.org/records/13450472, https://zenodo.org/records/13909721},
+  size = {12 pages},
+}
+```
+
 ## Zenodo records:
 
 *Aidan, D., Even Mendoza, K., Langdon, W. B., Hector, M., & Justyna, P. (2024). Artifact of Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators (ASE-Journal-V2). Zenodo. https://doi.org/10.5281/zenodo.13450472*
