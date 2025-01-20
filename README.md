@@ -19,7 +19,7 @@ There are two projects:
 }
 ```
 
-*Karine Even-Mendoza and  Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce (2025). Search+LLM-based Testing for ARM Simulators. 2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP).*
+*Karine Even-Mendoza and Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce (2025). Search+LLM-based Testing for ARM Simulators. 2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP).*
 
 ```
 @inproceedings (Even-Mendoza:2025:ICSE-SEIP,
