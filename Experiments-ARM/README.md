@@ -4,9 +4,9 @@ We present and discuss our solution to the problem of testing software simulator
 
 SearchSYS can create test cases that activate bugs by combining LLMs, fuzzing, and differential testing. Using only LLM, SearchSYS identified 74 test cases that activated bugs. By incorporating fuzzing, this number increased by 93 additional bug-activating cases within 24 hours. Through differential testing, we identified 624 bugs with LLM-generated test cases and 126 with fuzzed test inputs. Out of the total number of bug-activating test cases, 4 unique bugs have been reported and acknowledged by developers. Additionally, we provided developers with a test suite and fuzzing statistics, and open-sourced SearchSYS.
 
-We published our artifact in Zenodo https://zenodo.org/records/14721385.
+We published our artifact in Zenodo https://zenodo.org/records/14724553.
 
-For reproducing the evaluation in the paper, ensure your system meets the requirements, then follow the instructions to reproduce the tables in the results. Hardware requirements: You will need an ARM machine, with 80 GB HD free space, and 72 GB RAM (for AFL++ fuzzing) or 16 GB else if just running the differential testing without building gem5 with AFL++ instrumentation. 
+To reproduce the evaluation in the paper, ensure your system meets the requirements, and then follow the instructions to reproduce the tables in the results. **Hardware requirements:** You will need an ARM machine, with 80 GB HD free space, and 72 GB RAM (for AFL++ fuzzing) or (else) 16 GB if merely running the differential testing without building gem5 with AFL++ instrumentation. 
 
 
 
@@ -60,7 +60,7 @@ The record here details how to run SearchSYS on ARM machines (arm64-ubuntu-2204 
   keywords = {Software System Simulation, SearchSYS, gem5, AFL++, Fuzzing, Fuzz Testing, Differential Testing, Search-Based Software Testing, LLM, Language Models, Ollama, CodeLlama, TinyLlama, Phi2, Llama2, Magicoder, CodeBooga, GPT-3.5-turbo, prompt engineering},
   ISBN13 = {},
   url = {https://solar.cs.ucl.ac.uk/pdf/ICSE_SEIP_2025___SearchSYS_and_ARM.pdf},
-  code_url = {https://zenodo.org/records/13450472, https://zenodo.org/records/14721385},
+  code_url = {https://zenodo.org/records/13450472, https://zenodo.org/records/14724553},
   size = {12 pages},
   abstract = {In order to aid quality assurance of large complex hardware architectures, system simulators have been developed. However, such system simulators do not always accurately mirror what would happen on a real device. A significant challenge in testing these simulators arises from the complexity of having to model both the simulation and the infinite number of software that could be run on such a device.
 Our previous work introduced SearchSYS, a testing framework for software simulators. SearchSYS leverages a large language model for initial seed C code generation, which is then compiled, and the resultant binary is fed to a fuzzer. We then use differential testing by running the outputs of fuzzing on real hardware and a system simulator to identify mismatches.
@@ -129,7 +129,7 @@ sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llv
 LLVM_CONFIG=/usr/bin/llvm-config-13
 ```
 
-We attached all installed packages in installed_karl.log (Red Hat-based system) and TODO (Ubuntu/Unix, arm64-ubuntu-2204).
+We attached all installed packages in installed_karl.log (Red Hat-based system) and installed_m400.log  (Ubuntu/Unix, arm64-ubuntu-2204).
 
 
 
@@ -160,10 +160,10 @@ sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
 cat /home/debian/experiment/TinyLlama-cmin/input/test_input_574567374417673.txt
 
 YOU WILL NEED TO COPY ALL SCRIPTS OF THIS ARTIFACT INTO /home/debian
-wget "https://zenodo.org/records/14721385/files/1-run-diff-test.sh"
-wget "https://zenodo.org/records/14721385/files/2-test-input.sh"
-wget "https://zenodo.org/records/14721385/files/run_AFL_loop_v6.sh"
-wget "https://zenodo.org/records/14721385/files/Experiment-ARM-24h.sh"
+wget "https://zenodo.org/records/14724553/files/1-run-diff-test.sh"
+wget "https://zenodo.org/records/14724553/files/2-test-input.sh"
+wget "https://zenodo.org/records/14724553/files/run_AFL_loop_v6.sh"
+wget "https://zenodo.org/records/14724553/files/Experiment-ARM-24h.sh"
 ```
 
 We will explain in the next sections when to run each. There is a shorter version of the experiments in Section 3.
@@ -683,7 +683,7 @@ The analysis here and identify the bugs are done manually and require a system s
 
 ## 3. Reproduce ICSE-SEIP 2025 Evaluation - Shorter Version and Statistics from Dataset:
 
-Available: the source code is at https://github.com/karineek/SearchGEM5/tree/main with the extra scripts for ARM and the instructions fully documented in this Zenodo Record in Sections 1 and 2. We added also code.zip to this publicly accessible archival Zenodo record to fully meet the availability requirements. 
+Available: the source code is at https://github.com/karineek/SearchGEM5/tree/main with the extra scripts for ARM and the instructions fully documented in this Zenodo Record in Sections 1 and 2. We added code.zip to this publicly accessible archival Zenodo record to meet the availability requirements. 
 
 Functional: The artifact associated with the research are documented fully in sections 2.3, 2.4 and 2.5. Due to its time requirements, we present a shorter version in this section with additional scripts to allow easy quick reproduction of the shorter version's results. We added expected results to help validate the results and noted where the results can be different (e.g. when fuzzing for 2 hours instead of 24 hours).
 
@@ -697,7 +697,7 @@ We added the tokens from the GitHub of SearchSYS into four files and filtered ou
 
 To reproduce the counters of Table I:
 ```
-wget "https://zenodo.org/records/14721385/files/TABLE-1.zip" # Get the data and scripts
+wget "https://zenodo.org/records/14724553/files/TABLE-1.zip" # Get the data and scripts
 unzip TABLE-1.zip
 cd TABLE-1
 ./table-1.sh
@@ -741,9 +741,9 @@ We run differential testing to only one of the sets, A, as it is the smallest (a
 You will need two scripts for this stage:
 ```
 cd /home/debian/
-wget "https://zenodo.org/records/14721385/files/1-run-diff-test.sh" 
-wget "https://zenodo.org/records/14721385/files/2-test-input.sh"
-wget "https://zenodo.org/records/14721385/files/ICSE-SEIP-Bugs-READY.xlsx" ICSE-SEIP-Bugs-READY.xlsx" 
+wget "https://zenodo.org/records/14724553/files/1-run-diff-test.sh" 
+wget "https://zenodo.org/records/14724553/files/2-test-input.sh"
+wget "https://zenodo.org/records/14724553/files/ICSE-SEIP-Bugs-READY.xlsx" ICSE-SEIP-Bugs-READY.xlsx" 
 chmod 777 1-run-diff-test.sh
 chmod 777 2-test-input.sh
 ```
@@ -769,7 +769,7 @@ We start with running differential testing on set A:
 nohup ./1-run-diff-test.sh /home/debian/experiment/TinyLlama-cmin/input > LLM-diff-testing-TinyLlama.log 2>&1 &
 nohup ./1-run-diff-test.sh /home/debian/experiment/TinyLlama-cmin/output-r_5/default/queue > AFL-diff-testing-TinyLlama.log 2>&1 &
 ```
-Then we analyse this manually, as not every failure to simulate a binary is a bug (it can be that the fuzzing corrupted the binary, and the expected behaviour is NOT to run the simulation successfully). However, you can "grep" the error strings, it is likely that some of them will manifest during the fuzzing.
+Then we analyse this manually, as not every failure to simulate a binary is a bug (it can be that the fuzzing corrupted the binary, and the expected behaviour is NOT to run the simulation successfully). However, you can "grep" the error strings, as some of the errors will likely manifest during the fuzzing.
 
 
 
@@ -801,16 +801,16 @@ Then to reproduce the numbers, you can mine the logs of the original fuzzing cam
 You will need one script for this stage:
 ```
 cd /home/debian/
-wget "https://zenodo.org/records/14721385/files/3-run-stat-table-3.sh" 
+wget "https://zenodo.org/records/14724553/files/3-run-stat-table-3.sh" 
 chmod 777 3-run-stat-table-3.sh
 and the logs:
 mkdir experiments-prev
 cd experiments-prev
-wget "https://zenodo.org/records/14721385/files/round-1-output.tar.gz"
-wget "https://zenodo.org/records/14721385/files/round-2-output.tar.gz"
-wget "https://zenodo.org/records/14721385/files/round-3-output.tar.gz"
-wget "https://zenodo.org/records/14721385/files/round-4-output.tar.gz"
-wget "https://zenodo.org/records/14721385/files/round-5-output.tar.gz" 
+wget "https://zenodo.org/records/14724553/files/round-1-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-2-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-3-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-4-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-5-output.tar.gz" 
 ```
 
 Then run:
