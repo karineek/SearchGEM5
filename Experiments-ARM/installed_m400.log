@@ -1,0 +1,1016 @@
+Package                Version             
+---------------------- --------------------
+beautifulsoup4         4.8.2               
+certifi                2019.11.28          
+cfgv                   3.4.0               
+chardet                3.0.4               
+command-not-found      0.3                 
+cryptography           2.8                 
+dbus-python            1.2.16              
+distlib                0.3.9               
+distro                 1.4.0               
+distro-info            0.23+ubuntu1.1      
+filelock               3.16.1              
+html5lib               1.0.1               
+identify               2.6.1               
+idna                   2.8                 
+language-selector      0.1                 
+lxml                   4.5.0               
+netifaces              0.10.4              
+nodeenv                1.9.1               
+pip                    20.0.2              
+platformdirs           4.3.6               
+pre-commit             2.20.0              
+pssh                   2.3.1               
+Pygments               2.3.1               
+PyGObject              3.36.0              
+pymacaroons            0.13.0              
+PyNaCl                 1.3.0               
+pyOpenSSL              19.0.0              
+python-apt             2.0.1+ubuntu0.20.4.1
+PyYAML                 5.3.1               
+requests               2.22.0              
+requests-unixsocket    0.2.0               
+setuptools             45.2.0              
+six                    1.14.0              
+soupsieve              1.9.5               
+ssh-import-id          5.10                
+toml                   0.10.2              
+ubuntu-advantage-tools 20.3                
+ufw                    0.36                
+unattended-upgrades    0.1                 
+urllib3                1.25.8              
+virtualenv             20.29.1             
+webencodings           0.5.1               
+wheel                  0.34.2              
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                                  Version                                                         Architecture Description
++++-=====================================-===============================================================-============-===============================================================================
+ii  accountsservice                       0.6.55-0ubuntu12~20.04.7                                        arm64        query and manipulate user account information
+ii  adduser                               3.118ubuntu2                                                    all          add and remove users and groups
+ii  adwaita-icon-theme                    3.36.1-2ubuntu0.20.04.2                                         all          default icon theme of GNOME (small subset)
+ii  apt                                   2.0.10                                                          arm64        commandline package manager
+ii  apt-transport-https                   2.0.10                                                          all          transitional package for https support
+ii  apt-utils                             2.0.10                                                          arm64        package management related utility programs
+ii  at-spi2-core                          2.36.0-2                                                        arm64        Assistive Technology Service Provider Interface (dbus core)
+ii  autoconf                              2.69-11.1                                                       all          automatic configure script builder
+ii  automake                              1:1.16.1-4ubuntu6                                               all          Tool for generating GNU Standards-compliant Makefiles
+ii  autopoint                             0.19.8.1-10build1                                               all          autopoint program from GNU gettext
+ii  autotools-dev                         20180224.1                                                      all          Update infrastructure for config.{guess,sub} files
+ii  base-files                            11ubuntu5.8                                                     arm64        Debian base system miscellaneous files
+ii  base-passwd                           3.5.47                                                          arm64        Debian base system master password and group files
+ii  bash                                  5.0-6ubuntu1.2                                                  arm64        GNU Bourne Again SHell
+ii  bash-completion                       1:2.10-1ubuntu1                                                 all          programmable completion for the bash shell
+ii  bc                                    1.07.1-2build1                                                  arm64        GNU bc arbitrary precision calculator language
+ii  bind9-dnsutils                        1:9.18.30-0ubuntu0.20.04.1                                      arm64        Clients provided with BIND 9
+ii  bind9-host                            1:9.18.30-0ubuntu0.20.04.1                                      arm64        DNS Lookup Utility
+ii  bind9-libs:arm64                      1:9.18.30-0ubuntu0.20.04.1                                      arm64        Shared Libraries used by BIND 9
+ii  binfmt-support                        2.2.0-2                                                         arm64        Support for extra binary formats
+ii  binutils                              2.34-6ubuntu1.9                                                 arm64        GNU assembler, linker and binary utilities
+ii  binutils-aarch64-linux-gnu            2.34-6ubuntu1.9                                                 arm64        GNU binary utilities, for aarch64-linux-gnu target
+ii  binutils-common:arm64                 2.34-6ubuntu1.9                                                 arm64        Common files for the GNU assembler, linker and binary utilities
+ii  bison                                 2:3.5.1+dfsg-1                                                  arm64        YACC-compatible parser generator
+ii  bridge-utils                          1.6-2ubuntu1                                                    arm64        Utilities for configuring the Linux Ethernet bridge
+ii  bsdmainutils                          11.1.2ubuntu3                                                   arm64        collection of more utilities from FreeBSD
+ii  bsdutils                              1:2.34-0.1ubuntu9.6                                             arm64        basic utilities from 4.4BSD-Lite
+ii  build-essential                       12.8ubuntu1.1                                                   arm64        Informational list of build-essential packages
+ii  busybox-initramfs                     1:1.30.1-4ubuntu6.5                                             arm64        Standalone shell setup for initramfs
+ii  busybox-static                        1:1.30.1-4ubuntu6.5                                             arm64        Standalone rescue shell with tons of builtin utilities
+ii  byacc                                 20140715-1build1                                                arm64        public domain Berkeley LALR Yacc parser generator
+ii  bzip2                                 1.0.8-2                                                         arm64        high-quality block-sorting file compressor - utilities
+ii  ca-certificates                       20240203~20.04.1                                                all          Common CA certificates
+ii  cargo                                 1.75.0+dfsg0ubuntu1~bpo0-0ubuntu0.20.04                         arm64        Rust package manager
+ii  clang                                 1:10.0-50~exp1                                                  arm64        C, C++ and Objective-C compiler (LLVM based)
+ii  clang-10                              1:10.0.0-4ubuntu1                                               arm64        C, C++ and Objective-C compiler
+ii  clang-13                              1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        C, C++ and Objective-C compiler
+ii  clangd-13                             1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Language server that provides IDE-like features to editors
+ii  cmake                                 3.16.3-1ubuntu1.20.04.1                                         arm64        cross-platform, open-source make system
+ii  cmake-data                            3.16.3-1ubuntu1.20.04.1                                         all          CMake data files (modules, templates and documentation)
+ii  command-not-found                     20.04.6                                                         all          Suggest installation of packages in interactive bash sessions
+ii  console-setup                         1.194ubuntu3                                                    all          console font and keymap setup program
+ii  console-setup-linux                   1.194ubuntu3                                                    all          Linux specific part of console-setup
+ii  coreutils                             8.30-3ubuntu2                                                   arm64        GNU core utilities
+ii  cpio                                  2.13+dfsg-2ubuntu0.4                                            arm64        GNU cpio -- a program to manage archives of files
+ii  cpp                                   4:9.3.0-1ubuntu2                                                arm64        GNU C preprocessor (cpp)
+ii  cpp-11                                11.4.0-2ubuntu1~20.04                                           arm64        GNU C preprocessor
+ii  cpp-9                                 9.4.0-1ubuntu1~20.04.2                                          arm64        GNU C preprocessor
+ii  crda                                  3.18-1build1                                                    arm64        wireless Central Regulatory Domain Agent
+ii  cron                                  3.0pl1-136ubuntu1                                               arm64        process scheduling daemon
+ii  curl                                  7.68.0-1ubuntu2.25                                              arm64        command line tool for transferring data with URL syntax
+ii  dash                                  0.5.10.2-6                                                      arm64        POSIX-compliant shell
+ii  dbus                                  1.12.16-2ubuntu2.3                                              arm64        simple interprocess messaging system (daemon and utilities)
+ii  dbus-user-session                     1.12.16-2ubuntu2.3                                              arm64        simple interprocess messaging system (systemd --user integration)
+ii  dconf-gsettings-backend:arm64         0.36.0-1                                                        arm64        simple configuration storage system - GSettings back-end
+ii  dconf-service                         0.36.0-1                                                        arm64        simple configuration storage system - D-Bus service
+ii  debconf                               1.5.73                                                          all          Debian configuration management system
+ii  debconf-i18n                          1.5.73                                                          all          full internationalization support for debconf
+ii  debhelper                             12.10ubuntu1                                                    all          helper programs for debian/rules
+ii  debianutils                           4.9.1                                                           arm64        Miscellaneous utilities specific to Debian
+ii  debugedit                             4.14.2.1+dfsg1-1build2                                          arm64        tool to mangle source locations in .debug files
+ii  device-tree-compiler                  1.5.1-1                                                         arm64        Device Tree Compiler for Flat Device Trees
+ii  devio                                 1.2-1.2                                                         arm64        correctly read (or write) a region of a block device
+ii  dh-autoreconf                         19                                                              all          debhelper add-on to call autoreconf and clean up after the build
+ii  dh-strip-nondeterminism               1.7.0-1                                                         all          file non-deterministic information stripper — Debhelper add-on
+ii  diffutils                             1:3.7-3                                                         arm64        File comparison utilities
+ii  dirmngr                               2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - network certificate management service
+ii  distro-info-data                      0.43ubuntu1.17                                                  all          information about the distributions' releases (data files)
+ii  dkms                                  2.8.1-5ubuntu1                                                  all          Dynamic Kernel Module Support Framework
+ii  dma                                   0.12-1                                                          arm64        lightweight mail transport agent
+ii  dmeventd                              2:1.02.167-1ubuntu1                                             arm64        Linux Kernel Device Mapper event daemon
+ii  dmidecode                             3.2-3                                                           arm64        SMBIOS/DMI table decoder
+ii  dmsetup                               2:1.02.167-1ubuntu1                                             arm64        Linux Kernel Device Mapper userspace library
+ii  dosfstools                            4.1-2                                                           arm64        utilities for making and checking MS-DOS FAT filesystems
+ii  dpkg                                  1.19.7ubuntu3.2                                                 arm64        Debian package management system
+ii  dpkg-dev                              1.19.7ubuntu3.2                                                 all          Debian package development tools
+ii  dwz                                   0.13-5                                                          arm64        DWARF compression tool
+ii  e2fsprogs                             1.45.5-2ubuntu1.2                                               arm64        ext2/ext3/ext4 file system utilities
+ii  ebtables                              2.0.11-3build1                                                  arm64        Ethernet bridge frame table administration
+ii  ed                                    1.16-1                                                          arm64        classic UNIX line editor
+ii  eject                                 2.1.5+deb1+cvs20081104-14                                       arm64        ejects CDs and operates CD-Changers under Linux
+ii  emacs                                 1:26.3+1-1ubuntu2                                               all          GNU Emacs editor (metapackage)
+ii  emacs-bin-common                      1:26.3+1-1ubuntu2                                               arm64        GNU Emacs editor's shared, architecture dependent files
+ii  emacs-common                          1:26.3+1-1ubuntu2                                               all          GNU Emacs editor's shared, architecture independent infrastructure
+ii  emacs-el                              1:26.3+1-1ubuntu2                                               all          GNU Emacs LISP (.el) files
+ii  emacs-gtk                             1:26.3+1-1ubuntu2                                               arm64        GNU Emacs editor (with GTK+ GUI support)
+ii  emacsen-common                        3.0.4                                                           all          Common facilities for all emacsen
+ii  emulab-client                         1.44.13-2~ubuntu~20.04                                          arm64        The Emulab clientside software.
+ii  emulab-client-legacy                  1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - legacy path support.
+ii  emulab-client-minimize                1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - dpkg excludes to shrink on-disk size
+ii  emulab-client-networkd                1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - systemd-networkd control net support.
+ii  emulab-client-ntp                     1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - ntp configuration.
+ii  emulab-client-rsyslog                 1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - rsyslog configuration.
+ii  emulab-client-u-boot-arm64            1.44.13-2~ubuntu~20.04                                          arm64        The Emulab clientside software - u-boot/flash-kernel configuration.
+ii  emulab-client-xmlrpc                  1.44.13-2~ubuntu~20.04                                          all          The Emulab clientside software - XMLRPC library and scripts.
+ii  emulab-ipod-dkms                      3.3.0-0                                                         all          DKMS source for the Emulab IPOD ping-of-death driver
+ii  ethtool                               1:5.4-1                                                         arm64        display or change Ethernet device settings
+ii  fakeroot                              1.24-1                                                          arm64        tool for simulating superuser privileges
+ii  fdisk                                 2.34-0.1ubuntu9.6                                               arm64        collection of partitioning utilities
+ii  file                                  1:5.38-4                                                        arm64        Recognize the type of data in a file using "magic" numbers
+ii  finalrd                               6~ubuntu20.04.1                                                 all          final runtime directory for shutdown
+ii  findutils                             4.7.0-1ubuntu1                                                  arm64        utilities for finding files--find, xargs
+ii  flash-kernel                          3.103ubuntu1~20.04.4                                            arm64        utility to make certain embedded devices bootable
+ii  flex                                  2.6.4-6.2                                                       arm64        fast lexical analyzer generator
+ii  fontconfig                            2.13.1-2ubuntu3                                                 arm64        generic font configuration library - support binaries
+ii  fontconfig-config                     2.13.1-2ubuntu3                                                 all          generic font configuration library - configuration
+ii  fonts-dejavu-core                     2.37-1                                                          all          Vera font family derivate with additional characters
+ii  fonts-droid-fallback                  1:6.0.1r16-1.1                                                  all          handheld device font with extensive style and language support (fallback)
+ii  fonts-lato                            2.0-2                                                           all          sans-serif typeface family font
+ii  fonts-noto-mono                       20200323-1build1~ubuntu20.04.1                                  all          "No Tofu" monospaced font family with large Unicode coverage
+ii  fonts-urw-base35                      20170801.1-3                                                    all          font set metric-compatible with the 35 PostScript Level 2 Base Fonts
+ii  friendly-recovery                     0.2.41ubuntu0.20.04.1                                           all          Make recovery boot mode more user-friendly
+ii  ftp                                   0.17-34.1                                                       arm64        classical file transfer client
+ii  fuse                                  2.9.9-3                                                         arm64        Filesystem in Userspace
+ii  g++                                   4:9.3.0-1ubuntu2                                                arm64        GNU C++ compiler
+ii  g++-11                                11.4.0-2ubuntu1~20.04                                           arm64        GNU C++ compiler
+ii  g++-9                                 9.4.0-1ubuntu1~20.04.2                                          arm64        GNU C++ compiler
+ii  gawk                                  1:5.0.1+dfsg-1ubuntu0.1                                         arm64        GNU awk, a pattern scanning and processing language
+ii  gcc                                   4:9.3.0-1ubuntu2                                                arm64        GNU C compiler
+ii  gcc-10-base:arm64                     10.5.0-1ubuntu1~20.04                                           arm64        GCC, the GNU Compiler Collection (base package)
+ii  gcc-11                                11.4.0-2ubuntu1~20.04                                           arm64        GNU C compiler
+ii  gcc-11-base:arm64                     11.4.0-2ubuntu1~20.04                                           arm64        GCC, the GNU Compiler Collection (base package)
+ii  gcc-11-plugin-dev                     11.4.0-2ubuntu1~20.04                                           arm64        Files for GNU GCC plugin development.
+ii  gcc-13-base:arm64                     13.1.0-8ubuntu1~20.04.2                                         arm64        GCC, the GNU Compiler Collection (base package)
+ii  gcc-9                                 9.4.0-1ubuntu1~20.04.2                                          arm64        GNU C compiler
+ii  gcc-9-base:arm64                      9.4.0-1ubuntu1~20.04.2                                          arm64        GCC, the GNU Compiler Collection (base package)
+ii  gdb                                   10.2-0ubuntu1~20.04~1                                           arm64        GNU Debugger
+ii  gdbserver                             9.2-0ubuntu1~20.04.2                                            arm64        GNU Debugger (remote server)
+ii  gdisk                                 1.0.5-1                                                         arm64        GPT fdisk text-mode partitioning tool
+ii  gettext                               0.19.8.1-10build1                                               arm64        GNU Internationalization utilities
+ii  gettext-base                          0.19.8.1-10build1                                               arm64        GNU Internationalization utilities for the base system
+ii  ghostscript                           9.50~dfsg-5ubuntu4.14                                           arm64        interpreter for the PostScript language and for PDF
+ii  gir1.2-atk-1.0:arm64                  2.35.1-1ubuntu2                                                 arm64        ATK accessibility toolkit (GObject introspection)
+ii  gir1.2-atspi-2.0:arm64                2.36.0-2                                                        arm64        Assistive Technology Service Provider (GObject introspection)
+ii  gir1.2-freedesktop:arm64              1.64.1-1~ubuntu20.04.1                                          arm64        Introspection data for some FreeDesktop components
+ii  gir1.2-gdkpixbuf-2.0:arm64            2.40.0+dfsg-3ubuntu0.5                                          arm64        GDK Pixbuf library - GObject-Introspection
+ii  gir1.2-glib-2.0:arm64                 1.64.1-1~ubuntu20.04.1                                          arm64        Introspection data for GLib, GObject, Gio and GModule
+ii  gir1.2-gtk-3.0:arm64                  3.24.20-0ubuntu1.2                                              arm64        GTK graphical user interface library -- gir bindings
+ii  gir1.2-harfbuzz-0.0:arm64             2.6.4-1ubuntu4.2                                                arm64        OpenType text shaping engine (GObject introspection data)
+ii  gir1.2-packagekitglib-1.0             1.1.13-2ubuntu1.1                                               arm64        GObject introspection data for the PackageKit GLib library
+ii  gir1.2-pango-1.0:arm64                1.44.7-2ubuntu4                                                 arm64        Layout and rendering of internationalized text - gir bindings
+ii  git                                   1:2.25.1-1ubuntu3.13                                            arm64        fast, scalable, distributed revision control system
+ii  git-man                               1:2.25.1-1ubuntu3.13                                            all          fast, scalable, distributed revision control system (manual pages)
+ii  glib-networking:arm64                 2.64.2-1ubuntu0.1                                               arm64        network-related giomodules for GLib
+ii  glib-networking-common                2.64.2-1ubuntu0.1                                               all          network-related giomodules for GLib - data files
+ii  glib-networking-services              2.64.2-1ubuntu0.1                                               arm64        network-related giomodules for GLib - D-Bus services
+ii  gnupg                                 2.2.19-3ubuntu2.2                                               all          GNU privacy guard - a free PGP replacement
+ii  gnupg-l10n                            2.2.19-3ubuntu2.2                                               all          GNU privacy guard - localization files
+ii  gnupg-utils                           2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - utility programs
+ii  gpg                                   2.2.19-3ubuntu2.2                                               arm64        GNU Privacy Guard -- minimalist public key operations
+ii  gpg-agent                             2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - cryptographic agent
+ii  gpg-wks-client                        2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - Web Key Service client
+ii  gpg-wks-server                        2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - Web Key Service server
+ii  gpgconf                               2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - core configuration utilities
+ii  gpgsm                                 2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - S/MIME version
+ii  gpgv                                  2.2.19-3ubuntu2.2                                               arm64        GNU privacy guard - signature verification tool
+ii  grep                                  3.4-1                                                           arm64        GNU grep, egrep and fgrep
+ii  groff-base                            1.22.4-4build1                                                  arm64        GNU troff text-formatting system (base system components)
+ii  gsettings-desktop-schemas             3.36.0-1ubuntu1                                                 all          GSettings desktop-wide schemas
+ii  gsfonts                               1:8.11+urwcyr1.0.7~pre44-4.4                                    all          Fonts for the Ghostscript interpreter(s)
+ii  gtk-update-icon-cache                 3.24.20-0ubuntu1.2                                              arm64        icon theme caching utility
+ii  guile-2.2-libs:arm64                  2.2.7+1-4                                                       arm64        Core Guile libraries
+ii  gzip                                  1.10-0ubuntu4.1                                                 arm64        GNU compression utilities
+ii  hdf5-helpers                          1.10.4+repack-11ubuntu1                                         arm64        Hierarchical Data Format 5 (HDF5) - Helper tools
+ii  hdparm                                9.58+ds-4                                                       arm64        tune hard disk parameters for high performance
+ii  hicolor-icon-theme                    0.17-2                                                          all          default fallback theme for FreeDesktop.org icon themes
+ii  hostname                              3.23                                                            arm64        utility to set/show the host name or domain name
+ii  humanity-icon-theme                   0.6.15                                                          all          Humanity Icon theme
+ii  icu-devtools                          66.1-2ubuntu2.1                                                 arm64        Development utilities for International Components for Unicode
+ii  imagemagick-6-common                  8:6.9.10.23+dfsg-2.1ubuntu11.10                                 all          image manipulation programs -- infrastructure
+ii  info                                  6.7.0.dfsg.2-5                                                  arm64        Standalone GNU Info documentation browser
+ii  init                                  1.57                                                            arm64        metapackage ensuring an init system is installed
+ii  init-system-helpers                   1.57                                                            all          helper tools for all init systems
+ii  initramfs-tools                       0.136ubuntu6.7                                                  all          generic modular initramfs generator (automation)
+ii  initramfs-tools-bin                   0.136ubuntu6.7                                                  arm64        binaries used by initramfs-tools
+ii  initramfs-tools-core                  0.136ubuntu6.7                                                  all          generic modular initramfs generator (core tools)
+ii  install-info                          6.7.0.dfsg.2-5                                                  arm64        Manage installed documentation in info format
+ii  installation-report                   2.62ubuntu1                                                     all          system installation report
+ii  intltool-debian                       0.35.0+20060710.5                                               all          Help i18n of RFC822 compliant config files
+ii  iperf                                 2.0.13+dfsg1-1build1                                            arm64        Internet Protocol bandwidth measuring tool
+ii  iperf3                                3.7-3                                                           arm64        Internet Protocol bandwidth measuring tool
+ii  iproute2                              5.5.0-1ubuntu1                                                  arm64        networking and traffic control tools
+ii  iptables                              1.8.4-3ubuntu2.1                                                arm64        administration tools for packet filtering and NAT
+ii  iputils-arping                        3:20190709-3ubuntu1                                             arm64        Tool to send ICMP echo requests to an ARP address
+ii  iputils-clockdiff                     3:20190709-3ubuntu1                                             arm64        Measure the time difference between networked computers
+ii  iputils-ping                          3:20190709-3ubuntu1                                             arm64        Tools to test the reachability of network hosts
+ii  iputils-tracepath                     3:20190709-3ubuntu1                                             arm64        Tools to trace the network path to a remote host
+ii  irqbalance                            1.6.0-3ubuntu1                                                  arm64        Daemon to balance interrupts for SMP systems
+ii  isc-dhcp-client                       4.4.1-2.1ubuntu5.20.04.5                                        arm64        DHCP client for automatically obtaining an IP address
+ii  isc-dhcp-common                       4.4.1-2.1ubuntu5.20.04.5                                        arm64        common manpages relevant to all of the isc-dhcp packages
+ii  iso-codes                             4.4-1                                                           all          ISO language, territory, currency, script codes and their translations
+ii  iw                                    5.4-1                                                           arm64        tool for configuring Linux wireless devices
+ii  javascript-common                     11                                                              all          Base support for JavaScript library packages
+ii  jove                                  4.17.2.7-1                                                      arm64        Jonathan's Own Version of Emacs - a compact, powerful editor
+ii  kbd                                   2.0.4-4ubuntu2                                                  arm64        Linux console font and keytable utilities
+ii  kexec-tools                           1:2.0.18-1ubuntu1.1                                             arm64        tools to support fast kexec reboots
+ii  keyboard-configuration                1.194ubuntu3                                                    all          system-wide keyboard preferences
+ii  keyutils                              1.6-6ubuntu1.1                                                  arm64        Linux Key Management Utilities
+ii  klibc-utils                           2.0.7-1ubuntu5.2                                                arm64        small utilities built with klibc for early boot
+ii  kmod                                  27-1ubuntu2.1                                                   arm64        tools for managing Linux kernel modules
+ii  ksh                                   2020.0.0-5                                                      arm64        2020 version of the AT&T Korn Shell
+ii  language-pack-en                      1:20.04+20220818                                                all          translation updates for language English
+ii  language-pack-en-base                 1:20.04+20220818                                                all          translations for language English
+ii  language-selector-common              0.204.2                                                         all          Language selector for Ubuntu
+ii  laptop-detect                         0.16                                                            all          system chassis type checker
+ii  less                                  551-1ubuntu0.3                                                  arm64        pager program similar to more
+ii  lftp                                  4.8.4-2build3                                                   arm64        Sophisticated command-line FTP/HTTP/BitTorrent client programs
+ii  libaccountsservice0:arm64             0.6.55-0ubuntu12~20.04.7                                        arm64        query and manipulate user account information - shared libraries
+ii  libacl1:arm64                         2.2.53-6                                                        arm64        access control list - shared library
+ii  libaec-dev:arm64                      1.0.4-1                                                         arm64        Development files for the Adaptive Entropy Coding library
+ii  libaec0:arm64                         1.0.4-1                                                         arm64        Adaptive Entropy Coding library
+ii  libaio1:arm64                         0.3.112-5                                                       arm64        Linux kernel AIO access library - shared library
+ii  libalgorithm-diff-perl                1.19.03-2                                                       all          module to find differences between files
+ii  libalgorithm-diff-xs-perl             0.04-6                                                          arm64        module to find differences between files (XS accelerated)
+ii  libalgorithm-merge-perl               0.08-3                                                          all          Perl module for three-way merge of textual data
+ii  libapparmor1:arm64                    2.13.3-7ubuntu5.4                                               arm64        changehat AppArmor library
+ii  libappstream4:arm64                   0.12.10-2                                                       arm64        Library to access AppStream services
+ii  libapt-pkg6.0:arm64                   2.0.10                                                          arm64        package management runtime library
+ii  libarchive-cpio-perl                  0.10-1                                                          all          module for manipulations of cpio archives
+ii  libarchive-zip-perl                   1.67-2                                                          all          Perl module for manipulation of ZIP archives
+ii  libarchive13:arm64                    3.4.0-2ubuntu1.4                                                arm64        Multi-format archive and compression library (shared library)
+ii  libargon2-1:arm64                     0~20171227-0.2                                                  arm64        memory-hard hashing function - runtime library
+ii  libasan5:arm64                        9.4.0-1ubuntu1~20.04.2                                          arm64        AddressSanitizer -- a fast memory error detector
+ii  libasan6:arm64                        11.4.0-2ubuntu1~20.04                                           arm64        AddressSanitizer -- a fast memory error detector
+ii  libasn1-8-heimdal:arm64               7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - ASN.1 library
+ii  libasound2:arm64                      1.2.2-2.1ubuntu2.5                                              arm64        shared library for ALSA applications
+ii  libasound2-data                       1.2.2-2.1ubuntu2.5                                              all          Configuration files and profiles for ALSA drivers
+ii  libassuan0:arm64                      2.5.3-7ubuntu2                                                  arm64        IPC library for the GnuPG components
+ii  libatk-bridge2.0-0:arm64              2.34.2-0ubuntu2~20.04.1                                         arm64        AT-SPI 2 toolkit bridge - shared library
+ii  libatk-bridge2.0-dev:arm64            2.34.2-0ubuntu2~20.04.1                                         arm64        Development files for the AT-SPI 2 toolkit bridge
+ii  libatk1.0-0:arm64                     2.35.1-1ubuntu2                                                 arm64        ATK accessibility toolkit
+ii  libatk1.0-data                        2.35.1-1ubuntu2                                                 all          Common files for the ATK accessibility toolkit
+ii  libatk1.0-dev:arm64                   2.35.1-1ubuntu2                                                 arm64        Development files for the ATK accessibility toolkit
+ii  libatm1:arm64                         1:2.5.1-4                                                       arm64        shared library for ATM (Asynchronous Transfer Mode)
+ii  libatomic1:arm64                      13.1.0-8ubuntu1~20.04.2                                         arm64        support library providing __atomic built-in functions
+ii  libatspi2.0-0:arm64                   2.36.0-2                                                        arm64        Assistive Technology Service Provider Interface - shared library
+ii  libatspi2.0-dev:arm64                 2.36.0-2                                                        arm64        Development files for the assistive technology service provider
+ii  libattr1:arm64                        1:2.4.48-5                                                      arm64        extended attribute handling - shared library
+ii  libaudit-common                       1:2.8.5-2ubuntu6                                                all          Dynamic library for security auditing - common files
+ii  libaudit1:arm64                       1:2.8.5-2ubuntu6                                                arm64        Dynamic library for security auditing
+ii  libavahi-client3:arm64                0.7-4ubuntu7.3                                                  arm64        Avahi client library
+ii  libavahi-common-data:arm64            0.7-4ubuntu7.3                                                  arm64        Avahi common data files
+ii  libavahi-common3:arm64                0.7-4ubuntu7.3                                                  arm64        Avahi common library
+ii  libbabeltrace1:arm64                  1.5.8-1build1                                                   arm64        Babeltrace conversion libraries
+ii  libbinutils:arm64                     2.34-6ubuntu1.9                                                 arm64        GNU binary utilities (private shared library)
+ii  libblkid-dev:arm64                    2.34-0.1ubuntu9.6                                               arm64        block device ID library - headers and static libraries
+ii  libblkid1:arm64                       2.34-0.1ubuntu9.6                                               arm64        block device ID library
+ii  libboost-dev:arm64                    1.71.0.0ubuntu2                                                 arm64        Boost C++ Libraries development files (default version)
+ii  libboost-regex1.71.0:arm64            1.71.0-6ubuntu6                                                 arm64        regular expression library for C++
+ii  libboost1.71-dev:arm64                1.71.0-6ubuntu6                                                 arm64        Boost C++ Libraries development files
+ii  libbrotli1:arm64                      1.0.7-6ubuntu0.1                                                arm64        library implementing brotli encoder and decoder (shared libraries)
+ii  libbsd0:arm64                         0.10.0-1                                                        arm64        utility functions from BSD systems - shared library
+ii  libbz2-1.0:arm64                      1.0.8-2                                                         arm64        high-quality block-sorting file compressor library - runtime
+ii  libc-bin                              2.31-0ubuntu9.16                                                arm64        GNU C Library: Binaries
+ii  libc-dev-bin                          2.31-0ubuntu9.16                                                arm64        GNU C Library: Development binaries
+ii  libc6:arm64                           2.31-0ubuntu9.16                                                arm64        GNU C Library: Shared libraries
+ii  libc6-arm64-cross                     2.31-0ubuntu9.9cross1                                           all          GNU C Library: Shared libraries (for cross-compiling)
+ii  libc6-dbg:arm64                       2.31-0ubuntu9.16                                                arm64        GNU C Library: detached debugging symbols
+ii  libc6-dev:arm64                       2.31-0ubuntu9.16                                                arm64        GNU C Library: Development Libraries and Header Files
+ii  libc6-dev-arm64-cross                 2.31-0ubuntu9.9cross1                                           all          GNU C Library: Development Libraries and Header Files (for cross-compiling)
+ii  libcairo-gobject2:arm64               1.16.0-4ubuntu1                                                 arm64        Cairo 2D vector graphics library (GObject library)
+ii  libcairo-script-interpreter2:arm64    1.16.0-4ubuntu1                                                 arm64        Cairo 2D vector graphics library (script interpreter)
+ii  libcairo2:arm64                       1.16.0-4ubuntu1                                                 arm64        Cairo 2D vector graphics library
+ii  libcairo2-dev:arm64                   1.16.0-4ubuntu1                                                 arm64        Development files for the Cairo 2D graphics library
+ii  libcanberra0:arm64                    0.30-7ubuntu1                                                   arm64        simple abstract interface for playing event sounds
+ii  libcap-ng0:arm64                      0.7.9-2.1build1                                                 arm64        An alternate POSIX capabilities library
+ii  libcap2:arm64                         1:2.32-1ubuntu0.1                                               arm64        POSIX 1003.1e capabilities (library)
+ii  libcap2-bin                           1:2.32-1ubuntu0.1                                               arm64        POSIX 1003.1e capabilities (utilities)
+ii  libcbor0.6:arm64                      0.6.0-0ubuntu1                                                  arm64        library for parsing and generating CBOR (RFC 7049)
+ii  libcc1-0:arm64                        13.1.0-8ubuntu1~20.04.2                                         arm64        GCC cc1 plugin for GDB
+ii  libclang-common-10-dev                1:10.0.0-4ubuntu1                                               arm64        Clang library - Common development package
+ii  libclang-common-13-dev                1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Clang library - Common development package
+ii  libclang-cpp10                        1:10.0.0-4ubuntu1                                               arm64        C++ interface to the Clang library
+ii  libclang-cpp13                        1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        C++ interface to the Clang library
+ii  libclang1-10                          1:10.0.0-4ubuntu1                                               arm64        C interface to the Clang library
+ii  libclang1-13                          1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        C interface to the Clang library
+ii  libcolord2:arm64                      1.4.4-2                                                         arm64        system service to manage device colour profiles -- runtime
+ii  libcom-err2:arm64                     1.45.5-2ubuntu1.2                                               arm64        common error description library
+ii  libcroco3:arm64                       0.6.13-1ubuntu0.1                                               arm64        Cascading Style Sheet (CSS) parsing and manipulation toolkit
+ii  libcrypt-dev:arm64                    1:4.4.10-10ubuntu4                                              arm64        libcrypt development files
+ii  libcrypt1:arm64                       1:4.4.10-10ubuntu4                                              arm64        libcrypt shared library
+ii  libcryptsetup12:arm64                 2:2.2.2-3ubuntu2.4                                              arm64        disk encryption support - shared library
+ii  libctf-nobfd0:arm64                   2.34-6ubuntu1.9                                                 arm64        Compact C Type Format library (runtime, no BFD dependency)
+ii  libctf0:arm64                         2.34-6ubuntu1.9                                                 arm64        Compact C Type Format library (runtime, BFD dependency)
+ii  libcups2:arm64                        2.3.1-9ubuntu1.9                                                arm64        Common UNIX Printing System(tm) - Core library
+ii  libcurl3-gnutls:arm64                 7.68.0-1ubuntu2.25                                              arm64        easy-to-use client-side URL transfer library (GnuTLS flavour)
+ii  libcurl4:arm64                        7.68.0-1ubuntu2.25                                              arm64        easy-to-use client-side URL transfer library (OpenSSL flavour)
+ii  libdatrie-dev:arm64                   0.2.12-3                                                        arm64        Development files for double-array trie library
+ii  libdatrie1:arm64                      0.2.12-3                                                        arm64        Double-array trie library
+ii  libdb5.3:arm64                        5.3.28+dfsg1-0.6ubuntu2                                         arm64        Berkeley v5.3 Database Libraries [runtime]
+ii  libdbus-1-3:arm64                     1.12.16-2ubuntu2.3                                              arm64        simple interprocess messaging system (library)
+ii  libdbus-1-dev:arm64                   1.12.16-2ubuntu2.3                                              arm64        simple interprocess messaging system (development headers)
+ii  libdconf1:arm64                       0.36.0-1                                                        arm64        simple configuration storage system - runtime library
+ii  libdebconfclient0:arm64               0.251ubuntu1                                                    arm64        Debian Configuration Management System (C-implementation library)
+ii  libdebhelper-perl                     12.10ubuntu1                                                    all          debhelper perl modules
+ii  libdevmapper-event1.02.1:arm64        2:1.02.167-1ubuntu1                                             arm64        Linux Kernel Device Mapper event support library
+ii  libdevmapper1.02.1:arm64              2:1.02.167-1ubuntu1                                             arm64        Linux Kernel Device Mapper userspace library
+ii  libdns-export1109                     1:9.11.16+dfsg-3~ubuntu1                                        arm64        Exported DNS Shared Library
+ii  libdpkg-perl                          1.19.7ubuntu3.2                                                 all          Dpkg perl modules
+ii  libdrm-amdgpu1:arm64                  2.4.107-8ubuntu1~20.04.2                                        arm64        Userspace interface to amdgpu-specific kernel DRM services -- runtime
+ii  libdrm-common                         2.4.107-8ubuntu1~20.04.2                                        all          Userspace interface to kernel DRM services -- common files
+ii  libdrm-nouveau2:arm64                 2.4.107-8ubuntu1~20.04.2                                        arm64        Userspace interface to nouveau-specific kernel DRM services -- runtime
+ii  libdrm-radeon1:arm64                  2.4.107-8ubuntu1~20.04.2                                        arm64        Userspace interface to radeon-specific kernel DRM services -- runtime
+ii  libdrm2:arm64                         2.4.107-8ubuntu1~20.04.2                                        arm64        Userspace interface to kernel DRM services -- runtime
+ii  libdw1:arm64                          0.176-1.1ubuntu0.1                                              arm64        library that provides access to the DWARF debug information
+ii  libedit2:arm64                        3.1-20191231-1                                                  arm64        BSD editline and history libraries
+ii  libegl-dev:arm64                      1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- EGL development files
+ii  libegl-mesa0:arm64                    21.2.6-0ubuntu0.1~20.04.2                                       arm64        free implementation of the EGL API -- Mesa vendor library
+ii  libegl1:arm64                         1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- EGL support
+ii  libegl1-mesa-dev:arm64                21.2.6-0ubuntu0.1~20.04.2                                       arm64        free implementation of the EGL API -- development files
+ii  libelf1:arm64                         0.176-1.1ubuntu0.1                                              arm64        library to read and write ELF files
+ii  libepoxy-dev:arm64                    1.5.4-1                                                         arm64        OpenGL function pointer management library- development
+ii  libepoxy0:arm64                       1.5.4-1                                                         arm64        OpenGL function pointer management library
+ii  liberror-perl                         0.17029-1                                                       all          Perl module for error/exception handling in an OO-ish way
+ii  libestr0:arm64                        0.1.10-2.1                                                      arm64        Helper functions for handling strings (lib)
+ii  libevent-2.1-7:arm64                  2.1.11-stable-1                                                 arm64        Asynchronous event notification library
+ii  libevent-core-2.1-7:arm64             2.1.11-stable-1                                                 arm64        Asynchronous event notification library (core)
+ii  libevent-pthreads-2.1-7:arm64         2.1.11-stable-1                                                 arm64        Asynchronous event notification library (pthreads)
+ii  libexpat1:arm64                       2.2.9-1ubuntu0.8                                                arm64        XML parsing C library - runtime library
+ii  libexpat1-dev:arm64                   2.2.9-1ubuntu0.8                                                arm64        XML parsing C library - development kit
+ii  libext2fs2:arm64                      1.45.5-2ubuntu1.2                                               arm64        ext2/ext3/ext4 file system libraries
+ii  libfakeroot:arm64                     1.24-1                                                          arm64        tool for simulating superuser privileges - shared libraries
+ii  libfastjson4:arm64                    0.99.8-2                                                        arm64        fast json library for C
+ii  libfdisk1:arm64                       2.34-0.1ubuntu9.6                                               arm64        fdisk partitioning library
+ii  libfdt1:arm64                         1.5.1-1                                                         arm64        Flat Device Trees manipulation library
+ii  libffi-dev:arm64                      3.3-4                                                           arm64        Foreign Function Interface library (development files)
+ii  libffi7:arm64                         3.3-4                                                           arm64        Foreign Function Interface library runtime
+ii  libfftw3-double3:arm64                3.3.8-2ubuntu1                                                  arm64        Library for computing Fast Fourier Transforms - Double precision
+ii  libfido2-1:arm64                      1.3.1-1ubuntu2                                                  arm64        library for generating and verifying FIDO 2.0 objects
+ii  libfile-fcntllock-perl                0.22-3build4                                                    arm64        Perl module for file locking with fcntl(2)
+ii  libfile-stripnondeterminism-perl      1.7.0-1                                                         all          file non-deterministic information stripper — Perl module
+ii  libfl-dev:arm64                       2.6.4-6.2                                                       arm64        static library for flex (a fast lexical analyzer generator)
+ii  libfl2:arm64                          2.6.4-6.2                                                       arm64        SHARED library for flex (a fast lexical analyzer generator)
+ii  libfontconfig1:arm64                  2.13.1-2ubuntu3                                                 arm64        generic font configuration library - runtime
+ii  libfontconfig1-dev:arm64              2.13.1-2ubuntu3                                                 arm64        generic font configuration library - development
+ii  libfontenc1:arm64                     1:1.1.4-0ubuntu1                                                arm64        X11 font encoding library
+ii  libfreetype-dev:arm64                 2.10.1-2ubuntu0.3                                               arm64        FreeType 2 font engine, development files
+ii  libfreetype6:arm64                    2.10.1-2ubuntu0.3                                               arm64        FreeType 2 font engine, shared library files
+ii  libfreetype6-dev:arm64                2.10.1-2ubuntu0.3                                               arm64        FreeType 2 font engine, development files (transitional package)
+ii  libfribidi-dev:arm64                  1.0.8-2ubuntu0.1                                                arm64        Development files for FreeBidi library
+ii  libfribidi0:arm64                     1.0.8-2ubuntu0.1                                                arm64        Free Implementation of the Unicode BiDi algorithm
+ii  libfuse2:arm64                        2.9.9-3                                                         arm64        Filesystem in Userspace (library)
+ii  libgbm1:arm64                         21.2.6-0ubuntu0.1~20.04.2                                       arm64        generic buffer management API -- runtime
+ii  libgc1c2:arm64                        1:7.6.4-0.4ubuntu1                                              arm64        conservative garbage collector for C and C++
+ii  libgcc-11-dev:arm64                   11.4.0-2ubuntu1~20.04                                           arm64        GCC support library (development files)
+ii  libgcc-9-dev:arm64                    9.4.0-1ubuntu1~20.04.2                                          arm64        GCC support library (development files)
+ii  libgcc-s1:arm64                       13.1.0-8ubuntu1~20.04.2                                         arm64        GCC support library
+ii  libgcrypt20:arm64                     1.8.5-5ubuntu1.1                                                arm64        LGPL Crypto library - runtime library
+ii  libgd3:arm64                          2.2.5-5.2ubuntu2.4                                              arm64        GD Graphics Library
+ii  libgdbm-compat4:arm64                 1.18.1-5                                                        arm64        GNU dbm database routines (legacy support runtime version) 
+ii  libgdbm6:arm64                        1.18.1-5                                                        arm64        GNU dbm database routines (runtime version) 
+ii  libgdk-pixbuf2.0-0:arm64              2.40.0+dfsg-3ubuntu0.5                                          arm64        GDK Pixbuf library
+ii  libgdk-pixbuf2.0-bin                  2.40.0+dfsg-3ubuntu0.5                                          arm64        GDK Pixbuf library (thumbnailer)
+ii  libgdk-pixbuf2.0-common               2.40.0+dfsg-3ubuntu0.5                                          all          GDK Pixbuf library - data files
+ii  libgdk-pixbuf2.0-dev:arm64            2.40.0+dfsg-3ubuntu0.5                                          arm64        GDK Pixbuf library (development files)
+ii  libgfortran5:arm64                    13.1.0-8ubuntu1~20.04.2                                         arm64        Runtime library for GNU Fortran applications
+ii  libgif7:arm64                         5.1.9-1ubuntu0.1                                                arm64        library for GIF images (library)
+ii  libgirepository-1.0-1:arm64           1.64.1-1~ubuntu20.04.1                                          arm64        Library for handling GObject introspection data (runtime library)
+ii  libgl-dev:arm64                       1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GL development files
+ii  libgl1:arm64                          1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- legacy GL support
+ii  libgl1-mesa-dev:arm64                 21.2.6-0ubuntu0.1~20.04.2                                       arm64        transitional dummy package
+ii  libgl1-mesa-dri:arm64                 21.2.6-0ubuntu0.1~20.04.2                                       arm64        free implementation of the OpenGL API -- DRI modules
+ii  libglapi-mesa:arm64                   21.2.6-0ubuntu0.1~20.04.2                                       arm64        free implementation of the GL API -- shared library
+ii  libgles-dev:arm64                     1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GLES development files
+ii  libgles1:arm64                        1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GLESv1 support
+ii  libgles2:arm64                        1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GLESv2 support
+ii  libglib2.0-0:arm64                    2.64.6-1~ubuntu20.04.8                                          arm64        GLib library of C routines
+ii  libglib2.0-bin                        2.64.6-1~ubuntu20.04.8                                          arm64        Programs for the GLib library
+ii  libglib2.0-data                       2.64.6-1~ubuntu20.04.8                                          all          Common files for GLib library
+ii  libglib2.0-dev:arm64                  2.64.6-1~ubuntu20.04.8                                          arm64        Development files for the GLib library
+ii  libglib2.0-dev-bin                    2.64.6-1~ubuntu20.04.8                                          arm64        Development utilities for the GLib library
+ii  libglvnd-dev:arm64                    1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- development files
+ii  libglvnd0:arm64                       1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library
+ii  libglx-dev:arm64                      1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GLX development files
+ii  libglx-mesa0:arm64                    21.2.6-0ubuntu0.1~20.04.2                                       arm64        free implementation of the OpenGL API -- GLX vendor library
+ii  libglx0:arm64                         1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- GLX support
+ii  libgmp-dev:arm64                      2:6.2.0+dfsg-4ubuntu0.1                                         arm64        Multiprecision arithmetic library developers tools
+ii  libgmp10:arm64                        2:6.2.0+dfsg-4ubuntu0.1                                         arm64        Multiprecision arithmetic library
+ii  libgmpxx4ldbl:arm64                   2:6.2.0+dfsg-4ubuntu0.1                                         arm64        Multiprecision arithmetic library (C++ bindings)
+ii  libgnutls30:arm64                     3.6.13-2ubuntu1.11                                              arm64        GNU TLS library - main runtime library
+ii  libgomp1:arm64                        13.1.0-8ubuntu1~20.04.2                                         arm64        GCC OpenMP (GOMP) support library
+ii  libgoogle-perftools-dev:arm64         2.7-1ubuntu2                                                    arm64        libraries for CPU and heap analysis, plus an efficient thread-caching malloc
+ii  libgoogle-perftools4:arm64            2.7-1ubuntu2                                                    arm64        libraries for CPU and heap analysis, plus an efficient thread-caching malloc
+ii  libgpg-error0:arm64                   1.37-1                                                          arm64        GnuPG development runtime library
+ii  libgpm2:arm64                         1.20.7-5                                                        arm64        General Purpose Mouse - shared library
+ii  libgraphite2-3:arm64                  1.3.13-11build1                                                 arm64        Font rendering engine for Complex Scripts -- library
+ii  libgraphite2-dev:arm64                1.3.13-11build1                                                 arm64        Development files for libgraphite2
+ii  libgs9:arm64                          9.50~dfsg-5ubuntu4.14                                           arm64        interpreter for the PostScript language and for PDF - Library
+ii  libgs9-common                         9.50~dfsg-5ubuntu4.14                                           all          interpreter for the PostScript language and for PDF - common files
+ii  libgsasl7:arm64                       1.8.1-1                                                         arm64        GNU SASL library
+ii  libgssapi-krb5-2:arm64                1.17-6ubuntu4.7                                                 arm64        MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
+ii  libgssapi3-heimdal:arm64              7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - GSSAPI support library
+ii  libgstreamer1.0-0:arm64               1.16.3-0ubuntu1.2                                               arm64        Core GStreamer libraries and elements
+ii  libgtk-3-0:arm64                      3.24.20-0ubuntu1.2                                              arm64        GTK graphical user interface library
+ii  libgtk-3-bin                          3.24.20-0ubuntu1.2                                              arm64        programs for the GTK graphical user interface library
+ii  libgtk-3-common                       3.24.20-0ubuntu1.2                                              all          common files for the GTK graphical user interface library
+ii  libgtk-3-dev:arm64                    3.24.20-0ubuntu1.2                                              arm64        development files for the GTK library
+ii  libharfbuzz-dev:arm64                 2.6.4-1ubuntu4.2                                                arm64        Development files for OpenType text shaping engine
+ii  libharfbuzz-gobject0:arm64            2.6.4-1ubuntu4.2                                                arm64        OpenType text shaping engine ICU backend (GObject library)
+ii  libharfbuzz-icu0:arm64                2.6.4-1ubuntu4.2                                                arm64        OpenType text shaping engine ICU backend
+ii  libharfbuzz0b:arm64                   2.6.4-1ubuntu4.2                                                arm64        OpenType text shaping engine (shared library)
+ii  libhcrypto4-heimdal:arm64             7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - crypto library
+ii  libhdf5-103:arm64                     1.10.4+repack-11ubuntu1                                         arm64        Hierarchical Data Format 5 (HDF5) - runtime files - serial version
+ii  libhdf5-cpp-103:arm64                 1.10.4+repack-11ubuntu1                                         arm64        Hierarchical Data Format 5 (HDF5) - C++ libraries
+ii  libhdf5-dev                           1.10.4+repack-11ubuntu1                                         arm64        Hierarchical Data Format 5 (HDF5) - development files - serial version
+ii  libheimbase1-heimdal:arm64            7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - Base library
+ii  libheimntlm0-heimdal:arm64            7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - NTLM support library
+ii  libhogweed5:arm64                     3.5.1+really3.5.1-2ubuntu0.2                                    arm64        low level cryptographic library (public-key cryptos)
+ii  libhwasan0:arm64                      13.1.0-8ubuntu1~20.04.2                                         arm64        AddressSanitizer -- a fast memory error detector
+ii  libhx509-5-heimdal:arm64              7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - X509 support library
+ii  libice-dev:arm64                      2:1.0.10-0ubuntu1                                               arm64        X11 Inter-Client Exchange library (development headers)
+ii  libice6:arm64                         2:1.0.10-0ubuntu1                                               arm64        X11 Inter-Client Exchange library
+ii  libicu-dev:arm64                      66.1-2ubuntu2.1                                                 arm64        Development files for International Components for Unicode
+ii  libicu66:arm64                        66.1-2ubuntu2.1                                                 arm64        International Components for Unicode
+ii  libidn11:arm64                        1.33-2.2ubuntu2                                                 arm64        GNU Libidn library, implementation of IETF IDN specifications
+ii  libidn2-0:arm64                       2.2.0-2                                                         arm64        Internationalized domain names (IDNA2008/TR46) library
+ii  libijs-0.35:arm64                     0.35-15                                                         arm64        IJS raster image transport protocol: shared library
+ii  libip4tc2:arm64                       1.8.4-3ubuntu2.1                                                arm64        netfilter libip4tc library
+ii  libip6tc2:arm64                       1.8.4-3ubuntu2.1                                                arm64        netfilter libip6tc library
+ii  libiperf0:arm64                       3.7-3                                                           arm64        Internet Protocol bandwidth measuring tool (runtime files)
+ii  libisc-export1105:arm64               1:9.11.16+dfsg-3~ubuntu1                                        arm64        Exported ISC Shared Library
+ii  libisl22:arm64                        0.22.1-1                                                        arm64        manipulating sets and relations of integer points bounded by linear constraints
+ii  libisns0:arm64                        0.97-3                                                          arm64        Internet Storage Name Service - shared libraries
+ii  libitm1:arm64                         13.1.0-8ubuntu1~20.04.2                                         arm64        GNU Transactional Memory Library
+ii  libjbig0:arm64                        2.1-3.1ubuntu0.20.04.1                                          arm64        JBIGkit libraries
+ii  libjbig2dec0:arm64                    0.18-1ubuntu1                                                   arm64        JBIG2 decoder library - shared libraries
+ii  libjpeg-dev:arm64                     8c-2ubuntu8                                                     arm64        Independent JPEG Group's JPEG runtime library (dependency package)
+ii  libjpeg-turbo8:arm64                  2.0.3-0ubuntu1.20.04.3                                          arm64        IJG JPEG compliant runtime library.
+ii  libjpeg-turbo8-dev:arm64              2.0.3-0ubuntu1.20.04.3                                          arm64        Development files for the IJG JPEG library
+ii  libjpeg8:arm64                        8c-2ubuntu8                                                     arm64        Independent JPEG Group's JPEG runtime library (dependency package)
+ii  libjpeg8-dev:arm64                    8c-2ubuntu8                                                     arm64        Independent JPEG Group's JPEG runtime library (dependency package)
+ii  libjs-jquery                          3.3.1~dfsg-3                                                    all          JavaScript library for dynamic web applications
+ii  libjson-c4:arm64                      0.13.1+dfsg-7ubuntu0.3                                          arm64        JSON manipulation library - shared library
+ii  libjson-glib-1.0-0:arm64              1.4.4-2ubuntu2                                                  arm64        GLib JSON manipulation library
+ii  libjson-glib-1.0-common               1.4.4-2ubuntu2                                                  all          GLib JSON manipulation library (common files)
+ii  libjsoncpp1:arm64                     1.7.4-3.1ubuntu2                                                arm64        library for reading and writing JSON for C++
+ii  libk5crypto3:arm64                    1.17-6ubuntu4.7                                                 arm64        MIT Kerberos runtime libraries - Crypto Library
+ii  libkeyutils1:arm64                    1.6-6ubuntu1.1                                                  arm64        Linux Key Management Utilities (library)
+ii  libklibc:arm64                        2.0.7-1ubuntu5.2                                                arm64        minimal libc subset for use with initramfs
+ii  libkmod2:arm64                        27-1ubuntu2.1                                                   arm64        libkmod shared library
+ii  libkrb5-26-heimdal:arm64              7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - libraries
+ii  libkrb5-3:arm64                       1.17-6ubuntu4.7                                                 arm64        MIT Kerberos runtime libraries
+ii  libkrb5support0:arm64                 1.17-6ubuntu4.7                                                 arm64        MIT Kerberos runtime libraries - Support library
+ii  libksba8:arm64                        1.3.5-2ubuntu0.20.04.2                                          arm64        X.509 and CMS support library
+ii  libkyotocabinet16v5:arm64             1.2.76-4.2build1                                                arm64        Straightforward implementation of DBM - shared library
+ii  liblcms2-2:arm64                      2.9-4                                                           arm64        Little CMS 2 color management library
+ii  libldap-2.4-2:arm64                   2.4.49+dfsg-2ubuntu1.10                                         arm64        OpenLDAP libraries
+ii  libldap-common                        2.4.49+dfsg-2ubuntu1.10                                         all          OpenLDAP common files for libraries
+ii  liblldb-13                            1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Next generation, high-performance debugger, library
+ii  libllvm10:arm64                       1:10.0.0-4ubuntu1                                               arm64        Modular compiler and toolchain technologies, runtime library
+ii  libllvm12:arm64                       1:12.0.0-3ubuntu1~20.04.5                                       arm64        Modular compiler and toolchain technologies, runtime library
+ii  libllvm13:arm64                       1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies, runtime library
+ii  liblmdb0:arm64                        0.9.24-1                                                        arm64        Lightning Memory-Mapped Database shared library
+ii  liblocale-gettext-perl                1.07-4                                                          arm64        module using libc functions for internationalization in Perl
+ii  liblockfile-bin                       1.16-1.1                                                        arm64        support binaries for and cli utilities based on liblockfile
+ii  liblockfile1:arm64                    1.16-1.1                                                        arm64        NFS-safe locking library
+ii  liblqr-1-0:arm64                      0.4.2-2.1                                                       arm64        converts plain array images into multi-size representation
+ii  liblsan0:arm64                        13.1.0-8ubuntu1~20.04.2                                         arm64        LeakSanitizer -- a memory leak detector (runtime)
+ii  libltdl-dev:arm64                     2.4.6-14                                                        arm64        System independent dlopen wrapper for GNU libtool
+ii  libltdl7:arm64                        2.4.6-14                                                        arm64        System independent dlopen wrapper for GNU libtool
+ii  liblua5.2-0:arm64                     5.2.4-1.1build3                                                 arm64        Shared library for the Lua interpreter version 5.2
+ii  liblvm2cmd2.03:arm64                  2.03.07-1ubuntu1                                                arm64        LVM2 command library
+ii  liblz4-1:arm64                        1.9.2-2ubuntu0.20.04.1                                          arm64        Fast LZ compression algorithm library - runtime
+ii  liblzma5:arm64                        5.2.4-1ubuntu1.1                                                arm64        XZ-format compression library
+ii  liblzo2-2:arm64                       2.10-2                                                          arm64        data compression library
+ii  libm17n-0:arm64                       1.8.0-2                                                         arm64        multilingual text processing library - runtime
+ii  libmagic-mgc                          1:5.38-4                                                        arm64        File type determination library using "magic" numbers (compiled magic file)
+ii  libmagic1:arm64                       1:5.38-4                                                        arm64        Recognize the type of data in a file using "magic" numbers - library
+ii  libmagickcore-6.q16-6:arm64           8:6.9.10.23+dfsg-2.1ubuntu11.10                                 arm64        low-level image manipulation library -- quantum depth Q16
+ii  libmagickwand-6.q16-6:arm64           8:6.9.10.23+dfsg-2.1ubuntu11.10                                 arm64        image manipulation library -- quantum depth Q16
+ii  libmail-sendmail-perl                 0.80-1                                                          all          simple way to send email from a perl script
+ii  libmailutils6:arm64                   1:3.7-2.1                                                       arm64        GNU Mail abstraction library
+ii  libmaxminddb0:arm64                   1.4.2-0ubuntu1.20.04.1                                          arm64        IP geolocation database library
+ii  libmnl0:arm64                         1.0.4-2                                                         arm64        minimalistic Netlink communication library
+ii  libmount-dev:arm64                    2.34-0.1ubuntu9.6                                               arm64        device mounting library - headers and static libraries
+ii  libmount1:arm64                       2.34-0.1ubuntu9.6                                               arm64        device mounting library
+ii  libmpc-dev:arm64                      1.1.0-1                                                         arm64        multiple precision complex floating-point library development package
+ii  libmpc3:arm64                         1.1.0-1                                                         arm64        multiple precision complex floating-point library
+ii  libmpdec2:arm64                       2.4.2-3                                                         arm64        library for decimal floating point arithmetic (runtime library)
+ii  libmpfr-dev:arm64                     4.0.2-1                                                         arm64        multiple precision floating-point computation developers tools
+ii  libmpfr6:arm64                        4.0.2-1                                                         arm64        multiple precision floating-point computation
+ii  libmysqlclient21:arm64                8.0.40-0ubuntu0.20.04.1                                         arm64        MySQL database client library
+ii  libncurses-dev:arm64                  6.2-0ubuntu2.1                                                  arm64        developer's libraries for ncurses
+ii  libncurses6:arm64                     6.2-0ubuntu2.1                                                  arm64        shared libraries for terminal handling
+ii  libncursesw6:arm64                    6.2-0ubuntu2.1                                                  arm64        shared libraries for terminal handling (wide character support)
+ii  libnetfilter-conntrack3:arm64         1.0.7-2                                                         arm64        Netfilter netlink-conntrack library
+ii  libnetplan0:arm64                     0.104-0ubuntu2~20.04.6                                          arm64        YAML network configuration abstraction runtime library
+ii  libnettle7:arm64                      3.5.1+really3.5.1-2ubuntu0.2                                    arm64        low level cryptographic library (symmetric and one-way cryptos)
+ii  libnewt0.52:arm64                     0.52.21-4ubuntu2                                                arm64        Not Erik's Windowing Toolkit - text mode windowing with slang
+ii  libnfnetlink0:arm64                   1.0.1-3build1                                                   arm64        Netfilter netlink library
+ii  libnfsidmap2:arm64                    0.25-5.1ubuntu1                                                 arm64        NFS idmapping library
+ii  libnftnl11:arm64                      1.1.5-1                                                         arm64        Netfilter nftables userspace API library
+ii  libnghttp2-14:arm64                   1.40.0-1ubuntu0.3                                               arm64        library implementing HTTP/2 protocol (shared library)
+ii  libnl-3-200:arm64                     3.4.0-1ubuntu0.1                                                arm64        library for dealing with netlink sockets
+ii  libnl-genl-3-200:arm64                3.4.0-1ubuntu0.1                                                arm64        library for dealing with netlink sockets - generic netlink
+ii  libnpth0:arm64                        1.6-1                                                           arm64        replacement for GNU Pth using system threads
+ii  libnspr4:arm64                        2:4.35-0ubuntu0.20.04.1                                         arm64        NetScape Portable Runtime Library
+ii  libnss-systemd:arm64                  245.4-4ubuntu3.24                                               arm64        nss module providing dynamic user and group name resolution
+ii  libnss3:arm64                         2:3.98-0ubuntu0.20.04.2                                         arm64        Network Security Service libraries
+ii  libntlm0:arm64                        1.5-2ubuntu0.1                                                  arm64        NTLM authentication library
+ii  libnuma1:arm64                        2.0.12-1                                                        arm64        Libraries for controlling NUMA policy
+ii  libobjc-9-dev:arm64                   9.4.0-1ubuntu1~20.04.2                                          arm64        Runtime library for GNU Objective-C applications (development files)
+ii  libobjc4:arm64                        13.1.0-8ubuntu1~20.04.2                                         arm64        Runtime library for GNU Objective-C applications
+ii  libogg0:arm64                         1.3.4-0ubuntu1                                                  arm64        Ogg bitstream library
+ii  libomp-10-dev                         1:10.0.0-4ubuntu1                                               arm64        LLVM OpenMP runtime - dev package
+ii  libomp5-10:arm64                      1:10.0.0-4ubuntu1                                               arm64        LLVM OpenMP runtime
+ii  libopengl-dev:arm64                   1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- OpenGL development files
+ii  libopengl0:arm64                      1.3.2-1~ubuntu0.20.04.2                                         arm64        Vendor neutral GL dispatch library -- OpenGL support
+ii  libopenjp2-7:arm64                    2.3.1-1ubuntu4.20.04.3                                          arm64        JPEG 2000 image compression/decompression library
+ii  libopts25:arm64                       1:5.18.16-3                                                     arm64        automated option processing library based on autogen
+ii  libotf0:arm64                         0.9.13-7                                                        arm64        Library for handling OpenType Font - runtime
+ii  libp11-kit0:arm64                     0.23.20-1ubuntu0.1                                              arm64        library for loading and coordinating access to PKCS#11 modules - runtime
+ii  libpackagekit-glib2-18:arm64          1.1.13-2ubuntu1.1                                               arm64        Library for accessing PackageKit using GLib
+ii  libpam-cap:arm64                      1:2.32-1ubuntu0.1                                               arm64        POSIX 1003.1e capabilities (PAM module)
+ii  libpam-modules:arm64                  1.3.1-5ubuntu4.7                                                arm64        Pluggable Authentication Modules for PAM
+ii  libpam-modules-bin                    1.3.1-5ubuntu4.7                                                arm64        Pluggable Authentication Modules for PAM - helper binaries
+ii  libpam-runtime                        1.3.1-5ubuntu4.7                                                all          Runtime support for the PAM library
+ii  libpam-systemd:arm64                  245.4-4ubuntu3.24                                               arm64        system and service manager - PAM module
+ii  libpam0g:arm64                        1.3.1-5ubuntu4.7                                                arm64        Pluggable Authentication Modules library
+ii  libpango-1.0-0:arm64                  1.44.7-2ubuntu4                                                 arm64        Layout and rendering of internationalized text
+ii  libpango1.0-dev:arm64                 1.44.7-2ubuntu4                                                 arm64        Development files for the Pango
+ii  libpangocairo-1.0-0:arm64             1.44.7-2ubuntu4                                                 arm64        Layout and rendering of internationalized text
+ii  libpangoft2-1.0-0:arm64               1.44.7-2ubuntu4                                                 arm64        Layout and rendering of internationalized text
+ii  libpangoxft-1.0-0:arm64               1.44.7-2ubuntu4                                                 arm64        Layout and rendering of internationalized text
+ii  libpaper-utils                        1.1.28                                                          arm64        library for handling paper characteristics (utilities)
+ii  libpaper1:arm64                       1.1.28                                                          arm64        library for handling paper characteristics
+ii  libparted2:arm64                      3.3-4ubuntu0.20.04.1                                            arm64        disk partition manipulator - shared library
+ii  libpcap-dev:arm64                     1.9.1-3ubuntu1.20.04.1                                          arm64        development library for libpcap (transitional package)
+ii  libpcap0.8:arm64                      1.9.1-3ubuntu1.20.04.1                                          arm64        system interface for user-level packet capture
+ii  libpcap0.8-dev:arm64                  1.9.1-3ubuntu1.20.04.1                                          arm64        development library and header files for libpcap0.8
+ii  libpci3:arm64                         1:3.6.4-1ubuntu0.20.04.1                                        arm64        PCI utilities (shared library)
+ii  libpcre16-3:arm64                     2:8.39-12ubuntu0.1                                              arm64        Old Perl 5 Compatible Regular Expression Library - 16 bit runtime files
+ii  libpcre2-16-0:arm64                   10.34-7ubuntu0.1                                                arm64        New Perl Compatible Regular Expression Library - 16 bit runtime files
+ii  libpcre2-32-0:arm64                   10.34-7ubuntu0.1                                                arm64        New Perl Compatible Regular Expression Library - 32 bit runtime files
+ii  libpcre2-8-0:arm64                    10.34-7ubuntu0.1                                                arm64        New Perl Compatible Regular Expression Library- 8 bit runtime files
+ii  libpcre2-dev:arm64                    10.34-7ubuntu0.1                                                arm64        New Perl Compatible Regular Expression Library - development files
+ii  libpcre2-posix2:arm64                 10.34-7ubuntu0.1                                                arm64        New Perl Compatible Regular Expression Library - posix-compatible runtime files
+ii  libpcre3:arm64                        2:8.39-12ubuntu0.1                                              arm64        Old Perl 5 Compatible Regular Expression Library - runtime files
+ii  libpcre3-dev:arm64                    2:8.39-12ubuntu0.1                                              arm64        Old Perl 5 Compatible Regular Expression Library - development files
+ii  libpcre32-3:arm64                     2:8.39-12ubuntu0.1                                              arm64        Old Perl 5 Compatible Regular Expression Library - 32 bit runtime files
+ii  libpcrecpp0v5:arm64                   2:8.39-12ubuntu0.1                                              arm64        Old Perl 5 Compatible Regular Expression Library - C++ runtime files
+ii  libperl5.30:arm64                     5.30.0-9ubuntu0.5                                               arm64        shared Perl library
+ii  libpfm4:arm64                         4.10.1+git20-g7700f49-2                                         arm64        Library to program the performance monitoring events
+ii  libpipeline1:arm64                    1.5.2-2build1                                                   arm64        Unix process pipeline manipulation library
+ii  libpixman-1-0:arm64                   0.38.4-0ubuntu2.1                                               arm64        pixel-manipulation library for X and cairo
+ii  libpixman-1-dev:arm64                 0.38.4-0ubuntu2.1                                               arm64        pixel-manipulation library for X and cairo (development files)
+ii  libpkcs11-helper1:arm64               1.26-1                                                          arm64        library that simplifies the interaction with PKCS#11
+ii  libpng-dev:arm64                      1.6.37-2                                                        arm64        PNG library - development (version 1.6)
+ii  libpng-tools                          1.6.37-2                                                        arm64        PNG library - tools (version 1.6)
+ii  libpng16-16:arm64                     1.6.37-2                                                        arm64        PNG library - runtime (version 1.6)
+ii  libpolkit-agent-1-0:arm64             0.105-26ubuntu1.3                                               arm64        PolicyKit Authentication Agent API
+ii  libpolkit-gobject-1-0:arm64           0.105-26ubuntu1.3                                               arm64        PolicyKit Authorization API
+ii  libpopt0:arm64                        1.16-14                                                         arm64        lib for parsing cmdline parameters
+ii  libprocps8:arm64                      2:3.3.16-1ubuntu2.4                                             arm64        library for accessing process information from /proc
+ii  libprotobuf-dev:arm64                 3.6.1.3-2ubuntu5.2                                              arm64        protocol buffers C++ library (development files) and proto files
+ii  libprotobuf-lite17:arm64              3.6.1.3-2ubuntu5.2                                              arm64        protocol buffers C++ library (lite version)
+ii  libprotobuf17:arm64                   3.6.1.3-2ubuntu5.2                                              arm64        protocol buffers C++ library
+ii  libprotoc17:arm64                     3.6.1.3-2ubuntu5.2                                              arm64        protocol buffers compiler library
+ii  libproxy1v5:arm64                     0.4.15-10ubuntu1.2                                              arm64        automatic proxy configuration management library (shared)
+ii  libpsl5:arm64                         0.21.0-1ubuntu1                                                 arm64        Library for Public Suffix List (shared libraries)
+ii  libpthread-stubs0-dev:arm64           0.4-1                                                           arm64        pthread stubs not provided by native libc, development files
+ii  libpubsub                             0.99.1-1~ubuntu~20.04                                           arm64        The Emulab publish/subscribe shared libraries.
+ii  libpython3-dev:arm64                  3.8.2-0ubuntu2                                                  arm64        header files and a static library for Python (default)
+ii  libpython3-stdlib:arm64               3.8.2-0ubuntu2                                                  arm64        interactive high-level object-oriented language (default python3 version)
+ii  libpython3.8:arm64                    3.8.10-0ubuntu1~20.04.13                                        arm64        Shared Python runtime library (version 3.8)
+ii  libpython3.8-dev:arm64                3.8.10-0ubuntu1~20.04.13                                        arm64        Header files and a static library for Python (v3.8)
+ii  libpython3.8-minimal:arm64            3.8.10-0ubuntu1~20.04.13                                        arm64        Minimal subset of the Python language (version 3.8)
+ii  libpython3.8-stdlib:arm64             3.8.10-0ubuntu1~20.04.13                                        arm64        Interactive high-level object-oriented language (standard library, version 3.8)
+ii  libreadline5:arm64                    5.2+dfsg-3build3                                                arm64        GNU readline and history libraries, run-time libraries
+ii  libreadline8:arm64                    8.0-4                                                           arm64        GNU readline and history libraries, run-time libraries
+ii  librest-0.7-0:arm64                   0.8.1-1                                                         arm64        REST service access library
+ii  librhash0:arm64                       1.3.9-1                                                         arm64        shared library for hash functions computing
+ii  libroken18-heimdal:arm64              7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - roken support library
+ii  librpm8                               4.14.2.1+dfsg1-1build2                                          arm64        RPM shared library
+ii  librpmbuild8                          4.14.2.1+dfsg1-1build2                                          arm64        RPM build shared library
+ii  librpmio8                             4.14.2.1+dfsg1-1build2                                          arm64        RPM IO shared library
+ii  librpmsign8                           4.14.2.1+dfsg1-1build2                                          arm64        RPM signing shared library
+ii  librsvg2-2:arm64                      2.48.9-1ubuntu0.20.04.4                                         arm64        SAX-based renderer library for SVG files (runtime)
+ii  librsvg2-common:arm64                 2.48.9-1ubuntu0.20.04.4                                         arm64        SAX-based renderer library for SVG files (extra runtime)
+ii  librtmp1:arm64                        2.4+20151223.gitfa8646d.1-2build1                               arm64        toolkit for RTMP streams (shared library)
+ii  libruby2.7:arm64                      2.7.0-5ubuntu1.15                                               arm64        Libraries necessary to run Ruby 2.7
+ii  libsasl2-2:arm64                      2.1.27+dfsg-2ubuntu0.1                                          arm64        Cyrus SASL - authentication abstraction library
+ii  libsasl2-modules:arm64                2.1.27+dfsg-2ubuntu0.1                                          arm64        Cyrus SASL - pluggable authentication modules
+ii  libsasl2-modules-db:arm64             2.1.27+dfsg-2ubuntu0.1                                          arm64        Cyrus SASL - pluggable authentication modules (DB)
+ii  libsctp1:arm64                        1.0.18+dfsg-1                                                   arm64        user-space access to Linux kernel SCTP - shared library
+ii  libseccomp2:arm64                     2.5.1-1ubuntu1~20.04.2                                          arm64        high level interface to Linux seccomp filter
+ii  libselinux1:arm64                     3.0-1build2                                                     arm64        SELinux runtime shared libraries
+ii  libselinux1-dev:arm64                 3.0-1build2                                                     arm64        SELinux development headers
+ii  libsemanage-common                    3.0-1build2                                                     all          Common files for SELinux policy management libraries
+ii  libsemanage1:arm64                    3.0-1build2                                                     arm64        SELinux policy management library
+ii  libsensors-config                     1:3.6.0-2ubuntu1.1                                              all          lm-sensors configuration files
+ii  libsensors5:arm64                     1:3.6.0-2ubuntu1.1                                              arm64        library to read temperature/voltage/fan sensors
+ii  libsepol1:arm64                       3.0-1ubuntu0.1                                                  arm64        SELinux library for manipulating binary security policies
+ii  libsepol1-dev:arm64                   3.0-1ubuntu0.1                                                  arm64        SELinux binary policy manipulation library and development files
+ii  libsigsegv2:arm64                     2.12-2                                                          arm64        Library for handling page faults in a portable way
+ii  libslang2:arm64                       2.3.2-4                                                         arm64        S-Lang programming library - runtime version
+ii  libsm-dev:arm64                       2:1.2.3-1                                                       arm64        X11 Session Management library (development headers)
+ii  libsm6:arm64                          2:1.2.3-1                                                       arm64        X11 Session Management library
+ii  libsmartcols1:arm64                   2.34-0.1ubuntu9.6                                               arm64        smart column output alignment library
+ii  libsodium23:arm64                     1.0.18-1                                                        arm64        Network communication, cryptography and signaturing library
+ii  libsoup-gnome2.4-1:arm64              2.70.0-1ubuntu0.1                                               arm64        HTTP library implementation in C -- GNOME support library
+ii  libsoup2.4-1:arm64                    2.70.0-1ubuntu0.1                                               arm64        HTTP library implementation in C -- Shared library
+ii  libsource-highlight-common            3.1.8-1.2build5                                                 all          architecture-independent files for source highlighting library
+ii  libsource-highlight4v5                3.1.8-1.2build5                                                 arm64        source highlighting library
+ii  libsqlite3-0:arm64                    3.31.1-4ubuntu0.6                                               arm64        SQLite 3 shared library
+ii  libss2:arm64                          1.45.5-2ubuntu1.2                                               arm64        command-line interface parsing library
+ii  libssh-4:arm64                        0.9.3-2ubuntu2.5                                                arm64        tiny C SSH library (OpenSSL flavor)
+ii  libssh2-1:arm64                       1.8.0-2.1ubuntu0.1                                              arm64        SSH2 client-side library
+ii  libssl-dev:arm64                      1.1.1f-1ubuntu2.23                                              arm64        Secure Sockets Layer toolkit - development files
+ii  libssl1.1:arm64                       1.1.1f-1ubuntu2.23                                              arm64        Secure Sockets Layer toolkit - shared libraries
+ii  libstd-rust-1.75:arm64                1.75.0+dfsg0ubuntu1~bpo0-0ubuntu0.20.04                         arm64        Rust standard libraries
+ii  libstd-rust-dev:arm64                 1.75.0+dfsg0ubuntu1~bpo0-0ubuntu0.20.04                         arm64        Rust standard libraries - development files
+ii  libstdc++-11-dev:arm64                11.4.0-2ubuntu1~20.04                                           arm64        GNU Standard C++ Library v3 (development files)
+ii  libstdc++-9-dev:arm64                 9.4.0-1ubuntu1~20.04.2                                          arm64        GNU Standard C++ Library v3 (development files)
+ii  libstdc++6:arm64                      13.1.0-8ubuntu1~20.04.2                                         arm64        GNU Standard C++ Library v3
+ii  libstemmer0d:arm64                    0+svn585-2                                                      arm64        Snowball stemming algorithms for use in Information Retrieval
+ii  libsub-override-perl                  0.09-2                                                          all          Perl module used to temporarily override subroutines
+ii  libsys-hostname-long-perl             1.5-1                                                           all          Figure out the long (fully-qualified) hostname
+ii  libsystemc:arm64                      2.3.3-4build1                                                   arm64        SystemC library
+ii  libsystemc-dev:arm64                  2.3.3-4build1                                                   arm64        Development files for SystemC library
+ii  libsystemd0:arm64                     245.4-4ubuntu3.24                                               arm64        systemd utility library
+ii  libsz2:arm64                          1.0.4-1                                                         arm64        Adaptive Entropy Coding library - SZIP
+ii  libtasn1-6:arm64                      4.16.0-2                                                        arm64        Manage ASN.1 structures (runtime)
+ii  libtcl8.6:arm64                       8.6.10+dfsg-1                                                   arm64        Tcl (the Tool Command Language) v8.6 - run-time library files
+ii  libtcmalloc-minimal4:arm64            2.7-1ubuntu2                                                    arm64        efficient thread-caching malloc
+ii  libtdb1:arm64                         1.4.5-0ubuntu0.20.04.1                                          arm64        Trivial Database - shared library
+ii  libtext-charwidth-perl                0.04-10                                                         arm64        get display widths of characters on the terminal
+ii  libtext-iconv-perl                    1.7-7                                                           arm64        module to convert between character sets in Perl
+ii  libtext-wrapi18n-perl                 0.06-9                                                          all          internationalized substitute of Text::Wrap
+ii  libthai-data                          0.1.28-3                                                        all          Data files for Thai language support library
+ii  libthai-dev:arm64                     0.1.28-3                                                        arm64        Development files for Thai language support library
+ii  libthai0:arm64                        0.1.28-3                                                        arm64        Thai language support library
+ii  libtiff5:arm64                        4.1.0+git191117-2ubuntu0.20.04.14                               arm64        Tag Image File Format (TIFF) library
+ii  libtinfo-dev:arm64                    6.2-0ubuntu2.1                                                  arm64        transitional package for libncurses-dev
+ii  libtinfo6:arm64                       6.2-0ubuntu2.1                                                  arm64        shared low-level terminfo library for terminal handling
+ii  libtirpc-common                       1.2.5-1ubuntu0.1                                                all          transport-independent RPC library - common files
+ii  libtirpc3:arm64                       1.2.5-1ubuntu0.1                                                arm64        transport-independent RPC library
+ii  libtool                               2.4.6-14                                                        all          Generic library support script
+ii  libtool-bin                           2.4.6-14                                                        arm64        Generic library support script (libtool binary)
+ii  libtsan0:arm64                        11.4.0-2ubuntu1~20.04                                           arm64        ThreadSanitizer -- a Valgrind-based detector of data races (runtime)
+ii  libubsan1:arm64                       13.1.0-8ubuntu1~20.04.2                                         arm64        UBSan -- undefined behaviour sanitizer (runtime)
+ii  libuchardet0:arm64                    0.0.6-3build1                                                   arm64        universal charset detection library - shared library
+ii  libudev1:arm64                        245.4-4ubuntu3.24                                               arm64        libudev shared library
+ii  libunistring2:arm64                   0.9.10-2                                                        arm64        Unicode string library for C
+ii  libusb-1.0-0:arm64                    2:1.0.23-2build1                                                arm64        userspace USB programming library
+ii  libutempter0:arm64                    1.1.6-4                                                         arm64        privileged helper for utmp/wtmp updates (runtime)
+ii  libuuid1:arm64                        2.34-0.1ubuntu9.6                                               arm64        Universally Unique ID library
+ii  libuv1:arm64                          1.34.2-1ubuntu1.5                                               arm64        asynchronous event notification library - runtime library
+ii  libvorbis0a:arm64                     1.3.6-2ubuntu1                                                  arm64        decoder library for Vorbis General Audio Compression Codec
+ii  libvorbisfile3:arm64                  1.3.6-2ubuntu1                                                  arm64        high-level API for Vorbis General Audio Compression Codec
+ii  libvulkan1:arm64                      1.2.131.2-1                                                     arm64        Vulkan loader library
+ii  libwayland-bin                        1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - binary utilities
+ii  libwayland-client0:arm64              1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - client library
+ii  libwayland-cursor0:arm64              1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - cursor library
+ii  libwayland-dev:arm64                  1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - development files
+ii  libwayland-egl1:arm64                 1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - EGL library
+ii  libwayland-server0:arm64              1.18.0-1ubuntu0.1                                               arm64        wayland compositor infrastructure - server library
+ii  libwebp6:arm64                        0.6.1-2ubuntu0.20.04.3                                          arm64        Lossy compression of digital photographic images.
+ii  libwebpmux3:arm64                     0.6.1-2ubuntu0.20.04.3                                          arm64        Lossy compression of digital photographic images.
+ii  libwind0-heimdal:arm64                7.7.0+dfsg-1ubuntu1.4                                           arm64        Heimdal Kerberos - stringprep implementation
+ii  libwrap0:arm64                        7.6.q-30                                                        arm64        Wietse Venema's TCP wrappers library
+ii  libx11-6:arm64                        2:1.6.9-2ubuntu1.6                                              arm64        X11 client-side library
+ii  libx11-data                           2:1.6.9-2ubuntu1.6                                              all          X11 client-side library
+ii  libx11-dev:arm64                      2:1.6.9-2ubuntu1.6                                              arm64        X11 client-side library (development headers)
+ii  libx11-xcb1:arm64                     2:1.6.9-2ubuntu1.6                                              arm64        Xlib/XCB interface library
+ii  libxau-dev:arm64                      1:1.0.9-0ubuntu1                                                arm64        X11 authorisation library (development headers)
+ii  libxau6:arm64                         1:1.0.9-0ubuntu1                                                arm64        X11 authorisation library
+ii  libxaw7:arm64                         2:1.0.13-1                                                      arm64        X11 Athena Widget library
+ii  libxcb-dri2-0:arm64                   1.14-2                                                          arm64        X C Binding, dri2 extension
+ii  libxcb-dri3-0:arm64                   1.14-2                                                          arm64        X C Binding, dri3 extension
+ii  libxcb-glx0:arm64                     1.14-2                                                          arm64        X C Binding, glx extension
+ii  libxcb-present0:arm64                 1.14-2                                                          arm64        X C Binding, present extension
+ii  libxcb-randr0:arm64                   1.14-2                                                          arm64        X C Binding, randr extension
+ii  libxcb-render0:arm64                  1.14-2                                                          arm64        X C Binding, render extension
+ii  libxcb-render0-dev:arm64              1.14-2                                                          arm64        X C Binding, render extension, development files
+ii  libxcb-shape0:arm64                   1.14-2                                                          arm64        X C Binding, shape extension
+ii  libxcb-shm0:arm64                     1.14-2                                                          arm64        X C Binding, shm extension
+ii  libxcb-shm0-dev:arm64                 1.14-2                                                          arm64        X C Binding, shm extension, development files
+ii  libxcb-sync1:arm64                    1.14-2                                                          arm64        X C Binding, sync extension
+ii  libxcb-xfixes0:arm64                  1.14-2                                                          arm64        X C Binding, xfixes extension
+ii  libxcb1:arm64                         1.14-2                                                          arm64        X C Binding
+ii  libxcb1-dev:arm64                     1.14-2                                                          arm64        X C Binding, development files
+ii  libxcomposite-dev:arm64               1:0.4.5-1                                                       arm64        X11 Composite extension library (development headers)
+ii  libxcomposite1:arm64                  1:0.4.5-1                                                       arm64        X11 Composite extension library
+ii  libxcursor-dev:arm64                  1:1.2.0-2                                                       arm64        X cursor management library (development files)
+ii  libxcursor1:arm64                     1:1.2.0-2                                                       arm64        X cursor management library
+ii  libxdamage-dev:arm64                  1:1.1.5-2                                                       arm64        X11 damaged region extension library (development headers)
+ii  libxdamage1:arm64                     1:1.1.5-2                                                       arm64        X11 damaged region extension library
+ii  libxdmcp-dev:arm64                    1:1.1.3-0ubuntu1                                                arm64        X11 authorisation library (development headers)
+ii  libxdmcp6:arm64                       1:1.1.3-0ubuntu1                                                arm64        X11 Display Manager Control Protocol library
+ii  libxext-dev:arm64                     2:1.3.4-0ubuntu1                                                arm64        X11 miscellaneous extensions library (development headers)
+ii  libxext6:arm64                        2:1.3.4-0ubuntu1                                                arm64        X11 miscellaneous extension library
+ii  libxfixes-dev:arm64                   1:5.0.3-2                                                       arm64        X11 miscellaneous 'fixes' extension library (development headers)
+ii  libxfixes3:arm64                      1:5.0.3-2                                                       arm64        X11 miscellaneous 'fixes' extension library
+ii  libxft-dev:arm64                      2.3.3-0ubuntu1                                                  arm64        FreeType-based font drawing library for X (development files)
+ii  libxft2:arm64                         2.3.3-0ubuntu1                                                  arm64        FreeType-based font drawing library for X
+ii  libxi-dev:arm64                       2:1.7.10-0ubuntu1                                               arm64        X11 Input extension library (development headers)
+ii  libxi6:arm64                          2:1.7.10-0ubuntu1                                               arm64        X11 Input extension library
+ii  libxinerama-dev:arm64                 2:1.1.4-2                                                       arm64        X11 Xinerama extension library (development headers)
+ii  libxinerama1:arm64                    2:1.1.4-2                                                       arm64        X11 Xinerama extension library
+ii  libxkbcommon-dev:arm64                0.10.0-1                                                        arm64        library interface to the XKB compiler - development files
+ii  libxkbcommon0:arm64                   0.10.0-1                                                        arm64        library interface to the XKB compiler - shared library
+ii  libxkbfile1:arm64                     1:1.1.0-1                                                       arm64        X11 keyboard file manipulation library
+ii  libxml2:arm64                         2.9.10+dfsg-5ubuntu0.20.04.7                                    arm64        GNOME XML library
+ii  libxml2-dev:arm64                     2.9.10+dfsg-5ubuntu0.20.04.7                                    arm64        Development files for the GNOME XML library
+ii  libxmu6:arm64                         2:1.1.3-0ubuntu1                                                arm64        X11 miscellaneous utility library
+ii  libxmuu1:arm64                        2:1.1.3-0ubuntu1                                                arm64        X11 miscellaneous micro-utility library
+ii  libxpm4:arm64                         1:3.5.12-1ubuntu0.20.04.2                                       arm64        X11 pixmap library
+ii  libxrandr-dev:arm64                   2:1.5.2-0ubuntu1                                                arm64        X11 RandR extension library (development headers)
+ii  libxrandr2:arm64                      2:1.5.2-0ubuntu1                                                arm64        X11 RandR extension library
+ii  libxrender-dev:arm64                  1:0.9.10-1                                                      arm64        X Rendering Extension client library (development files)
+ii  libxrender1:arm64                     1:0.9.10-1                                                      arm64        X Rendering Extension client library
+ii  libxshmfence1:arm64                   1.3-1                                                           arm64        X shared memory fences - shared library
+ii  libxslt1.1:arm64                      1.1.34-4ubuntu0.20.04.1                                         arm64        XSLT 1.0 processing library - runtime library
+ii  libxt6:arm64                          1:1.1.5-1                                                       arm64        X11 toolkit intrinsics library
+ii  libxtables12:arm64                    1.8.4-3ubuntu2.1                                                arm64        netfilter xtables library
+ii  libxtst-dev:arm64                     2:1.2.3-1                                                       arm64        X11 Record extension library (development headers)
+ii  libxtst6:arm64                        2:1.2.3-1                                                       arm64        X11 Testing -- Record extension library
+ii  libxv1:arm64                          2:1.0.11-1                                                      arm64        X11 Video extension library
+ii  libxxf86dga1:arm64                    2:1.1.5-0ubuntu1                                                arm64        X11 Direct Graphics Access extension library
+ii  libxxf86vm1:arm64                     1:1.1.4-1build1                                                 arm64        X11 XFree86 video mode extension library
+ii  libxxhash0:arm64                      0.7.3-1                                                         arm64        shared library for xxhash
+ii  libyaml-0-2:arm64                     0.2.2-1                                                         arm64        Fast YAML 1.1 parser and emitter library
+ii  libz3-4:arm64                         4.8.7-4build1                                                   arm64        theorem prover from Microsoft Research - runtime libraries
+ii  libz3-dev:arm64                       4.8.7-4build1                                                   arm64        theorem prover from Microsoft Research - development files
+ii  libzstd1:arm64                        1.4.4+dfsg-3ubuntu0.1                                           arm64        fast lossless compression algorithm
+ii  linux-base                            4.5ubuntu3.7                                                    all          Linux image base package
+ii  linux-firmware                        1.187.39                                                        all          Firmware for Linux kernel drivers
+ii  linux-generic                         5.4.0.187.185                                                   arm64        Complete Generic Linux kernel and headers
+ii  linux-headers-5.4.0-187               5.4.0-187.207                                                   all          Header files related to Linux kernel version 5.4.0
+ii  linux-headers-5.4.0-187-generic       5.4.0-187.207                                                   arm64        Linux kernel headers for version 5.4.0 on ARMv8 SMP
+ii  linux-headers-generic                 5.4.0.187.185                                                   arm64        Generic Linux kernel headers
+ii  linux-image-5.4.0-187-generic         5.4.0-187.207                                                   arm64        Signed kernel image generic
+ii  linux-image-generic                   5.4.0.187.185                                                   arm64        Generic Linux kernel image
+ii  linux-libc-dev:arm64                  5.4.0-204.224                                                   arm64        Linux Kernel Headers for development
+ii  linux-libc-dev-arm64-cross            5.4.0-110.124cross1                                             all          Linux Kernel Headers for development (for cross-compiling)
+ii  linux-modules-5.4.0-187-generic       5.4.0-187.207                                                   arm64        Linux kernel extra modules for version 5.4.0 on ARMv8 SMP
+ii  linux-modules-extra-5.4.0-187-generic 5.4.0-187.207                                                   arm64        Linux kernel extra modules for version 5.4.0 on ARMv8 SMP
+ii  lld                                   1:10.0-50~exp1                                                  arm64        LLVM-based linker
+ii  lld-10                                1:10.0.0-4ubuntu1                                               arm64        LLVM-based linker
+ii  lld-13                                1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        LLVM-based linker
+ii  lldb-13                               1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Next generation, high-performance debugger
+ii  llvm                                  1:10.0-50~exp1                                                  arm64        Low-Level Virtual Machine (LLVM)
+ii  llvm-10                               1:10.0.0-4ubuntu1                                               arm64        Modular compiler and toolchain technologies
+ii  llvm-10-dev                           1:10.0.0-4ubuntu1                                               arm64        Modular compiler and toolchain technologies, libraries and headers
+ii  llvm-10-runtime                       1:10.0.0-4ubuntu1                                               arm64        Modular compiler and toolchain technologies, IR interpreter
+ii  llvm-10-tools                         1:10.0.0-4ubuntu1                                               arm64        Modular compiler and toolchain technologies, tools
+ii  llvm-13                               1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies
+ii  llvm-13-dev                           1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies, libraries and headers
+ii  llvm-13-linker-tools                  1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies - Plugins
+ii  llvm-13-runtime                       1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies, IR interpreter
+ii  llvm-13-tools                         1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Modular compiler and toolchain technologies, tools
+ii  llvm-dev                              1:10.0-50~exp1                                                  arm64        Low-Level Virtual Machine (LLVM), libraries and headers
+ii  llvm-runtime                          1:10.0-50~exp1                                                  arm64        Low-Level Virtual Machine (LLVM), bytecode interpreter
+ii  locales                               2.31-0ubuntu9.16                                                all          GNU C Library: National Language (locale) data [support]
+ii  lockfile-progs                        0.1.18                                                          arm64        Programs for locking and unlocking files and mailboxes
+ii  login                                 1:4.8.1-1ubuntu5.20.04.5                                        arm64        system login tools
+ii  logrotate                             3.14.0-4ubuntu3                                                 arm64        Log rotation utility
+ii  logsave                               1.45.5-2ubuntu1.2                                               arm64        save the output of a command in a log file
+ii  lsb-base                              11.1.0ubuntu2                                                   all          Linux Standard Base init script functionality
+ii  lsb-release                           11.1.0ubuntu2                                                   all          Linux Standard Base version reporting utility
+ii  lshw                                  02.18.85-0.3ubuntu2.20.04.1                                     arm64        information about hardware configuration
+ii  lsof                                  4.93.2+dfsg-1ubuntu0.20.04.1                                    arm64        utility to list open files
+ii  ltrace                                0.7.3-6.1ubuntu1.1                                              arm64        Tracks runtime library calls in dynamically linked programs
+ii  lvm2                                  2.03.07-1ubuntu1                                                arm64        Linux Logical Volume Manager
+ii  lz4                                   1.9.2-2ubuntu0.20.04.1                                          arm64        Fast LZ compression algorithm library - tool
+ii  lzma                                  9.22-2.1build1                                                  arm64        Compression and decompression in the LZMA format - command line utility
+ii  m17n-db                               1.8.0-3                                                         all          multilingual text processing library - database
+ii  m4                                    1.4.18-4                                                        arm64        macro processing language
+ii  mailutils                             1:3.7-2.1                                                       arm64        GNU mailutils utilities for handling mail
+ii  mailutils-common                      1:3.7-2.1                                                       all          common files for GNU mailutils
+ii  make                                  4.2.1-1.2                                                       arm64        utility for directing compilation
+ii  man-db                                2.9.1-1                                                         arm64        tools for reading manual pages
+ii  manpages                              5.05-1                                                          all          Manual pages about using a GNU/Linux system
+ii  manpages-dev                          5.05-1                                                          all          Manual pages about using GNU/Linux for development
+ii  mawk                                  1.3.4.20200120-2                                                arm64        Pattern scanning and text processing language
+ii  mdadm                                 4.1-5ubuntu1.2                                                  arm64        tool to administer Linux MD arrays (software RAID)
+ii  mesa-vulkan-drivers:arm64             21.2.6-0ubuntu0.1~20.04.2                                       arm64        Mesa Vulkan graphics drivers
+ii  mime-support                          3.64ubuntu1                                                     all          MIME files 'mime.types' & 'mailcap', and support programs
+ii  mount                                 2.34-0.1ubuntu9.6                                               arm64        tools for mounting and manipulating filesystems
+ii  mtd-utils                             1:2.1.1-1ubuntu1                                                arm64        Memory Technology Device Utilities
+ii  mtr-tiny                              0.93-1                                                          arm64        Full screen ncurses traceroute tool
+ii  mysql-common                          5.8+1.0.5ubuntu2                                                all          MySQL database common files, e.g. /etc/mysql/my.cnf
+ii  nano                                  4.8-1ubuntu1.1                                                  arm64        small, friendly text editor inspired by Pico
+ii  ncurses-base                          6.2-0ubuntu2.1                                                  all          basic terminal type definitions
+ii  ncurses-bin                           6.2-0ubuntu2.1                                                  arm64        terminal-related programs and man pages
+ii  ncurses-term                          6.2-0ubuntu2.1                                                  all          additional terminal type definitions
+ii  net-tools                             1.60+git20180626.aebd88e-1ubuntu1                               arm64        NET-3 networking toolkit
+ii  netbase                               6.1                                                             all          Basic TCP/IP networking system
+ii  netcat-openbsd                        1.206-1ubuntu1                                                  arm64        TCP/IP swiss army knife
+ii  netplan.io                            0.104-0ubuntu2~20.04.6                                          arm64        YAML network configuration abstraction for various backends
+ii  networkd-dispatcher                   2.1-2~ubuntu20.04.3                                             all          Dispatcher service for systemd-networkd connection status changes
+ii  nfs-common                            1:1.3.4-2.5ubuntu3.7                                            arm64        NFS support files common to client and server
+ii  ninja-build                           1.10.0-1build1                                                  arm64        small build system closest in spirit to Make
+ii  ntp                                   1:4.2.8p12+dfsg-3ubuntu4.20.04.1                                arm64        Network Time Protocol daemon and utility programs
+ii  ntpdate                               1:4.2.8p12+dfsg-3ubuntu4.20.04.1                                arm64        client for setting system time from NTP servers (deprecated)
+ii  ntpstat                               0.0.0.1-2                                                       arm64        show network time protocol (ntp) status
+ii  open-iscsi                            2.0.874-7.1ubuntu6.4                                            arm64        iSCSI initiator tools
+ii  openssh-client                        1:8.2p1-4ubuntu0.11                                             arm64        secure shell (SSH) client, for secure access to remote machines
+ii  openssh-server                        1:8.2p1-4ubuntu0.11                                             arm64        secure shell (SSH) server, for secure access from remote machines
+ii  openssh-sftp-server                   1:8.2p1-4ubuntu0.11                                             arm64        secure shell (SSH) sftp server module, for SFTP access from remote machines
+ii  openssl                               1.1.1f-1ubuntu2.23                                              arm64        Secure Sockets Layer toolkit - cryptographic utility
+ii  openvpn                               2.4.12-0ubuntu0.20.04.2                                         arm64        virtual private network daemon
+ii  packagekit                            1.1.13-2ubuntu1.1                                               arm64        Provides a package management service
+ii  packagekit-tools                      1.1.13-2ubuntu1.1                                               arm64        Provides PackageKit command-line tools
+ii  pango1.0-tools                        1.44.7-2ubuntu4                                                 arm64        Development utilities for Pango
+ii  parted                                3.3-4ubuntu0.20.04.1                                            arm64        disk partition manipulator
+ii  passwd                                1:4.8.1-1ubuntu5.20.04.5                                        arm64        change and administer password and group data
+ii  patch                                 2.7.6-6                                                         arm64        Apply a diff file to an original
+ii  pci.ids                               0.0~2020.03.20-1                                                all          PCI ID Repository
+ii  pciutils                              1:3.6.4-1ubuntu0.20.04.1                                        arm64        PCI utilities
+ii  perl                                  5.30.0-9ubuntu0.5                                               arm64        Larry Wall's Practical Extraction and Report Language
+ii  perl-base                             5.30.0-9ubuntu0.5                                               arm64        minimal Perl system
+ii  perl-modules-5.30                     5.30.0-9ubuntu0.5                                               all          Core Perl modules
+ii  pinentry-curses                       1.1.0-3build1                                                   arm64        curses-based PIN or pass-phrase entry dialog for GnuPG
+ii  pkg-config                            0.29.1-0ubuntu4                                                 arm64        manage compile and link flags for libraries
+ii  po-debconf                            1.0.21                                                          all          tool for managing templates file translations with gettext
+ii  policykit-1                           0.105-26ubuntu1.3                                               arm64        framework for managing administrative policies and privileges
+ii  poppler-data                          0.4.9-2                                                         all          encoding data for the poppler PDF rendering library
+ii  popularity-contest                    1.69ubuntu1                                                     all          Vote for your favourite packages automatically
+ii  powermgmt-base                        1.36                                                            all          common utils for power management
+ii  procps                                2:3.3.16-1ubuntu2.4                                             arm64        /proc file system utilities
+ii  protobuf-compiler                     3.6.1.3-2ubuntu5.2                                              arm64        compiler for protocol buffer definition files
+ii  psmisc                                23.3-1                                                          arm64        utilities that use the proc file system
+ii  pssh                                  2.3.1-2                                                         all          Parallel versions of SSH-based tools
+ii  publicsuffix                          20200303.0012-1                                                 all          accurate, machine-readable list of domain name suffixes
+ii  python-apt-common                     2.0.1ubuntu0.20.04.1                                            all          Python interface to libapt-pkg (locales)
+ii  python-pip-whl                        20.0.2-5ubuntu1.11                                              all          Python package installer
+ii  python3                               3.8.2-0ubuntu2                                                  arm64        interactive high-level object-oriented language (default python3 version)
+ii  python3-apt                           2.0.1ubuntu0.20.04.1                                            arm64        Python 3 interface to libapt-pkg
+ii  python3-bs4                           4.8.2-1                                                         all          error-tolerant HTML parser for Python 3
+ii  python3-certifi                       2019.11.28-1                                                    all          root certificates for validating SSL certs and verifying TLS hosts (python3)
+ii  python3-cffi-backend                  1.14.0-1build1                                                  arm64        Foreign Function Interface for Python 3 calling C code - runtime
+ii  python3-chardet                       3.0.4-4build1                                                   all          universal character encoding detector for Python3
+ii  python3-commandnotfound               20.04.6                                                         all          Python 3 bindings for command-not-found.
+ii  python3-cryptography                  2.8-3ubuntu0.3                                                  arm64        Python library exposing cryptographic recipes and primitives (Python 3)
+ii  python3-dbus                          1.2.16-1build1                                                  arm64        simple interprocess messaging system (Python 3 interface)
+ii  python3-dev                           3.8.2-0ubuntu2                                                  arm64        header files and a static library for Python (default)
+ii  python3-distro                        1.4.0-1                                                         all          Linux OS platform information API
+ii  python3-distro-info                   0.23ubuntu1.1                                                   all          information about distributions' releases (Python 3 module)
+ii  python3-distupgrade                   1:20.04.41                                                      all          manage release upgrades
+ii  python3-distutils                     3.8.10-0ubuntu1~20.04                                           all          distutils package for Python 3.x
+ii  python3-gdbm:arm64                    3.8.10-0ubuntu1~20.04                                           arm64        GNU dbm database support for Python 3.x
+ii  python3-gi                            3.36.0-1                                                        arm64        Python 3 bindings for gobject-introspection libraries
+ii  python3-html5lib                      1.0.1-2                                                         all          HTML parser/tokenizer based on the WHATWG HTML5 specification
+ii  python3-idna                          2.8-1ubuntu0.1                                                  all          Python IDNA2008 (RFC 5891) handling (Python 3)
+ii  python3-lib2to3                       3.8.10-0ubuntu1~20.04                                           all          Interactive high-level object-oriented language (lib2to3)
+ii  python3-lldb-13                       1:13.0.1~++20220120110924+75e33f71c2da-1~exp1~20220120231001.58 arm64        Next generation, high-performance debugger, python3 lib
+ii  python3-lxml:arm64                    4.5.0-1ubuntu0.5                                                arm64        pythonic binding for the libxml2 and libxslt libraries
+ii  python3-minimal                       3.8.2-0ubuntu2                                                  arm64        minimal subset of the Python language (default python3 version)
+ii  python3-nacl                          1.3.0-5                                                         arm64        Python bindings to libsodium (Python 3)
+ii  python3-netifaces                     0.10.4-1ubuntu4                                                 arm64        portable network interface information - Python 3.x
+ii  python3-openssl                       19.0.0-1build1                                                  all          Python 3 wrapper around the OpenSSL library
+ii  python3-pip                           20.0.2-5ubuntu1.11                                              all          Python package installer
+ii  python3-pkg-resources                 45.2.0-1ubuntu0.2                                               all          Package Discovery and Resource Access using pkg_resources
+ii  python3-pygments                      2.3.1+dfsg-1ubuntu2.2                                           all          syntax highlighting package written in Python 3
+ii  python3-pymacaroons                   0.13.0-3                                                        all          Macaroon library for Python 3
+ii  python3-requests                      2.22.0-2ubuntu1.1                                               all          elegant and simple HTTP library for Python3, built for human beings
+ii  python3-requests-unixsocket           0.2.0-2                                                         all          Use requests to talk HTTP via a UNIX domain socket - Python 3.x
+ii  python3-setuptools                    45.2.0-1ubuntu0.2                                               all          Python3 Distutils Enhancements
+ii  python3-six                           1.14.0-2                                                        all          Python 2 and 3 compatibility library (Python 3 interface)
+ii  python3-software-properties           0.99.9.12                                                       all          manage the repositories that you install software from
+ii  python3-soupsieve                     1.9.5+dfsg-1                                                    all          modern CSS selector implementation for BeautifulSoup (Python 3)
+ii  python3-update-manager                1:20.04.10                                                      all          python 3.x module for update-manager
+ii  python3-urllib3                       1.25.8-2ubuntu0.4                                               all          HTTP library with thread-safe connection pooling for Python3
+ii  python3-webencodings                  0.5.1-1ubuntu1                                                  all          Python implementation of the WHATWG Encoding standard
+ii  python3-wheel                         0.34.2-1ubuntu0.1                                               all          built-package format for Python
+ii  python3-yaml                          5.3.1-1ubuntu0.1                                                arm64        YAML parser and emitter for Python3
+ii  python3.8                             3.8.10-0ubuntu1~20.04.13                                        arm64        Interactive high-level object-oriented language (version 3.8)
+ii  python3.8-dev                         3.8.10-0ubuntu1~20.04.13                                        arm64        Header files and a static library for Python (v3.8)
+ii  python3.8-minimal                     3.8.10-0ubuntu1~20.04.13                                        arm64        Minimal subset of the Python language (version 3.8)
+ii  rake                                  13.0.1-4                                                        all          ruby make-like utility
+ii  readline-common                       8.0-4                                                           all          GNU readline and history libraries, common files
+ii  rename                                1.10-1                                                          all          Perl extension for renaming multiple files
+ii  rpcbind                               1.2.5-8                                                         arm64        converts RPC program numbers into universal addresses
+ii  rpm                                   4.14.2.1+dfsg1-1build2                                          arm64        package manager for RPM
+ii  rpm-common                            4.14.2.1+dfsg1-1build2                                          arm64        common files for RPM
+ii  rpm2cpio                              4.14.2.1+dfsg1-1build2                                          arm64        tool to convert RPM package to CPIO archive
+ii  rsync                                 3.1.3-8ubuntu0.9                                                arm64        fast, versatile, remote (and local) file-copying tool
+ii  rsyslog                               8.2001.0-1ubuntu1.3                                             arm64        reliable system and kernel logging daemon
+ii  ruby                                  1:2.7+1                                                         arm64        Interpreter of object-oriented scripting language Ruby (default version)
+ii  ruby-minitest                         5.13.0-1                                                        all          Ruby test tools supporting TDD, BDD, mocking, and benchmarking
+ii  ruby-net-telnet                       0.1.1-2                                                         all          telnet client library
+ii  ruby-power-assert                     1.1.7-1                                                         all          library showing values of variables and method calls in an expression
+ii  ruby-test-unit                        3.3.5-1                                                         all          unit testing framework for Ruby
+ii  ruby-xmlrpc                           0.3.0-2                                                         all          XMLRPC library for Ruby
+ii  ruby2.7                               2.7.0-5ubuntu1.15                                               arm64        Interpreter of object-oriented scripting language Ruby
+ii  rubygems-integration                  1.16                                                            all          integration of Debian Ruby packages with Rubygems
+ii  rustc                                 1.75.0+dfsg0ubuntu1~bpo0-0ubuntu0.20.04                         arm64        Rust systems programming language
+ii  scons                                 3.1.2-2                                                         all          replacement for make
+ii  screen                                4.8.0-1ubuntu0.1                                                arm64        terminal multiplexer with VT100/ANSI terminal emulation
+ii  sed                                   4.7-1                                                           arm64        GNU stream editor for filtering/transforming text
+ii  sensible-utils                        0.0.12+nmu1                                                     all          Utilities for sensible alternative selection
+ii  shared-mime-info                      1.15-1                                                          arm64        FreeDesktop.org shared MIME database and spec
+ii  smartmontools                         7.1-1build1                                                     arm64        control and monitor storage systems using S.M.A.R.T.
+ii  sntp                                  1:4.2.8p12+dfsg-3ubuntu4.20.04.1                                arm64        Network Time Protocol - sntp client
+ii  software-properties-common            0.99.9.12                                                       all          manage the repositories that you install software from (common)
+ii  sound-theme-freedesktop               0.8-2ubuntu1                                                    all          freedesktop.org sound theme
+ii  ssh-import-id                         5.10-0ubuntu1                                                   all          securely retrieve an SSH public key and install it locally
+ii  strace                                5.5-3ubuntu1                                                    arm64        System call tracer
+ii  sudo                                  1.8.31-1ubuntu1.5                                               arm64        Provide limited super user privileges to specific users
+ii  systemd                               245.4-4ubuntu3.24                                               arm64        system and service manager
+ii  systemd-sysv                          245.4-4ubuntu3.24                                               arm64        system and service manager - SysV links
+rc  systemd-timesyncd                     245.4-4ubuntu3                                                  arm64        minimalistic service to synchronize local time with NTP servers
+ii  sysvinit-utils                        2.96-2.1ubuntu1                                                 arm64        System-V-like utilities
+ii  tar                                   1.30+dfsg-7ubuntu0.20.04.4                                      arm64        GNU version of the tar archiving utility
+ii  tasksel                               3.34ubuntu16                                                    all          tool for selecting tasks for installation on Debian systems
+ii  tasksel-data                          3.34ubuntu16                                                    all          official tasks used for installation of Debian systems
+ii  tcpdump                               4.9.3-4ubuntu0.3                                                arm64        command-line network traffic analyzer
+ii  tcsh                                  6.21.00-1                                                       arm64        TENEX C Shell, an enhanced version of Berkeley csh
+ii  telnet                                0.17-41.2build1                                                 arm64        basic telnet client
+ii  thin-provisioning-tools               0.8.5-4build1                                                   arm64        Tools for handling thinly provisioned device-mapper meta-data
+ii  time                                  1.7-25.1build1                                                  arm64        GNU time program for measuring CPU resource usage
+ii  tmux                                  3.0a-2ubuntu0.4                                                 arm64        terminal multiplexer
+ii  traceroute                            1:2.1.0-2                                                       arm64        Traces the route taken by packets over an IPv4/IPv6 network
+ii  tzdata                                2024a-0ubuntu0.20.04.1                                          all          time zone and daylight-saving time data
+ii  u-boot-tools                          2021.01+dfsg-3ubuntu0~20.04.6                                   arm64        companion tools for Das U-Boot bootloader
+ii  ubuntu-advantage-tools                20.3                                                            arm64        management tools for Ubuntu Advantage
+ii  ubuntu-keyring                        2020.02.11.4                                                    all          GnuPG keys of the Ubuntu archive
+ii  ubuntu-minimal                        1.450.2                                                         arm64        Minimal core of Ubuntu
+ii  ubuntu-mono                           19.04-0ubuntu3                                                  all          Ubuntu Mono Icon theme
+ii  ubuntu-release-upgrader-core          1:20.04.41                                                      all          manage release upgrades
+ii  ubuntu-standard                       1.450.2                                                         arm64        The Ubuntu standard system
+ii  ucf                                   3.0038+nmu1                                                     all          Update Configuration File(s): preserve user changes to config files
+ii  udev                                  245.4-4ubuntu3.24                                               arm64        /dev/ and hotplug management daemon
+ii  ufw                                   0.36-6ubuntu1.1                                                 all          program for managing a Netfilter firewall
+ii  unattended-upgrades                   2.3ubuntu0.3                                                    all          automatic installation of security upgrades
+ii  unzip                                 6.0-25ubuntu1.2                                                 arm64        De-archiver for .zip files
+ii  update-manager-core                   1:20.04.10                                                      all          manage release upgrades
+ii  usb.ids                               2020.03.19-1                                                    all          USB ID Repository
+ii  usbutils                              1:012-2                                                         arm64        Linux USB utilities
+ii  util-linux                            2.34-0.1ubuntu9.6                                               arm64        miscellaneous system utilities
+ii  uuid-dev:arm64                        2.34-0.1ubuntu9.6                                               arm64        Universally Unique ID library - headers and static libraries
+ii  uuid-runtime                          2.34-0.1ubuntu9.6                                               arm64        runtime components for the Universally Unique ID library
+ii  vim-common                            2:8.1.2269-1ubuntu5.29                                          all          Vi IMproved - Common files
+ii  vim-nox                               2:8.1.2269-1ubuntu5.29                                          arm64        Vi IMproved - enhanced vi editor - with scripting languages support
+ii  vim-runtime                           2:8.1.2269-1ubuntu5.29                                          all          Vi IMproved - Runtime files
+ii  vim-tiny                              2:8.1.2269-1ubuntu5.29                                          arm64        Vi IMproved - enhanced vi editor - compact version
+ii  vlan                                  2.0.4ubuntu1.20.04.1                                            all          ifupdown integration for vlan configuration
+ii  wayland-protocols                     1.20-1                                                          all          wayland compositor protocols
+ii  wget                                  1.20.3-1ubuntu2.1                                               arm64        retrieves files from the web
+ii  whiptail                              0.52.21-4ubuntu2                                                arm64        Displays user-friendly dialog boxes from shell scripts
+ii  wireless-regdb                        2022.06.06-0ubuntu1~20.04.1                                     all          wireless regulatory database
+ii  x11-common                            1:7.7+19ubuntu14                                                all          X Window System (X.Org) infrastructure
+ii  x11-utils                             7.7+5                                                           arm64        X11 utilities
+ii  x11proto-core-dev                     2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  x11proto-dev                          2019.2-1ubuntu1                                                 all          X11 extension protocols and auxiliary headers
+ii  x11proto-input-dev                    2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  x11proto-randr-dev                    2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  x11proto-record-dev                   2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  x11proto-xext-dev                     2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  x11proto-xinerama-dev                 2019.2-1ubuntu1                                                 all          transitional dummy package
+ii  xauth                                 1:1.1-0ubuntu1                                                  arm64        X authentication utility
+ii  xbitmaps                              1.1.1-2                                                         all          Base X bitmaps
+ii  xdg-user-dirs                         0.17-2ubuntu1                                                   arm64        tool to manage well known user directories
+ii  xkb-data                              2.29-2                                                          all          X Keyboard Extension (XKB) configuration data
+ii  xorg-sgml-doctools                    1:1.11-1                                                        all          Common tools for building X.Org SGML documentation
+ii  xterm                                 353-1ubuntu1.20.04.2                                            arm64        X terminal emulator
+ii  xtrans-dev                            1.4.0-1                                                         all          X transport library (development files)
+ii  xxd                                   2:8.1.2269-1ubuntu5.29                                          arm64        tool to make (or reverse) a hex dump
+ii  xz-utils                              5.2.4-1ubuntu1.1                                                arm64        XZ-format compression utilities
+ii  zip                                   3.0-11build1                                                    arm64        Archiver for .zip files
+ii  zlib1g:arm64                          1:1.2.11.dfsg-2ubuntu1.5                                        arm64        compression library - runtime
+ii  zlib1g-dev:arm64                      1:1.2.11.dfsg-2ubuntu1.5                                        arm64        compression library - development
+ii  zsh                                   5.8-3ubuntu1.1                                                  arm64        shell with lots of features
+ii  zsh-common                            5.8-3ubuntu1.1                                                  all          architecture independent files for Zsh
