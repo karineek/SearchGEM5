@@ -129,7 +129,7 @@ sudo update-alternatives --install /usr/bin/llvm-config llvm-config /usr/bin/llv
 LLVM_CONFIG=/usr/bin/llvm-config-13
 ```
 
-We attached all installed packages in installed_karl.log (Red Hat-based system) and installed_m400.log  (Ubuntu/Unix, arm64-ubuntu-2204).
+We attached all installed packages in installed_karl.log (Red Hat-based system) and installed_m400.log + installed_m400_repeat.log (Ubuntu/Unix, arm64-ubuntu-2204).
 
 
 
