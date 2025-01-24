@@ -437,7 +437,7 @@ To run the whole process for a folder, and then check the results later, you run
 ./1-run-diff-test.sh /home/debian/experiment/CodeBooga-cmin/input > LLM-diff-testing-CodeBooga.log 2>&1
 ./1-run-diff-test.sh /home/debian/experiment/Llama-cmin/input > LLM-diff-testing-Llama.log 2>&1
 ./1-run-diff-test.sh /home/debian/experiment/Magicoder-cmin/input > LLM-diff-testing-Magicoder.log 2>&1
-./1-run-diff-test.sh /home/debian/experiment/Phi-cmin/input > LLM-diff-testing-Phi.log 2>&1 &
+./1-run-diff-test.sh /home/debian/experiment/Phi-cmin/input > LLM-diff-testing-Phi.log 2>&1
 ./1-run-diff-test.sh /home/debian/experiment/TinyLlama-cmin/input > LLM-diff-testing-TinyLlama.log 2>&1
 ./1-run-diff-test.sh /home/debian/experiment/gpt3.5-new-cmin/input > LLM-diff-testing-gpt3.5-new.log 2>&1
 ./1-run-diff-test.sh /home/debian/experiment/gpt3.5-old-cmin/input > LLM-diff-testing-gpt3.5-old.log 2>&1
