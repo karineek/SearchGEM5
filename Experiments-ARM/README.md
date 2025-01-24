@@ -160,10 +160,11 @@ sed -i "s:/home/ubuntu/experiment-7/:/home/debian/experiment/:g" */input/*.txt
 cat /home/debian/experiment/TinyLlama-cmin/input/test_input_574567374417673.txt
 
 YOU WILL NEED TO COPY ALL SCRIPTS OF THIS ARTIFACT INTO /home/debian
-wget "https://zenodo.org/records/14724553/files/1-run-diff-test.sh"
-wget "https://zenodo.org/records/14724553/files/2-test-input.sh"
-wget "https://zenodo.org/records/14724553/files/run_AFL_loop_v6.sh"
-wget "https://zenodo.org/records/14724553/files/Experiment-ARM-24h.sh"
+cd /home/debian
+wget "https://zenodo.org/records/14721385/files/1-run-diff-test.sh" 
+wget "https://zenodo.org/records/14721385/files/2-test-input.sh"
+wget "https://zenodo.org/records/14721385/files/run_AFL_loop_v6.sh"
+wget "https://zenodo.org/records/14721385/files/Experiment-ARM-24h.sh"
 ```
 
 We will explain in the next sections when to run each. There is a shorter version of the experiments in Section 3.
@@ -173,6 +174,8 @@ We will explain in the next sections when to run each. There is a shorter versio
 
 ```
 ## COMPILE BINARIES - build the test binaries and tailor the paths in the seeds ##
+
+_This includes the entire generated corpus, and so some compilations will fail, but this is expected_
 
 ### Model CodeBooga ###
 cd /home/debian/experiment/CodeBooga  
@@ -305,7 +308,7 @@ cp ../SearchGEM5/src/gem5-afl/SConscript src/
 
 # If needed install:
 sudo apt install python3-pip
-sudo apt install scons protobuf-compiler libhdf5-dev libgoogle-perftools-dev libsystemc-dev 
+sudo apt install scons protobuf-compiler libhdf5-dev libgoogle-perftools-dev libsystemc-dev
 
 # Then install the requirements for gem5:
 pip install -r requirements.txt
