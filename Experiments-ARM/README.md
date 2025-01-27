@@ -809,6 +809,7 @@ chmod 777 3-run-stat-table-3.sh
 and the logs:
 mkdir experiments-prev
 cd experiments-prev
+cp /home/debian/experiment/* .
 wget "https://zenodo.org/records/14724553/files/round-1-output.tar.gz"
 wget "https://zenodo.org/records/14724553/files/round-2-output.tar.gz"
 wget "https://zenodo.org/records/14724553/files/round-3-output.tar.gz"
@@ -823,6 +824,7 @@ tar -xf round-2-output.tar.gz
 tar -xf round-3-output.tar.gz
 tar -xf round-4-output.tar.gz
 tar -xf round-5-output.tar.gz
+cd ..
 ./3-run-stat-table-3.sh experiments-prev
 ```
 
