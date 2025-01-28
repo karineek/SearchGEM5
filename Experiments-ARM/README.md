@@ -952,3 +952,85 @@ Initial Corpus Size: 634 (Directory: TinyLlama-cmin/output-r_5/default/queue)
 ---------------------------------
 ```
 ==
+###3.3.1 Troubleshooting: Error in 3-run-stat-table-3.sh:
+
+Sometimes script 3 may not work due to the specific structure of the folder it requires.
+
+**Error:**
+
+When running the script ./3-run-stat-table-3.sh experiments-prev, you encounter errors like:
+
+```
+$ ./3-run-stat-table-3.sh experiments-prev
+Directory: CodeBooga-cmin/input does not exist.
+---------------------------------
+Directory: gpt3.5-new-cmin/input does not exist.
+---------------------------------
+Directory: gpt3.5-old-cmin/input does not exist.
+---------------------------------
+Directory: Llama-cmin/input does not exist.
+---------------------------------
+Directory: Magicoder-cmin/input does not exist.
+---------------------------------
+Directory: Phi-cmin/input does not exist.
+---------------------------------
+Directory: TinyLlama-cmin/input does not exist.
+---------------------------------
+```
+
+**Cause:**
+
+This error occurs because the required directories and files have not been properly copied into the experiments-prev folder.
+
+**Solution:**
+
+Follow these steps to fix the error.
+
+**1. Clean Up and Restart the Setup**
+Run the following commands to remove the existing experiments-prev directory and create a fresh copy:
+```
+rm -rf experiments-prev # Clean up the existing directory
+mkdir experiments-prev
+cd experiments-prev
+```
+
+**2. Copy Required Files**
+
+Copy all necessary files from /home/debian/experiment/ into the newly created experiments-prev directory:
+```
+cp /home/debian/experiment/* .
+```
+
+**3. Verify the Files Have Been Copied** 
+
+Run the following command to ensure the required files exist
+```
+ls -l /home/debian/experiment/CodeBooga-cmin/input
+```
+**Check:** Confirm you can see the files you have just copied.
+If the files are not visible, ensure the source directory /home/debian/experiment/ contains all the required files. If not return to Section 1 to fix it.
+
+**4. Download Additional Data Files**
+
+Download the necessary round-* output files:
+```
+wget "https://zenodo.org/records/14724553/files/round-1-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-2-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-3-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-4-output.tar.gz"
+wget "https://zenodo.org/records/14724553/files/round-5-output.tar.gz"
+```
+
+**5. Extract the Data Files** 
+
+Extract the contents of the downloaded .tar.gz files:
+```
+tar -xf round-1-output.tar.gz
+tar -xf round-2-output.tar.gz
+tar -xf round-3-output.tar.gz
+tar -xf round-4-output.tar.gz
+tar -xf round-5-output.tar.gz
+cd ..
+./3-run-stat-table-3.sh experiments-prev
+```
+==
