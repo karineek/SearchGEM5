@@ -161,10 +161,10 @@ cat /home/debian/experiment/TinyLlama-cmin/input/test_input_574567374417673.txt
 
 YOU WILL NEED TO COPY ALL SCRIPTS OF THIS ARTIFACT INTO /home/debian
 cd /home/debian
-wget "https://zenodo.org/records/14721385/files/1-run-diff-test.sh" 
-wget "https://zenodo.org/records/14721385/files/2-test-input.sh"
-wget "https://zenodo.org/records/14721385/files/run_AFL_loop_v6.sh"
-wget "https://zenodo.org/records/14721385/files/Experiment-ARM-24h.sh"
+wget "https://zenodo.org/records/14753604/files/1-run-diff-test.sh" 
+wget "https://zenodo.org/records/14753604/files/2-test-input.sh"
+wget "https://zenodo.org/records/14753604/files/run_AFL_loop_v6.sh"
+wget "https://zenodo.org/records/14753604/files/Experiment-ARM-24h.sh"
 ```
 
 We will explain in the next sections when to run each. There is a shorter version of the experiments in Section 3.
