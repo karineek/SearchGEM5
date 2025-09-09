@@ -1,5 +1,5 @@
-# SearchGEM5 - General Information
-Gem5 testing project.
+# SearchSYS - General Information
+Previously known as the SearchGEM5 testing project for gem5.
 
 There are two projects:
 - Main: https://github.com/gem5/gem5
