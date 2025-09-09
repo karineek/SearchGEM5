@@ -8,7 +8,6 @@ There are two projects:
 ## Citation
 
 *Karine Even-Mendoza and Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce (2025). Search+LLM-based Testing for ARM Simulators. 2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP).*
-
 ```
 @inproceedings (Even-Mendoza:2025:ICSE-SEIP,
   author = {Karine Even-Mendoza and  Hector D. Menendez and W.B Langdon and Aidan Dakhama and Justyna Petke and Bobby R. Bruce},
@@ -33,8 +32,26 @@ There are two projects:
 }
 ```
 
-*Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke (2023). SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. Symposium on Search Based Software Engineering (SSBSE).*
+*Dakhama, A., Even-Mendoza, K., Langdon, W. B., Menendez, H. D., & Petke, J. (2025). Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators. Automated Software Engineering, 32(2), Article 63. https://doi.org/10.1007/s10515-025-00531-7*
+```
+@article{Dakhama:ASE:2025,
+	title = "Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators",
+	author = "Aidan Dakhama and Karine Even-Mendoza and Langdon, \{William B.\} and Menendez, \{Hector D.\} and Justyna Petke",
+	note = "Publisher Copyright: {\textcopyright} The Author(s) 2025.",
+	year = "2025",
+	month = jul,
+	day = "10",
+	doi = "10.1007/s10515-025-00531-7",
+	language = "English",
+	volume = "32",
+	journal = "Automated Software Engineering",
+	issn = "0928-8910",
+	publisher = "Springer Netherlands",
+	number = "2",
+}
+```
 
+*Aidan Dakhama, Karine Even-Mendoza, W.B. Langdon, Hector Menendez, and Justyna Petke (2023). SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models. Symposium on Search Based Software Engineering (SSBSE).*
 ```
 @inproceedings{EvenMendoza2023Gem5,
   title={SearchGEM5: Towards Reliable gem5 with Search Based Software Testing and Large Language Models},
@@ -67,11 +84,10 @@ There are two projects:
 }
 ```
 
-*Aidan, D., Even Mendoza, K., Langdon, W. B., Hector, M., & Justyna, P. (2024). Artifact of Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators (ASE-Journal-V2). Zenodo. https://doi.org/10.5281/zenodo.13450472*
-
+*Dakhama, A., Even Mendoza, K., Langdon, W. B., Hector, M., & Justyna, P. (2024). Artifact of Enhancing Search-Based Testing with LLMs for Finding Bugs in System Simulators (ASE-Journal-V2). Zenodo. https://doi.org/10.5281/zenodo.13450472*
 ```
 @misc{aidan_2024_13450472,
-  author       = {Aidan, Dakhama and
+  author       = {Dakhama, Aidan and
                   Even Mendoza, Karine and
                   Langdon, W.B. and
                   Hector, Menendez and
